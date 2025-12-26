@@ -226,7 +226,7 @@ If an agent is underperforming:
    - Document lessons learned
 
 ## Related Documents
-- [Copilot Instructions](../../.github/copilot-instructions.md)
+- [Copilot Instructions](../copilot-instructions.md)
 - [Agent KPIs](agent-kpis.md)
 - [Individual Agent Configurations](.)
 

@@ -193,6 +193,6 @@ Listed in `.gitignore`:
 
 ## See Also
 - [Copilot Instructions](../.github/copilot-instructions.md)
-- [Knowledge Format Specification](.project/knowledge-format.md)
-- [Rendering Specification](.project/rendering-spec.md)
-- [Project Roadmap](.project/roadmap.md)
+- [Knowledge Format Specification](knowledge-format.md)
+- [Rendering Specification](rendering-spec.md)
+- [Project Roadmap](roadmap.md)
