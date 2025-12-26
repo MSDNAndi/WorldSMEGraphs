@@ -363,7 +363,7 @@ domain/science/math/algebra/knowledge.graph in English.
 
 **Documentation Agent**:
 ```
-@documentation-agent Review docs/getting-started.md for contradictions
+@documentation-agent Review docs/CONTRIBUTING.md for contradictions
 with other documentation.
 ```
 

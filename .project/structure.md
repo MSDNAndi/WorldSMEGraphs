@@ -22,7 +22,8 @@ WorldSMEGraphs/
 │   ├── structure.md         # This file - project organization
 │   ├── roadmap.md          # Project roadmap and planning
 │   ├── knowledge-format.md  # Knowledge graph format specification
-│   └── rendering-spec.md    # Rendering system specification
+│   ├── rendering-spec.md    # Rendering system specification
+│   └── work-continuation.md # Work session guide (50-minute sessions)
 │
 ├── domain/                  # Knowledge domain hierarchies
 │   ├── science/            # Science domains
@@ -92,7 +93,8 @@ Knowledge domain hierarchies organized by subject matter:
 
 ### `docs/`
 General documentation accessible to all users:
-- README, contributing guidelines, tutorials, etc.
+- **CONTRIBUTING.md**: Contribution guidelines and workflows
+- Additional documentation files as needed
 
 ## File Naming Conventions
 
