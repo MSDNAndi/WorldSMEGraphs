@@ -7,9 +7,9 @@
 set -e
 
 # Look for agents in .github/agents/ directory
-# This script is in .github/copilot/agents/, so we go up one level then into agents/
+# This script is in .github/scripts/, so we go up one level then into agents/
 SCRIPT_DIR="$(dirname "$0")"
-AGENTS_DIR="$(cd "$SCRIPT_DIR/../../agents" && pwd)"
+AGENTS_DIR="$(cd "$SCRIPT_DIR/../agents" && pwd)"
 MIN_LINES=180
 FAIL_COUNT=0
 PASS_COUNT=0
