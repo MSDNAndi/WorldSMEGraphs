@@ -23,6 +23,42 @@
 ### 🟡 Important Issues  
 *Should be addressed in current phase*
 
+#### Issue #0: Copilot Instructions Setup
+**Status**: ✅ Resolved  
+**Created**: 2025-12-27  
+**Resolved**: 2025-12-27  
+**Priority**: High  
+**Area**: Development Infrastructure
+
+**Description**:
+Configure Copilot instructions for the repository according to GitHub best practices. Ensure agent definitions are correct and validation tools work properly.
+
+**Resolution**:
+1. ✅ Enhanced `.github/copilot-instructions.md` from 241 to 473 lines (+96%)
+   - Added Table of Contents for navigation
+   - Added "How to Invoke Agents" section with syntax and best practices
+   - Added "Build, Test, and Validation" section with all commands
+   - Added "Technology Stack and Coding Standards" section
+   - Added "Common Pitfalls and Troubleshooting" section
+   - Added "Quick Reference" section with files, commands, and agent list
+
+2. ✅ Fixed `.github/copilot/agents/check-agent-lengths.sh`
+   - Changed from checking `.yml` files to `.agent.md` files
+   - Fixed path resolution to find agents in `.github/agents/`
+   - Verified script works correctly (validates 60 agents)
+
+3. ✅ Verified agent invocation patterns in documentation match definitions
+
+**Outcome**:
+- Copilot instructions now comprehensive and follow GitHub best practices
+- All validation tools functional
+- Agent usage documented with examples
+- Quick reference guide available for developers
+
+**Completed**: 2025-12-27
+
+---
+
 #### Issue #1: AKU Validator Needs Medical Domain Support
 **Status**: 🟡 Open  
 **Created**: 2025-12-27  
@@ -75,24 +111,39 @@ NPV pilot currently has only 6 AKUs. Need 44 more to reach pilot goal of 50 AKUs
 ---
 
 #### Issue #3: Agent Configurations Need More Detail
-**Status**: ✅ Resolved  
+**Status**: ⚠️ Partially Resolved - Reopened  
 **Created**: 2025-12-27  
-**Resolved**: 2025-12-27  
+**Updated**: 2025-12-27  
 **Priority**: High  
 **Area**: Agent Infrastructure
 
 **Description**:
 Only 18/53 agents had full MusicVideoPipeline-level detail (34% complete). Remaining 35 agents needed comprehensive enhancement to 180+ lines.
 
-**Resolution**:
+**Previous Resolution Claim**:
 All 53 agents now enhanced to meet 180-line minimum with comprehensive content:
 - 5 agents: 190-232 lines (comprehensive)
 - 48 agents: 180-189 lines (quality-focused)
 - All include detailed input requirements, examples (good/bad), output formats, success criteria, workflows, expertise areas, and extensive usage examples
 - 100% compliance verified with check-agent-lengths.sh script
 
-**Completed**: 2025-12-27  
-**Verification**: All 53/53 agents pass 180-line minimum requirement  
+**Current Status (2025-12-27)**:
+Validation script now correctly checks `.agent.md` files (was checking non-existent `.yml` files):
+- **Total agents**: 60 (verified count of .agent.md files)
+- **Passing (≥180 lines)**: 25 agents (42%)
+- **Failing (<180 lines)**: 35 agents (58%)
+- Some agents have extremely low line counts (5-8 lines) suggesting incomplete or problematic definitions
+- Note: Line count validation does not check content validity; some files may have parsing errors
+
+**Action Items**:
+- [ ] Investigate discrepancy between claim and actual state
+- [ ] Review agents with very low line counts (5-8 lines) for content validity
+- [ ] Enhance remaining 35 agents to meet 180-line minimum
+- [ ] Ensure all agent files contain valid Markdown content
+- [ ] Re-run validation after enhancements
+
+**Assigned To**: TBD  
+**Target Date**: 2026-01-05  
 
 ---
 

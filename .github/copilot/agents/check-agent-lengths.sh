@@ -1,6 +1,8 @@
 #!/bin/bash
 # Agent Length Checker - Acceptance Criteria
 # Verifies all agent .agent.md files meet the 180-line minimum requirement
+# Note: This checks line count only, not content validity. Some files may contain
+# parsing errors or incomplete definitions despite having lines.
 
 set -e
 
