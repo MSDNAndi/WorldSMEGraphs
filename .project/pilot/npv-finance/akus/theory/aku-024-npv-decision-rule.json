@@ -1,0 +1,98 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "EducationalResource",
+  "@id": "aku-024-npv-decision-rule",
+  
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-27",
+    "contributors": ["generic-domain-empathy-agent", "finance-valuation-expert-v1"],
+    "confidence": 0.99,
+    "status": "validated"
+  },
+  
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "theory",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "024"
+  },
+  
+  "content": {
+    "statement": {
+      "text": "The NPV Decision Rule: Accept all independent projects with NPV > 0. When choosing among mutually exclusive projects, select the one with the highest NPV. This rule maximizes shareholder wealth.",
+      "formal": "Decision(Project) = Accept if NPV > 0; Reject if NPV < 0; Indifferent if NPV = 0"
+    },
+    
+    "explanation": {
+      "intuition": "A positive NPV means the project creates value - the present value of cash inflows exceeds the cost. This increases shareholder wealth by exactly the NPV amount (in present value terms). A negative NPV destroys value.",
+      
+      "theoretical_foundation": "The NPV rule is derived from the wealth maximization objective of the firm. It correctly accounts for: (1) time value of money, (2) risk (through discount rate), (3) all cash flows over project life, and (4) opportunity cost of capital.",
+      
+      "why_npv_beats_other_metrics": {
+        "vs_payback": "NPV considers all cash flows and time value; payback ignores later cash flows and doesn't discount",
+        "vs_irr": "NPV gives actual value created; IRR can give multiple or no solutions, and fails for non-conventional cash flows",
+        "vs_accounting_return": "NPV uses cash flows not accounting profits; accounts for time value which accounting ignores"
+      },
+      
+      "mutually_exclusive_projects": "When projects compete (can only do one), choose the highest NPV. Don't choose highest IRR or shortest payback - NPV directly measures value creation.",
+      
+      "independent_vs_dependent": {
+        "independent": "Accept all with NPV > 0 (if no capital constraints)",
+        "mutually_exclusive": "Choose one with highest NPV",
+        "contingent": "Only accept B if A also accepted (use combined NPV)"
+      }
+    }
+  },
+  
+  "representations": {
+    "decision_algorithm": {
+      "single_project": "if NPV > 0: accept\nelif NPV < 0: reject\nelse: indifferent",
+      
+      "multiple_independent": "accept all projects where NPV_i > 0",
+      
+      "mutually_exclusive": "choose project_j where NPV_j = max(NPV_1, NPV_2, ..., NPV_n)"
+    },
+    
+    "python": {
+      "code": "def npv_decision(npv, decision_type='single'):\n    \"\"\"\n    Apply NPV decision rule.\n    \n    Args:\n        npv (float or list): NPV value(s)\n        decision_type (str): 'single', 'independent', or 'mutually_exclusive'\n    \n    Returns:\n        str or list: Decision(s)\n    \"\"\"\n    if decision_type == 'single':\n        if npv > 0:\n            return 'ACCEPT'\n        elif npv < 0:\n            return 'REJECT'\n        else:\n            return 'INDIFFERENT'\n    \n    elif decision_type == 'independent':\n        return ['ACCEPT' if n > 0 else 'REJECT' for n in npv]\n    \n    elif decision_type == 'mutually_exclusive':\n        if all(n <= 0 for n in npv):\n            return 'REJECT ALL'\n        else:\n            best_idx = max(range(len(npv)), key=lambda i: npv[i])\n            return f'ACCEPT PROJECT {best_idx+1} (NPV = {npv[best_idx]:.2f})'\n\n# Example usage\nprint(npv_decision(15000, 'single'))  # ACCEPT\nprint(npv_decision([5000, -2000, 8000], 'independent'))  # ['ACCEPT', 'REJECT', 'ACCEPT']\nprint(npv_decision([5000, 12000, -2000], 'mutually_exclusive'))  # ACCEPT PROJECT 2"
+    }
+  },
+  
+  "relationships": {
+    "prerequisites": ["aku-001-npv-definition", "aku-002-npv-basic-formula", "shareholder-wealth-maximization"],
+    "enables": ["capital-budgeting-process", "project-selection", "investment-portfolio-optimization"],
+    "compares_with": ["irr-decision-rule", "payback-decision-rule", "profitability-index-rule"],
+    "part_of": "capital-budgeting-framework"
+  },
+  
+  "provenance": {
+    "sources": [
+      {"type": "textbook", "title": "Principles of Corporate Finance", "authors": ["Brealey", "Myers", "Allen"], "pages": "105-108"},
+      {"type": "textbook", "title": "Corporate Finance", "authors": ["Ross", "Westerfield", "Jaffe"], "pages": "150-153"}
+    ],
+    "validation_date": "2025-12-27"
+  },
+  
+  "pedagogical": {
+    "target_audiences": ["MBA", "CFA Level 1", "corporate finance professionals"],
+    "learning_objectives": [
+      "State the NPV decision rule accurately",
+      "Apply the rule to single and multiple project decisions",
+      "Explain why NPV maximizes shareholder wealth",
+      "Distinguish between independent and mutually exclusive projects"
+    ],
+    "estimated_time_minutes": 15,
+    "common_errors": [
+      "Choosing highest IRR project instead of highest NPV when mutually exclusive",
+      "Accepting projects with NPV < 0 because they have positive IRR",
+      "Forgetting that NPV = 0 means earning exactly the required return (acceptable)",
+      "Mixing up independent vs. mutually exclusive project evaluation"
+    ],
+    "practice_problems": [
+      "Three independent projects have NPVs of $5k, -$2k, and $8k. Which should be accepted?",
+      "Two mutually exclusive projects: A (NPV=$10k, IRR=25%) vs. B (NPV=$12k, IRR=20%). Which to choose?"
+    ]
+  }
+}
