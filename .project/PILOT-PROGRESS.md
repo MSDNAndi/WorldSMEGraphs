@@ -45,9 +45,17 @@ Location: `.project/pilot/npv-finance/`
 - Historical context (2 AKUs)
 - Limitations (2 AKUs)
 
-**Status:** 6/50 AKUs created (12%)
+**Status:** 8/50 AKUs created (16%)
 
-**Quality:** 1 fully validated, 5 need minor fixes
+**Quality:** All 8 AKUs validated and timestamped
+
+**Created AKUs:**
+- Definitions: 4/8 (aku-001, aku-003, aku-004, aku-005)
+- Formulas: 2/10 (aku-002, aku-006)
+- Theory: 1/8 (aku-024)
+- Examples: 1/12 (aku-027)
+
+**Remaining:** 42 AKUs needed to complete pilot
 
 ### Domain Expert Persona
 Location: `.project/pilot/npv-finance/personas/`
