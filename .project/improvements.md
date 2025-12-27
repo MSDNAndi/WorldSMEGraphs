@@ -13,6 +13,64 @@
 
 ## High Impact Improvements
 
+### 🎯 IMP-000: Agent Content Enhancement
+**Category**: Agent Infrastructure  
+**Impact**: High  
+**Effort**: High (53 agents)  
+**Priority**: Phase 1 (Current)  
+**Status**: 📋 Documented
+
+**Description**:
+Enhance all 53 GitHub Copilot agents with comprehensive content from their original YAML specifications. Current .agent.md files have correct format but simplified content.
+
+**Background**:
+Automated YAML-to-Markdown conversion (2025-12-27) successfully migrated format but resulted in placeholder content. Original YAML files contained:
+- Detailed expertise descriptions
+- Rich workflow specifications
+- Comprehensive usage examples
+- Complex output format structures
+- Specific performance metrics
+
+**Benefits**:
+- Agents have full functional specifications
+- Better agent selection and usage
+- Comprehensive documentation
+- Improved agent coordination
+- Clear quality expectations
+
+**Implementation Plan**:
+1. Extract original YAML content from git history (commit 8911b7f)
+2. Create enhanced conversion script handling YAML parsing
+3. Manually enhance priority agents (recruiter, coordinator already done)
+4. Batch enhance remaining agents
+5. Validate with code reviews
+
+**Priority Order**:
+1. Core Infrastructure (recruiter ✅, coordinator ✅, quality)
+2. Content Extraction (definition, formula, example extractors)
+3. Research & Acquisition (research, paper-miner, textbook-parser)
+4. Quality Assurance (fact-checking, peer-review, verification)
+5. Rendering & Presentation
+6. All Others
+
+**Dependencies**:
+- Git access to commit 8911b7f (✅ Available)
+- Enhanced conversion script
+- Manual review capacity
+
+**Estimated Effort**:
+- Script development: 2 hours
+- Testing and validation: 1 hour
+- Batch conversion: 1 hour
+- Manual verification: 2-3 hours
+- **Total**: 6-7 hours
+
+**Proposed By**: Code Review (2025-12-27)  
+**Created**: 2025-12-27  
+**Documented In**: `.project/known-issue-agent-content-enhancement.md`
+
+---
+
 ### 🎯 IMP-001: Automated Rendering Pipeline
 **Category**: Automation  
 **Impact**: High  
