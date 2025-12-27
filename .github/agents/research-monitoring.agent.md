@@ -3,7 +3,7 @@ name: research-monitoring
 description: Specialized agent for research monitoring tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Research Monitoring Agent

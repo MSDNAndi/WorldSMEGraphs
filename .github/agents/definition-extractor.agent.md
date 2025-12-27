@@ -3,7 +3,7 @@ name: definition-extractor
 description: Specialized agent for definition extractor tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Definition Extractor

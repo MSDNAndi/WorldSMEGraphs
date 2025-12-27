@@ -3,7 +3,7 @@ name: diverse-learner-advocate
 description: Specialized agent for diverse learner advocate tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Diverse Learner Advocate Agent

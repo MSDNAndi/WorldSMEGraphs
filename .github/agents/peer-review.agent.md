@@ -4,7 +4,7 @@ description: Conducts comprehensive peer review of knowledge units, ensuring aca
   rigor, accuracy, and quality standards
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 

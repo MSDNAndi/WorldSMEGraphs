@@ -3,7 +3,7 @@ name: domain-expert-template
 description: Specialized agent for domain expert template tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Domain Expert Agent Template

@@ -3,7 +3,7 @@ name: visualization
 description: Specialized agent for visualization tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Visualization

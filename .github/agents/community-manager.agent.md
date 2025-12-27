@@ -3,7 +3,7 @@ name: community-manager
 description: Specialized agent for community manager tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Community Manager

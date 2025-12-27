@@ -3,7 +3,7 @@ name: recruiter
 description: Specialized agent for recruiter tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Recruiter

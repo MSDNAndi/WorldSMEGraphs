@@ -3,7 +3,7 @@ name: educational-path
 description: Specialized agent for educational path tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Educational Path Agent

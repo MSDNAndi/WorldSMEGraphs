@@ -3,7 +3,7 @@ name: pedagogy
 description: Specialized agent for pedagogy tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Pedagogy

@@ -4,7 +4,7 @@ description: Extracts structured knowledge from academic papers, research articl
   and scientific publications for AKU creation
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 

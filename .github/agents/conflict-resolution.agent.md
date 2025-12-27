@@ -3,7 +3,7 @@ name: conflict-resolution
 description: Specialized agent for conflict resolution tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Conflict Resolution

@@ -3,7 +3,7 @@ name: coordinator
 description: Specialized agent for coordinator tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Coordinator

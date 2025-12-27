@@ -3,7 +3,7 @@ name: legal-copyright
 description: Specialized agent for legal copyright tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Legal Copyright

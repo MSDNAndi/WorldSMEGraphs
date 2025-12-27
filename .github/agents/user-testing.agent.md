@@ -3,7 +3,7 @@ name: user-testing
 description: Specialized agent for user testing tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # User Testing Agent

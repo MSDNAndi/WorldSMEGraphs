@@ -3,7 +3,7 @@ name: standards
 description: Specialized agent for standards tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Standards Agent

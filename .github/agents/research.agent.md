@@ -3,7 +3,7 @@ name: research
 description: Specialized agent for research tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Research Agent

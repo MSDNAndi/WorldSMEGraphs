@@ -4,7 +4,7 @@ description: Converts language-agnostic knowledge graphs into human-readable for
   tailored for specific languages and audience levels
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 

@@ -3,7 +3,7 @@ name: web-scraper
 description: Specialized agent for web scraper tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Web Scraper

@@ -4,7 +4,7 @@ description: Validates knowledge content accuracy, consistency, and cultural app
   across multiple languages
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 

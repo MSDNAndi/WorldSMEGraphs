@@ -3,7 +3,7 @@ name: relationship-extractor
 description: Specialized agent for relationship extractor tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Relationship Extractor

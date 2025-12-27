@@ -3,7 +3,7 @@ name: data-integration
 description: Specialized agent for data integration tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Data Integration

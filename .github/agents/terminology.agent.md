@@ -4,7 +4,7 @@ description: Manages terminology consistency, definitions, and usage across the 
   knowledge base
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 

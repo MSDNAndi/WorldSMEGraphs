@@ -3,7 +3,7 @@ name: provenance-tracking
 description: Specialized agent for provenance tracking tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Provenance Tracking Agent

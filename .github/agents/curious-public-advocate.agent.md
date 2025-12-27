@@ -3,7 +3,7 @@ name: curious-public-advocate
 description: Specialized agent for curious public advocate tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Curious Public Advocate Agent

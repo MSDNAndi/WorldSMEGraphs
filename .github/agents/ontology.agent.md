@@ -3,7 +3,7 @@ name: ontology
 description: Specialized agent for ontology tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Ontology

@@ -3,7 +3,7 @@ name: professional-audience-advocate
 description: Specialized agent for professional audience advocate tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Professional Audience Advocate Agent

@@ -4,7 +4,7 @@ description: Aligns concepts, terminology, and knowledge structures across diffe
   domains, languages, and ontologies
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 

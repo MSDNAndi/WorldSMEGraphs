@@ -3,7 +3,7 @@ name: formula-extractor
 description: Specialized agent for formula extractor tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Formula Extractor

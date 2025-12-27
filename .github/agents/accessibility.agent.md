@@ -3,7 +3,7 @@ name: accessibility
 description: Specialized agent for accessibility tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Accessibility

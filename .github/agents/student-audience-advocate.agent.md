@@ -3,7 +3,7 @@ name: student-audience-advocate
 description: Specialized agent for student audience advocate tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Student Audience Advocate Agent

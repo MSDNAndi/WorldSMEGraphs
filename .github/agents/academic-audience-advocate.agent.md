@@ -3,7 +3,7 @@ name: academic-audience-advocate
 description: Specialized agent for academic audience advocate tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Academic Audience Advocate Agent

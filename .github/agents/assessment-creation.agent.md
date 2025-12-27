@@ -3,7 +3,7 @@ name: assessment-creation
 description: Specialized agent for assessment creation tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Assessment Creation

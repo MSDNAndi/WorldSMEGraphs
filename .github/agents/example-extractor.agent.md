@@ -3,7 +3,7 @@ name: example-extractor
 description: Specialized agent for example extractor tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Example Extractor

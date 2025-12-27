@@ -3,7 +3,7 @@ name: example-generation
 description: Specialized agent for example generation tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Example Generation

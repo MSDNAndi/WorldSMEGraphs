@@ -3,7 +3,7 @@ name: contrarian
 description: Specialized agent for contrarian tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Contrarian

@@ -3,7 +3,7 @@ name: citation-extractor
 description: Specialized agent for citation extractor tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Citation Extractor

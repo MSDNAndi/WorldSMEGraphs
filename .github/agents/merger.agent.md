@@ -4,7 +4,7 @@ description: Intelligently merges and consolidates duplicate or overlapping know
   units while preserving unique information
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 

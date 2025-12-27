@@ -4,7 +4,7 @@ description: Expert agent specializing in creating, maintaining, and validating 
   knowledge graphs for subject matter expert domains
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 

@@ -4,7 +4,7 @@ description: Validates factual accuracy of knowledge units through systematic ve
   using authoritative sources
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 

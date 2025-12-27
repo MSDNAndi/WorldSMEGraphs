@@ -3,7 +3,7 @@ name: software-architecture
 description: Specialized agent for software architecture tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Software Architecture

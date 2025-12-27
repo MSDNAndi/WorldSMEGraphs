@@ -3,7 +3,7 @@ name: implementation
 description: Specialized agent for implementation tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Implementation Agent

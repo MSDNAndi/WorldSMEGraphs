@@ -3,7 +3,7 @@ name: verification
 description: Specialized agent for verification tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Verification Agent

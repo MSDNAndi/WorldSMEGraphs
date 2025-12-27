@@ -3,7 +3,7 @@ name: database-query
 description: Specialized agent for database query tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Database Query

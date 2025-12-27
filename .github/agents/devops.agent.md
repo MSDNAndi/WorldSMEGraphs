@@ -3,7 +3,7 @@ name: devops
 description: Specialized agent for devops tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Devops

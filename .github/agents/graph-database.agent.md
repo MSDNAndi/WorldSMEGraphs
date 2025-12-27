@@ -3,7 +3,7 @@ name: graph-database
 description: Specialized agent for graph database tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Graph Database

@@ -3,7 +3,7 @@ name: textbook-parser
 description: Specialized agent for textbook parser tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Textbook Parser Agent

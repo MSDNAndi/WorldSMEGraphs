@@ -3,7 +3,7 @@ name: generic-domain-empathy
 description: Specialized agent for generic domain empathy tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Generic Domain Empathy Agent

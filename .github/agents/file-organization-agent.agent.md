@@ -3,7 +3,7 @@ name: file-organization-agent
 description: Specialized agent for file organization agent tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # File Organization Agent

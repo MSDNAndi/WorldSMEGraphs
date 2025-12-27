@@ -3,7 +3,7 @@ name: localization
 description: Specialized agent for localization tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Localization Agent

@@ -4,7 +4,7 @@ description: Analyzes learning patterns and optimizes knowledge acquisition stra
   through reflection on learning processes
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 

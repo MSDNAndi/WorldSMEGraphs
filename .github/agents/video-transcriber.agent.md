@@ -3,7 +3,7 @@ name: video-transcriber
 description: Specialized agent for video transcriber tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Video Transcriber Agent

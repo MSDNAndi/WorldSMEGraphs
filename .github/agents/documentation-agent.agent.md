@@ -4,7 +4,7 @@ description: Specialist in creating, maintaining, and improving technical and us
   documentation with focus on clarity, consistency, and cross-referencing
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 

@@ -3,7 +3,7 @@ name: citation
 description: Specialized agent for citation tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Citation

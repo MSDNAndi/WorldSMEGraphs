@@ -3,7 +3,7 @@ name: quality
 description: Specialized agent for quality tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Quality

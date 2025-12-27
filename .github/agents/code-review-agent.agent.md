@@ -3,7 +3,7 @@ name: code-review-agent
 description: Specialized agent for code review agent tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Code Review Agent

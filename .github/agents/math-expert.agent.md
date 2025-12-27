@@ -3,7 +3,7 @@ name: math-expert
 description: Specialized agent for math expert tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Math Expert Agent

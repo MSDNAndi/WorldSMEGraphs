@@ -3,7 +3,7 @@ name: deprecation
 description: Specialized agent for deprecation tasks
 tools:
 - '*'
-infer: enabled
+infer: true
 ---
 
 # Agent Deprecation
