@@ -2,15 +2,17 @@
   "@context": "https://schema.org/",
   "@type": "EducationalResource",
   "@id": "aku-004-discount-rate-definition",
-  
   "metadata": {
     "version": "1.0.0",
     "created": "2025-12-27",
-    "contributors": ["generic-domain-empathy-agent", "finance-valuation-expert-v1"],
+    "contributors": [
+      "generic-domain-empathy-agent",
+      "finance-valuation-expert-v1"
+    ],
     "confidence": 0.98,
-    "status": "validated"
+    "status": "validated",
+    "last_updated": "2025-12-27T02:56:46.143+00:00"
   },
-  
   "classification": {
     "domain_path": "economics/bwl/finance/valuation/npv",
     "type": "definition",
@@ -18,31 +20,23 @@
     "importance": "critical",
     "aku_id": "004"
   },
-  
   "content": {
     "statement": {
       "text": "The discount rate is the rate of return used to discount future cash flows back to their present value. It represents the opportunity cost of capital - the return that could be earned on an alternative investment of equivalent risk.",
       "formal": "r in PV = CF/(1+r)^t represents the required rate of return"
     },
-    
     "explanation": {
       "intuition": "The discount rate answers the question: 'What return could I earn elsewhere with this money?' If you can earn 10% safely in the market, then you should discount future cash flows at 10% to compare them to investing in the market.",
-      
       "key_insight": "The discount rate must match the risk of the cash flows being valued. Riskier cash flows require higher discount rates. This is why startups (risky) are valued with 20-30% discount rates while government bonds (safe) use 2-5%.",
-      
       "determination": "For corporate projects, the discount rate is typically the firm's Weighted Average Cost of Capital (WACC). For individual investors, it might be their required rate of return based on risk tolerance and alternatives.",
-      
       "components": "Discount rate = Risk-free rate + Risk premium. The risk premium compensates for uncertainty and the possibility of not receiving the promised cash flows."
     }
   },
-  
   "representations": {
     "conceptual_formula": "r = r_f + β(r_m - r_f) [CAPM approach]",
     "or": "r = WACC = (E/V)×r_e + (D/V)×r_d×(1-T) [Corporate approach]",
-    
     "python": {
       "code": "def determine_discount_rate(risk_free_rate, market_return, beta):\n    \"\"\"\n    Calculate discount rate using CAPM.\n    \n    Args:\n        risk_free_rate (float): Risk-free rate (e.g., 10-year Treasury)\n        market_return (float): Expected market return\n        beta (float): Systematic risk measure\n    \n    Returns:\n        float: Required discount rate\n    \n    Example:\n        >>> determine_discount_rate(0.03, 0.10, 1.2)\n        0.114  # 11.4%\n    \"\"\"\n    risk_premium = beta * (market_return - risk_free_rate)\n    return risk_free_rate + risk_premium",
-      
       "typical_ranges": {
         "government_bonds": "2-5%",
         "investment_grade_corporate": "5-8%",
@@ -52,23 +46,53 @@
       }
     }
   },
-  
   "relationships": {
-    "prerequisites": ["opportunity-cost", "risk-return-tradeoff", "time-value-of-money"],
-    "enables": ["aku-001-npv-definition", "aku-003-present-value-concept", "wacc-calculation"],
-    "related_to": ["capm", "wacc", "cost-of-capital", "required-return"]
+    "prerequisites": [
+      "opportunity-cost",
+      "risk-return-tradeoff",
+      "time-value-of-money"
+    ],
+    "enables": [
+      "aku-001-npv-definition",
+      "aku-003-present-value-concept",
+      "wacc-calculation"
+    ],
+    "related_to": [
+      "capm",
+      "wacc",
+      "cost-of-capital",
+      "required-return"
+    ]
   },
-  
   "provenance": {
     "sources": [
-      {"type": "textbook", "title": "Principles of Corporate Finance", "authors": ["Brealey", "Myers", "Allen"], "pages": "194-198"},
-      {"type": "textbook", "title": "Investment Valuation", "authors": ["Damodaran"], "pages": "36-42"}
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": [
+          "Brealey",
+          "Myers",
+          "Allen"
+        ],
+        "pages": "194-198"
+      },
+      {
+        "type": "textbook",
+        "title": "Investment Valuation",
+        "authors": [
+          "Damodaran"
+        ],
+        "pages": "36-42"
+      }
     ],
     "validation_date": "2025-12-27"
   },
-  
   "pedagogical": {
-    "target_audiences": ["MBA", "CFA Level 1", "corporate finance analysts"],
+    "target_audiences": [
+      "MBA",
+      "CFA Level 1",
+      "corporate finance analysts"
+    ],
     "learning_objectives": [
       "Define discount rate and explain its role in valuation",
       "Understand the relationship between risk and discount rate",
