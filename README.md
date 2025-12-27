@@ -149,8 +149,10 @@ See [Project Structure Documentation](.project/structure.md) for complete detail
 
 ### For Contributors
 - **[Contributing Guidelines](docs/CONTRIBUTING.md)**: How to contribute
+- **[New AKU Creation Guide](docs/NEW-AKU-CREATION-GUIDE.md)**: **START HERE** - Create new AKUs with ontology from day 1 🌟
 - **[Ontology Quick Start](docs/ONTOLOGY-QUICKSTART.md)**: How to use SKOS, SNOMED, FIBO and other ontologies
-- **[Complete Migration Guide](docs/COMPLETE-ONTOLOGY-MIGRATION-GUIDE.md)**: Comprehensive instructions for enhancing AKUs ⭐
+- **[Complete Migration Guide](docs/COMPLETE-ONTOLOGY-MIGRATION-GUIDE.md)**: Comprehensive instructions for enhancing existing AKUs
+- **[AKU Templates](docs/templates/)**: Ready-to-use templates for medical, economics, science domains
 - **[Agent Configurations](.github/copilot/agents/)**: Specialized agent instructions
 - **[Agent KPIs](.github/copilot/agent-kpis.md)**: Agent performance tracking
 
