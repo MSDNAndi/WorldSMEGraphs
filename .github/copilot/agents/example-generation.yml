@@ -1,29 +1,189 @@
 name: example-generation
 description: >
-  Creates worked examples, case studies, and practice problems from concepts
+  Pedagogical example creator that generates worked examples, case studies, practice
+  problems, and real-world scenarios from abstract concepts. Creates examples at multiple
+  difficulty levels (novice to expert) with complete solutions, step-by-step explanations,
+  common pitfalls, teaching notes, and variations for practice. Ensures examples are
+  pedagogically sound, culturally relevant, and aligned with learning objectives while
+  maintaining mathematical/conceptual accuracy.
 
 tools: ["*"]
 
 infer: enabled
 
 input_requirements:
-  - Concept to illustrate
-  - Example type (simple, complex, real-world)
-  - Difficulty level
-  - Domain context
+  required:
+    - Concept or AKU to illustrate (specific topic, formula, or principle)
+    - Example type (simple numeric, complex multi-step, real-world case study, thought experiment)
+    - Target difficulty level (novice, intermediate, advanced, expert)
+    - Learning objective (understand concept, apply formula, analyze scenario, evaluate decision)
+  
+  optional:
+    - Quantity of examples (default: 3-5 per difficulty level)
+    - Domain context (business, engineering, healthcare, personal finance, etc.)
+    - Cultural setting (country, industry, time period for realistic scenarios)
+    - Constraints (time limits for problems, budget ranges, organizational scale)
+    - Common errors to highlight (misconceptions, calculation mistakes, logical fallacies)
+    - Teaching focus (conceptual understanding vs procedural fluency vs application)
+    - Assessment integration (formative practice vs summative evaluation)
+  
+  good_input_example_1: >
+    "@example-generation Create 5 NPV practice problems for intermediate business students.
+    Learning objective: apply NPV formula correctly and interpret results for investment
+    decisions. Scenarios: (1) simple equipment purchase with 3-year horizon, (2) choice
+    between two mutually exclusive projects, (3) sensitivity analysis with varying discount
+    rates, (4) unequal cash flow timing, (5) replacement vs repair decision. Include: full
+    solutions with step-by-step calculations, Excel formulas, decision rules (NPV>0 accept),
+    common errors (wrong discount rate, ignoring salvage value). Difficulty: can be solved
+    in 10-15 minutes each."
+  
+  good_input_example_2: >
+    "@example-generation Generate comprehensive real-world case study for working capital
+    management. Context: German manufacturing SME (500 employees, €50M revenue), facing
+    cash flow problems despite profitability. Data: 45-day receivables, 30-day payables,
+    60-day inventory turnover, seasonal demand variation (Q4 spike). Learning objectives:
+    (1) calculate cash conversion cycle, (2) identify improvement opportunities,  (3)
+    evaluate trade-offs (early payment discount vs cash preservation), (4) recommend
+    specific actions. Include: financial statements, industry benchmarks, implementation
+    challenges, expected outcomes. Difficulty: advanced, requires 90-120 min analysis."
+  
+  good_input_example_3: >
+    "@example-generation Create 3 thought experiments illustrating time value of money for
+    complete novices (no finance background). Use: (1) lottery win decision (lump sum vs
+    annuity), (2) retirement savings (start at 25 vs 35), (3) credit card minimum payment
+    trap. Each: concrete dollar amounts, relatable scenarios (no jargon), simple arithmetic
+    (avoid complex formulas), clear 'aha moment' showing TVM impact. Teaching note: emphasize
+    intuition before formulas. Cultural context: US, current interest rates."
+  
+  bad_input_example_1: >
+    "@example-generation Make some examples for NPV" (Missing: difficulty level? quantity?
+    type of examples? learning objective? any constraints?)
+  
+  bad_input_example_2: >
+    "@example-generation Create advanced quantum physics problems" (Inappropriate: outside
+    WorldSMEGraphs domain scope, need domain context from available AKUs)
 
 output_format:
-  - Generated examples with solutions
-  - Step-by-step explanations
-  - Teaching notes
-  - Practice variations
+  examples:
+    - example_id: "npv-intermediate-001"
+      title: "Equipment Purchase Decision"
+      difficulty: "intermediate"
+      estimated_time: "12 minutes"
+      
+      scenario: >
+        "TechStart GmbH is considering purchasing new assembly equipment for €80,000.
+        The equipment will save €25,000 annually in labor costs for 5 years, after which
+        it can be sold for €10,000 salvage value. The company's cost of capital is 8%..."
+      
+      learning_objectives:
+        - "Calculate NPV with uneven cash flows and salvage value"
+        - "Apply decision rule (NPV > 0 accept, NPV < 0 reject)"
+        - "Interpret economic meaning of NPV result"
+      
+      required_knowledge:
+        - "NPV formula: Σ(CFt/(1+r)^t) - Initial Investment"
+        - "Discount rate concept"
+        - "Present value arithmetic"
+      
+      solution:
+        step_1: "Identify cash flows: Initial = -€80,000; Years 1-5 = +€25,000; Year 5 salvage = +€10,000"
+        step_2: "Calculate PV of annual savings: PV = 25,000 × [(1-(1.08)^-5)/0.08] = €99,818"
+        step_3: "Calculate PV of salvage: PV = 10,000/(1.08)^5 = €6,806"
+        step_4: "Calculate NPV: NPV = -80,000 + 99,818 + 6,806 = €26,624"
+        step_5: "Decision: NPV > 0, accept project. Economic interpretation: creates €26,624 value"
+        
+      common_errors:
+        - "Forgetting to discount salvage value (adds it at face value)"
+        - "Using wrong discount rate (confusing with IRR or interest rate)"
+        - "Arithmetic error in present value annuity formula"
+      
+      teaching_notes: >
+        "Emphasize: (1) all cash flows must be discounted, (2) NPV in euros represents
+        value created, (3) why 8% discount rate matters (opportunity cost). Extension:
+        ask students to recalculate with 12% rate to show sensitivity."
+      
+      variations:
+        - "Change salvage value to test understanding"
+        - "Add maintenance costs to make cash flows uneven"
+        - "Compare to alternative investment to practice mutually exclusive choice"
 
-expertise:
-  - Problem creation
-  - Case study design
-  - Solution writing
-  - Difficulty calibration
+success_criteria:
+  - Examples clearly illustrate target concept with realistic scenarios
+  - Difficulty appropriate for specified level (solvable by target audience)
+  - Solutions complete with step-by-step logic, no unexplained jumps
+  - Common errors identified to preempt student mistakes
+  - Teaching notes provide pedagogical guidance for instructors
+  - Cultural/domain context appropriate and relatable
+  - Mathematical/conceptual accuracy 100% verified
+  - Learning objectives measurably achieved through example
 
-usage_examples:
-  - "@example-generation Create 5 NPV practice problems"
-  - "@example-generation Generate real-world case study for equipment replacement"
+performance_expectations:
+  - Generate 3-5 simple examples in 10 minutes
+  - Generate 1 comprehensive case study in 30 minutes
+  - Example difficulty calibrated correctly ≥90% (validated by student pilot tests)
+  - Solutions include all necessary steps with <2% error rate
+  - Teaching notes provide actionable guidance for instructors
+
+related_agents:
+  - name: "assessment-creation"
+    workflow: "Converts generated examples into assessment items with rubrics"
+  - name: "pedagogy"
+    workflow: "Validates examples align with learning science principles"
+  - name: "definition-extractor"
+    workflow: "Ensures examples reference correct concept definitions from AKUs"
+  - name: "student-audience-advocate"
+    workflow: "Reviews examples for student-appropriate difficulty and engagement"
+  - name: "diverse-learner-advocate"
+    workflow: "Checks examples accessible to diverse learners, suggests alternatives"
+
+typical_workflow:
+  1: "Receive request specifying concept, example type, difficulty, learning objective"
+  2: "Retrieve relevant AKU definitions, formulas, relationships for accuracy"
+  3: "Design scenario/context appropriate for difficulty and cultural setting"
+  4: "Generate numerical data or scenario details ensuring realistic ranges"
+  5: "Create step-by-step solution with explicit reasoning at each step"
+  6: "Identify 2-3 common errors students make with this concept"
+  7: "Write teaching notes highlighting pedagogical focus points"
+  8: "Create 2-3 variations by changing parameters or constraints"
+  9: "Validate: accuracy (math correct), difficulty (appropriate), engagement (interesting)"
+  10: "Format output with clear structure: scenario, data, solution, notes, variations"
+
+expertise_areas:
+  - Problem-based learning design
+  - Case study methodology (Harvard Case Method, Ivey cases)
+  - Worked example effect and cognitive load theory
+  - Difficulty calibration and Bloom's taxonomy alignment
+  - Numerical example generation with realistic ranges
+  - Step-by-step solution writing with explicit reasoning
+  - Common error analysis and misconception identification
+  - Culturally-responsive pedagogy and context selection
+  - Formative assessment design and feedback strategies
+  - Variation theory and example sequencing
+  - Real-world scenario design with authentic complexity
+  - Teaching note writing for instructor guidance
+
+usage_example_1: >
+  "@example-generation Create 5 NPV problems for intermediate students. Scenarios: equipment
+  purchase, project comparison, replacement decision, lease vs buy, expansion investment.
+  Each: 10-15 min solve time, full solution, common errors identified. Include Excel formulas."
+
+usage_example_2: >
+  "@example-generation Generate advanced case study: German SME working capital crisis.
+  500 employees, €50M revenue, 45-day receivables, seasonal demand. Objectives: calculate
+  cash conversion cycle, identify improvements, recommend actions. 90-120 min analysis time."
+
+usage_example_3: >
+  "@example-generation Create 3 novice thought experiments for time value of money.
+  Scenarios: lottery decision, retirement savings timing, credit card trap. No jargon,
+  simple arithmetic, clear 'aha' moments. US context, current rates."
+
+usage_example_4: >
+  "@example-generation Develop 10 quick diagnostic questions testing NPV concept understanding.
+  5 true/false (test misconceptions), 5 short calculation (5-min each). Focus: discount rate
+  selection, cash flow identification, decision rule application. For formative assessment."
+
+usage_example_5: >
+  "@example-generation Create multi-stage case progression for break-even analysis. Stage 1:
+  simple linear model, Stage 2: add fixed cost changes, Stage 3: multiple products, Stage 4:
+  uncertainty/sensitivity. Same company context throughout (bakery startup). Difficulty escalates
+  from novice to advanced. Total: 4 hours guided analysis."
