@@ -174,7 +174,7 @@ domain/
 
 ## Available Agents
 
-See `.github/copilot/agents/` for specialized agent configurations
+See `.github/agents/` for specialized agent configurations (all use `.agent.md` format per GitHub Copilot standards)
 
 ## Workflow Requirements
 

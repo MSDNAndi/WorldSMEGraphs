@@ -12,8 +12,12 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
 ```
 WorldSMEGraphs/
 ├── .github/                  # GitHub configuration and Copilot agents
-│   ├── copilot/             # Copilot agent configurations
-│   │   ├── agents/          # Individual agent definitions
+│   ├── agents/              # GitHub Copilot custom agent definitions (.agent.md)
+│   │   ├── recruiter.agent.md        # Format gatekeeper agent
+│   │   ├── coordinator.agent.md       # Workflow orchestration agent
+│   │   └── [52 other agents].agent.md # Specialized domain agents
+│   ├── copilot/             # Copilot configuration
+│   │   ├── agents/          # Legacy agent utilities
 │   │   └── agent-kpis.md   # Agent performance tracking
 │   ├── workflows/           # GitHub Actions workflows
 │   └── copilot-instructions.md  # Main Copilot instructions
@@ -69,8 +73,13 @@ WorldSMEGraphs/
 
 ### `.github/`
 GitHub-specific configuration including:
-- **copilot/**: Copilot Coding Agent infrastructure
-  - **agents/**: Individual agent definitions and instructions
+- **agents/**: GitHub Copilot custom agent definitions (.agent.md format)
+  - All 53 agents in standardized format
+  - **recruiter.agent.md**: Format gatekeeper and ecosystem curator
+  - **coordinator.agent.md**: Multi-agent workflow orchestrator
+  - Location per GitHub Copilot standards: `.github/agents/`
+- **copilot/**: Copilot configuration
+  - **agents/**: Legacy agent utilities and scripts
   - **agent-kpis.md**: Performance tracking for all agents
 - **workflows/**: GitHub Actions for CI/CD and automation
 - **copilot-instructions.md**: Main instructions for Copilot
@@ -116,6 +125,15 @@ General documentation accessible to all users:
 - **Use kebab-case**: `getting-started.md`, `knowledge-format.md`
 - **Descriptive names**: Clear purpose from filename
 - **Markdown default**: Use `.md` unless other format required
+
+### GitHub Copilot Agents
+- **Format**: `[agent-name].agent.md`
+- **Location**: `.github/agents/`
+- **Naming**: kebab-case for agent names
+- **Examples**:
+  - `recruiter.agent.md` - Format gatekeeper
+  - `coordinator.agent.md` - Workflow orchestration
+  - `paper-miner.agent.md` - Research paper extraction
 
 ### Schemas
 - **Format**: `schema.json`
@@ -173,6 +191,23 @@ Listed in `.gitignore`:
 6. Update this structure document
 7. Create domain-specific README if needed
 
+## Adding New Agents
+
+1. Create agent file: `.github/agents/[agent-name].agent.md`
+2. Follow GitHub Copilot custom agent format
+3. Include all required sections:
+   - Purpose
+   - Responsibilities
+   - Expertise
+   - Input Requirements
+   - Output Format
+   - Usage Examples
+   - Success Criteria
+   - Related Agents
+4. Have recruiter agent review for format compliance
+5. Update agent README if adding to new category
+6. Test agent invocation with examples
+
 ## Maintenance Guidelines
 
 ### Regular Reviews
@@ -195,6 +230,15 @@ Listed in `.gitignore`:
 
 ## See Also
 - [Copilot Instructions](../.github/copilot-instructions.md)
+- [Agent Directory](../.github/agents/)
+- [Agent Performance Tracking](../.github/copilot/agent-kpis.md)
 - [Knowledge Format Specification](knowledge-format.md)
 - [Rendering Specification](rendering-spec.md)
 - [Project Roadmap](roadmap.md)
+
+---
+
+**Last Updated**: 2025-12-27  
+**Major Changes**: 
+- 2025-12-27: Updated agent infrastructure section for .agent.md format migration
+- 2025-12-26: Initial structure documentation
