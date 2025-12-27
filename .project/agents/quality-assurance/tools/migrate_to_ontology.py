@@ -283,7 +283,15 @@ class OntologyMigrator:
             return aku["@id"].split(":")[-1].split("-")[0]
         
         if "content" in aku and "statement" in aku["content"]:
-            text = aku["content"]["statement"].get("text", "")
+            statement = aku["content"]["statement"]
+            # Handle both string and object formats
+            if isinstance(statement, str):
+                text = statement
+            elif isinstance(statement, dict):
+                text = statement.get("text", "")
+            else:
+                text = ""
+            
             if text:
                 # Take first few words
                 words = text.split()[:3]
