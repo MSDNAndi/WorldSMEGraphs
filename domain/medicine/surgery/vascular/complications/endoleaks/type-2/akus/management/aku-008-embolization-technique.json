@@ -48,6 +48,17 @@
       "technical_details": "Success rates vary by approach: transarterial 60-70%, translumbar 70-85%, but translumbar has higher complication risk. Recurrence is common (20-40%) because collateral vessels can recruit new pathways. Liquid embolic agents (Onyx, n-BCA) may provide better sac penetration than coils alone."
     }
   },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Type 2 Endoleak Embolization Technique"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Interventional procedure using transarterial or translumbar approach with coils and/or liquid embolic agents to occlude Type 2 endoleak circuits"
+    },
+    "notation": "aku-008-embolization-technique"
+  },
   "transarterial_approach": {
     "technique": {
       "access": "Femoral artery (common) or brachial/radial artery",
@@ -287,15 +298,102 @@
         "strength": 0.9
       }
     ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:type2-definition:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Type 2 Endoleak Definition"
+      },
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:anatomy:branch-vessels:004",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Branch Vessel Anatomy"
+      },
+      {
+        "@id": "urn:wskg:medicine:interventional-radiology:techniques:catheterization:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Selective Catheterization Techniques"
+      }
+    ],
     "enables": [
       {
         "id": "urn:wskg:medicine:surgery:vascular:outcomes:type2-longterm:001",
         "title": "Long-term Outcomes After Type 2 Treatment",
         "strength": 0.85
       }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:outcomes:type2-longterm:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Long-term Outcomes After Type 2 Treatment"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:broadMatch": [
+      "http://snomed.info/id/445080003",
+      "http://id.nlm.nih.gov/mesh/D000078862",
+      "http://id.nlm.nih.gov/mesh/D057510"
+    ],
+    "skos:related": [
+      {
+        "@id": "http://id.nlm.nih.gov/mesh/D057510",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Endovascular Procedures",
+        "skos:note": "Embolization is a type of endovascular procedure"
+      }
     ]
   },
   "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:sir-standards-type2",
+        "@type": "prov:Entity",
+        "dc:title": "Society of Interventional Radiology Standards of Practice for Type 2 Endoleak",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:handbook-ir-5ed",
+        "@type": "prov:Entity",
+        "dc:title": "Handbook of Interventional Radiologic Procedures, 5th Edition",
+        "dc:identifier": "ISBN:978-1496384737",
+        "dc:type": "textbook",
+        "confidence": 0.98
+      },
+      {
+        "@id": "urn:source:jvir-embolization-meta",
+        "@type": "prov:Entity",
+        "dc:title": "Embolization of Type 2 Endoleaks: Systematic Review and Meta-analysis",
+        "dc:publisher": "Journal of Vascular and Interventional Radiology",
+        "dc:type": "systematic_review",
+        "confidence": 0.95
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_synthesis",
+      "prov:startedAtTime": "2025-12-27T15:10:00.000Z",
+      "prov:endedAtTime": "2025-12-27T20:26:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "interventional-radiology-knowledge-base",
+      "terminology-agent",
+      "semantic-harmonization-agent"
+    ],
+    "dc:created": "2025-12-27T15:10:00.000Z",
+    "dc:modified": "2025-12-27T20:26:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:interventional-radiology-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "terminology-agent"
+    },
     "sources": [
       {
         "type": "clinical_guideline",
@@ -359,5 +457,40 @@
       "embolic_agent_selection",
       "complete_circuit_embolization"
     ]
-  }
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "449567000",
+      "uri": "http://snomed.info/id/449567000",
+      "description": "Type II endoleak (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "445080003",
+      "uri": "http://snomed.info/id/445080003",
+      "description": "Endoleak (disorder) - parent concept",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D000078862",
+      "uri": "http://id.nlm.nih.gov/mesh/D000078862",
+      "description": "Endoleak",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D057510",
+      "uri": "http://id.nlm.nih.gov/mesh/D057510",
+      "description": "Endovascular Procedures",
+      "matchType": "broadMatch",
+      "relationship": "procedure_category"
+    }
+  ]
 }

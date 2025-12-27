@@ -49,6 +49,17 @@
       "technical_details": "The classification is based on both the anatomic source of leak and the hemodynamic consequences. Type 1 and 3 expose the sac to systemic arterial pressure, while Type 2 involves lower-pressure collateral flow. Type 4 is rarely clinically significant with modern grafts. Type 5 is diagnosed when sac expansion occurs without identifiable leak on imaging."
     }
   },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Endoleak Classification System"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Classification of endoleaks into five types based on mechanism and source: Type 1 (attachment site leak), Type 2 (retrograde branch vessel flow), Type 3 (graft structural failure), Type 4 (graft porosity), and Type 5 (endotension)"
+    },
+    "notation": "aku-002-endoleak-classification"
+  },
   "classification_details": {
     "type_1": {
       "definition": "Incomplete seal at graft attachment sites",
@@ -154,6 +165,18 @@
         "strength": 0.85
       }
     ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:procedures:evar:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Endovascular Aortic Repair"
+      },
+      {
+        "@id": "urn:wskg:medicine:radiology:ct-angiography:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "CT Angiography Interpretation"
+      }
+    ],
     "enables": [
       {
         "id": "urn:wskg:medicine:surgery:vascular:complications:endoleak-management:001",
@@ -166,15 +189,95 @@
         "strength": 0.9
       }
     ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:endoleak-management:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Endoleak Management Algorithms"
+      },
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:followup:post-evar-surveillance:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Post-EVAR Surveillance"
+      }
+    ],
     "related": [
       {
         "id": "urn:wskg:medicine:surgery:vascular:complications:sac-expansion:001",
         "type": "consequence",
         "relationship": "Endoleaks can lead to aneurysm sac expansion"
       }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:sac-expansion:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Aneurysm Sac Expansion",
+        "skos:note": "Endoleaks can lead to aneurysm sac expansion"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:broadMatch": [
+      "http://snomed.info/id/445080003",
+      "http://id.nlm.nih.gov/mesh/D000078862"
+    ],
+    "skos:closeMatch": [
+      "http://id.who.int/icd/entity/1573326799"
     ]
   },
   "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:jvs-reporting-standards-2002",
+        "@type": "prov:Entity",
+        "dc:title": "Reporting standards for endovascular aortic aneurysm repair",
+        "dc:publisher": "Journal of Vascular Surgery",
+        "dc:date": "2002",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0,
+        "dc:description": "Original classification system definition"
+      },
+      {
+        "@id": "urn:source:rutherford-9ed",
+        "@type": "prov:Entity",
+        "dc:title": "Rutherford's Vascular Surgery and Endovascular Therapy, 9th Edition",
+        "dc:identifier": "ISBN:978-0323427913",
+        "dc:type": "textbook",
+        "confidence": 0.98
+      },
+      {
+        "@id": "urn:source:jvs-tevar-endoleaks",
+        "@type": "prov:Entity",
+        "dc:title": "Endoleaks after endovascular repair of thoracic aortic aneurysms",
+        "dc:publisher": "Journal of Vascular Surgery",
+        "dc:type": "review_article",
+        "confidence": 0.95
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-27T14:57:00.000Z",
+      "prov:endedAtTime": "2025-12-27T20:21:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base",
+      "terminology-agent",
+      "semantic-harmonization-agent"
+    ],
+    "dc:created": "2025-12-27T14:57:00.000Z",
+    "dc:modified": "2025-12-27T20:21:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:vascular-surgery-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "terminology-agent"
+    },
     "sources": [
       {
         "type": "clinical_guideline",
@@ -253,14 +356,41 @@
       "codingSystem": "SNOMED-CT",
       "codeValue": "449567000",
       "uri": "http://snomed.info/id/449567000",
-      "description": "Type II endoleak (disorder)"
+      "description": "Type II endoleak (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "445080003",
+      "uri": "http://snomed.info/id/445080003",
+      "description": "Endoleak (disorder) - parent concept",
+      "matchType": "broadMatch"
     },
     {
       "@type": "MedicalCode",
       "codingSystem": "MeSH",
       "codeValue": "D000078862",
       "uri": "http://id.nlm.nih.gov/mesh/D000078862",
-      "description": "Endoleak (general term)"
+      "description": "Endoleak (general term)",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-11",
+      "codeValue": "MH84.Z",
+      "uri": "http://id.who.int/icd/entity/1573326799",
+      "description": "Other specified complications following procedures on circulatory system",
+      "matchType": "closeMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "233689003",
+      "uri": "http://snomed.info/id/233689003",
+      "description": "Endovascular repair of aneurysm (procedure)",
+      "matchType": "exactMatch",
+      "relationship": "procedure_context"
     }
   ]
 }

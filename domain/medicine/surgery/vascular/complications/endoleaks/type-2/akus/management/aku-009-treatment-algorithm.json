@@ -47,6 +47,17 @@
       "technical_details": "The management paradigm shifted from treating all Type 2 endoleaks (older approach) to selective intervention based on sac behavior (current evidence-based approach). This reduces unnecessary procedures while maintaining safety."
     }
   },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Type 2 Endoleak Treatment Algorithm"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Evidence-based management approach based on aneurysm sac behavior: observation for stable/decreasing sac, intervention for persistent endoleak with sac expansion >5mm or absolute diameter >60mm at 6-12 months"
+    },
+    "notation": "aku-009-treatment-algorithm"
+  },
   "management_algorithm": {
     "initial_detection": {
       "timing": "Any time point post-EVAR",
@@ -233,6 +244,18 @@
         "strength": 0.95
       }
     ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:type2-definition:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Type 2 Endoleak Definition"
+      },
+      {
+        "@id": "urn:wskg:medicine:radiology:cta-findings:type2:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "CTA Imaging of Type 2 Endoleak"
+      }
+    ],
     "enables": [
       {
         "id": "urn:wskg:medicine:interventional-radiology:embolization-technique:type2:001",
@@ -244,9 +267,80 @@
         "title": "Post-EVAR Long-term Surveillance",
         "strength": 0.85
       }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:medicine:interventional-radiology:embolization-technique:type2:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Type 2 Endoleak Embolization Technique"
+      },
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:followup:post-evar:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Post-EVAR Long-term Surveillance"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:broadMatch": [
+      "http://snomed.info/id/445080003",
+      "http://id.nlm.nih.gov/mesh/D000078862"
+    ],
+    "skos:closeMatch": [
+      "http://id.who.int/icd/entity/1573326799"
     ]
   },
   "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:svs-practice-guidelines-2018",
+        "@type": "prov:Entity",
+        "dc:title": "Society for Vascular Surgery practice guidelines on the care of patients with endovascular aortic repair",
+        "dc:creator": "Society for Vascular Surgery",
+        "dc:date": "2018",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:jvs-type2-management-meta",
+        "@type": "prov:Entity",
+        "dc:title": "Management of type II endoleaks: A systematic review and meta-analysis",
+        "dc:publisher": "Journal of Vascular Surgery",
+        "dc:type": "systematic_review",
+        "confidence": 0.95
+      },
+      {
+        "@id": "urn:source:rutherford-9ed",
+        "@type": "prov:Entity",
+        "dc:title": "Rutherford's Vascular Surgery and Endovascular Therapy, 9th Edition",
+        "dc:identifier": "ISBN:978-0323427913",
+        "dc:type": "textbook",
+        "confidence": 0.98
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "guideline_synthesis",
+      "prov:startedAtTime": "2025-12-27T15:06:00.000Z",
+      "prov:endedAtTime": "2025-12-27T20:27:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base",
+      "terminology-agent",
+      "semantic-harmonization-agent"
+    ],
+    "dc:created": "2025-12-27T15:06:00.000Z",
+    "dc:modified": "2025-12-27T20:27:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:vascular-surgery-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "terminology-agent"
+    },
     "sources": [
       {
         "type": "clinical_guideline",
@@ -318,5 +412,48 @@
       "sac_behavior_primacy",
       "embolization_as_firstline"
     ]
-  }
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "449567000",
+      "uri": "http://snomed.info/id/449567000",
+      "description": "Type II endoleak (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "445080003",
+      "uri": "http://snomed.info/id/445080003",
+      "description": "Endoleak (disorder) - parent concept",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D000078862",
+      "uri": "http://id.nlm.nih.gov/mesh/D000078862",
+      "description": "Endoleak",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-11",
+      "codeValue": "MH84.Z",
+      "uri": "http://id.who.int/icd/entity/1573326799",
+      "description": "Other specified complications following procedures on circulatory system",
+      "matchType": "closeMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "233689003",
+      "uri": "http://snomed.info/id/233689003",
+      "description": "Endovascular repair of aneurysm (procedure)",
+      "matchType": "exactMatch",
+      "relationship": "procedure_context"
+    }
+  ]
 }

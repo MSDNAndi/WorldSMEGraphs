@@ -89,6 +89,17 @@
       }
     ]
   },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Type 2 Endoleak"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Complication following EVAR characterized by retrograde blood flow into the aneurysm sac through patent collateral branch vessels, most commonly lumbar arteries and the inferior mesenteric artery"
+    },
+    "notation": "aku-001-type2-endoleak-definition"
+  },
   "relationships": {
     "prerequisites": [
       {
@@ -110,6 +121,23 @@
         "reason": "Understanding branch vessels is essential"
       }
     ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Abdominal Aortic Aneurysm"
+      },
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:procedures:evar:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Endovascular Aortic Repair"
+      },
+      {
+        "@id": "urn:wskg:medicine:anatomy:vascular:abdominal-aorta:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Abdominal Aortic Anatomy"
+      }
+    ],
     "enables": [
       {
         "id": "urn:wskg:medicine:surgery:vascular:complications:endoleak-management:001",
@@ -122,6 +150,18 @@
         "title": "Post-EVAR Surveillance Protocol",
         "strength": 0.85,
         "reason": "Drives surveillance imaging strategy"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:endoleak-management:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Endoleak Management Strategies"
+      },
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:followup:post-evar-surveillance:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Post-EVAR Surveillance Protocol"
       }
     ],
     "related": [
@@ -141,21 +181,90 @@
         "relationship": "Embolization is primary intervention for persistent Type 2 endoleaks"
       }
     ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:type1-endoleak:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Type 1 Endoleak",
+        "skos:note": "Type 1 endoleak is more urgent due to attachment site failure"
+      },
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:type3-endoleak:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Type 3 Endoleak",
+        "skos:note": "Type 3 endoleak indicates structural graft failure"
+      },
+      {
+        "@id": "urn:wskg:medicine:interventional-radiology:embolization:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Embolization",
+        "skos:note": "Primary intervention for persistent Type 2 endoleaks"
+      }
+    ],
     "conflicts": [],
     "supersedes": [],
-    "exactMatch": [
-      "snomed:449567000",
-      "umls:C3549542"
+    "owl:sameAs": [
+      "http://snomed.info/id/449567000"
     ],
-    "broadMatch": [
-      "snomed:445080003",
-      "mesh:D000078862"
+    "skos:exactMatch": [
+      "http://snomed.info/id/449567000"
     ],
-    "closeMatch": [
-      "icd11:MH84.Z"
+    "skos:broadMatch": [
+      "http://snomed.info/id/445080003",
+      "http://id.nlm.nih.gov/mesh/D000078862"
+    ],
+    "skos:closeMatch": [
+      "http://id.who.int/icd/entity/1573326799"
     ]
   },
   "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:svs-guidelines-2018",
+        "@type": "prov:Entity",
+        "dc:title": "Society for Vascular Surgery practice guidelines for EVAR follow-up",
+        "dc:creator": "Society for Vascular Surgery",
+        "dc:date": "2018",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:rutherford-9ed",
+        "@type": "prov:Entity",
+        "dc:title": "Rutherford's Vascular Surgery and Endovascular Therapy, 9th Edition",
+        "dc:identifier": "ISBN:978-0323427913",
+        "dc:type": "textbook",
+        "dc:subject": "Endovascular Repair of Abdominal Aortic Aneurysms",
+        "confidence": 0.98
+      },
+      {
+        "@id": "urn:source:sir-review-type2",
+        "@type": "prov:Entity",
+        "dc:title": "Type 2 Endoleaks after Endovascular Aneurysm Repair: Current Understanding and Management",
+        "dc:publisher": "Seminars in Interventional Radiology",
+        "dc:type": "review_article",
+        "confidence": 0.95
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-27T14:55:00.000Z",
+      "prov:endedAtTime": "2025-12-27T20:20:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base",
+      "terminology-agent",
+      "semantic-harmonization-agent"
+    ],
+    "dc:created": "2025-12-27T14:55:00.000Z",
+    "dc:modified": "2025-12-27T20:20:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:vascular-surgery-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "terminology-agent"
+    },
     "sources": [
       {
         "type": "clinical_guideline",
@@ -234,14 +343,51 @@
       "codingSystem": "SNOMED-CT",
       "codeValue": "449567000",
       "uri": "http://snomed.info/id/449567000",
-      "description": "Type II endoleak (disorder)"
+      "description": "Type II endoleak (disorder)",
+      "matchType": "exactMatch"
     },
     {
       "@type": "MedicalCode",
       "codingSystem": "MeSH",
       "codeValue": "D000078862",
       "uri": "http://id.nlm.nih.gov/mesh/D000078862",
-      "description": "Endoleak (general term)"
+      "description": "Endoleak (general term)",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-11",
+      "codeValue": "MH84.Z",
+      "uri": "http://id.who.int/icd/entity/1573326799",
+      "description": "Other specified complications following procedures on circulatory system",
+      "matchType": "closeMatch",
+      "note": "Requires extension code to specify Type 2 endoleak"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "445080003",
+      "uri": "http://snomed.info/id/445080003",
+      "description": "Endoleak (disorder) - parent concept",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "233689003",
+      "uri": "http://snomed.info/id/233689003",
+      "description": "Endovascular repair of aneurysm (procedure)",
+      "matchType": "exactMatch",
+      "relationship": "procedure_with_complication"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "233985008",
+      "uri": "http://snomed.info/id/233985008",
+      "description": "Abdominal aortic aneurysm (disorder)",
+      "matchType": "exactMatch",
+      "relationship": "underlying_condition"
     }
   ]
 }

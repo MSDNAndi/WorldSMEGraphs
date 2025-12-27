@@ -47,6 +47,17 @@
       "technical_details": "The likelihood of Type 2 endoleak correlates with the number and caliber of patent branch vessels. Each lumbar artery pair receives collateral flow from the ipsilateral internal iliac artery via the iliolumbar artery. The IMA receives collateral flow from the superior mesenteric artery via the marginal artery of Drummond and from the internal iliac arteries via the superior hemorrhoidal artery."
     }
   },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Type 2 Endoleak Branch Vessel Sources"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Anatomic source vessels for Type 2 endoleaks, most commonly lumbar arteries (60-70%) and inferior mesenteric artery (25-30%), maintaining perfusion via extensive collateral networks"
+    },
+    "notation": "aku-004-branch-vessel-sources"
+  },
   "branch_vessel_anatomy": {
     "lumbar_arteries": {
       "normal_anatomy": {
@@ -196,11 +207,30 @@
         "strength": 0.9
       }
     ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:anatomy:vascular:abdominal-aorta:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Abdominal Aortic Anatomy"
+      },
+      {
+        "@id": "urn:wskg:medicine:anatomy:vascular:collateral-circulation:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Collateral Circulation Principles"
+      }
+    ],
     "enables": [
       {
         "id": "urn:wskg:medicine:interventional-radiology:embolization-planning:001",
         "title": "Embolization Procedure Planning",
         "strength": 0.95
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:medicine:interventional-radiology:embolization-planning:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Embolization Procedure Planning"
       }
     ],
     "related": [
@@ -209,9 +239,96 @@
         "type": "mechanism",
         "relationship": "Branch vessel anatomy determines Type 2 pathophysiology"
       }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:type2-mechanism:003",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Type 2 Endoleak Mechanism",
+        "skos:note": "Branch vessel anatomy determines Type 2 pathophysiology"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/449567000",
+      "http://snomed.info/id/33795007",
+      "http://snomed.info/id/33616005"
+    ],
+    "skos:broadMatch": [
+      "http://snomed.info/id/445080003",
+      "http://id.nlm.nih.gov/mesh/D000078862"
+    ],
+    "skos:related": [
+      {
+        "@id": "http://snomed.info/id/33795007",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Lumbar artery structure (body structure)",
+        "skos:note": "Primary source vessel for Type 2 endoleaks"
+      },
+      {
+        "@id": "http://snomed.info/id/33616005",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Inferior mesenteric artery structure (body structure)",
+        "skos:note": "Common source vessel for Type 2 endoleaks"
+      },
+      {
+        "@id": "http://id.nlm.nih.gov/mesh/D008638",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Mesenteric Artery, Inferior",
+        "skos:note": "MeSH term for IMA"
+      }
     ]
   },
   "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:grays-anatomy-4ed",
+        "@type": "prov:Entity",
+        "dc:title": "Gray's Anatomy for Students, 4th Edition",
+        "dc:identifier": "ISBN:978-0323393041",
+        "dc:type": "textbook",
+        "dc:subject": "Posterior abdominal wall vasculature",
+        "confidence": 0.98
+      },
+      {
+        "@id": "urn:source:rutherford-9ed",
+        "@type": "prov:Entity",
+        "dc:title": "Rutherford's Vascular Surgery and Endovascular Therapy, 9th Edition",
+        "dc:identifier": "ISBN:978-0323427913",
+        "dc:type": "textbook",
+        "dc:subject": "Endovascular Repair of Abdominal Aortic Aneurysms",
+        "confidence": 0.98
+      },
+      {
+        "@id": "urn:source:jvs-collateral-pathways",
+        "@type": "prov:Entity",
+        "dc:title": "Collateral pathways in type 2 endoleaks: implications for treatment",
+        "dc:publisher": "Journal of Vascular Surgery",
+        "dc:type": "research_article",
+        "confidence": 0.95
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-27T15:06:00.000Z",
+      "prov:endedAtTime": "2025-12-27T20:24:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base",
+      "terminology-agent",
+      "semantic-harmonization-agent"
+    ],
+    "dc:created": "2025-12-27T15:06:00.000Z",
+    "dc:modified": "2025-12-27T20:24:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:vascular-anatomy-and-surgery-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "terminology-agent"
+    },
     "sources": [
       {
         "type": "textbook",
@@ -274,5 +391,58 @@
       "collateral_pathways",
       "embolization_targets"
     ]
-  }
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "449567000",
+      "uri": "http://snomed.info/id/449567000",
+      "description": "Type II endoleak (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "33795007",
+      "uri": "http://snomed.info/id/33795007",
+      "description": "Lumbar artery structure (body structure)",
+      "matchType": "exactMatch",
+      "relationship": "source_vessel"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "33616005",
+      "uri": "http://snomed.info/id/33616005",
+      "description": "Inferior mesenteric artery structure (body structure)",
+      "matchType": "exactMatch",
+      "relationship": "source_vessel"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D008638",
+      "uri": "http://id.nlm.nih.gov/mesh/D008638",
+      "description": "Mesenteric Artery, Inferior",
+      "matchType": "exactMatch",
+      "relationship": "source_vessel"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "445080003",
+      "uri": "http://snomed.info/id/445080003",
+      "description": "Endoleak (disorder) - parent concept",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D000078862",
+      "uri": "http://id.nlm.nih.gov/mesh/D000078862",
+      "description": "Endoleak",
+      "matchType": "broadMatch"
+    }
+  ]
 }
