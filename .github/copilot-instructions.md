@@ -42,17 +42,19 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
 3. Set session goals based on available time
 4. Document start time in session log
 
-#### During Work (Minute 0-45)
+#### During Work (Minute 0-48)
 - Work on highest priority tasks
 - Make incremental progress every 10-15 minutes
-- Commit and push changes frequently using **"Progress report:"** prefix
-- **NEVER** use "SESSION COMPLETE", "FINAL", or "DONE" in commit messages before minute 48
-- **NEVER** create summary commits or "wrap-up" commits before minute 48
-- All commits before minute 48 MUST be work-in-progress updates
+- Save work frequently with **"Progress report:"** prefix commits
+- **Commits are NOT session endpoints** - they are just progress checkpoints to save work
+- **NEVER** use "SESSION COMPLETE", "FINAL", "DONE", or "Complete" in commits before minute 48
+- **NEVER** create summary commits, wrap-up commits, or completion reports before minute 48
+- After each commit, **IMMEDIATELY** continue working on next item
+- If one task is done, **IMMEDIATELY** find and start the next task
 - If blocked, switch tasks immediately (don't waste time)
 - Use agents for specialized work
-- **DO NOT** finish early
-- **DO NOT** treat commits as session endpoints - they are progress checkpoints only
+- **DO NOT** finish early - there is ALWAYS more work to do
+- **DO NOT** treat commits as stopping points - save and keep going
 
 #### Approaching End (Minute 40-45)
 - **MUST** check current time: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"`
@@ -65,15 +67,16 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
   5. Fix minor issues
   6. Prepare next session work
 
-#### Final Minutes (Minute 45-50)
-- **MUST** check time again at minute 45
+#### Final Minutes (Minute 48-50 ONLY)
+- **MUST** check time again at minutes 40, 45, and 48
 - If <48 minutes elapsed: **CONTINUE WORKING** - do NOT create final commits
-- At minute 48-50 ONLY:
-  - Create final commit with "SESSION COMPLETE:" or "Final report:" prefix
+- Only when ALL work is complete AND checklist shows 100% AND time ≥48 minutes:
+  - Create final commit with "SESSION COMPLETE:" prefix
   - Update session log with complete metrics
   - Document next session priorities
   - Push changes
-- Before minute 48: ALL commits must be "Progress report:" only
+- **CRITICAL**: If work remains (checklist not 100%), keep working with "Progress report:" commits
+- There should ALWAYS be work to do - if you think you're done, find more work
 
 #### Finding Work When Current Task Complete
 **ALWAYS use this priority order:**
