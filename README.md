@@ -143,9 +143,12 @@ See [Project Structure Documentation](.project/structure.md) for complete detail
 ### For Technical Details
 - **[Knowledge Format](.project/knowledge-format.md)**: How knowledge graphs are structured
 - **[Rendering Specification](.project/rendering-spec.md)**: How renderings are generated
+- **[Ontology Integration](docs/ONTOLOGY-QUICKSTART.md)**: Quick start guide for using standard ontologies (NEW!)
+- **[Ontology Specification](.project/research/ontology-integration-specification.md)**: Complete technical specification
 
 ### For Contributors
 - **[Contributing Guidelines](docs/CONTRIBUTING.md)**: How to contribute
+- **[Ontology Quick Start](docs/ONTOLOGY-QUICKSTART.md)**: How to use SKOS, SNOMED, FIBO and other ontologies
 - **[Agent Configurations](.github/copilot/agents/)**: Specialized agent instructions
 - **[Agent KPIs](.github/copilot/agent-kpis.md)**: Agent performance tracking
 
