@@ -1,0 +1,277 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "MedicalEntity",
+  "@id": "aku-005-cta-imaging-findings",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-27T15:03:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "draft",
+    "last_updated": "2025-12-27T15:03:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/complications/endoleaks/type-2",
+    "type": "diagnosis",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "005",
+    "keywords": [
+      "CT angiography",
+      "CTA",
+      "imaging findings",
+      "contrast enhancement",
+      "type 2 endoleak diagnosis"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "post_evar_imaging"
+  },
+  "content": {
+    "statement": {
+      "text": "Type 2 endoleak on CT angiography (CTA) appears as contrast enhancement within the aneurysm sac outside the stent-graft lumen on arterial phase imaging, with identifiable feeding and/or draining vessels separate from the attachment zones.",
+      "formal": "CTA Diagnosis: Contrast in perigraft space + Arterial phase timing + Identifiable branch vessels + Remote from attachment zones = Type 2 Endoleak"
+    },
+    "explanation": {
+      "intuition": "On a CT scan with contrast, you see the stent-graft (the metal framework) sitting inside the aorta with bright white contrast inside it (flowing blood). If you also see contrast (white areas) in the space between the graft and the old aneurysm wall, connected to small branch vessels, that's a Type 2 endoleak.",
+      "key_insight": "The key to diagnosing Type 2 (versus Type 1) is seeing the contrast enhancement away from the attachment sites and being able to trace it to aortic branch vessels like lumbar arteries or the IMA. This requires carefully examining all phases of the CTA.",
+      "technical_details": "Type 2 endoleaks may appear on arterial phase (immediate imaging) or may only become apparent on delayed phase imaging (90-180 seconds post-contrast) as collateral flow is slower than systemic flow. Multi-phase imaging improves detection sensitivity from ~80% to >95%."
+    }
+  },
+  "imaging_protocol": {
+    "optimal_cta_protocol": {
+      "arterial_phase": {
+        "timing": "25-35 seconds post-contrast injection",
+        "purpose": "Detect high-flow endoleaks (Type 1, 3), some Type 2",
+        "contrast_opacification": "Peak aortic enhancement"
+      },
+      "delayed_phase": {
+        "timing": "90-180 seconds post-contrast",
+        "purpose": "Detect slow-flow Type 2 endoleaks",
+        "sensitivity_improvement": "Increases Type 2 detection by 15-20%",
+        "essential": true
+      },
+      "technical_parameters": {
+        "slice_thickness": "≤2.5mm (ideally 1.25mm)",
+        "reconstruction": "Multiplanar (axial, coronal, sagittal)",
+        "contrast_volume": "100-150mL",
+        "injection_rate": "3-5 mL/sec"
+      }
+    }
+  },
+  "imaging_characteristics": {
+    "type_2_specific_features": {
+      "location": "Within aneurysm sac, remote from attachment zones",
+      "source_identification": "Visible connection to branch vessels",
+      "enhancement_pattern": "May be focal or diffuse within sac",
+      "temporal_pattern": "May appear or intensify on delayed imaging",
+      "volume": "Variable, from small focus to extensive sac filling"
+    },
+    "distinguishing_from_type_1": {
+      "type_1_location": "Adjacent to proximal or distal attachment zones",
+      "type_1_timing": "Present on arterial phase, high flow",
+      "type_1_shape": "Often crescentic along attachment site",
+      "type_2_location": "Away from attachments, in sac body",
+      "type_2_timing": "May only appear on delayed phase",
+      "type_2_shape": "Often serpiginous, following vessel paths"
+    },
+    "source_vessel_identification": [
+      {
+        "vessel": "lumbar_arteries",
+        "location": "Posterior/posterolateral sac",
+        "imaging_clue": "Paired enhancing foci on posterior wall",
+        "best_plane": "Sagittal or coronal reformats"
+      },
+      {
+        "vessel": "inferior_mesenteric_artery",
+        "location": "Anterior sac, typically mid-portion",
+        "imaging_clue": "Single anterior vessel coursing superiorly",
+        "best_plane": "Sagittal midline"
+      },
+      {
+        "vessel": "median_sacral_artery",
+        "location": "Posterior midline at bifurcation",
+        "imaging_clue": "Midline posterior enhancement",
+        "best_plane": "Axial at bifurcation"
+      }
+    ]
+  },
+  "measurement_protocol": {
+    "key_measurements": [
+      {
+        "parameter": "maximum_sac_diameter",
+        "method": "Outer wall to outer wall, perpendicular to vessel axis",
+        "planes": "Measure in all planes, use maximum",
+        "clinical_significance": "Primary determinant of intervention need",
+        "action_threshold": "Growth >5mm or absolute >60mm"
+      },
+      {
+        "parameter": "sac_volume",
+        "method": "Volumetric segmentation (when available)",
+        "advantage": "More sensitive than diameter for detecting change",
+        "limitation": "Not universally available, time-consuming"
+      },
+      {
+        "parameter": "endoleak_volume",
+        "method": "Enhanced region within sac on delayed phase",
+        "clinical_value": "Larger volume may predict need for intervention",
+        "limitation": "Not standardized measurement"
+      }
+    ],
+    "comparison_strategy": {
+      "baseline": "1-month post-EVAR scan",
+      "frequency": "6 months for 2 years, then annually",
+      "critical_comparisons": [
+        "Sac diameter change from baseline",
+        "Sac diameter change from immediate post-op",
+        "Presence/absence of endoleak",
+        "Change in endoleak volume if present"
+      ]
+    }
+  },
+  "pitfalls_and_mimics": {
+    "false_positives": [
+      {
+        "mimic": "Calcified thrombus",
+        "appearance": "High attenuation within sac",
+        "distinguishing_feature": "No enhancement on delayed phase",
+        "solution": "Compare pre- and post-contrast images"
+      },
+      {
+        "mimic": "Contrast in bowel loops",
+        "appearance": "Enhancing structure adjacent to sac",
+        "distinguishing_feature": "Peristalsis on cine imaging, different anatomy",
+        "solution": "Careful anatomic localization"
+      }
+    ],
+    "false_negatives": [
+      {
+        "cause": "Missed delayed phase imaging",
+        "consequence": "Slow-flow Type 2 not detected",
+        "prevention": "Always obtain delayed phase",
+        "estimated_miss_rate": "15-20% of Type 2"
+      },
+      {
+        "cause": "Thick slice reconstruction",
+        "consequence": "Small endoleaks averaged out",
+        "prevention": "Thin slice (≤2.5mm) with MPR",
+        "estimated_miss_rate": "10-15%"
+      }
+    ]
+  },
+  "alternative_imaging_modalities": {
+    "contrast_enhanced_ultrasound": {
+      "advantages": [
+        "No radiation",
+        "No nephrotoxic contrast",
+        "Real-time imaging"
+      ],
+      "disadvantages": [
+        "Operator dependent",
+        "Limited by body habitus",
+        "Cannot size source vessels well"
+      ],
+      "accuracy": "Sensitivity ~85%, Specificity ~90% compared to CTA"
+    },
+    "MR_angiography": {
+      "advantages": [
+        "No radiation",
+        "Excellent soft tissue contrast"
+      ],
+      "disadvantages": [
+        "Artifact from metallic stent",
+        "Contraindications (pacemakers, etc.)",
+        "Higher cost, less available"
+      ],
+      "accuracy": "Comparable to CTA for endoleak detection"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:radiology:ct-technique:001",
+        "title": "CT Angiography Technique",
+        "strength": 0.9
+      },
+      {
+        "id": "urn:wskg:medicine:anatomy:vascular:abdominal-aorta:001",
+        "title": "Abdominal Aortic Anatomy",
+        "strength": 0.85
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:complications:type2-management:001",
+        "title": "Type 2 Endoleak Management",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:followup:surveillance-protocol:001",
+        "title": "Post-EVAR Surveillance",
+        "strength": 0.95
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "citation": "Reporting standards for endovascular aortic aneurysm repair",
+        "journal": "Journal of Vascular Surgery",
+        "confidence": 1.0
+      },
+      {
+        "type": "review_article",
+        "citation": "CT imaging after endovascular aortic aneurysm repair",
+        "journal": "Radiographics",
+        "confidence": 0.95
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "vascular_surgery_and_radiology_expert",
+      "date": "2025-12-27"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "radiology_residents",
+      "vascular_surgery_residents",
+      "interventional_radiology_fellows",
+      "attending_radiologists"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.7,
+    "learning_objectives": [
+      "Identify Type 2 endoleak on CTA",
+      "Distinguish Type 2 from Type 1 endoleak",
+      "Recognize the importance of delayed phase imaging",
+      "Measure aneurysm sac diameter correctly",
+      "Identify source vessels for Type 2 endoleaks"
+    ],
+    "clinical_pearls": [
+      "No delayed phase = missing ~20% of Type 2 endoleaks",
+      "Location matters: near attachment = Type 1, in sac body = likely Type 2",
+      "Multiplanar reformats essential for source vessel ID",
+      "Sac size trend more important than endoleak presence",
+      "Always compare to baseline 1-month scan, not immediate post-op"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "annotated_imaging",
+    "show_images": true,
+    "visualization": [
+      "cta_examples_type2",
+      "comparison_type1_vs_type2",
+      "delayed_phase_importance",
+      "measurement_technique"
+    ],
+    "emphasis": [
+      "delayed_phase_necessity",
+      "source_vessel_identification",
+      "sac_measurement"
+    ]
+  }
+}

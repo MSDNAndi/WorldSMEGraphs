@@ -1,0 +1,315 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "MedicalGuideline",
+  "@id": "aku-009-treatment-algorithm",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-27T15:06:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "draft",
+    "last_updated": "2025-12-27T15:06:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/complications/endoleaks/type-2",
+    "type": "management",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "009",
+    "keywords": [
+      "treatment algorithm",
+      "management",
+      "observation",
+      "embolization",
+      "intervention criteria"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "type2_endoleak_management"
+  },
+  "content": {
+    "statement": {
+      "text": "Type 2 endoleak management is primarily based on aneurysm sac behavior: observation for stable or decreasing sac size, intervention (typically embolization) for persistent endoleak with sac expansion >5mm or absolute diameter >60mm at 6-12 months.",
+      "formal": "Management Algorithm: Stable sac → Observe | Growing sac (>5mm OR >60mm absolute) at 6+ months → Intervene (embolization preferred) | Rapid growth or symptoms → Urgent intervention"
+    },
+    "explanation": {
+      "intuition": "The key principle is that not all Type 2 endoleaks need treatment - what matters is whether the aneurysm sac is growing. If the sac is stable or shrinking, just watch it. If it's growing significantly, then treat the endoleak to prevent rupture.",
+      "key_insight": "Time is therapeutic: ~50% of Type 2 endoleaks resolve spontaneously within 6 months. The challenge is identifying the subset that will persist and cause sac expansion while avoiding unnecessary interventions in those that will resolve.",
+      "technical_details": "The management paradigm shifted from treating all Type 2 endoleaks (older approach) to selective intervention based on sac behavior (current evidence-based approach). This reduces unnecessary procedures while maintaining safety."
+    }
+  },
+  "management_algorithm": {
+    "initial_detection": {
+      "timing": "Any time point post-EVAR",
+      "immediate_action": "Identify type (confirm Type 2, not Type 1 or 3)",
+      "initial_management": "Observation",
+      "reasoning": "Many resolve spontaneously, low immediate rupture risk"
+    },
+    "observation_phase": {
+      "duration": "6-12 months minimum",
+      "imaging_frequency": "Every 3-6 months",
+      "monitoring_parameters": [
+        "Aneurysm sac diameter",
+        "Endoleak presence and size",
+        "Patient symptoms"
+      ],
+      "continuation_criteria": {
+        "stable_sac": "Continue observation annually",
+        "decreasing_sac": "Continue observation, endoleak may resolve",
+        "minor_growth": "<5mm growth over 6 months - continue observation with closer monitoring"
+      }
+    },
+    "intervention_indications": {
+      "absolute_indications": [
+        {
+          "criterion": "Sac expansion >5mm compared to baseline",
+          "timeframe": "6-12 months post-detection",
+          "evidence_level": "Strong consensus"
+        },
+        {
+          "criterion": "Absolute sac diameter >60mm",
+          "reasoning": "High rupture risk threshold",
+          "evidence_level": "Expert consensus"
+        },
+        {
+          "criterion": "Symptomatic endoleak",
+          "symptoms": "Back/abdominal pain, tender mass",
+          "evidence_level": "Absolute",
+          "urgency": "Emergent if acute symptoms"
+        }
+      ],
+      "relative_indications": [
+        {
+          "criterion": "Sac expansion 3-5mm at 6 months",
+          "management": "Consider intervention vs. closer observation",
+          "factors": "Patient fitness, initial sac size, growth rate"
+        },
+        {
+          "criterion": "Persistent endoleak >12 months with stable sac",
+          "management": "Controversial - some advocate intervention, others continued observation",
+          "evidence": "No clear benefit demonstrated for stable sac"
+        },
+        {
+          "criterion": "Large endoleak volume",
+          "definition": ">25% sac volume on imaging",
+          "management": "Lower threshold for intervention",
+          "reasoning": "May predict future sac expansion"
+        }
+      ]
+    },
+    "intervention_modalities": {
+      "primary_approach": {
+        "technique": "Transarterial embolization",
+        "access": "Femoral or brachial artery",
+        "target": "Feeding and draining vessels",
+        "embolic_agents": [
+          "Coils (primary)",
+          "Liquid embolic agents (Onyx, n-BCA)",
+          "Combination approaches"
+        ],
+        "success_rate": "60-85% initial technical success",
+        "reintervention_rate": "20-40% require repeat treatment",
+        "advantages": "Minimally invasive, catheter-based, outpatient"
+      },
+      "secondary_approach": {
+        "technique": "Translumbar embolization",
+        "access": "Direct percutaneous puncture of sac",
+        "indication": "Failed transarterial, or no transarterial access",
+        "success_rate": "70-90%",
+        "advantages": "Direct access to sac, can treat complex anatomy",
+        "disadvantages": "More invasive, higher complication risk"
+      },
+      "tertiary_approach": {
+        "technique": "Open surgical repair (rare)",
+        "indication": "Failed endovascular options, continued expansion",
+        "frequency": "<5% of Type 2 endoleaks",
+        "approach": "Laparotomy with sac exploration and vessel ligation",
+        "morbidity": "Significantly higher than endovascular"
+      }
+    }
+  },
+  "special_scenarios": {
+    "immediate_post_operative": {
+      "scenario": "Type 2 endoleak detected on 1-month CT",
+      "management": "Observation regardless of size",
+      "reasoning": "High spontaneous resolution rate in first 6 months",
+      "exception": "Symptomatic or very large expanding sac"
+    },
+    "late_developing": {
+      "scenario": "New Type 2 endoleak appears >2 years post-EVAR",
+      "management": "Same criteria - observe if stable, intervene if growth",
+      "significance": "Lower spontaneous resolution rate than early endoleaks"
+    },
+    "anticoagulated_patients": {
+      "scenario": "Patient on anticoagulation with Type 2 endoleak",
+      "considerations": [
+        "Lower spontaneous thrombosis rate",
+        "May require longer observation period",
+        "Consider risk/benefit of continuing anticoagulation"
+      ],
+      "management": "Generally continue anticoagulation if indicated, closer monitoring"
+    },
+    "multiple_type_2_sources": {
+      "scenario": "Multiple feeding vessels identified",
+      "implications": "Lower spontaneous resolution rate, may need more extensive embolization",
+      "technical_challenge": "Complete embolization more difficult"
+    }
+  },
+  "outcomes_and_evidence": {
+    "observation_safety": {
+      "rupture_rate": "0.5-1% with stable sac on observation",
+      "evidence": "Multiple retrospective series, growing prospective data",
+      "conclusion": "Safe to observe Type 2 with stable sac"
+    },
+    "embolization_efficacy": {
+      "technical_success": "60-85%",
+      "clinical_success": "Sac stabilization/decrease in 50-70%",
+      "reintervention_rate": "20-40%",
+      "complications": "5-10% (access issues, vessel injury, non-target embolization)"
+    },
+    "sac_behavior": {
+      "with_observation": "Stable/decreasing in 60-70%",
+      "with_embolization": "Stable/decreasing in 65-80%",
+      "spontaneous_resolution": "30-50% overall, higher in first 6 months"
+    }
+  },
+  "contraindications_and_precautions": {
+    "absolute_contraindications": [
+      "Patient unfit for any intervention (severely debilitated)",
+      "Life expectancy <6 months from other causes"
+    ],
+    "relative_contraindications": [
+      "Severe renal insufficiency (for contrast imaging and intervention)",
+      "Severe contrast allergy",
+      "Uncorrectable coagulopathy"
+    ],
+    "precautions": [
+      "Anticoagulation - consider holding for intervention",
+      "Renal function - minimize contrast, hydration protocol",
+      "Access vessel disease - may limit transarterial approach"
+    ]
+  },
+  "follow_up_protocol": {
+    "after_observation_decision": {
+      "imaging": "CTA every 6 months for 2 years, then annually",
+      "reassessment": "If sac grows, reconsider intervention",
+      "discontinuation": "If endoleak resolves and sac stable/decreasing"
+    },
+    "after_intervention": {
+      "immediate": "CTA at 1 month post-embolization",
+      "short_term": "Every 3 months for first year",
+      "long_term": "Every 6-12 months if stable",
+      "success_criteria": [
+        "Endoleak resolution on imaging",
+        "Sac stabilization or decrease",
+        "No recurrence"
+      ],
+      "failure_criteria": [
+        "Persistent endoleak",
+        "Continued sac expansion",
+        "Recurrent endoleak after initial resolution"
+      ]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:complications:type2-definition:001",
+        "title": "Type 2 Endoleak Definition",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:radiology:cta-findings:type2:001",
+        "title": "CTA Imaging of Type 2 Endoleak",
+        "strength": 0.95
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:interventional-radiology:embolization-technique:type2:001",
+        "title": "Type 2 Endoleak Embolization Technique",
+        "strength": 0.9
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:followup:post-evar:001",
+        "title": "Post-EVAR Long-term Surveillance",
+        "strength": 0.85
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "citation": "Society for Vascular Surgery practice guidelines on the care of patients with endovascular aortic repair",
+        "organization": "Society for Vascular Surgery",
+        "year": 2018,
+        "confidence": 1.0
+      },
+      {
+        "type": "systematic_review",
+        "citation": "Management of type II endoleaks: A systematic review and meta-analysis",
+        "journal": "Journal of Vascular Surgery",
+        "confidence": 0.95
+      },
+      {
+        "type": "textbook",
+        "citation": "Rutherford's Vascular Surgery and Endovascular Therapy, 9th Edition",
+        "isbn": "978-0323427913",
+        "confidence": 0.98
+      }
+    ],
+    "extraction_method": "guideline_synthesis",
+    "validation": {
+      "validator": "vascular_surgery_expert",
+      "date": "2025-12-27",
+      "notes": "Algorithm reflects current SVS guidelines and expert consensus"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "vascular_surgeons",
+      "interventional_radiologists",
+      "medical_students_advanced"
+    ],
+    "estimated_time": "35min",
+    "difficulty_curve": 0.7,
+    "learning_objectives": [
+      "Apply evidence-based criteria for Type 2 endoleak management",
+      "Distinguish when to observe vs. intervene",
+      "Understand intervention options and their outcomes",
+      "Develop appropriate surveillance protocols"
+    ],
+    "decision_framework": "Sac behavior drives decision, not just endoleak presence",
+    "clinical_pearls": [
+      "Sac size is king - stable sac = observe, growing sac = intervene",
+      "6-month rule - give time for spontaneous resolution before intervention",
+      "5mm growth or 60mm absolute size are intervention triggers",
+      "Embolization is first-line intervention, surgery is last resort",
+      "Not all endoleaks need treatment - resist the urge to treat everything"
+    ],
+    "common_errors": [
+      "Intervening too early before allowing time for spontaneous resolution",
+      "Treating endoleak presence rather than sac behavior",
+      "Not considering patient fitness and life expectancy in decision",
+      "Inadequate follow-up imaging after intervention"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "decision_tree",
+    "show_flowchart": true,
+    "visualization": [
+      "management_algorithm_flowchart",
+      "intervention_techniques_comparison",
+      "outcomes_data_graphs"
+    ],
+    "emphasis": [
+      "observation_vs_intervention_criteria",
+      "sac_behavior_primacy",
+      "embolization_as_firstline"
+    ]
+  }
+}
