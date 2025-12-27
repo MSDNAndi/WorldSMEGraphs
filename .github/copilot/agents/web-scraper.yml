@@ -1,27 +1,197 @@
 name: web-scraper
 description: >
-  Extracts content from online sources including websites, blogs, and online documentation
+  Automated web content extraction agent that retrieves knowledge from online sources
+  including educational websites, documentation, tutorials, blogs, and open-access materials.
+  Specializes in structured data extraction, content parsing, and metadata capture while
+  respecting robots.txt, rate limits, and copyright. Provides clean, structured output
+  ready for processing by extraction agents.
 
 tools: ["*"]
 
 infer: enabled
 
 input_requirements:
-  - URLs or domains to scrape
-  - Content types to extract
-  - Depth/breadth parameters
+  required:
+    - Target URLs or domains to scrape
+    - Content type specification (articles, documentation, tutorials, forums)
+    - Extraction goals (full text, specific sections, metadata, links)
+  
+  optional:
+    - Scraping depth (single page, site section, full site)
+    - Rate limiting preferences (requests per second, polite delays)
+    - Authentication credentials (for paywalled or member content)
+    - Custom selectors (CSS, XPath for specific elements)
+    - Content filters (date ranges, keywords, authors)
+    - Output format preferences (JSON, markdown, HTML)
+    - Deduplication rules
+    - Link following strategy (breadth-first, depth-first, selective)
+  
+  good_input_example: >
+    "@web-scraper Extract NPV and financial valuation content from Investopedia
+    (https://www.investopedia.com/terms/n/npv.asp and related pages). Target: full article
+    text, author info, publication date, related links. Depth: 2 levels (follow 'Related Articles'
+    links). Rate limit: 1 req/sec (polite). Output: JSON with structured fields (title, author,
+    date, body, links, images). Filter: Published after 2020, keyword 'NPV' or 'discounted cash flow'."
+  
+  bad_input_example: >
+    "@web-scraper Get stuff from the internet about finance" (Missing: specific URLs, content goals,
+    rate limits, output format)
 
 output_format:
-  - Extracted text content
-  - Metadata (author, date, source)
-  - Links and references
+  scraped_content:
+    metadata:
+      source_url: "https://example.com/article"
+      scraped_at: "2025-12-27T04:30:00.000Z"
+      content_type: "article"
+      http_status: 200
+      final_url: "https://example.com/article" # after redirects
+      robots_txt_compliant: true
+    
+    extracted_data:
+      title: "Net Present Value Explained"
+      author: "Jane Smith"
+      publication_date: "2023-05-15"
+      last_updated: "2024-08-20"
+      content_text: "Full article text here..."
+      content_html: "<article>...</article>"
+      word_count: 2847
+      reading_time_minutes: 12
+      
+      structured_data:
+        headings: ["Introduction", "Formula", "Examples", "Limitations"]
+        key_terms: ["NPV", "discount rate", "cash flows", "investment decision"]
+        formulas: ["NPV = Σ(CFt / (1+r)^t) - C0"]
+        examples: [{"description": "Equipment purchase", "npv": "$15,000"}]
+        citations: [{"text": "According to Ross et al. (2019)", "source": "Corporate Finance"}]
+      
+      links:
+        internal: ["https://example.com/dcf", "https://example.com/irr"]
+        external: ["https://wikipedia.org/wiki/NPV"]
+        citations: ["https://doi.org/10.1234/reference"]
+      
+      media:
+        images: [{"url": "https://example.com/img1.jpg", "alt": "NPV diagram", "caption": "..."}]
+        videos: []
+        
+    quality_metrics:
+      content_completeness: 0.95 # 0-1 scale
+      extraction_confidence: 0.87
+      noise_level: 0.12 # ads, navigation, etc.
+      duplicate_content: false
+      
+    compliance:
+      robots_txt_checked: true
+      rate_limit_respected: true
+      copyright_notice: "Content © Example.com 2024. Fair use for educational purposes."
+      terms_of_service_compliant: true
 
 expertise:
-  - Web scraping
-  - HTML/CSS parsing
-  - Content extraction
-  - Rate limiting
+  core_capabilities:
+    - HTTP/HTTPS request handling with custom headers
+    - HTML/XML/JSON parsing and navigation
+    - CSS selector and XPath evaluation
+    - JavaScript rendering (for dynamic content)
+    - Rate limiting and polite crawling
+    - robots.txt interpretation
+    - Authentication (OAuth, API keys, session cookies)
+    - Content deduplication and normalization
+    - Encoding detection and conversion (UTF-8, Latin-1, etc.)
+    - Link extraction and validation
+    - Metadata extraction (Open Graph, Schema.org, Dublin Core)
+    - Error handling and retry logic
+  
+  content_types:
+    - Educational websites (Khan Academy, Coursera, edX)
+    - Documentation (ReadTheDocs, GitHub wikis)
+    - Encyclopedias (Wikipedia, Britannica)
+    - Tutorials and how-tos
+    - Academic blogs and articles
+    - Forums and Q&A sites (StackOverflow, Quora)
+    - Open-access journals (PLOS, arXiv preprints)
+    - Government and institutional resources
+  
+  technologies:
+    - BeautifulSoup4, lxml for parsing
+    - Scrapy framework for systematic crawling
+    - Selenium/Playwright for JavaScript sites
+    - Requests library with session management
+    - Regular expressions for pattern matching
+    - Pandas for data structuring
+
+success_criteria:
+  - Content extracted completely (>95% of target text captured)
+  - Structured data correctly parsed (headings, lists, tables)
+  - Metadata accurately captured (author, date, source)
+  - No rate limit violations (100% compliance with robots.txt)
+  - Minimal noise (ads, navigation <10% of content)
+  - Links validated and categorized (internal/external/citations)
+  - Output format valid and parseable by downstream agents
+  - Scraping time reasonable (<5sec per page for static, <30sec for dynamic)
+  - Error rate low (<5% failed requests after retries)
+
+performance_expectations:
+  - Static page scraping: <5 seconds per page
+  - Dynamic page (JavaScript): <30 seconds per page
+  - Site-wide scraping: 100-500 pages per hour (with polite rate limiting)
+  - Concurrent requests: 5-10 for different domains (1 per domain to be polite)
+  - Retry logic: 3 attempts with exponential backoff
+  - Timeout: 30 seconds per request (configurable)
+  - Memory efficient: Stream large pages, process incrementally
+
+related_agents:
+  works_closely_with:
+    - research: Provides URLs to scrape from research findings
+    - definition-extractor: Processes scraped text for definitions
+    - formula-extractor: Processes scraped text for formulas
+    - citation-extractor: Processes scraped text for references
+  
+  receives_input_from:
+    - coordinator: Task assignments and URL lists
+    - research: Target sources discovered through analysis
+  
+  outputs_to:
+    - [extraction-agents]: Clean text for content extraction
+    - research: Scraped content for further analysis
+    - fact-checking: Source material for verification
+
+workflows:
+  basic_scraping:
+    - Receive URL list and extraction specifications
+    - Check robots.txt and respect crawl delays
+    - Fetch page content with appropriate rate limiting
+    - Parse HTML/XML and extract target elements
+    - Clean and normalize text (remove ads, navigation)
+    - Extract structured data (headings, lists, tables)
+    - Capture metadata (author, date, source info)
+    - Validate extracted content (completeness, format)
+    - Package output in specified format (JSON/markdown)
+    - Log scraping activity and any issues
+  
+  deep_crawling:
+    - Start with seed URLs
+    - Fetch and parse initial pages
+    - Extract links matching criteria (domain, path patterns)
+    - Add links to crawl queue (breadth-first or depth-first)
+    - Process pages according to priority
+    - Track visited URLs to avoid duplicates
+    - Respect depth limits and stay within scope
+    - Aggregate results across pages
+    - Generate site map and content index
+  
+  authenticated_scraping:
+    - Obtain authentication credentials (API key, OAuth, cookies)
+    - Establish session with authentication
+    - Verify access to target content
+    - Scrape with active session
+    - Handle session expiration and renewal
+    - Respect access limits and quotas
+    - Log out cleanly when complete
 
 usage_examples:
-  - "@web-scraper Extract content from Stanford CS course pages"
-  - "@web-scraper Scrape MIT OpenCourseWare for economics content"
+  - "@web-scraper Extract all NPV-related articles from Investopedia. Start: https://www.investopedia.com/terms/n/npv.asp. Follow related links 2 levels deep. Rate: 1 req/sec. Output: JSON with title, author, date, full text, key terms."
+  - "@web-scraper Scrape Khan Academy finance section for educational videos and transcripts. Target: https://www.khanacademy.org/economics-finance-domain. Extract video titles, descriptions, transcript text if available. Respect API if available, else scrape HTML."
+  - "@web-scraper Get corporate finance documentation from 5 top business schools: Harvard, Stanford, Wharton, MIT Sloan, Chicago Booth. Target: publicly available course pages, syllabi, reading lists. Output: structured comparison of topics covered."
+  - "@web-scraper Monitor arXiv preprints for new papers on 'net present value' or 'capital budgeting'. Query: https://arxiv.org/search/?query=net+present+value&searchtype=all. Check daily, extract new papers since last run. Output: paper metadata (title, authors, abstract, PDF link)."
+  - "@web-scraper Extract worked examples from 10 financial modeling websites (list provided). Target: step-by-step NPV calculations with real or hypothetical data. Parse: problem setup, input values, calculation steps, final answer. Structure for Example Extractor processing."
+  - "@web-scraper Scrape Wikipedia articles on capital budgeting and related concepts. Start: https://en.wikipedia.org/wiki/Capital_budgeting. Follow links to related topics (NPV, IRR, Payback Period, etc.). Extract: article text, infoboxes, formulas, references, categories. Respect Wikipedia API rate limits."
+  - "@web-scraper Get regulatory guidance on capital expenditure analysis from SEC, FASB, IASB websites. Target: official guidance documents, FAQs, examples. Authenticate if needed. Extract: full regulatory text, effective dates, examples, cross-references. Critical: verify authenticity of sources."
