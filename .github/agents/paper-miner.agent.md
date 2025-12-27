@@ -1,44 +1,8 @@
-# Agent Paper Miner
-
-[Agent description]
-
-## Responsibilities
-
-- [Define specific responsibilities]
-
-## Expertise
-
-- [Core capabilities]
-- [Specialized knowledge]
-
-## Input Requirements
-
-### Required
-- [Required inputs]
-
-### Optional
-- [Optional inputs]
-
-## Output Format
-
-[Description of outputs]
-
-## Usage Examples
-
-```
-@paper-miner [Example usage]
-```
-
-## Success Criteria
-
-- ✅ [Criterion 1]
-- ✅ [Criterion 2]
-
-## Related Agents
-
-- [Related agent 1]
-- [Related agent 2]
-
-## Version History
-- **v2.0** (2025-12-27): Converted to .agent.md format in correct .github/agents/ location
-- **v1.0** (Previous): YAML format in .github/copilot/agents/ (deprecated)
+YAML parsing error: while parsing a block collection
+  in "<unicode string>", line 27, column 3:
+      - "Extract this paper" (missing  ... 
+      ^
+expected <block end>, but found '<scalar>'
+  in "<unicode string>", line 27, column 26:
+      - "Extract this paper" (missing identifiers and targets)
+                             ^
