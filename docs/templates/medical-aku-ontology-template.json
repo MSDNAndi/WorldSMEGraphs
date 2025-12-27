@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity", "CHOOSE: MedicalCondition | MedicalProcedure | MedicalTest | MedicalDevice"],
+  "@id": "wsmg-med:YOUR-CONCEPT-ID",
+  
+  "metadata": {
+    "version": "1.0.0",
+    "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+    "last_updated": "YYYY-MM-DDTHH:MM:SS.000Z",
+    "contributors": [
+      "your-agent-name",
+      "terminology-agent"
+    ],
+    "confidence": 0.95,
+    "status": "enhanced"
+  },
+  
+  "classification": {
+    "domain_path": "medicine/SUBDOMAIN/PATH",
+    "type": "definition | concept | procedure",
+    "difficulty": "basic | intermediate | advanced | expert",
+    "importance": "foundational | high | medium | low",
+    "aku_id": "001",
+    "keywords": ["primary term", "related term 1"],
+    "medical_specialty": "specialty_name",
+    "clinical_context": "context_description"
+  },
+  
+  "content": {
+    "statement": {
+      "text": "Your clear, comprehensive definition.",
+      "formal": "Formal/technical statement"
+    }
+  },
+  
+  "relationships": {
+    "broader": [{"@id": "wsmg-med:parent", "@type": "skos:Concept", "label": "Parent"}],
+    "exactMatch": ["snomed:XXXXXXX", "umls:CXXXXXXX"],
+    "broadMatch": ["mesh:DXXXXXX"],
+    "closeMatch": ["icd11:ENTITY_ID"]
+  },
+  
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "XXXXXXX",
+      "uri": "http://snomed.info/id/XXXXXXX",
+      "description": "SNOMED name",
+      "preferred": true
+    }
+  ],
+  
+  "terminology_metadata": {
+    "validation_agent": "terminology",
+    "validation_date": "YYYY-MM-DDTHH:MM:SS.000Z",
+    "sources_validated": ["SNOMED CT", "MeSH", "ICD-11", "UMLS"],
+    "confidence": 0.98
+  }
+}
