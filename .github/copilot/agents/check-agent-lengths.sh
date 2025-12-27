@@ -1,10 +1,13 @@
 #!/bin/bash
 # Agent Length Checker - Acceptance Criteria
-# Verifies all agent YAML files meet the 180-line minimum requirement
+# Verifies all agent .agent.md files meet the 180-line minimum requirement
 
 set -e
 
-AGENTS_DIR="$(dirname "$0")"
+# Look for agents in .github/agents/ directory
+# This script is in .github/copilot/agents/, so we go up one level then into agents/
+SCRIPT_DIR="$(dirname "$0")"
+AGENTS_DIR="$(cd "$SCRIPT_DIR/../../agents" && pwd)"
 MIN_LINES=180
 FAIL_COUNT=0
 PASS_COUNT=0
@@ -13,11 +16,12 @@ TOTAL_COUNT=0
 echo "=================================="
 echo "Agent Length Verification"
 echo "Minimum Required: ${MIN_LINES} lines"
+echo "Checking: ${AGENTS_DIR}"
 echo "=================================="
 echo ""
 
-# Check all .yml files except README
-for agent_file in "$AGENTS_DIR"/*.yml; do
+# Check all .agent.md files
+for agent_file in "$AGENTS_DIR"/*.agent.md; do
     if [ -f "$agent_file" ]; then
         TOTAL_COUNT=$((TOTAL_COUNT + 1))
         filename=$(basename "$agent_file")

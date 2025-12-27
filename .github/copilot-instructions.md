@@ -176,6 +176,78 @@ domain/
 
 See `.github/agents/` for specialized agent configurations (all use `.agent.md` format per GitHub Copilot standards)
 
+### How to Invoke Agents
+
+Agents are invoked using the `@agent-name` syntax followed by specific instructions:
+
+**Basic invocation:**
+```
+@coordinator Create NPV pilot with 50 comprehensive AKUs
+```
+
+**With detailed requirements:**
+```
+@paper-miner Extract formulas and definitions from "Net Present Value Analysis" textbook chapters 3-5. Focus on: discount rates, cash flow calculations, decision criteria. Output: Structured JSON for AKU creation.
+```
+
+**Best practices for agent invocation:**
+1. **Be Specific**: Provide clear objectives and success criteria
+2. **Include Context**: Give relevant background information the agent needs
+3. **Set Expectations**: Specify format, depth, timeline if applicable
+4. **Reference Artifacts**: Point to specific files, sections, or resources
+5. **Define Success**: State how to measure completion
+
+**Available agent categories:**
+- **Coordination**: coordinator, recruiter, quality
+- **Content Extraction**: paper-miner, textbook-parser, video-transcriber, definition-extractor, formula-extractor
+- **Knowledge Organization**: ontology, semantic-harmonization, terminology, relationship-extractor
+- **Validation**: verification, fact-checking, peer-review, multi-lingual-validation
+- **Rendering**: rendering, pedagogy, visualization, accessibility
+- **Domain Experts**: math-expert, generic-domain-empathy (with personas)
+- **Quality Assurance**: code-review-agent, contrarian
+- **And 40+ more specialized agents** - see `.github/agents/` directory
+
+## Build, Test, and Validation
+
+### Validating AKUs (Atomic Knowledge Units)
+This project uses Python scripts for validation. No external dependencies required (uses standard library only).
+
+**Validate a single AKU:**
+```bash
+python .project/agents/quality-assurance/tools/validate_aku.py path/to/aku.json
+```
+
+**Validate all AKUs in a directory:**
+```bash
+python .project/agents/quality-assurance/tools/validate_aku.py --directory path/to/akus/
+```
+
+**Validate a specific pilot:**
+```bash
+python .project/agents/quality-assurance/tools/validate_aku.py --pilot npv
+```
+
+### Validating Agents
+Check that all agent configurations meet the 180-line minimum requirement:
+
+```bash
+bash .github/copilot/agents/check-agent-lengths.sh
+```
+
+This validates all `.agent.md` files in `.github/agents/` directory.
+
+### Project Structure Validation
+- Review `.project/structure.md` to ensure file organization matches documentation
+- Verify no files are in wrong locations
+- Check that all domains follow the standard structure pattern
+
+### Quality Checks Before Committing
+1. **Validate AKUs**: If you modified any AKU files, run the validation script
+2. **Check Agent Configs**: If you modified agents, verify they meet requirements
+3. **Verify Timestamps**: Ensure UTC timestamps are updated on modified AKUs
+4. **Test Locally**: If applicable, test any scripts or tools you modified
+5. **Review Documentation**: Update docs if you changed structure or added features
+
 ## Workflow Requirements
 
 ### Before Finalizing Any PR
