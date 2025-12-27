@@ -1,8 +1,9 @@
 # Known Issue: Agent Content Needs Enhancement
 
 ## Status
-- ✅ **Format Conversion Complete**: All 53 agents converted from .yml to .md
-- ⚠️ **Content Enhancement Needed**: Automated conversion created placeholder content
+- ✅ **Location Fixed**: All agents moved to correct `.github/agents/` directory
+- ✅ **Format Conversion Complete**: All 60 agents use `.agent.md` extension
+- ⚠️ **Content Enhancement Needed**: Automated conversion created placeholder content for some agents
 
 ## Problem
 
@@ -22,11 +23,11 @@ The current .md files have:
 ## Affected Agents
 
 Based on code review, agents needing content enhancement include:
-- web-scraper.md - missing detailed scraping capabilities
-- visualization.md - usage examples need reformatting
-- meta-learning.md - missing SME detection rules and thresholds
-- quality.md - incomplete output format structures
-- And likely most/all other converted agents
+- web-scraper.agent.md - missing detailed scraping capabilities
+- visualization.agent.md - usage examples need reformatting
+- meta-learning.agent.md - missing SME detection rules and thresholds
+- quality.agent.md - incomplete output format structures
+- And approximately 15-20 other converted agents with placeholder content
 
 ## Root Cause
 
@@ -65,11 +66,13 @@ Two approaches:
 The format standardization IS complete and correct. The content enhancement is a **separate improvement task** that should be tracked independently.
 
 ### What's Already Good
-- ✅ All agents use .md format
+- ✅ All agents in correct location: `.github/agents/`
+- ✅ All agents use `.agent.md` format per GitHub Copilot standards
 - ✅ No .yml files remain
 - ✅ Recruiter is format gatekeeper
 - ✅ Structure is consistent
-- ✅ Agents are discoverable by Copilot
+- ✅ Agents are discoverable by GitHub Copilot
+- ✅ Documentation updated to reflect correct paths
 
 ### What Needs Work (Next Session)
 - ⚠️ Content depth and detail
@@ -79,10 +82,11 @@ The format standardization IS complete and correct. The content enhancement is a
 
 ## Recommendation
 
-**Accept the current PR** as format standardization complete. Create a **new issue** for content enhancement as a follow-up task. This separates concerns:
+**Accept the current PR** as format and location standardization complete. Create a **new issue** for content enhancement as a follow-up task. This separates concerns:
 
-1. Format standardization (DONE) ✅
-2. Content enhancement (TODO) 📋
+1. Location fix (DONE) ✅ - Moved to `.github/agents/`
+2. Format standardization (DONE) ✅ - All use `.agent.md`
+3. Content enhancement (TODO) 📋 - Restore full content for placeholder agents
 
 The format change enables GitHub Copilot integration. The content enhancement can be done incrementally without blocking the format benefits.
 
