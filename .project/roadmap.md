@@ -1,6 +1,6 @@
 # WorldSMEGraphs Roadmap
 
-> **Last Updated**: 2025-12-26  
+> **Last Updated**: 2025-12-27  
 > **Status**: Planning Phase  
 > **Next Review**: 2026-01-26
 
@@ -20,7 +20,16 @@ Create a comprehensive, interconnected knowledge representation system for subje
   - [x] Recruiter agent established as format gatekeeper
   - [x] Format standards documented and enforced
 - [x] Define project structure and organization
-- [ ] Specify knowledge graph format
+- [x] Specify knowledge graph format
+- [x] Ontology integration specification
+  - [x] Three-layer ontology architecture defined
+  - [x] JSON-LD contexts created (base, medicine, economics, science)
+  - [x] SKOS integration framework established
+  - [x] External ontology linking patterns specified
+  - [x] Dynamic domain discovery system designed
+  - [x] Validation tools implemented
+  - [x] Migration strategy documented (5 phases)
+  - [x] Implementation guide created
 - [ ] Define rendering system architecture
 - [ ] Create initial documentation
 - [ ] Set up quality assurance processes
