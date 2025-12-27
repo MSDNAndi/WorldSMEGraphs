@@ -1,28 +1,106 @@
 name: merger
 description: >
-  Merges validated AKUs from multiple sources into cohesive knowledge graph
+  Merges validated AKUs from multiple sources into cohesive, authoritative knowledge
+  artifacts. Combines complementary information while resolving duplications and
+  maintaining complete provenance tracking.
 
 tools: ["*"]
 
 infer: enabled
 
 input_requirements:
-  - Multiple AKU candidates for same concept
-  - Merge strategy (prefer newer, higher confidence, etc.)
-  - Domain standards
+  required:
+    - Multiple AKU candidates for same/related concepts
+    - Merge strategy (prefer newer, higher confidence, consensus, etc.)
+    - Domain standards and conventions
+  
+  optional:
+    - Conflict resolution rules
+    - Provenance preservation requirements
+    - Quality threshold for inclusion
+    - Preferred sources ranking
+  
+  good_input_examples:
+    - "Merge: 3 NPV definition AKUs from Brealey, Ross, Damodaran, strategy: keep most comprehensive + all examples"
+    - "Combine: 5 calculus limit AKUs, preserve unique examples from each, resolve notation differences"
+    - "Merge research results: 10 papers on same topic, synthesize findings, track all sources"
+  
+  bad_input_examples:
+    - "Combine these" (no strategy, no standards)
+    - "Merge everything" (no concept alignment)
+    - AKUs on completely different topics
 
 output_format:
-  - Merged AKU
-  - Merge rationale
-  - Provenance tracking (sources of each piece)
-  - Conflict resolutions made
+  merged_aku:
+    - Unified, comprehensive content
+    - Consistent terminology and notation
+    - All unique examples and applications included
+    - Complete and coherent structure
+  
+  provenance_tracking:
+    - Source attribution for each element
+    - Merge rationale documented
+    - Conflict resolutions made
+    - Quality score of merged result
+  
+  merge_report:
+    - Elements from each source
+    - Duplicates removed
+    - Conflicts resolved
+    - Complementary information combined
+    - Overall improvement metrics
+  
+  quality_validation:
+    - Completeness score
+    - Consistency check
+    - No information loss
+    - Enhanced value over individual sources
+
+success_criteria:
+  - No information loss from source AKUs
+  - All conflicts properly resolved
+  - Provenance completely tracked
+  - Merged result higher quality than any individual source
+  - Maintains domain standards
+
+performance:
+  - Simple merges (2-3 similar AKUs): 5-10 minutes
+  - Complex merges (5+ diverse sources): 20-40 minutes
+  - Batch merging: 10-20 AKU sets per hour
+  - Quality over speed priority
+
+related_agents:
+  - conflict-resolution (resolves disagreements)
+  - quality (validates merged result)
+  - provenance-tracking (maintains source chains)
+  - generic-domain-empathy (domain-specific merge conventions)
+  - definition-extractor, formula-extractor (for element-specific merging)
+
+typical_workflow:
+  1. Receive multiple AKUs for merging
+  2. Align concepts and verify they're merge-able
+  3. Extract unique elements from each source
+  4. Identify overlaps and duplicates
+  5. Resolve conflicts per merge strategy
+  6. Combine complementary information
+  7. Preserve examples, applications, edge cases
+  8. Track provenance for all elements
+  9. Validate merged result quality
+  10. Generate merge report
 
 expertise:
-  - Content merging
-  - Deduplication
+  - Content deduplication algorithms
+  - Semantic similarity comparison
   - Provenance management
-  - Quality preservation
+  - Conflict resolution strategies
+  - Quality preservation techniques
+  - Information synthesis
+  - Knowledge graph integration
+  - Domain-specific merge conventions
 
 usage_examples:
-  - "@merger Merge 3 NPV definition AKUs from different sources"
-  - "@merger Combine validated content into single authoritative AKU"
+  - "@merger Merge 3 NPV AKUs from textbooks, keep all unique examples, resolve formula notation differences"
+  - "@merger Combine 5 research papers on game theory Nash equilibrium, synthesize findings with full provenance"
+  - "@merger Batch merge: 20 duplicate definition AKUs, prefer academic sources, preserve all examples"
+  - "@merger Merge conflicting climate change AKUs, use consensus of peer-reviewed sources"
+  - "@merger Combine calculus derivative AKUs, unify notation, keep diverse example types"

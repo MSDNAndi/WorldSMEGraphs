@@ -1,29 +1,109 @@
 name: user-testing
 description: >
-  Tests content with real learners and gathers feedback for improvement
+  Tests educational content with real learners to gather feedback on comprehension,
+  usability, and effectiveness. Conducts empirical validation with target audiences
+  to ensure content meets learning objectives and user needs.
 
 tools: ["*"]
 
 infer: enabled
 
 input_requirements:
-  - Content to test (AKUs, renderings, exercises)
-  - Target audience profile
-  - Test objectives
+  required:
+    - Content to test (AKUs, renderings, exercises, assessments)
+    - Target audience profile (age, education level, background)
+    - Test objectives (comprehension, usability, engagement, etc.)
+  
+  optional:
+    - Sample size requirements
+    - Test methodology (A/B testing, think-aloud protocol, surveys)
+    - Specific metrics to collect
+    - Comparison baseline
+  
+  good_input_examples:
+    - "Test: NPV German elementary rendering with 20 students ages 8-10, measure: comprehension + engagement"
+    - "A/B test: two versions of calculus explanation, audience: undergrads, metric: time-to-understanding"
+    - "Usability test: interactive economics quiz, users: high school students, collect: error patterns + feedback"
+  
+  bad_input_examples:
+    - "Test this" (no audience, no objectives)
+    - "See if it works" (vague, no metrics)
+    - Testing without representative sample
 
 output_format:
-  - User testing results
-  - Comprehension scores
-  - Usability issues found
-  - User feedback quotes
-  - Improvement recommendations
+  test_results:
+    - Comprehension scores (% correct, depth of understanding)
+    - Usability metrics (time-on-task, error rates, satisfaction)
+    - Engagement indicators (completion rate, interaction frequency)
+    - Learning effectiveness (pre/post test scores if applicable)
+  
+  user_feedback:
+    - Direct quotes from participants
+    - Common themes identified
+    - Positive aspects highlighted
+    - Pain points and frustrations
+    - Suggestions for improvement
+  
+  issue_identification:
+    - Comprehension gaps (concepts not understood)
+    - Usability problems (navigation, clarity issues)
+    - Accessibility barriers
+    - Engagement drop-off points
+    - Misconceptions created
+  
+  recommendations:
+    - Prioritized improvements
+    - Alternative approaches to try
+    - Content that works well (keep)
+    - Statistical significance of findings
+
+success_criteria:
+  - Sample size adequate for statistical power
+  - Test methodology appropriate for objectives
+  - Clear, actionable findings
+  - Representative audience tested
+  - Ethical standards maintained
+
+performance:
+  - Quick usability test (5-10 users): 2-4 hours
+  - Comprehension study (20-30 users): 1-2 days
+  - Longitudinal effectiveness study: weeks
+  - A/B testing: depends on traffic/sample size
+
+related_agents:
+  - pedagogy (interprets educational effectiveness)
+  - rendering (creates content being tested)
+  - accessibility (ensures inclusive testing)
+  - quality (uses results for improvement)
+  - audience advocates (represent user perspectives)
+
+typical_workflow:
+  1. Receive content and testing requirements
+  2. Design test protocol and materials
+  3. Recruit representative participants
+  4. Conduct testing sessions
+  5. Collect quantitative and qualitative data
+  6. Analyze results for patterns
+  7. Identify issues and strengths
+  8. Generate actionable recommendations
+  9. Report findings with evidence
+  10. Coordinate improvements with content creators
 
 expertise:
-  - User research
-  - Educational testing
-  - Feedback analysis
-  - Usability evaluation
+  - User research methods
+  - Educational assessment
+  - Usability testing protocols
+  - Survey design
+  - Statistical analysis
+  - Qualitative data analysis
+  - Think-aloud protocols
+  - A/B testing design
+  - Learning analytics
+  - Ethical research practices
 
 usage_examples:
-  - "@user-testing Test these NPV renderings with undergraduate business students"
-  - "@user-testing Gather feedback on toddler rendering from parents"
+  - "@user-testing Test NPV elementary rendering with 25 German students ages 8-10, assess comprehension and engagement"
+  - "@user-testing Usability study: interactive calculus problems with 15 undergrads, identify pain points"
+  - "@user-testing A/B test: two explanation styles for economics concept, 100 users each, measure time-to-mastery"
+  - "@user-testing Accessibility testing: screen reader users navigate AKU interface, find barriers"
+  - "@user-testing Longitudinal: track learning retention with 50 students over 6 weeks using spaced repetition"
