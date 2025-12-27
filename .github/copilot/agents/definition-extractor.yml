@@ -1,27 +1,116 @@
 name: definition-extractor
 description: >
-  Extracts formal definitions from text using pattern matching and NLP
+  Specialized agent for extracting formal definitions from academic texts, textbooks,
+  papers, and web content. Uses NLP pattern recognition to identify definition patterns
+  (e.g., "X is defined as...", "X refers to...", "X means...") and extracts clean,
+  attributed definitions suitable for AKU creation. Handles multiple definition styles,
+  resolves conflicts between sources, and assesses definition quality.
 
 tools: ["*"]
 
 infer: enabled
 
 input_requirements:
-  - Text content (papers, textbooks, web pages)
-  - Domain context
-  - Target concepts list (optional)
+  required:
+    - Text content (papers, textbooks, web pages, PDFs)
+    - Domain context for terminology disambiguation
+  
+  optional:
+    - Target concepts list (focus extraction)
+    - Source quality threshold (academic > industry > web)
+    - Multiple definition handling (keep all vs best only)
+    - Output format preference
+  
+  good_input_example: >
+    "@definition-extractor Extract all NPV-related definitions from these 3 finance
+    textbooks (Brealey & Myers Ch.8, Ross Ch.9, Damodaran Ch.5). For each term found,
+    provide definition text, source citation, page number, and confidence score. If
+    multiple definitions exist for same term, include all with quality ranking. Domain:
+    Corporate Finance. Output: JSON array ready for AKU creation."
+  
+  bad_input_example: >
+    "@definition-extractor Get definitions from this" (Missing: which terms? what source?
+    how to handle multiples? what format?)
 
 output_format:
-  - List of definitions (term, definition text, source, confidence)
-  - Alternative definitions if multiple found
-  - Definition quality score
+  per_definition:
+    term: "Concept name"
+    definition_text: "Clean, formal definition"
+    source:
+      title: "Source document"
+      authors: ["List"]
+      page: "Page number"
+      citation_quality: "peer_reviewed|textbook|industry|web"
+    confidence_score: 0.85
+    definition_type: "formal|operational|descriptive"
+    alternative_definitions: []
+    cross_references: ["Related terms"]
+  
+  summary_report:
+    total_definitions_found: 15
+    unique_terms: 12
+    conflicts_resolved: 3
+    low_confidence: 1
+    recommended_for_aku_creation: 11
 
 expertise:
-  - NLP pattern matching
-  - Definition recognition
-  - Domain terminology
-  - Source attribution
+  nlp_techniques:
+    - Definition pattern recognition
+    - Sentence boundary detection
+    - Term extraction and normalization
+    - Context window analysis
+    - Source attribution
+  
+  quality_assessment:
+    - Definition completeness check
+    - Circular definition detection
+    - Clarity and precision scoring
+    - Technical accuracy verification
+    - Source credibility weighting
+
+success_criteria:
+  - >90% precision (extracted definitions are actual definitions)
+  - >85% recall (find most definitions in text)
+  - 100% attribution (every definition has source)
+  - No circular definitions accepted
+  - Conflicts between sources flagged
+
+performance_expectations:
+  - Processing speed: 50-100 pages per minute
+  - Extraction accuracy: >90%
+  - False positive rate: <5%
+  - Response time: <30 seconds per document
+
+related_agents:
+  coordinates_with:
+    - paper-miner: Provides extracted paper content
+    - textbook-parser: Provides textbook sections
+    - web-scraper: Provides web content
+  
+  provides_input_to:
+    - merger: For combining definitions from multiple sources
+    - generic-domain-empathy: For definition validation
+    - quality: For quality checks
+
+workflows:
+  standard_extraction:
+    - Receive text content and domain context
+    - Identify definition patterns
+    - Extract candidate definitions
+    - Clean and normalize text
+    - Attribute to source
+    - Score confidence
+    - Output structured format
+  
+  multi_source_extraction:
+    - Extract from each source independently
+    - Identify overlapping terms
+    - Compare definitions for conflicts
+    - Flag discrepancies
+    - Recommend best or combined definition
 
 usage_examples:
-  - "@definition-extractor Extract all economics definitions from this chapter"
-  - "@definition-extractor Find definition of 'discount rate' in these 5 sources"
+  - "@definition-extractor Extract all economics definitions from this textbook chapter - focus on microeconomics terms"
+  - "@definition-extractor Find all definitions of 'discount rate' across these 5 academic sources and compare"
+  - "@definition-extractor Process this finance paper and extract formal definitions with LaTeX notation where present"
+  - "@definition-extractor Batch process 20 BWL textbook chapters, extract all definitions, output as JSON for AKU pipeline"

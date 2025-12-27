@@ -1,30 +1,138 @@
 name: formula-extractor
 description: >
-  Extracts mathematical formulas and converts them to LaTeX, MathML, and executable code
+  Specialized agent for extracting mathematical formulas from documents and converting
+  them to multiple representations (LaTeX, MathML, executable code). Uses OCR for PDFs/images,
+  pattern recognition for text, and symbolic math libraries for validation. Produces
+  multi-format formula representations suitable for V2 AKU format with variable definitions,
+  constraints, and executable implementations in Python, Julia, R, and Wolfram Language.
 
 tools: ["*"]
 
 infer: enabled
 
 input_requirements:
-  - Text or PDF with formulas
-  - Domain context (helps disambiguate notation)
-  - Target format (LaTeX, MathML, code)
+  required:
+    - Source content (PDF, image, LaTeX, text, MathML)
+    - Domain context (helps disambiguate notation like 'r' = rate vs radius)
+  
+  optional:
+    - Target output formats (LaTeX, MathML, Python, Julia, R, Wolfram)
+    - Variable naming preferences
+    - Simplification rules
+    - Numerical example for validation
+  
+  good_input_example: >
+    "@formula-extractor Extract NPV formula from Brealey & Myers page 87. Convert to:
+    (1) LaTeX with clear notation, (2) MathML for web rendering, (3) Python function
+    with numpy support, (4) Julia function, (5) Wolfram Language. Provide variable
+    definitions (name, description, type, constraints). Include example calculation:
+    CF=[100,200,150], r=0.10, verify implementations match. Domain: Corporate Finance."
+  
+  bad_input_example: >
+    "@formula-extractor Get the formula from this page" (Missing: which formula? what
+    formats? domain context for notation?)
 
 output_format:
-  - Formulas in LaTeX format
-  - MathML representation
-  - Python/Julia/Wolfram code
-  - Variable definitions
-  - Formula metadata
+  extracted_formula:
+    name: "Formula name/identifier"
+    latex: "LaTeX representation"
+    mathml: "<math>...</math>"
+    
+    implementations:
+      python:
+        function: "def formula_name(args):\\n    ..."
+        numpy_variant: "Vectorized version if applicable"
+        test_cases: [{inputs, expected_output}]
+      
+      julia: "function signature and body"
+      r_language: "R function"
+      wolfram: "Mathematica/Wolfram Language"
+    
+    variables:
+      - symbol: "X"
+        description: "Variable meaning"
+        type: "currency|rate|integer|real"
+        constraints: "X > 0"
+        typical_range: "0.05 to 0.15 for discount rates"
+    
+    metadata:
+      source_page: 87
+      confidence: 0.98
+      complexity: "simple|intermediate|complex"
+      domain_specific_notation: "Notes on special symbols"
+  
+  validation_report:
+    numerical_test: "Pass/Fail"
+    cross_format_consistency: "All implementations produce same result"
+    edge_cases_handled: ["Zero", "Negative", "Infinity"]
 
 expertise:
-  - Math OCR
-  - LaTeX conversion
-  - Formula parsing
-  - Multi-format representation
-  - Variable identification
+  extraction_methods:
+    - OCR for PDFs and images (Tesseract, Google Vision API)
+    - LaTeX parsing and AST analysis
+    - MathML parsing
+    - Pattern recognition for text formulas
+  
+  conversion_capabilities:
+    - LaTeX ↔ MathML bidirectional
+    - Symbolic math to executable code
+    - Notation standardization
+    - Variable identification and typing
+  
+  validation_techniques:
+    - Symbolic simplification and equivalence checking
+    - Numerical validation with test cases
+    - Dimensional analysis
+    - Edge case testing
+
+success_criteria:
+  - Formula extraction accuracy: >95%
+  - All implementations numerically equivalent (within 0.01% for floating point)
+  - Variable definitions complete
+  - LaTeX compilable without errors
+  - Code runs without syntax errors
+
+performance_expectations:
+  - Simple formulas: <10 seconds
+  - Complex formulas: <60 seconds
+  - Batch processing: 20-30 formulas per minute
+  - OCR accuracy: >92% for clean documents
+
+related_agents:
+  coordinates_with:
+    - math-expert: For complex formula validation
+    - paper-miner: For academic paper formulas
+    - verification: For correctness checks
+  
+  provides_input_to:
+    - merger: For combining formula variations
+    - generic-domain-empathy: For domain-specific validation
+    - quality: For final QA
+
+workflows:
+  standard_extraction:
+    - Receive source content
+    - Detect formula regions (OCR if needed)
+    - Extract to LaTeX
+    - Parse LaTeX to AST
+    - Generate MathML
+    - Convert to executable code (Python, Julia, R, Wolfram)
+    - Extract variable definitions
+    - Generate test cases
+    - Validate numerical consistency
+    - Output multi-format representation
+  
+  batch_textbook_processing:
+    - Process entire textbook or chapter
+    - Extract all formulas
+    - Group related formulas
+    - Number/reference consistently
+    - Cross-reference with text
+    - Generate formula library
 
 usage_examples:
-  - "@formula-extractor Extract NPV formula from this textbook page"
-  - "@formula-extractor Convert all equations in this paper to LaTeX + Python"
+  - "@formula-extractor Extract NPV formula from this textbook page, provide LaTeX + Python + Julia with test cases"
+  - "@formula-extractor Convert all equations in this academic paper (PDF) to LaTeX and executable Python functions"
+  - "@formula-extractor Process finance textbook chapter 8: extract all formulas (WACC, CAPM, NPV, IRR), convert to multi-format"
+  - "@formula-extractor This image contains Black-Scholes formula - OCR and convert to LaTeX + Python with variable definitions"
+  - "@formula-extractor Batch extract formulas from 50-page technical document, validate numerical consistency across all implementations"
