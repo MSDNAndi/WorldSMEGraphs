@@ -1,30 +1,105 @@
 name: citation-extractor
 description: >
-  Extracts citations, references, and builds provenance chains for knowledge
+  Extracts citations, references, and bibliographic data from academic and educational content.
+  Builds complete provenance chains and resolves identifiers (DOI, ISBN, arXiv) to enable
+  proper attribution and source tracking.
 
 tools: ["*"]
 
 infer: enabled
 
 input_requirements:
-  - Text with references
-  - Citation style (APA, MLA, Chicago, etc.)
-  - Depth (direct cites vs full bibliography)
+  required:
+    - Text content with references (papers, textbooks, articles)
+    - Citation style context (APA, MLA, Chicago, IEEE, Harvard, etc.)
+    - Extraction scope (inline citations, bibliography, footnotes)
+  
+  optional:
+    - Provenance depth (direct citations vs. full dependency chain)
+    - Source quality filtering
+    - Specific authors or works to focus on
+    - Date range filters
+  
+  good_input_examples:
+    - "Paper: Smith_2023.pdf, extract: all references from bibliography, resolve DOIs"
+    - "Textbook: Corporate Finance Ch5, inline citations: APA format, build provenance chain to original sources"
+    - "Article text with 47 citations, extract metadata + resolve identifiers + assess source quality"
+  
+  bad_input_examples:
+    - "Get citations" (no source, no style)
+    - "Find refs" (ambiguous scope)
+    - Content without any citations present
 
 output_format:
-  - Structured citations
-  - DOIs and ISBNs
-  - Author/year/title metadata
-  - Citation relationships
-  - Provenance chain
+  structured_citations:
+    - Complete bibliographic metadata (author, year, title, venue)
+    - Persistent identifiers (DOI, ISBN, arXiv ID, PMID)
+    - Citation style (formatted string in original style)
+    - Normalized citation (standard internal format)
+  
+  provenance_chain:
+    - Direct citations (A cites B)
+    - Transitive citations (A→B→C chains)
+    - Citation context (why cited, supporting/contrasting)
+    - Citation count and impact
+  
+  source_quality:
+    - Peer-review status
+    - Journal/venue impact factor
+    - Citation count
+    - Publication type (journal, conference, preprint)
+    - Freshness score
+  
+  relationships:
+    - Co-citation networks (sources cited together)
+    - Author collaboration networks
+    - Concept propagation paths
+    - Seminal sources identified
+
+success_criteria:
+  - >95% citation extraction recall
+  - >90% DOI/ISBN resolution success
+  - Author name disambiguation >85% accuracy
+  - Venue/journal identification >95% accuracy
+  - Provenance chains complete to depth specified
+
+performance:
+  - Typical: 50-100 citations per minute
+  - DOI resolution: 10-20 per second
+  - Deep provenance (3 levels): 5-10 minutes per root source
+  - Parallel processing for large bibliographies
+
+related_agents:
+  - database-query (resolves DOIs via OpenAlex/Crossref)
+  - provenance-tracking (maintains evidence chains)
+  - quality (assesses source reliability)
+  - research (contextualizes citations in research landscape)
+
+typical_workflow:
+  1. Receive content with citation extraction parameters
+  2. Identify citation style and parse format
+  3. Extract citations from text, footnotes, bibliography
+  4. Parse author names, years, titles, venues
+  5. Resolve DOIs, ISBNs, and other identifiers
+  6. Query databases for complete metadata
+  7. Build citation relationships and provenance chains
+  8. Assess source quality indicators
+  9. Package as structured citation graph
+  10. Hand off to provenance tracking for archival
 
 expertise:
-  - Citation parsing
-  - Reference extraction
-  - DOI resolution
-  - Bibliography management
-  - Source quality assessment
+  - Citation style recognition (APA, MLA, Chicago, IEEE, etc.)
+  - Regex patterns for citation extraction
+  - DOI/ISBN resolution via APIs (Crossref, OpenAlex, Google Books)
+  - Author name disambiguation
+  - Venue name normalization
+  - Citation context analysis
+  - Bibliometric indicators
+  - Reference management formats (BibTeX, RIS, EndNote)
 
 usage_examples:
-  - "@citation-extractor Extract all references from this economics paper"
-  - "@citation-extractor Build provenance chain for this NPV definition"
+  - "@citation-extractor Extract all references from Brealey Corporate Finance Chapter 8, resolve DOIs, build 2-level provenance chain"
+  - "@citation-extractor Parse inline citations from economics paper: Miller_Game_Theory_2023.pdf, APA format"
+  - "@citation-extractor Bibliography from PhD thesis references section, extract + quality assessment for all sources"
+  - "@citation-extractor Find all citations of 'Modigliani-Miller theorem' in corpus of 50 finance papers"
+  - "@citation-extractor Extract footnote references from law article, Chicago format, include URL resolution"
