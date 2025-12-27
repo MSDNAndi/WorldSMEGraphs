@@ -234,20 +234,39 @@ Agents are invoked using the `@agent-name` syntax followed by specific instructi
 ### Validating AKUs (Atomic Knowledge Units)
 This project uses Python scripts for validation. No external dependencies required (uses standard library only).
 
-**Validate a single AKU:**
+**Domain-Aware Validator (Recommended):**
 ```bash
+# Validate single AKU
+python .project/agents/quality-assurance/tools/validate_aku_v2.py path/to/aku.json
+
+# Validate all AKUs in a domain
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --domain medicine
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --domain economics
+
+# Validate directory
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --directory path/to/akus/
+
+# Verbose output
+python .project/agents/quality-assurance/tools/validate_aku_v2.py path/to/aku.json --verbose
+```
+
+**Legacy Validator (Math-focused):**
+```bash
+# Validate a single AKU
 python .project/agents/quality-assurance/tools/validate_aku.py path/to/aku.json
-```
 
-**Validate all AKUs in a directory:**
-```bash
+# Validate all AKUs in a directory
 python .project/agents/quality-assurance/tools/validate_aku.py --directory path/to/akus/
-```
 
-**Validate a specific pilot:**
-```bash
+# Validate a specific pilot
 python .project/agents/quality-assurance/tools/validate_aku.py --pilot npv
 ```
+
+**Features of v2 validator:**
+- Auto-detects domain from `classification.domain_path`
+- Domain-specific validation rules (medicine, math, economics, science)
+- Flexible schema based on content type
+- Detailed error reporting with suggestions
 
 ### Validating Agents
 Check that all agent configurations meet the 180-line minimum requirement:

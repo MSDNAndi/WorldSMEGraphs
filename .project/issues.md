@@ -62,22 +62,45 @@ Configure Copilot instructions for the repository according to GitHub best pract
 ---
 
 #### Issue #1: AKU Validator Needs Medical Domain Support
-**Status**: 🟡 Open  
+**Status**: ✅ Resolved  
 **Created**: 2025-12-27  
+**Resolved**: 2025-12-27  
 **Priority**: Medium  
 **Area**: Quality Assurance Tools
 
 **Description**:
-The current AKU validator (`validate_aku.py`) expects math-centric fields like `representations` and `variables` which are not applicable to medical content. Medical AKUs use clinical-specific fields like `clinical_features`, `imaging_characteristics`, etc.
+The current AKU validator (`validate_aku.py`) expected math-centric fields like `representations` and `variables` which are not applicable to medical content. Medical AKUs use clinical-specific fields like `clinical_features`, `imaging_characteristics`, etc.
 
 **Impact**:
 - Cannot validate medical AKUs with current tool
 - Medical AKUs show as "invalid" despite being structurally sound
 - Need domain-specific validation rules
 
-**Action Items**:
-- [ ] Create medical AKU validator or extend current validator
-- [ ] Define required fields for medical AKUs
+**Resolution**:
+Created `validate_aku_v2.py` with domain-aware validation following @verification and @ontology agent guidance:
+- Auto-detects domain from `classification.domain_path`
+- Domain-specific validation rules for medicine, math, economics, science
+- Flexible schema validation based on content type
+- Validates medical AKUs correctly (8/8 pass)
+- Detailed error reporting with actionable suggestions
+- Supports `--domain` flag for domain-specific validation
+
+**Usage:**
+```bash
+# Validate single AKU
+python .project/agents/quality-assurance/tools/validate_aku_v2.py path/to/aku.json
+
+# Validate all medical AKUs
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --domain medicine
+
+# Validate directory
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --directory path/to/akus/
+```
+
+**Completed**: 2025-12-27  
+**Verification**: All 8 medical AKUs validate successfully
+
+---
 - [ ] Support multiple domain formats (math, medical, etc.)
 - [ ] Update validation to be domain-aware
 
