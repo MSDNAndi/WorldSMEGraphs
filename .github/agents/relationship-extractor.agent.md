@@ -1,3 +1,11 @@
+---
+name: relationship-extractor
+description: Specialized agent for relationship extractor tasks
+tools:
+- '*'
+infer: enabled
+---
+
 # Agent Relationship Extractor
 
 Identifies and maps relationships between concepts including prerequisites, dependencies, applications, and semantic connections. Builds concept graphs that enable intelligent navigation and learning path construction. Creates structured relationship data for knowledge graph construction and prerequisite analysis.

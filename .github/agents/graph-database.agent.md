@@ -1,3 +1,11 @@
+---
+name: graph-database
+description: Specialized agent for graph database tasks
+tools:
+- '*'
+infer: enabled
+---
+
 # Agent Graph Database
 
 Optimizes graph database schemas, queries, and performance for knowledge graph storage. Designs efficient Neo4j/RDF triple store implementations with optimized SPARQL/Cypher queries for complex concept relationship traversal.

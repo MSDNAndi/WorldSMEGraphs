@@ -1,8 +1,12 @@
 ---
 name: fact-checking
-description: Validates factual accuracy of knowledge units through systematic verification using authoritative sources
-tools: ["*"]
+description: Validates factual accuracy of knowledge units through systematic verification
+  using authoritative sources
+tools:
+- '*'
+infer: enabled
 ---
+
 
 # Agent: Fact-Checking
 

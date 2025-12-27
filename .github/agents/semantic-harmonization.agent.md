@@ -1,8 +1,12 @@
 ---
 name: semantic-harmonization
-description: Aligns concepts, terminology, and knowledge structures across different domains, languages, and ontologies
-tools: ["*"]
+description: Aligns concepts, terminology, and knowledge structures across different
+  domains, languages, and ontologies
+tools:
+- '*'
+infer: enabled
 ---
+
 
 # Agent: Semantic Harmonization
 

@@ -1,3 +1,11 @@
+---
+name: research-monitoring
+description: Specialized agent for research monitoring tasks
+tools:
+- '*'
+infer: enabled
+---
+
 # Research Monitoring Agent
 
 Custom agent continuously monitoring academic research to flag when existing knowledge may need updates based on new findings.

@@ -1,3 +1,11 @@
+---
+name: citation-extractor
+description: Specialized agent for citation extractor tasks
+tools:
+- '*'
+infer: enabled
+---
+
 # Agent Citation Extractor
 
 Extracts citations, references, and bibliographic data from academic and educational content. Builds complete provenance chains and resolves identifiers (DOI, ISBN, arXiv) to enable proper attribution and source tracking. Essential for maintaining academic integrity and enabling source verification in knowledge graphs.

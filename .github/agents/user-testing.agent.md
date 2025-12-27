@@ -1,3 +1,11 @@
+---
+name: user-testing
+description: Specialized agent for user testing tasks
+tools:
+- '*'
+infer: enabled
+---
+
 # User Testing Agent
 
 Custom agent conducting empirical validation with real learners to ensure content meets learning objectives and user needs.

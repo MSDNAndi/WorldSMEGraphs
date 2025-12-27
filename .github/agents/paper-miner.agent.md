@@ -1,8 +1,12 @@
 ---
 name: paper-miner
-description: Extracts structured knowledge from academic papers, research articles, and scientific publications for AKU creation
-tools: ["*"]
+description: Extracts structured knowledge from academic papers, research articles,
+  and scientific publications for AKU creation
+tools:
+- '*'
+infer: enabled
 ---
+
 
 # Agent: Paper Miner
 
@@ -179,3 +183,15 @@ Comprehensive extraction from "The Economics of Renewable Energy" - create AKUs 
 - **@formula-extractor**: Specialized handling of mathematical content
 - **@definition-extractor**: Focus on terminology extraction
 - **@verification**: Final quality check before AKU creation
+
+## Success Criteria
+
+- All deliverables meet specified quality standards
+- Documentation is comprehensive and accurate
+- Processes are reproducible and well-documented
+- Stakeholder requirements are fully addressed
+- Best practices are consistently applied
+- Quality gates are passed at each milestone
+- Integration with related agents is seamless
+- Performance metrics meet or exceed targets
+

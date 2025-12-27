@@ -1,8 +1,12 @@
 ---
 name: knowledge-graph-agent
-description: Expert agent specializing in creating, maintaining, and validating language-agnostic knowledge graphs for subject matter expert domains
-tools: ["*"]
+description: Expert agent specializing in creating, maintaining, and validating language-agnostic
+  knowledge graphs for subject matter expert domains
+tools:
+- '*'
+infer: enabled
 ---
+
 
 # Agent: Knowledge Graph
 
@@ -179,3 +183,15 @@ Include cross-links to arithmetic and geometry.
 - Review Cycle: 0 (enhanced with YAML front matter and comprehensive workflows)
 - Performance Score: N/A (awaiting usage metrics)
 - Issues: None yet
+
+## Success Criteria
+
+- All deliverables meet specified quality standards
+- Documentation is comprehensive and accurate
+- Processes are reproducible and well-documented
+- Stakeholder requirements are fully addressed
+- Best practices are consistently applied
+- Quality gates are passed at each milestone
+- Integration with related agents is seamless
+- Performance metrics meet or exceed targets
+

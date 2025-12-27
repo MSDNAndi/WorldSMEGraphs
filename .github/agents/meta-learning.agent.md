@@ -1,8 +1,12 @@
 ---
 name: meta-learning
-description: Analyzes learning patterns and optimizes knowledge acquisition strategies through reflection on learning processes
-tools: ["*"]
+description: Analyzes learning patterns and optimizes knowledge acquisition strategies
+  through reflection on learning processes
+tools:
+- '*'
+infer: enabled
 ---
+
 
 # Agent: Meta-Learning
 

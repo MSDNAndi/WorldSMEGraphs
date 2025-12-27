@@ -1,8 +1,12 @@
 ---
 name: rendering-agent
-description: Converts language-agnostic knowledge graphs into human-readable formats tailored for specific languages and audience levels
-tools: ["*"]
+description: Converts language-agnostic knowledge graphs into human-readable formats
+  tailored for specific languages and audience levels
+tools:
+- '*'
+infer: enabled
 ---
+
 
 # Agent: Rendering
 
@@ -152,3 +156,32 @@ Focus on making abstract concepts concrete with examples.
 - Review Cycle: 0 (enhanced with YAML front matter and comprehensive workflows)
 - Performance Score: N/A (awaiting usage metrics)
 - Issues: None yet
+
+## Success Criteria
+
+- All deliverables meet specified quality standards
+- Documentation is comprehensive and accurate
+- Processes are reproducible and well-documented
+- Stakeholder requirements are fully addressed
+- Best practices are consistently applied
+- Quality gates are passed at each milestone
+- Integration with related agents is seamless
+- Performance metrics meet or exceed targets
+
+
+## Quality Checks
+
+- Validate all inputs meet specified requirements
+- Verify outputs conform to expected formats
+- Check for completeness and accuracy
+- Ensure consistency with project standards
+- Test edge cases and error conditions
+- Review for clarity and usability
+- Validate integration points
+- Confirm adherence to best practices
+
+
+## Version History
+
+- v1.0.0 (2025-12-27): Initial comprehensive agent definition with YAML front matter and infer property
+

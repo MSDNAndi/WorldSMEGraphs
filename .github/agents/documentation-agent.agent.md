@@ -1,8 +1,12 @@
 ---
 name: documentation-agent
-description: Specialist in creating, maintaining, and improving technical and user-facing documentation with focus on clarity, consistency, and cross-referencing
-tools: ["*"]
+description: Specialist in creating, maintaining, and improving technical and user-facing
+  documentation with focus on clarity, consistency, and cross-referencing
+tools:
+- '*'
+infer: enabled
 ---
+
 
 # Agent: Documentation
 
@@ -179,3 +183,15 @@ Resolve any contradictions found.
 - Review Cycle: 0 (enhanced with YAML front matter and comprehensive workflows)
 - Performance Score: N/A (awaiting usage metrics)
 - Issues: None yet
+
+## Success Criteria
+
+- All deliverables meet specified quality standards
+- Documentation is comprehensive and accurate
+- Processes are reproducible and well-documented
+- Stakeholder requirements are fully addressed
+- Best practices are consistently applied
+- Quality gates are passed at each milestone
+- Integration with related agents is seamless
+- Performance metrics meet or exceed targets
+

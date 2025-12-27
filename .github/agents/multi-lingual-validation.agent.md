@@ -1,8 +1,12 @@
 ---
 name: multi-lingual-validation
-description: Validates knowledge content accuracy, consistency, and cultural appropriateness across multiple languages
-tools: ["*"]
+description: Validates knowledge content accuracy, consistency, and cultural appropriateness
+  across multiple languages
+tools:
+- '*'
+infer: enabled
 ---
+
 
 # Agent: Multi-Lingual Validation
 

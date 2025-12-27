@@ -1,3 +1,11 @@
+---
+name: software-architecture
+description: Specialized agent for software architecture tasks
+tools:
+- '*'
+infer: enabled
+---
+
 # Agent Software Architecture
 
 System design and architecture planning for scalable, maintainable knowledge representation infrastructure. Designs APIs, microservices, data flows, and integration strategies to support global-scale knowledge graphs.

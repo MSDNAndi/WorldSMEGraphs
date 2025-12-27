@@ -1,8 +1,12 @@
 ---
 name: peer-review
-description: Conducts comprehensive peer review of knowledge units, ensuring academic rigor, accuracy, and quality standards
-tools: ["*"]
+description: Conducts comprehensive peer review of knowledge units, ensuring academic
+  rigor, accuracy, and quality standards
+tools:
+- '*'
+infer: enabled
 ---
+
 
 # Agent: Peer Review
 

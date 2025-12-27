@@ -1,8 +1,12 @@
 ---
 name: terminology
-description: Manages terminology consistency, definitions, and usage across the entire knowledge base
-tools: ["*"]
+description: Manages terminology consistency, definitions, and usage across the entire
+  knowledge base
+tools:
+- '*'
+infer: enabled
 ---
+
 
 # Agent: Terminology
 

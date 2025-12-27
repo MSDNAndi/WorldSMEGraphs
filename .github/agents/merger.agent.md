@@ -1,8 +1,12 @@
 ---
 name: merger
-description: Intelligently merges and consolidates duplicate or overlapping knowledge units while preserving unique information
-tools: ["*"]
+description: Intelligently merges and consolidates duplicate or overlapping knowledge
+  units while preserving unique information
+tools:
+- '*'
+infer: enabled
 ---
+
 
 # Agent: Merger
 
