@@ -299,6 +299,59 @@ After 5 review cycles without improvement, an agent must be replaced or complete
 - Aim for zero errors
 - Solve the most difficult problems
 
+## Technology Stack and Coding Standards
+
+### Core Technologies
+- **Storage**: File-based (JSON, Markdown, YAML)
+- **Version Control**: Git
+- **AI Agents**: GitHub Copilot (60+ custom agents)
+- **Validation**: Python (standard library only)
+- **Documentation**: Markdown
+- **Knowledge Format**: JSON-based `.graph` files
+
+### File Naming Conventions
+- **Use lowercase** with hyphens for multi-word names
+- **Be descriptive**: `elementary-school.md` not `es.md`
+- **Consistent extensions**: `.md`, `.json`, `.graph`, `.agent.md`
+- **Agent files**: `[name].agent.md` in `.github/agents/`
+
+### Code Style Standards
+
+#### Markdown
+- Use ATX-style headers (`#` not underlines)
+- One blank line between sections
+- Use fenced code blocks with language tags
+- Keep lines under 100 characters when possible
+- Use numbered lists when order matters, bullets otherwise
+
+#### JSON
+- Use 2-space indentation
+- Include trailing commas where allowed (if validator permits)
+- Use double quotes for strings
+- Keep consistent field ordering
+- Validate with schema when available
+
+#### Python (for tools)
+- Use standard library only (no external dependencies)
+- Include clear docstrings
+- Self-contained scripts
+- Provide usage examples in comments
+
+#### Writing Style
+- Use clear, concise language
+- Define terms before using them
+- Use active voice
+- Be consistent with terminology
+- Avoid jargon unless necessary
+- Follow audience-appropriate complexity
+
+### Version Control Practices
+- **Commit frequently** with "Progress report:" prefix during work
+- **Clear commit messages** describing what changed
+- **Never commit** build artifacts, dependencies, or temporary files
+- **Use .gitignore** for exclusions
+- **Review changes** before committing
+
 ## Getting Started
 1. Review `.project/structure.md` for current project organization
 2. Check `.project/roadmap.md` for planned work
@@ -311,3 +364,41 @@ If stuck or uncertain:
 2. Request a contrarian agent review
 3. Consult domain expert agents
 4. Review KPI tracking for agent recommendations
+
+## Common Pitfalls and Troubleshooting
+
+### Agent Invocation Issues
+- **Problem**: Agent doesn't respond as expected
+  - **Solution**: Ensure you're using the correct `@agent-name` format
+  - **Check**: Verify agent name matches one in `.github/agents/` directory
+  - **Tip**: Provide more specific context and requirements
+
+### Validation Failures
+- **Problem**: AKU validation fails
+  - **Solution**: Check the error message for specific missing fields
+  - **Common Issues**: Missing UTC timestamps, incorrect field types, missing required sections
+  - **Fix**: Review `.project/agents/quality-assurance/tools/validate_aku.py` for requirements
+
+### Agent Quality Issues
+- **Problem**: Agent produces inconsistent results
+  - **Solution**: Check agent KPI tracking in `.github/copilot/agent-kpis.md`
+  - **Consider**: Using the contrarian agent to review the output
+  - **Option**: Try a different specialized agent for the same task
+
+### File Organization
+- **Problem**: Don't know where to put new files
+  - **Solution**: Review `.project/structure.md` for organization guidelines
+  - **Pattern**: Follow existing domain structure patterns
+  - **Rule**: Keep knowledge graphs and renderings separate
+
+### Documentation Conflicts
+- **Problem**: Found contradicting information in docs
+  - **Solution**: Research thoroughly to resolve contradictions
+  - **Process**: Document findings, update all affected files
+  - **Tool**: Use `@documentation-agent` to check for contradictions
+
+### Work Session Management
+- **Problem**: Running out of time in 50-minute session
+  - **Solution**: Check `.project/issues.md` and `.project/improvements.md` for next tasks
+  - **Priority**: Always address critical blockers first
+  - **Remember**: There is always more work - don't finish early
