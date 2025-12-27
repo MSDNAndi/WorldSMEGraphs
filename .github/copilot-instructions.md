@@ -58,6 +58,7 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
 
 #### Approaching End (Minute 40-45)
 - **MUST** check current time: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"`
+- **MUST** check time again at minutes 40, 45, and 48
 - If <45 minutes elapsed: **FIND MORE WORK** and start it
 - Priority for additional work:
   1. Complete partial tasks
@@ -67,10 +68,9 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
   5. Fix minor issues
   6. Prepare next session work
 
-#### Final Minutes (Minute 48-50 ONLY)
-- **MUST** check time again at minutes 40, 45, and 48
-- If <48 minutes elapsed: **CONTINUE WORKING** - do NOT create final commits
-- Only when ALL work is complete AND checklist shows 100% AND time ≥48 minutes:
+#### Final Minutes (Minute 50- ONLY)
+- If <50 minutes elapsed: **CONTINUE WORKING** - do NOT create final commits
+- Only when ALL work is complete AND time ≥50 minutes:
   - Create final commit with "SESSION COMPLETE:" prefix
   - Update session log with complete metrics
   - Document next session priorities
@@ -174,14 +174,7 @@ domain/
 
 ## Available Agents
 
-See `.github/copilot/agents/` for specialized agent configurations:
-- **knowledge-graph-agent**: Expert in creating and maintaining knowledge graphs
-- **documentation-agent**: Specialist in technical documentation
-- **code-review-agent**: Ensures code quality and best practices
-- **contrarian-agent**: Provides critical feedback and improvement suggestions
-- **domain-expert-agents**: Specialists for specific subject matter domains
-- **rendering-agent**: Converts knowledge graphs to human-readable formats
-- **file-organization-agent**: Maintains project structure and organization
+See `.github/copilot/agents/` for specialized agent configurations
 
 ## Workflow Requirements
 
