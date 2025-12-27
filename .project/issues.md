@@ -23,7 +23,32 @@
 ### 🟡 Important Issues  
 *Should be addressed in current phase*
 
-#### Issue #1: Need More Comprehensive AKUs for NPV Pilot
+#### Issue #1: AKU Validator Needs Medical Domain Support
+**Status**: 🟡 Open  
+**Created**: 2025-12-27  
+**Priority**: Medium  
+**Area**: Quality Assurance Tools
+
+**Description**:
+The current AKU validator (`validate_aku.py`) expects math-centric fields like `representations` and `variables` which are not applicable to medical content. Medical AKUs use clinical-specific fields like `clinical_features`, `imaging_characteristics`, etc.
+
+**Impact**:
+- Cannot validate medical AKUs with current tool
+- Medical AKUs show as "invalid" despite being structurally sound
+- Need domain-specific validation rules
+
+**Action Items**:
+- [ ] Create medical AKU validator or extend current validator
+- [ ] Define required fields for medical AKUs
+- [ ] Support multiple domain formats (math, medical, etc.)
+- [ ] Update validation to be domain-aware
+
+**Assigned To**: TBD  
+**Target Date**: 2026-01-10
+
+---
+
+#### Issue #2: Need More Comprehensive AKUs for NPV Pilot
 **Status**: 🟡 In Progress  
 **Created**: 2025-12-27  
 **Priority**: High  
@@ -49,7 +74,7 @@ NPV pilot currently has only 6 AKUs. Need 44 more to reach pilot goal of 50 AKUs
 
 ---
 
-#### Issue #2: Agent Configurations Need More Detail
+#### Issue #3: Agent Configurations Need More Detail
 **Status**: ✅ Resolved  
 **Created**: 2025-12-27  
 **Resolved**: 2025-12-27  
@@ -71,7 +96,7 @@ All 53 agents now enhanced to meet 180-line minimum with comprehensive content:
 
 ---
 
-#### Issue #3: No Automated Timestamp Updates
+#### Issue #4: No Automated Timestamp Updates
 **Status**: 🟡 Open  
 **Created**: 2025-12-27  
 **Priority**: Medium  
@@ -100,7 +125,7 @@ AKUs require UTC millisecond timestamps, but currently manual. Need Git pre-comm
 ### 🟢 Minor Issues
 *Nice to have improvements, not urgent*
 
-#### Issue #4: No Visualization Tools Yet
+#### Issue #5: No Visualization Tools Yet
 **Status**: 🟢 Future  
 **Created**: 2025-12-27  
 **Priority**: Low  
@@ -125,7 +150,7 @@ Would be helpful to visualize knowledge graph structure and relationships.
 
 ---
 
-#### Issue #5: No Search Functionality
+#### Issue #6: No Search Functionality
 **Status**: 🟢 Future  
 **Created**: 2025-12-27  
 **Priority**: Low  

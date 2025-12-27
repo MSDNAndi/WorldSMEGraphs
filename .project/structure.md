@@ -58,6 +58,27 @@ WorldSMEGraphs/
 │   │   │           └── graduate.md
 │   │   └── microeconomics/
 │   │
+│   ├── medicine/           # Medical domains ✓ NEW
+│   │   └── surgery/
+│   │       └── vascular/
+│   │           ├── procedures/
+│   │           │   └── evar/              # EVAR procedure (placeholder)
+│   │           ├── pathology/
+│   │           │   └── aaa/               # Abdominal Aortic Aneurysm (placeholder)
+│   │           └── complications/
+│   │               └── endoleaks/
+│   │                   └── type-2/        # Type 2 Endoleak ✓ Complete (5 AKUs)
+│   │                       ├── concept-index.yaml
+│   │                       ├── akus/
+│   │                       │   ├── definitions/     (2 AKUs)
+│   │                       │   ├── pathophysiology/ (1 AKU)
+│   │                       │   ├── diagnosis/       (1 AKU)
+│   │                       │   ├── management/      (1 AKU)
+│   │                       │   └── clinical/        (1 AKU)
+│   │                       └── .renders/
+│   │                           └── english/
+│   │                               └── medical-student-guide.md
+│   │
 │   └── [other-domains]/    # Additional domain hierarchies
 │
 ├── docs/                   # General project documentation
@@ -240,5 +261,6 @@ Listed in `.gitignore`:
 
 **Last Updated**: 2025-12-27  
 **Major Changes**: 
+- 2025-12-27: Added medicine domain with vascular surgery Type 2 endoleak (5 AKUs complete)
 - 2025-12-27: Updated agent infrastructure section for .agent.md format migration
 - 2025-12-26: Initial structure documentation
