@@ -1,5 +1,8 @@
 {
-  "@context": "https://schema.org/",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
   "@type": "EducationalResource",
   "@id": "aku-001-npv-definition",
   "metadata": {
@@ -7,11 +10,12 @@
     "created": "2025-12-27",
     "contributors": [
       "generic-domain-empathy-agent",
-      "finance-valuation-expert-v1"
+      "finance-valuation-expert-v1",
+      "ontology-enhancement-agent"
     ],
     "confidence": 0.98,
-    "status": "validated",
-    "last_updated": "2025-12-27T02:56:46.142+00:00"
+    "status": "ontology-enhanced",
+    "last_updated": "2025-12-27T22:01:09.190273Z"
   },
   "classification": {
     "domain_path": "economics/bwl/finance/valuation/npv",
@@ -170,7 +174,61 @@
       "accounting-rate-of-return",
       "simple-payback-period"
     ],
-    "part_of": "discounted-cash-flow-analysis"
+    "part_of": "discounted-cash-flow-analysis",
+    "skos:broader": [
+      {
+        "@id": "wsmg:time-value-of-money",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:present-value-concept",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:discount-rate-definition",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:cash-flow-concept",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "wsmg:npv-decision-rule",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:capital-budgeting",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:project-comparison",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:investment-selection",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:internal-rate-of-return",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:profitability-index",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:payback-period",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:discounted-payback",
+        "@type": "skos:Concept"
+      }
+    ]
   },
   "provenance": {
     "sources": [
@@ -219,6 +277,23 @@
       "Validated by academic research",
       "Standard industry practice",
       "Executable code tested"
+    ],
+    "dc:creator": [
+      "generic-domain-empathy-agent",
+      "finance-valuation-expert-v1",
+      "ontology-enhancement-agent"
+    ],
+    "dc:modified": "2025-12-27T22:01:09.190219Z",
+    "prov:wasDerivedFrom": [
+      {
+        "dc:title": "Principles of Corporate Finance"
+      },
+      {
+        "dc:title": "Corporate Finance"
+      },
+      {
+        "dc:title": "The Investment Decision Criteria: A Review"
+      }
     ]
   },
   "pedagogical": {
@@ -260,5 +335,19 @@
       "graduate": "Include theoretical foundations and assumptions",
       "professional": "Emphasize practical application and variants"
     }
-  }
+  },
+  "skos:prefLabel": "Net Present Value",
+  "skos:notation": "aku-001-npv-definition",
+  "skos:definition": "Net Present Value (NPV) is the difference between the present value of cash inflows and the present value of cash outflows over a period of time, used to analyze the profitability of a projected investment or project.",
+  "skos:altLabel": [
+    "NPV",
+    "Nettobarwert",
+    "VAN"
+  ],
+  "owl:sameAs": "https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/NetPresentValue",
+  "skos:exactMatch": [
+    "https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/NetPresentValue",
+    "http://dbpedia.org/resource/Net_present_value",
+    "http://www.wikidata.org/entity/Q1054308"
+  ]
 }

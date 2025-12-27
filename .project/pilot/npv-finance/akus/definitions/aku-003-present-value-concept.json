@@ -1,5 +1,8 @@
 {
-  "@context": "https://schema.org/",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
   "@type": "EducationalResource",
   "@id": "aku-003-present-value-concept",
   "metadata": {
@@ -7,11 +10,12 @@
     "created": "2025-12-27",
     "contributors": [
       "generic-domain-empathy-agent",
-      "finance-valuation-expert-v1"
+      "finance-valuation-expert-v1",
+      "ontology-enhancement-agent"
     ],
     "confidence": 0.99,
-    "status": "validated",
-    "last_updated": "2025-12-27T02:56:46.141+00:00"
+    "status": "ontology-enhanced",
+    "last_updated": "2025-12-27T22:01:09.190951Z"
   },
   "classification": {
     "domain_path": "economics/bwl/finance/valuation/npv",
@@ -77,7 +81,41 @@
       "future-value",
       "discount-rate"
     ],
-    "inverse_of": "future-value-calculation"
+    "inverse_of": "future-value-calculation",
+    "skos:broader": [
+      {
+        "@id": "wsmg:time-value-of-money",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:compound-interest",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "wsmg:aku-001-npv-definition",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:discounted-cash-flow",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:bond-valuation",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:future-value",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:discount-rate",
+        "@type": "skos:Concept"
+      }
+    ]
   },
   "provenance": {
     "sources": [
@@ -92,7 +130,18 @@
         "pages": "18-22"
       }
     ],
-    "validation_date": "2025-12-27"
+    "validation_date": "2025-12-27",
+    "dc:creator": [
+      "generic-domain-empathy-agent",
+      "finance-valuation-expert-v1",
+      "ontology-enhancement-agent"
+    ],
+    "dc:modified": "2025-12-27T22:01:09.190939Z",
+    "prov:wasDerivedFrom": [
+      {
+        "dc:title": "Principles of Corporate Finance"
+      }
+    ]
   },
   "pedagogical": {
     "target_audiences": [
@@ -110,5 +159,19 @@
       "Using addition instead of division for discounting",
       "Forgetting to raise (1+r) to the power t"
     ]
-  }
+  },
+  "skos:prefLabel": "Present Value",
+  "skos:notation": "aku-003-present-value-concept",
+  "skos:definition": "Present Value (PV) is the current worth of a future sum of money or stream of cash flows given a specified rate of return. Future cash flows are discounted at the discount rate, and the higher the discount rate, the lower the present value of the future cash flows.",
+  "skos:altLabel": [
+    "PV",
+    "Barwert",
+    "valeur actuelle"
+  ],
+  "owl:sameAs": "https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/PresentValue",
+  "skos:exactMatch": [
+    "https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/PresentValue",
+    "http://dbpedia.org/resource/Present_value",
+    "http://www.wikidata.org/entity/Q332099"
+  ]
 }
