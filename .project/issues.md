@@ -173,6 +173,37 @@ AKUs require UTC millisecond timestamps, but currently manual. Need Git pre-comm
 
 ---
 
+#### Issue #5: Duplicate Agent Definitions
+**Status**: 🟡 Open  
+**Created**: 2025-12-27  
+**Priority**: Medium  
+**Area**: Agent Infrastructure
+
+**Description**:
+Two agent pairs have duplicate definitions with different content:
+1. `contrarian.agent.md` (116 lines) vs `contrarian-agent.agent.md` (83 lines)
+2. `rendering.agent.md` (5 lines) vs `rendering-agent.agent.md` (80 lines)
+
+This creates confusion about which agent to invoke and may lead to inconsistent behavior.
+
+**Impact**:
+- Unclear which agent definition is authoritative
+- Potential confusion when invoking agents
+- Wasted maintenance effort on duplicate definitions
+- Inconsistent agent behavior
+
+**Action Items**:
+- [ ] Review both versions of each agent to determine correct definition
+- [ ] Consolidate to single agent file per function
+- [ ] Update any documentation references
+- [ ] Remove duplicate files
+- [ ] Verify agent invocations use correct names
+
+**Assigned To**: TBD  
+**Target Date**: 2026-01-05
+
+---
+
 ### 🟢 Minor Issues
 *Nice to have improvements, not urgent*
 
