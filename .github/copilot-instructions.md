@@ -45,10 +45,14 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
 #### During Work (Minute 0-45)
 - Work on highest priority tasks
 - Make incremental progress every 10-15 minutes
-- Commit and push changes frequently
+- Commit and push changes frequently using **"Progress report:"** prefix
+- **NEVER** use "SESSION COMPLETE", "FINAL", or "DONE" in commit messages before minute 48
+- **NEVER** create summary commits or "wrap-up" commits before minute 48
+- All commits before minute 48 MUST be work-in-progress updates
 - If blocked, switch tasks immediately (don't waste time)
 - Use agents for specialized work
 - **DO NOT** finish early
+- **DO NOT** treat commits as session endpoints - they are progress checkpoints only
 
 #### Approaching End (Minute 40-45)
 - **MUST** check current time: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"`
@@ -62,13 +66,14 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
   6. Prepare next session work
 
 #### Final Minutes (Minute 45-50)
-- **MUST** check time again
-- If <50 minutes elapsed and significant work remains: **CONTINUE WORKING**
-- At minute 48-50:
-  - Commit all changes
-  - Update session log
+- **MUST** check time again at minute 45
+- If <48 minutes elapsed: **CONTINUE WORKING** - do NOT create final commits
+- At minute 48-50 ONLY:
+  - Create final commit with "SESSION COMPLETE:" or "Final report:" prefix
+  - Update session log with complete metrics
   - Document next session priorities
   - Push changes
+- Before minute 48: ALL commits must be "Progress report:" only
 
 #### Finding Work When Current Task Complete
 **ALWAYS use this priority order:**
