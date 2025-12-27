@@ -73,13 +73,15 @@ Generate content in:
 - **HTML** for interactive applications
 
 ### 🤖 AI-Powered Agents
-Specialized Copilot agents for:
-- Knowledge graph creation
-- Documentation management
-- Code review
-- Rendering generation
-- Quality assurance
-- Domain expertise
+60 specialized GitHub Copilot agents in `.github/agents/`:
+- **Core Infrastructure**: Coordinator, Recruiter (format gatekeeper), Quality
+- **Content Creation**: Parsers, miners, extractors for textbooks, papers, videos
+- **Knowledge Organization**: Ontology, semantic harmonization, terminology
+- **Quality Assurance**: Validation, verification, peer review
+- **Rendering & Presentation**: Multi-audience rendering, visualization, accessibility
+- **Pedagogy & Learning**: Learning design, assessment creation
+- **Domain Expertise**: Generic domain empathy, math expert, legal, standards
+- And 40+ more specialized agents
 
 ## Project Structure
 
@@ -88,7 +90,8 @@ See [Project Structure Documentation](.project/structure.md) for complete detail
 ```
 .
 ├── .github/
-│   ├── copilot/              # Copilot agent configurations
+│   ├── agents/                # 60 Copilot custom agents (.agent.md)
+│   ├── copilot/              # Copilot configuration
 │   └── copilot-instructions.md
 ├── .project/
 │   ├── structure.md          # Project organization
