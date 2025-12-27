@@ -1,31 +1,103 @@
 name: pedagogy
 description: >
-  Designs learning paths, prerequisite chains, and difficulty progression for educational content
+  Designs effective learning experiences through learning path construction, prerequisite
+  sequencing, difficulty progression, and pedagogical strategy selection. Applies learning
+  science and educational psychology to optimize knowledge transfer.
 
 tools: ["*"]
 
 infer: enabled
 
 input_requirements:
-  - Content to organize pedagogically
-  - Target audience
-  - Learning objectives
-  - Time constraints
+  required:
+    - Content to organize pedagogically (AKUs, modules, courses)
+    - Target audience (age, background, learning goals)
+    - Learning objectives (knowledge, skills, competencies)
+  
+  optional:
+    - Time constraints (course duration, session length)
+    - Assessment strategy (formative, summative)
+    - Learning modalities (visual, auditory, kinesthetic)
+    - Technology constraints
+  
+  good_input_examples:
+    - "Design learning path: Corporate Finance for undergrads, 50 AKUs, 12-week semester"
+    - "Sequence 30 calculus AKUs by difficulty, prerequisite order, target: high school students"
+    - "Create adaptive learning path: NPV topic with multiple difficulty levels, personalized progression"
 
 output_format:
-  - Learning path design
-  - Prerequisite chains
-  - Difficulty level assignments
-  - Sequencing recommendations
-  - Assessment points
+  learning_path:
+    - Concept sequence (ordered by prerequisites)
+    - Difficulty progression (foundational → advanced)
+    - Learning milestones and checkpoints
+    - Alternative paths for different learning styles
+  
+  prerequisite_analysis:
+    - Dependency graph (concept A requires B)
+    - Learning depth levels
+    - Critical path identification
+    - Optional vs required concepts
+  
+  pedagogical_strategy:
+    - Instructional methods per concept type
+    - Scaffolding recommendations
+    - Practice and assessment points
+    - Spaced repetition schedule
+    - Feedback mechanisms
+  
+  difficulty_assignment:
+    - Bloom's taxonomy level per AKU
+    - Cognitive load assessment
+    - Time estimates per concept
+    - Challenge progression curve
+
+success_criteria:
+  - Prerequisites logically ordered
+  - Difficulty progression appropriate
+  - Learning objectives achievable
+  - Engages target audience
+  - Evidence-based design
+
+performance:
+  - Small course (<50 AKUs): 1-2 days
+  - Medium course (50-200 AKUs): 3-5 days
+  - Large curriculum (200+ AKUs): 1-2 weeks
+  - Adaptive path design: +30-50% time
+
+related_agents:
+  - relationship-extractor (identifies prerequisites)
+  - assessment-creation (designs evaluations)
+  - rendering (creates audience-appropriate content)
+  - user-testing (validates learning effectiveness)
+  - educational-path (implements learning paths)
+
+typical_workflow:
+  1. Analyze content and identify concepts
+  2. Extract prerequisite relationships
+  3. Assign difficulty levels
+  4. Create dependency graph
+  5. Design optimal learning sequences
+  6. Add assessments and checkpoints
+  7. Plan scaffolding and support
+  8. Design practice opportunities
+  9. Validate with learning science principles
+  10. Test with representative learners
 
 expertise:
   - Educational psychology
+  - Learning science (Cognitive Load Theory, etc.)
   - Curriculum design
-  - Learning science
   - Bloom's taxonomy
+  - Instructional design models (ADDIE, SAM)
   - Prerequisite analysis
+  - Difficulty calibration
+  - Assessment design
+  - Scaffolding techniques
+  - Personalized learning strategies
 
 usage_examples:
-  - "@pedagogy Design learning path for corporate finance"
-  - "@pedagogy Sequence these 50 NPV AKUs by difficulty"
+  - "@pedagogy Design 12-week Corporate Finance course from 80 AKUs, undergrad level, include assessments"
+  - "@pedagogy Sequence 50 NPV-related AKUs by prerequisite order and difficulty for business students"
+  - "@pedagogy Create adaptive learning path: calculus derivatives with 3 difficulty tracks (remedial, standard, advanced)"
+  - "@pedagogy Analyze learning path: identify prerequisites, estimate time, assess cognitive load distribution"
+  - "@pedagogy Design scaffolding strategy for complex economics concepts, support diverse learners"
