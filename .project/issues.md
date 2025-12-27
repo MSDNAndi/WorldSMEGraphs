@@ -206,6 +206,121 @@ This creates confusion about which agent to invoke and may lead to inconsistent 
 
 ---
 
+#### Issue #6: AKU Numbering System Not Sustainable
+**Status**: 🟡 Open  
+**Created**: 2025-12-27  
+**Priority**: High  
+**Area**: Knowledge Representation
+
+**Description**:
+Current AKU numbering uses local sequential IDs (001-999) within each leaf category. This creates several problems:
+- Non-unique across domains (medicine/aku-001, economics/aku-001 both exist)
+- Limited range (999 AKUs max per category)
+- No semantic meaning
+- Manual management prone to conflicts
+- Cannot reference globally
+
+**Impact**:
+- Scaling beyond 10,000 AKUs will be difficult
+- Cross-domain references are ambiguous
+- Merge conflicts with multiple contributors
+- Renumbering breaks references
+
+**Proposed Solution**:
+Adopt semantic URI pattern: `{domain}:{path}:{concept}:{short-hash}`
+
+Example: `medicine:vascular:complications:endoleak-type2:def:7f3a91c8`
+
+**Action Items**:
+- [ ] Review research document: `.project/research/ontology-and-numbering-analysis.md`
+- [ ] Implement semantic ID generation script
+- [ ] Add `canonical_id` field to AKU schema
+- [ ] Update validation to check ID uniqueness globally
+- [ ] Create migration plan for existing AKUs
+- [ ] Update documentation
+
+**Assigned To**: TBD  
+**Target Date**: 2026-02-01
+
+**Related Research**: `.project/research/ontology-and-numbering-analysis.md`
+
+---
+
+#### Issue #7: Project Structure Scalability Concerns
+**Status**: 🟡 Open  
+**Created**: 2025-12-27  
+**Priority**: Medium  
+**Area**: Infrastructure
+
+**Description**:
+Current file-based structure (one JSON file per AKU) will not scale beyond ~10,000 AKUs due to:
+- Git performance degradation with many files
+- File system limitations (deep nesting, path length)
+- No clear boundary for when to split domains
+- Single repository for all domains
+
+**Impact**:
+- Performance issues with large domains
+- Difficult navigation with 100,000+ files
+- Repository size becomes unwieldy
+- Clone/pull times increase significantly
+
+**Proposed Solutions**:
+1. **Hybrid storage**: Index files + JSONL batches (1000 AKUs per file)
+2. **Database-backed**: SQLite with auto-generated JSON sync
+3. **Monorepo split**: Separate repos per major domain
+
+**Action Items**:
+- [ ] Review scalability analysis in research document
+- [ ] Prototype hybrid storage approach
+- [ ] Benchmark performance with 10k+ AKUs
+- [ ] Define split criteria for domains
+- [ ] Test Git performance at scale
+- [ ] Create migration strategy
+
+**Assigned To**: TBD  
+**Target Date**: 2026-03-01
+
+**Related Research**: `.project/research/ontology-and-numbering-analysis.md`
+
+---
+
+#### Issue #8: Need Standard Ontology Integration
+**Status**: 🟡 Open  
+**Created**: 2025-12-27  
+**Priority**: Medium  
+**Area**: Knowledge Representation
+
+**Description**:
+Currently using ad-hoc knowledge representation without alignment to standard ontologies. Should integrate with:
+- **Schema.org**: Already using, but not fully leveraging
+- **SKOS**: For concept relationships (broader, narrower, related)
+- **SNOMED CT**: For medical terminology
+- **FIBO**: For economics/finance concepts
+- **BFO/DOLCE**: For upper ontology alignment
+
+**Benefits**:
+- Interoperability with external systems
+- Standard vocabularies
+- Machine-readable semantics
+- Link to existing knowledge bases (DBpedia, Wikidata)
+- Better search and discovery
+
+**Action Items**:
+- [ ] Review ontology research document
+- [ ] Add SKOS relationships to AKU schema
+- [ ] Create mappings to SNOMED for medical AKUs
+- [ ] Create mappings to FIBO for economics AKUs
+- [ ] Update documentation with ontology guidelines
+- [ ] Train agents to use standard ontologies
+
+**Assigned To**: TBD  
+**Target Date**: 2026-02-15
+
+**Related Research**: `.project/research/ontology-and-numbering-analysis.md`
+
+---
+
 ### 🟢 Minor Issues
 *Nice to have improvements, not urgent*
 
