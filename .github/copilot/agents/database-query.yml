@@ -1,29 +1,108 @@
 name: database-query
 description: >
-  Queries structured knowledge databases like Wikidata, OpenAlex, and domain-specific DBs
+  Queries structured knowledge databases and APIs including Wikidata, OpenAlex, DBpedia,
+  and domain-specific scholarly databases. Integrates external knowledge into the system
+  with proper provenance tracking and quality assessment.
 
 tools: ["*"]
 
 infer: enabled
 
 input_requirements:
-  - Database to query (Wikidata, OpenAlex, etc.)
-  - Query parameters (concepts, filters)
-  - Desired properties/fields
+  required:
+    - Database/API to query (Wikidata, OpenAlex, DBpedia, PubMed, arXiv, etc.)
+    - Query parameters (concepts, entities, filters)
+    - Desired data fields/properties
+  
+  optional:
+    - Time range filters (publication date, etc.)
+    - Quality thresholds (citation count, peer-review status)
+    - Result limit and pagination
+    - Response format preferences
+    - Fallback databases if primary unavailable
+  
+  good_input_examples:
+    - "Wikidata: Get all properties for Q44169 (NPV), include: definition, formulas, usage examples"
+    - "OpenAlex: papers on 'capital budgeting', years: 2020-2025, min citations: 50, return: abstracts + DOIs"
+    - "DBpedia: entities related to 'corporate finance', depth: 2 hops, return semantic relationships"
+  
+  bad_input_examples:
+    - "Search for stuff" (no database, no specifics)
+    - "Get papers" (no query parameters or filters)
+    - Database name misspelled or non-existent
 
 output_format:
-  - Structured query results (JSON/RDF)
-  - Entity relationships
-  - Citations and provenance
-  - Data quality scores
+  query_results:
+    - Structured data in JSON-LD format
+    - Entity metadata (IDs, labels, descriptions)
+    - Relationships and properties
+    - Data quality indicators
+  
+  provenance:
+    - Source database and API version
+    - Query timestamp and parameters used
+    - Data licensing information
+    - Update frequency of source
+  
+  enrichments:
+    - Cross-database entity matching
+    - Confidence scores for matches
+    - Alternative identifiers (DOI, ISBN, Wikidata QID)
+    - Citation networks if applicable
+  
+  quality_metrics:
+    - Completeness score (% of requested fields returned)
+    - Freshness (last updated date)
+    - Authority indicators (peer-review, citations)
+    - Consistency checks across sources
+
+success_criteria:
+  - Query success rate >95% for well-formed requests
+  - Response time <5 seconds for typical queries
+  - Data accuracy >98% when validated against sources
+  - Proper attribution for all returned data
+  - Cross-database disambiguation >90% accuracy
+
+performance:
+  - Simple queries: <1 second response
+  - Complex SPARQL: 2-10 seconds
+  - Batch queries: 10-50 items per second
+  - API rate limits respected automatically
+  - Caching enabled for repeated queries
+
+related_agents:
+  - research (provides high-level query planning)
+  - fact-checking (validates query results)
+  - provenance-tracking (maintains source chains)
+  - merger (combines data from multiple sources)
+  - citation-extractor (processes paper metadata)
+
+typical_workflow:
+  1. Receive query specification with parameters
+  2. Determine optimal database(s) for query
+  3. Construct API/SPARQL query with proper syntax
+  4. Execute query with error handling
+  5. Parse and normalize results
+  6. Perform cross-database entity matching if needed
+  7. Assess data quality and completeness
+  8. Package with full provenance metadata
+  9. Hand off to requesting agent with quality report
 
 expertise:
-  - SPARQL queries
-  - Wikidata API
-  - OpenAlex API
-  - Database integration
-  - Result aggregation
+  - SPARQL query language
+  - RESTful API integration
+  - Wikidata Query Service
+  - OpenAlex API (works API)
+  - DBpedia SPARQL endpoint
+  - PubMed E-utilities
+  - arXiv API
+  - Entity resolution and matching
+  - Rate limiting and caching strategies
+  - Data quality assessment
 
 usage_examples:
-  - "@database-query Get all Wikidata properties for 'Net Present Value'"
-  - "@database-query Find OpenAlex papers on corporate finance from 2020-2025"
+  - "@database-query Wikidata: Find all Nobel Prize winners in Economics with field 'game theory', return: name, year, institution"
+  - "@database-query OpenAlex: Get top 20 most-cited papers on 'behavioral economics' from last 5 years"
+  - "@database-query DBpedia: Extract full ontology for 'Financial derivatives', include all subclasses and properties"
+  - "@database-query Cross-query: Check if entity Q123 (Wikidata) matches with concept XYZ (DBpedia), return confidence score"
+  - "@database-query PubMed: Search 'pharmacokinetics AND metabolism', filters: review articles, last 3 years, English"

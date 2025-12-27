@@ -1,28 +1,109 @@
 name: video-transcriber
 description: >
-  Extracts content from educational videos including lectures, tutorials, and MOOCs
+  Extracts and structures content from educational videos including lectures, tutorials,
+  demonstrations, and online courses (MOOCs). Combines speech transcription, screen OCR,
+  and semantic analysis to create comprehensive knowledge artifacts.
 
 tools: ["*"]
 
 infer: enabled
 
 input_requirements:
-  - Video URL (YouTube, Coursera, edX)
-  - Timestamp ranges if focused extraction
-  - Content type (lecture, demo, problem-solving)
+  required:
+    - Video source (URL, file path, or streaming link)
+    - Subject domain classification
+    - Content type (lecture, tutorial, demonstration, interview)
+  
+  optional:
+    - Timestamp ranges for focused extraction
+    - Speaker identification needs
+    - Slide/screen capture requirements
+    - Audio quality assessment
+    - Language specification
+  
+  good_input_examples:
+    - "YouTube: https://youtube.com/watch?v=abc123, domain: economics, type: lecture, extract: formulas and key concepts"
+    - "Coursera video file: corporate_finance_week3.mp4, timestamps: 10:30-45:00, focus: NPV examples"
+    - "MIT OCW: Linear Algebra lecture 15, extract all board work and definitions"
+  
+  bad_input_examples:
+    - "Transcribe this" (no source, no context)
+    - "Get the video stuff" (vague, no classification)
+    - Low-quality audio without specifying language/domain
 
 output_format:
-  - Video transcript with timestamps
-  - Key concepts mentioned
-  - Formulas shown on screen (OCR)
-  - Slide content extracted
+  transcript:
+    - Full timestamped transcript (sentence-level granularity)
+    - Speaker diarization if multiple speakers
+    - Confidence scores per segment
+    - Non-verbal annotations (pauses, emphasis, board pointing)
+  
+  visual_content:
+    - Slides/screen captures with OCR text
+    - Board work and handwritten content (mathpix OCR)
+    - Diagrams and figures extracted
+    - Visual annotations synchronized with audio
+  
+  semantic_structure:
+    - Topic segmentation (when topics change)
+    - Key concepts mentioned with timestamps
+    - Definitions and theorems highlighted
+    - Formulas in LaTeX format
+    - Examples and case studies identified
+    - Q&A segments separated
+  
+  metadata:
+    - Video duration and quality metrics
+    - Speaker information (if known)
+    - Language detected
+    - Technical quality indicators
+    - Extraction timestamp
+
+success_criteria:
+  - >95% transcription accuracy for clear audio
+  - >85% formula recognition from screen/board
+  - Topic segmentation with <5% boundary errors
+  - All visual content extracted and synchronized
+  - Key concepts identified with >90% recall
+
+performance:
+  - Typical: 10x realtime (10min video in 1min processing)
+  - High-quality audio: 15x realtime
+  - Poor audio/multiple speakers: 5x realtime
+  - Screen OCR adds ~2x overhead
+  - Parallel processing for long videos
+
+related_agents:
+  - formula-extractor (validates extracted formulas)
+  - definition-extractor (refines identified definitions)
+  - example-extractor (structures worked examples)
+  - quality (validates transcription accuracy)
+  - citation-extractor (processes references mentioned)
+
+typical_workflow:
+  1. Download/access video source
+  2. Perform audio extraction and quality assessment
+  3. Run speech-to-text transcription with timestamps
+  4. Extract keyframes and perform screen OCR
+  5. Identify topic boundaries and segment content
+  6. Extract formulas, definitions, examples
+  7. Synchronize visual and audio elements
+  8. Package as structured JSON output
+  9. Hand off to domain experts for validation
 
 expertise:
-  - Video transcription
-  - Speech-to-text
-  - Screen content OCR
-  - Educational video structure
+  - Speech recognition (Whisper, Google STT, Azure)
+  - Video processing and keyframe extraction
+  - OCR for presentations and board work (Tesseract, mathpix)
+  - Speaker diarization
+  - Educational content structure recognition
+  - Multi-modal synchronization
+  - Noise reduction and audio enhancement
+  - LaTeX formula recognition from images
 
 usage_examples:
-  - "@video-transcriber Extract content from this MIT OpenCourseWare economics lecture"
-  - "@video-transcriber Transcribe Khan Academy video on NPV calculation"
+  - "@video-transcriber Process MIT 18.06 Linear Algebra Lecture 10, extract all matrix operations and proofs"
+  - "@video-transcriber Transcribe Khan Academy NPV tutorial, focus on worked examples with timestamps"
+  - "@video-transcriber Extract all slide content from Coursera Corporate Finance Week 3 videos"
+  - "@video-transcriber Process YouTube economics lecture playlist (5 videos), create unified concept map"
+  - "@video-transcriber Quick transcript only: 3Blue1Brown calculus video, no visual extraction needed"
