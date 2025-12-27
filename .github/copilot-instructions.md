@@ -1,7 +1,27 @@
 # GitHub Copilot Custom Instructions for WorldSMEGraphs
 
+## Table of Contents
+- [Project Mission](#project-mission)
+- [Core Principles](#core-principles)
+- [Project Structure](#project-structure)
+- [Available Agents](#available-agents)
+- [Build, Test, and Validation](#build-test-and-validation)
+- [Workflow Requirements](#workflow-requirements)
+- [Technology Stack and Coding Standards](#technology-stack-and-coding-standards)
+- [Best Practices](#best-practices)
+- [Getting Started](#getting-started)
+- [Common Pitfalls and Troubleshooting](#common-pitfalls-and-troubleshooting)
+
 ## Project Mission
 WorldSMEGraphs is a file-based knowledge representation system for subject matter expert domains. The goal is to create an interconnected, language-agnostic knowledge graph that can be rendered in multiple formats and languages for different audiences.
+
+**Key Features:**
+- Language-agnostic knowledge representation
+- Multi-audience rendering (toddlers to experts)
+- Multi-lingual support
+- File-based architecture (no external databases)
+- 60+ specialized AI agents
+- Cross-domain knowledge linking
 
 ## Core Principles
 
@@ -402,3 +422,52 @@ If stuck or uncertain:
   - **Solution**: Check `.project/issues.md` and `.project/improvements.md` for next tasks
   - **Priority**: Always address critical blockers first
   - **Remember**: There is always more work - don't finish early
+
+## Quick Reference
+
+### Essential Files
+- **This File**: `.github/copilot-instructions.md` - Main Copilot instructions
+- **Project Structure**: `.project/structure.md` - File organization and layout
+- **Roadmap**: `.project/roadmap.md` - Project goals and timeline
+- **Issues**: `.project/issues.md` - Open issues and blockers
+- **Improvements**: `.project/improvements.md` - Enhancement proposals
+- **Contributing**: `docs/CONTRIBUTING.md` - Contribution guidelines
+- **README**: `README.md` - Project overview
+
+### Important Directories
+- **Agents**: `.github/agents/` - 60+ custom agent definitions
+- **Domains**: `domain/` - Knowledge domain hierarchies
+- **Documentation**: `docs/` - General project documentation
+- **Project Metadata**: `.project/` - Project planning and tracking
+- **Validation Tools**: `.project/agents/quality-assurance/tools/` - AKU validators
+
+### Quick Commands
+```bash
+# Validate AKUs
+python .project/agents/quality-assurance/tools/validate_aku.py path/to/aku.json
+
+# Check agent quality
+bash .github/copilot/agents/check-agent-lengths.sh
+
+# View project structure
+cat .project/structure.md
+
+# Check current issues
+cat .project/issues.md
+```
+
+### Agent Quick Reference
+- **Coordination**: `@coordinator`, `@recruiter`, `@quality`
+- **Knowledge Creation**: `@knowledge-graph-agent`, `@ontology`
+- **Content Extraction**: `@paper-miner`, `@textbook-parser`, `@video-transcriber`
+- **Validation**: `@verification`, `@fact-checking`, `@peer-review`
+- **Rendering**: `@rendering-agent`, `@pedagogy`, `@accessibility`
+- **Quality Review**: `@code-review-agent`, `@contrarian-agent`
+- **Documentation**: `@documentation-agent`, `@semantic-harmonization`
+
+For complete agent list, see `.github/agents/` directory.
+
+---
+
+**Last Updated**: 2025-12-27  
+**Version**: 2.0 (Enhanced with build/test/validation instructions and troubleshooting)
