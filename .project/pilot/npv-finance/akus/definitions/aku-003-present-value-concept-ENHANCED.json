@@ -1,0 +1,174 @@
+{
+  "@context": [
+    "https://worldsmegraphs.org/contexts/base.jsonld",
+    "https://worldsmegraphs.org/contexts/economics.jsonld"
+  ],
+  "@id": "wsmg-econ:present-value-concept-003",
+  "@type": ["schema:EducationalResource", "skos:Concept"],
+  
+  "metadata": {
+    "version": "2.1.0",
+    "dc:created": "2025-12-27T00:00:00.000Z",
+    "dc:modified": "2025-12-27T18:57:00.000Z",
+    "dc:creator": [
+      "wsmg-agent:generic-domain-empathy-agent",
+      "wsmg-agent:finance-valuation-expert-v1"
+    ],
+    "wsmg:confidence": 0.99,
+    "wsmg:validationStatus": "validated",
+    "last_updated": "2025-12-27T18:57:00.000Z"
+  },
+  
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "definition",
+    "wsmg:difficulty": "beginner",
+    "wsmg:importance": "critical",
+    "aku_id": "003"
+  },
+  
+  "skos:prefLabel": {
+    "@language": "en",
+    "@value": "Present Value"
+  },
+  "skos:altLabel": ["PV", "Discounted Value", "Present Worth", "Barwert"],
+  "skos:definition": "Present Value (PV) is the current worth of a future sum of money or stream of cash flows given a specified rate of return. Future cash flows are discounted at the discount rate, and the higher the discount rate, the lower the present value of the future cash flows.",
+  "skos:notation": "PV",
+  
+  "content": {
+    "statement": {
+      "text": "Present Value (PV) is the current worth of a future sum of money or stream of cash flows given a specified rate of return. Future cash flows are discounted at the discount rate, and the higher the discount rate, the lower the present value of the future cash flows.",
+      "formal": "PV = FV / (1+r)^t, where FV is future value, r is discount rate, t is time periods"
+    },
+    "explanation": {
+      "intuition": "If someone promises to pay you $100 in one year, how much is that promise worth today? It's not $100 because you could invest money today to get $100 in a year. If you can earn 10% return, you only need $90.91 today to have $100 in a year. So the present value of $100 in one year at 10% discount rate is $90.91.",
+      "key_insight": "Present value embodies the fundamental principle that money today is worth more than the same amount in the future. This is because money today can be invested to earn returns. The discount rate represents this opportunity cost.",
+      "mathematical_relationship": "Present value is the inverse of future value: PV × (1+r)^t = FV. Discounting (calculating PV) undoes compounding (calculating FV)."
+    }
+  },
+  
+  "representations": {
+    "latex": "PV = \\frac{FV}{(1+r)^t}",
+    "python": {
+      "code": "def present_value(future_value, discount_rate, time_periods):\n    \"\"\"\n    Calculate present value of a future amount.\n    \n    Args:\n        future_value (float): Amount to be received in the future\n        discount_rate (float): Discount rate (e.g., 0.10 for 10%)\n        time_periods (int/float): Number of periods until payment\n    \n    Returns:\n        float: Present value\n    \n    Example:\n        >>> present_value(100, 0.10, 1)\n        90.91\n    \"\"\"\n    return future_value / (1 + discount_rate) ** time_periods",
+      "test_cases": [
+        {
+          "input": {
+            "future_value": 100,
+            "discount_rate": 0.1,
+            "time_periods": 1
+          },
+          "expected": 90.91
+        },
+        {
+          "input": {
+            "future_value": 1000,
+            "discount_rate": 0.08,
+            "time_periods": 5
+          },
+          "expected": 680.58
+        },
+        {
+          "input": {
+            "future_value": 10000,
+            "discount_rate": 0.12,
+            "time_periods": 10
+          },
+          "expected": 3219.73
+        }
+      ]
+    }
+  },
+  
+  "relationships": {
+    "hierarchical": {
+      "skos:broader": [
+        "wsmg-econ:time-value-of-money",
+        "wsmg-econ:discounted-cash-flow"
+      ],
+      "skos:narrower": [
+        "wsmg-econ:pv-annuity",
+        "wsmg-econ:pv-perpetuity",
+        "wsmg-econ:pv-growing-annuity"
+      ]
+    },
+    "associative": {
+      "skos:related": [
+        "wsmg-econ:future-value",
+        "wsmg-econ:discount-rate",
+        "wsmg-econ:net-present-value"
+      ]
+    },
+    "pedagogical": {
+      "prerequisites": [
+        "wsmg-econ:time-value-money",
+        "wsmg-econ:compound-interest"
+      ],
+      "enables": [
+        "wsmg-econ:npv-definition",
+        "wsmg-econ:discounted-cash-flow",
+        "wsmg-econ:bond-valuation"
+      ],
+      "inverse_of": "wsmg-econ:future-value-calculation"
+    },
+    "external": {
+      "skos:exactMatch": [
+        "fibo:PresentValue",
+        "http://www.wikidata.org/entity/Q1053298"
+      ],
+      "skos:closeMatch": [
+        "dbpedia:Present_value"
+      ],
+      "owl:sameAs": [
+        "http://www.wikidata.org/entity/Q1053298"
+      ]
+    }
+  },
+  
+  "provenance": {
+    "prov:wasGeneratedBy": {
+      "@id": "wsmg:extraction-econ-003",
+      "@type": "prov:Activity",
+      "prov:startedAtTime": "2025-12-27T02:50:00Z",
+      "prov:endedAtTime": "2025-12-27T02:56:46Z",
+      "prov:wasAssociatedWith": {
+        "@id": "wsmg-agent:generic-domain-empathy-agent",
+        "@type": "prov:Agent"
+      }
+    },
+    "dc:source": [
+      {
+        "@type": "schema:Book",
+        "@id": "isbn:978-0073382333",
+        "schema:name": "Principles of Corporate Finance",
+        "schema:author": ["Brealey", "Myers", "Allen"],
+        "schema:bookEdition": "13th",
+        "schema:pagination": "18-22",
+        "dc:bibliographicCitation": "Brealey, R., Myers, S., & Allen, F. (2019). Principles of Corporate Finance (13th ed., pp. 18-22). McGraw-Hill Education."
+      }
+    ],
+    "prov:wasRevisionOf": {
+      "@id": "wsmg-econ:present-value-concept-003-v1",
+      "dc:modified": "2025-12-27T02:56:46.141Z"
+    },
+    "validation_date": "2025-12-27"
+  },
+  
+  "pedagogical": {
+    "target_audiences": [
+      "undergraduate-finance",
+      "introductory-business"
+    ],
+    "learning_objectives": [
+      "Define present value",
+      "Calculate PV given FV, rate, and time",
+      "Explain why PV decreases as time or rate increases"
+    ],
+    "estimated_time_minutes": 10,
+    "common_errors": [
+      "Confusing PV with FV formulas",
+      "Using addition instead of division for discounting",
+      "Forgetting to raise (1+r) to the power t"
+    ]
+  }
+}
