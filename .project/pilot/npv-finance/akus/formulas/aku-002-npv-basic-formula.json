@@ -1,0 +1,120 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "EducationalResource",
+  "@id": "aku-002-npv-basic-formula",
+  
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-27",
+    "contributors": ["generic-domain-empathy-agent", "finance-valuation-expert-v1"],
+    "confidence": 0.99,
+    "status": "validated"
+  },
+  
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "formula",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "002"
+  },
+  
+  "content": {
+    "statement": {
+      "text": "The basic NPV formula: NPV = Σ(CFₜ / (1+r)^t) - C₀, where the summation runs from t=1 to T.",
+      "formal": "NPV = -C₀ + CF₁/(1+r)¹ + CF₂/(1+r)² + ... + CFₜ/(1+r)^T"
+    },
+    
+    "explanation": {
+      "intuition": "Each future cash flow is divided by (1+r) raised to the power of when it occurs. This 'discounts' future money to present value. Sum all discounted future cash flows, subtract initial cost.",
+      
+      "key_insight": "The formula grows exponentially in the denominator - cash flows far in the future are worth much less today. A $100 cash flow in year 20 at 10% discount rate is worth only $14.86 today.",
+      
+      "step_by_step": [
+        "1. Identify all cash flows (CF₁, CF₂, ..., CFₜ) and when they occur (t)",
+        "2. Determine appropriate discount rate (r)",
+        "3. Calculate present value of each future cash flow: CFₜ/(1+r)^t",
+        "4. Sum all present values",
+        "5. Subtract initial investment (C₀)",
+        "6. Result is NPV"
+      ]
+    }
+  },
+  
+  "representations": {
+    "latex": "NPV = -C_0 + \\sum_{t=1}^{T} \\frac{CF_t}{(1+r)^t}",
+    
+    "python": {
+      "code": "import numpy as np\n\ndef npv_formula(initial_investment, cash_flows, discount_rate):\n    \"\"\"\n    Calculate NPV using the basic formula.\n    \n    Args:\n        initial_investment (float): Initial cost (positive number)\n        cash_flows (list): Future cash flows starting from year 1\n        discount_rate (float): Annual discount rate (e.g., 0.10 for 10%)\n    \n    Returns:\n        float: Net Present Value\n    \n    Example:\n        >>> npv_formula(100000, [30000, 40000, 50000], 0.10)\n        4132.23\n    \"\"\"\n    pv_sum = sum(cf / (1 + discount_rate) ** (t + 1) \n                 for t, cf in enumerate(cash_flows))\n    return pv_sum - initial_investment\n\ndef npv_with_numpy(cash_flows, discount_rate):\n    \"\"\"\n    Calculate NPV using NumPy (more efficient for large datasets).\n    \n    Args:\n        cash_flows (list): All cash flows including initial (index 0)\n        discount_rate (float): Discount rate\n    \n    Returns:\n        float: NPV\n    \"\"\"\n    return np.npv(discount_rate, cash_flows)",
+      
+      "example_calculation": {
+        "input": {
+          "initial_investment": 100000,
+          "cash_flows": [30000, 40000, 50000, 20000],
+          "discount_rate": 0.10
+        },
+        "step_by_step": [
+          "Year 1 PV: 30000 / (1.10)¹ = 27,272.73",
+          "Year 2 PV: 40000 / (1.10)² = 33,057.85",
+          "Year 3 PV: 50000 / (1.10)³ = 37,565.74",
+          "Year 4 PV: 20000 / (1.10)⁴ = 13,660.27",
+          "Sum of PVs: 111,556.59",
+          "NPV = 111,556.59 - 100,000 = 11,556.59"
+        ],
+        "output": 11556.59
+      }
+    }
+  },
+  
+  "variables": {
+    "C_0": {
+      "name": "Initial Investment",
+      "typical_range": "$10K - $10M+ depending on project",
+      "sign_convention": "Entered as positive, subtracted in formula"
+    },
+    "CF_t": {
+      "name": "Cash Flow at time t",
+      "note": "Can include multiple types: operating cash flows, terminal value, salvage value"
+    },
+    "r": {
+      "name": "Discount Rate",
+      "typical_range": "5% - 20% for most corporate projects",
+      "determination": "Often WACC (Weighted Average Cost of Capital)"
+    }
+  },
+  
+  "relationships": {
+    "prerequisites": ["aku-001-npv-definition", "present-value-concept"],
+    "enables": ["aku-027-single-cash-flow-example", "npv-decision-rule"],
+    "variants": [
+      "npv-continuous-compounding",
+      "npv-with-mid-year-convention",
+      "npv-with-growing-cash-flows"
+    ]
+  },
+  
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Brealey", "Myers", "Allen"],
+        "pages": "97-98"
+      }
+    ],
+    "validation_date": "2025-12-27"
+  },
+  
+  "pedagogical": {
+    "learning_objectives": [
+      "Write out the NPV formula from memory",
+      "Apply the formula to calculate NPV step-by-step",
+      "Understand why each term is necessary"
+    ],
+    "common_errors": [
+      "Starting summation at t=0 instead of t=1",
+      "Discounting the initial investment (it's already at present value)",
+      "Using wrong discount factor: should be (1+r)^t not (1-r)^t"
+    ]
+  }
+}
