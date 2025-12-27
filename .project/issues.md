@@ -34,13 +34,15 @@
 Configure Copilot instructions for the repository according to GitHub best practices. Ensure agent definitions are correct and validation tools work properly.
 
 **Resolution**:
-1. ✅ Enhanced `.github/copilot-instructions.md` from 241 to 473 lines (+96%)
+1. ✅ Enhanced `.github/copilot-instructions.md` from 241 to 589 lines (+144%)
    - Added Table of Contents for navigation
    - Added "How to Invoke Agents" section with syntax and best practices
    - Added "Build, Test, and Validation" section with all commands
    - Added "Technology Stack and Coding Standards" section
    - Added "Common Pitfalls and Troubleshooting" section
+   - Added "Examples: Good vs Bad Patterns" section
    - Added "Quick Reference" section with files, commands, and agent list
+   - Created project structure validation script
 
 2. ✅ Fixed `.github/copilot/agents/check-agent-lengths.sh`
    - Changed from checking `.yml` files to `.agent.md` files
