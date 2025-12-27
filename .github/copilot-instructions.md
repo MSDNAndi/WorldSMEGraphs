@@ -261,18 +261,19 @@ This validates all `.agent.md` files in `.github/agents/` directory.
 ### Validating Project Structure
 Verify that the actual file structure matches the documented structure:
 
+**Automated Validation:**
 ```bash
 bash .github/scripts/validate-structure.sh
 ```
 
-This checks for:
+This automated script checks for:
 - Required directories exist
 - Essential files present
 - Validation scripts available
-- Agent files present
+- Agent files present (60 agents)
 - Domain structure correct
 
-### Project Structure Validation
+**Manual Validation:**
 - Review `.project/structure.md` to ensure file organization matches documentation
 - Verify no files are in wrong locations
 - Check that all domains follow the standard structure pattern
