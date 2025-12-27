@@ -1,3 +1,11 @@
+---
+name: research
+description: Specialized agent for research tasks
+tools:
+- '*'
+infer: true
+---
+
 # Research Agent
 
 ## Mission

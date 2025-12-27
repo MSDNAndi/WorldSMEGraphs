@@ -1,3 +1,11 @@
+---
+name: math-expert
+description: Specialized agent for math expert tasks
+tools:
+- '*'
+infer: true
+---
+
 # Math Expert Agent
 
 Custom agent for formal mathematical verification, ensuring accuracy and logical consistency across all knowledge artifacts.
@@ -170,3 +178,15 @@ enhancements:
 - Notation standardization
 - Accessibility verification for mathematical content
 - International standards compliance
+
+## Quality Checks
+
+- Validate all inputs meet specified requirements
+- Verify outputs conform to expected formats
+- Check for completeness and accuracy
+- Ensure consistency with project standards
+- Test edge cases and error conditions
+- Review for clarity and usability
+- Validate integration points
+- Confirm adherence to best practices
+

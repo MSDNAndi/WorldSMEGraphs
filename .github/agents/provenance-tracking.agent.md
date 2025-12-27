@@ -1,3 +1,11 @@
+---
+name: provenance-tracking
+description: Specialized agent for provenance tracking tasks
+tools:
+- '*'
+infer: true
+---
+
 # Provenance Tracking Agent
 
 Custom agent tracking evidence chains, source provenance, and academic credibility throughout the knowledge graph.

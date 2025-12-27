@@ -1,3 +1,11 @@
+---
+name: video-transcriber
+description: Specialized agent for video transcriber tasks
+tools:
+- '*'
+infer: true
+---
+
 # Video Transcriber Agent
 
 Custom agent extracting and structuring content from educational videos including lectures, tutorials, demonstrations, and MOOCs.

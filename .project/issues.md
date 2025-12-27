@@ -23,23 +23,84 @@
 ### 🟡 Important Issues  
 *Should be addressed in current phase*
 
-#### Issue #1: AKU Validator Needs Medical Domain Support
-**Status**: 🟡 Open  
+#### Issue #0: Copilot Instructions Setup
+**Status**: ✅ Resolved  
 **Created**: 2025-12-27  
+**Resolved**: 2025-12-27  
+**Priority**: High  
+**Area**: Development Infrastructure
+
+**Description**:
+Configure Copilot instructions for the repository according to GitHub best practices. Ensure agent definitions are correct and validation tools work properly.
+
+**Resolution**:
+1. ✅ Enhanced `.github/copilot-instructions.md` from 241 to 589 lines (+144%)
+   - Added Table of Contents for navigation
+   - Added "How to Invoke Agents" section with syntax and best practices
+   - Added "Build, Test, and Validation" section with all commands
+   - Added "Technology Stack and Coding Standards" section
+   - Added "Common Pitfalls and Troubleshooting" section
+   - Added "Examples: Good vs Bad Patterns" section
+   - Added "Quick Reference" section with files, commands, and agent list
+   - Created project structure validation script
+
+2. ✅ Fixed `.github/copilot/agents/check-agent-lengths.sh`
+   - Changed from checking `.yml` files to `.agent.md` files
+   - Fixed path resolution to find agents in `.github/agents/`
+   - Verified script works correctly (validates 60 agents)
+
+3. ✅ Verified agent invocation patterns in documentation match definitions
+
+**Outcome**:
+- Copilot instructions now comprehensive and follow GitHub best practices
+- All validation tools functional
+- Agent usage documented with examples
+- Quick reference guide available for developers
+
+**Completed**: 2025-12-27
+
+---
+
+#### Issue #1: AKU Validator Needs Medical Domain Support
+**Status**: ✅ Resolved  
+**Created**: 2025-12-27  
+**Resolved**: 2025-12-27  
 **Priority**: Medium  
 **Area**: Quality Assurance Tools
 
 **Description**:
-The current AKU validator (`validate_aku.py`) expects math-centric fields like `representations` and `variables` which are not applicable to medical content. Medical AKUs use clinical-specific fields like `clinical_features`, `imaging_characteristics`, etc.
+The current AKU validator (`validate_aku.py`) expected math-centric fields like `representations` and `variables` which are not applicable to medical content. Medical AKUs use clinical-specific fields like `clinical_features`, `imaging_characteristics`, etc.
 
 **Impact**:
 - Cannot validate medical AKUs with current tool
 - Medical AKUs show as "invalid" despite being structurally sound
 - Need domain-specific validation rules
 
-**Action Items**:
-- [ ] Create medical AKU validator or extend current validator
-- [ ] Define required fields for medical AKUs
+**Resolution**:
+Created `validate_aku_v2.py` with domain-aware validation following @verification and @ontology agent guidance:
+- Auto-detects domain from `classification.domain_path`
+- Domain-specific validation rules for medicine, math, economics, science
+- Flexible schema validation based on content type
+- Validates medical AKUs correctly (8/8 pass)
+- Detailed error reporting with actionable suggestions
+- Supports `--domain` flag for domain-specific validation
+
+**Usage:**
+```bash
+# Validate single AKU
+python .project/agents/quality-assurance/tools/validate_aku_v2.py path/to/aku.json
+
+# Validate all medical AKUs
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --domain medicine
+
+# Validate directory
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --directory path/to/akus/
+```
+
+**Completed**: 2025-12-27  
+**Verification**: All 8 medical AKUs validate successfully
+
+---
 - [ ] Support multiple domain formats (math, medical, etc.)
 - [ ] Update validation to be domain-aware
 
@@ -75,24 +136,39 @@ NPV pilot currently has only 6 AKUs. Need 44 more to reach pilot goal of 50 AKUs
 ---
 
 #### Issue #3: Agent Configurations Need More Detail
-**Status**: ✅ Resolved  
+**Status**: ⚠️ Partially Resolved - Reopened  
 **Created**: 2025-12-27  
-**Resolved**: 2025-12-27  
+**Updated**: 2025-12-27  
 **Priority**: High  
 **Area**: Agent Infrastructure
 
 **Description**:
 Only 18/53 agents had full MusicVideoPipeline-level detail (34% complete). Remaining 35 agents needed comprehensive enhancement to 180+ lines.
 
-**Resolution**:
+**Previous Resolution Claim**:
 All 53 agents now enhanced to meet 180-line minimum with comprehensive content:
 - 5 agents: 190-232 lines (comprehensive)
 - 48 agents: 180-189 lines (quality-focused)
 - All include detailed input requirements, examples (good/bad), output formats, success criteria, workflows, expertise areas, and extensive usage examples
 - 100% compliance verified with check-agent-lengths.sh script
 
-**Completed**: 2025-12-27  
-**Verification**: All 53/53 agents pass 180-line minimum requirement  
+**Current Status (2025-12-27)**:
+Validation script now correctly checks `.agent.md` files (was checking non-existent `.yml` files):
+- **Total agents**: 60 (verified count of .agent.md files)
+- **Passing (≥180 lines)**: 25 agents (42%)
+- **Failing (<180 lines)**: 35 agents (58%)
+- Some agents have extremely low line counts (5-8 lines) suggesting incomplete or problematic definitions
+- Note: Line count validation does not check content validity; some files may have parsing errors
+
+**Action Items**:
+- [ ] Investigate discrepancy between claim and actual state
+- [ ] Review agents with very low line counts (5-8 lines) for content validity
+- [ ] Enhance remaining 35 agents to meet 180-line minimum
+- [ ] Ensure all agent files contain valid Markdown content
+- [ ] Re-run validation after enhancements
+
+**Assigned To**: TBD  
+**Target Date**: 2026-01-05  
 
 ---
 
@@ -119,6 +195,152 @@ AKUs require UTC millisecond timestamps, but currently manual. Need Git pre-comm
 
 **Assigned To**: TBD  
 **Target Date**: 2025-12-30  
+
+---
+
+#### Issue #5: Duplicate Agent Definitions
+**Status**: 🟡 Open  
+**Created**: 2025-12-27  
+**Priority**: Medium  
+**Area**: Agent Infrastructure
+
+**Description**:
+Two agent pairs have duplicate definitions with different content:
+1. `contrarian.agent.md` (116 lines) vs `contrarian-agent.agent.md` (83 lines)
+2. `rendering.agent.md` (5 lines) vs `rendering-agent.agent.md` (80 lines)
+
+This creates confusion about which agent to invoke and may lead to inconsistent behavior.
+
+**Impact**:
+- Unclear which agent definition is authoritative
+- Potential confusion when invoking agents
+- Wasted maintenance effort on duplicate definitions
+- Inconsistent agent behavior
+
+**Action Items**:
+- [ ] Review both versions of each agent to determine correct definition
+- [ ] Consolidate to single agent file per function
+- [ ] Update any documentation references
+- [ ] Remove duplicate files
+- [ ] Verify agent invocations use correct names
+
+**Assigned To**: TBD  
+**Target Date**: 2026-01-05
+
+---
+
+#### Issue #6: AKU Numbering System Not Sustainable
+**Status**: 🟡 Open  
+**Created**: 2025-12-27  
+**Priority**: High  
+**Area**: Knowledge Representation
+
+**Description**:
+Current AKU numbering uses local sequential IDs (001-999) within each leaf category. This creates several problems:
+- Non-unique across domains (medicine/aku-001, economics/aku-001 both exist)
+- Limited range (999 AKUs max per category)
+- No semantic meaning
+- Manual management prone to conflicts
+- Cannot reference globally
+
+**Impact**:
+- Scaling beyond 10,000 AKUs will be difficult
+- Cross-domain references are ambiguous
+- Merge conflicts with multiple contributors
+- Renumbering breaks references
+
+**Proposed Solution**:
+Adopt semantic URI pattern: `{domain}:{path}:{concept}:{short-hash}`
+
+Example: `medicine:vascular:complications:endoleak-type2:def:7f3a91c8`
+
+**Action Items**:
+- [ ] Review research document: `.project/research/ontology-and-numbering-analysis.md`
+- [ ] Implement semantic ID generation script
+- [ ] Add `canonical_id` field to AKU schema
+- [ ] Update validation to check ID uniqueness globally
+- [ ] Create migration plan for existing AKUs
+- [ ] Update documentation
+
+**Assigned To**: TBD  
+**Target Date**: 2026-02-01
+
+**Related Research**: `.project/research/ontology-and-numbering-analysis.md`
+
+---
+
+#### Issue #7: Project Structure Scalability Concerns
+**Status**: 🟡 Open  
+**Created**: 2025-12-27  
+**Priority**: Medium  
+**Area**: Infrastructure
+
+**Description**:
+Current file-based structure (one JSON file per AKU) will not scale beyond ~10,000 AKUs due to:
+- Git performance degradation with many files
+- File system limitations (deep nesting, path length)
+- No clear boundary for when to split domains
+- Single repository for all domains
+
+**Impact**:
+- Performance issues with large domains
+- Difficult navigation with 100,000+ files
+- Repository size becomes unwieldy
+- Clone/pull times increase significantly
+
+**Proposed Solutions**:
+1. **Hybrid storage**: Index files + JSONL batches (1000 AKUs per file)
+2. **Database-backed**: SQLite with auto-generated JSON sync
+3. **Monorepo split**: Separate repos per major domain
+
+**Action Items**:
+- [ ] Review scalability analysis in research document
+- [ ] Prototype hybrid storage approach
+- [ ] Benchmark performance with 10k+ AKUs
+- [ ] Define split criteria for domains
+- [ ] Test Git performance at scale
+- [ ] Create migration strategy
+
+**Assigned To**: TBD  
+**Target Date**: 2026-03-01
+
+**Related Research**: `.project/research/ontology-and-numbering-analysis.md`
+
+---
+
+#### Issue #8: Need Standard Ontology Integration
+**Status**: 🟡 Open  
+**Created**: 2025-12-27  
+**Priority**: Medium  
+**Area**: Knowledge Representation
+
+**Description**:
+Currently using ad-hoc knowledge representation without alignment to standard ontologies. Should integrate with:
+- **Schema.org**: Already using, but not fully leveraging
+- **SKOS**: For concept relationships (broader, narrower, related)
+- **SNOMED CT**: For medical terminology
+- **FIBO**: For economics/finance concepts
+- **BFO/DOLCE**: For upper ontology alignment
+
+**Benefits**:
+- Interoperability with external systems
+- Standard vocabularies
+- Machine-readable semantics
+- Link to existing knowledge bases (DBpedia, Wikidata)
+- Better search and discovery
+
+**Action Items**:
+- [ ] Review ontology research document
+- [ ] Add SKOS relationships to AKU schema
+- [ ] Create mappings to SNOMED for medical AKUs
+- [ ] Create mappings to FIBO for economics AKUs
+- [ ] Update documentation with ontology guidelines
+- [ ] Train agents to use standard ontologies
+
+**Assigned To**: TBD  
+**Target Date**: 2026-02-15
+
+**Related Research**: `.project/research/ontology-and-numbering-analysis.md`
 
 ---
 

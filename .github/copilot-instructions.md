@@ -1,7 +1,29 @@
 # GitHub Copilot Custom Instructions for WorldSMEGraphs
 
+## Table of Contents
+- [Project Mission](#project-mission)
+- [Core Principles](#core-principles)
+- [Project Structure](#project-structure)
+- [Available Agents](#available-agents)
+- [Build, Test, and Validation](#build-test-and-validation)
+- [Workflow Requirements](#workflow-requirements)
+- [Technology Stack and Coding Standards](#technology-stack-and-coding-standards)
+- [Best Practices](#best-practices)
+- [Getting Started](#getting-started)
+- [Examples: Good vs Bad Patterns](#examples-good-vs-bad-patterns)
+- [Common Pitfalls and Troubleshooting](#common-pitfalls-and-troubleshooting)
+- [Quick Reference](#quick-reference)
+
 ## Project Mission
 WorldSMEGraphs is a file-based knowledge representation system for subject matter expert domains. The goal is to create an interconnected, language-agnostic knowledge graph that can be rendered in multiple formats and languages for different audiences.
+
+**Key Features:**
+- Language-agnostic knowledge representation
+- Multi-audience rendering (toddlers to experts)
+- Multi-lingual support
+- File-based architecture (no external databases)
+- 60+ specialized AI agents
+- Cross-domain knowledge linking
 
 ## Core Principles
 
@@ -176,6 +198,112 @@ domain/
 
 See `.github/agents/` for specialized agent configurations (all use `.agent.md` format per GitHub Copilot standards)
 
+### How to Invoke Agents
+
+Agents are invoked using the `@agent-name` syntax followed by specific instructions:
+
+**Basic invocation:**
+```
+@coordinator Create NPV pilot with 50 comprehensive AKUs
+```
+
+**With detailed requirements:**
+```
+@paper-miner Extract formulas and definitions from "Net Present Value Analysis" textbook chapters 3-5. Focus on: discount rates, cash flow calculations, decision criteria. Output: Structured JSON for AKU creation.
+```
+
+**Best practices for agent invocation:**
+1. **Be Specific**: Provide clear objectives and success criteria
+2. **Include Context**: Give relevant background information the agent needs
+3. **Set Expectations**: Specify format, depth, timeline if applicable
+4. **Reference Artifacts**: Point to specific files, sections, or resources
+5. **Define Success**: State how to measure completion
+
+**Available agent categories:**
+- **Coordination**: coordinator, recruiter, quality
+- **Content Extraction**: paper-miner, textbook-parser, video-transcriber, definition-extractor, formula-extractor
+- **Knowledge Organization**: ontology, semantic-harmonization, terminology, relationship-extractor
+- **Validation**: verification, fact-checking, peer-review, multi-lingual-validation
+- **Rendering**: rendering, pedagogy, visualization, accessibility
+- **Domain Experts**: math-expert, generic-domain-empathy (with personas)
+- **Quality Assurance**: code-review-agent, contrarian
+- **And 40+ more specialized agents** - see `.github/agents/` directory
+
+## Build, Test, and Validation
+
+### Validating AKUs (Atomic Knowledge Units)
+This project uses Python scripts for validation. No external dependencies required (uses standard library only).
+
+**Domain-Aware Validator (Recommended):**
+```bash
+# Validate single AKU
+python .project/agents/quality-assurance/tools/validate_aku_v2.py path/to/aku.json
+
+# Validate all AKUs in a domain
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --domain medicine
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --domain economics
+
+# Validate directory
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --directory path/to/akus/
+
+# Verbose output
+python .project/agents/quality-assurance/tools/validate_aku_v2.py path/to/aku.json --verbose
+```
+
+**Legacy Validator (Math-focused):**
+```bash
+# Validate a single AKU
+python .project/agents/quality-assurance/tools/validate_aku.py path/to/aku.json
+
+# Validate all AKUs in a directory
+python .project/agents/quality-assurance/tools/validate_aku.py --directory path/to/akus/
+
+# Validate a specific pilot
+python .project/agents/quality-assurance/tools/validate_aku.py --pilot npv
+```
+
+**Features of v2 validator:**
+- Auto-detects domain from `classification.domain_path`
+- Domain-specific validation rules (medicine, math, economics, science)
+- Flexible schema based on content type
+- Detailed error reporting with suggestions
+
+### Validating Agents
+Check that all agent configurations meet the 180-line minimum requirement:
+
+```bash
+bash .github/scripts/check-agent-lengths.sh
+```
+
+This validates all `.agent.md` files in `.github/agents/` directory.
+
+### Validating Project Structure
+Verify that the actual file structure matches the documented structure:
+
+**Automated Validation:**
+```bash
+bash .github/scripts/validate-structure.sh
+```
+
+This automated script checks for:
+- Required directories exist
+- Essential files present
+- Validation scripts available
+- Agent files present (60 agents)
+- Domain structure correct
+
+**Manual Validation:**
+- Review `.project/structure.md` to ensure file organization matches documentation
+- Verify no files are in wrong locations
+- Check that all domains follow the standard structure pattern
+
+### Quality Checks Before Committing
+1. **Validate AKUs**: If you modified any AKU files, run the validation script
+2. **Check Agent Configs**: If you modified agents, verify they meet requirements
+3. **Verify Timestamps**: Ensure UTC timestamps are updated on modified AKUs
+4. **Test Locally**: If applicable, test any scripts or tools you modified
+5. **Review Documentation**: Update docs if you changed structure or added features
+
 ## Workflow Requirements
 
 ### Before Finalizing Any PR
@@ -227,11 +355,161 @@ After 5 review cycles without improvement, an agent must be replaced or complete
 - Aim for zero errors
 - Solve the most difficult problems
 
+## Technology Stack and Coding Standards
+
+### Core Technologies
+- **Storage**: File-based (JSON, Markdown, YAML)
+- **Version Control**: Git
+- **AI Agents**: GitHub Copilot (60+ custom agents)
+- **Validation**: Python (standard library only)
+- **Documentation**: Markdown
+- **Knowledge Format**: JSON-based `.graph` files
+
+### File Naming Conventions
+- **Use lowercase** with hyphens for multi-word names
+- **Be descriptive**: `elementary-school.md` not `es.md`
+- **Consistent extensions**: `.md`, `.json`, `.graph`, `.agent.md`
+- **Agent files**: `[name].agent.md` in `.github/agents/`
+
+### Code Style Standards
+
+#### Markdown
+- Use ATX-style headers (`#` not underlines)
+- One blank line between sections
+- Use fenced code blocks with language tags
+- Keep lines under 100 characters when possible
+- Use numbered lists when order matters, bullets otherwise
+
+#### JSON
+- Use 2-space indentation
+- Include trailing commas where allowed (if validator permits)
+- Use double quotes for strings
+- Keep consistent field ordering
+- Validate with schema when available
+
+#### Python (for tools)
+- Use standard library only (no external dependencies)
+- Include clear docstrings
+- Self-contained scripts
+- Provide usage examples in comments
+
+#### Writing Style
+- Use clear, concise language
+- Define terms before using them
+- Use active voice
+- Be consistent with terminology
+- Avoid jargon unless necessary
+- Follow audience-appropriate complexity
+
+### Version Control Practices
+- **Commit frequently** with "Progress report:" prefix during work
+- **Clear commit messages** describing what changed
+- **Never commit** build artifacts, dependencies, or temporary files
+- **Use .gitignore** for exclusions
+- **Review changes** before committing
+
 ## Getting Started
 1. Review `.project/structure.md` for current project organization
 2. Check `.project/roadmap.md` for planned work
 3. Consult appropriate agent configurations for specialized tasks
 4. Follow domain-specific guidelines in `domain/[domain-name]/README.md`
+
+## Examples: Good vs Bad Patterns
+
+### Creating Knowledge Graphs
+
+**❌ Bad:**
+```json
+{
+  "name": "algebra",
+  "content": "Algebra is math with variables"
+}
+```
+*Issues: Not language-agnostic, missing structure, no metadata*
+
+**✅ Good:**
+```json
+{
+  "@context": "aku-v2",
+  "@type": "concept",
+  "@id": "math:algebra:variable",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2025-12-27T15:30:00.000Z",
+    "contributors": ["math-expert-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "science/mathematics/algebra",
+    "type": "concept",
+    "difficulty": "elementary",
+    "importance": "foundational"
+  }
+}
+```
+*Follows format specification with metadata and structure*
+
+### Agent Invocation
+
+**❌ Bad:**
+```
+@agent do something with NPV
+```
+*Issues: No specific agent, vague requirements, no success criteria*
+
+**✅ Good:**
+```
+@paper-miner Extract NPV formulas and definitions from "Corporate Finance" 
+by Ross et al., chapters 5-6. Focus on: discount rate calculations, 
+decision rules, sensitivity analysis. Output: Structured JSON suitable 
+for AKU creation. Success: All formulas extracted with context and notation.
+```
+*Specific agent, clear scope, defined output, measurable success*
+
+### File Organization
+
+**❌ Bad:**
+```
+domain/
+  stuff.json
+  notes.md
+  algebra-things/
+    random.graph
+```
+*Issues: No structure, unclear names, mixed content*
+
+**✅ Good:**
+```
+domain/
+  science/
+    math/
+      algebra/
+        knowledge.graph
+        schema.json
+        .renders/
+          english/
+            elementary-school.md
+```
+*Follows standard structure, clear hierarchy, proper naming*
+
+### Commit Messages
+
+**❌ Bad:**
+```
+git commit -m "updates"
+git commit -m "fix"
+git commit -m "done"
+```
+*Issues: No context, doesn't explain what changed*
+
+**✅ Good:**
+```
+git commit -m "Progress report: Added 5 NPV definition AKUs with validation"
+git commit -m "Progress report: Fixed AKU timestamp format to ISO 8601"
+git commit -m "SESSION COMPLETE: Enhanced agent infrastructure (50 min)"
+```
+*Clear prefix, describes change, provides context*
 
 ## Need Help?
 If stuck or uncertain:
@@ -239,3 +517,93 @@ If stuck or uncertain:
 2. Request a contrarian agent review
 3. Consult domain expert agents
 4. Review KPI tracking for agent recommendations
+
+## Common Pitfalls and Troubleshooting
+
+### Agent Invocation Issues
+- **Problem**: Agent doesn't respond as expected
+  - **Solution**: Ensure you're using the correct `@agent-name` format
+  - **Check**: Verify agent name matches one in `.github/agents/` directory
+  - **Tip**: Provide more specific context and requirements
+
+### Validation Failures
+- **Problem**: AKU validation fails
+  - **Solution**: Check the error message for specific missing fields
+  - **Common Issues**: Missing UTC timestamps, incorrect field types, missing required sections
+  - **Fix**: Review `.project/agents/quality-assurance/tools/validate_aku.py` for requirements
+
+### Agent Quality Issues
+- **Problem**: Agent produces inconsistent results
+  - **Solution**: Check agent KPI tracking in `.github/copilot/agent-kpis.md`
+  - **Consider**: Using the contrarian agent to review the output
+  - **Option**: Try a different specialized agent for the same task
+
+### File Organization
+- **Problem**: Don't know where to put new files
+  - **Solution**: Review `.project/structure.md` for organization guidelines
+  - **Pattern**: Follow existing domain structure patterns
+  - **Rule**: Keep knowledge graphs and renderings separate
+
+### Documentation Conflicts
+- **Problem**: Found contradicting information in docs
+  - **Solution**: Research thoroughly to resolve contradictions
+  - **Process**: Document findings, update all affected files
+  - **Tool**: Use `@documentation-agent` to check for contradictions
+
+### Work Session Management
+- **Problem**: Running out of time in 50-minute session
+  - **Solution**: Check `.project/issues.md` and `.project/improvements.md` for next tasks
+  - **Priority**: Always address critical blockers first
+  - **Remember**: There is always more work - don't finish early
+
+## Quick Reference
+
+### Essential Files
+- **This File**: `.github/copilot-instructions.md` - Main Copilot instructions
+- **Project Structure**: `.project/structure.md` - File organization and layout
+- **Roadmap**: `.project/roadmap.md` - Project goals and timeline
+- **Issues**: `.project/issues.md` - Open issues and blockers
+- **Improvements**: `.project/improvements.md` - Enhancement proposals
+- **Contributing**: `docs/CONTRIBUTING.md` - Contribution guidelines
+- **README**: `README.md` - Project overview
+
+### Important Directories
+- **Agents**: `.github/agents/` - 60+ custom agent definitions
+- **Domains**: `domain/` - Knowledge domain hierarchies
+- **Documentation**: `docs/` - General project documentation
+- **Project Metadata**: `.project/` - Project planning and tracking
+- **Validation Tools**: `.project/agents/quality-assurance/tools/` - AKU validators
+
+### Quick Commands
+```bash
+# Validate AKUs
+python .project/agents/quality-assurance/tools/validate_aku.py path/to/aku.json
+
+# Check agent quality
+bash .github/scripts/check-agent-lengths.sh
+
+# Validate project structure
+bash .github/scripts/validate-structure.sh
+
+# View project structure
+cat .project/structure.md
+
+# Check current issues
+cat .project/issues.md
+```
+
+### Agent Quick Reference
+- **Coordination**: `@coordinator`, `@recruiter`, `@quality`
+- **Knowledge Creation**: `@knowledge-graph-agent`, `@ontology`
+- **Content Extraction**: `@paper-miner`, `@textbook-parser`, `@video-transcriber`
+- **Validation**: `@verification`, `@fact-checking`, `@peer-review`
+- **Rendering**: `@rendering-agent`, `@pedagogy`, `@accessibility`
+- **Quality Review**: `@code-review-agent`, `@contrarian-agent`
+- **Documentation**: `@documentation-agent`, `@semantic-harmonization`
+
+For complete agent list, see `.github/agents/` directory.
+
+---
+
+**Last Updated**: 2025-12-27  
+**Version**: 2.0 (Enhanced comprehensive guide)

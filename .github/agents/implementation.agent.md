@@ -1,3 +1,11 @@
+---
+name: implementation
+description: Specialized agent for implementation tasks
+tools:
+- '*'
+infer: true
+---
+
 # Implementation Agent
 
 ## Role

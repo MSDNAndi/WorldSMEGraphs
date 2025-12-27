@@ -1,3 +1,11 @@
+---
+name: textbook-parser
+description: Specialized agent for textbook parser tasks
+tools:
+- '*'
+infer: true
+---
+
 # Textbook Parser Agent
 
 ## Mission

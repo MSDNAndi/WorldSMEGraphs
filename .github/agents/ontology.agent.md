@@ -1,3 +1,11 @@
+---
+name: ontology
+description: Specialized agent for ontology tasks
+tools:
+- '*'
+infer: true
+---
+
 # Agent Ontology
 
 Designs RDF/OWL ontologies and JSON-LD schemas for semantic knowledge representation. Creates formal domain models with classes, properties, and relationships aligned with semantic web standards and existing ontologies.

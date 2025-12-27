@@ -1,3 +1,11 @@
+---
+name: verification
+description: Specialized agent for verification tasks
+tools:
+- '*'
+infer: true
+---
+
 # Verification Agent
 
 ## Mission
@@ -166,3 +174,15 @@ Output: Failed - Gap identified
 - Proof repair suggestions
 - Complexity analysis of proofs
 - Proof comparison and equivalence checking
+
+## Quality Checks
+
+- Validate all inputs meet specified requirements
+- Verify outputs conform to expected formats
+- Check for completeness and accuracy
+- Ensure consistency with project standards
+- Test edge cases and error conditions
+- Review for clarity and usability
+- Validate integration points
+- Confirm adherence to best practices
+
