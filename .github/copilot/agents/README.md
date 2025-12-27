@@ -1,105 +1,116 @@
 # WorldSMEGraphs Copilot Agents
 
 > **Last Updated**: 2025-12-27  
-> **Total Agents**: 53 YAML configurations  
-> **Quality Standard**: All agents meet 180+ line minimum with comprehensive specifications
+> **Total Agents**: 53 Markdown configurations  
+> **Format Standard**: GitHub Copilot custom agent `.md` format  
+> **Quality Standard**: All agents follow consistent structure with comprehensive specifications
 
 ## Overview
 
-This directory contains 53 specialized GitHub Copilot agent configurations that work together to create, manage, and enhance the WorldSMEGraphs knowledge representation system. All agents have been enhanced to meet comprehensive quality standards with detailed specifications, extensive usage examples, and clear workflows.
+This directory contains 53 specialized GitHub Copilot agent configurations that work together to create, manage, and enhance the WorldSMEGraphs knowledge representation system. All agents follow the official GitHub Copilot custom agent format using `.md` (Markdown) files with detailed specifications, extensive usage examples, and clear workflows.
+
+## Format Standard
+
+All agents in this directory follow the **GitHub Copilot custom agent format**:
+
+- **File Extension**: `.md` (Markdown)
+- **Location**: `.github/copilot/agents/[agent-name].md`
+- **Structure**: Consistent sections including Purpose, Responsibilities, Expertise, Input Requirements, Output Format, Usage Examples, Success Criteria, Related Agents, and Version History
+
+The **Recruiter Agent** serves as the format gatekeeper, ensuring all agents maintain consistency and follow best practices.
 
 ## Quick Reference - All 53 Agents
 
 ### Core Infrastructure (3 agents)
-| Agent | Lines | Purpose |
-|-------|-------|---------|
-| coordinator.yml | 180 | Multi-agent workflow orchestration, task delegation |
-| recruiter.yml | 180 | Agent ecosystem management, capability matching |
-| quality.yml | 180 | Comprehensive QA procedures, validation |
+| Agent | Format | Purpose |
+|-------|--------|---------|
+| coordinator.md | ✅ MD | Multi-agent workflow orchestration, task delegation |
+| recruiter.md | ✅ MD | Agent ecosystem management, capability matching (format gatekeeper) |
+| quality.md | ✅ MD | Comprehensive QA procedures, validation |
 
 ### Content Creation & Extraction (9 agents)
-| Agent | Lines | Purpose |
+| Agent | Format | Purpose |
 |-------|-------|---------|
-| textbook-parser.yml | 181 | Extract content from textbooks across all disciplines |
-| paper-miner.yml | 180 | Extract from research papers, analyze methodologies |
-| video-transcriber.yml | 181 | Transcribe and extract from educational videos |
-| definition-extractor.yml | 180 | Extract formal definitions from sources |
-| formula-extractor.yml | 180 | Extract mathematical formulas, convert to LaTeX |
-| example-extractor.yml | 181 | Extract worked examples and problems |
-| citation-extractor.yml | 180 | Extract and format citations, build bibliographies |
-| relationship-extractor.yml | 181 | Extract conceptual relationships, build dependency graphs |
-| web-scraper.yml | 197 | Scrape educational content from websites |
+| textbook-parser.md | ✅ MD | Extract content from textbooks across all disciplines |
+| paper-miner.md | ✅ MD | Extract from research papers, analyze methodologies |
+| video-transcriber.md | ✅ MD | Transcribe and extract from educational videos |
+| definition-extractor.md | ✅ MD | Extract formal definitions from sources |
+| formula-extractor.md | ✅ MD | Extract mathematical formulas, convert to LaTeX |
+| example-extractor.md | ✅ MD | Extract worked examples and problems |
+| citation-extractor.md | ✅ MD | Extract and format citations, build bibliographies |
+| relationship-extractor.md | ✅ MD | Extract conceptual relationships, build dependency graphs |
+| web-scraper.md | ✅ MD | Scrape educational content from websites |
 
 ### Knowledge Organization (7 agents)
-| Agent | Lines | Purpose |
+| Agent | Format | Purpose |
 |-------|-------|---------|
-| ontology.yml | 180 | Design ontologies, define taxonomies |
-| graph-database.yml | 180 | Graph database architecture and optimization |
-| semantic-harmonization.yml | 207 | Resolve semantic conflicts across sources |
-| terminology.yml | 182 | Manage domain terminology and glossaries |
-| merger.yml | 184 | Merge duplicate or overlapping AKUs |
-| conflict-resolution.yml | 183 | Resolve conflicting information from sources |
-| provenance-tracking.yml | 183 | Track content lineage and sources |
+| ontology.md | ✅ MD | Design ontologies, define taxonomies |
+| graph-database.md | ✅ MD | Graph database architecture and optimization |
+| semantic-harmonization.md | ✅ MD | Resolve semantic conflicts across sources |
+| terminology.md | ✅ MD | Manage domain terminology and glossaries |
+| merger.md | ✅ MD | Merge duplicate or overlapping AKUs |
+| conflict-resolution.md | ✅ MD | Resolve conflicting information from sources |
+| provenance-tracking.md | ✅ MD | Track content lineage and sources |
 
 ### Quality Assurance (5 agents)
-| Agent | Lines | Purpose |
+| Agent | Format | Purpose |
 |-------|-------|---------|
-| fact-checking.yml | 181 | Verify factual accuracy across domains |
-| peer-review.yml | 180 | Multi-dimensional quality review |
-| verification.yml | 181 | Formal verification, proof checking |
-| citation.yml | 183 | Citation validation and management |
-| database-query.yml | 183 | Query external databases for validation |
+| fact-checking.md | ✅ MD | Verify factual accuracy across domains |
+| peer-review.md | ✅ MD | Multi-dimensional quality review |
+| verification.md | ✅ MD | Formal verification, proof checking |
+| citation.md | ✅ MD | Citation validation and management |
+| database-query.md | ✅ MD | Query external databases for validation |
 
 ### Rendering & Presentation (4 agents)
-| Agent | Lines | Purpose |
+| Agent | Format | Purpose |
 |-------|-------|---------|
-| rendering.yml | 215 | Transform AKUs into audience-appropriate formats |
-| visualization.yml | 216 | Create visual representations of knowledge |
-| localization.yml | 182 | Adapt content for different languages and cultures |
-| accessibility.yml | 216 | Ensure WCAG compliance, screen reader support |
+| rendering.md | ✅ MD | Transform AKUs into audience-appropriate formats |
+| visualization.md | ✅ MD | Create visual representations of knowledge |
+| localization.md | ✅ MD | Adapt content for different languages and cultures |
+| accessibility.md | ✅ MD | Ensure WCAG compliance, screen reader support |
 
 ### Pedagogy & Learning (5 agents)
-| Agent | Lines | Purpose |
+| Agent | Format | Purpose |
 |-------|-------|---------|
-| pedagogy.yml | 182 | Learning science, instructional design |
-| educational-path.yml | 213 | Curriculum design, prerequisite mapping |
-| assessment-creation.yml | 180 | Create assessments using Bloom's taxonomy |
-| user-testing.yml | 185 | User research and usability testing |
-| meta-learning.yml | 197 | Learning analytics, adaptive systems |
+| pedagogy.md | ✅ MD | Learning science, instructional design |
+| educational-path.md | ✅ MD | Curriculum design, prerequisite mapping |
+| assessment-creation.md | ✅ MD | Create assessments using Bloom's taxonomy |
+| user-testing.md | ✅ MD | User research and usability testing |
+| meta-learning.md | ✅ MD | Learning analytics, adaptive systems |
 
 ### Audience Advocates (5 agents)
-| Agent | Lines | Purpose |
+| Agent | Format | Purpose |
 |-------|-------|---------|
-| academic-audience-advocate.yml | 184 | Academic rigor, research standards |
-| student-audience-advocate.yml | 185 | Student learning needs |
-| professional-audience-advocate.yml | 180 | Professional practitioner needs |
-| diverse-learner-advocate.yml | 185 | Accessibility, diverse learning styles |
-| curious-public-advocate.yml | 183 | General public accessibility |
+| academic-audience-advocate.md | ✅ MD | Academic rigor, research standards |
+| student-audience-advocate.md | ✅ MD | Student learning needs |
+| professional-audience-advocate.md | ✅ MD | Professional practitioner needs |
+| diverse-learner-advocate.md | ✅ MD | Accessibility, diverse learning styles |
+| curious-public-advocate.md | ✅ MD | General public accessibility |
 
 ### Domain Expertise (4 agents)
-| Agent | Lines | Purpose |
+| Agent | Format | Purpose |
 |-------|-------|---------|
-| generic-domain-empathy.yml | 184 | Understand any domain, create personas |
-| math-expert.yml | 180 | Mathematical verification across domains |
-| legal-copyright.yml | 180 | IP law, fair use, licensing |
-| standards.yml | 188 | Technical standards compliance |
+| generic-domain-empathy.md | ✅ MD | Understand any domain, create personas |
+| math-expert.md | ✅ MD | Mathematical verification across domains |
+| legal-copyright.md | ✅ MD | IP law, fair use, licensing |
+| standards.md | ✅ MD | Technical standards compliance |
 
 ### Technical Infrastructure (7 agents)
-| Agent | Lines | Purpose |
+| Agent | Format | Purpose |
 |-------|-------|---------|
-| software-architecture.yml | 180 | Architecture patterns, scalability, cloud |
-| devops.yml | 190 | CI/CD pipelines, automation, monitoring |
-| implementation.yml | 232 | Feasibility assessment, execution planning |
-| research-monitoring.yml | 181 | Track research advances in domains |
-| community-manager.yml | 200 | Community engagement, contribution management |
-| deprecation.yml | 180 | Manage outdated content, migrations |
-| data-integration.yml | 187 | Integrate data from multiple sources |
+| software-architecture.md | ✅ MD | Architecture patterns, scalability, cloud |
+| devops.md | ✅ MD | CI/CD pipelines, automation, monitoring |
+| implementation.md | ✅ MD | Feasibility assessment, execution planning |
+| research-monitoring.md | ✅ MD | Track research advances in domains |
+| community-manager.md | ✅ MD | Community engagement, contribution management |
+| deprecation.md | ✅ MD | Manage outdated content, migrations |
+| data-integration.md | ✅ MD | Integrate data from multiple sources |
 
 ### Special Purpose (4 agents)
-| Agent | Lines | Purpose |
+| Agent | Format | Purpose |
 |-------|-------|---------|
-| contrarian.yml | 183 | Challenge assumptions, identify weaknesses |
-| multi-lingual-validation.yml | 181 | Validate translations, cultural adaptation |
+| contrarian.md | ✅ MD | Challenge assumptions, identify weaknesses |
+| multi-lingual-validation.md | ✅ MD | Validate translations, cultural adaptation |
 
 ## Quality Standards
 
