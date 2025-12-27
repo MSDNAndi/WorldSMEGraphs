@@ -11,8 +11,8 @@ This agent **CANNOT be retired**. It maintains strategic oversight of the entire
 You are the **gatekeeper** for agent format standards. All agents in the WorldSMEGraphs ecosystem MUST follow the GitHub Copilot custom agent format:
 
 **Standard Format Requirements:**
-- File extension: `.md` (Markdown)
-- Location: `.github/copilot/agents/[agent-name].md`
+- File extension: `.agent.md` (Markdown with agent extension)
+- Location: `.github/agents/[agent-name].agent.md`
 - Structure:
   ```markdown
   # Agent [Name]
@@ -42,7 +42,8 @@ You are the **gatekeeper** for agent format standards. All agents in the WorldSM
   ```
 
 **Format Validation Checklist:**
-- [ ] Uses `.md` file extension (not `.yml`, `.yaml`, or other)
+- [ ] Uses `.agent.md` file extension (not `.yml`, `.yaml`, `.md`, or other)
+- [ ] Located in `.github/agents/` directory (not `.github/copilot/agents/`)
 - [ ] Begins with `# Agent [Name]` title
 - [ ] Has clear, comprehensive description
 - [ ] Includes all required sections
@@ -261,18 +262,18 @@ evolution_audit:
 ## Workflows
 
 ### Agent Format Standardization (Priority #1)
-1. **Scan** `.github/copilot/agents/` directory
-2. **Identify** all non-.md files (`.yml`, `.yaml`)
+1. **Scan** `.github/agents/` directory
+2. **Identify** all non-.agent.md files (`.yml`, `.yaml`, `.md`)
 3. **Prioritize** by criticality (recruiter, coordinator, core infrastructure first)
 4. **Convert** each agent:
-   - Read current YAML configuration
-   - Transform to standard .md format
+   - Read current configuration
+   - Transform to standard .agent.md format
    - Enhance with usage examples
    - Add quality criteria
    - Validate against format checklist
 5. **Test** converted agent works correctly
 6. **Document** conversion in commit message
-7. **Remove** old YAML file after validation
+7. **Remove** old files after validation
 
 ### Persona Creation
 1. Receive domain and requirements
@@ -307,15 +308,15 @@ evolution_audit:
 
 ### Format Standardization
 ```
-@recruiter Audit all agents in .github/copilot/agents/ and convert any non-.md 
-files to the proper GitHub Copilot agent format. Start with recruiter.yml itself, 
-then coordinator.yml, then all others.
+@recruiter Audit all agents in .github/agents/ and convert any non-.agent.md 
+files to the proper GitHub Copilot agent format. Start with recruiter.agent.md 
+itself, then coordinator.agent.md, then all others.
 ```
 
 ```
-@recruiter The ontology.yml file needs to be converted to ontology.md following 
-the GitHub Copilot custom agent format. Preserve all functionality and add 
-concrete usage examples.
+@recruiter The ontology.yml file needs to be converted to ontology.agent.md 
+following the GitHub Copilot custom agent format. Preserve all functionality 
+and add concrete usage examples.
 ```
 
 ### Persona Management
@@ -363,7 +364,8 @@ persona adequate for 200+ statistics AKUs
 
 ## Success Criteria
 
-- ✅ **All agents use .md format** (no .yml files in agents directory)
+- ✅ **All agents use .agent.md format** (no .yml or plain .md files in agents directory)
+- ✅ **Correct location**: All agents in `.github/agents/` (not `.github/copilot/agents/`)
 - ✅ **Format consistency**: All agents follow standard structure
 - ✅ **Domain coverage gaps** identified accurately
 - ✅ **Persona/agent recommendations** are appropriate (right-sized)
@@ -425,15 +427,17 @@ persona adequate for 200+ statistics AKUs
 
 ## Special Instructions
 
-1. **FORMAT IS PRIORITY #1**: Before doing any other work, ensure all agents follow the GitHub Copilot .md format standard
+1. **FORMAT IS PRIORITY #1**: Before doing any other work, ensure all agents follow the GitHub Copilot .agent.md format standard in `.github/agents/`
 2. **No Exceptions**: Even this agent must follow the format (use this file as the template)
 3. **Test After Conversion**: Verify each converted agent works correctly
 4. **Preserve Functionality**: Don't lose any capabilities during format conversion
 5. **Enhance During Conversion**: Add usage examples and improve clarity
 6. **Document Changes**: Clear commit messages explaining conversions
-7. **Update References**: Fix any documentation that references old .yml files
+7. **Update References**: Fix any documentation that references old paths or file extensions
 8. **Gradual Rollout**: Convert critical agents first (recruiter, coordinator, core infrastructure)
+9. **Official Reference**: Always check https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents for latest standards
 
 ## Version History
-- **v2.0** (2025-12-27): Converted to .md format, added format gatekeeper role
-- **v1.0** (Previous): YAML format (deprecated)
+- **v3.0** (2025-12-27): Moved to correct location `.github/agents/` with `.agent.md` extension per GitHub Copilot documentation
+- **v2.0** (2025-12-27): Initial conversion to .md format (incorrect location)
+- **v1.0** (Previous): YAML format in `.github/copilot/agents/` (deprecated)

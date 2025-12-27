@@ -1,105 +1,114 @@
 # WorldSMEGraphs Copilot Agents
 
 > **Last Updated**: 2025-12-27  
-> **Total Agents**: 53 YAML configurations  
-> **Quality Standard**: All agents meet 180+ line minimum with comprehensive specifications
+> **Total Agents**: 60 agent configurations  
+> **Location**: `.github/agents/` (per GitHub Copilot standards)
+> **Format**: `.agent.md` files
+> **Quality Standard**: All agents follow GitHub Copilot custom agent format
 
 ## Overview
 
-This directory contains 53 specialized GitHub Copilot agent configurations that work together to create, manage, and enhance the WorldSMEGraphs knowledge representation system. All agents have been enhanced to meet comprehensive quality standards with detailed specifications, extensive usage examples, and clear workflows.
+This directory contains 60 specialized GitHub Copilot agent configurations that work together to create, manage, and enhance the WorldSMEGraphs knowledge representation system. All agents follow the official GitHub Copilot custom agent format as documented at: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents
 
-## Quick Reference - All 53 Agents
+## Agent Format Standard
+
+All agents MUST follow this format:
+- **File Extension**: `.agent.md` (not `.agent.md`, `.yaml`, or plain `.md`)
+- **Location**: `.github/agents/[agent-name].agent.md`
+- **Structure**: Markdown format with required sections (see individual agents)
+
+## Quick Reference - All 60 Agents
 
 ### Core Infrastructure (3 agents)
 | Agent | Lines | Purpose |
 |-------|-------|---------|
-| coordinator.yml | 180 | Multi-agent workflow orchestration, task delegation |
-| recruiter.yml | 180 | Agent ecosystem management, capability matching |
-| quality.yml | 180 | Comprehensive QA procedures, validation |
+| coordinator.agent.md | 180 | Multi-agent workflow orchestration, task delegation |
+| recruiter.agent.md | 180 | Agent ecosystem management, capability matching |
+| quality.agent.md | 180 | Comprehensive QA procedures, validation |
 
 ### Content Creation & Extraction (9 agents)
 | Agent | Lines | Purpose |
 |-------|-------|---------|
-| textbook-parser.yml | 181 | Extract content from textbooks across all disciplines |
-| paper-miner.yml | 180 | Extract from research papers, analyze methodologies |
-| video-transcriber.yml | 181 | Transcribe and extract from educational videos |
-| definition-extractor.yml | 180 | Extract formal definitions from sources |
-| formula-extractor.yml | 180 | Extract mathematical formulas, convert to LaTeX |
-| example-extractor.yml | 181 | Extract worked examples and problems |
-| citation-extractor.yml | 180 | Extract and format citations, build bibliographies |
-| relationship-extractor.yml | 181 | Extract conceptual relationships, build dependency graphs |
-| web-scraper.yml | 197 | Scrape educational content from websites |
+| textbook-parser.agent.md | 181 | Extract content from textbooks across all disciplines |
+| paper-miner.agent.md | 180 | Extract from research papers, analyze methodologies |
+| video-transcriber.agent.md | 181 | Transcribe and extract from educational videos |
+| definition-extractor.agent.md | 180 | Extract formal definitions from sources |
+| formula-extractor.agent.md | 180 | Extract mathematical formulas, convert to LaTeX |
+| example-extractor.agent.md | 181 | Extract worked examples and problems |
+| citation-extractor.agent.md | 180 | Extract and format citations, build bibliographies |
+| relationship-extractor.agent.md | 181 | Extract conceptual relationships, build dependency graphs |
+| web-scraper.agent.md | 197 | Scrape educational content from websites |
 
 ### Knowledge Organization (7 agents)
 | Agent | Lines | Purpose |
 |-------|-------|---------|
-| ontology.yml | 180 | Design ontologies, define taxonomies |
-| graph-database.yml | 180 | Graph database architecture and optimization |
-| semantic-harmonization.yml | 207 | Resolve semantic conflicts across sources |
-| terminology.yml | 182 | Manage domain terminology and glossaries |
-| merger.yml | 184 | Merge duplicate or overlapping AKUs |
-| conflict-resolution.yml | 183 | Resolve conflicting information from sources |
-| provenance-tracking.yml | 183 | Track content lineage and sources |
+| ontology.agent.md | 180 | Design ontologies, define taxonomies |
+| graph-database.agent.md | 180 | Graph database architecture and optimization |
+| semantic-harmonization.agent.md | 207 | Resolve semantic conflicts across sources |
+| terminology.agent.md | 182 | Manage domain terminology and glossaries |
+| merger.agent.md | 184 | Merge duplicate or overlapping AKUs |
+| conflict-resolution.agent.md | 183 | Resolve conflicting information from sources |
+| provenance-tracking.agent.md | 183 | Track content lineage and sources |
 
 ### Quality Assurance (5 agents)
 | Agent | Lines | Purpose |
 |-------|-------|---------|
-| fact-checking.yml | 181 | Verify factual accuracy across domains |
-| peer-review.yml | 180 | Multi-dimensional quality review |
-| verification.yml | 181 | Formal verification, proof checking |
-| citation.yml | 183 | Citation validation and management |
-| database-query.yml | 183 | Query external databases for validation |
+| fact-checking.agent.md | 181 | Verify factual accuracy across domains |
+| peer-review.agent.md | 180 | Multi-dimensional quality review |
+| verification.agent.md | 181 | Formal verification, proof checking |
+| citation.agent.md | 183 | Citation validation and management |
+| database-query.agent.md | 183 | Query external databases for validation |
 
 ### Rendering & Presentation (4 agents)
 | Agent | Lines | Purpose |
 |-------|-------|---------|
-| rendering.yml | 215 | Transform AKUs into audience-appropriate formats |
-| visualization.yml | 216 | Create visual representations of knowledge |
-| localization.yml | 182 | Adapt content for different languages and cultures |
-| accessibility.yml | 216 | Ensure WCAG compliance, screen reader support |
+| rendering.agent.md | 215 | Transform AKUs into audience-appropriate formats |
+| visualization.agent.md | 216 | Create visual representations of knowledge |
+| localization.agent.md | 182 | Adapt content for different languages and cultures |
+| accessibility.agent.md | 216 | Ensure WCAG compliance, screen reader support |
 
 ### Pedagogy & Learning (5 agents)
 | Agent | Lines | Purpose |
 |-------|-------|---------|
-| pedagogy.yml | 182 | Learning science, instructional design |
-| educational-path.yml | 213 | Curriculum design, prerequisite mapping |
-| assessment-creation.yml | 180 | Create assessments using Bloom's taxonomy |
-| user-testing.yml | 185 | User research and usability testing |
-| meta-learning.yml | 197 | Learning analytics, adaptive systems |
+| pedagogy.agent.md | 182 | Learning science, instructional design |
+| educational-path.agent.md | 213 | Curriculum design, prerequisite mapping |
+| assessment-creation.agent.md | 180 | Create assessments using Bloom's taxonomy |
+| user-testing.agent.md | 185 | User research and usability testing |
+| meta-learning.agent.md | 197 | Learning analytics, adaptive systems |
 
 ### Audience Advocates (5 agents)
 | Agent | Lines | Purpose |
 |-------|-------|---------|
-| academic-audience-advocate.yml | 184 | Academic rigor, research standards |
-| student-audience-advocate.yml | 185 | Student learning needs |
-| professional-audience-advocate.yml | 180 | Professional practitioner needs |
-| diverse-learner-advocate.yml | 185 | Accessibility, diverse learning styles |
-| curious-public-advocate.yml | 183 | General public accessibility |
+| academic-audience-advocate.agent.md | 184 | Academic rigor, research standards |
+| student-audience-advocate.agent.md | 185 | Student learning needs |
+| professional-audience-advocate.agent.md | 180 | Professional practitioner needs |
+| diverse-learner-advocate.agent.md | 185 | Accessibility, diverse learning styles |
+| curious-public-advocate.agent.md | 183 | General public accessibility |
 
 ### Domain Expertise (4 agents)
 | Agent | Lines | Purpose |
 |-------|-------|---------|
-| generic-domain-empathy.yml | 184 | Understand any domain, create personas |
-| math-expert.yml | 180 | Mathematical verification across domains |
-| legal-copyright.yml | 180 | IP law, fair use, licensing |
-| standards.yml | 188 | Technical standards compliance |
+| generic-domain-empathy.agent.md | 184 | Understand any domain, create personas |
+| math-expert.agent.md | 180 | Mathematical verification across domains |
+| legal-copyright.agent.md | 180 | IP law, fair use, licensing |
+| standards.agent.md | 188 | Technical standards compliance |
 
 ### Technical Infrastructure (7 agents)
 | Agent | Lines | Purpose |
 |-------|-------|---------|
-| software-architecture.yml | 180 | Architecture patterns, scalability, cloud |
-| devops.yml | 190 | CI/CD pipelines, automation, monitoring |
-| implementation.yml | 232 | Feasibility assessment, execution planning |
-| research-monitoring.yml | 181 | Track research advances in domains |
-| community-manager.yml | 200 | Community engagement, contribution management |
-| deprecation.yml | 180 | Manage outdated content, migrations |
-| data-integration.yml | 187 | Integrate data from multiple sources |
+| software-architecture.agent.md | 180 | Architecture patterns, scalability, cloud |
+| devops.agent.md | 190 | CI/CD pipelines, automation, monitoring |
+| implementation.agent.md | 232 | Feasibility assessment, execution planning |
+| research-monitoring.agent.md | 181 | Track research advances in domains |
+| community-manager.agent.md | 200 | Community engagement, contribution management |
+| deprecation.agent.md | 180 | Manage outdated content, migrations |
+| data-integration.agent.md | 187 | Integrate data from multiple sources |
 
 ### Special Purpose (4 agents)
 | Agent | Lines | Purpose |
 |-------|-------|---------|
-| contrarian.yml | 183 | Challenge assumptions, identify weaknesses |
-| multi-lingual-validation.yml | 181 | Validate translations, cultural adaptation |
+| contrarian.agent.md | 183 | Challenge assumptions, identify weaknesses |
+| multi-lingual-validation.agent.md | 181 | Validate translations, cultural adaptation |
 
 ## Quality Standards
 

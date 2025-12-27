@@ -328,5 +328,6 @@ lessons learned, and Phase 2 kickoff
 10. **Quality first** - speed is never more important than correctness
 
 ## Version History
-- **v2.0** (2025-12-27): Converted to .md format following GitHub Copilot standards
-- **v1.0** (Previous): YAML format (deprecated)
+- **v3.0** (2025-12-27): Moved to correct location `.github/agents/` with `.agent.md` extension per GitHub Copilot documentation
+- **v2.0** (2025-12-27): Converted to .md format following GitHub Copilot standards (incorrect location)
+- **v1.0** (Previous): YAML format in `.github/copilot/agents/` (deprecated)
