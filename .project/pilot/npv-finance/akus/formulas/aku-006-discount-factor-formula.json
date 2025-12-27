@@ -1,0 +1,128 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "EducationalOccupationalCredential",
+  "id": "aku-006-discount-factor-formula",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-27T03:42:10.500Z",
+    "last_updated": "2025-12-27T03:42:10.500Z",
+    "contributors": ["Formula Extractor Agent", "Math Expert Agent"],
+    "review_status": "draft",
+    "confidence_score": 0.99
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "formula",
+    "difficulty": "beginner",
+    "importance": "critical",
+    "keywords": ["discount factor", "present value", "time value", "NPV"]
+  },
+  "content": {
+    "statement": "The Discount Factor is the multiplier used to convert a future cash flow to its present value, calculated as DF = 1 / (1 + r)^t",
+    "formal_notation": "DF_t = (1 + r)^(-t) = 1 / (1 + r)^t",
+    "intuition": "The discount factor shrinks future cash flows to present value. Higher discount rates or longer time periods = smaller discount factors = less valuable future cash flows.",
+    "key_insights": [
+      "Discount factor is always between 0 and 1 for positive discount rates",
+      "DF decreases exponentially with time",
+      "Higher risk → higher r → lower DF → lower present value",
+      "DF at t=0 is always 1.0 (no discounting for immediate cash)",
+      "Discount factor is the reciprocal of compound growth factor"
+    ],
+    "mathematical_representations": {
+      "latex": "DF_t = \\frac{1}{(1+r)^t} = (1+r)^{-t}",
+      "mathml": "<math><mi>DF</mi><mo>=</mo><mfrac><mn>1</mn><msup><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>r</mi><mo>)</mo></mrow><mi>t</mi></msup></mfrac></math>",
+      "python": "def discount_factor(r, t):\n    \"\"\"Calculate discount factor\n    r: discount rate (e.g., 0.10 for 10%)\n    t: time period\n    \"\"\"\n    return 1 / ((1 + r) ** t)",
+      "julia": "discount_factor(r, t) = 1 / (1 + r)^t",
+      "r_language": "discount_factor <- function(r, t) { 1 / (1 + r)^t }",
+      "variables": {
+        "DF_t": {
+          "description": "Discount factor for period t",
+          "type": "dimensionless",
+          "constraints": "0 < DF <= 1 (for r >= 0)"
+        },
+        "r": {
+          "description": "Discount rate per period (as decimal, e.g., 0.10 for 10%)",
+          "type": "rate",
+          "constraints": "typically 0 < r < 1, can be negative in rare cases"
+        },
+        "t": {
+          "description": "Number of time periods into the future",
+          "type": "integer or real",
+          "constraints": "t >= 0"
+        }
+      }
+    },
+    "examples": [
+      {
+        "description": "Calculate 5-year discount factor at 10% rate",
+        "inputs": {
+          "r": 0.10,
+          "t": 5
+        },
+        "calculation": "DF_5 = 1 / (1.10)^5 = 1 / 1.61051 = 0.62092",
+        "result": "0.62092",
+        "interpretation": "$1 received in 5 years is worth $0.62 today at 10% discount rate"
+      },
+      {
+        "description": "Compare discount factors at different rates",
+        "scenario": "10-year investment",
+        "calculations": [
+          "At 5%: DF_10 = 1/(1.05)^10 = 0.6139",
+          "At 10%: DF_10 = 1/(1.10)^10 = 0.3855",
+          "At 15%: DF_10 = 1/(1.15)^10 = 0.2472"
+        ],
+        "interpretation": "Higher discount rates dramatically reduce value of distant cash flows"
+      }
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku-003-present-value-concept",
+      "aku-004-discount-rate-definition"
+    ],
+    "enables": [
+      "aku-002-npv-basic-formula",
+      "aku-011-dcf-valuation",
+      "aku-013-bond-pricing"
+    ],
+    "related": [
+      "aku-010-compound-interest",
+      "aku-012-annuity-formulas"
+    ],
+    "supersedes": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "title": "Principles of Corporate Finance",
+        "authors": ["Brealey", "Myers", "Allen"],
+        "pages": "23-25",
+        "type": "textbook"
+      }
+    ],
+    "extraction_method": "formula_extraction",
+    "validation_method": "mathematical_proof",
+    "last_verified": "2025-12-27"
+  },
+  "pedagogical": {
+    "target_audiences": ["undergraduate_finance", "high_school_advanced", "self_learners"],
+    "learning_objectives": [
+      "Calculate discount factors for any rate and period",
+      "Understand inverse relationship with compound interest",
+      "Apply discount factors to find present values",
+      "Interpret economic meaning of discount factors"
+    ],
+    "estimated_learning_time": "15 minutes",
+    "common_errors": [
+      "Forgetting to raise to power of t",
+      "Using percentage instead of decimal (use 0.10 not 10)",
+      "Confusing discount factor with discount rate",
+      "Getting reciprocal backwards (should be 1/(1+r)^t not (1+r)^t)"
+    ],
+    "practice_problems": [
+      "Calculate discount factor for year 7 at 8% rate",
+      "If DF_3 = 0.75, what is the discount rate?",
+      "Compare DF_10 at rates 5%, 10%, 15%"
+    ]
+  }
+}

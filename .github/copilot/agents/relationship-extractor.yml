@@ -1,0 +1,107 @@
+name: relationship-extractor
+description: >
+  Identifies and maps relationships between concepts including prerequisites, dependencies,
+  applications, and semantic connections. Builds concept graphs that enable intelligent
+  navigation and learning path construction.
+
+tools: ["*"]
+
+infer: enabled
+
+input_requirements:
+  required:
+    - Content describing concepts (textbooks, lectures, papers)
+    - Concept list or domain scope
+    - Relationship types to identify
+  
+  optional:
+    - Extraction depth (direct links vs. transitive)
+    - Confidence threshold for relationships
+    - Semantic relationship taxonomy
+    - Cross-domain relationship detection
+  
+  good_input_examples:
+    - "Finance textbook Chapter 3-6, extract: prerequisite chains for 'NPV', 'IRR', 'WACC'"
+    - "Physics mechanics content, find: all concepts that enable understanding of 'momentum conservation'"
+    - "Economics paper set, identify: relationships between 'supply-demand', 'elasticity', 'market equilibrium'"
+  
+  bad_input_examples:
+    - "Find connections" (no concepts, no relationship types)
+    - "Map everything" (too broad, no scope)
+    - No content provided or concepts undefined
+
+output_format:
+  relationship_graph:
+    - Node: concept ID, label, description
+    - Edge: source, target, relationship type, confidence
+    - Properties: context, evidence text, source location
+  
+  relationship_types:
+    - prerequisite: A required before learning B
+    - enables: A makes B possible or easier
+    - applies_to: A used to solve/understand B
+    - related_to: A and B share domain/context
+    - contrasts_with: A and B are alternatives/opposites
+    - generalizes: A is broader concept than B
+    - specializes: A is specific instance of B
+  
+  prerequisite_analysis:
+    - Learning paths (ordered sequences)
+    - Depth levels (foundational → advanced)
+    - Alternative paths identified
+    - Circular dependencies flagged
+  
+  confidence_scores:
+    - Relationship existence (0-1)
+    - Strength of connection (weak/moderate/strong)
+    - Evidence quality assessment
+    - Agreement across sources
+
+success_criteria:
+  - >90% recall of explicit relationships
+  - >75% recall of implicit relationships
+  - <5% false positive rate
+  - Prerequisite ordering correct >95% of time
+  - Cross-references validated
+
+performance:
+  - Typical: 100-200 concepts processed per hour
+  - Relationship extraction: 500-1000 pairs per hour
+  - Deep dependency analysis: 50 concepts per hour
+  - Real-time for small concept sets (<20 concepts)
+
+related_agents:
+  - definition-extractor (provides concept definitions)
+  - pedagogy (validates learning path effectiveness)
+  - graph-database (stores relationship graphs)
+  - quality (validates relationship accuracy)
+  - merger (combines relationships from multiple sources)
+
+typical_workflow:
+  1. Receive content and concept list
+  2. Extract concept mentions and contexts
+  3. Identify relationship indicators (keywords, structure)
+  4. Classify relationship types
+  5. Extract evidence for each relationship
+  6. Compute confidence scores
+  7. Build concept dependency graph
+  8. Detect circular dependencies
+  9. Generate learning paths
+  10. Package as structured relationship data
+
+expertise:
+  - Natural language relationship extraction
+  - Dependency graph construction
+  - Topological sorting (prerequisite ordering)
+  - Semantic similarity computation
+  - Cross-domain concept mapping
+  - Learning path optimization
+  - Graph algorithms (shortest path, connected components)
+  - Relationship taxonomy management
+
+usage_examples:
+  - "@relationship-extractor Map all prerequisite relationships in calculus textbook, depth: 3 levels"
+  - "@relationship-extractor Find which finance concepts enable understanding 'option pricing models'"
+  - "@relationship-extractor Extract semantic relationships between biology and chemistry concepts in biochemistry content"
+  - "@relationship-extractor Build complete dependency graph for machine learning course syllabus (50 concepts)"
+  - "@relationship-extractor Identify contrasting views on 'monetary policy' across 20 economics papers"

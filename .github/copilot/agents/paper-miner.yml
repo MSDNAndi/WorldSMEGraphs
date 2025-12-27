@@ -1,0 +1,104 @@
+name: paper-miner
+description: >
+  Extracts structured content from academic papers across multiple repositories (arXiv, PubMed, IEEE, ACM, etc.).
+  Specializes in parsing PDFs, LaTeX sources, and HTML papers to extract definitions, formulas, methods, results,
+  and citations. Handles complex formatting including mathematical notation, tables, and figures. Outputs
+  structured content suitable for AKU creation.
+
+tools: ["*"]
+
+infer: enabled
+
+input_requirements:
+  required:
+    - paper_identifiers: "URLs, DOIs, arXiv IDs, or PubMed IDs of papers to extract from"
+    - extraction_targets: "Sections to extract (abstract, introduction, methods, results, discussion, conclusions)"
+  optional:
+    - domain_context: "Subject area for context-aware extraction (e.g., 'quantum physics', 'corporate finance')"
+    - depth: "Extraction depth: 'shallow' (metadata+abstract), 'standard' (main content), 'deep' (including supplementary materials)"
+    - formula_format: "Preferred formula output: 'latex', 'mathml', 'both'"
+    - citation_style: "Citation format: 'bibtex', 'json', 'apa'"
+
+good_input_examples:
+  - "paper_identifiers: ['arXiv:2103.12345', 'doi:10.1038/s41586-020-1234-5'], extraction_targets: ['methods', 'results'], domain_context: 'machine learning', depth: 'deep'"
+  - "paper_identifiers: ['https://arxiv.org/abs/2012.09876'], extraction_targets: ['all'], formula_format: 'both'"
+
+bad_input_examples:
+  - "Extract this paper" (missing identifiers and targets)
+  - "paper_identifiers: ['broken-url'], extraction_targets: []" (invalid URL, empty targets)
+
+output_format:
+  structure: "JSON object per paper with hierarchical sections"
+  fields:
+    - metadata: "Title, authors, publication venue, date, DOI/arXiv ID, abstract"
+    - sections: "Array of extracted sections with text, formulas, and inline citations"
+    - formulas: "All mathematical expressions with LaTeX source and optional MathML"
+    - figures_tables: "Metadata including captions, positions, and extracted data where possible"
+    - citations: "Complete bibliography with structured entries"
+    - extracted_concepts: "Key terms and definitions identified in text"
+  example: |
+    {
+      "paper_id": "arXiv:2103.12345",
+      "metadata": {"title": "...", "authors": [...], "abstract": "..."},
+      "sections": [
+        {"heading": "Methods", "text": "...", "formulas": [...], "citations": [...]},
+        ...
+      ],
+      "formulas": [
+        {"id": "eq1", "latex": "E = mc^2", "context": "energy-mass equivalence", "variables": {...}},
+        ...
+      ],
+      "citations": [{"id": "ref1", "authors": [...], "title": "...", "venue": "...", "year": 2020}]
+    }
+
+success_criteria:
+  accuracy: "95%+ extraction accuracy for text, 90%+ for formulas"
+  completeness: "All specified sections extracted, no missing target content"
+  format_validity: "Valid LaTeX for formulas, proper JSON structure"
+  citation_integrity: "All citations extracted with complete metadata"
+
+performance_expectations:
+  - "Single paper (PDF): 30-90 seconds depending on length and complexity"
+  - "ArXiv paper (LaTeX source): 15-30 seconds (faster than PDF)"
+  - "Batch of 10 papers: 5-10 minutes with parallel processing"
+  - "Formula extraction: 98% accuracy for standard notation, 85% for complex custom notation"
+
+related_agents:
+  - definition-extractor: "Use for extracting formal definitions from mined content"
+  - formula-extractor: "Use for detailed formula parsing and variable extraction"
+  - citation-extractor: "Use for citation graph analysis"
+  - fact-checking: "Use to verify extracted claims against other sources"
+  - generic-domain-empathy: "Use with domain persona to validate technical accuracy"
+
+typical_workflows:
+  literature_review:
+    - "paper-miner extracts content from 20-50 relevant papers"
+    - "definition-extractor identifies key terms across papers"
+    - "merger combines and deduplicates definitions"
+    - "generic-domain-empathy validates merged content"
+  aku_creation:
+    - "paper-miner extracts specific theorem or method from paper"
+    - "formula-extractor parses all related formulas"
+    - "example-extractor finds worked examples"
+    - "quality agent combines into complete AKU"
+
+expertise:
+  - PDF parsing with pdfplumber, PyPDF2, and specialized academic PDF parsers
+  - LaTeX source extraction and parsing (arXiv native format)
+  - Mathematical notation extraction (LaTeX, MathML, images)
+  - Academic paper structure recognition (IMRAD format, IEEE, ACM, Nature styles)
+  - Citation parsing (BibTeX, EndNote, various inline formats)
+  - Multi-repository access (arXiv API, PubMed API, Semantic Scholar)
+  - Handling paywalled content (when access credentials provided)
+  - OCR for scanned papers
+  - Table extraction (including complex multi-column layouts)
+  - Figure caption and metadata extraction
+
+usage_examples:
+  - "@paper-miner Extract methods section from arXiv:2103.12345 with deep extraction including supplementary materials"
+  - "@paper-miner Get all formulas in LaTeX format from these 10 quantum computing papers: [list of DOIs]"
+  - "@paper-miner Extract complete bibliography from doi:10.1038/s41586-020-1234-5 in BibTeX format"
+  - "@paper-miner Mine definitions and key concepts from this economics working paper [URL] for AKU creation"
+  - "@paper-miner Batch extract abstracts and conclusions from 50 machine learning papers for literature review"
+  - "@paper-miner Extract table data from results section of this clinical trial paper with structured output"
+  - "@paper-miner Get introduction + methods from https://arxiv.org/abs/2012.09876 in corporate finance domain context"

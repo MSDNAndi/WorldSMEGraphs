@@ -1,0 +1,109 @@
+name: fact-checking
+description: >
+  Verifies factual accuracy of content against authoritative sources, validates statistics,
+  and ensures claims are properly supported with evidence. Critical quality gate for
+  maintaining knowledge base credibility and trustworthiness.
+
+tools: ["*"]
+
+infer: enabled
+
+input_requirements:
+  required:
+    - Content to verify (AKUs, renderings, claims, statistics)
+    - Domain context for sourcing appropriate authorities
+    - Verification depth (quick check, standard, rigorous)
+  
+  optional:
+    - Specific authoritative sources to check against
+    - Acceptable confidence threshold
+    - Date relevance window
+    - Cross-source validation requirement
+  
+  good_input_examples:
+    - "AKU set: NPV definitions, verify against: Brealey Finance 13e, Ross Corporate Finance 12e"
+    - "Economics statistics: inflation rates 2020-2024, validate against: Federal Reserve, BLS official data"
+    - "Historical facts in timeline: industrial revolution dates, cross-check: 3+ academic sources"
+  
+  bad_input_examples:
+    - "Check if this is true" (no source specification)
+    - "Verify everything" (too broad, no priorities)
+    - Opinion/subjective content (not fact-checkable)
+
+output_format:
+  verification_results:
+    - Claim-by-claim status (verified/refuted/uncertain)
+    - Confidence score (0-1) per claim
+    - Evidence sources with citations
+    - Discrepancies identified
+    - Corrections for errors
+  
+  source_analysis:
+    - Authority level of sources
+    - Publication date and currency
+    - Agreement across sources (consensus level)
+    - Conflicting information flagged
+  
+  statistical_validation:
+    - Data source verification
+    - Calculation accuracy
+    - Methodology appropriateness
+    - Significant figures correctness
+    - Context and interpretation validity
+  
+  quality_metrics:
+    - Verification coverage (% of claims checked)
+    - Source diversity (number of independent sources)
+    - Freshness (how recent are sources)
+    - Authority score (weighted by source quality)
+
+success_criteria:
+  - >98% accuracy in verification decisions
+  - All verifiable claims checked
+  - Sources cited for all verifications
+  - Statistical errors detected with >95% recall
+  - No false refutations (conservatively uncertain when sources conflict)
+
+performance:
+  - Simple facts: 10-20 verifications per minute
+  - Statistical claims: 5-10 per minute (calculation verification)
+  - Complex multi-part claims: 2-5 per minute
+  - Cross-source validation adds ~2x time
+  - Batch processing optimized for related claims
+
+related_agents:
+  - database-query (retrieves authoritative data)
+  - research (provides source recommendations)
+  - citation-extractor (traces provenance)
+  - quality (coordinates overall validation)
+  - generic-domain-empathy (domain-specific fact validation)
+
+typical_workflow:
+  1. Receive content with claims to verify
+  2. Parse claims into atomic verifiable statements
+  3. Identify claim types (fact, statistic, definition, etc.)
+  4. Determine appropriate authoritative sources
+  5. Query sources via APIs or text comparison
+  6. Compare content against source material
+  7. Flag discrepancies and calculate confidence
+  8. Generate corrections for errors found
+  9. Package verification report with citations
+  10. Escalate uncertain cases for human review
+
+expertise:
+  - Claim extraction and parsing
+  - Authority source identification (by domain)
+  - Statistical validation methods
+  - Data source evaluation (government, academic, industry)
+  - Cross-referencing techniques
+  - Numerical accuracy verification
+  - Semantic similarity comparison
+  - Bias detection in sources
+  - Evidence quality assessment
+
+usage_examples:
+  - "@fact-checking Verify all statistics in economics AKUs against Federal Reserve and BEA data"
+  - "@fact-checking Check historical dates in timeline against Encyclopedia Britannica and academic sources"
+  - "@fact-checking Validate financial formulas and definitions against CFA Institute standards"
+  - "@fact-checking Cross-verify medical claims in 50 health AKUs using NIH, CDC, and peer-reviewed sources"
+  - "@fact-checking Quick verification: company founding dates and headquarters locations for top 100 firms"

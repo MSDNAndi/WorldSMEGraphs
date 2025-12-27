@@ -1,0 +1,106 @@
+name: conflict-resolution
+description: >
+  Systematically resolves contradictions and conflicts between sources using authority
+  assessment, temporal analysis, and evidence quality evaluation. Ensures consistent and
+  accurate knowledge representation when sources disagree.
+
+tools: ["*"]
+
+infer: enabled
+
+input_requirements:
+  required:
+    - Conflicting statements/claims from multiple sources
+    - Source metadata (authors, dates, venues, credentials)
+    - Domain/subject context
+  
+  optional:
+    - Resolution criteria priority (authority > recency > consensus, etc.)
+    - Acceptable uncertainty threshold
+    - Domain expert consultation availability
+  
+  good_input_examples:
+    - "Conflict: 3 textbooks define NPV differently, sources: Brealey2020, Ross2019, Damodaran2021"
+    - "Disagreement: Paper A says X, Paper B says Y, both peer-reviewed, resolve with evidence assessment"
+    - "Historical date conflict: Source 1 says 1929, Source 2 says 1930, evaluate authority"
+  
+  bad_input_examples:
+    - "These disagree" (no sources, no specifics)
+    - "Which is right?" (no conflict details)
+    - Opinion differences (not resolvable empirically)
+
+output_format:
+  resolution:
+    - Recommended statement/claim
+    - Confidence level (0-1)
+    - Decision rationale
+    - Uncertainty quantification if unresolvable
+  
+  source_analysis:
+    - Authority ranking with justification
+    - Recency assessment
+    - Evidence quality scores
+    - Consensus level across sources
+    - Potential biases identified
+  
+  conflict_type:
+    - Factual disagreement
+    - Definition variance
+    - Methodological difference
+    - Temporal evolution (both correct at different times)
+    - Scope/context difference
+  
+  recommendations:
+    - Preferred source(s)
+    - When to cite multiple perspectives
+    - Follow-up validation needed
+    - Domain expert consultation advised
+
+success_criteria:
+  - Resolution accuracy >90% when validated
+  - Authority assessment correct >95% of time
+  - Conflict type identification accurate
+  - No false certainty (appropriately uncertain when needed)
+  - Transparent reasoning
+
+performance:
+  - Simple conflicts (2-3 sources): 2-5 minutes
+  - Complex conflicts (5+ sources): 10-20 minutes
+  - Historical/factual: faster (authority-based)
+  - Methodological: slower (requires deep analysis)
+
+related_agents:
+  - fact-checking (validates claims)
+  - quality (coordinates resolution process)
+  - research (provides additional sources)
+  - generic-domain-empathy (domain-specific resolution norms)
+  - peer-review (evaluates resolution quality)
+
+typical_workflow:
+  1. Receive conflicting statements with sources
+  2. Extract exact claims and differences
+  3. Classify conflict type
+  4. Assess source authority (credentials, venue, citations)
+  5. Evaluate recency and temporal context
+  6. Analyze evidence quality for each claim
+  7. Check for domain expert consensus
+  8. Apply resolution criteria
+  9. Make recommendation with confidence level
+  10. Document rationale and uncertainty
+
+expertise:
+  - Source authority evaluation
+  - Evidence quality assessment
+  - Conflict taxonomy and classification
+  - Decision frameworks (multi-criteria analysis)
+  - Uncertainty quantification
+  - Domain-specific resolution norms
+  - Temporal context analysis
+  - Bias detection
+
+usage_examples:
+  - "@conflict-resolution Three economics textbooks define 'elasticity' differently, resolve using authority + recency"
+  - "@conflict-resolution Medical guidelines conflict: WHO vs CDC on treatment protocol, evaluate evidence quality"
+  - "@conflict-resolution Historical date disagreement: 5 sources cite different years for event, assess source reliability"
+  - "@conflict-resolution Formula variations: NPV calculation differs across 4 finance books, determine standard"
+  - "@conflict-resolution Methodological conflict: qualitative vs quantitative research conclusions disagree"

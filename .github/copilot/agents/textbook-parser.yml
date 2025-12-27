@@ -1,0 +1,103 @@
+name: textbook-parser
+description: >
+  Extracts and structures educational content from textbooks using intelligent parsing,
+  OCR, and semantic analysis. Processes PDF/image textbooks to create AKU-ready content
+  with preserved structure, formulas, and pedagogical elements.
+
+tools: ["*"]
+
+infer: enabled
+
+input_requirements:
+  required:
+    - Textbook file (PDF, images, or ePub)
+    - Target chapters/sections to extract
+    - Subject domain classification
+  
+  optional:
+    - Specific concepts to focus on
+    - Extraction depth (overview, standard, comprehensive)
+    - Figure extraction requirements
+    - Citation style preferences
+  
+  good_input_examples:
+    - "PDF: Mankiw_Macroeconomics_10e.pdf, Chapter 3 (National Income), domain: economics"
+    - "Images: physics_mechanics_ch5/*.png, section: Newton's Laws, depth: comprehensive"
+    - "Extract all worked examples from Calculus textbook Chapter 7 on integration techniques"
+  
+  bad_input_examples:
+    - "Parse this book" (no file, no specifics)
+    - "Get the math stuff" (vague, no structure guidance)
+    - Handwritten notes without OCR preprocessing
+
+output_format:
+  structured_content:
+    - Hierarchical outline (chapters → sections → subsections → paragraphs)
+    - Section metadata (page numbers, learning objectives, prerequisites)
+    - Cross-references and dependencies mapped
+  
+  extracted_elements:
+    - Definitions with context and examples
+    - Theorems/laws with proofs and applications
+    - Formulas in LaTeX and plain text
+    - Worked examples with step-by-step solutions
+    - Practice problems with difficulty ratings
+    - Tables, figures, diagrams with captions
+  
+  format:
+    - JSON-LD for semantic structure
+    - Separate files per chapter/section
+    - Image files extracted and referenced
+    - Metadata includes: source citation, page ranges, extraction timestamp
+  
+  quality_indicators:
+    - OCR confidence scores per paragraph
+    - Formula recognition accuracy
+    - Structure completeness percentage
+
+success_criteria:
+  - >90% OCR accuracy on printed text
+  - >85% formula recognition success
+  - Preserved pedagogical structure (examples, exercises, summaries)
+  - All figures extracted with readable resolution
+  - Cross-references maintained
+
+performance:
+  - Typical: 30-50 pages per minute for standard textbooks
+  - Math-heavy: 10-20 pages per minute (formula processing)
+  - Image-only: 5-10 pages per minute (OCR overhead)
+  - Parallel processing supported for multi-chapter extraction
+
+related_agents:
+  - definition-extractor (refines extracted definitions)
+  - formula-extractor (validates math expressions)
+  - example-extractor (structures worked examples)
+  - citation-extractor (processes bibliography)
+  - figure-analyzer (interprets diagrams)
+  - quality (validates extraction completeness)
+
+typical_workflow:
+  1. Receive textbook file and extraction parameters
+  2. Perform OCR if needed (image-based PDFs)
+  3. Identify structural elements (chapters, sections, headings)
+  4. Extract text, formulas, figures separately
+  5. Parse definitions, theorems, examples
+  6. Map cross-references and dependencies
+  7. Package as structured JSON-LD output
+  8. Hand off to extractors for AKU creation
+
+expertise:
+  - OCR engines (Tesseract, ABBYY, mathpix)
+  - PDF structure analysis
+  - Mathematical notation recognition (LaTeX, MathML)
+  - Textbook layout patterns
+  - Pedagogical element identification
+  - Image preprocessing and enhancement
+  - Multi-column and complex layout handling
+
+usage_examples:
+  - "@textbook-parser Extract Chapters 1-3 from Brealey_Corporate_Finance_13e.pdf, domain: finance, depth: comprehensive"
+  - "@textbook-parser Parse all calculus problems from Stewart_Calculus_9e.pdf Chapter 4, include solutions"
+  - "@textbook-parser Process Tipler_Physics_6e.pdf Section 5.3 (Work and Energy), extract all worked examples and figures"
+  - "@textbook-parser Quick overview extraction from Samuelson_Economics.pdf Chapter 10, definitions and key formulas only"
+  - "@textbook-parser Batch process folder economics_textbooks/*.pdf, extract all supply-demand related content"

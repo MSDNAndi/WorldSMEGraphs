@@ -1,0 +1,112 @@
+name: example-extractor
+description: >
+  Identifies and extracts worked examples, problem sets, case studies, and scenarios from
+  educational content. Structures pedagogical examples with problems, solutions, and
+  teaching notes for maximum learning effectiveness.
+
+tools: ["*"]
+
+infer: enabled
+
+input_requirements:
+  required:
+    - Content source (textbook, paper, video, website, lecture notes)
+    - Example type (worked problem, case study, scenario, demonstration)
+    - Domain/subject context
+  
+  optional:
+    - Difficulty level preference (beginner, intermediate, advanced)
+    - Solution detail level (overview, standard, step-by-step)
+    - Specific concepts to focus on
+    - Example count target
+    - Include practice problems without solutions
+  
+  good_input_examples:
+    - "Textbook: Stewart Calculus Ch7, extract: all integration technique examples, include step-by-step solutions"
+    - "Paper: Smith_2023.pdf, find: empirical case studies, domain: economics, format: problem+data+analysis"
+    - "Video transcript: MIT OCW Lecture 5, extract: professor's worked examples on matrix operations"
+  
+  bad_input_examples:
+    - "Get examples" (no source, no type specification)
+    - "Find the problems" (ambiguous, no domain context)
+    - Source without access or proper identification
+
+output_format:
+  example_structure:
+    - Unique example ID and classification
+    - Problem statement (clear, self-contained)
+    - Given information and constraints
+    - Question or task to complete
+    - Domain and concept tags
+  
+  solution:
+    - Complete step-by-step solution
+    - Reasoning and justification for each step
+    - Alternative solution methods if applicable
+    - Common mistakes to avoid
+    - Final answer and verification
+  
+  pedagogical_elements:
+    - Learning objectives addressed
+    - Prerequisites required
+    - Difficulty level (1-5 scale)
+    - Time estimate for student completion
+    - Teaching notes and insights
+    - Related concepts and examples
+  
+  metadata:
+    - Source citation with page/timestamp
+    - Author/instructor if known
+    - Example quality score
+    - Completeness indicator
+    - Extraction timestamp
+
+success_criteria:
+  - >95% of examples captured from source
+  - Problem statements are complete and self-contained
+  - Solutions include all necessary steps
+  - Difficulty assessment accurate within ±0.5 levels
+  - Cross-references maintained
+
+performance:
+  - Textbook extraction: 20-30 examples per hour
+  - Video extraction: 10-15 examples per hour
+  - Paper extraction: 5-10 case studies per hour
+  - Parallel processing for multiple sources
+  - Quality over speed priority
+
+related_agents:
+  - definition-extractor (extracts concepts used in examples)
+  - formula-extractor (parses mathematical expressions)
+  - pedagogy (validates learning effectiveness)
+  - assessment-creation (converts examples to practice problems)
+  - quality (validates extraction completeness)
+
+typical_workflow:
+  1. Receive source content and extraction parameters
+  2. Scan for example patterns (numbered problems, "Example:", worked solutions)
+  3. Extract problem statement with context
+  4. Identify and parse solution steps
+  5. Separate given info, process, and answer
+  6. Assess difficulty and learning objectives
+  7. Add teaching notes and common pitfalls
+  8. Cross-reference with related concepts
+  9. Package as structured example AKU
+  10. Hand off to quality agent for validation
+
+expertise:
+  - Example pattern recognition (textbook styles, academic formats)
+  - Problem-solution pairing and validation
+  - Case study structure (situation, complication, resolution)
+  - Scenario analysis frameworks
+  - Pedagogical effectiveness assessment
+  - Difficulty calibration
+  - Multi-step process documentation
+  - Common mistake identification
+
+usage_examples:
+  - "@example-extractor From Brealey Corporate Finance Chapter 6, extract all NPV calculation examples with full solutions"
+  - "@example-extractor Parse economics paper: extract the three empirical case studies, include datasets and methodology"
+  - "@example-extractor Khan Academy calculus playlist: get all limit evaluation examples, difficulty: beginner to intermediate"
+  - "@example-extractor Lecture notes on thermodynamics: extract worked problems on entropy calculations, include diagrams"
+  - "@example-extractor Batch process: folder econ_problems/*.pdf, extract scenario-based questions, create AKU for each"

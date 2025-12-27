@@ -1,0 +1,142 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "EducationalOccupationalCredential",
+  "id": "aku-005-cash-flow-concept",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-27T03:41:42.173Z",
+    "last_updated": "2025-12-27T03:41:42.173Z",
+    "contributors": ["Generic Domain Empathy Agent (finance-valuation-expert-v1)"],
+    "review_status": "draft",
+    "confidence_score": 0.95
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "keywords": ["cash flow", "NPV", "valuation", "finance", "free cash flow"]
+  },
+  "content": {
+    "statement": "Cash Flow is the net amount of cash moving into and out of a business or project over a specific time period, representing actual money transfers rather than accounting profits.",
+    "formal_notation": "CF_t = Cash Inflows_t - Cash Outflows_t",
+    "intuition": "Cash flow is about actual money movements, not accounting profits. A profitable company on paper can go bankrupt if it runs out of cash. 'Cash is King' in finance.",
+    "key_insights": [
+      "Cash flows are actual money movements, not accrual accounting figures",
+      "Timing matters: $100 today ≠ $100 next year",
+      "Operating cash flow excludes financing and investing activities",
+      "Free cash flow is cash available after necessary capital expenditures",
+      "Positive NPV projects must have positive expected cash flows"
+    ],
+    "technical_details": {
+      "components": {
+        "operating_cash_flow": "Cash from core business operations (OCF = EBIT + Depreciation - Taxes - ΔWorking Capital)",
+        "free_cash_flow": "FCF = OCF - Capital Expenditures",
+        "cash_inflows": "Revenue collections, asset sales, financing receipts",
+        "cash_outflows": "Operating expenses, CAPEX, debt payments, dividends"
+      },
+      "adjustments": [
+        "Add back non-cash charges (depreciation, amortization)",
+        "Subtract changes in working capital (AR, Inventory, AP)",
+        "Subtract capital expenditures for maintenance and growth",
+        "Adjust for tax effects on a cash basis"
+      ]
+    },
+    "mathematical_representations": {
+      "latex": "CF_t = \\text{Revenue}_t - \\text{Costs}_t - \\text{Taxes}_t - \\Delta WC_t - CAPEX_t",
+      "python": "def cash_flow(revenue, costs, taxes, delta_wc, capex):\n    return revenue - costs - taxes - delta_wc - capex",
+      "variables": {
+        "CF_t": {
+          "description": "Cash flow in period t",
+          "type": "currency",
+          "constraints": "can be positive (inflow) or negative (outflow)"
+        },
+        "Revenue_t": {
+          "description": "Cash collected from sales in period t",
+          "type": "currency",
+          "constraints": ">= 0"
+        },
+        "Costs_t": {
+          "description": "Cash operating expenses in period t",
+          "type": "currency",
+          "constraints": ">= 0"
+        },
+        "Taxes_t": {
+          "description": "Cash taxes paid in period t",
+          "type": "currency",
+          "constraints": ">= 0"
+        },
+        "delta_WC": {
+          "description": "Change in working capital (increase is cash outflow)",
+          "type": "currency",
+          "constraints": "unrestricted"
+        },
+        "CAPEX_t": {
+          "description": "Capital expenditures in period t",
+          "type": "currency",
+          "constraints": ">= 0"
+        }
+      }
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku-001-npv-definition",
+      "aku-003-present-value-concept"
+    ],
+    "enables": [
+      "aku-002-npv-basic-formula",
+      "aku-027-equipment-replacement-example",
+      "aku-011-dcf-valuation"
+    ],
+    "related": [
+      "aku-007-ebitda-concept",
+      "aku-008-working-capital",
+      "aku-009-capex-vs-opex"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "title": "Principles of Corporate Finance",
+        "authors": ["Brealey", "Myers", "Allen"],
+        "edition": "13th",
+        "pages": "87-95",
+        "isbn": "978-1260013900",
+        "type": "textbook"
+      },
+      {
+        "title": "Valuation: Measuring and Managing the Value of Companies",
+        "authors": ["Koller", "Goedhart", "Wessels"],
+        "publisher": "McKinsey & Company",
+        "edition": "7th",
+        "pages": "195-210",
+        "type": "textbook"
+      }
+    ],
+    "extraction_method": "manual_synthesis",
+    "validation_method": "finance_expert_review",
+    "last_verified": "2025-12-27"
+  },
+  "pedagogical": {
+    "target_audiences": ["undergraduate_finance", "mba", "cfa_level_1", "practitioners"],
+    "learning_objectives": [
+      "Distinguish cash flows from accounting profits",
+      "Calculate free cash flow from financial statements",
+      "Understand timing importance in valuation",
+      "Identify cash vs non-cash items"
+    ],
+    "prerequisite_knowledge": ["basic accounting", "income statement", "balance sheet"],
+    "estimated_learning_time": "20 minutes",
+    "common_errors": [
+      "Confusing profit with cash flow",
+      "Forgetting working capital changes",
+      "Ignoring timing of cash flows",
+      "Including financing costs in FCF (should exclude)"
+    ],
+    "practice_problems": [
+      "Company has $1M profit, $200K depreciation, $100K increase in AR, $50K decrease in AP. Calculate operating cash flow.",
+      "Project generates $500K revenue, $300K costs, $50K taxes yearly. Initial investment $800K, salvage value $100K after 5 years. Calculate annual FCF."
+    ]
+  }
+}

@@ -33,9 +33,100 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
 - Keep top-level project structure documentation always up to date
 - Maintain consistency across all documentation
 
-### 5. Work Continuity
-- Continue working on tasks and finding new work until 50 minutes have elapsed from start
-- Proactively identify blockers and find ways to overcome them
+### 5. Work Continuity and 50-Minute Rule ⏱️ **CRITICAL**
+**MANDATORY**: You MUST work continuously for 50 minutes from session start.
+
+#### Session Start (REQUIRED)
+1. **IMMEDIATELY** run: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"` and record start time
+2. Calculate target end time (start + 50 minutes)
+3. Set session goals based on available time
+4. Document start time in session log
+
+#### During Work (Minute 0-48)
+- Work on highest priority tasks
+- Make incremental progress every 10-15 minutes
+- Save work frequently with **"Progress report:"** prefix commits
+- **Commits are NOT session endpoints** - they are just progress checkpoints to save work
+- **NEVER** use "SESSION COMPLETE", "FINAL", "DONE", or "Complete" in commits before minute 48
+- **NEVER** create summary commits, wrap-up commits, or completion reports before minute 48
+- After each commit, **IMMEDIATELY** continue working on next item
+- If one task is done, **IMMEDIATELY** find and start the next task
+- If blocked, switch tasks immediately (don't waste time)
+- Use agents for specialized work
+- **DO NOT** finish early - there is ALWAYS more work to do
+- **DO NOT** treat commits as stopping points - save and keep going
+
+#### Approaching End (Minute 40-45)
+- **MUST** check current time: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"`
+- If <45 minutes elapsed: **FIND MORE WORK** and start it
+- Priority for additional work:
+  1. Complete partial tasks
+  2. Add more AKUs to current pilot
+  3. Improve documentation
+  4. Enhance agent configs
+  5. Fix minor issues
+  6. Prepare next session work
+
+#### Final Minutes (Minute 48-50 ONLY)
+- **MUST** check time again at minutes 40, 45, and 48
+- If <48 minutes elapsed: **CONTINUE WORKING** - do NOT create final commits
+- Only when ALL work is complete AND checklist shows 100% AND time ≥48 minutes:
+  - Create final commit with "SESSION COMPLETE:" prefix
+  - Update session log with complete metrics
+  - Document next session priorities
+  - Push changes
+- **CRITICAL**: If work remains (checklist not 100%), keep working with "Progress report:" commits
+- There should ALWAYS be work to do - if you think you're done, find more work
+
+#### Finding Work When Current Task Complete
+**ALWAYS use this priority order:**
+1. **Critical blockers** (Issues marked 🔴 in `.project/issues.md`)
+2. **Current phase objectives** (Check `.project/roadmap.md`)
+3. **Open issues** (Check `.project/issues.md`)
+4. **Improvement proposals** (Check `.project/improvements.md`)
+5. **Documentation gaps** (Review and improve)
+6. **Agent improvements** (Enhance configs, add examples)
+7. **Code quality** (Refactor, add tests)
+8. **Structure optimization** (Clean up organization)
+
+**Rule**: If you cannot find 50 minutes of work, you are not looking hard enough. There is ALWAYS work to do.
+
+### Work Tracking System in .project/
+
+The `.project/` directory contains comprehensive work tracking to ensure there's always work to find:
+
+**Issue Categories:**
+- **`issues.md`** - Open issues and blockers
+  - 🔴 Critical blockers (preventing progress)
+  - 🟡 Important issues (should address soon)
+  - 🟢 Minor issues (nice to have)
+  - Track status, priority, action items, assignments
+
+- **`improvements.md`** - Enhancement proposals
+  - Code quality improvements
+  - Feature enhancements  
+  - Optimization opportunities
+  - Documentation upgrades
+
+**How to Use During Session:**
+1. **At session start**: Review `.project/issues.md` for 🔴 blockers
+2. **When task complete**: Check `.project/issues.md` for 🟡 important work
+3. **Need more work?**: Review `.project/improvements.md` for enhancements
+4. **Before finishing**: Add any new issues/improvements discovered
+5. **Update status**: Mark items as "In Progress" or "Resolved"
+
+**Adding New Work Items:**
+- Found a bug? Add to `.project/issues.md` as 🔴 or 🟡
+- Have an improvement idea? Add to `.project/improvements.md`
+- Include: Status, Created date, Priority, Description, Action items
+- Link to related documents and code
+
+This system ensures you can ALWAYS find work when approaching 50 minutes.
+
+#### Enforcement
+- Sessions shorter than 45 minutes without explicit human approval are **UNACCEPTABLE**
+- Always justify in session log if ending before 50 minutes
+- Proactively identify blockers and overcome them
 - If stuck, recruit appropriate agents or request help
 
 ## Project Structure
