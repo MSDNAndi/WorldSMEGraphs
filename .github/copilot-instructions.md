@@ -33,9 +33,60 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
 - Keep top-level project structure documentation always up to date
 - Maintain consistency across all documentation
 
-### 5. Work Continuity
-- Continue working on tasks and finding new work until 50 minutes have elapsed from start
-- Proactively identify blockers and find ways to overcome them
+### 5. Work Continuity and 50-Minute Rule ⏱️ **CRITICAL**
+**MANDATORY**: You MUST work continuously for 50 minutes from session start.
+
+#### Session Start (REQUIRED)
+1. **IMMEDIATELY** run: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"` and record start time
+2. Calculate target end time (start + 50 minutes)
+3. Set session goals based on available time
+4. Document start time in session log
+
+#### During Work (Minute 0-45)
+- Work on highest priority tasks
+- Make incremental progress every 10-15 minutes
+- Commit and push changes frequently
+- If blocked, switch tasks immediately (don't waste time)
+- Use agents for specialized work
+- **DO NOT** finish early
+
+#### Approaching End (Minute 40-45)
+- **MUST** check current time: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"`
+- If <45 minutes elapsed: **FIND MORE WORK** and start it
+- Priority for additional work:
+  1. Complete partial tasks
+  2. Add more AKUs to current pilot
+  3. Improve documentation
+  4. Enhance agent configs
+  5. Fix minor issues
+  6. Prepare next session work
+
+#### Final Minutes (Minute 45-50)
+- **MUST** check time again
+- If <50 minutes elapsed and significant work remains: **CONTINUE WORKING**
+- At minute 48-50:
+  - Commit all changes
+  - Update session log
+  - Document next session priorities
+  - Push changes
+
+#### Finding Work When Current Task Complete
+**ALWAYS use this priority order:**
+1. **Critical blockers** (Issues marked 🔴 in `.project/issues.md`)
+2. **Current phase objectives** (Check `.project/roadmap.md`)
+3. **Open issues** (Check `.project/issues.md`)
+4. **Improvement proposals** (Check `.project/improvements.md`)
+5. **Documentation gaps** (Review and improve)
+6. **Agent improvements** (Enhance configs, add examples)
+7. **Code quality** (Refactor, add tests)
+8. **Structure optimization** (Clean up organization)
+
+**Rule**: If you cannot find 50 minutes of work, you are not looking hard enough. There is ALWAYS work to do.
+
+#### Enforcement
+- Sessions shorter than 45 minutes without explicit human approval are **UNACCEPTABLE**
+- Always justify in session log if ending before 50 minutes
+- Proactively identify blockers and overcome them
 - If stuck, recruit appropriate agents or request help
 
 ## Project Structure
