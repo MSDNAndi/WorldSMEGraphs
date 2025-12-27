@@ -91,6 +91,38 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
 
 **Rule**: If you cannot find 50 minutes of work, you are not looking hard enough. There is ALWAYS work to do.
 
+### Work Tracking System in .project/
+
+The `.project/` directory contains comprehensive work tracking to ensure there's always work to find:
+
+**Issue Categories:**
+- **`issues.md`** - Open issues and blockers
+  - 🔴 Critical blockers (preventing progress)
+  - 🟡 Important issues (should address soon)
+  - 🟢 Minor issues (nice to have)
+  - Track status, priority, action items, assignments
+
+- **`improvements.md`** - Enhancement proposals
+  - Code quality improvements
+  - Feature enhancements  
+  - Optimization opportunities
+  - Documentation upgrades
+
+**How to Use During Session:**
+1. **At session start**: Review `.project/issues.md` for 🔴 blockers
+2. **When task complete**: Check `.project/issues.md` for 🟡 important work
+3. **Need more work?**: Review `.project/improvements.md` for enhancements
+4. **Before finishing**: Add any new issues/improvements discovered
+5. **Update status**: Mark items as "In Progress" or "Resolved"
+
+**Adding New Work Items:**
+- Found a bug? Add to `.project/issues.md` as 🔴 or 🟡
+- Have an improvement idea? Add to `.project/improvements.md`
+- Include: Status, Created date, Priority, Description, Action items
+- Link to related documents and code
+
+This system ensures you can ALWAYS find work when approaching 50 minutes.
+
 #### Enforcement
 - Sessions shorter than 45 minutes without explicit human approval are **UNACCEPTABLE**
 - Always justify in session log if ending before 50 minutes

@@ -56,7 +56,21 @@ NPV pilot currently has only 6 AKUs. Need 44 more to reach pilot goal of 50 AKUs
 **Area**: Agent Infrastructure
 
 **Description**:
-Current agent YAML configs are basic. Need MusicVideoPipeline-level detail with comprehensive input/output specs, success criteria, and examples.
+Only 18/53 agents have full MusicVideoPipeline-level detail (34% complete). Remaining 35 agents have basic configs (28-102 lines) and need comprehensive enhancement to 150-215 lines with:
+- Detailed input requirements (required vs optional with context)
+- 3+ good input examples (comprehensive, realistic scenarios)
+- 2+ bad input examples (common mistakes explained)
+- Comprehensive output format specifications
+- Clear success criteria
+- Performance expectations
+- 3-7 related agents with workflow descriptions
+- 10-step typical workflows
+- 8-10 expertise areas
+- 5-7 detailed usage examples with full context
+
+**Current Status:**
+- ✅ Fully enhanced (18): coordinator, recruiter, meta-learning, rendering, generic-domain-empathy, quality, web-scraper, research, academic/student/professional/diverse-learner/curious-public advocates, citation, localization, terminology, standards, semantic-harmonization, community-manager
+- ⚠️ Need enhancement (35): All extraction agents (5), quality agents (5), education agents (5), technical agents (12), operations agents (8)
 
 **Impact**:
 - Agents harder to use effectively
@@ -64,11 +78,14 @@ Current agent YAML configs are basic. Need MusicVideoPipeline-level detail with 
 - Limited discoverability
 
 **Action Items**:
-- [ ] Enhance all 53 agent configs with detailed sections
+- [ ] Enhance remaining 35 agent configs to 150-215 lines each
 - [ ] Add success criteria to each agent
-- [ ] Add examples of good vs bad inputs
+- [ ] Add examples of good vs bad inputs (3+ good, 2+ bad)
 - [ ] Document performance expectations
 - [ ] Link related agents and workflows
+- [ ] Add 10-step typical workflows
+- [ ] List 8-10 expertise areas
+- [ ] Include 5-7 detailed usage examples
 
 **Assigned To**: Current session  
 **Target Date**: 2025-12-27  
