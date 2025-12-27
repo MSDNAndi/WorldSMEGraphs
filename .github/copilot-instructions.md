@@ -10,7 +10,9 @@
 - [Technology Stack and Coding Standards](#technology-stack-and-coding-standards)
 - [Best Practices](#best-practices)
 - [Getting Started](#getting-started)
+- [Examples: Good vs Bad Patterns](#examples-good-vs-bad-patterns)
 - [Common Pitfalls and Troubleshooting](#common-pitfalls-and-troubleshooting)
+- [Quick Reference](#quick-reference)
 
 ## Project Mission
 WorldSMEGraphs is a file-based knowledge representation system for subject matter expert domains. The goal is to create an interconnected, language-agnostic knowledge graph that can be rendered in multiple formats and languages for different audiences.
@@ -377,6 +379,103 @@ After 5 review cycles without improvement, an agent must be replaced or complete
 2. Check `.project/roadmap.md` for planned work
 3. Consult appropriate agent configurations for specialized tasks
 4. Follow domain-specific guidelines in `domain/[domain-name]/README.md`
+
+## Examples: Good vs Bad Patterns
+
+### Creating Knowledge Graphs
+
+**❌ Bad:**
+```json
+{
+  "name": "algebra",
+  "content": "Algebra is math with variables"
+}
+```
+*Issues: Not language-agnostic, missing structure, no metadata*
+
+**✅ Good:**
+```json
+{
+  "@context": "aku-v2",
+  "@type": "concept",
+  "@id": "math:algebra:variable",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2025-12-27T15:30:00.000Z",
+    "contributors": ["math-expert-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "science/mathematics/algebra",
+    "type": "concept",
+    "difficulty": "elementary",
+    "importance": "foundational"
+  }
+}
+```
+*Follows format specification with metadata and structure*
+
+### Agent Invocation
+
+**❌ Bad:**
+```
+@agent do something with NPV
+```
+*Issues: No specific agent, vague requirements, no success criteria*
+
+**✅ Good:**
+```
+@paper-miner Extract NPV formulas and definitions from "Corporate Finance" 
+by Ross et al., chapters 5-6. Focus on: discount rate calculations, 
+decision rules, sensitivity analysis. Output: Structured JSON suitable 
+for AKU creation. Success: All formulas extracted with context and notation.
+```
+*Specific agent, clear scope, defined output, measurable success*
+
+### File Organization
+
+**❌ Bad:**
+```
+domain/
+  stuff.json
+  notes.md
+  algebra-things/
+    random.graph
+```
+*Issues: No structure, unclear names, mixed content*
+
+**✅ Good:**
+```
+domain/
+  science/
+    math/
+      algebra/
+        knowledge.graph
+        schema.json
+        .renders/
+          english/
+            elementary-school.md
+```
+*Follows standard structure, clear hierarchy, proper naming*
+
+### Commit Messages
+
+**❌ Bad:**
+```
+git commit -m "updates"
+git commit -m "fix"
+git commit -m "done"
+```
+*Issues: No context, doesn't explain what changed*
+
+**✅ Good:**
+```
+git commit -m "Progress report: Added 5 NPV definition AKUs with validation"
+git commit -m "Progress report: Fixed AKU timestamp format to ISO 8601"
+git commit -m "SESSION COMPLETE: Enhanced agent infrastructure (50 min)"
+```
+*Clear prefix, describes change, provides context*
 
 ## Need Help?
 If stuck or uncertain:
