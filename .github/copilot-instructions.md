@@ -258,6 +258,20 @@ bash .github/copilot/agents/check-agent-lengths.sh
 
 This validates all `.agent.md` files in `.github/agents/` directory.
 
+### Validating Project Structure
+Verify that the actual file structure matches the documented structure:
+
+```bash
+bash .github/scripts/validate-structure.sh
+```
+
+This checks for:
+- Required directories exist
+- Essential files present
+- Validation scripts available
+- Agent files present
+- Domain structure correct
+
 ### Project Structure Validation
 - Review `.project/structure.md` to ensure file organization matches documentation
 - Verify no files are in wrong locations
@@ -547,6 +561,9 @@ python .project/agents/quality-assurance/tools/validate_aku.py path/to/aku.json
 
 # Check agent quality
 bash .github/copilot/agents/check-agent-lengths.sh
+
+# Validate project structure
+bash .github/scripts/validate-structure.sh
 
 # View project structure
 cat .project/structure.md
