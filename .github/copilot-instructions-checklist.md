@@ -72,7 +72,7 @@ grep -o '\[.*\](.*.md)' .github/copilot-instructions.md | sed 's/.*(\(.*\))/\1/'
 done
 
 # 5. Verify validation scripts mentioned work
-bash .github/copilot/agents/check-agent-lengths.sh > /dev/null 2>&1 && echo "✅ Agent validator works"
+bash .github/scripts/check-agent-lengths.sh > /dev/null 2>&1 && echo "✅ Agent validator works"
 bash .github/scripts/validate-structure.sh > /dev/null 2>&1 && echo "✅ Structure validator works"
 ```
 

@@ -272,7 +272,7 @@ python .project/agents/quality-assurance/tools/validate_aku.py --pilot npv
 Check that all agent configurations meet the 180-line minimum requirement:
 
 ```bash
-bash .github/copilot/agents/check-agent-lengths.sh
+bash .github/scripts/check-agent-lengths.sh
 ```
 
 This validates all `.agent.md` files in `.github/agents/` directory.
@@ -580,7 +580,7 @@ If stuck or uncertain:
 python .project/agents/quality-assurance/tools/validate_aku.py path/to/aku.json
 
 # Check agent quality
-bash .github/copilot/agents/check-agent-lengths.sh
+bash .github/scripts/check-agent-lengths.sh
 
 # Validate project structure
 bash .github/scripts/validate-structure.sh
