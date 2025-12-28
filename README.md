@@ -145,7 +145,8 @@ See [Project Structure Documentation](.project/structure.md) for complete detail
 - **[Rendering Specification](.project/rendering-spec.md)**: How renderings are generated
 - **[Ontology Integration](docs/ONTOLOGY-QUICKSTART.md)**: Quick start guide for using standard ontologies
 - **[Complete Migration Guide](docs/COMPLETE-ONTOLOGY-MIGRATION-GUIDE.md)**: Step-by-step ontology enhancement process ⭐
-- **[Ontology Tools Guide](docs/ONTOLOGY-TOOLS-GUIDE.md)**: Advanced tools for maintenance & validation 🔧 **NEW**
+- **[Ontology Tools Guide](docs/ONTOLOGY-TOOLS-GUIDE.md)**: Advanced tools for maintenance & validation 🔧
+- **[Visualization Examples](docs/VISUALIZATION-EXAMPLES.md)**: Sample SKOS relationship diagrams 📊 **NEW**
 - **[Ontology Specification](.project/research/ontology-integration-specification.md)**: Complete technical specification
 
 ### For Contributors
@@ -154,6 +155,7 @@ See [Project Structure Documentation](.project/structure.md) for complete detail
 - **[Ontology Quick Start](docs/ONTOLOGY-QUICKSTART.md)**: How to use SKOS, SNOMED, FIBO and other ontologies
 - **[Complete Migration Guide](docs/COMPLETE-ONTOLOGY-MIGRATION-GUIDE.md)**: Comprehensive instructions for enhancing existing AKUs
 - **[Ontology Tools Guide](docs/ONTOLOGY-TOOLS-GUIDE.md)**: URI validation, version tracking, batch processing 🔧
+- **[Visualization Examples](docs/VISUALIZATION-EXAMPLES.md)**: Interactive Mermaid diagrams of relationships 📊
 - **[AKU Templates](docs/templates/)**: Ready-to-use templates for medical, economics, science domains
 - **[Agent Configurations](.github/copilot/agents/)**: Specialized agent instructions
 - **[Agent KPIs](.github/copilot/agent-kpis.md)**: Agent performance tracking
