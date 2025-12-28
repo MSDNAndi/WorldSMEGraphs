@@ -1,21 +1,34 @@
 {
-  "@context": "https://schema.org/",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
   "@type": "EducationalOccupationalCredential",
   "id": "aku-005-cash-flow-concept",
   "metadata": {
     "version": "1.0.0",
     "created": "2025-12-27T03:41:42.173Z",
-    "last_updated": "2025-12-27T03:41:42.173Z",
-    "contributors": ["Generic Domain Empathy Agent (finance-valuation-expert-v1)"],
+    "last_updated": "2025-12-27T22:01:09.191932Z",
+    "contributors": [
+      "Generic Domain Empathy Agent (finance-valuation-expert-v1)",
+      "ontology-enhancement-agent"
+    ],
     "review_status": "draft",
-    "confidence_score": 0.95
+    "confidence_score": 0.95,
+    "status": "ontology-enhanced"
   },
   "classification": {
     "domain_path": "economics/bwl/finance/valuation/npv",
     "type": "definition",
     "difficulty": "intermediate",
     "importance": "critical",
-    "keywords": ["cash flow", "NPV", "valuation", "finance", "free cash flow"]
+    "keywords": [
+      "cash flow",
+      "NPV",
+      "valuation",
+      "finance",
+      "free cash flow"
+    ]
   },
   "content": {
     "statement": "Cash Flow is the net amount of cash moving into and out of a business or project over a specific time period, representing actual money transfers rather than accounting profits.",
@@ -93,13 +106,41 @@
       "aku-007-ebitda-concept",
       "aku-008-working-capital",
       "aku-009-capex-vs-opex"
+    ],
+    "skos:broader": [
+      {
+        "@id": "wsmg:aku-001-npv-definition",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:aku-003-present-value-concept",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "wsmg:aku-002-npv-basic-formula",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:aku-027-equipment-replacement-example",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:aku-011-dcf-valuation",
+        "@type": "skos:Concept"
+      }
     ]
   },
   "provenance": {
     "sources": [
       {
         "title": "Principles of Corporate Finance",
-        "authors": ["Brealey", "Myers", "Allen"],
+        "authors": [
+          "Brealey",
+          "Myers",
+          "Allen"
+        ],
         "edition": "13th",
         "pages": "87-95",
         "isbn": "978-1260013900",
@@ -107,7 +148,11 @@
       },
       {
         "title": "Valuation: Measuring and Managing the Value of Companies",
-        "authors": ["Koller", "Goedhart", "Wessels"],
+        "authors": [
+          "Koller",
+          "Goedhart",
+          "Wessels"
+        ],
         "publisher": "McKinsey & Company",
         "edition": "7th",
         "pages": "195-210",
@@ -116,17 +161,39 @@
     ],
     "extraction_method": "manual_synthesis",
     "validation_method": "finance_expert_review",
-    "last_verified": "2025-12-27"
+    "last_verified": "2025-12-27",
+    "dc:creator": [
+      "Generic Domain Empathy Agent (finance-valuation-expert-v1)",
+      "ontology-enhancement-agent"
+    ],
+    "dc:modified": "2025-12-27T22:01:09.191924Z",
+    "prov:wasDerivedFrom": [
+      {
+        "dc:title": "Principles of Corporate Finance"
+      },
+      {
+        "dc:title": "Valuation: Measuring and Managing the Value of Companies"
+      }
+    ]
   },
   "pedagogical": {
-    "target_audiences": ["undergraduate_finance", "mba", "cfa_level_1", "practitioners"],
+    "target_audiences": [
+      "undergraduate_finance",
+      "mba",
+      "cfa_level_1",
+      "practitioners"
+    ],
     "learning_objectives": [
       "Distinguish cash flows from accounting profits",
       "Calculate free cash flow from financial statements",
       "Understand timing importance in valuation",
       "Identify cash vs non-cash items"
     ],
-    "prerequisite_knowledge": ["basic accounting", "income statement", "balance sheet"],
+    "prerequisite_knowledge": [
+      "basic accounting",
+      "income statement",
+      "balance sheet"
+    ],
     "estimated_learning_time": "20 minutes",
     "common_errors": [
       "Confusing profit with cash flow",
@@ -138,5 +205,19 @@
       "Company has $1M profit, $200K depreciation, $100K increase in AR, $50K decrease in AP. Calculate operating cash flow.",
       "Project generates $500K revenue, $300K costs, $50K taxes yearly. Initial investment $800K, salvage value $100K after 5 years. Calculate annual FCF."
     ]
-  }
+  },
+  "skos:prefLabel": "Cash Flow",
+  "skos:notation": "",
+  "skos:definition": "Cash Flow is the net amount of cash moving into and out of a business or project over a specific time period, representing actual money transfers rather than accounting profits.",
+  "skos:altLabel": [
+    "Cashflow",
+    "Geldfluss",
+    "flujo de efectivo"
+  ],
+  "owl:sameAs": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/CashFlow",
+  "skos:exactMatch": [
+    "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/CashFlow",
+    "http://dbpedia.org/resource/Cash_flow",
+    "http://www.wikidata.org/entity/Q223557"
+  ]
 }

@@ -468,3 +468,94 @@ Proposed → Discussed → Approved → Scheduled → In Progress → Done
 - [Session Log](.project/session-log.md)
 - [Roadmap](.project/roadmap.md)
 - [Agent KPIs](../.github/copilot/agent-kpis.md)
+
+---
+
+### 🎯 IMP-004: Ontology Integration - Phase 2 and Beyond
+**Category**: Semantic Infrastructure  
+**Impact**: High  
+**Effort**: High  
+**Priority**: Phase 2 (Next Quarter)  
+**Status**: 📋 Phase 1 Complete, Phase 2 Planned
+
+**Description**:
+Continue ontology integration work beyond Phase 1 foundation. Enable full semantic interoperability with external knowledge graphs and implement automated ontology mapping.
+
+**Phase 1 Completed (2025-12-27)**: ✅
+- Comprehensive ontology integration specification
+- JSON-LD contexts for all major domains (medicine, economics, science)
+- SKOS integration framework
+- Ontology validation tool
+- Enhanced AKU example with full ontology support
+- Implementation guide
+
+**Phase 2 - External Linking (Weeks 3-4)**:
+- Integrate BioPortal API for automated medical concept mapping
+- Integrate FIBO Navigator for financial concept mapping
+- Implement Wikidata SPARQL endpoint queries
+- Create automated mapping suggestion tools
+- Add external mappings to 100+ existing AKUs
+
+**Phase 3 - SKOS Enhancement (Weeks 5-6)**:
+- Convert all existing relationships to SKOS format
+- Build complete domain taxonomies
+- Implement transitive relationship inference
+- Create concept scheme visualizations
+
+**Phase 4 - Full Validation (Weeks 7-8)**:
+- Integrate ontology validation into CI/CD pipeline
+- Add consistency checking across entire knowledge base
+- Implement URI resolution verification
+- Create comprehensive validation reports
+
+**Phase 5 - Production Deployment (Weeks 9-10)**:
+- Migrate all existing AKUs to ontology-enhanced format
+- Deploy contexts to production URLs
+- Enable semantic search capabilities
+- Implement SPARQL endpoint
+- Register WorldSMEGraphs in LOV (Linked Open Vocabularies)
+
+**Benefits**:
+- Full semantic interoperability with external systems
+- Automated knowledge graph generation
+- Intelligent semantic search and query
+- Reasoning and inference capabilities
+- Integration with Wikidata, DBpedia, BioPortal, etc.
+- W3C standards compliance
+- Enhanced discoverability
+
+**Dependencies**:
+- Phase 1 complete ✅
+- BioPortal API access
+- SPARQL endpoint infrastructure
+- Production URL for context hosting
+
+**Estimated Effort**:
+- Phase 2: 40 hours
+- Phase 3: 30 hours  
+- Phase 4: 20 hours
+- Phase 5: 40 hours
+- **Total**: 130 hours (~3 weeks full-time)
+
+**Success Metrics**:
+- 80%+ AKUs have external ontology mappings
+- 100% AKUs pass ontology validation
+- Semantic search operational
+- Knowledge graph queryable via SPARQL
+- Zero ontology consistency errors
+
+**Proposed By**: @ontology agent  
+**Created**: 2025-12-27  
+**Documentation**: 
+- `.project/research/ontology-integration-specification.md`
+- `.project/research/ontology-implementation-guide.md`
+- `.project/research/ONTOLOGY-WORK-SUMMARY.md`
+
+**Tools Created**:
+- `validate_ontology.py` - Ontology compliance validator
+- JSON-LD contexts (base, medicine, economics, science)
+
+**Related**:
+- PR #11: Ontology research findings
+- `.project/research/ontology-and-numbering-analysis.md`
+

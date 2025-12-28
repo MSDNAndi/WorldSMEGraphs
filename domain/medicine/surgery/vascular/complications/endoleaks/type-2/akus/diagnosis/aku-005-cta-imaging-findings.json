@@ -1,17 +1,24 @@
 {
-  "@context": "https://schema.org/",
-  "@type": "MedicalEntity",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
   "@id": "aku-005-cta-imaging-findings",
   "metadata": {
     "version": "1.0.0",
     "created": "2025-12-27T15:03:00.000Z",
     "contributors": [
       "copilot-agent",
-      "vascular-surgery-knowledge-base"
+      "vascular-surgery-knowledge-base",
+      "terminology-agent"
     ],
     "confidence": 0.95,
-    "status": "draft",
-    "last_updated": "2025-12-27T15:03:00.000Z"
+    "status": "enhanced",
+    "last_updated": "2025-12-27T20:04:12.000Z"
   },
   "classification": {
     "domain_path": "medicine/surgery/vascular/complications/endoleaks/type-2",
@@ -39,6 +46,17 @@
       "key_insight": "The key to diagnosing Type 2 (versus Type 1) is seeing the contrast enhancement away from the attachment sites and being able to trace it to aortic branch vessels like lumbar arteries or the IMA. This requires carefully examining all phases of the CTA.",
       "technical_details": "Type 2 endoleaks may appear on arterial phase (immediate imaging) or may only become apparent on delayed phase imaging (90-180 seconds post-contrast) as collateral flow is slower than systemic flow. Multi-phase imaging improves detection sensitivity from ~80% to >95%."
     }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Type 2 Endoleak CTA Imaging Findings"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "CT angiography appearance of Type 2 endoleak as contrast enhancement within aneurysm sac outside stent-graft lumen on arterial phase imaging, with identifiable feeding and/or draining vessels separate from attachment zones"
+    },
+    "notation": "aku-005-cta-imaging-findings"
   },
   "imaging_protocol": {
     "optimal_cta_protocol": {
@@ -201,6 +219,18 @@
         "strength": 0.85
       }
     ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:radiology:ct-technique:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "CT Angiography Technique"
+      },
+      {
+        "@id": "urn:wskg:medicine:anatomy:vascular:abdominal-aorta:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Abdominal Aortic Anatomy"
+      }
+    ],
     "enables": [
       {
         "id": "urn:wskg:medicine:surgery:vascular:complications:type2-management:001",
@@ -212,9 +242,71 @@
         "title": "Post-EVAR Surveillance",
         "strength": 0.95
       }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:type2-management:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Type 2 Endoleak Management"
+      },
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:followup:surveillance-protocol:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Post-EVAR Surveillance"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:broadMatch": [
+      "http://snomed.info/id/445080003",
+      "http://id.nlm.nih.gov/mesh/D000078862"
+    ],
+    "skos:closeMatch": [
+      "http://id.who.int/icd/entity/1573326799"
     ]
   },
   "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:jvs-reporting-standards",
+        "@type": "prov:Entity",
+        "dc:title": "Reporting standards for endovascular aortic aneurysm repair",
+        "dc:publisher": "Journal of Vascular Surgery",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:radiographics-cta-evar",
+        "@type": "prov:Entity",
+        "dc:title": "CT imaging after endovascular aortic aneurysm repair",
+        "dc:publisher": "Radiographics",
+        "dc:type": "review_article",
+        "confidence": 0.95
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-27T15:03:00.000Z",
+      "prov:endedAtTime": "2025-12-27T20:22:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base",
+      "terminology-agent",
+      "semantic-harmonization-agent"
+    ],
+    "dc:created": "2025-12-27T15:03:00.000Z",
+    "dc:modified": "2025-12-27T20:22:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:vascular-surgery-and-radiology-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "terminology-agent"
+    },
     "sources": [
       {
         "type": "clinical_guideline",
@@ -273,5 +365,31 @@
       "source_vessel_identification",
       "sac_measurement"
     ]
-  }
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "449567000",
+      "uri": "http://snomed.info/id/449567000",
+      "description": "Type II endoleak (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D000078862",
+      "uri": "http://id.nlm.nih.gov/mesh/D000078862",
+      "description": "Endoleak",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "445080003",
+      "uri": "http://snomed.info/id/445080003",
+      "description": "Endoleak (disorder) - parent concept",
+      "matchType": "broadMatch"
+    }
+  ]
 }

@@ -1,5 +1,8 @@
 {
-  "@context": "https://schema.org/",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
   "@type": "EducationalResource",
   "@id": "aku-002-npv-basic-formula",
   "metadata": {
@@ -7,11 +10,12 @@
     "created": "2025-12-27",
     "contributors": [
       "generic-domain-empathy-agent",
-      "finance-valuation-expert-v1"
+      "finance-valuation-expert-v1",
+      "ontology-enhancement-agent"
     ],
     "confidence": 0.99,
-    "status": "validated",
-    "last_updated": "2025-12-27T02:56:46.140+00:00"
+    "status": "ontology-enhanced",
+    "last_updated": "2025-12-27T22:01:09.193214Z"
   },
   "classification": {
     "domain_path": "economics/bwl/finance/valuation/npv",
@@ -94,6 +98,26 @@
       "npv-continuous-compounding",
       "npv-with-mid-year-convention",
       "npv-with-growing-cash-flows"
+    ],
+    "skos:broader": [
+      {
+        "@id": "wsmg:aku-001-npv-definition",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:present-value-concept",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "wsmg:aku-027-single-cash-flow-example",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:npv-decision-rule",
+        "@type": "skos:Concept"
+      }
     ]
   },
   "provenance": {
@@ -109,7 +133,18 @@
         "pages": "97-98"
       }
     ],
-    "validation_date": "2025-12-27"
+    "validation_date": "2025-12-27",
+    "dc:creator": [
+      "generic-domain-empathy-agent",
+      "finance-valuation-expert-v1",
+      "ontology-enhancement-agent"
+    ],
+    "dc:modified": "2025-12-27T22:01:09.193205Z",
+    "prov:wasDerivedFrom": [
+      {
+        "dc:title": "Principles of Corporate Finance"
+      }
+    ]
   },
   "pedagogical": {
     "learning_objectives": [
@@ -122,5 +157,19 @@
       "Discounting the initial investment (it's already at present value)",
       "Using wrong discount factor: should be (1+r)^t not (1-r)^t"
     ]
-  }
+  },
+  "skos:prefLabel": "Net Present Value",
+  "skos:notation": "aku-002-npv-basic-formula",
+  "skos:definition": "The basic NPV formula: NPV = Σ(CFₜ / (1+r)^t) - C₀, where the summation runs from t=1 to T.",
+  "skos:altLabel": [
+    "NPV",
+    "Nettobarwert",
+    "VAN"
+  ],
+  "owl:sameAs": "https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/NetPresentValue",
+  "skos:exactMatch": [
+    "https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/NetPresentValue",
+    "http://dbpedia.org/resource/Net_present_value",
+    "http://www.wikidata.org/entity/Q1054308"
+  ]
 }

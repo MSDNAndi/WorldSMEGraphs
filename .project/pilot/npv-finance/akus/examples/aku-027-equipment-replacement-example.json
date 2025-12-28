@@ -1,5 +1,8 @@
 {
-  "@context": "https://schema.org/",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
   "@type": "EducationalResource",
   "@id": "aku-027-equipment-replacement-example",
   "metadata": {
@@ -7,11 +10,12 @@
     "created": "2025-12-27",
     "contributors": [
       "generic-domain-empathy-agent",
-      "finance-valuation-expert-v1"
+      "finance-valuation-expert-v1",
+      "ontology-enhancement-agent"
     ],
     "confidence": 0.97,
-    "status": "validated",
-    "last_updated": "2025-12-27T02:56:46.139+00:00"
+    "status": "ontology-enhanced",
+    "last_updated": "2025-12-27T22:01:09.192568Z"
   },
   "classification": {
     "domain_path": "economics/bwl/finance/valuation/npv",
@@ -202,6 +206,28 @@
     "related_examples": [
       "aku-028-new-product-launch-example",
       "aku-035-expansion-vs-replacement-example"
+    ],
+    "skos:broader": [
+      {
+        "@id": "wsmg:aku-001-npv-definition",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:aku-002-npv-basic-formula",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:tax-effects-on-cash-flows",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:depreciation-tax-shield",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:after-tax-cash-flows",
+        "@type": "skos:Concept"
+      }
     ]
   },
   "provenance": {
@@ -232,7 +258,21 @@
     ],
     "validation_method": "finance-valuation-expert-v1",
     "validation_date": "2025-12-27",
-    "numerical_verification": "Calculations verified independently with Excel and Python"
+    "numerical_verification": "Calculations verified independently with Excel and Python",
+    "dc:creator": [
+      "generic-domain-empathy-agent",
+      "finance-valuation-expert-v1",
+      "ontology-enhancement-agent"
+    ],
+    "dc:modified": "2025-12-27T22:01:09.192561Z",
+    "prov:wasDerivedFrom": [
+      {
+        "dc:title": "Principles of Corporate Finance"
+      },
+      {
+        "dc:title": "Corporate Finance"
+      }
+    ]
   },
   "pedagogical": {
     "target_audiences": [
@@ -293,5 +333,19 @@
       "graduate": "Include all tax effects and discuss why each matters",
       "professional": "Add IRR comparison and discuss limitations of each metric"
     }
-  }
+  },
+  "skos:prefLabel": "Net Present Value",
+  "skos:notation": "aku-027-equipment-replacement-example",
+  "skos:definition": "Worked Example: Equipment Replacement Decision - Should a manufacturing company replace its old machine with a new one? Use NPV analysis to decide.",
+  "skos:altLabel": [
+    "NPV",
+    "Nettobarwert",
+    "VAN"
+  ],
+  "owl:sameAs": "https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/NetPresentValue",
+  "skos:exactMatch": [
+    "https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/NetPresentValue",
+    "http://dbpedia.org/resource/Net_present_value",
+    "http://www.wikidata.org/entity/Q1054308"
+  ]
 }

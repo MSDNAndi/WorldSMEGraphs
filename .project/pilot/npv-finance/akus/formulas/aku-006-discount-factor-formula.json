@@ -1,21 +1,34 @@
 {
-  "@context": "https://schema.org/",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
   "@type": "EducationalOccupationalCredential",
   "id": "aku-006-discount-factor-formula",
   "metadata": {
     "version": "1.0.0",
     "created": "2025-12-27T03:42:10.500Z",
-    "last_updated": "2025-12-27T03:42:10.500Z",
-    "contributors": ["Formula Extractor Agent", "Math Expert Agent"],
+    "last_updated": "2025-12-27T22:01:09.193661Z",
+    "contributors": [
+      "Formula Extractor Agent",
+      "Math Expert Agent",
+      "ontology-enhancement-agent"
+    ],
     "review_status": "draft",
-    "confidence_score": 0.99
+    "confidence_score": 0.99,
+    "status": "ontology-enhanced"
   },
   "classification": {
     "domain_path": "economics/bwl/finance/valuation/npv",
     "type": "formula",
     "difficulty": "beginner",
     "importance": "critical",
-    "keywords": ["discount factor", "present value", "time value", "NPV"]
+    "keywords": [
+      "discount factor",
+      "present value",
+      "time value",
+      "NPV"
+    ]
   },
   "content": {
     "statement": "The Discount Factor is the multiplier used to convert a future cash flow to its present value, calculated as DF = 1 / (1 + r)^t",
@@ -56,7 +69,7 @@
       {
         "description": "Calculate 5-year discount factor at 10% rate",
         "inputs": {
-          "r": 0.10,
+          "r": 0.1,
           "t": 5
         },
         "calculation": "DF_5 = 1 / (1.10)^5 = 1 / 1.61051 = 0.62092",
@@ -89,23 +102,66 @@
       "aku-010-compound-interest",
       "aku-012-annuity-formulas"
     ],
-    "supersedes": []
+    "supersedes": [],
+    "skos:broader": [
+      {
+        "@id": "wsmg:aku-003-present-value-concept",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:aku-004-discount-rate-definition",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "wsmg:aku-002-npv-basic-formula",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:aku-011-dcf-valuation",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:aku-013-bond-pricing",
+        "@type": "skos:Concept"
+      }
+    ]
   },
   "provenance": {
     "sources": [
       {
         "title": "Principles of Corporate Finance",
-        "authors": ["Brealey", "Myers", "Allen"],
+        "authors": [
+          "Brealey",
+          "Myers",
+          "Allen"
+        ],
         "pages": "23-25",
         "type": "textbook"
       }
     ],
     "extraction_method": "formula_extraction",
     "validation_method": "mathematical_proof",
-    "last_verified": "2025-12-27"
+    "last_verified": "2025-12-27",
+    "dc:creator": [
+      "Formula Extractor Agent",
+      "Math Expert Agent",
+      "ontology-enhancement-agent"
+    ],
+    "dc:modified": "2025-12-27T22:01:09.193647Z",
+    "prov:wasDerivedFrom": [
+      {
+        "dc:title": "Principles of Corporate Finance"
+      }
+    ]
   },
   "pedagogical": {
-    "target_audiences": ["undergraduate_finance", "high_school_advanced", "self_learners"],
+    "target_audiences": [
+      "undergraduate_finance",
+      "high_school_advanced",
+      "self_learners"
+    ],
     "learning_objectives": [
       "Calculate discount factors for any rate and period",
       "Understand inverse relationship with compound interest",
@@ -124,5 +180,19 @@
       "If DF_3 = 0.75, what is the discount rate?",
       "Compare DF_10 at rates 5%, 10%, 15%"
     ]
-  }
+  },
+  "skos:prefLabel": "Present Value",
+  "skos:notation": "",
+  "skos:definition": "The Discount Factor is the multiplier used to convert a future cash flow to its present value, calculated as DF = 1 / (1 + r)^t",
+  "skos:altLabel": [
+    "PV",
+    "Barwert",
+    "valeur actuelle"
+  ],
+  "owl:sameAs": "https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/PresentValue",
+  "skos:exactMatch": [
+    "https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/PresentValue",
+    "http://dbpedia.org/resource/Present_value",
+    "http://www.wikidata.org/entity/Q332099"
+  ]
 }
