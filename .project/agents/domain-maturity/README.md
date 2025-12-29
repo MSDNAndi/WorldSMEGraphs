@@ -354,6 +354,8 @@ If no `COMPLETENESS_METADATA.yaml`:
 
 ## Related Documentation
 
+- **Visual Guide**: `VISUAL_GUIDE.md` - ASCII diagrams and flowcharts for visual learners
+- **Implementation Summary**: `IMPLEMENTATION_SUMMARY.md` - Complete implementation documentation
 - **Maturity Model**: `/.project/knowledge-maturity-model.md` - Detailed model specification
 - **Usage Guide**: `/docs/knowledge-maturity-tracking.md` - Comprehensive usage documentation
 - **Knowledge Format**: `/.project/knowledge-format-v2.md` - AKU format specification
