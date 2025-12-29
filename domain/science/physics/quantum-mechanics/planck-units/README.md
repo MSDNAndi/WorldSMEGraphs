@@ -61,6 +61,12 @@ python .project/agents/quality-assurance/tools/validate_aku_v2.py \
 - **Learning Path**: Follow the sequence in CROSS_REFERENCE.md
 - **Practice**: Check scale comparisons and learning objectives in each AKU
 
+### For General Public / Beginners
+- **Simplified English**: `.renders/english/adult-limited-reading.md` (Grade 4-6 level)
+- **Simplified German**: `.renders/german/erwachsene-eingeschraenktes-lesen.md` (Klasse 4-6)
+- **No Math Required**: Plain language explanations with everyday analogies
+- **Read Time**: 5-7 minutes per rendering
+
 ### For Developers
 - **Format**: JSON-LD with SKOS annotations
 - **Validation**: `validate_aku_v2.py --domain science`
@@ -72,6 +78,12 @@ python .project/agents/quality-assurance/tools/validate_aku_v2.py \
 ```
 planck-units/
 ├── README.md                              (This file - master index)
+├── .renders/                              (Human-readable renderings)
+│   ├── README.md                          (Rendering documentation)
+│   ├── english/
+│   │   └── adult-limited-reading.md       (Simplified for limited readers)
+│   └── german/
+│       └── erwachsene-eingeschraenktes-lesen.md (Vereinfacht für eingeschränkte Leser)
 └── akus/
     ├── QUICK_START.md                     (⭐ Start here - 5min intro)
     ├── COMPLETENESS_ANALYSIS.md           (What's done vs planned)
@@ -99,6 +111,9 @@ planck-units/
 | **CROSS_REFERENCE.md** | Mathematical relationships | Advanced users | 20 min |
 | **COMPLETENESS_ANALYSIS.md** | Progress tracking | Developers | 10 min |
 | **EXTRACTION_SUMMARY.md** | Quality & provenance | Validators | 10 min |
+| **.renders/README.md** | Human-readable renderings guide | Everyone | 5 min |
+| **.renders/english/adult-limited-reading.md** | Simplified explanation | Adults with limited reading | 5-7 min |
+| **.renders/german/erwachsene-eingeschraenktes-lesen.md** | Vereinfachte Erklärung | Erwachsene mit eingeschränktem Lesen | 5-7 min |
 
 ## Key Features
 
