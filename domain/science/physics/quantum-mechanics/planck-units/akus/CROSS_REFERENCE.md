@@ -251,29 +251,145 @@ https://github.com/WorldSMEGraphs/domain/science/physics/quantum-mechanics/planc
 ## Future Cross-References
 
 ### When Priority 2 AKUs Added
-- Planck Force (Fₚ) will reference: 001, 004
-- Planck Power (Pₚ) will reference: 002, 004
 - Planck Voltage (Vₚ) will reference: 004, 007
+- Planck Current (Iₚ) will reference: 002, 007
+- Planck Impedance (Zₚ) will reference: voltage, current
 
 ### When Priority 3 AKUs Added
 - Planck Density (ρₚ) will reference: 001, 003
 - Planck Area (Aₚ) will reference: 001
 - Planck Frequency (fₚ) will reference: 002
 
+---
+
+## NEW: Formula and Example AKU Integration (2025-12-29)
+
+### Formula AKUs - Methods & Theory
+
+**aku-f01: Dimensional Analysis Method**
+- **Type**: Method/Technique
+- **Uses**: All definition AKUs (001-012)
+- **Derives**: Shows how to systematically derive ℓₚ, tₚ, mₚ, Eₚ, Tₚ
+- **Prerequisites**: Basic dimensional analysis, linear algebra
+- **Enables**: Understanding derivation of ANY Planck unit
+- **Key Relationships**:
+  - Derives 001 (ℓₚ): c^(-3/2) · ℏ^(1/2) · G^(1/2)
+  - Derives 002 (tₚ): c^(-5/2) · ℏ^(1/2) · G^(1/2)
+  - Derives 003 (mₚ): c^(1/2) · ℏ^(1/2) · G^(-1/2)
+
+**aku-f02: Natural Units System**
+- **Type**: System/Convention
+- **Uses**: All AKUs (001-012)
+- **Transforms**: Shows how equations simplify when ℏ = c = G = k_B = 1
+- **Prerequisites**: f01 (dimensional analysis helps)
+- **Key Conversions**:
+  - Energy to length: L = ℏc/E
+  - Energy to time: T = ℏ/E
+  - Mass to energy: E = Mc²
+- **Simplifications**:
+  - E = m (not mc²)
+  - r_s = 2M (not 2GM/c²)
+  - Essential for reading theory papers!
+
+**aku-f03: Bekenstein-Hawking Entropy**
+- **Type**: Formula/Application
+- **Uses**: 001 (ℓₚ for area), 005 (Tₚ for temperature), 010 (ℏ)
+- **Connects**: QM + GR + Thermodynamics
+- **Formula**: S_BH = k_B·A/(4ℓₚ²)
+- **Prerequisites**: Black holes, thermodynamics, 001, 010
+- **Related**: Shows Planck area as information storage unit (~1 bit per 4ℓₚ²)
+
+**aku-f04: Natural Units Philosophy**
+- **Type**: Theory/Motivation
+- **Motivates**: ALL Planck units (001-012)
+- **Key Insight**: Only dimensionless constants (like α) are truly fundamental
+- **Connects**: 006 (α as exemplar), all definition AKUs
+- **Historical**: Explains Planck's 1899 prescience
+- **Prerequisites**: None - conceptual introduction
+
+**aku-f05: Quantum Gravity Regime**
+- **Type**: Theory/Application
+- **Uses**: 001 (ℓₚ), 003 (mₚ), 004 (Eₚ), 002 (tₚ)
+- **Criterion**: r_s ~ λ_C defines quantum gravity regime
+- **Prerequisites**: QM (Compton wavelength), GR (Schwarzschild radius)
+- **Connects**: Defines when formulas from f03 apply
+
+### Example AKUs - Worked Problems
+
+**aku-e01: Converting Particle Energy Units**
+- **Type**: Worked Example
+- **Applies**: f02 (natural units conversion)
+- **Uses**: 010 (ℏ) for ℏc ≈ 197 MeV·fm
+- **Problem**: Convert σ = 10 GeV⁻² to m²
+- **Skills**: Natural units to SI, dimensional analysis
+- **Prerequisites**: f02 (natural units), basic algebra
+
+**aku-e02: Black Hole Properties Calculation**
+- **Type**: Worked Example
+- **Applies**: f03 (Bekenstein-Hawking formulas)
+- **Uses**: 001 (ℓₚ for entropy), GR formulas
+- **Problem**: Calculate r_s, A, S_BH, T_H, τ_evap for M = 10¹² kg
+- **Skills**: Multi-step calculation, numerical methods
+- **Prerequisites**: f03 (formulas), GR basics, calculator
+
+**aku-e03: Deriving Planck Energy**
+- **Type**: Worked Example
+- **Applies**: f01 (dimensional analysis method)
+- **Derives**: 004 (Eₚ) from first principles
+- **Problem**: Derive Eₚ = √(ℏc⁵/G) using dimensional analysis
+- **Skills**: Systematic dimensional analysis, solving 3×3 linear systems
+- **Prerequisites**: f01 (method), linear algebra
+
+### Enhanced Learning Path (With Formulas & Examples)
+
+**Phase 1: Definitions (Levels 1-5)**
+1. Study definitions 001-012 (as per original learning order)
+
+**Phase 2: Methods & Theory (New!)**
+2. Learn **f01** (dimensional analysis) - understand HOW units are derived
+3. Learn **f02** (natural units) - essential for reading papers
+4. Study **f04** (philosophy) - understand WHY these scales matter
+5. Study **f05** (quantum gravity regime) - know WHEN to apply QG
+
+**Phase 3: Advanced Applications**
+6. Study **f03** (Bekenstein-Hawking) - deep physics connection
+
+**Phase 4: Practice (New!)**
+7. Work **e03** (derive Eₚ) - practice dimensional analysis
+8. Work **e01** (unit conversion) - practice natural units
+9. Work **e02** (black hole) - comprehensive calculation
+
+### Cross-Reference Matrix Update
+
+| From | To | Relationship | Type |
+|------|----|--------------| -----|
+| f01 | 001,002,003 | Derives formulas | Method→Definition |
+| f02 | 001-012 | Uses for conversions | System→All |
+| f03 | 001,005,010 | Uses ℓₚ, Tₚ, ℏ | Application→Definition |
+| f04 | 006 | Exemplifies with α | Motivation→Definition |
+| f05 | 001,003,004 | Defines regime | Theory→Definition |
+| e01 | f02,010 | Applies natural units | Example→Formula |
+| e02 | f03,001 | Applies BH formulas | Example→Formula |
+| e03 | f01,004 | Applies dimensional analysis | Example→Formula |
+
 ## Summary Statistics
 
-| Metric | Value |
-|--------|-------|
-| Total AKUs | 8 |
-| Direct mathematical relationships | 8 |
-| Prerequisite dependencies | 24 |
-| Cross-references in content | 47 |
-| Common misconceptions addressed | 8 |
-| External ontology links | 24 |
-| Physics domains covered | 5 |
+| Metric | Value | Previous |
+|--------|-------|----------|
+| Total AKUs | 20 | 12 |
+| Definition AKUs | 12 | 12 |
+| Formula AKUs | 5 | 0 (NEW) |
+| Example AKUs | 3 | 0 (NEW) |
+| Direct mathematical relationships | 27 | 8 |
+| Prerequisite dependencies | 64 | 24 |
+| Cross-references in content | 115+ | 47 |
+| Common misconceptions addressed | 20+ | 8 |
+| External ontology links | 24 | 24 |
+| Physics domains covered | 7 | 5 |
 
 ---
 
-**Maintained By**: definition-extractor-agent  
-**Last Updated**: 2025-12-29T14:40:00Z  
-**Next Update**: After Priority 2 additions
+**Maintained By**: definition-extractor-agent, formula-extractor-agent  
+**Last Updated**: 2025-12-29T15:58:00Z  
+**Status**: Phase 1-4 Complete (20/20 core AKUs)
+**Next Update**: When Priority 2 derived units added
