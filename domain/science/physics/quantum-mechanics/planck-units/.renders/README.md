@@ -48,6 +48,26 @@ This directory contains human-readable renderings of the Planck units knowledge 
   - Behandelte Themen: Alle 5 Kern-Planck-Einheiten (Länge, Zeit, Masse, Energie, Temperatur)
   - Stil: Konkrete Analogien, Alltagsvergleiche, ermutigender Ton
 
+### Reference Documents
+
+#### Quick Reference Card
+- **`QUICK_REFERENCE_CARD.md`** - Compact printable reference
+  - All 5 Planck units with formulas, values, meanings
+  - Fundamental constants table
+  - Scale comparisons and key relationships
+  - Common misconceptions debunked
+  - Study tips and learning guidance
+  - Perfect for printing or bookmarking
+
+#### Scale Comparison
+- **`SCALE_COMPARISON.md`** - Visual magnitude comparisons
+  - ASCII charts comparing all Planck scales
+  - Length, time, mass, energy, temperature
+  - Relative size ratios with examples
+  - Universe timeline from Planck epoch to today
+  - Black hole comparison table
+  - Helps build intuition about extreme scales
+
 ## Audience Levels Summary
 
 | Level | Target Age | Reading Grade | Word Count | Time | Math Level |
