@@ -1,0 +1,106 @@
+{
+  "@context": "aku-v2",
+  "@type": "formula",
+  "@id": "physics:quantum:planck-units:natural-units-conversion",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T22:02:00.000Z",
+    "updated": "2025-12-29T22:02:00.000Z",
+    "contributors": ["copilot", "physics-agent"],
+    "confidence": 0.98,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "science/physics/quantum-mechanics/planck-units",
+    "type": "formula",
+    "subtype": "conversion",
+    "difficulty": "intermediate",
+    "importance": "practical"
+  },
+  "content": {
+    "title": "Natural Units Conversion Formulas",
+    "summary": "Practical conversion formulas between natural units (c = ℏ = 1) and SI units. Essential for translating theoretical calculations into measurable quantities.",
+    "key_conversion_factors": {
+      "hbar_c": {
+        "value": "197.327 MeV·fm = 0.197327 GeV·fm",
+        "usage": "Converting between energy and length scales",
+        "example": "1 GeV⁻¹ = 0.197 fm (length)"
+      },
+      "hbar": {
+        "value": "6.582×10⁻¹⁶ eV·s",
+        "usage": "Converting between energy and time",
+        "example": "Lifetime τ = ℏ/Γ where Γ is decay width in eV"
+      },
+      "c": {
+        "value": "2.998×10⁸ m/s",
+        "usage": "Converting between length and time, mass and energy"
+      }
+    },
+    "conversion_rules": {
+      "from_natural_to_SI": {
+        "energy_to_mass": "m (kg) = E (J) / c² = E (GeV) × 1.783×10⁻²⁷ kg/GeV",
+        "energy_to_length": "L (m) = ℏc / E = 197 MeV·fm / E",
+        "energy_to_time": "t (s) = ℏ / E = 6.58×10⁻¹⁶ eV·s / E",
+        "momentum_to_SI": "p (kg·m/s) = p (GeV/c) × 5.34×10⁻¹⁹ kg·m/s per GeV/c"
+      },
+      "from_SI_to_natural": {
+        "mass_to_energy": "E (GeV) = m (kg) × c² / (1.602×10⁻¹⁰ J/GeV)",
+        "length_to_inverse_energy": "E (GeV) = ℏc / L = 0.197 GeV·fm / L (fm)",
+        "time_to_inverse_energy": "E (GeV) = ℏ / t = 6.58×10⁻²⁵ GeV·s / t (s)"
+      }
+    },
+    "common_conversions_table": [
+      {
+        "quantity": "1 GeV",
+        "equals_mass": "1.783×10⁻²⁷ kg",
+        "equals_energy": "1.602×10⁻¹⁰ J",
+        "equals_temperature": "1.16×10¹³ K"
+      },
+      {
+        "quantity": "1 GeV⁻¹",
+        "equals_length": "0.197 fm = 1.97×10⁻¹⁶ m",
+        "equals_time": "6.58×10⁻²⁵ s"
+      },
+      {
+        "quantity": "1 fm",
+        "equals_inverse_energy": "5.07 GeV⁻¹"
+      },
+      {
+        "quantity": "Electron mass",
+        "natural": "0.511 MeV",
+        "SI": "9.11×10⁻³¹ kg"
+      },
+      {
+        "quantity": "Proton mass",
+        "natural": "938.3 MeV",
+        "SI": "1.67×10⁻²⁷ kg"
+      }
+    ],
+    "algorithm": {
+      "step_1": "Write down the quantity in natural units",
+      "step_2": "Insert factors of ℏ and c to get correct SI dimensions",
+      "step_3": "Evaluate numerically using conversion factors",
+      "example": {
+        "problem": "Convert electron Compton wavelength λ_C = 1/m_e in natural units",
+        "solution": "λ_C = ℏ/(m_e c) = (197 MeV·fm)/(0.511 MeV) = 386 fm = 3.86×10⁻¹³ m"
+      }
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:natural-units-definition",
+        "required": true
+      }
+    ]
+  },
+  "provenance": {
+    "primary_sources": [
+      {
+        "type": "reference",
+        "title": "Particle Data Group: Physical Constants",
+        "url": "https://pdg.lbl.gov"
+      }
+    ]
+  }
+}
