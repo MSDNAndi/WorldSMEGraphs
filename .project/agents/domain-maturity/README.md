@@ -14,6 +14,30 @@ The Domain Maturity Tracking system enables data-driven decisions about domain r
 
 ## Quick Start
 
+### Easy Way: Use the Helper Script
+
+```bash
+# Show help
+./.project/agents/domain-maturity/maturity help
+
+# Assess a domain
+./.project/agents/domain-maturity/maturity assess science/physics/quantum-mechanics/planck-units
+
+# View dashboard
+./.project/agents/domain-maturity/maturity dashboard
+
+# Generate HTML dashboard
+./.project/agents/domain-maturity/maturity dashboard-html > maturity.html
+
+# View history
+./.project/agents/domain-maturity/maturity history science/physics/quantum-mechanics/planck-units
+
+# Target level analysis
+./.project/agents/domain-maturity/maturity target science/physics/quantum-mechanics/planck-units 3
+```
+
+### Direct Python Usage
+
 ### 1. Assess a Domain
 
 ```bash
@@ -43,6 +67,11 @@ python domain_maturity_tracker.py \
 ## Files in This Directory
 
 ### Tools
+
+- **`maturity`**: Quick-start helper script (Bash)
+  - Simplified interface for common operations
+  - Colored output for better readability
+  - Example usage built-in
 
 - **`domain_maturity_tracker.py`**: Core assessment tool
   - Scans domains and calculates maturity metrics
