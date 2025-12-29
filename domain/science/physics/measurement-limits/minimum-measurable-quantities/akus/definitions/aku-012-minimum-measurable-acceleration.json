@@ -1,0 +1,97 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "ScientificConcept"
+  ],
+  "@id": "aku-012-minimum-measurable-acceleration",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T00:20:00.000Z",
+    "contributors": [
+      "physics-expert-agent"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T00:20:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/physics/measurement-limits/minimum-measurable-quantities",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "foundational",
+    "aku_id": "012",
+    "keywords": [
+      "minimum acceleration",
+      "accelerometer",
+      "LIGO",
+      "gravitational wave",
+      "inertial sensing"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The smallest accelerations measured are in the femto-g (10⁻¹⁵ g ≈ 10⁻¹⁴ m/s²) range using torsion balances and atom interferometers. LIGO detects gravitational wave accelerations of ~10⁻¹³ m/s². MEMS accelerometers achieve ~10⁻⁶ g in consumer devices, ~10⁻⁹ g in research. The Planck acceleration (aₚ ≈ 5.6 × 10⁵¹ m/s²) is NOT a minimum—it's enormous, the acceleration that would be felt at the Planck scale.",
+      "formal": "Best sensitivity: ~10⁻¹⁵ m/s² (torsion balance); LIGO: ~10⁻¹³ m/s²; MEMS: ~10⁻⁹ g; Planck: 5.6 × 10⁵¹ m/s²",
+      "key_values": {
+        "torsion_balance": "~10⁻¹⁵ m/s² (best)",
+        "ligo_sensitivity": "~10⁻¹³ m/s²",
+        "atom_interferometer": "~10⁻¹⁰ m/s²",
+        "mems_research": "~10⁻⁹ g ≈ 10⁻⁸ m/s²",
+        "planck_acceleration": "5.6 × 10⁵¹ m/s² (enormous)"
+      }
+    },
+    "explanation": {
+      "intuition": "Acceleration measurement is limited by thermal noise and quantum shot noise. The most sensitive accelerometers use free-falling atoms (atom interferometry) or suspended masses (torsion balances). LIGO's mirrors are exquisite accelerometers for gravitational wave frequencies. The Planck acceleration is NOT a minimum—it represents c/tₚ, an incomprehensibly large value.",
+      "key_insight": "Different technologies optimize for different frequency bands: Atom interferometers for DC-1 Hz, LIGO for 10-1000 Hz, MEMS for >1 Hz broadband. The quantum limit for displacement sensing translates to acceleration sensitivity via a = (2πf)²·x for oscillatory motion."
+    },
+    "comparison_with_planck": {
+      "planck_acceleration": "aₚ = c/tₚ = c·√(c⁵/ℏG) ≈ 5.6 × 10⁵¹ m/s²",
+      "best_measurement": "~10⁻¹⁵ m/s²",
+      "ratio": "aₚ / a_best ≈ 10⁶⁶",
+      "interpretation": "Planck acceleration is enormous—NOT a minimum measurement limit."
+    }
+  },
+  "measurement_technologies": {
+    "torsion_balance": {
+      "sensitivity": "~10⁻¹⁵ m/s²",
+      "applications": ["Gravitational constant G", "Weak forces", "Dark matter searches"]
+    },
+    "atom_interferometer": {
+      "sensitivity": "~10⁻¹⁰ m/s²",
+      "principle": "Matter wave interference",
+      "applications": ["Gravimetry", "Inertial navigation", "Fundamental physics"]
+    },
+    "ligo": {
+      "sensitivity": "~10⁻¹³ m/s² in band",
+      "frequency_range": "10 Hz - 1 kHz",
+      "applications": ["Gravitational wave detection"]
+    },
+    "mems": {
+      "sensitivity": "~10⁻⁹ g (research)",
+      "applications": ["Inertial navigation", "Seismology", "Consumer devices"]
+    }
+  },
+  "relationships": {
+    "related": [
+      {
+        "id": "aku-011-planck-acceleration-definition",
+        "type": "contrast",
+        "relationship": "Planck acceleration is NOT minimum—it's 10⁵¹ m/s²",
+        "domain": "science/physics/quantum-mechanics/planck-units"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "review",
+        "citation": "Peters, A. et al.: High-precision gravity measurements using atom interferometry",
+        "journal": "Metrologia"
+      }
+    ]
+  }
+}
