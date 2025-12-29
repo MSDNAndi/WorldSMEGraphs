@@ -2,7 +2,7 @@
 
 **Purpose**: Fast reference for using Planck unit AKUs  
 **Audience**: Researchers, educators, students, developers  
-**Last Updated**: 2025-12-29T14:41:00Z
+**Last Updated**: 2025-12-29T14:57:00Z
 
 ## What Are Planck Units?
 
@@ -22,6 +22,8 @@ Planck units are natural units derived from fundamental physical constants (ℏ,
 | **Fine Structure** | α | ~1/137 | EM coupling strength (dimensionless) |
 | **Charge** | qₚ | 1.876 × 10⁻¹⁸ C | ~11.7 electron charges |
 | **Momentum** | pₚ | 6.525 kg·m/s | ~slow baseball momentum |
+| **Force** | Fₚ | 1.210 × 10⁴⁴ N | Maximum force in nature (conjecture) |
+| **Reduced Planck** | ℏ | 1.055 × 10⁻³⁴ J·s | Quantum of action (EXACT since 2019) |
 
 ## 5-Minute Introduction
 
@@ -51,6 +53,18 @@ Planck units are natural units derived from fundamental physical constants (ℏ,
    - de Broglie wavelength = Planck length
    - Surprisingly "everyday" magnitude
 
+6. **Planck Force (aku-009)** ≈ 1.2 × 10⁴⁴ N
+   - Maximum force conjecture (Gibbons 2002)
+   - UNIQUE: Only Planck unit WITHOUT ℏ!
+   - Formula: Fₚ = c⁴/G (purely general relativistic)
+   - Black hole horizons exert this force
+
+7. **Reduced Planck Constant (aku-010)** = h/(2π)
+   - EXACT since 2019 SI redefinition
+   - Foundation of ALL Planck units (except Fₚ)
+   - Appears in uncertainty principle, Schrödinger equation
+   - Value: 1.054571817... × 10⁻³⁴ J·s (infinite precision)
+
 ## Common Questions
 
 ### Q: Are Planck units the smallest things in the universe?
@@ -67,6 +81,12 @@ Planck units are natural units derived from fundamental physical constants (ℏ,
 
 ### Q: Is 1/137 exact?
 **A**: NO! The fine structure constant is α = 1/137.035999084(21). The "1/137" is approximate.
+
+### Q: Is Planck force really the maximum?
+**A**: It's a conjecture, not proven! The idea is that spacetime itself has a maximum "tension" of Fₚ = c⁴/G. Black hole horizons and cosmic strings respect this limit.
+
+### Q: Is ℏ still measured with uncertainty?
+**A**: NO! Since May 2019, Planck's constant h is EXACT by definition (6.62607015 × 10⁻³⁴ J·s), making ℏ = h/(2π) also exact. The kilogram is now DEFINED from ℏ!
 
 ## How to Use These AKUs
 
