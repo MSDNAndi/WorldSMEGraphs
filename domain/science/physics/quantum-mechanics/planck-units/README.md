@@ -2,7 +2,7 @@
 
 > **Natural units derived from fundamental physical constants**  
 > **Domain**: `science/physics/quantum-mechanics/planck-units`  
-> **Status**: Comprehensive coverage (60 AKUs, 90%+ complete)  
+> **Status**: Comprehensive coverage (63 AKUs, 95%+ complete)  
 > **Last Updated**: 2025-12-29T21:00:00Z
 
 ## Overview
@@ -11,20 +11,20 @@ This knowledge base contains authoritative, peer-reviewed definitions and relati
 
 ## What's Inside
 
-### ✅ Complete (60 AKUs across 4 categories)
+### ✅ Complete (63 AKUs across 4 categories)
 
-**Core Definitions (29 AKUs)**
+**Core Definitions (31 AKUs)**
 - 5 Base Units: Length, Time, Mass, Energy, Temperature
 - Derived Mechanics: Force, Power, Acceleration, Momentum, Angular Momentum, Action
 - Electromagnetic: Charge, Impedance, Voltage, Current, Electric/Magnetic Fields
 - Thermodynamic: Entropy, Density, Pressure, Energy Density
 - Geometric: Area, Volume
-- Quantum: Compton Wavelength, de Broglie Wavelength, Schwarzschild Radius
-- Constants: Fine Structure, Reduced Planck Constant
-- Information: Information Capacity, Gravitational Coupling Constant
+- Quantum: Compton Wavelength, de Broglie Wavelength, Schwarzschild Radius, Frequency
+- Constants: Fine Structure, Reduced Planck Constant, Gravitational Coupling
+- Information: Information Capacity
 
-**Theory AKUs (9 AKUs)** ⭐ NEW
-- Fundamental Limits & Smallest Units (which Planck units are true minima?)
+**Theory AKUs (9 AKUs)** ⭐ KEY ADDITIONS
+- **Fundamental Limits & Smallest Units** (which Planck units are true minima? - user's key question!)
 - Generalized Uncertainty Principle (GUP)
 - Quantum Foam (Wheeler's spacetime structure)
 - Black Hole Thermodynamics (4 laws, Hawking radiation)
@@ -34,7 +34,7 @@ This knowledge base contains authoritative, peer-reviewed definitions and relati
 - String Theory at Planck Scale
 - Loop Quantum Gravity
 
-**Examples (10 AKUs)**
+**Examples (11 AKUs)**
 - Converting Particle Energy
 - Black Hole Properties
 - Deriving Planck Energy
