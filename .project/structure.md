@@ -1,7 +1,7 @@
 # WorldSMEGraphs Project Structure
 
-> **Last Updated**: 2025-12-26  
-> **Maintained By**: File Organization Agent  
+> **Last Updated**: 2025-12-29  
+> **Maintained By**: File Organization Agent, Implementation Agent  
 > **Review Frequency**: After every significant structure change
 
 ## Overview
@@ -110,7 +110,13 @@ Project metadata and specifications:
 - **structure.md**: This file, describing project organization
 - **roadmap.md**: Project goals, milestones, and planning
 - **knowledge-format.md**: Specification for knowledge graph format
+- **knowledge-maturity-model.md**: Domain maturity assessment framework (NEW)
 - **rendering-spec.md**: Guidelines for rendering system
+- **agents/domain-maturity/**: Domain completeness tracking system
+  - **domain_maturity_tracker.py**: Core assessment tool
+  - **generate_dashboard.py**: Visual dashboard generator
+  - **maturity_history.json**: Historical tracking data
+  - **README.md**: System documentation
 
 ### `domain/`
 Knowledge domain hierarchies organized by subject matter:
@@ -119,11 +125,13 @@ Knowledge domain hierarchies organized by subject matter:
   - `knowledge.graph`: Language-agnostic knowledge representation
   - `schema.json`: Schema definition for the graph
   - `.renders/`: Directory for human-readable renderings
+  - `COMPLETENESS_METADATA.yaml`: Domain maturity tracking metadata (OPTIONAL but recommended)
 - **Rendering Structure**: `.renders/[language]/[audience-level].[format]`
 
 ### `docs/`
 General documentation accessible to all users:
 - **CONTRIBUTING.md**: Contribution guidelines and workflows
+- **knowledge-maturity-tracking.md**: Comprehensive guide to domain maturity tracking (NEW)
 - Additional documentation files as needed
 
 ## File Naming Conventions

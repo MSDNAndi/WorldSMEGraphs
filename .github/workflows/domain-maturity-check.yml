@@ -1,0 +1,230 @@
+name: Domain Maturity Check
+
+on:
+  pull_request:
+    paths:
+      - 'domain/**/*.json'
+      - 'domain/**/COMPLETENESS_METADATA.yaml'
+
+jobs:
+  check-maturity:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Need full history for comparison
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Identify changed domains
+        id: domains
+        run: |
+          # Find all domains that had AKU files changed
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          CHANGED_DOMAINS=$(echo "$CHANGED_FILES" | \
+            grep '^domain/' | \
+            grep -E '\.json$|COMPLETENESS_METADATA\.yaml$' | \
+            sed 's|/akus/.*||' | \
+            sed 's|/COMPLETENESS_METADATA\.yaml||' | \
+            sed 's|^domain/||' | \
+            sort -u)
+          
+          echo "Changed domains:"
+          echo "$CHANGED_DOMAINS"
+          
+          # Save to output
+          echo "domains<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED_DOMAINS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      
+      - name: Scan domain maturity
+        id: scan
+        run: |
+          mkdir -p maturity-reports
+          
+          # Scan each changed domain
+          while IFS= read -r domain; do
+            if [ -n "$domain" ]; then
+              echo "Scanning domain: $domain"
+              
+              # Generate report
+              python .project/agents/domain-maturity/domain_maturity_tracker.py \
+                --domain "$domain" \
+                --format json > "maturity-reports/${domain//\//_}.json" || true
+              
+              # Also save text report
+              python .project/agents/domain-maturity/domain_maturity_tracker.py \
+                --domain "$domain" \
+                --format text > "maturity-reports/${domain//\//_}.txt" || true
+            fi
+          done <<< "${{ steps.domains.outputs.domains }}"
+          
+          ls -la maturity-reports/
+      
+      - name: Check for regressions
+        id: regression
+        run: |
+          # Check if maturity decreased
+          REGRESSION_FOUND=false
+          REGRESSION_DETAILS=""
+          
+          for report in maturity-reports/*.json; do
+            if [ -f "$report" ]; then
+              DOMAIN=$(basename "$report" .json | sed 's/_/\//g')
+              CURRENT_LEVEL=$(jq -r '.maturity_level' "$report")
+              CURRENT_COMPLETENESS=$(jq -r '.completeness_percentage' "$report")
+              VALIDATION_RATE=$(jq -r '.validation.pass_rate_pct' "$report")
+              
+              echo "Domain: $DOMAIN"
+              echo "  Level: $CURRENT_LEVEL"
+              echo "  Completeness: $CURRENT_COMPLETENESS%"
+              echo "  Validation: $VALIDATION_RATE%"
+              
+              # Check validation rate
+              if (( $(echo "$VALIDATION_RATE < 95.0" | bc -l) )); then
+                REGRESSION_FOUND=true
+                REGRESSION_DETAILS="${REGRESSION_DETAILS}\n⚠️ **$DOMAIN**: Validation pass rate below 95% ($VALIDATION_RATE%)"
+              fi
+              
+              # Note: For regression detection against previous state, 
+              # we would need to fetch historical data from maturity_history.json
+              # This is simplified for the initial implementation
+            fi
+          done
+          
+          echo "regression_found=$REGRESSION_FOUND" >> $GITHUB_OUTPUT
+          echo "regression_details<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$REGRESSION_DETAILS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      
+      - name: Generate dashboard
+        run: |
+          # Generate HTML dashboard for all changed domains
+          DOMAIN_ARGS=""
+          while IFS= read -r domain; do
+            if [ -n "$domain" ]; then
+              DOMAIN_ARGS="$DOMAIN_ARGS $domain"
+            fi
+          done <<< "${{ steps.domains.outputs.domains }}"
+          
+          if [ -n "$DOMAIN_ARGS" ]; then
+            python .project/agents/domain-maturity/generate_dashboard.py \
+              --format html --domains $DOMAIN_ARGS > maturity-reports/dashboard.html || true
+          fi
+      
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        if: always()
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            let comment = '## 📊 Domain Maturity Report\n\n';
+            
+            // Read all JSON reports
+            const reportDir = 'maturity-reports';
+            const files = fs.readdirSync(reportDir).filter(f => f.endsWith('.json'));
+            
+            if (files.length === 0) {
+              comment += '⚠️ No maturity reports generated (no domains with AKUs found).\n';
+            } else {
+              files.forEach(file => {
+                const reportPath = path.join(reportDir, file);
+                const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+                
+                const domain = report.domain_path;
+                const level = report.maturity_level;
+                const levelName = report.maturity_name;
+                const completeness = report.completeness_percentage;
+                const akuCount = report.aku_counts.total;
+                const target = report.aku_counts.target;
+                const validationRate = report.validation.pass_rate_pct;
+                
+                // Level emoji
+                const emojis = {1: '🌱', 2: '🌿', 3: '🌳', 4: '🏛️', 5: '💎'};
+                const emoji = emojis[level] || '❓';
+                
+                comment += `### ${emoji} ${domain}\n\n`;
+                comment += `- **Maturity**: Level ${level} - ${levelName}\n`;
+                comment += `- **Completeness**: ${completeness}% (${akuCount}/${target} AKUs)\n`;
+                comment += `- **Validation**: ${validationRate}% pass rate\n`;
+                
+                // Type distribution
+                const dist = report.type_distribution;
+                comment += `- **Distribution**: `;
+                comment += `Def ${dist.definitions || 0}% | `;
+                comment += `Form ${dist.formulas || 0}% | `;
+                comment += `Theory ${dist.theory || 0}% | `;
+                comment += `Ex ${dist.examples || 0}%\n`;
+                
+                // Top gap
+                const gaps = report.gaps || [];
+                if (gaps.length > 0) {
+                  comment += `- **Top Priority**: ${gaps[0]}\n`;
+                }
+                
+                comment += '\n';
+              });
+              
+              // Add regression warnings
+              const regressionDetails = '${{ steps.regression.outputs.regression_details }}';
+              if (regressionDetails) {
+                comment += '### ⚠️ Quality Concerns\n\n';
+                comment += regressionDetails + '\n\n';
+              }
+              
+              // Add sufficiency summary
+              comment += '### ✅ Sufficiency Assessment\n\n';
+              files.forEach(file => {
+                const reportPath = path.join(reportDir, file);
+                const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+                const level = report.maturity_level;
+                
+                comment += `**${report.domain_path}** (Level ${level}):\n`;
+                if (level >= 2) {
+                  comment += '- ✓ Expert-level reference (single domain)\n';
+                }
+                if (level >= 3) {
+                  comment += '- ✓ Expert consultation (interconnected)\n';
+                  comment += '- ✓ Graduate coursework\n';
+                }
+                if (level >= 4) {
+                  comment += '- ✓ Publication-quality reference\n';
+                }
+                if (level < 3) {
+                  comment += '- ✗ NOT ready for multi-domain expert queries\n';
+                }
+                comment += '\n';
+              });
+            }
+            
+            // Post comment
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+      
+      - name: Upload maturity reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: maturity-reports
+          path: maturity-reports/
+          retention-days: 30
+      
+      - name: Block on critical regressions
+        if: steps.regression.outputs.regression_found == 'true'
+        run: |
+          echo "❌ Critical quality regressions detected!"
+          echo "${{ steps.regression.outputs.regression_details }}"
+          echo ""
+          echo "Please fix validation failures before merging."
+          exit 1

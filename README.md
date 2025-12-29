@@ -83,6 +83,15 @@ Generate content in:
 - **Domain Expertise**: Generic domain empathy, math expert, legal, standards
 - And 40+ more specialized agents
 
+### 📊 Domain Maturity Tracking **NEW**
+Comprehensive system for assessing knowledge domain completeness:
+- **5 Maturity Levels**: Nascent (🌱) → Emerging (🌿) → Established (🌳) → Comprehensive (🏛️) → Reference (💎)
+- **Automated Assessment**: Python tools scan domains and calculate metrics
+- **Gap Analysis**: Identify missing components and prioritize development
+- **Visual Dashboards**: ASCII and HTML visualizations of domain status
+- **CI/CD Integration**: Automatic maturity checks on pull requests
+- **Decision Framework**: "Is this domain good enough for [use case]?"
+
 ## Project Structure
 
 See [Project Structure Documentation](.project/structure.md) for complete details.
@@ -97,12 +106,16 @@ See [Project Structure Documentation](.project/structure.md) for complete detail
 │   ├── structure.md          # Project organization
 │   ├── roadmap.md           # Development roadmap
 │   ├── knowledge-format.md   # Graph format spec
-│   └── rendering-spec.md     # Rendering system spec
+│   ├── knowledge-maturity-model.md  # Domain maturity framework
+│   ├── rendering-spec.md     # Rendering system spec
+│   └── agents/domain-maturity/  # Domain completeness tracking
 ├── domain/                   # Knowledge domain hierarchies
 │   ├── science/
 │   ├── economics/
 │   └── [other domains]/
 └── docs/                     # General documentation
+    ├── knowledge-maturity-tracking.md  # Maturity tracking guide
+    └── [other docs]
 ```
 
 ## Getting Started
@@ -143,10 +156,12 @@ See [Project Structure Documentation](.project/structure.md) for complete detail
 ### For Technical Details
 - **[Knowledge Format](.project/knowledge-format.md)**: How knowledge graphs are structured
 - **[Rendering Specification](.project/rendering-spec.md)**: How renderings are generated
+- **[Domain Maturity Model](.project/knowledge-maturity-model.md)**: Framework for assessing domain completeness 📊 **NEW**
+- **[Maturity Tracking Guide](docs/knowledge-maturity-tracking.md)**: Comprehensive usage documentation 📈 **NEW**
 - **[Ontology Integration](docs/ONTOLOGY-QUICKSTART.md)**: Quick start guide for using standard ontologies
 - **[Complete Migration Guide](docs/COMPLETE-ONTOLOGY-MIGRATION-GUIDE.md)**: Step-by-step ontology enhancement process ⭐
 - **[Ontology Tools Guide](docs/ONTOLOGY-TOOLS-GUIDE.md)**: Advanced tools for maintenance & validation 🔧
-- **[Visualization Examples](docs/VISUALIZATION-EXAMPLES.md)**: Sample SKOS relationship diagrams 📊 **NEW**
+- **[Visualization Examples](docs/VISUALIZATION-EXAMPLES.md)**: Sample SKOS relationship diagrams 📊
 - **[Ontology Specification](.project/research/ontology-integration-specification.md)**: Complete technical specification
 
 ### For Contributors
