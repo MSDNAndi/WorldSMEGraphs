@@ -1,6 +1,6 @@
 # Planck Units Definition AKUs
 
-This directory contains 15 authoritative definition AKUs for Planck units and fundamental constants, extracted from NIST CODATA 2018 and peer-reviewed physics literature.
+This directory contains 24 authoritative definition AKUs for Planck units and fundamental constants, extracted from NIST CODATA 2018 and peer-reviewed physics literature.
 
 ## Created AKUs
 
@@ -125,7 +125,7 @@ All AKUs follow the standard format with:
 
 ## Validation Status
 
-All 15 AKUs validated successfully with `.project/agents/quality-assurance/tools/validate_aku_v2.py`:
+All 24 AKUs validated successfully with `.project/agents/quality-assurance/tools/validate_aku_v2.py`:
 - ✅ Structure compliant
 - ✅ All required fields present
 - ✅ Numerical values match NIST CODATA 2018 (where applicable)
@@ -148,6 +148,12 @@ All 15 AKUs validated successfully with `.project/agents/quality-assurance/tools
 9. **Planck Force (009)** = c⁴/G = Eₚ/ℓₚ (UNIQUE: no ℏ dependence!)
 10. **Reduced Planck Constant (010)** = h/(2π) (Foundation: appears in ALL other Planck units!)
 
+### Electromagnetic Planck Units (EM Sector Completion)
+21. **Planck Impedance (021)** = √(μ₀/ε₀) = 4πZ₀/α ≈ 30 Ω (purely EM, no ℏ or G!)
+22. **Planck Voltage (022)** = E_P/q_P = √(c⁴/(4πε₀G)) ≈ 10²⁷ V
+23. **Planck Current (023)** = q_P/t_P = √(4πε₀c⁶/G) ≈ 3.5×10²⁵ A
+24. **Planck Electric Field (024)** = F_P/q_P = V_P/ℓ_P ≈ 6.5×10⁶¹ V/m
+
 ## Target Audience
 
 - Physics graduate students
@@ -157,7 +163,7 @@ All 15 AKUs validated successfully with `.project/agents/quality-assurance/tools
 
 ## Estimated Study Time
 
-15-25 minutes per AKU (225-375 minutes total for all 15)
+15-25 minutes per AKU (360-600 minutes total for all 24)
 
 ## External References
 
@@ -214,6 +220,78 @@ All AKUs link to external ontologies:
   - **Planck Angular Momentum (014)**: L_P = ℏ exactly - THE quantum in quantum mechanics, shocking it was missing!
   - **Compton Wavelength (015)**: λ_C(m_P) = ℓ_P - explains WHY Planck scale is special, referenced throughout but undefined!
 - **Impact**: These 3 definitions close the most shocking gaps in the entire domain
+
+### Geometric & Relativistic Extensions (AKUs 016-020)
+- **Created**: 2025-12-29T16:XX:XX.XXXZ - 2025-12-29T18:06:XX.XXXZ
+- **Agent**: definition-extractor-agent
+- **Context**: Expanding domain with geometric, relativistic, and thermodynamic Planck units
+- **Focus**: Schwarzschild radius (016), Planck action (017), Planck volume (018), de Broglie wavelength (019), Planck density (020)
+
+### 16. **aku-016-schwarzschild-radius.json**
+- **Value**: 3.2330(36) × 10⁻³⁵ m (for Planck mass)
+- **Formula**: r_S = 2Gm_P/c² = 2ℓ_P
+- **Significance**: Black hole event horizon radius; for Planck mass, r_S = 2ℓ_P exactly
+- **Key Insight**: Planck mass is where Compton wavelength equals Schwarzschild radius
+
+### 17. **aku-017-planck-action.json**
+- **Value**: 1.054571817 × 10⁻³⁴ J·s (EXACT since 2019)
+- **Formula**: S_P = ℏ (Planck action IS reduced Planck constant)
+- **Significance**: Fundamental quantum of action; all physical actions are multiples of ℏ
+- **Key Insight**: Like angular momentum, Planck action simply IS ℏ (not derived)
+
+### 18. **aku-018-planck-volume.json**
+- **Value**: 4.222(14) × 10⁻¹⁰⁵ m³
+- **Formula**: V_P = ℓ_P³ = (ℏG/c³)^(3/2)
+- **Significance**: Fundamental quantum of volume in theories of quantum spacetime
+- **Key Insight**: Loop quantum gravity predicts volume quantization in units ~V_P
+
+### 19. **aku-019-de-broglie-wavelength.json**
+- **Value**: Depends on particle (e.g., λ_dB,e = h/(m_e v) for electrons)
+- **Formula**: λ_dB = h/p = h/(mv) (non-relativistic), λ_dB = h/p (relativistic)
+- **Significance**: Wave-particle duality; matter wavelength inversely proportional to momentum
+- **Key Insight**: At Planck momentum p_P, λ_dB = h/p_P ≈ ℓ_P (wave-particle crossover)
+
+### 20. **aku-020-planck-density.json**
+- **Value**: 5.155(57) × 10⁹⁶ kg/m³
+- **Formula**: ρ_P = m_P/V_P = c⁵/(ℏG²)
+- **Significance**: Ultimate density scale; early universe Planck epoch density
+- **Key Insight**: ~10⁹⁶ kg/m³ - vastly exceeds nuclear density (~10¹⁷ kg/m³)
+
+### Electromagnetic Planck Units - Gap Closure (AKUs 021-024) ⚡
+- **Created**: 2025-12-29T18:09:48.969Z
+- **Agent**: definition-extractor-agent
+- **Context**: Quality audit identified missing electromagnetic Planck units (impedance, voltage, current, electric field)
+- **Focus**: Completing the electromagnetic sector alongside existing Planck charge (007)
+- **CRITICAL IMPORTANCE**:
+  - **Planck Impedance (021)**: Z_P ≈ 30 Ω - remarkably close to common cable impedances, purely EM (no ℏ or G!)
+  - **Planck Voltage (022)**: V_P ≈ 10²⁷ V - 10¹⁹ times larger than lightning!
+  - **Planck Current (023)**: I_P ≈ 3.5 × 10²⁵ A - 10²¹ times larger than lightning current
+  - **Planck Electric Field (024)**: E_P ≈ 6.5 × 10⁶¹ V/m - 10⁵⁰ times stronger than atomic fields!
+- **Impact**: Completes electromagnetic Planck unit coverage, enabling natural units for all EM phenomena
+
+### 21. **aku-021-planck-impedance.json**
+- **Value**: 29.9792458 Ω (exact from fundamental constants)
+- **Formula**: Z_P = √(μ₀/ε₀) = 4πZ₀/α
+- **Significance**: Natural unit of electrical impedance; remarkably close to common cable impedances (50Ω, 75Ω)
+- **Key Insight**: Z_P ≈ Z₀/137 relates to fine structure constant; independent of ℏ and G (purely EM!)
+
+### 22. **aku-022-planck-voltage.json**
+- **Value**: 1.04295(12) × 10²⁷ V
+- **Formula**: V_P = E_P/q_P = √(c⁴/(4πε₀G))
+- **Significance**: Fundamental voltage scale; 10¹⁹ times larger than lightning voltage
+- **Key Insight**: At V_P, electromagnetic potential energy of Planck charge equals Planck energy
+
+### 23. **aku-023-planck-current.json**
+- **Value**: 3.47892(39) × 10²⁵ A
+- **Formula**: I_P = q_P/t_P = √(4πε₀c⁶/G)
+- **Significance**: Fundamental current scale; 10²¹ times larger than lightning current
+- **Key Insight**: Power P_P = V_P × I_P = E_P/t_P connects EM to fundamental power scale
+
+### 24. **aku-024-planck-electric-field.json**
+- **Value**: 6.45334(72) × 10⁶¹ V/m
+- **Formula**: E_P = F_P/q_P = V_P/ℓ_P = c⁴/(√(4πε₀ℏcG))
+- **Significance**: Maximum meaningful electric field in quantum gravity; 10⁵⁰ times stronger than atomic fields
+- **Key Insight**: Even Schwinger limit (~10¹⁸ V/m) is 10⁴³ times weaker; at E_P, quantum gravity dominates QED
 
 ---
 
