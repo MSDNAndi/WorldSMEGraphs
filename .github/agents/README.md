@@ -1,7 +1,7 @@
 # WorldSMEGraphs Copilot Agents
 
-> **Last Updated**: 2025-12-27  
-> **Total Agents**: 60 agent configurations  
+> **Last Updated**: 2025-12-29  
+> **Total Agents**: 61 agent configurations  
 > **Location**: `.github/agents/` (per GitHub Copilot standards)
 > **Format**: `.agent.md` files
 > **Quality Standard**: All agents follow GitHub Copilot custom agent format
@@ -39,7 +39,7 @@ All agents MUST follow this format:
 | relationship-extractor.agent.md | 181 | Extract conceptual relationships, build dependency graphs |
 | web-scraper.agent.md | 197 | Scrape educational content from websites |
 
-### Knowledge Organization (7 agents)
+### Knowledge Organization (8 agents)
 | Agent | Lines | Purpose |
 |-------|-------|---------|
 | ontology.agent.md | 180 | Design ontologies, define taxonomies |
@@ -49,6 +49,7 @@ All agents MUST follow this format:
 | merger.agent.md | 184 | Merge duplicate or overlapping AKUs |
 | conflict-resolution.agent.md | 183 | Resolve conflicting information from sources |
 | provenance-tracking.agent.md | 183 | Track content lineage and sources |
+| aku-atomicity-specialist.agent.md | 521 | Manage AKU granularity (split/merge/recombine) |
 
 ### Quality Assurance (5 agents)
 | Agent | Lines | Purpose |
@@ -112,7 +113,7 @@ All agents MUST follow this format:
 
 ## Quality Standards
 
-All 53 agents meet these standards:
+All 61 agents meet these standards:
 - ✅ **Minimum 180 lines** of comprehensive specifications
 - ✅ **Maximum <30,000 characters** per agent
 - ✅ Detailed input/output formats with examples
@@ -124,12 +125,12 @@ All 53 agents meet these standards:
 ## Acceptance Testing
 
 ```bash
-cd .github/copilot/agents
-./check-agent-lengths.sh
+cd .github/agents
+bash ../../scripts/check-agent-lengths.sh
 # Output: ✅ ACCEPTANCE CRITERIA MET
 #         All agents meet 180-line minimum
-#         Total Agents: 53
-#         Passed: 53
+#         Total Agents: 61
+#         Passed: 61
 #         Failed: 0
 ```
 
@@ -167,6 +168,10 @@ cd .github/copilot/agents
 @merger Merge 3 NPV AKUs from textbooks, keep all unique examples, resolve formula notation
 
 @conflict-resolution Three economics textbooks define 'elasticity' differently, resolve using authority + recency
+
+@aku-atomicity-specialist Analyze domain/economics/bwl/finance/valuation/npv/ for over-bundled AKUs, recommend splits
+
+@aku-atomicity-specialist Split aku-npv-complete.json into atomic units: definition, formula, decision-rule, example
 ```
 
 #### Render for Audiences
