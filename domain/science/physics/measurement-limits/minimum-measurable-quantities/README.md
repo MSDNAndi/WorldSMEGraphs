@@ -4,12 +4,12 @@ This domain covers the **smallest measurable or detectable values** for various 
 
 ## Key Distinction from Planck Units
 
-| Quantity | Planck Value | Smallest Measurable | Ratio |
-|----------|-------------|---------------------|-------|
-| Mass | 2.18 × 10⁻⁸ kg (large!) | ~10⁻³⁰ kg (neutrino) | 10²² |
-| Energy | 1.96 × 10⁹ J (large!) | ~10⁻³¹ J (single photon) | 10⁴⁰ |
-| Length | 1.62 × 10⁻³⁵ m | ~10⁻¹⁸ m (proton radius precision) | 10¹⁷ |
-| Time | 5.39 × 10⁻⁴⁴ s | ~10⁻²¹ s (attosecond) | 10²³ |
+| Quantity | Planck Value | Smallest Measurable | Planck vs Smallest |
+|----------|-------------|---------------------|-------------------|
+| Mass | 2.18 × 10⁻⁸ kg (large!) | ~10⁻³⁶ kg (neutrino) | Planck is 10²⁸× LARGER |
+| Energy | 1.96 × 10⁹ J (large!) | ~10⁻²⁴ J (microwave photon) | Planck is 10³³× LARGER |
+| Length | 1.62 × 10⁻³⁵ m (tiny!) | ~10⁻¹⁸ m (LIGO) | Planck is 10¹⁷× SMALLER (possibly true min) |
+| Time | 5.39 × 10⁻⁴⁴ s (tiny!) | ~10⁻²¹ s (zeptosecond) | Planck is 10²³× SMALLER (possibly true min) |
 
 ## Categories of Limits
 
