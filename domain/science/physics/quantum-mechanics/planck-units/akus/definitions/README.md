@@ -1,6 +1,6 @@
 # Planck Units Definition AKUs
 
-This directory contains 12 authoritative definition AKUs for Planck units and fundamental constants, extracted from NIST CODATA 2018 and peer-reviewed physics literature.
+This directory contains 15 authoritative definition AKUs for Planck units and fundamental constants, extracted from NIST CODATA 2018 and peer-reviewed physics literature.
 
 ## Created AKUs
 
@@ -79,6 +79,30 @@ This directory contains 12 authoritative definition AKUs for Planck units and fu
 - **Significance**: Maximum power (conjecture); ~10²⁶ times Sun's luminosity
 - **Key Insight**: Like Fₚ, has NO ℏ (purely GR); early universe power scale
 
+### 13. **aku-013-planck-area-definition.json** (CRITICAL - Referenced but Never Defined!)
+- **Value**: 2.6121(58) × 10⁻⁷⁰ m²
+- **Formula**: A_P = ℓ_P² = ℏG/c³
+- **Significance**: Fundamental quantum of area; unit of entropy in black hole thermodynamics
+- **Key Insight**: S_BH = k_B A/(4A_P) - black hole entropy proportional to horizon area in Planck areas
+- **Holographic Principle**: Maximum information bounded by surface area: 1 bit per 4 Planck areas
+- **Loop Quantum Gravity**: Spacetime area quantized in units ~ A_P
+
+### 14. **aku-014-planck-angular-momentum.json** (CRITICAL - THE Quantum Itself!)
+- **Value**: 1.054571817... × 10⁻³⁴ J·s (EXACT since 2019)
+- **Formula**: L_P = ℏ (not derived, IS ℏ itself!)
+- **Significance**: THE fundamental quantum of angular momentum - all L = nℏ or (n+1/2)ℏ
+- **Key Insight**: Unlike other Planck units, L_P doesn't need √(ℏG/c...) - it simply IS ℏ
+- **Examples**: Electron spin ℏ/2, photon spin ℏ, orbital L = √(ℓ(ℓ+1))ℏ
+- **Unique Property**: Zero uncertainty (exact constant); confidence = 1.0
+
+### 15. **aku-015-compton-wavelength.json** (CRITICAL - Quantum Gravity Connection!)
+- **Value (electron)**: λ_C,e = 3.8615926796(12) × 10⁻¹³ m (NIST CODATA 2018)
+- **Formula**: λ_C = ℏ/(mc) (reduced), λ = h/(mc) = 2πℏ/(mc) (full)
+- **Significance**: Quantum-relativistic crossover scale; where quantum and gravity meet
+- **Key Insight**: At Planck mass: λ_C(m_P) = ℓ_P exactly! (Defines Planck mass)
+- **Compton Scattering**: Δλ = λ_C(1 - cos θ) - directly observable phenomenon
+- **QFT Threshold**: Below λ_C, pair production becomes important; single-particle QM inadequate
+
 ## Data Quality
 
 - **Source**: NIST CODATA 2018 (authoritative reference)
@@ -101,7 +125,7 @@ All AKUs follow the standard format with:
 
 ## Validation Status
 
-All 12 AKUs validated successfully with `.project/agents/quality-assurance/tools/validate_aku_v2.py`:
+All 15 AKUs validated successfully with `.project/agents/quality-assurance/tools/validate_aku_v2.py`:
 - ✅ Structure compliant
 - ✅ All required fields present
 - ✅ Numerical values match NIST CODATA 2018 (where applicable)
@@ -133,7 +157,7 @@ All 12 AKUs validated successfully with `.project/agents/quality-assurance/tools
 
 ## Estimated Study Time
 
-15-25 minutes per AKU (180-300 minutes total for all 12)
+15-25 minutes per AKU (225-375 minutes total for all 15)
 
 ## External References
 
@@ -167,6 +191,29 @@ All AKUs link to external ontologies:
   - Planck force is UNIQUE: only Planck unit without ℏ (purely GR, not quantum!)
   - Reduced Planck constant is FOUNDATIONAL: appears in ALL other Planck units
   - ℏ is now EXACT (confidence 1.0) since 2019 SI redefinition
+
+### Priority 2 Additions - Mechanical Derived (AKUs 011-012)
+- **Created**: 2025-12-29T15:41:XX.XXXZ
+- **Agent**: definition-extractor-agent
+- **Method**: NLP pattern recognition with expert validation
+- **Context**: Completing mechanical derived units
+- **Focus**: Planck acceleration, Planck power
+- **Key Significance**:
+  - Both derived from core Planck units
+  - Planck power like Planck force has NO ℏ (purely GR!)
+  - Provide mechanical perspective on Planck scale physics
+
+### Critical Gap Closure - Referenced but Undefined (AKUs 013-015)
+- **Created**: 2025-12-29T16:16:00.000Z - 2025-12-29T16:20:00.000Z
+- **Agent**: definition-extractor-agent
+- **Method**: NLP pattern recognition with expert validation
+- **Context**: Quality audit identified critical omissions - units referenced in formulas but never defined!
+- **Focus**: Planck area (black hole entropy), Planck angular momentum (ℏ itself), Compton wavelength (quantum gravity connection)
+- **CRITICAL IMPORTANCE**:
+  - **Planck Area (013)**: Used in S_BH = k_B A/(4A_P) but never defined - holographic principle fundamental!
+  - **Planck Angular Momentum (014)**: L_P = ℏ exactly - THE quantum in quantum mechanics, shocking it was missing!
+  - **Compton Wavelength (015)**: λ_C(m_P) = ℓ_P - explains WHY Planck scale is special, referenced throughout but undefined!
+- **Impact**: These 3 definitions close the most shocking gaps in the entire domain
 
 ---
 
