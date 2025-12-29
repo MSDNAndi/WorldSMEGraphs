@@ -88,6 +88,51 @@ Planck units are natural units derived from fundamental physical constants (ℏ,
 ### Q: Is ℏ still measured with uncertainty?
 **A**: NO! Since May 2019, Planck's constant h is EXACT by definition (6.62607015 × 10⁻³⁴ J·s), making ℏ = h/(2π) also exact. The kilogram is now DEFINED from ℏ!
 
+## NEW: Formulas & Practical Skills (2025-12-29)
+
+Beyond definitions, the Planck units collection now includes:
+
+### Formula AKUs - Theoretical Framework
+1. **Dimensional Analysis (aku-f01)**: Learn to derive ANY Planck unit systematically
+2. **Natural Units System (aku-f02)**: Work in ℏ = c = G = 1 (essential for theory papers!)
+3. **Bekenstein-Hawking Entropy (aku-f03)**: Black hole thermodynamics S_BH = k_B·A/(4ℓₚ²)
+4. **Why Natural Units Matter (aku-f04)**: Philosophical motivation & dimensionless constants
+5. **Quantum Gravity Regime (aku-f05)**: When do you actually NEED quantum gravity?
+
+### Example AKUs - Hands-On Practice
+1. **Unit Conversion (aku-e01)**: Convert 10 GeV⁻² cross-section to m²
+2. **Black Hole Calculation (aku-e02)**: Calculate r_s, S_BH, T_H, τ_evap for M = 10¹² kg
+3. **Derivation Practice (aku-e03)**: Derive Eₚ = √(ℏc⁵/G) from scratch
+
+**Recommended Learning Path**:
+1. Study definitions (aku-001 to aku-012)
+2. Learn methods (aku-f01, aku-f02)
+3. Understand applications (aku-f03, aku-f05)
+4. Practice with examples (aku-e01, aku-e02, aku-e03)
+
+## Common Questions
+
+### Q: Are Planck units the smallest things in the universe?
+**A**: NO! They're scales where our current theories break down, not physical minimums. Particles can be probed to smaller scales.
+
+### Q: Did the Big Bang start at Planck time?
+**A**: We can't describe physics BEFORE Planck time. At t=tₚ, the universe was at Planck temperature and Planck density.
+
+### Q: Is space "pixelated" at Planck length?
+**A**: Unknown! Some quantum gravity theories say yes, others no. We lack experimental evidence.
+
+### Q: Why is Planck mass so large compared to particles?
+**A**: Gravity is incredibly weak! It takes a macroscopic mass to make gravitational and quantum effects equal.
+
+### Q: Is 1/137 exact?
+**A**: NO! The fine structure constant is α = 1/137.035999084(21). The "1/137" is approximate.
+
+### Q: Is Planck force really the maximum?
+**A**: It's a conjecture, not proven! The idea is that spacetime itself has a maximum "tension" of Fₚ = c⁴/G. Black hole horizons and cosmic strings respect this limit.
+
+### Q: Is ℏ still measured with uncertainty?
+**A**: NO! Since May 2019, Planck's constant h is EXACT by definition (6.62607015 × 10⁻³⁴ J·s), making ℏ = h/(2π) also exact. The kilogram is now DEFINED from ℏ!
+
 ## How to Use These AKUs
 
 ### For Researchers
@@ -169,7 +214,7 @@ with open('aku-001-planck-length-definition.json') as f:
 ```
 domain/science/physics/quantum-mechanics/planck-units/akus/
 
-├── definitions/                          # 8 AKU JSON files
+├── definitions/                          # 12 Definition AKUs
 │   ├── aku-001-planck-length-definition.json
 │   ├── aku-002-planck-time-definition.json
 │   ├── aku-003-planck-mass-definition.json
@@ -178,11 +223,31 @@ domain/science/physics/quantum-mechanics/planck-units/akus/
 │   ├── aku-006-fine-structure-constant.json
 │   ├── aku-007-planck-charge-definition.json
 │   ├── aku-008-planck-momentum-definition.json
+│   ├── aku-009-planck-force-definition.json
+│   ├── aku-010-reduced-planck-constant.json
+│   ├── aku-011-planck-acceleration-definition.json
+│   ├── aku-012-planck-power-definition.json
 │   └── README.md                          # Detailed documentation
+
+├── formulas/                              # 5 Formula/Theory AKUs (NEW!)
+│   ├── aku-f01-dimensional-analysis.json         # Derivation method
+│   ├── aku-f02-natural-units-system.json         # Working in natural units
+│   ├── aku-f03-bekenstein-hawking-entropy.json   # Black hole thermodynamics
+│   ├── aku-f04-natural-units-philosophy.json     # Why these units matter
+│   ├── aku-f05-quantum-gravity-regime.json       # When QG is needed
+│   └── README.md                          # Formulas documentation
+
+├── examples/                              # 3 Worked Examples (NEW!)
+│   ├── aku-e01-converting-particle-energy.json   # GeV⁻² to m²
+│   ├── aku-e02-black-hole-properties.json        # Complete BH calculation
+│   ├── aku-e03-deriving-planck-energy.json       # Dimensional analysis
+│   └── README.md                          # Examples documentation
 
 ├── EXTRACTION_SUMMARY.md                  # Creation history
 ├── COMPLETENESS_ANALYSIS.md               # What's available vs planned
 ├── CROSS_REFERENCE.md                     # Relationships between AKUs
+├── DIAGRAMS.md                            # Visual aids
+├── EXTERNAL_RESOURCES.md                  # Additional learning resources
 └── QUICK_START.md                         # This file
 ```
 
