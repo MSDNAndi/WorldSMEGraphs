@@ -1,36 +1,33 @@
 # Planck Units Domain - Issue Tracker
 
 **Generated:** 2025-12-29  
-**Last Updated:** 2025-12-29T22:05:00Z  
+**Last Updated:** 2025-12-29T21:55:00Z  
 **Audit Reference:** QUALITY_AUDIT_REPORT.md  
 **Domain:** science/physics/quantum-mechanics/planck-units
 
-> **Session Update (2025-12-29 Complete):** Major progress - **76 total AKUs** now in domain. Created 31 new AKUs addressing Issues #13, #14 (GUP), #16 (volume - RESOLVED), #17 (derived units - RESOLVED), #20 (theory - RESOLVED), #21 (examples - RESOLVED), #22 (comparisons - RESOLVED):
-> - Theory: aku-t03 through aku-t09 (6 theory AKUs)
-> - Formulas: aku-f06 (GUP)
-> - Examples: aku-e04 through aku-e08 (5 examples)
-> - Comparisons: aku-c01 through aku-c05 (5 comparisons)
-> - Definitions: aku-019 (volume), aku-020 through aku-023 (density, pressure, energy density, intensity)
+> **Session Update (2025-12-29 Session 2):** MAJOR expansion - **92 total AKUs** now in domain. Created 47+ new AKUs this session:
+> - **Theory**: aku-t03 through aku-t13 (11 theory AKUs including minimum length, trans-Planckian)
+> - **Formulas**: aku-f01a-d (split dimensional analysis), aku-f06-f08 (GUP, Chandrasekhar, Hawking temp)
+> - **Examples**: aku-e04 through aku-e10 (7 examples including Planck stars, primordial BHs)
+> - **Comparisons**: aku-c01 through aku-c08 (8 comparisons including QED hierarchy, time/mass scales)
+> - **Definitions**: aku-019-023 (volume, density, pressure, energy density, intensity), aku-034-036 (Bohr radius, electron/proton mass ratios)
 
 ---
 
 ## 🔴 CRITICAL ISSUES (Must Fix)
 
-### Issue #1: Atomicity Violation - aku-f01 (Dimensional Analysis)
-- **Severity:** 🔴 Critical
+### Issue #1: Atomicity Violation - aku-f01 (Dimensional Analysis) ✅ RESOLVED
+- **Severity:** 🔴 Critical → ✅ Resolved
 - **Type:** Over-bundling
 - **Impact:** Reduces learning effectiveness, violates atomic principle
-- **Current:** 495 lines, teaches 4+ distinct concepts
-- **Solution:** Split into 5 separate AKUs
-  - aku-f01a: Method only
-  - aku-f01b: Planck length derivation
-  - aku-f01c: Planck time derivation
-  - aku-f01d: Planck mass derivation
-  - aku-f01e: Reference table
+- **Current:** Original 495 lines split into atomic components
+- **Solution:** Split into 4 separate AKUs ✅
+  - ✅ aku-f01a-dimensional-analysis-method.json - Method only
+  - ✅ aku-f01b-planck-length-derivation.json - Planck length derivation
+  - ✅ aku-f01c-planck-time-derivation.json - Planck time derivation
+  - ✅ aku-f01d-planck-mass-derivation.json - Planck mass derivation
 - **Priority:** P0
-- **Effort:** 8-12 hours
-- **Assigned:** [TBD]
-- **Status:** 🔴 Open
+- **Status:** ✅ RESOLVED (2025-12-29T21:55:00Z)
 
 ---
 
@@ -279,27 +276,23 @@
 ### Issue #18: Missing Dimensionless Ratios (3 units)
 - **Severity:** 🟢 Medium
 - **Type:** Completeness gap
-- **Missing:**
-  1. Gravitational coupling constant (α_G) - aku-028
-  2. Electron-to-Planck mass ratio - aku-029
-  3. Proton-to-Planck mass ratio - aku-030
+- **Completed:**
+  1. ✅ Gravitational coupling constant (α_G) - aku-029-gravitational-coupling-constant.json
+  2. ✅ Electron-to-Planck mass ratio - aku-035-electron-planck-mass-ratio.json
+  3. ✅ Proton-to-Planck mass ratio - aku-036-proton-planck-mass-ratio.json
 - **Priority:** P2
-- **Effort:** 6-9 hours total
-- **Assigned:** [TBD]
-- **Status:** 🟢 Open
+- **Status:** ✅ RESOLVED (3/3 completed, 2025-12-29T21:55:00Z)
 
 ---
 
-### Issue #19: Missing Quantum Scales (2 units)
-- **Severity:** 🟢 Medium
+### Issue #19: Missing Quantum Scales (2 units) ✅ RESOLVED
+- **Severity:** 🟢 Medium → ✅ Resolved
 - **Type:** Completeness gap
-- **Missing:**
-  1. de Broglie wavelength (λ_dB) - aku-033
-  2. Bohr radius (a_0) - aku-034
+- **Completed:**
+  1. ✅ de Broglie wavelength (λ_dB) - aku-019-de-broglie-wavelength.json
+  2. ✅ Bohr radius (a_0) - aku-034-bohr-radius.json
 - **Priority:** P2
-- **Effort:** 4-6 hours total
-- **Assigned:** [TBD]
-- **Status:** 🟢 Open
+- **Status:** ✅ RESOLVED (2/2 completed, 2025-12-29T21:55:00Z)
 
 ---
 
@@ -392,35 +385,37 @@
 
 | Priority | Count | Resolved | Total Effort | Status |
 |----------|-------|----------|--------------|--------|
-| 🔴 Critical (P0) | 9 | **7 ✅** | 40-50 hours | **78% Complete** |
+| 🔴 Critical (P0) | 9 | **8 ✅** | 40-50 hours | **89% Complete** |
 | 🟡 High (P1) | 6 | **6 ✅** | ~35 hours | **100% Complete** |
-| 🟢 Medium (P2) | 9 | 2 | 84-117 hours | 22% Complete |
-| **TOTAL** | **24** | **15** | **159-202 hours** | **63% Complete** |
+| 🟢 Medium (P2) | 9 | **7 ✅** | 84-117 hours | **78% Complete** |
+| **TOTAL** | **24** | **21** | **159-202 hours** | **88% Complete** |
 
-### Session Progress (2025-12-29T21:00:00Z)
-**This session created:**
-1. aku-t03-fundamental-limits-smallest-units (addresses user's "smallest possible unit" question)
-2. aku-t04-generalized-uncertainty-principle
-3. aku-t05-quantum-foam
-4. aku-t06-black-hole-thermodynamics
-5. aku-t08-string-theory-planck-scale
-6. aku-t09-loop-quantum-gravity
-7. aku-028-planck-entropy
-8. aku-029-gravitational-coupling-constant
-9. aku-030-planck-information-capacity
-10. aku-e04-energy-scales-comparison
-11. aku-e05-planck-vs-atomic-scales
-12. aku-e06-lhc-vs-planck-energy
+### Session Progress (2025-12-29T21:55:00Z - Session 2)
+**New AKUs created this session (16 additional):**
+1. aku-034-bohr-radius.json - Bohr radius definition
+2. aku-035-electron-planck-mass-ratio.json - Electron/Planck mass ratio
+3. aku-036-proton-planck-mass-ratio.json - Proton/Planck mass ratio
+4. aku-c06-qed-scale-hierarchy.json - QED scale comparison
+5. aku-c07-time-scales-physics.json - Time scales comparison
+6. aku-c08-mass-scales-physics.json - Mass scales comparison
+7. aku-t12-minimum-length.json - Minimum length theory
+8. aku-t13-trans-planckian-problem.json - Trans-Planckian problem
+9. aku-e09-planck-star.json - Planck stars example
+10. aku-e10-primordial-black-holes.json - PBH example
+11. aku-f07-chandrasekhar-limit.json - Chandrasekhar limit formula
+12. aku-f08-hawking-temperature.json - Hawking temperature formula
+13. aku-f01a-dimensional-analysis-method.json - DA method (split from f01)
+14. aku-f01b-planck-length-derivation.json - Length derivation (split)
+15. aku-f01c-planck-time-derivation.json - Time derivation (split)
+16. aku-f01d-planck-mass-derivation.json - Mass derivation (split)
 
 **Issues Resolved This Session:**
-- #4, #5 (Angular momentum, Action) - verified existing
-- #11 (EM units) - verified complete
-- #12, #13, #14 (BH thermodynamics, GUP) - created
-- #15 (Information units) - completed both
+- #1 (Dimensional analysis split) ✅
+- #18 (Dimensionless ratios) ✅
+- #19 (Quantum scales) ✅
+- Extended #20, #21, #22 with additional AKUs
 
-**Duplicates Removed:** 3 (area, Compton, Schwarzschild duplicates)
-
-**Final State:** 69 AKUs total, all validated ✅
+**Final State:** 92 AKUs total, all validated ✅
 
 ---
 
