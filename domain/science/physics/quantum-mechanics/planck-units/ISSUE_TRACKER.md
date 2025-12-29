@@ -253,29 +253,27 @@
 
 ## 🟢 MEDIUM PRIORITY ISSUES
 
-### Issue #16: Missing Geometric Units (1 unit)
-- **Severity:** 🟢 Medium
+### Issue #16: Missing Geometric Units (1 unit) ✅ RESOLVED
+- **Severity:** 🟢 Medium → ✅ Resolved
 - **Type:** Completeness gap
-- **Missing:** Planck volume (V_P = ℓ_P³) - aku-019
+- **Completed:** Planck volume (V_P = ℓ_P³) - aku-019-planck-volume-definition.json (created 2025-12-29)
 - **Priority:** P2
-- **Effort:** 2-3 hours
-- **Assigned:** [TBD]
-- **Status:** 🟢 Open
+- **Status:** ✅ RESOLVED (2025-12-29T21:50:00Z)
 
 ---
 
-### Issue #17: Missing Derived Units (4 units)
-- **Severity:** 🟢 Medium
+### Issue #17: Missing Derived Units (4 units) - PARTIALLY RESOLVED ✅
+- **Severity:** 🟢 Medium → 🟢 Low (1 of 4 completed)
 - **Type:** Completeness gap
-- **Missing:**
-  1. Planck density (ρ_P) - aku-022
-  2. Planck pressure (P_P) - aku-023
-  3. Planck energy density (u_P) - aku-024
-  4. Planck intensity (I_P) - aku-025
+- **Completed:**
+  1. ✅ Planck density (ρ_P) - aku-020-planck-density-definition.json (created 2025-12-29)
+- **Still Missing:**
+  2. ❌ Planck pressure (P_P) - aku-023
+  3. ❌ Planck energy density (u_P) - aku-024
+  4. ❌ Planck intensity (I_P) - aku-025
 - **Priority:** P2
-- **Effort:** 8-12 hours total
-- **Assigned:** [TBD]
-- **Status:** 🟢 Open
+- **Effort:** 6-9 hours remaining
+- **Status:** 🟢 Partially Resolved (1/4 completed, 2025-12-29T21:52:00Z)
 
 ---
 
