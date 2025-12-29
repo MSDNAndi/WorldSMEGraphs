@@ -5,11 +5,11 @@
 **Audit Reference:** QUALITY_AUDIT_REPORT.md  
 **Domain:** science/physics/quantum-mechanics/planck-units
 
-> **Session Update (2025-12-29 Final):** Major progress - **64 total AKUs** now in domain. Created 19 new AKUs addressing Issues #13, #14 (GUP), #20 (theory - RESOLVED), #21 (examples - RESOLVED), #22 (comparisons):
+> **Session Update (2025-12-29 Final):** Major progress - **68 total AKUs** now in domain. Created 23 new AKUs addressing Issues #13, #14 (GUP), #20 (theory - RESOLVED), #21 (examples - RESOLVED), #22 (comparisons - RESOLVED):
 > - Theory: aku-t03 (interpretations), aku-t04 (quantum foam), aku-t05 (LQG), aku-t06 (string theory), aku-t08 (AdS/CFT), aku-t09 (inflation)
 > - Formulas: aku-f06 (GUP)
 > - Examples: aku-e04 through aku-e08 (5 examples)
-> - Comparisons: aku-c01, aku-c02 (atomic scales, four forces)
+> - Comparisons: aku-c01 through aku-c05 (5 comparisons)
 
 ---
 
@@ -341,17 +341,17 @@
 
 ---
 
-### Issue #22: Missing Comparison AKUs (5 new category) - PARTIALLY RESOLVED ✅
-- **Severity:** 🟢 Medium → 🟢 Low (3 of 5 completed)
+### Issue #22: Missing Comparison AKUs (5 new category) ✅ RESOLVED
+- **Severity:** 🟢 Medium → ✅ Resolved
 - **Type:** Scale context
 - **Completed:**
   1. ✅ Planck vs atomic scales - aku-c01-planck-vs-atomic-scales.json (created 2025-12-29)
   2. ✅ Four fundamental forces comparison - aku-c02-four-fundamental-forces.json (created 2025-12-29)
   3. ✅ Energy scales in physics - aku-c03-energy-scales-physics.json (created 2025-12-29)
-- **Still Missing:**
-  4. ❌ Planck vs nuclear scales - [still needed]
-  5. ❌ Planck vs cosmological scales - [partially covered by aku-e06]
+  4. ✅ Planck vs nuclear scales - aku-c04-planck-vs-nuclear-scales.json (created 2025-12-29)
+  5. ✅ Planck vs cosmological scales - aku-c05-planck-vs-cosmological-scales.json (created 2025-12-29)
 - **Priority:** P2
+- **Status:** ✅ RESOLVED (5/5 completed, 2025-12-29T21:45:00Z)
 - **Effort:** 10-15 hours total
 - **Assigned:** [TBD]
 - **Status:** 🟢 Open
