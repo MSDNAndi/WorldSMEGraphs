@@ -1,0 +1,186 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "ScientificConcept"
+  ],
+  "@id": "aku-010-minimum-measurable-electric-field",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T00:00:00.000Z",
+    "contributors": [
+      "physics-expert-agent",
+      "electrometry-specialist"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T00:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/physics/measurement-limits/minimum-measurable-quantities",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "foundational",
+    "aku_id": "010",
+    "keywords": [
+      "minimum electric field",
+      "electrometer",
+      "single electron",
+      "electric field detection",
+      "microvolt per meter"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The smallest electric fields are measured using electrometers and atomic systems, achieving sensitivities of ~μV/m to nV/m. A single electron at 1 meter distance produces ~10⁻⁹ V/m. Rydberg atoms can detect fields of ~1 μV/m. For context: atmospheric fair-weather field is ~100 V/m, breakdown (sparking) occurs at ~3 MV/m. The Planck electric field (~10⁶¹ V/m) is NOT a minimum—it's where field energy density equals Planck energy density.",
+      "formal": "Single electron at 1 m: E = e/(4πε₀r²) ≈ 1.4 × 10⁻⁹ V/m; Rydberg sensitivity: ~1 μV/m; Thermal limit: E_n = V_n/d",
+      "key_values": {
+        "single_electron_1m": "~1.4 nV/m",
+        "rydberg_atom_sensitivity": "~1 μV/m",
+        "electrometer_field_probe": "~10 μV/m",
+        "atmospheric_field": "~100 V/m (fair weather)",
+        "planck_field_comparison": "~6.5 × 10⁶¹ V/m (enormous, not minimum)"
+      }
+    },
+    "explanation": {
+      "intuition": "Electric field measurement faces similar thermal noise limits as voltage measurement, since E = V/d. Very weak fields can be detected using high-sensitivity electrometers or atoms with large dipole moments (Rydberg states). Single electrons create detectable fields using single-electron transistors. The Planck electric field is NOT a minimum—it's the field where classical electromagnetism breaks down.",
+      "key_insight": "Electric field sensing connects to voltage sensing via E = V/d. Minimizing d (short distances) improves field sensitivity for fixed voltage sensitivity. Rydberg atoms with n ~ 50-100 have enormous polarizability, making them excellent field sensors. Precision measurements of electron EDM (electric dipole moment) probe fields to <10⁻¹⁵ V/m equivalent sensitivity.",
+      "technical_details": "Electrostatic field mills measure ~1 V/m in atmosphere. Cavity-enhanced Rydberg sensors achieve ~μV/m. Single-electron transistors detect charge equivalent to ~10⁻⁹ V/m at nm distances. Schwinger critical field (~10¹⁸ V/m) is where vacuum pair production occurs—a quantum electrodynamics effect."
+    },
+    "comparison_with_planck": {
+      "planck_electric_field": "Eₚ = √(c⁷/Għε₀²) ≈ 6.5 × 10⁶¹ V/m",
+      "single_electron_field": "~10⁻⁹ V/m at 1 m",
+      "ratio": "Eₚ / E_single ≈ 6 × 10⁷⁰",
+      "interpretation": "Planck field is where electromagnetic energy density equals Planck density—far beyond any achievable field."
+    }
+  },
+  "electric_field_hierarchy": {
+    "smallest_to_largest": [
+      {
+        "name": "Single electron at 1 m",
+        "value_Vm": 1e-9,
+        "description": "Coulomb field of one electron"
+      },
+      {
+        "name": "Rydberg atom sensitivity",
+        "value_Vm": 1e-6,
+        "description": "Atomic quantum sensor"
+      },
+      {
+        "name": "Electrometer probe",
+        "value_Vm": 1e-5,
+        "description": "Laboratory field measurement"
+      },
+      {
+        "name": "Atmospheric fair-weather",
+        "value_Vm": 100,
+        "description": "Earth's surface field"
+      },
+      {
+        "name": "Thundercloud",
+        "value_Vm": 1e5,
+        "description": "Pre-lightning field"
+      },
+      {
+        "name": "Air breakdown",
+        "value_Vm": 3e6,
+        "description": "Sparking threshold"
+      },
+      {
+        "name": "Laser ionization",
+        "value_Vm": 1e11,
+        "description": "Intense laser field"
+      },
+      {
+        "name": "Atomic field",
+        "value_Vm": 5e11,
+        "description": "Field at Bohr radius from nucleus"
+      },
+      {
+        "name": "Schwinger field",
+        "value_Vm": 1.3e18,
+        "description": "QED pair production threshold"
+      },
+      {
+        "name": "Planck field",
+        "value_Vm": 6.5e61,
+        "description": "Theoretical maximum"
+      }
+    ]
+  },
+  "measurement_technologies": {
+    "electrometer": {
+      "sensitivity": "~10 μV/m (via voltage/distance)",
+      "applications": ["Electrostatics", "Atmospheric physics"]
+    },
+    "rydberg_atoms": {
+      "principle": "Large polarizability in high-n states",
+      "sensitivity": "~1 μV/m",
+      "advantages": ["Self-calibrating", "Wide bandwidth"],
+      "applications": ["RF field imaging", "Communications"]
+    },
+    "single_electron_transistor": {
+      "principle": "Coulomb blockade charge detection",
+      "capability": "Single electron field at nm scale",
+      "sensitivity": "~10⁻⁶ e/√Hz charge"
+    },
+    "field_mill": {
+      "principle": "Rotating electrode modulation",
+      "sensitivity": "~1 V/m",
+      "applications": ["Atmospheric electricity", "Lightning research"]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:physics:electromagnetism:electric-field:001",
+        "title": "Electric Field Definition",
+        "strength": 0.9
+      }
+    ],
+    "related": [
+      {
+        "id": "aku-024-planck-electric-field",
+        "type": "contrast",
+        "relationship": "Planck field is NOT minimum—it's 10⁶¹ V/m",
+        "domain": "science/physics/quantum-mechanics/planck-units"
+      },
+      {
+        "id": "aku-003-minimum-measurable-voltage",
+        "type": "sibling",
+        "relationship": "E = V/d connects voltage and field limits"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "review",
+        "citation": "Sedlacek, J.A. et al. (2012): Atom-based vector microwave electrometry",
+        "journal": "Nature Physics",
+        "doi": "10.1038/nphys2423"
+      },
+      {
+        "type": "textbook",
+        "citation": "Griffiths, D.J.: Introduction to Electrodynamics",
+        "publisher": "Cambridge"
+      }
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Understand electric field measurement techniques",
+      "Know that Planck electric field (~10⁶¹ V/m) is NOT a minimum",
+      "Appreciate Rydberg atom field sensing",
+      "Understand connection between voltage and field sensitivity"
+    ],
+    "common_misconceptions": [
+      "Planck field is NOT minimum—it's enormous",
+      "There is no fundamental minimum field—just detection limits",
+      "Single electrons create detectable fields at laboratory distances"
+    ]
+  }
+}

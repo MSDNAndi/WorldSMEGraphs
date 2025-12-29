@@ -1,0 +1,210 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "ScientificConcept"
+  ],
+  "@id": "aku-002-minimum-measurable-energy",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T23:20:00.000Z",
+    "contributors": [
+      "physics-expert-agent",
+      "quantum-sensing-specialist"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-29T23:20:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/physics/measurement-limits/minimum-measurable-quantities",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "foundational",
+    "aku_id": "002",
+    "keywords": [
+      "minimum energy",
+      "single photon",
+      "photon energy",
+      "quantum limit",
+      "energy detection",
+      "CMB photon"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The smallest detectable energy quanta are single photons. While the Planck energy is enormous (~10⁹ J), single-photon detectors routinely detect photons with energies as small as ~10⁻²⁴ J (microwave) to ~10⁻¹⁹ J (visible). The cosmic microwave background contains photons of ~10⁻²³ J each. There is NO fundamental minimum energy in physics—wavelengths can be arbitrarily long, making photon energies arbitrarily small. The practical limit is set by thermal noise: E_thermal = k_B T ≈ 4 × 10⁻²¹ J at room temperature.",
+      "formal": "Single photon: E = hν = hc/λ; Visible: ~3 × 10⁻¹⁹ J; CMB: ~6 × 10⁻²³ J; Radio: ~10⁻²⁸ J possible; Thermal limit: k_B T ≈ 4 × 10⁻²¹ J (300K)",
+      "key_values": {
+        "single_visible_photon": "~3 × 10⁻¹⁹ J (2 eV)",
+        "cmb_photon": "~6 × 10⁻²³ J (0.4 meV)",
+        "thermal_energy_300K": "~4 × 10⁻²¹ J (26 meV)",
+        "planck_energy_comparison": "1.96 × 10⁹ J (10²⁸ times larger than visible photon)"
+      }
+    },
+    "explanation": {
+      "intuition": "Unlike mass, there is no 'smallest energy'—photons can have arbitrarily small energies by having arbitrarily long wavelengths. A radio wave photon has ~10⁻²⁸ J, while a gamma ray has ~10⁻¹³ J. The Planck energy (~2 GJ, energy of a large bomb) is definitely NOT the minimum—it's the scale where quantum gravity becomes important.",
+      "key_insight": "Energy detection limits come from: (1) Thermal noise (k_B T sets the floor for energy discrimination), (2) Detector quantum efficiency (single photon detection requires E > detector bandgap), (3) Shot noise from photon statistics. Modern superconducting detectors achieve single-photon sensitivity at microwave frequencies (~10⁻²⁴ J), approaching thermal limits at mK temperatures.",
+      "technical_details": "Single-photon avalanche diodes (SPADs) detect visible photons (~10⁻¹⁹ J). Superconducting nanowire detectors work in infrared (~10⁻²⁰ J). Transition edge sensors (TES) can detect single microwave photons (~10⁻²⁴ J) when cooled to mK. The cosmic microwave background at 2.7 K contains ~10¹⁰ photons per cubic meter, each with ~0.4 meV energy.",
+      "theoretical_limits": [
+        "No fundamental minimum energy—E = hν can be arbitrarily small as ν → 0",
+        "Thermal noise: Cannot distinguish energies < k_B T without cooling",
+        "Quantum fluctuations: Zero-point energy ½ℏω per mode",
+        "Gravitational decoherence proposed at Δm·c² scale over time"
+      ]
+    },
+    "comparison_with_planck": {
+      "planck_energy": "1.956 × 10⁹ J ≈ 1.22 × 10¹⁹ GeV",
+      "visible_photon": "~3 × 10⁻¹⁹ J ≈ 2 eV",
+      "ratio": "Eₚ / E_photon ≈ 6.5 × 10²⁷",
+      "interpretation": "Planck energy is where quantum gravity matters—NOT a minimum. It equals the energy of ~10²⁸ visible photons or ~40 liters of gasoline."
+    }
+  },
+  "energy_scale_hierarchy": {
+    "smallest_to_largest": [
+      {
+        "name": "Long radio wave photon",
+        "energy_joules": 1e-28,
+        "energy_ev": 6e-10,
+        "wavelength": "~1000 km"
+      },
+      {
+        "name": "CMB photon",
+        "energy_joules": 6e-23,
+        "energy_ev": 4e-4,
+        "wavelength": "~1 mm"
+      },
+      {
+        "name": "Thermal energy at 300K",
+        "energy_joules": 4e-21,
+        "energy_ev": 0.026,
+        "description": "k_B T at room temperature"
+      },
+      {
+        "name": "Visible photon (green)",
+        "energy_joules": 3.6e-19,
+        "energy_ev": 2.3,
+        "wavelength": "~550 nm"
+      },
+      {
+        "name": "X-ray photon",
+        "energy_joules": 1.6e-15,
+        "energy_ev": 10000,
+        "wavelength": "~0.1 nm"
+      },
+      {
+        "name": "Electron rest mass",
+        "energy_joules": 8.2e-14,
+        "energy_ev": 511000,
+        "description": "mₑc²"
+      },
+      {
+        "name": "LHC collision",
+        "energy_joules": 2e-6,
+        "energy_ev": 1.3e13,
+        "description": "13 TeV proton collision"
+      },
+      {
+        "name": "Planck energy",
+        "energy_joules": 1.96e9,
+        "energy_ev": 1.22e28,
+        "description": "Quantum gravity scale"
+      }
+    ]
+  },
+  "detection_technologies": {
+    "single_photon_detectors": {
+      "spad": {
+        "name": "Single-photon avalanche diode",
+        "sensitivity": "Visible to near-IR",
+        "energy_range": "~10⁻¹⁹ J"
+      },
+      "snspd": {
+        "name": "Superconducting nanowire SPD",
+        "sensitivity": "UV to mid-IR",
+        "energy_range": "~10⁻²⁰ J",
+        "efficiency": ">95% at telecom wavelengths"
+      },
+      "tes": {
+        "name": "Transition edge sensor",
+        "sensitivity": "Microwave to X-ray",
+        "energy_range": "~10⁻²⁴ J (microwave)",
+        "resolution": "Energy resolving capability"
+      },
+      "pmt": {
+        "name": "Photomultiplier tube",
+        "sensitivity": "UV to visible",
+        "energy_range": "~10⁻¹⁹ J"
+      }
+    },
+    "calorimeters": {
+      "bolometer": "Thermal energy detection, mK operation",
+      "microcalorimeter": "X-ray energy resolution ~1 eV"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:physics:quantum:photon:001",
+        "title": "Photon Properties",
+        "strength": 0.95
+      },
+      {
+        "id": "urn:wskg:physics:thermodynamics:boltzmann:001",
+        "title": "Boltzmann Thermal Energy",
+        "strength": 0.9
+      }
+    ],
+    "related": [
+      {
+        "id": "aku-004-planck-energy-definition",
+        "type": "contrast",
+        "relationship": "Planck energy is NOT minimum—it's 10²⁸ times larger than a visible photon",
+        "domain": "science/physics/quantum-mechanics/planck-units"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:physics:quantum-sensing:single-photon:001",
+        "title": "Single Photon Detection Technologies",
+        "strength": 0.9
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "review",
+        "citation": "Hadfield, R.H. (2009): Single-photon detectors for optical quantum information applications",
+        "journal": "Nature Photonics",
+        "doi": "10.1038/nphoton.2009.230"
+      },
+      {
+        "type": "authoritative_reference",
+        "citation": "NIST: Fundamental Physical Constants",
+        "url": "https://physics.nist.gov/cuu/Constants/"
+      },
+      {
+        "type": "cosmology",
+        "citation": "Planck Collaboration (2020): CMB measurements",
+        "doi": "10.1051/0004-6361/201936386"
+      }
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Understand that photon energy can be arbitrarily small (no minimum)",
+      "Know that Planck energy is enormous, not a minimum",
+      "Appreciate thermal noise as practical energy detection limit",
+      "Understand single-photon detection technologies"
+    ],
+    "common_misconceptions": [
+      "Planck energy is NOT the minimum—it's ~2 GJ, an enormous energy",
+      "There is no 'smallest energy' quantum—photons have E = hν with ν → 0 possible",
+      "Zero-point energy (½ℏω) is not 'minimum detectable'—it's quantum vacuum fluctuation"
+    ]
+  }
+}

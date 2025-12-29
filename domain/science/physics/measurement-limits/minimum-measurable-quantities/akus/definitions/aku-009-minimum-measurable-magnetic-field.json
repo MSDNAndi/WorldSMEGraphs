@@ -1,0 +1,191 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "ScientificConcept"
+  ],
+  "@id": "aku-009-minimum-measurable-magnetic-field",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T23:55:00.000Z",
+    "contributors": [
+      "physics-expert-agent",
+      "magnetometry-specialist"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-29T23:55:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/physics/measurement-limits/minimum-measurable-quantities",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "foundational",
+    "aku_id": "009",
+    "keywords": [
+      "minimum magnetic field",
+      "SQUID magnetometer",
+      "femtotesla",
+      "attotesla",
+      "magnetic field detection",
+      "NV center"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The smallest magnetic fields measured are in the femtotesla (10⁻¹⁵ T) to attotesla (10⁻¹⁸ T) range. SQUID magnetometers achieve ~1 fT/√Hz sensitivity; atomic magnetometers reach ~10 fT/√Hz. For context: Earth's field is ~50 μT, human brain activity produces ~100 fT (MEG), and the cosmic magnetic field is ~10⁻¹⁰ T. The Planck magnetic field (~10⁵³ T) is NOT a minimum—it's enormous, the field where magnetic energy density equals Planck energy density.",
+      "formal": "SQUID: ~1 fT/√Hz; Atomic magnetometer: ~10 fT/√Hz; Best demonstrated: ~10⁻¹⁸ T (aT); Thermal limit: B_n = √(4k_B T R/A²) for pickup coil",
+      "key_values": {
+        "squid_sensitivity": "~1 fT/√Hz",
+        "atomic_magnetometer": "~10 fT/√Hz",
+        "best_attotesla": "~10⁻¹⁸ T demonstrated",
+        "brain_meg_signal": "~100 fT",
+        "earth_field": "~50 μT",
+        "planck_field_comparison": "~2 × 10⁵³ T (enormous, not minimum)"
+      }
+    },
+    "explanation": {
+      "intuition": "Magnetic field measurement is limited by thermal noise in pickup coils and intrinsic sensor noise. SQUIDs (Superconducting Quantum Interference Devices) are the most sensitive, detecting flux changes of ~μΦ₀ (micro flux quanta). Brain imaging (MEG) routinely measures 100 fT fields. There is no fundamental minimum field—quantum fluctuations set noise floors, but fields can be arbitrarily weak.",
+      "key_insight": "Different technologies optimize for different scales: SQUIDs for fT-pT (brain, heart signals), atomic magnetometers for geophysics, diamond NV centers for nanoscale imaging. The quantum limit for magnetic sensing involves spin projection noise and photon shot noise. Best sensitivities approach ~10⁻¹⁸ T in specialized setups.",
+      "technical_details": "SQUID sensitivity: ~1 μΦ₀/√Hz, where Φ₀ = h/2e = 2.07 × 10⁻¹⁵ Wb. A 1 cm² pickup loop gives ~1 fT/√Hz. Atomic magnetometers use spin precession in alkali vapors. NV centers in diamond provide ~nT sensitivity at nanometer spatial resolution. Cosmic magnetohydrodynamics involves ~10⁻¹⁰ T intergalactic fields."
+    },
+    "comparison_with_planck": {
+      "planck_magnetic_field": "Bₚ = √(μ₀c⁵/Għ) ≈ 2 × 10⁵³ T",
+      "squid_sensitivity": "~10⁻¹⁵ T",
+      "ratio": "Bₚ / B_fT ≈ 10⁶⁸",
+      "interpretation": "Planck field is where magnetic energy density equals Planck energy density—inconceivably large, not a minimum."
+    }
+  },
+  "magnetic_field_hierarchy": {
+    "smallest_to_largest": [
+      {
+        "name": "Attotesla (demonstrated)",
+        "value_T": 1e-18,
+        "description": "Best laboratory sensitivity"
+      },
+      {
+        "name": "Femtotesla",
+        "value_T": 1e-15,
+        "description": "SQUID sensitivity"
+      },
+      {
+        "name": "Brain signal (MEG)",
+        "value_T": 1e-13,
+        "description": "100 fT from neural activity"
+      },
+      {
+        "name": "Heart signal (MCG)",
+        "value_T": 1e-11,
+        "description": "10 pT from cardiac activity"
+      },
+      {
+        "name": "Intergalactic field",
+        "value_T": 1e-10,
+        "description": "Cosmic magnetic field"
+      },
+      {
+        "name": "Earth's field",
+        "value_T": 5e-5,
+        "description": "50 μT geomagnetic"
+      },
+      {
+        "name": "MRI magnet",
+        "value_T": 3,
+        "description": "3 T clinical scanner"
+      },
+      {
+        "name": "Strongest lab magnet",
+        "value_T": 100,
+        "description": "~100 T pulsed"
+      },
+      {
+        "name": "Neutron star surface",
+        "value_T": 1e8,
+        "description": "Pulsar magnetosphere"
+      },
+      {
+        "name": "Magnetar",
+        "value_T": 1e11,
+        "description": "Strongest known"
+      },
+      {
+        "name": "Planck field",
+        "value_T": 2e53,
+        "description": "Theoretical maximum"
+      }
+    ]
+  },
+  "measurement_technologies": {
+    "squid": {
+      "name": "Superconducting Quantum Interference Device",
+      "sensitivity": "~1 fT/√Hz",
+      "principle": "Josephson junction flux detection",
+      "temperature": "4 K (LTS) or 77 K (HTS)",
+      "applications": ["MEG", "MCG", "Materials characterization"]
+    },
+    "atomic_magnetometer": {
+      "principle": "Spin precession in alkali vapor",
+      "sensitivity": "~10 fT/√Hz",
+      "advantage": "Room temperature operation",
+      "types": ["SERF", "Scalar", "Vector"]
+    },
+    "nv_center": {
+      "name": "Nitrogen-vacancy center in diamond",
+      "sensitivity": "~nT/√Hz",
+      "advantage": "Nanometer spatial resolution",
+      "applications": ["Single spin detection", "Cellular imaging"]
+    },
+    "fluxgate": {
+      "sensitivity": "~10 pT",
+      "applications": ["Navigation", "Geophysics"]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:physics:electromagnetism:magnetic-field:001",
+        "title": "Magnetic Field Definition",
+        "strength": 0.9
+      }
+    ],
+    "related": [
+      {
+        "id": "aku-025-planck-magnetic-field",
+        "type": "contrast",
+        "relationship": "Planck field is NOT minimum—it's 10⁵³ T",
+        "domain": "science/physics/quantum-mechanics/planck-units"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "review",
+        "citation": "Budker, D. & Romalis, M. (2007): Optical magnetometry",
+        "journal": "Nature Physics",
+        "doi": "10.1038/nphys566"
+      },
+      {
+        "type": "textbook",
+        "citation": "Clarke, J. & Braginski, A.I.: The SQUID Handbook",
+        "publisher": "Wiley"
+      }
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Understand femtotesla sensitivity of SQUIDs",
+      "Know that Planck magnetic field (~10⁵³ T) is NOT a minimum",
+      "Appreciate different magnetometry technologies",
+      "Understand biomagnetism applications (MEG, MCG)"
+    ],
+    "common_misconceptions": [
+      "Planck field is NOT minimum—it's enormous",
+      "There is no fundamental minimum field—just noise limits",
+      "Brain magnetic signals (~100 fT) are routinely measured"
+    ]
+  }
+}
