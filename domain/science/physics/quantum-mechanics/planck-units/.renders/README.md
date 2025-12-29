@@ -5,6 +5,16 @@ This directory contains human-readable renderings of the Planck units knowledge 
 ## Available Renderings
 
 ### English
+
+#### Elementary School Level
+- **`elementary-school.md`** - For children ages 8-11 (Grades 3-5)
+  - Total words: ~2,400
+  - Reading time: 10-12 minutes
+  - Features: Fun emoji, hands-on activities, simple vocabulary
+  - Style: Encouraging, playful, with activities to try at home
+  - Topics: All 5 Planck units explained with kid-friendly analogies
+
+#### Limited Reading Comprehension
 - **`adult-limited-reading.md`** - Simplified English for adults with very limited reading comprehension (Grade 4-6 level)
   - Average sentence length: 8.4 words
   - Total words: ~1,286
@@ -12,7 +22,25 @@ This directory contains human-readable renderings of the Planck units knowledge 
   - Topics covered: All 5 core Planck units (length, time, mass, energy, temperature)
   - Style: Concrete analogies, everyday comparisons, encouraging tone
 
+#### High School Level
+- **`high-school.md`** - For teenagers ages 14-18 (Grades 9-12)
+  - Total words: ~2,800
+  - Reading time: 12-15 minutes
+  - Features: Conceptual understanding with some mathematics
+  - Prerequisites: Basic algebra, scientific notation
+  - Topics: All Planck units + applications + current research (String Theory, etc.)
+
+#### Undergraduate Level
+- **`undergraduate.md`** - For university physics students (Years 2-4)
+  - Total words: ~3,100
+  - Reading time: 20-25 minutes
+  - Features: Rigorous derivations, dimensional analysis, quantum gravity theories
+  - Prerequisites: Quantum mechanics, special relativity, thermodynamics
+  - Topics: Full mathematical treatment + research frontiers + problem sets
+
 ### German / Deutsch
+
+#### Eingeschränktes Leseverständnis
 - **`erwachsene-eingeschraenktes-lesen.md`** - Vereinfachtes Deutsch für Erwachsene mit eingeschränktem Leseverständnis (Klasse 4-6)
   - Durchschnittliche Satzlänge: ~8-9 Wörter
   - Gesamtwortzahl: ~1,359
@@ -20,9 +48,17 @@ This directory contains human-readable renderings of the Planck units knowledge 
   - Behandelte Themen: Alle 5 Kern-Planck-Einheiten (Länge, Zeit, Masse, Energie, Temperatur)
   - Stil: Konkrete Analogien, Alltagsvergleiche, ermutigender Ton
 
-## Audience Levels
+## Audience Levels Summary
 
-These renderings target adults with limited reading comprehension and little formal education:
+| Level | Target Age | Reading Grade | Word Count | Time | Math Level |
+|-------|-----------|---------------|------------|------|------------|
+| **Elementary** | 8-11 | 3-5 | ~2,400 | 10-12 min | None (concepts only) |
+| **Limited Reading** | Adult | 4-6 | ~1,286 | 5-7 min | None (analogies) |
+| **High School** | 14-18 | 9-12 | ~2,800 | 12-15 min | Basic algebra |
+| **Undergraduate** | 19-22 | University | ~3,100 | 20-25 min | Calculus, QM |
+| **Graduate** | 22+ | Graduate | TBD | TBD | Advanced QM, GR |
+
+These renderings target different comprehension levels and educational backgrounds:
 
 **Reading Level**: Grade 4-6 (ages 9-11 equivalent)
 
@@ -85,23 +121,26 @@ These renderings are based on the technical AKU files in:
 - ✅ Cultural adaptation: Examples use metric system
 - ✅ Translation quality: Native-level German
 
-## Future Renderings
+## Rendering Status
 
-Additional renderings planned for other audience levels:
+### Completed ✅
+- ✅ `english/elementary-school.md` - For children ages 8-11 (2025-12-29)
+- ✅ `english/adult-limited-reading.md` - For adults with limited reading (2025-12-29)
+- ✅ `english/high-school.md` - For teenagers ages 14-18 (2025-12-29)
+- ✅ `english/undergraduate.md` - For university students (2025-12-29)
+- ✅ `german/erwachsene-eingeschraenktes-lesen.md` - German limited reading (2025-12-29)
 
-### English
-- `elementary-school.md` - For children ages 8-11
-- `high-school.md` - For teenagers ages 14-18
-- `undergraduate.md` - For university students
-- `graduate.md` - For physics graduate students
-- `toddler.md` - For very young children (ages 3-5)
+### In Progress 🚧
+- `english/graduate.md` - For physics graduate students (planned)
+- `english/toddler.md` - For very young children ages 3-5 (planned)
 
-### Other Languages
-- `french/adultes-lecture-limitee.md` - French
-- `spanish/adultos-lectura-limitada.md` - Spanish
-- `chinese/成人有限阅读.md` - Simplified Chinese
-- `japanese/成人限定読解.md` - Japanese
-- `arabic/البالغين-القراءة-المحدودة.md` - Arabic
+### Future Languages 🌍
+- `french/` - French renderings (multiple levels)
+- `spanish/` - Spanish renderings (multiple levels)
+- `chinese/` - Simplified Chinese renderings
+- `japanese/` - Japanese renderings
+- `arabic/` - Arabic renderings
+- `german/` - Additional German levels (high school, undergraduate, graduate)
 
 ## Usage Guidelines
 
