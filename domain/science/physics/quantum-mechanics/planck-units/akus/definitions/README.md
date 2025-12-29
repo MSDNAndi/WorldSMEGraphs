@@ -1,6 +1,6 @@
 # Planck Units Definition AKUs
 
-This directory contains 10 authoritative definition AKUs for Planck units and fundamental constants, extracted from NIST CODATA 2018 and peer-reviewed physics literature.
+This directory contains 12 authoritative definition AKUs for Planck units and fundamental constants, extracted from NIST CODATA 2018 and peer-reviewed physics literature.
 
 ## Created AKUs
 
@@ -67,6 +67,18 @@ This directory contains 10 authoritative definition AKUs for Planck units and fu
 - **Significance**: Foundation of ALL Planck units; appears in uncertainty principle, Schrödinger equation
 - **Key Insight**: EXACT constant since 2019 SI redefinition (h fixed exactly); confidence = 1.0
 
+### 11. **aku-011-planck-acceleration-definition.json** (PRIORITY 2 - Mechanical Derived)
+- **Value**: 5.56085(62) × 10⁵¹ m/s²
+- **Formula**: aₚ = c²/ℓₚ = c/tₚ
+- **Significance**: Characteristic acceleration at Planck scale; ~10⁵⁰ times Earth's gravity
+- **Key Insight**: Acceleration to reach c in one Planck time; Fₚ/mₚ = aₚ
+
+### 12. **aku-012-planck-power-definition.json** (PRIORITY 2 - Mechanical Derived)
+- **Value**: 3.62831(40) × 10⁵² W
+- **Formula**: Pₚ = c⁵/G = Eₚ/tₚ = Fₚc
+- **Significance**: Maximum power (conjecture); ~10²⁶ times Sun's luminosity
+- **Key Insight**: Like Fₚ, has NO ℏ (purely GR); early universe power scale
+
 ## Data Quality
 
 - **Source**: NIST CODATA 2018 (authoritative reference)
@@ -89,7 +101,7 @@ All AKUs follow the standard format with:
 
 ## Validation Status
 
-All 10 AKUs validated successfully with `.project/agents/quality-assurance/tools/validate_aku_v2.py`:
+All 12 AKUs validated successfully with `.project/agents/quality-assurance/tools/validate_aku_v2.py`:
 - ✅ Structure compliant
 - ✅ All required fields present
 - ✅ Numerical values match NIST CODATA 2018 (where applicable)
@@ -121,7 +133,7 @@ All 10 AKUs validated successfully with `.project/agents/quality-assurance/tools
 
 ## Estimated Study Time
 
-15-25 minutes per AKU (150-250 minutes total for all 10)
+15-25 minutes per AKU (180-300 minutes total for all 12)
 
 ## External References
 
