@@ -1,6 +1,6 @@
 # Planck Units Definition AKUs
 
-This directory contains 8 authoritative definition AKUs for Planck units and fundamental constants, extracted from NIST CODATA 2018 and peer-reviewed physics literature.
+This directory contains 10 authoritative definition AKUs for Planck units and fundamental constants, extracted from NIST CODATA 2018 and peer-reviewed physics literature.
 
 ## Created AKUs
 
@@ -53,6 +53,20 @@ This directory contains 8 authoritative definition AKUs for Planck units and fun
 - **Significance**: Fundamental momentum from uncertainty principle at Planck length scale
 - **Key Insight**: De Broglie wavelength at pₚ equals ℓₚ; macroscopic magnitude (~baseball momentum)
 
+### 9. **aku-009-planck-force-definition.json** (PRIORITY 1 - Unique Property)
+- **Value**: 1.21027(14) × 10⁴⁴ N
+- **Formula**: Fₚ = c⁴/G
+- **Type**: Maximum force in nature (conjecture)
+- **Significance**: Fundamental tension/stiffness of spacetime; black hole horizon force
+- **Key Insight**: Only Planck unit WITHOUT ℏ (purely general relativistic, not quantum!)
+
+### 10. **aku-010-reduced-planck-constant.json** (PRIORITY 1 - Foundation of All Planck Units)
+- **Value**: 1.054571817... × 10⁻³⁴ J·s (EXACT since 2019)
+- **Formula**: ℏ = h/(2π)
+- **Type**: Fundamental quantum of action
+- **Significance**: Foundation of ALL Planck units; appears in uncertainty principle, Schrödinger equation
+- **Key Insight**: EXACT constant since 2019 SI redefinition (h fixed exactly); confidence = 1.0
+
 ## Data Quality
 
 - **Source**: NIST CODATA 2018 (authoritative reference)
@@ -75,7 +89,7 @@ All AKUs follow the standard format with:
 
 ## Validation Status
 
-All 8 AKUs validated successfully with `.project/agents/quality-assurance/tools/validate_aku_v2.py`:
+All 10 AKUs validated successfully with `.project/agents/quality-assurance/tools/validate_aku_v2.py`:
 - ✅ Structure compliant
 - ✅ All required fields present
 - ✅ Numerical values match NIST CODATA 2018 (where applicable)
@@ -91,10 +105,12 @@ All 8 AKUs validated successfully with `.project/agents/quality-assurance/tools/
 4. **Planck Energy (004)** = Planck Mass × c²
 5. **Planck Temperature (005)** = Planck Energy / k_B
 
-### Electromagnetic Planck Units (Priority 1)
+### Electromagnetic & Derived Planck Units (Priority 1)
 6. **Fine Structure Constant (006)** → dimensionless constant, α ≈ 1/137
 7. **Planck Charge (007)** = e/√α ≈ 11.7e (requires α from 006)
 8. **Planck Momentum (008)** = mₚc = ℏ/ℓₚ (connects 001, 003)
+9. **Planck Force (009)** = c⁴/G = Eₚ/ℓₚ (UNIQUE: no ℏ dependence!)
+10. **Reduced Planck Constant (010)** = h/(2π) (Foundation: appears in ALL other Planck units!)
 
 ## Target Audience
 
@@ -105,7 +121,7 @@ All 8 AKUs validated successfully with `.project/agents/quality-assurance/tools/
 
 ## Estimated Study Time
 
-15-25 minutes per AKU (120-180 minutes total for all 8)
+15-25 minutes per AKU (150-250 minutes total for all 10)
 
 ## External References
 
@@ -122,12 +138,23 @@ All AKUs link to external ontologies:
 - **Method**: NLP pattern recognition with expert validation
 - **Research Source**: `/tmp/planck-research/planck_units_structured_data.json`
 
-### Priority 1 Additions (AKUs 006-008)
+### Priority 1 Additions - First Batch (AKUs 006-008)
 - **Created**: 2025-12-29T14:31:42.108Z
 - **Agent**: definition-extractor-agent
 - **Method**: NLP pattern recognition with expert validation
 - **Context**: Completeness analysis identified Priority 1 missing units
 - **Focus**: Fine structure constant (dimensionless), Planck charge, Planck momentum
+
+### Priority 1 Additions - Second Batch (AKUs 009-010)
+- **Created**: 2025-12-29T14:49:15.347Z
+- **Agent**: definition-extractor-agent
+- **Method**: NLP pattern recognition with expert validation
+- **Context**: Filling critical gaps - force (ℏ-independent) and ℏ itself (foundation)
+- **Focus**: Planck force (maximum force conjecture), reduced Planck constant (exact since 2019)
+- **Key Significance**:
+  - Planck force is UNIQUE: only Planck unit without ℏ (purely GR, not quantum!)
+  - Reduced Planck constant is FOUNDATIONAL: appears in ALL other Planck units
+  - ℏ is now EXACT (confidence 1.0) since 2019 SI redefinition
 
 ---
 
