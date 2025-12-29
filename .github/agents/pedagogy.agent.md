@@ -438,6 +438,11 @@ Create adaptive learning path: NPV topic with multiple difficulty levels, person
 
 ## Related Agents
 
+- @aku-atomicity-specialist - For optimal knowledge unit granularity
+- @rendering-agent - For audience-appropriate content delivery
+- @assessment-creation - For learning evaluation design
+- @educational-path - For curriculum sequencing
+
 ## Version History
 - **v3.0** (2025-12-27): Enhanced with full content from original YAML specification
 - **v2.0** (2025-12-27): Converted to .agent.md format in correct .github/agents/ location

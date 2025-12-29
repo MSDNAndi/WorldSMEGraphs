@@ -179,6 +179,7 @@ Specializes in merging duplicate, overlapping, or closely related Atomic Knowled
 
 ## Related Agents
 
+- @aku-atomicity-specialist - For granularity analysis before/after merge
 - @semantic-harmonization - For concept alignment across domains
 - @verification - To validate merged content accuracy
 - @ontology - For relationship structure guidance
