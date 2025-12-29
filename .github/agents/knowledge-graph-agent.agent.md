@@ -155,6 +155,7 @@ Expert agent specializing in creating, maintaining, and validating language-agno
    - Maintain version history
 
 ## Related Agents
+- @aku-atomicity-specialist - For managing AKU granularity within graphs
 - @ontology - For ontology structure and standards guidance
 - @semantic-harmonization - For concept alignment across domains
 - @relationship-extractor - To identify semantic relationships

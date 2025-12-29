@@ -102,6 +102,7 @@ quality_metrics:
 - Parallel proof search when applicable
 
 ## Related Agents
+- **aku-atomicity-specialist**: Validates atomicity after transformations
 - **math-expert**: Mathematical correctness validation
 - **quality**: Coordinates verification processes
 - **generic-domain-empathy**: Domain-specific proof conventions

@@ -1,0 +1,195 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "ScientificConcept"
+  ],
+  "@id": "aku-e01-converting-particle-energy",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T15:52:00.000Z",
+    "contributors": [
+      "example-extractor-agent",
+      "physics-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2025-12-29T15:52:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/physics/quantum-mechanics/planck-units",
+    "type": "example",
+    "difficulty": "intermediate",
+    "importance": "practical",
+    "aku_id": "e01",
+    "keywords": [
+      "unit conversion",
+      "natural units",
+      "particle physics",
+      "GeV to meters",
+      "worked example"
+    ],
+    "physics_specialty": "particle_physics",
+    "physics_context": "unit_conversions"
+  },
+  "content": {
+    "statement": {
+      "text": "Converting between natural units and SI units is essential for practical physics calculations. This worked example demonstrates converting a particle physics cross-section from natural units (GeV⁻²) to SI units (m²), using the fundamental conversion ℏc ≈ 197 MeV·fm.",
+      "formal": "σ = 10 GeV⁻² → σ = 3.88 × 10⁻³¹ m²"
+    },
+    "worked_example": {
+      "problem": {
+        "statement": "A particle physics paper reports a scattering cross-section of σ = 10 GeV⁻². Convert this to SI units (m²).",
+        "given": {
+          "cross_section_natural": "10 GeV⁻²",
+          "context": "Particle physics measurement in natural units (ℏ = c = 1)"
+        },
+        "find": "Cross-section in square meters (m²)"
+      },
+      "solution": {
+        "step_1": {
+          "title": "Understand what GeV⁻² means",
+          "explanation": "In natural units, [Length] = [Energy]⁻¹, so [Area] = [Length]² = [Energy]⁻²",
+          "conclusion": "GeV⁻² is a unit of area in natural units"
+        },
+        "step_2": {
+          "title": "Find the conversion factor from Energy to Length",
+          "formula": "1 GeV⁻¹ = ℏc / (1 GeV)",
+          "formula_latex": "1\\text{ GeV}^{-1} = \\frac{\\hbar c}{1\\text{ GeV}}",
+          "using": "ℏc ≈ 197 MeV·fm = 197 × 10⁶ eV × 10⁻¹⁵ m = 1.97 × 10⁻⁷ eV·m",
+          "calculation": "1 GeV⁻¹ = (1.97 × 10⁻⁷ eV·m) / (10⁹ eV) = 1.97 × 10⁻¹⁶ m",
+          "result": "1 GeV⁻¹ ≈ 0.197 fm = 1.97 × 10⁻¹⁶ m"
+        },
+        "step_3": {
+          "title": "Square the conversion factor for area",
+          "reasoning": "[Area] = [Length]², so conversion factor is also squared",
+          "calculation": "(1 GeV⁻¹)² = (1.97 × 10⁻¹⁶ m)² = 3.88 × 10⁻³² m²",
+          "result": "1 GeV⁻² = 3.88 × 10⁻³² m²"
+        },
+        "step_4": {
+          "title": "Apply conversion to given cross-section",
+          "calculation": "σ = 10 GeV⁻² × (3.88 × 10⁻³² m²/GeV⁻²) = 3.88 × 10⁻³¹ m²",
+          "result": "σ = 3.88 × 10⁻³¹ m²"
+        },
+        "step_5": {
+          "title": "Verify and interpret",
+          "comparison": "Typical nuclear cross-section ~ 1 barn = 10⁻²⁸ m²",
+          "interpretation": "This is about 0.0039 barns, a small but measurable cross-section",
+          "sanity_check": "✅ Reasonable for particle physics (much smaller than nuclear scales)"
+        }
+      },
+      "answer": {
+        "numerical": "σ = 3.88 × 10⁻³¹ m²",
+        "alternative_units": "σ = 0.388 fm² = 0.0039 barns",
+        "confidence": "High - standard conversion, well-verified"
+      },
+      "key_insights": [
+        "Natural units make theoretical work easier, but SI units needed for experimental comparison",
+        "The conversion ℏc ≈ 197 MeV·fm is the MOST important conversion in particle physics",
+        "Always square (or cube, etc.) conversion factors when converting areas or volumes",
+        "Cross-sections much smaller than 1 barn suggest fundamental particle interactions"
+      ]
+    },
+    "alternative_methods": {
+      "method_1_direct_formula": {
+        "description": "Use direct conversion formula",
+        "formula": "σ[m²] = σ[GeV⁻²] × (ℏc)² / (1 GeV)²",
+        "formula_latex": "\\sigma[\\text{m}^2] = \\sigma[\\text{GeV}^{-2}] \\times \\frac{(\\hbar c)^2}{(1\\text{ GeV})^2}",
+        "calculation": "σ = 10 × (1.97 × 10⁻⁷ eV·m)² / (10⁹ eV)² = 10 × 3.88 × 10⁻³² m²",
+        "result": "σ = 3.88 × 10⁻³¹ m²",
+        "advantage": "Faster if you remember the formula"
+      },
+      "method_2_using_planck_units": {
+        "description": "Convert through Planck units",
+        "step_1": "Express in Planck units: σ = 10 GeV⁻² = 10 × (ℓₚ²·Eₚ²/GeV²)",
+        "step_2": "Eₚ ≈ 1.22 × 10¹⁹ GeV, so Eₚ²/GeV² ≈ 1.49 × 10³⁸",
+        "step_3": "ℓₚ² ≈ 2.61 × 10⁻⁷⁰ m²",
+        "result": "σ = 10 × 2.61 × 10⁻⁷⁰ × 1.49 × 10³⁸ m² ≈ 3.89 × 10⁻³¹ m²",
+        "advantage": "Shows connection to fundamental Planck scales",
+        "disadvantage": "More steps, easier to make errors"
+      }
+    }
+  },
+  "physical_features": {
+    "conversion_constants": {
+      "hbar_c": {
+        "value": "1.9732698 × 10⁻⁷ eV·m",
+        "common_form": "197.3 MeV·fm",
+        "alternative": "0.1973 GeV·fm"
+      }
+    },
+    "typical_scales": {
+      "nuclear_cross_section": "~1 barn = 10⁻²⁸ m²",
+      "geometric_proton": "~0.1 barn = 10⁻²⁹ m²",
+      "weak_interaction": "~10⁻⁴ to 10⁻² barn",
+      "this_example": "~0.004 barn (weak interaction scale)"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Converting Particle Energy Units: GeV to Meters"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Natural Units to SI Conversion Example"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Worked example demonstrating conversion of particle physics cross-section from natural units (GeV⁻²) to SI units (m²) using ℏc ≈ 197 MeV·fm"
+    },
+    "notation": "aku-e01-converting-particle-energy"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "aku-f02-natural-units-system",
+        "title": "Natural Units System",
+        "strength": 1.0,
+        "reason": "Must understand natural units convention"
+      }
+    ],
+    "related": [
+      {
+        "id": "aku-010-reduced-planck-constant",
+        "type": "uses_constant",
+        "relationship": "Uses ℏ for conversion"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Griffiths, D. (2008): Introduction to Elementary Particles (2nd ed.)",
+        "confidence": 0.98
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "physics_graduate_students",
+      "particle_physics_students"
+    ],
+    "estimated_time": "15min",
+    "difficulty_curve": 0.6,
+    "learning_objectives": [
+      "Convert between GeV⁻² and m²",
+      "Use ℏc ≈ 197 MeV·fm conversion",
+      "Understand dimensional analysis in natural units"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "step_by_step_solution",
+    "emphasis": [
+      "conversion_formula",
+      "worked_steps",
+      "verification"
+    ]
+  }
+}
