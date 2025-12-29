@@ -423,7 +423,7 @@
 
 **Duplicates Removed:** 3 (area, Compton, Schwarzschild duplicates)
 
-**Final State:** 63 AKUs total, all validated ✅
+**Final State:** 68 AKUs total, all validated ✅
 
 ---
 
