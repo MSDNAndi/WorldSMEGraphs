@@ -2,8 +2,8 @@
 
 > **Natural units derived from fundamental physical constants**  
 > **Domain**: `science/physics/quantum-mechanics/planck-units`  
-> **Status**: Comprehensive coverage (52 AKUs, 85%+ complete)  
-> **Last Updated**: 2025-12-29T20:50:00Z
+> **Status**: Comprehensive coverage (60 AKUs, 90%+ complete)  
+> **Last Updated**: 2025-12-29T21:00:00Z
 
 ## Overview
 
@@ -11,9 +11,9 @@ This knowledge base contains authoritative, peer-reviewed definitions and relati
 
 ## What's Inside
 
-### ✅ Complete (52 AKUs across 4 categories)
+### ✅ Complete (60 AKUs across 4 categories)
 
-**Core Definitions (27 AKUs)**
+**Core Definitions (29 AKUs)**
 - 5 Base Units: Length, Time, Mass, Energy, Temperature
 - Derived Mechanics: Force, Power, Acceleration, Momentum, Angular Momentum, Action
 - Electromagnetic: Charge, Impedance, Voltage, Current, Electric/Magnetic Fields
@@ -21,6 +21,7 @@ This knowledge base contains authoritative, peer-reviewed definitions and relati
 - Geometric: Area, Volume
 - Quantum: Compton Wavelength, de Broglie Wavelength, Schwarzschild Radius
 - Constants: Fine Structure, Reduced Planck Constant
+- Information: Information Capacity, Gravitational Coupling Constant
 
 **Theory AKUs (9 AKUs)** ⭐ NEW
 - Fundamental Limits & Smallest Units (which Planck units are true minima?)
@@ -33,13 +34,16 @@ This knowledge base contains authoritative, peer-reviewed definitions and relati
 - String Theory at Planck Scale
 - Loop Quantum Gravity
 
-**Examples (6 AKUs)**
+**Examples (10 AKUs)**
 - Converting Particle Energy
 - Black Hole Properties
 - Deriving Planck Energy
 - Energy Scales Comparison (CMB to Planck)
 - Planck vs Atomic Scales
 - LHC vs Planck Energy
+- Particle Mass Comparison
+- Universe Scales Comparison
+- Hawking Radiation Calculation
 
 **Formulas (5 AKUs)**
 - Dimensional Analysis
