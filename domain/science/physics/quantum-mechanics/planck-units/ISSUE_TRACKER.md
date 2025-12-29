@@ -235,18 +235,15 @@
 
 ---
 
-### Issue #15: Missing Quantum Information Units (2 units) - PARTIALLY RESOLVED ✅
-- **Severity:** 🟡 High → 🟢 Low (1 of 2 completed)
+### Issue #15: Missing Quantum Information Units (2 units) ✅ FULLY RESOLVED
+- **Severity:** 🟡 High → ✅ Resolved
 - **Type:** Completeness gap
-- **Status:**
-  1. ❌ Planck information capacity (1 bit per 4ℓ_P²) - [still needed, covered in holographic principle]
+- **Completed:**
+  1. ✅ Planck information capacity (1 bit per 4ℓ_P²) - aku-030-planck-information-capacity.json ✅
   2. ✅ Planck entropy (S_P = k_B) - aku-028-planck-entropy.json ✅
-- **Priority:** P1 → P2 (reduced priority, 50% complete)
-- **Effort:** 2-3 hours remaining (information capacity)
-- **Assigned:** research-agent
-- **Status:** 🟢 Partially Resolved (1/2 completed, 2025-12-29T20:35:00Z)
-- **Deliverable:** `akus/definitions/aku-028-planck-entropy.json` (10KB)
-- **Quality:** Complete with Boltzmann formula, information equivalence, black hole entropy examples
+- **Priority:** P1 → ✅ Complete
+- **Status:** ✅ FULLY RESOLVED (2025-12-29T20:55:00Z)
+- **Deliverables:** Both AKUs created and validated
 
 ---
 
@@ -396,18 +393,22 @@
 | 🟢 Medium (P2) | 9 | 0 | 84-117 hours | 0% Complete |
 | **TOTAL** | **24** | **13** | **159-202 hours** | **54% Complete** |
 
-### Session Progress (2025-12-29T20:50:00Z)
+### Session Progress (2025-12-29T21:00:00Z)
 **This session resolved:**
 - Issues #4, #5 (Planck angular momentum, action) - already existed, verified
 - Issue #11 (EM units) - already complete, verified magnetic field exists
 - Issues #12, #13, #14 (Black hole thermodynamics, GUP) - NEW theory AKUs created
-- Issue #15 (partial - Planck entropy) - NEW definition AKU created
+- Issue #15 (Planck entropy, information capacity) - BOTH completed ✅
 - Created aku-t03-fundamental-limits-smallest-units (addresses user's "smallest possible unit" question)
 - Created aku-t05-quantum-foam (Wheeler's spacetime foam)
-- Created aku-e04-energy-scales-comparison, aku-e05-planck-vs-atomic-scales
+- Created aku-t08-string-theory-planck-scale
+- Created aku-t09-loop-quantum-gravity
+- Created aku-029-gravitational-coupling-constant
+- Created aku-030-planck-information-capacity
+- Created aku-e04-energy-scales-comparison, aku-e05-planck-vs-atomic-scales, aku-e06-lhc-vs-planck-energy
 - Removed 3 duplicate AKUs
 
-**Total new/modified AKUs this session:** 8 created, 3 removed = net +5
+**Total AKUs this session:** 15 created, 3 removed = net +12 (now 57 total)
 
 ---
 
