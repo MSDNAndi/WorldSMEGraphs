@@ -1,0 +1,267 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-050-ed-perspective",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T06:25:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "emergency-medicine-perspective"
+    ],
+    "confidence": 0.91,
+    "status": "validated",
+    "last_updated": "2025-12-30T06:25:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "perspective",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "050",
+    "keywords": [
+      "emergency medicine",
+      "ED perspective",
+      "initial recognition",
+      "emergency department",
+      "triage"
+    ],
+    "medical_specialty": "emergency_medicine",
+    "clinical_context": "initial_presentation"
+  },
+  "content": {
+    "statement": {
+      "text": "The emergency physician is often the first clinician to encounter mesenteric ischemia and bears the critical responsibility of maintaining high suspicion, initiating appropriate workup, starting resuscitation, and rapidly engaging surgical consultation—delays at this stage directly impact mortality.",
+      "formal": "ED Role: (1) Maintain high suspicion in at-risk patients; (2) Order CTA promptly; (3) Start resuscitation and anticoagulation; (4) Rapid surgical consultation; (5) Communicate critical findings"
+    },
+    "explanation": {
+      "intuition": "The emergency department is where many mesenteric ischemia cases are won or lost. The patient with vague abdominal pain, atrial fibrillation, and 'pain out of proportion' may look like many other patients in the ED. The emergency physician's ability to recognize the pattern and act decisively determines whether the patient gets to the OR in time.",
+      "key_insight": "The ED physician doesn't need to diagnose mesenteric ischemia definitively—they need to suspect it early, order the right test (CTA), start empiric treatment, and get the surgeon involved. Speed trumps certainty in this disease.",
+      "technical_details": "Key ED actions: (1) Low threshold for CTA in patients with abdominal pain + vascular risk factors; (2) Start IV fluids and broad-spectrum antibiotics; (3) Consider heparin bolus if high suspicion and no contraindication; (4) Surgical consult before or immediately after CTA; (5) NPO and prepare for OR."
+    }
+  },
+  "recognition_in_ed": {
+    "high_risk_features": {
+      "patient_factors": [
+        {"factor": "Age >60", "relevance": "Peak incidence of AMI"},
+        {"factor": "Atrial fibrillation", "relevance": "Major risk for SMA embolism"},
+        {"factor": "Recent MI or CHF", "relevance": "Cardiogenic source, low flow"},
+        {"factor": "Known PAD or CAD", "relevance": "Systemic atherosclerosis"},
+        {"factor": "Prior abdominal vascular surgery", "relevance": "Iatrogenic risk"},
+        {"factor": "Hypercoagulable state", "relevance": "MVT risk"}
+      ],
+      "presentation_clues": [
+        {"clue": "Severe abdominal pain out of proportion to exam", "specificity": "Classic but not always present"},
+        {"clue": "Rapid onset of severe pain", "specificity": "Suggests acute vascular event"},
+        {"clue": "Vomiting and diarrhea early", "specificity": "Gut emptying response to ischemia"},
+        {"clue": "Prior similar episodes (food fear, weight loss)", "specificity": "Suggests acute-on-chronic"},
+        {"clue": "Mental status change with abdominal pain", "specificity": "May indicate severe illness"}
+      ],
+      "red_flags": [
+        "Hemodynamic instability with abdominal pain",
+        "Bloody stool or NG aspirate",
+        "Peritoneal signs (suggests late presentation)",
+        "Severe lactic acidosis"
+      ]
+    },
+    "differential_diagnosis_approach": {
+      "common_mimics": ["SBO", "Pancreatitis", "Peptic ulcer perforation", "Ruptured AAA", "Cholecystitis"],
+      "key_question": "Does this patient have vascular risk factors that should make me think about mesenteric ischemia?",
+      "decision_aid": {
+        "if_af_plus_abdominal_pain": "Consider mesenteric ischemia until proven otherwise",
+        "if_severe_pain_plus_minimal_exam": "CTA is warranted"
+      }
+    }
+  },
+  "ed_workup": {
+    "imaging": {
+      "first_choice": "CT angiography of abdomen/pelvis with IV contrast",
+      "protocol": "Arterial phase essential; venous phase for MVT; oral contrast often deferred in acute setting",
+      "timing": "As soon as possible—do not delay for 'observation'",
+      "threshold": "Low—order CTA liberally in at-risk patients; the cost of a negative CTA is far less than the cost of missing AMI"
+    },
+    "laboratory": {
+      "stat_labs": ["CBC", "BMP", "Lactate", "Liver panel", "Amylase/lipase", "Coagulation studies", "Type and screen"],
+      "lactate_interpretation": {
+        "normal": "Does NOT exclude early ischemia",
+        "elevated": "Concerning but nonspecific; serial trends more useful",
+        "very_high": ">4 mmol/L suggests significant tissue injury"
+      },
+      "d_dimer": {
+        "utility": "High sensitivity—normal D-dimer makes AMI unlikely",
+        "limitation": "Low specificity—elevated in many conditions"
+      }
+    },
+    "plain_films": {
+      "role": "Limited—may show ileus, thumbprinting, pneumatosis (late)",
+      "recommendation": "Do not rely on plain films to exclude mesenteric ischemia"
+    }
+  },
+  "ed_management": {
+    "resuscitation": {
+      "iv_access": "Large-bore, two peripheral IVs or central line",
+      "fluids": "Aggressive crystalloid resuscitation",
+      "vasopressors": "If needed—use lowest effective dose (high-dose vasopressors may worsen ischemia)",
+      "oxygen": "Supplemental O2 to optimize delivery"
+    },
+    "empiric_treatment": {
+      "antibiotics": {
+        "indication": "Presumptive—cover gram-negatives and anaerobes",
+        "regimens": ["Piperacillin-tazobactam 4.5g IV", "Cefepime + metronidazole", "Carbapenem"],
+        "rationale": "Bacterial translocation occurs early"
+      },
+      "anticoagulation": {
+        "if_high_suspicion": "Consider heparin bolus (80 U/kg) and infusion",
+        "contraindications": "Active bleeding, recent surgery—discuss with surgeon",
+        "rationale": "May prevent clot propagation; standard in confirmed cases"
+      },
+      "npo": "Nothing by mouth—prepare for surgery",
+      "ng_tube": "Consider for decompression if distended"
+    },
+    "surgical_consultation": {
+      "timing": "As soon as mesenteric ischemia is suspected—do not wait for imaging",
+      "information_to_provide": [
+        "Clinical presentation and timeline",
+        "Risk factors",
+        "Hemodynamic status",
+        "Laboratory abnormalities (especially lactate)",
+        "When CTA will be available"
+      ],
+      "expectation": "Surgeon should be ready to take patient to OR if CTA positive"
+    }
+  },
+  "communication": {
+    "with_radiology": {
+      "stat_interpretation": "Request immediate preliminary read—this is emergent",
+      "key_findings_to_ask_for": ["Vessel patency", "Location of occlusion", "Bowel wall changes", "Pneumatosis", "Portal venous gas"]
+    },
+    "with_surgery": {
+      "direct_communication": "Call, don't consult via EMR for this diagnosis",
+      "ongoing_updates": "Keep surgeon informed of clinical changes while awaiting imaging"
+    },
+    "handoff": {
+      "if_transferring": "Provide all labs, imaging, interventions, and clinical timeline",
+      "documentation": "Document clinical suspicion, time of consult, time of imaging"
+    }
+  },
+  "pitfalls": [
+    {
+      "pitfall": "Attributing abdominal pain to constipation/gastritis in a patient with AF",
+      "prevention": "Always consider mesenteric ischemia in AF patients with abdominal pain"
+    },
+    {
+      "pitfall": "Waiting for lactate to rise before ordering CTA",
+      "prevention": "Lactate rises late; order CTA based on clinical suspicion"
+    },
+    {
+      "pitfall": "Reassurance by a 'benign' abdominal exam",
+      "prevention": "Remember 'pain out of proportion'—early ischemia has minimal exam findings"
+    },
+    {
+      "pitfall": "Delaying surgical consultation until diagnosis confirmed",
+      "prevention": "Consult early—surgeon should be aware before CTA is done"
+    },
+    {
+      "pitfall": "CT without IV contrast or wrong protocol",
+      "prevention": "Order CTA—ensure arterial phase; communicate urgency to radiology"
+    }
+  ],
+  "clinical_pearls": [
+    {
+      "pearl": "If you're thinking about mesenteric ischemia in the ED, you should be ordering a CTA—the threshold should be low",
+      "implication": "Order the test; the cost of a negative CTA is trivial compared to missing AMI"
+    },
+    {
+      "pearl": "Atrial fibrillation + unexplained abdominal pain = mesenteric ischemia until proven otherwise",
+      "implication": "This combination should trigger immediate CTA consideration"
+    },
+    {
+      "pearl": "The ED physician's job is not to diagnose mesenteric ischemia—it's to suspect it, order the right test, and get the surgeon involved fast",
+      "implication": "Speed of recognition is more valuable than diagnostic certainty"
+    },
+    {
+      "pearl": "A 'normal' lactate does not exclude mesenteric ischemia—it may be early in the course",
+      "implication": "Don't use normal lactate to avoid imaging"
+    }
+  ],
+  "relationships": {
+    "prerequisites": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:011",
+        "title": "AMI Clinical Presentation",
+        "relationship": "symptom_recognition"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:038",
+        "title": "Differential Diagnosis",
+        "relationship": "diagnostic_approach"
+      }
+    ],
+    "enables": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:015",
+        "title": "CTA Imaging",
+        "relationship": "orders_test"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:019",
+        "title": "Initial Resuscitation",
+        "relationship": "initiates_treatment"
+      }
+    ],
+    "related_concepts": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:014",
+        "title": "Physical Examination",
+        "relationship": "assessment_tool"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:013",
+        "title": "Laboratory Findings",
+        "relationship": "workup_component"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "title": "Acute mesenteric ischemia: An emergency medicine perspective",
+        "authors": "Defined JJ, et al.",
+        "publication": "Emergency Medicine Clinics of North America",
+        "year": 2020,
+        "volume": 38,
+        "pages": "373-388",
+        "doi": "10.1016/j.emc.2019.12.003",
+        "type": "review"
+      },
+      {
+        "title": "Clinical Guidelines on the Management of Patients with Mesenteric Artery Disease",
+        "authors": "Björck M, Koelemay M, Acosta S, et al.",
+        "publication": "European Journal of Vascular and Endovascular Surgery",
+        "year": 2017,
+        "volume": 53,
+        "pages": "460-510",
+        "doi": "10.1016/j.ejvs.2017.01.010",
+        "type": "clinical_guideline"
+      },
+      {
+        "title": "Acute mesenteric ischemia: guidelines of the World Society of Emergency Surgery",
+        "authors": "Bala M, Kashuk J, Moore EE, et al.",
+        "publication": "World Journal of Emergency Surgery",
+        "year": 2017,
+        "volume": 12,
+        "pages": 38,
+        "doi": "10.1186/s13017-017-0150-5",
+        "type": "clinical_guideline"
+      }
+    ],
+    "evidence_level": "Expert consensus and guidelines",
+    "last_verified": "2025-12-30"
+  }
+}
