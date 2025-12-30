@@ -1,5 +1,7 @@
 # WorldSMEGraphs
 
+[![Domain Maturity Check](https://github.com/MSDNAndi/WorldSMEGraphs/actions/workflows/domain-maturity-check.yml/badge.svg)](https://github.com/MSDNAndi/WorldSMEGraphs/actions/workflows/domain-maturity-check.yml)
+
 > A file-based, language-agnostic knowledge representation system for subject matter expert domains
 
 ## Overview
@@ -166,6 +168,8 @@ See [Project Structure Documentation](.project/structure.md) for complete detail
 
 ### For Contributors
 - **[Contributing Guidelines](docs/CONTRIBUTING.md)**: How to contribute
+- **[CI/CD Pipeline Guide](docs/CI-CD.md)**: Continuous Integration and Deployment ⭐ NEW
+- **[Documentation Index](docs/README.md)**: Complete guide to all documentation ⭐ NEW
 - **[New AKU Creation Guide](docs/NEW-AKU-CREATION-GUIDE.md)**: **START HERE** - Create new AKUs with ontology from day 1 🌟
 - **[Ontology Quick Start](docs/ONTOLOGY-QUICKSTART.md)**: How to use SKOS, SNOMED, FIBO and other ontologies
 - **[Complete Migration Guide](docs/COMPLETE-ONTOLOGY-MIGRATION-GUIDE.md)**: Comprehensive instructions for enhancing existing AKUs

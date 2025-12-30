@@ -28,7 +28,7 @@ import json
 import sys
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
-from datetime import datetime
+from datetime import datetime, timezone
 from collections import defaultdict
 import argparse
 
@@ -113,7 +113,7 @@ class DomainMaturityTracker:
         # Compile report
         report = {
             "domain_path": domain_path,
-            "scan_date": datetime.utcnow().isoformat() + "Z",
+            "scan_date": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "maturity_level": maturity_level,
             "maturity_name": MATURITY_LEVELS[maturity_level]["name"],
             "completeness_percentage": round(completeness, 1),

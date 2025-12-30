@@ -301,8 +301,26 @@ This automated script checks for:
 1. **Validate AKUs**: If you modified any AKU files, run the validation script
 2. **Check Agent Configs**: If you modified agents, verify they meet requirements
 3. **Verify Timestamps**: Ensure UTC timestamps are updated on modified AKUs
-4. **Test Locally**: If applicable, test any scripts or tools you modified
-5. **Review Documentation**: Update docs if you changed structure or added features
+4. **Test Workflows**: If you modified workflows, run the local test script
+5. **Test Locally**: If applicable, test any scripts or tools you modified
+6. **Review Documentation**: Update docs if you changed structure or added features
+
+### Testing Workflows Locally
+Before pushing workflow changes, test them locally:
+
+```bash
+# Test workflow dependencies and functionality
+bash .github/scripts/test-workflow-locally.sh
+```
+
+This validates:
+- Python installation
+- Required scripts exist and work
+- Domains with AKUs are found
+- Maturity tracker functionality
+- Workflow YAML syntax
+
+See [CI/CD Documentation](../docs/CI-CD.md) for complete guide.
 
 ## Workflow Requirements
 
