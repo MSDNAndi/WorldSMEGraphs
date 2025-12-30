@@ -29,7 +29,7 @@ Mesenteric ischemia remains one of the most lethal conditions in vascular surger
 
 ### Atomic Knowledge Units (AKUs)
 
-Currently contains **50 comprehensive AKUs** organized by category:
+Currently contains **55 comprehensive AKUs** organized by category:
 
 #### Definitions (5 AKUs)
 - `aku-001`: Mesenteric ischemia overview and classification
@@ -50,7 +50,7 @@ Currently contains **50 comprehensive AKUs** organized by category:
 - `aku-040`: Ischemia-reperfusion injury
 - `aku-041`: NOMI expanded (prevention, treatment, papaverine)
 
-#### Diagnosis (7 AKUs)
+#### Diagnosis (8 AKUs)
 - `aku-011`: AMI clinical presentation
 - `aku-012`: CMI clinical presentation
 - `aku-013`: Laboratory findings
@@ -58,6 +58,7 @@ Currently contains **50 comprehensive AKUs** organized by category:
 - `aku-038`: Differential diagnosis
 - `aku-039`: Atypical presentations (elderly, post-op, ICU)
 - `aku-046`: Emerging biomarkers (I-FABP, citrulline)
+- `aku-052`: Clinical decision algorithms and pathways
 
 #### Imaging (4 AKUs)
 - `aku-015`: CT angiography for mesenteric ischemia
@@ -65,7 +66,7 @@ Currently contains **50 comprehensive AKUs** organized by category:
 - `aku-017`: Conventional/digital subtraction angiography
 - `aku-018`: MR angiography
 
-#### Treatment (7 AKUs)
+#### Treatment (8 AKUs)
 - `aku-019`: Initial resuscitation and stabilization
 - `aku-020`: Anticoagulation therapy
 - `aku-021`: Open surgical revascularization
@@ -73,8 +74,9 @@ Currently contains **50 comprehensive AKUs** organized by category:
 - `aku-023`: Bowel resection and second-look laparotomy
 - `aku-024`: Hybrid surgical-endovascular approaches
 - `aku-047`: Mechanical thrombectomy devices and techniques
+- `aku-051`: Mesenteric venous thrombosis treatment
 
-#### Surgical Dilemmas (7 AKUs)
+#### Surgical Dilemmas (8 AKUs)
 - `aku-025`: Open vs endovascular approach dilemma
 - `aku-026`: Bowel viability assessment challenges
 - `aku-027`: Damage control surgery decisions
@@ -82,12 +84,14 @@ Currently contains **50 comprehensive AKUs** organized by category:
 - `aku-029`: Timing of revascularization
 - `aku-030`: Managing elderly and comorbid patients
 - `aku-043`: Transfer and resource allocation decisions
+- `aku-053`: Intraoperative viability assessment techniques (ICG, Doppler)
 
-#### Outcomes (4 AKUs)
+#### Outcomes (5 AKUs)
 - `aku-031`: Mortality and survival outcomes
 - `aku-032`: Short bowel syndrome
 - `aku-033`: Reintervention and patency rates
 - `aku-034`: Quality of life outcomes
+- `aku-054`: Complications and failure modes
 
 #### Follow-up (3 AKUs)
 - `aku-035`: Surveillance protocols
@@ -97,6 +101,14 @@ Currently contains **50 comprehensive AKUs** organized by category:
 #### Special Situations (2 AKUs)
 - `aku-044`: Post-aortic surgery mesenteric ischemia
 - `aku-045`: Median arcuate ligament syndrome (MALS)
+
+#### Perspectives (3 AKUs)
+- `aku-048`: Interventional radiology perspective
+- `aku-049`: Critical care/ICU perspective
+- `aku-050`: Emergency medicine perspective
+
+#### Education (1 AKU)
+- `aku-055`: Training and simulation for mesenteric ischemia
 
 #### Perspectives (3 AKUs)
 - `aku-048`: Interventional radiology perspective

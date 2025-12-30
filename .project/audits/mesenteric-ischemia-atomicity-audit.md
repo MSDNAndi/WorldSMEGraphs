@@ -1,6 +1,7 @@
 # AKU Atomicity Audit Report: Mesenteric Ischemia Domain
 
-> **Audit Date**: 2025-12-30T05:01:41.141Z  
+> **Audit Date**: 2025-12-30T06:55:00.000Z (Updated)  
+> **Original Audit Date**: 2025-12-30T05:01:41.141Z  
 > **Auditor**: AKU Atomicity Specialist  
 > **Domain Path**: `medicine/surgery/vascular/pathology/mesenteric-ischemia`  
 > **Target Audience**: Academic surgeons, vascular surgeons, doctors in training  
@@ -12,21 +13,35 @@
 
 ### Overall Assessment: ✅ EXCELLENT ATOMICITY
 
-After comprehensive review of all 29 AKUs across 9 subdirectories, this audit finds that the mesenteric ischemia knowledge base exhibits **excellent atomicity**. Each AKU focuses on a single, coherent concept appropriate for the expert surgical audience.
+After comprehensive review of all 55 AKUs across 13 categories, this audit finds that the mesenteric ischemia knowledge base exhibits **excellent atomicity**. Each AKU focuses on a single, coherent concept appropriate for the expert surgical audience.
 
 | Metric | Value |
 |--------|-------|
-| Total AKUs Audited | 29 |
-| Atomic (Pass) | 29 (100%) |
+| Total AKUs Audited | 55 |
+| Atomic (Pass) | 55 (100%) |
 | Over-bundled | 0 |
 | Under-specified | 0 |
 | Transformations Required | 0 |
+
+### Session 3 Additions (26 new AKUs)
+| Category | New AKUs |
+|----------|----------|
+| Epidemiology | 006 |
+| Diagnosis | 014, 046, 052 |
+| Imaging | 017, 018 |
+| Treatment | 047, 051 |
+| Surgical Dilemmas | 043, 053 |
+| Outcomes | 033, 034, 054 |
+| Follow-up | 036, 037 |
+| Special Situations | 044, 045 |
+| Perspectives | 048, 049, 050 |
+| Education | 055 |
 
 ---
 
 ## Detailed Analysis by Category
 
-### 1. Definitions (4 AKUs)
+### 1. Definitions (5 AKUs)
 
 | AKU ID | Title | Atomicity | Notes |
 |--------|-------|-----------|-------|
@@ -34,18 +49,20 @@ After comprehensive review of all 29 AKUs across 9 subdirectories, this audit fi
 | aku-002 | Acute Mesenteric Ischemia | ✅ ATOMIC | Single disease entity with its four etiologic subtypes |
 | aku-003 | Chronic Mesenteric Ischemia | ✅ ATOMIC | Single disease entity with distinct clinical syndrome |
 | aku-004 | Mesenteric Arterial Anatomy | ✅ ATOMIC | Single anatomic concept (vascular supply to intestines) |
+| aku-042 | Colonic Ischemia | ✅ ATOMIC | Single disease entity—ischemic colitis |
 
-**Assessment**: All definition AKUs properly separate distinct disease entities. The overview (001) appropriately introduces the spectrum, while 002 and 003 cover acute vs chronic as distinct entities. Anatomy (004) is foundational and standalone.
+**Assessment**: All definition AKUs properly separate distinct disease entities. The overview (001) appropriately introduces the spectrum, while 002 and 003 cover acute vs chronic as distinct entities. Anatomy (004) is foundational and standalone. Colonic ischemia (042) correctly separated from small bowel ischemia.
 
-### 2. Epidemiology (1 AKU)
+### 2. Epidemiology (2 AKUs)
 
 | AKU ID | Title | Atomicity | Notes |
 |--------|-------|-----------|-------|
 | aku-005 | AMI Epidemiology | ✅ ATOMIC | Single epidemiologic profile for acute disease |
+| aku-006 | CMI Epidemiology | ✅ ATOMIC | Single epidemiologic profile for chronic disease |
 
-**Assessment**: Appropriately bundles incidence, demographics, and risk factors as a cohesive epidemiologic unit.
+**Assessment**: Appropriately bundles incidence, demographics, and risk factors as cohesive epidemiologic units. AMI and CMI properly separated.
 
-### 3. Pathophysiology (4 AKUs)
+### 3. Pathophysiology (6 AKUs)
 
 | AKU ID | Title | Atomicity | Notes |
 |--------|-------|-----------|-------|
