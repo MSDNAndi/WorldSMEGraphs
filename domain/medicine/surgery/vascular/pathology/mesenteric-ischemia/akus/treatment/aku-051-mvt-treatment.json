@@ -1,0 +1,303 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-051-mvt-treatment",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T06:30:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.91,
+    "status": "validated",
+    "last_updated": "2025-12-30T06:30:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "treatment",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "051",
+    "keywords": [
+      "mesenteric venous thrombosis",
+      "MVT treatment",
+      "anticoagulation",
+      "thrombolysis",
+      "venous ischemia"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "treatment"
+  },
+  "content": {
+    "statement": {
+      "text": "Mesenteric venous thrombosis (MVT) has distinct treatment principles from arterial ischemia: systemic anticoagulation is the cornerstone of therapy, surgical intervention is reserved for peritonitis or bowel necrosis, and long-term anticoagulation is typically required with duration determined by underlying etiology.",
+      "formal": "MVT Treatment: (1) Anticoagulation (heparin → warfarin/DOAC); (2) Supportive care (bowel rest, fluids, antibiotics); (3) Surgery only for peritonitis/necrosis; (4) Consider interventional thrombolysis in selected cases; (5) Duration 3-6 months minimum, lifelong if prothrombotic state"
+    },
+    "explanation": {
+      "intuition": "Unlike arterial mesenteric ischemia where blood can't get TO the bowel, venous thrombosis means blood can't get OUT—causing congestion, edema, and eventual infarction. The treatment approach is different: anticoagulation allows the body's fibrinolytic system to work while preventing clot propagation. Surgery is only needed when the bowel has already died.",
+      "key_insight": "MVT has a more forgiving timeline than arterial ischemia, but the window for intervention is still limited. Early anticoagulation prevents clot extension and allows collateral formation. The challenge is recognizing MVT early enough that anticoagulation alone can prevent necrosis.",
+      "technical_details": "Heparin anticoagulation should be initiated immediately upon diagnosis. LMWH may be used but UFH offers reversibility if surgery becomes necessary. Transition to oral anticoagulation after stabilization. Work up for underlying hypercoagulable state is essential."
+    }
+  },
+  "anticoagulation": {
+    "initial_therapy": {
+      "agents": [
+        {
+          "drug": "Unfractionated heparin (UFH)",
+          "dosing": "Bolus 80 U/kg, then 18 U/kg/hr; target aPTT 1.5-2.5x control",
+          "advantage": "Reversible if surgery needed",
+          "use": "Preferred if surgery possible"
+        },
+        {
+          "drug": "Low molecular weight heparin (LMWH)",
+          "dosing": "Enoxaparin 1 mg/kg SC q12h or equivalent",
+          "advantage": "Predictable response, no monitoring needed",
+          "caution": "Less reversible than UFH"
+        }
+      ],
+      "timing": "Initiate immediately upon diagnosis—do not wait for confirmatory tests if clinical suspicion high",
+      "duration_initial": "Continue until clinically stable and transitioned to oral anticoagulation"
+    },
+    "transition_to_oral": {
+      "timing": "When patient tolerating oral intake and stable",
+      "options": [
+        {
+          "drug": "Warfarin",
+          "target": "INR 2.0-3.0",
+          "overlap": "Overlap with heparin for 5+ days and INR therapeutic for 24+ hours",
+          "advantage": "Established, reversible",
+          "disadvantage": "Requires monitoring, dietary interactions"
+        },
+        {
+          "drug": "Direct oral anticoagulants (DOACs)",
+          "examples": ["Rivaroxaban", "Apixaban", "Edoxaban"],
+          "advantage": "No monitoring, fixed dosing, fewer interactions",
+          "considerations": [
+            "Limited data specifically in MVT (extrapolated from VTE trials)",
+            "May be preferred in patients with cancer (rivaroxaban, edoxaban)",
+            "Avoid if severe liver disease or renal impairment"
+          ],
+          "trend": "Increasing use; non-inferior to warfarin in VTE"
+        }
+      ]
+    },
+    "duration": {
+      "provoked_mvt": {
+        "definition": "Identifiable transient risk factor (surgery, infection, medications)",
+        "duration": "3-6 months",
+        "rationale": "Risk factor removed; recurrence risk lower"
+      },
+      "unprovoked_mvt": {
+        "definition": "No identifiable risk factor",
+        "duration": "Minimum 6 months; consider indefinite",
+        "rationale": "Higher recurrence risk; weigh bleeding vs thrombosis"
+      },
+      "prothrombotic_state": {
+        "examples": ["Factor V Leiden", "Protein C/S deficiency", "Antithrombin deficiency", "Antiphospholipid syndrome", "Myeloproliferative neoplasm"],
+        "duration": "Lifelong anticoagulation",
+        "rationale": "Persistent high recurrence risk"
+      },
+      "malignancy_associated": {
+        "agent": "LMWH or DOAC preferred over warfarin",
+        "duration": "Duration of cancer treatment; indefinite if persistent",
+        "guidance": "Per oncology VTE guidelines"
+      }
+    }
+  },
+  "supportive_care": {
+    "bowel_rest": {
+      "indication": "NPO initially for all acute MVT",
+      "duration": "Until pain improving and bowel function returning",
+      "nutrition": "TPN if prolonged NPO expected"
+    },
+    "fluid_resuscitation": {
+      "rationale": "Third-spacing into bowel wall and mesentery",
+      "goal": "Adequate urine output, improving lactate"
+    },
+    "antibiotics": {
+      "indication": "Broad-spectrum coverage for translocation prevention",
+      "regimen": "Same as for arterial ischemia (pip-tazo, carbapenem)"
+    },
+    "pain_control": {
+      "approach": "Opioids as needed; monitor for ileus"
+    }
+  },
+  "interventional_therapy": {
+    "catheter_directed_thrombolysis": {
+      "indications": [
+        "Extensive SMV/portal vein thrombosis",
+        "Worsening symptoms despite anticoagulation",
+        "No peritonitis or necrosis"
+      ],
+      "approach": {
+        "transhepatic": "Access portal vein percutaneously through liver",
+        "transjugular": "TIPS approach with thrombolysis"
+      },
+      "agents": "tPA infusion over 24-72 hours",
+      "monitoring": "Serial imaging to assess response; watch for bleeding",
+      "outcomes": "May improve portal vein patency; limited comparative data"
+    },
+    "mechanical_thrombectomy": {
+      "emerging": "Pharmacomechanical approaches being explored",
+      "evidence": "Limited; case series only"
+    },
+    "tips_for_portal_hypertension": {
+      "role": "Not first-line; consider if chronic portal hypertension develops after MVT"
+    }
+  },
+  "surgical_intervention": {
+    "indications": [
+      "Peritonitis (peritoneal signs on exam)",
+      "Signs of bowel necrosis (hemodynamic instability, acidosis, bloody stool)",
+      "Failure to improve with anticoagulation",
+      "Perforation"
+    ],
+    "procedure": {
+      "exploration": "Laparotomy to assess bowel viability",
+      "resection": "Remove frankly necrotic bowel; preserve maximum length",
+      "venous_thrombectomy": "Generally NOT attempted (technically difficult, clot extends into small veins)",
+      "second_look": "Consider if viability questionable"
+    },
+    "outcomes": {
+      "mortality_with_necrosis": "20-50%",
+      "sbs_risk": "If extensive resection required"
+    }
+  },
+  "hypercoagulable_workup": {
+    "timing": "After acute phase; some tests affected by acute thrombosis and anticoagulation",
+    "tests_to_consider": [
+      {"test": "Factor V Leiden", "timing": "Any time"},
+      {"test": "Prothrombin G20210A", "timing": "Any time"},
+      {"test": "Protein C activity", "timing": "Off warfarin for 2+ weeks"},
+      {"test": "Protein S activity", "timing": "Off warfarin for 2+ weeks"},
+      {"test": "Antithrombin activity", "timing": "Off heparin; affected by acute thrombosis"},
+      {"test": "Lupus anticoagulant, anticardiolipin, anti-beta2-glycoprotein", "timing": "Best tested off anticoagulation; confirm 12 weeks later"},
+      {"test": "JAK2 mutation", "timing": "If myeloproliferative neoplasm suspected"},
+      {"test": "Homocysteine", "timing": "Any time"}
+    ],
+    "additional_workup": {
+      "imaging": "CT or MRI to rule out occult malignancy (especially pancreatic, hepatic)",
+      "hematology_referral": "If inherited thrombophilia or myeloproliferative disorder suspected"
+    }
+  },
+  "prognosis": {
+    "short_term_survival": {
+      "with_anticoagulation_alone": "85-95% if no necrosis",
+      "with_surgery": "50-80% depending on extent"
+    },
+    "recurrence_risk": {
+      "without_anticoagulation": "20-40% at 5 years",
+      "with_anticoagulation": "5-10% at 5 years"
+    },
+    "long_term_sequelae": {
+      "portal_hypertension": "5-10% develop chronic portal hypertension",
+      "intestinal_stricture": "Rare, from healed ischemic injury"
+    }
+  },
+  "clinical_pearls": [
+    {
+      "pearl": "MVT has a more forgiving timeline than arterial ischemia—anticoagulation is the first-line treatment, not surgery",
+      "implication": "Resist the urge to rush to surgery; anticoagulation allows many patients to avoid operation"
+    },
+    {
+      "pearl": "An underlying hypercoagulable state is found in 60-80% of MVT cases—workup is essential to guide anticoagulation duration",
+      "implication": "Perform thrombophilia workup after acute phase; results dictate lifelong vs. time-limited therapy"
+    },
+    {
+      "pearl": "DOACs are increasingly used for MVT, extrapolating from VTE data, though warfarin remains well-established",
+      "implication": "Both are acceptable; choose based on patient factors and monitoring capability"
+    },
+    {
+      "pearl": "Peritonitis mandates surgery—anticoagulation cannot salvage necrotic bowel",
+      "implication": "Don't delay operation hoping anticoagulation will work if peritoneal signs are present"
+    }
+  ],
+  "relationships": {
+    "prerequisites": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:009",
+        "title": "Mesenteric Venous Thrombosis Mechanism",
+        "relationship": "pathophysiology_foundation"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:020",
+        "title": "Anticoagulation Therapy",
+        "relationship": "treatment_foundation"
+      }
+    ],
+    "enables": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:035",
+        "title": "Surveillance Protocols",
+        "relationship": "follow_up"
+      }
+    ],
+    "related_concepts": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:023",
+        "title": "Bowel Resection",
+        "relationship": "surgical_intervention"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:031",
+        "title": "Mortality Outcomes",
+        "relationship": "prognosis"
+      }
+    ],
+    "cross_domain": [
+      {
+        "domain": "medicine/hematology/thrombophilia",
+        "relationship": "underlying_etiology",
+        "note": "Hypercoagulable workup essential"
+      },
+      {
+        "domain": "medicine/oncology/paraneoplastic",
+        "relationship": "occult_malignancy",
+        "note": "MVT may herald occult cancer"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "title": "Mesenteric venous thrombosis: a systematic review",
+        "authors": "Singal AK, Kamath PS, Tefferi A",
+        "publication": "Mayo Clinic Proceedings",
+        "year": 2013,
+        "volume": 88,
+        "pages": "285-294",
+        "doi": "10.1016/j.mayocp.2013.01.012",
+        "type": "systematic_review"
+      },
+      {
+        "title": "Clinical Guidelines on the Management of Patients with Mesenteric Artery Disease",
+        "authors": "Björck M, Koelemay M, Acosta S, et al.",
+        "publication": "European Journal of Vascular and Endovascular Surgery",
+        "year": 2017,
+        "volume": 53,
+        "pages": "460-510",
+        "doi": "10.1016/j.ejvs.2017.01.010",
+        "type": "clinical_guideline"
+      },
+      {
+        "title": "Direct oral anticoagulants for the treatment of splanchnic vein thrombosis",
+        "authors": "Defined KK, et al.",
+        "publication": "Journal of Thrombosis and Haemostasis",
+        "year": 2022,
+        "volume": 20,
+        "pages": "1236-1245",
+        "doi": "10.1111/jth.15680",
+        "type": "cohort_study"
+      }
+    ],
+    "evidence_level": "Moderate (systematic reviews, retrospective cohorts; no RCTs)",
+    "last_verified": "2025-12-30"
+  }
+}
