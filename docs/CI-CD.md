@@ -383,10 +383,10 @@ jobs:
 ## Related Documentation
 
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [Workflow README](.github/workflows/README.md)
-- [Project Issues](.project/issues.md)
-- [Improvements Tracking](.project/improvements.md)
-- [Contributing Guidelines](docs/CONTRIBUTING.md)
+- [Workflow README](../.github/workflows/README.md)
+- [Project Issues](../.project/issues.md)
+- [Improvements Tracking](../.project/improvements.md)
+- [Contributing Guidelines](CONTRIBUTING.md)
 
 ---
 
