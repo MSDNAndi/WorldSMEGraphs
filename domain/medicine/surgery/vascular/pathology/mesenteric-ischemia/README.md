@@ -21,13 +21,16 @@ Mesenteric ischemia remains one of the most lethal conditions in vascular surger
 
 ### Atomic Knowledge Units (AKUs)
 
-Currently contains **22 comprehensive AKUs** organized by category:
+Currently contains **24 comprehensive AKUs** organized by category:
 
 #### Definitions (4 AKUs)
 - `aku-001`: Mesenteric ischemia overview and classification
 - `aku-002`: Acute mesenteric ischemia (AMI)
 - `aku-003`: Chronic mesenteric ischemia (CMI)
 - `aku-004`: Mesenteric arterial anatomy
+
+#### Epidemiology (1 AKU)
+- `aku-005`: AMI epidemiology and risk factors
 
 #### Pathophysiology (3 AKUs)
 - `aku-007`: Arterial occlusion mechanisms (embolism vs thrombosis)
@@ -47,11 +50,12 @@ Currently contains **22 comprehensive AKUs** organized by category:
 - `aku-022`: Endovascular treatment options
 - `aku-023`: Bowel resection and second-look laparotomy
 
-#### Surgical Dilemmas (5 AKUs)
+#### Surgical Dilemmas (6 AKUs)
 - `aku-025`: Open vs endovascular approach dilemma
 - `aku-026`: Bowel viability assessment challenges
 - `aku-027`: Damage control surgery decisions
 - `aku-028`: Massive bowel resection decisions
+- `aku-029`: Timing of revascularization
 - `aku-030`: Managing elderly and comorbid patients
 
 #### Outcomes (2 AKUs)
