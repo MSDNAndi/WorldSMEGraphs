@@ -1,0 +1,109 @@
+{
+  "@context": "aku-v2",
+  "@type": "formula",
+  "@id": "physics:quantum:planck-units:dimensional-analysis-method",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T21:48:00.000Z",
+    "updated": "2025-12-29T21:48:00.000Z",
+    "contributors": ["copilot", "physics-agent"],
+    "confidence": 0.98,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "science/physics/quantum-mechanics/planck-units",
+    "type": "formula",
+    "subtype": "method",
+    "difficulty": "introductory",
+    "importance": "foundational"
+  },
+  "content": {
+    "title": "Dimensional Analysis Method for Planck Units",
+    "summary": "Dimensional analysis is a systematic technique for deriving any Planck unit from fundamental constants. By matching the dimensions of a physical quantity to combinations of fundamental constants, one uniquely determines the Planck scale for that quantity.",
+    "core_principle": {
+      "statement": "Any physical quantity X with dimensions [M^a L^b T^c] can be expressed as a unique combination of fundamental constants c, ℏ, and G.",
+      "formula": "X_P = c^α × ℏ^β × G^γ",
+      "latex": "X_P = c^\\alpha \\cdot \\hbar^\\beta \\cdot G^\\gamma"
+    },
+    "method_steps": [
+      {
+        "step": 1,
+        "title": "Express the target quantity in base dimensions",
+        "description": "Write the physical quantity in terms of [M, L, T]",
+        "example": "For length: [X] = [L], for energy: [X] = [M L² T⁻²]"
+      },
+      {
+        "step": 2,
+        "title": "Write dimensions of fundamental constants",
+        "constants": {
+          "c": "[L T⁻¹]",
+          "hbar": "[M L² T⁻¹]",
+          "G": "[M⁻¹ L³ T⁻²]"
+        }
+      },
+      {
+        "step": 3,
+        "title": "Set up the dimensional equation",
+        "formula": "[M^a L^b T^c] = [L T⁻¹]^α × [M L² T⁻¹]^β × [M⁻¹ L³ T⁻²]^γ"
+      },
+      {
+        "step": 4,
+        "title": "Extract system of linear equations",
+        "equations": [
+          "M: a = β - γ",
+          "L: b = α + 2β + 3γ",
+          "T: c = -α - β - 2γ"
+        ]
+      },
+      {
+        "step": 5,
+        "title": "Solve the system for α, β, γ",
+        "note": "Three equations, three unknowns → unique solution"
+      }
+    ],
+    "key_insight": "The method works because c, ℏ, G form a complete basis for mechanical dimensions [M, L, T]. Adding k_B extends to temperature [K], and adding e or ε₀ extends to electromagnetic units.",
+    "advantages": [
+      "No physics knowledge required beyond dimensions",
+      "Gives exact algebraic relationships, not estimates",
+      "Reveals natural scales inherent in fundamental constants",
+      "Self-consistent: results automatically have correct dimensions"
+    ],
+    "limitations": [
+      "Gives only the Planck scale, not numerical factors",
+      "Cannot determine dimensionless prefactors",
+      "Requires choosing which constants to use"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:fundamental-constants",
+        "required": true
+      }
+    ],
+    "leads_to": [
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:planck-length-derivation",
+        "relationship": "applies_to"
+      },
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:planck-time-derivation",
+        "relationship": "applies_to"
+      },
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:planck-mass-derivation",
+        "relationship": "applies_to"
+      }
+    ]
+  },
+  "provenance": {
+    "primary_sources": [
+      {
+        "type": "textbook",
+        "author": "Barenblatt",
+        "title": "Dimensional Analysis",
+        "year": 1996
+      }
+    ]
+  }
+}

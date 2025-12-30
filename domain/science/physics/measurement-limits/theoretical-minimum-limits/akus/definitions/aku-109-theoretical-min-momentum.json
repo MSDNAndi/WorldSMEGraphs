@@ -1,0 +1,91 @@
+{
+  "@context": "aku-v2",
+  "@type": "definition",
+  "@id": "physics:measurement-limits:theoretical-minimum-limits:min-momentum",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T23:46:00.000Z",
+    "updated": "2025-12-29T23:46:00.000Z",
+    "contributors": ["physics-agent", "copilot"],
+    "confidence": 0.90,
+    "status": "validated",
+    "review_date": "2025-12-29T23:46:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/physics/measurement-limits/theoretical-minimum-limits",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "foundational"
+  },
+  "content": {
+    "title": "Theoretical Minimum Momentum",
+    "abstract": "Momentum has no theoretical minimum - it is a continuous quantity that can be zero. However, the Heisenberg Uncertainty Principle constrains simultaneous knowledge of position and momentum, and in finite systems there's a minimum momentum related to the system size.",
+    "theoretical_minimum": {
+      "absolute": "p = 0 is allowed (particle at rest in its reference frame)",
+      "for_localized_particle": "Δp ≥ ℏ/(2Δx) from uncertainty principle",
+      "in_finite_box": "p_min = h/(2L) for box of size L",
+      "status": "CONTINUOUS - no fundamental minimum",
+      "confidence": "High"
+    },
+    "classical_theory": {
+      "minimum": "p = 0 (particle at rest)",
+      "continuity": "Momentum is continuous, can take any value"
+    },
+    "quantum_mechanics": {
+      "uncertainty_principle": {
+        "formula": "Δx Δp ≥ ℏ/2",
+        "implication": "Cannot have both Δx → 0 and Δp → 0",
+        "interpretation": "Not a minimum momentum, but minimum uncertainty product"
+      },
+      "particle_in_box": {
+        "formula": "p_n = nℏπ/L = nh/(2L) for n = 1, 2, 3, ...",
+        "minimum_nonzero": "p₁ = ℏπ/L",
+        "interpretation": "Standing wave condition quantizes momentum in confined systems"
+      },
+      "free_particle": {
+        "spectrum": "Continuous - any p is allowed",
+        "minimum": "p = 0 is a valid eigenstate"
+      }
+    },
+    "photon_momentum": {
+      "formula": "p = h/λ = hν/c = E/c",
+      "minimum": "No minimum - as ν → 0, p → 0",
+      "cosmic_limit": "Photon with λ = universe size: p ~ 10⁻⁶¹ kg⋅m/s"
+    },
+    "massive_particle_at_rest": {
+      "momentum": "p = 0 in rest frame",
+      "zero_point_momentum": "In confined systems, zero-point motion gives minimum |p|",
+      "example": "Ground state of harmonic oscillator: ⟨p²⟩ = mℏω/2"
+    },
+    "de_broglie_wavelength": {
+      "formula": "λ = h/p",
+      "interpretation": "As p → 0, λ → ∞ (delocalized over all space)",
+      "implication": "Very low momentum = very long wavelength"
+    },
+    "finite_universe_limit": {
+      "size": "L = observable universe diameter ≈ 8.8×10²⁶ m",
+      "minimum_momentum": "p_min ~ ℏ/L ~ 10⁻⁶¹ kg⋅m/s",
+      "interpretation": "Momentum resolution limited by universe size (IR cutoff)"
+    },
+    "comparison_with_planck": {
+      "planck_momentum": "p_P = √(ℏc³/G) = 6.52 kg⋅m/s",
+      "insight": "This is macroscopic! A walking person has similar momentum.",
+      "electron_typical": "1 MeV electron: p ~ 10⁻²² kg⋅m/s",
+      "ratio": "p_P / p_electron ~ 10²³"
+    }
+  },
+  "relationships": {
+    "related": [
+      "urn:aku:physics:measurement-limits:theoretical-minimum-limits:104-min-angular-momentum",
+      "urn:aku:physics:quantum-mechanics:planck-units:f06-generalized-uncertainty-principle"
+    ],
+    "contrasts_with": [
+      "urn:aku:physics:measurement-limits:minimum-measurable-quantities:016-min-momentum"
+    ]
+  },
+  "metadata_extended": {
+    "educational_level": ["undergraduate", "graduate"],
+    "prerequisites": ["quantum mechanics", "de Broglie hypothesis"],
+    "tags": ["momentum", "uncertainty-principle", "particle-in-box", "de-broglie"]
+  }
+}

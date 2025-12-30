@@ -1,0 +1,125 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "ScientificConcept"
+  ],
+  "@id": "aku-014-minimum-measurable-power",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T00:30:00.000Z",
+    "contributors": [
+      "physics-expert-agent"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T00:30:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/physics/measurement-limits/minimum-measurable-quantities",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "foundational",
+    "aku_id": "014",
+    "keywords": [
+      "minimum power",
+      "single photon",
+      "power detection",
+      "femtowatt",
+      "attowatt"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The smallest detectable power corresponds to single-photon detection rates. A single visible photon per second represents ~3 × 10⁻¹⁹ W. Optical power meters achieve ~10⁻¹⁵ W (femtowatt) sensitivity. Bolometers and transition edge sensors reach ~10⁻¹⁸ W (attowatt). There is NO fundamental minimum power—it can be arbitrarily small. The Planck power (Pₚ ≈ 3.6 × 10⁵² W) is NOT a minimum—it's enormous.",
+      "formal": "Single visible photon/s: ~3 × 10⁻¹⁹ W; Power meter: ~10⁻¹⁵ W; Bolometer: ~10⁻¹⁸ W; Planck: 3.6 × 10⁵² W",
+      "key_values": {
+        "single_photon_per_second": "~3 × 10⁻¹⁹ W (visible)",
+        "optical_power_meter": "~10⁻¹⁵ W",
+        "bolometer_sensitivity": "~10⁻¹⁸ W",
+        "planck_power": "3.6 × 10⁵² W (c⁵/G - enormous)"
+      }
+    },
+    "explanation": {
+      "intuition": "Power = Energy/Time. The smallest power corresponds to the lowest detectable energy (single photons) over the longest measurement time. A photon counter detecting one visible photon per second measures ~10⁻¹⁹ W. The Planck power (~10⁵² W) is NOT minimum—it's the power output of the entire observable universe (~10⁵² W) coincidentally matching Planck power.",
+      "key_insight": "There is no fundamental minimum power because both energy and time can vary. A microwave photon per minute is ~10⁻²⁶ W. Practical limits come from detector noise (thermal, amplifier). Gravitational wave energy flux at Earth from binary black holes is ~10⁻³ W/m², extremely low power density."
+    },
+    "comparison_with_planck": {
+      "planck_power": "Pₚ = c⁵/G = Eₚ/tₚ ≈ 3.6 × 10⁵² W",
+      "single_photon": "~10⁻¹⁹ W",
+      "ratio": "Pₚ / P_photon ≈ 10⁷¹",
+      "interpretation": "Planck power equals the luminosity of the observable universe. It's definitely NOT a minimum."
+    }
+  },
+  "power_hierarchy": {
+    "smallest_to_largest": [
+      {
+        "name": "Single microwave photon/s",
+        "value_W": 1e-24,
+        "description": "Lowest practical power"
+      },
+      {
+        "name": "Single visible photon/s",
+        "value_W": 3e-19,
+        "description": "Photon counter limit"
+      },
+      {
+        "name": "Bolometer noise floor",
+        "value_W": 1e-18,
+        "description": "Attowatt sensitivity"
+      },
+      {
+        "name": "Power meter",
+        "value_W": 1e-15,
+        "description": "Femtowatt range"
+      },
+      {
+        "name": "LED",
+        "value_W": 0.01,
+        "description": "~10 mW"
+      },
+      {
+        "name": "Sun output",
+        "value_W": 3.8e26,
+        "description": "Solar luminosity"
+      },
+      {
+        "name": "Observable universe",
+        "value_W": 1e52,
+        "description": "~Planck power"
+      },
+      {
+        "name": "Planck power",
+        "value_W": 3.6e52,
+        "description": "c⁵/G"
+      }
+    ]
+  },
+  "relationships": {
+    "related": [
+      {
+        "id": "aku-012-planck-power-definition",
+        "type": "contrast",
+        "relationship": "Planck power is NOT minimum—it's 10⁵² W",
+        "domain": "science/physics/quantum-mechanics/planck-units"
+      },
+      {
+        "id": "aku-002-minimum-measurable-energy",
+        "type": "sibling",
+        "relationship": "Power = Energy/Time"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Saleh & Teich: Fundamentals of Photonics",
+        "publisher": "Wiley"
+      }
+    ]
+  }
+}

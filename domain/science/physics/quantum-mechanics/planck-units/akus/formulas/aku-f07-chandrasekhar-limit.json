@@ -1,0 +1,122 @@
+{
+  "@context": "aku-v2",
+  "@type": "formula",
+  "@id": "physics:quantum:planck-units:chandrasekhar-limit",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T21:44:00.000Z",
+    "updated": "2025-12-29T21:44:00.000Z",
+    "contributors": ["copilot", "physics-agent"],
+    "confidence": 0.98,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "science/physics/quantum-mechanics/planck-units",
+    "type": "formula",
+    "subtype": "astrophysical_scale",
+    "difficulty": "intermediate",
+    "importance": "foundational"
+  },
+  "content": {
+    "title": "Chandrasekhar Limit and the Planck Mass",
+    "summary": "The Chandrasekhar limit—the maximum mass of a white dwarf star—can be derived from the Planck mass and the proton mass. This striking connection shows how fundamental scales determine stellar structure.",
+    "formula": {
+      "exact": "M_Ch = (ℏc/G)^(3/2) × (1/m_p²) × constant",
+      "simplified": "M_Ch ~ m_P³/m_p² ~ 1.4 M_☉",
+      "latex": "M_{Ch} \\approx \\left(\\frac{\\hbar c}{G}\\right)^{3/2} \\frac{1}{m_p^2} = \\frac{m_P^3}{m_p^2}"
+    },
+    "derivation": {
+      "physical_principle": "Balance between gravitational collapse and electron degeneracy pressure",
+      "steps": [
+        {
+          "step": 1,
+          "description": "Gravitational energy for star of mass M, radius R",
+          "formula": "E_grav ~ -GM²/R"
+        },
+        {
+          "step": 2,
+          "description": "Fermi energy of degenerate electrons (N ~ M/m_p electrons)",
+          "formula": "E_F ~ (N/V)^(2/3) × ℏ²/m_e ~ ℏ²(M/m_p)^(2/3)/m_eR²"
+        },
+        {
+          "step": 3,
+          "description": "Total Fermi energy of all electrons",
+          "formula": "E_Fermi ~ N × E_F ~ (ℏ²/m_e) × (M/m_p)^(5/3)/R²"
+        },
+        {
+          "step": 4,
+          "description": "At equilibrium, |E_grav| ~ E_Fermi",
+          "formula": "GM²/R ~ (ℏ²/m_e) × (M/m_p)^(5/3)/R²"
+        },
+        {
+          "step": 5,
+          "description": "Relativistic limit: v_F → c, so E_F ~ p_F c ~ ℏc/R × (M/m_p)^(1/3)",
+          "formula": "E_Fermi ~ (ℏc/R) × (M/m_p)^(4/3)"
+        },
+        {
+          "step": 6,
+          "description": "Setting |E_grav| = E_Fermi (relativistic)",
+          "formula": "GM²/R ~ (ℏc/R) × (M/m_p)^(4/3)"
+        },
+        {
+          "step": 7,
+          "description": "Solving for critical mass (R cancels!)",
+          "formula": "M_Ch ~ (ℏc/G)^(3/2) × (1/m_p)² = m_P³/m_p²"
+        }
+      ]
+    },
+    "numerical_calculation": {
+      "planck_mass": "m_P = 2.176×10⁻⁸ kg",
+      "proton_mass": "m_p = 1.673×10⁻²⁷ kg",
+      "calculation": "M_Ch ~ (2.176×10⁻⁸)³/(1.673×10⁻²⁷)² = 3.7×10³⁰ kg ≈ 1.9 M_☉",
+      "exact_value": "M_Ch = 1.44 M_☉ (with proper numerical factors)",
+      "note": "Order-of-magnitude estimate gives correct answer within factor of 2"
+    },
+    "physical_significance": {
+      "stellar_evolution": [
+        "White dwarfs with M > M_Ch cannot be supported by electron degeneracy",
+        "Leads to Type Ia supernovae (standard candles for cosmology)",
+        "Determines fate of low-mass stars"
+      ],
+      "planck_connection": {
+        "insight": "Stellar structure is determined by ratio m_P/m_p",
+        "generalization": "Maximum neutron star mass M_NS ~ m_P³/m_n² ~ 2-3 M_☉"
+      },
+      "dimensionless_physics": "The Chandrasekhar limit depends only on dimensionless ratio m_P/m_p and fundamental constants"
+    },
+    "historical_note": {
+      "discovery": "Subrahmanyan Chandrasekhar, 1930-1931",
+      "controversy": "Initially opposed by Eddington",
+      "recognition": "Nobel Prize in Physics, 1983"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:planck-mass",
+        "required": true
+      },
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:proton-planck-mass-ratio",
+        "required": true
+      }
+    ],
+    "related_concepts": [
+      {
+        "urn": "urn:aku:physics:astrophysics:white-dwarfs",
+        "relationship": "application"
+      }
+    ]
+  },
+  "provenance": {
+    "primary_sources": [
+      {
+        "type": "historical",
+        "author": "Chandrasekhar",
+        "title": "The Maximum Mass of Ideal White Dwarfs",
+        "journal": "Astrophysical Journal",
+        "year": 1931
+      }
+    ]
+  }
+}
