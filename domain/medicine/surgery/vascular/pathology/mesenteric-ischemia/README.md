@@ -236,6 +236,18 @@ A comprehensive contrarian review identified areas for improvement, all now addr
 4. ✅ Scope caveats added to README
 5. ✅ Alternative perspectives section created
 
+### Fact-Checking Verification (2025-12-30) ✅
+
+Comprehensive fact-check of the book chapter verified 43 key medical claims:
+- **Verified**: 38 claims (88%) - Accurate and well-supported
+- **Uncertain**: 5 claims (12%) - Minor variability in literature, no corrections needed
+- **Incorrect**: 0 claims
+- **Overall Confidence**: 0.93 (Very High)
+- **Status**: ✅ Certified factually accurate for distribution
+- **Full Report**: `.renders/english/FACT_CHECK_REPORT.md`
+
+**Verification Sources**: ESVS 2017 Guidelines, WSES 2017, ACG 2015, NEJM Reviews
+
 ## Usage
 
 This content is suitable for:
