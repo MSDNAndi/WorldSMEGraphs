@@ -113,7 +113,7 @@ class DomainMaturityTracker:
         # Compile report
         report = {
             "domain_path": domain_path,
-            "scan_date": datetime.now(timezone.utc).isoformat(),
+            "scan_date": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
             "maturity_level": maturity_level,
             "maturity_name": MATURITY_LEVELS[maturity_level]["name"],
             "completeness_percentage": round(completeness, 1),
