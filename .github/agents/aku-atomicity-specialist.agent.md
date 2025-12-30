@@ -519,3 +519,13 @@ with transformation provenance.
 
 ## Version History
 - **v1.0** (2025-12-29): Initial creation as specialized atomicity management agent
+
+## Completed Audits
+
+Reference audits that demonstrate atomicity analysis in practice:
+
+### Medicine: Mesenteric Ischemia Domain (2025-12-30)
+- **Domain Path**: `medicine/surgery/vascular/pathology/mesenteric-ischemia`
+- **Result**: 100% pass (29/29 AKUs atomic)
+- **Key Findings**: All 6 surgical dilemma AKUs represent exactly ONE discrete clinical decision
+- **Report**: `.project/audits/mesenteric-ischemia-atomicity-audit.md`

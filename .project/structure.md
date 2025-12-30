@@ -75,7 +75,23 @@ WorldSMEGraphs/
 │   │           ├── procedures/
 │   │           │   └── evar/              # EVAR procedure (placeholder)
 │   │           ├── pathology/
-│   │           │   └── aaa/               # Abdominal Aortic Aneurysm (placeholder)
+│   │           │   ├── aaa/               # Abdominal Aortic Aneurysm (placeholder)
+│   │           │   └── mesenteric-ischemia/  # Mesenteric Ischemia ✓ Complete (29 AKUs)
+│   │           │       ├── concept-index.yaml
+│   │           │       ├── README.md
+│   │           │       ├── akus/
+│   │           │       │   ├── definitions/        (4 AKUs)
+│   │           │       │   ├── epidemiology/       (1 AKU)
+│   │           │       │   ├── pathophysiology/    (4 AKUs)
+│   │           │       │   ├── diagnosis/          (3 AKUs)
+│   │           │       │   ├── imaging/            (2 AKUs)
+│   │           │       │   ├── treatment/          (6 AKUs)
+│   │           │       │   ├── surgical-dilemmas/  (6 AKUs)
+│   │           │       │   ├── outcomes/           (2 AKUs)
+│   │           │       │   └── follow-up/          (1 AKU)
+│   │           │       └── .renders/
+│   │           │           └── english/
+│   │           │               └── book-chapter-surgical-dilemmas.md  # 25-30 page chapter
 │   │           └── complications/
 │   │               └── endoleaks/
 │   │                   └── type-2/        # Type 2 Endoleak ✓ Complete (5 AKUs)
@@ -280,6 +296,7 @@ Listed in `.gitignore`:
 
 **Last Updated**: 2025-12-30  
 **Major Changes**: 
+- 2025-12-30: Added mesenteric ischemia domain with 29 AKUs and rendered book chapter (25-30 pages)
 - 2025-12-30: Added prime numbers domain with 10 AKUs and cross-domain connections
 - 2025-12-27: Added medicine domain with vascular surgery Type 2 endoleak (5 AKUs complete)
 - 2025-12-27: Updated agent infrastructure section for .agent.md format migration

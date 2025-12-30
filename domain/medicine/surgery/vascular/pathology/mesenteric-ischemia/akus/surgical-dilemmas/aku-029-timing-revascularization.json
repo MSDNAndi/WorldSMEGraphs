@@ -1,0 +1,224 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-029-timing-revascularization",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:32:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:32:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "surgical_dilemma",
+    "difficulty": "expert",
+    "importance": "critical",
+    "aku_id": "029",
+    "keywords": [
+      "timing",
+      "revascularization urgency",
+      "resuscitation",
+      "door-to-intervention",
+      "time-critical"
+    ],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "The timing of revascularization in acute mesenteric ischemia is a race against the ischemic clock, with studies showing dramatically improved survival when intervention occurs within 6-12 hours of symptom onset, creating tension between the need for adequate resuscitation and the imperative for rapid blood flow restoration.",
+      "formal": "Timing Dilemma: Earlier revascularization → Better bowel survival → BUT → Need adequate resuscitation → Must minimize delays"
+    },
+    "explanation": {
+      "intuition": "Think of acute mesenteric ischemia like an acute stroke or heart attack - every minute counts. But unlike the brain or heart, which can tolerate only minutes of ischemia, the intestine has about 6-12 hours before irreversible transmural necrosis develops. This larger window allows for some resuscitation, but delays beyond this are devastating.",
+      "key_insight": "The fundamental tension is between the need to stabilize the patient (fluids, correct acidosis, optimize hemodynamics) and the imperative to restore blood flow before the bowel dies. The answer is to do both simultaneously - resuscitate EN ROUTE to the operating room, not BEFORE going."
+    }
+  },
+  "time_windows": {
+    "ischemic_tolerance": {
+      "reversible_ischemia": "0-2 hours",
+      "partially_reversible": "2-6 hours",
+      "transmural_necrosis": ">6-12 hours",
+      "certain_necrosis": ">24 hours"
+    },
+    "clinical_targets": {
+      "symptom_to_diagnosis": "<60 minutes (goal)",
+      "diagnosis_to_OR": "<60-90 minutes",
+      "total_symptom_to_revascularization": "<6 hours (ideal), <12 hours (acceptable)"
+    }
+  },
+  "delays_and_consequences": {
+    "sources_of_delay": [
+      {
+        "delay": "Not considering the diagnosis",
+        "typical_duration": "Hours to days",
+        "most_impactful": true
+      },
+      {
+        "delay": "Waiting for labs or plain films",
+        "typical_duration": "1-2 hours",
+        "impact": "Moderate"
+      },
+      {
+        "delay": "CT scanner availability",
+        "typical_duration": "30 min - 2 hours",
+        "impact": "Moderate"
+      },
+      {
+        "delay": "Resuscitation before intervention",
+        "typical_duration": "1-4 hours",
+        "impact": "Variable"
+      },
+      {
+        "delay": "OR availability",
+        "typical_duration": "1-4 hours",
+        "impact": "High"
+      },
+      {
+        "delay": "Transfer to capable center",
+        "typical_duration": "2-6 hours",
+        "impact": "Very high"
+      }
+    ],
+    "impact_of_delay": {
+      "per_hour_delay": "Approximately 5-10% increase in mortality per hour after 6 hours",
+      "bowel_viability": "Progressive increase in necrosis with time",
+      "resection_extent": "Longer delays = more bowel resected"
+    }
+  },
+  "resuscitation_vs_revascularization": {
+    "the_dilemma": "Should I stabilize the patient or rush to OR?",
+    "answer": "Do both simultaneously",
+    "approach": {
+      "parallel_processes": [
+        "Start IV fluids and heparin in ED",
+        "Order CTA while resuscitating",
+        "Call OR and vascular surgery while awaiting CT results",
+        "Continue resuscitation en route to OR",
+        "Correct acidosis in OR if needed"
+      ],
+      "do_not_wait_for": [
+        "Full resuscitation",
+        "Complete normalization of lactate",
+        "Full correction of acidosis",
+        "All consultations to be completed"
+      ],
+      "exceptions": {
+        "peritonitis_established": "May indicate futility if massive necrosis",
+        "multi_organ_failure": "Consider goals of care first"
+      }
+    }
+  },
+  "institutional_factors": {
+    "center_capability": {
+      "ideal": "24/7 vascular surgery, IR, CT, OR availability",
+      "reality": "Many hospitals lack expertise or resources",
+      "solution": "Early transfer if definitive care not available"
+    },
+    "transfer_decisions": {
+      "when_to_transfer": "As soon as diagnosis suspected if local capability lacking",
+      "risks_of_transfer": "Further delay, clinical deterioration",
+      "mitigation": "Start heparin, resuscitate during transfer, call ahead"
+    },
+    "multidisciplinary_coordination": {
+      "required_teams": "ED, vascular surgery, IR, OR, anesthesia, ICU",
+      "communication": "Direct calls, not pages",
+      "mobilization": "Parallel not sequential"
+    }
+  },
+  "practical_recommendations": {
+    "ED_actions": [
+      "Recognize high-risk patient and consider diagnosis",
+      "Start 2 large-bore IVs, labs, type and screen",
+      "Start heparin immediately on suspicion",
+      "Order CTA emergently",
+      "Call vascular surgery directly",
+      "NPO, Foley, NG if distended"
+    ],
+    "imaging": [
+      "CTA as soon as stable enough to be on scanner",
+      "Do not wait for 'full resuscitation'",
+      "Interpret immediately, not after radiologist review"
+    ],
+    "OR_mobilization": [
+      "Call OR to prepare while awaiting CT results",
+      "Have room available or next priority",
+      "Anesthesia notified early"
+    ],
+    "quality_metrics": {
+      "suggested": [
+        "Door-to-CT time",
+        "CT-to-OR time",
+        "Total symptom-to-revascularization time"
+      ],
+      "benchmarks": "Similar to stroke and STEMI metrics"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:019",
+        "title": "Initial Resuscitation",
+        "strength": 0.95
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:021",
+        "title": "Open Surgical Revascularization",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:022",
+        "title": "Endovascular Treatment",
+        "strength": 1.0
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "cohort_study",
+        "citation": "Kärkkäinen JM, Lehtimäki TT, Manninen H, Paajanen H. Acute Mesenteric Ischemia Is a More Common Cause than Expected of Acute Abdomen in the Elderly. J Gastrointest Surg. 2015;19(8):1407-1414",
+        "doi": "10.1007/s11605-015-2830-3",
+        "confidence": 0.95
+      },
+      {
+        "type": "clinical_guideline",
+        "citation": "Björck M, Koelemay M, Acosta S, et al. Editor's Choice - Management of the Diseases of Mesenteric Arteries and Veins: Clinical Practice Guidelines of the European Society of Vascular Surgery (ESVS). Eur J Vasc Endovasc Surg. 2017;53(4):460-510",
+        "doi": "10.1016/j.ejvs.2017.01.010",
+        "confidence": 0.98
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "emergency_physicians",
+      "critical_care_physicians"
+    ],
+    "estimated_time": "25min",
+    "learning_objectives": [
+      "Understand the time-critical nature of AMI",
+      "Recognize sources of delay and how to minimize them",
+      "Balance resuscitation needs with urgency of revascularization",
+      "Develop systems-based approach to rapid intervention"
+    ],
+    "clinical_pearls": [
+      "Treat AMI like stroke or STEMI - time is bowel",
+      "Resuscitate EN ROUTE to OR, not BEFORE going",
+      "The biggest delay is not thinking of the diagnosis",
+      "Call the OR while the CT is still being read"
+    ]
+  }
+}

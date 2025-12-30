@@ -1,0 +1,265 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-015-cta-imaging",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:14:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:14:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "imaging",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "015",
+    "keywords": [
+      "CT angiography",
+      "CTA",
+      "mesenteric imaging",
+      "bowel ischemia imaging",
+      "diagnostic imaging"
+    ],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Computed Tomography Angiography (CTA) is the first-line imaging modality for suspected mesenteric ischemia, providing rapid, comprehensive evaluation of arterial and venous anatomy, degree of stenosis or occlusion, bowel wall changes, and complications with sensitivity and specificity exceeding 90% for acute disease.",
+      "formal": "CTA: Multi-phase CT with IV contrast → Arterial phase (vascular anatomy) + Venous phase (bowel perfusion) → Comprehensive mesenteric evaluation"
+    },
+    "explanation": {
+      "intuition": "CTA is like a complete roadmap of the mesenteric circulation that also shows you the condition of the cargo (bowel) being delivered. In a single 10-minute study, you can see blocked arteries, clotted veins, ischemic bowel segments, and even complications like perforation or gangrene.",
+      "key_insight": "CTA has revolutionized mesenteric ischemia diagnosis by allowing rapid, non-invasive assessment that can be obtained 24/7 in any emergency department. The key is to order it early when clinical suspicion exists, not wait until the patient is moribund.",
+      "technical_details": "Optimal CTA protocol includes non-contrast, arterial (25-35 sec delay), and portal venous phases (60-70 sec delay). Thin-slice acquisition (0.5-1mm) with multiplanar reconstructions and MIP/3D reconstructions are essential for accurate stenosis quantification and operative planning."
+    }
+  },
+  "cta_technique": {
+    "protocol": {
+      "contrast": "100-150 mL iodinated contrast, 3-5 mL/sec",
+      "phases": {
+        "non_contrast": {
+          "purpose": "Detect hemorrhage, calcification",
+          "delay": "N/A"
+        },
+        "arterial_phase": {
+          "purpose": "Arterial anatomy, stenosis, occlusion, embolus",
+          "delay": "25-35 seconds (bolus tracking)"
+        },
+        "venous_phase": {
+          "purpose": "Venous thrombosis, bowel wall enhancement",
+          "delay": "60-70 seconds"
+        }
+      },
+      "slice_thickness": "0.5-1.0 mm",
+      "reconstructions": ["Axial", "Coronal", "Sagittal", "MIP", "3D VR"]
+    },
+    "optimal_timing": "Bolus tracking with trigger at 150-200 HU in aorta"
+  },
+  "arterial_findings": {
+    "occlusive_disease": {
+      "embolus": {
+        "appearance": "Filling defect within SMA lumen",
+        "location": "Typically 3-10 cm from SMA origin",
+        "associated_findings": "May see other emboli (splenic, renal)",
+        "distinguishing_feature": "Abrupt cutoff, meniscus sign"
+      },
+      "thrombosis": {
+        "appearance": "Occlusion at vessel origin",
+        "associated_findings": "Atherosclerotic calcification, ostial stenosis",
+        "distinguishing_feature": "Gradual taper, pre-existing disease"
+      },
+      "stenosis": {
+        "grading": {
+          "mild": "<50%",
+          "moderate": "50-70%",
+          "severe": ">70%",
+          "critical": ">90%"
+        },
+        "location": "Typically ostial for atherosclerosis"
+      }
+    },
+    "nonocclusive_disease": {
+      "NOMI": {
+        "appearance": "Patent main vessels with diffuse narrowing of branches",
+        "branch_vessels": "Pruned, irregular, spastic appearance",
+        "bowel_findings": "May be normal early or show patchy changes"
+      }
+    },
+    "collaterals": {
+      "significance": "Suggest chronic disease",
+      "pathways": ["Pancreaticoduodenal arcade", "Marginal artery", "Arc of Riolan"]
+    }
+  },
+  "venous_findings": {
+    "SMV_thrombosis": {
+      "appearance": "Filling defect in SMV",
+      "associated": "May extend to portal vein",
+      "secondary_signs": ["Mesenteric edema", "SMV enlargement"]
+    },
+    "portal_vein_thrombosis": {
+      "appearance": "Filling defect in portal vein",
+      "extent": "Document extension to splenic, hepatic branches"
+    }
+  },
+  "bowel_wall_findings": {
+    "early_ischemia": {
+      "wall_thickening": ">3mm (subjective)",
+      "hyperenhancement": "Transient increased enhancement (arterial phase)",
+      "mucosal_abnormalities": "Submucosal edema, target sign"
+    },
+    "established_ischemia": {
+      "wall_thickening": "Marked thickening in venous, thin in arterial",
+      "decreased_enhancement": "Poor or absent enhancement",
+      "mesenteric_changes": "Haziness, fat stranding"
+    },
+    "advanced_findings": {
+      "pneumatosis_intestinalis": {
+        "description": "Gas within bowel wall",
+        "significance": "Strongly suggests bowel necrosis",
+        "caveat": "Can occur in benign conditions (emphysematous gastritis)"
+      },
+      "portal_venous_gas": {
+        "description": "Gas in portal venous system",
+        "significance": "Highly concerning for bowel necrosis",
+        "appearance": "Linear lucencies in liver periphery"
+      },
+      "mesenteric_gas": {
+        "description": "Extraluminal gas in mesentery",
+        "significance": "Indicates perforation or transmural necrosis"
+      }
+    }
+  },
+  "pitfalls_and_limitations": {
+    "false_negatives": [
+      "Very early ischemia (before wall changes)",
+      "NOMI (patent vessels, subtle changes)",
+      "Small vessel disease"
+    ],
+    "false_positives": [
+      "Pneumatosis from non-ischemic causes",
+      "Celiac stenosis in asymptomatic atherosclerosis",
+      "Motion artifact mimicking stenosis"
+    ],
+    "contraindications": [
+      "Severe contrast allergy (consider MRA)",
+      "Severe renal insufficiency (weigh risk/benefit)",
+      "Patient too unstable for scanner"
+    ]
+  },
+  "sensitivity_specificity": {
+    "acute_arterial_occlusion": {
+      "sensitivity": "93-100%",
+      "specificity": "94-100%"
+    },
+    "acute_venous_thrombosis": {
+      "sensitivity": "93-100%",
+      "specificity": ">95%"
+    },
+    "chronic_stenosis": {
+      "sensitivity": "89-100%",
+      "specificity": "92-100%"
+    },
+    "bowel_necrosis": {
+      "sensitivity": "Variable (64-82%)",
+      "specificity": "High (>90%)",
+      "note": "Absence of findings does not exclude necrosis"
+    }
+  },
+  "reporting_essentials": {
+    "arterial_assessment": [
+      "Celiac, SMA, IMA patency and stenosis",
+      "Location and nature of occlusion (embolus vs thrombus)",
+      "Collateral pathways"
+    ],
+    "venous_assessment": [
+      "SMV, portal vein, splenic vein patency",
+      "Extent of thrombus"
+    ],
+    "bowel_assessment": [
+      "Segments involved",
+      "Wall thickness and enhancement",
+      "Pneumatosis, portal gas, free gas"
+    ],
+    "other": [
+      "Ascites",
+      "Underlying cause (tumor, dissection)",
+      "Comparison with prior studies"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:001",
+        "title": "Mesenteric Ischemia Overview",
+        "strength": 0.9
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:021",
+        "title": "Open Surgical Revascularization",
+        "strength": 0.85
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:022",
+        "title": "Endovascular Treatment",
+        "strength": 0.9
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "review_article",
+        "citation": "Defined CT, et al. CT of mesenteric ischemia. Radiol Clin North Am. 2019",
+        "confidence": 0.95
+      },
+      {
+        "type": "guideline",
+        "citation": "ACR Appropriateness Criteria - Mesenteric Ischemia",
+        "confidence": 0.98
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "radiology_residents",
+      "emergency_physicians"
+    ],
+    "estimated_time": "30min",
+    "learning_objectives": [
+      "Understand optimal CTA technique for mesenteric ischemia",
+      "Recognize key arterial and venous findings",
+      "Identify bowel wall signs of ischemia",
+      "Distinguish reversible ischemia from transmural necrosis"
+    ],
+    "clinical_pearls": [
+      "Always include non-contrast phase to see calcification and hemorrhage",
+      "Arterial and venous phases are both essential - don't skip venous",
+      "Pneumatosis + portal gas = assume necrosis until proven otherwise",
+      "Patent main vessels doesn't exclude NOMI - look at branches"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "74175",
+      "description": "CT angiography, abdomen",
+      "matchType": "exactMatch"
+    }
+  ]
+}

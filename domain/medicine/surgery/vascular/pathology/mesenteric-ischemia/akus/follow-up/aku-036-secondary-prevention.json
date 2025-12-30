@@ -1,0 +1,290 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-036-secondary-prevention",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T06:04:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.93,
+    "status": "validated",
+    "last_updated": "2025-12-30T06:04:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "follow_up",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "036",
+    "keywords": [
+      "secondary prevention",
+      "antiplatelet therapy",
+      "statin therapy",
+      "risk factor modification",
+      "cardiovascular prevention"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "long_term_management"
+  },
+  "content": {
+    "statement": {
+      "text": "Secondary prevention after mesenteric ischemia treatment is essential because these patients have extensive systemic atherosclerosis with high cardiovascular event rates; comprehensive risk factor modification including antiplatelet therapy, statins, blood pressure control, smoking cessation, and diabetes management reduces the risk of mesenteric restenosis, cardiovascular events, and death.",
+      "formal": "Secondary Prevention: Antiplatelet (all patients post-stent); Statin (LDL goal <70); ACE inhibitor/ARB if HTN or DM; Smoking cessation (most modifiable risk); DM control (HbA1c <7-8%); Exercise and diet counseling"
+    },
+    "explanation": {
+      "intuition": "Mesenteric ischemia from atherosclerosis is not an isolated disease—it's a manifestation of systemic vascular disease. These patients have coronary disease, cerebrovascular disease, and peripheral arterial disease. Treating the mesenteric arteries without addressing the underlying process is treating a symptom, not the disease.",
+      "key_insight": "Cardiovascular events (MI, stroke) are a leading cause of death in mesenteric ischemia survivors—arguably more common than mesenteric disease recurrence. Aggressive secondary prevention may provide more survival benefit than the index mesenteric intervention.",
+      "technical_details": "Evidence for secondary prevention in mesenteric ischemia is extrapolated from the broader atherosclerotic disease literature. No mesenteric-ischemia-specific RCTs exist, but principles from coronary and peripheral arterial disease apply."
+    }
+  },
+  "antiplatelet_therapy": {
+    "post_stenting": {
+      "recommendation": "Dual antiplatelet therapy (DAPT) followed by single antiplatelet",
+      "dapt_duration": {
+        "bare_metal_stent": "1-3 months",
+        "covered_stent": "3-6 months",
+        "note": "No mesenteric-specific data; extrapolated from peripheral"
+      },
+      "long_term": "Lifelong single antiplatelet (aspirin or clopidogrel)",
+      "agents": {
+        "aspirin": "75-100 mg daily",
+        "clopidogrel": "75 mg daily",
+        "combination": "Aspirin + clopidogrel during DAPT period"
+      }
+    },
+    "post_open_surgery": {
+      "recommendation": "Single antiplatelet therapy lifelong",
+      "agent": "Aspirin 75-100 mg daily",
+      "rationale": "Reduces graft thrombosis, cardiovascular events"
+    },
+    "after_mvt": {
+      "recommendation": "Anticoagulation (see AKU-020)",
+      "duration": "3-6 months minimum; longer if hypercoagulable state",
+      "transition": "May add antiplatelet after anticoagulation course"
+    }
+  },
+  "statin_therapy": {
+    "indication": "All patients with atherosclerotic mesenteric disease",
+    "goals": {
+      "ldl_target": "<70 mg/dL (1.8 mmol/L)",
+      "alternative": "50% reduction from baseline if goal not achieved",
+      "high_intensity_statin": "Atorvastatin 40-80 mg or Rosuvastatin 20-40 mg"
+    },
+    "benefits": {
+      "pleiotropic_effects": [
+        "Anti-inflammatory",
+        "Plaque stabilization",
+        "Improved endothelial function",
+        "Reduced thrombosis"
+      ],
+      "outcome_data": "30-40% reduction in cardiovascular events in high-risk patients (from general ASCVD literature)"
+    },
+    "monitoring": {
+      "lipid_panel": "Check 6-12 weeks after initiation, then annually",
+      "liver_function": "Baseline and as clinically indicated",
+      "muscle_symptoms": "Monitor for statin-associated muscle symptoms"
+    },
+    "intolerance_management": {
+      "strategies": [
+        "Reduce dose",
+        "Switch statin",
+        "Alternate-day dosing",
+        "Add ezetimibe 10 mg"
+      ],
+      "pcsk9_inhibitors": "Consider for very high-risk patients not at goal despite maximally tolerated statin + ezetimibe"
+    }
+  },
+  "blood_pressure_management": {
+    "target": {
+      "general": "<130/80 mmHg per current guidelines",
+      "caution": "Avoid excessive lowering in patients with critical stenosis (could reduce perfusion)"
+    },
+    "preferred_agents": {
+      "ace_inhibitors_arbs": {
+        "indication": "First-line for patients with diabetes, CKD, or heart failure",
+        "benefit": "Renal and cardiovascular protection"
+      },
+      "other_agents": "Beta-blockers, CCBs, thiazides as needed for goal"
+    },
+    "monitoring": "Regular BP checks; home monitoring encouraged"
+  },
+  "smoking_cessation": {
+    "importance": "Most modifiable risk factor; continued smoking accelerates disease progression",
+    "impact": {
+      "on_patency": "Smokers have higher restenosis and graft failure rates",
+      "on_cv_events": "Continued smoking doubles cardiovascular event risk"
+    },
+    "interventions": {
+      "counseling": "Brief advice at every visit; motivational interviewing",
+      "pharmacotherapy": {
+        "nicotine_replacement": "Patch, gum, lozenge",
+        "varenicline": "Most effective medication; not contraindicated in CVD",
+        "bupropion": "Alternative; avoid if seizure history"
+      },
+      "referral": "Smoking cessation programs, quitlines"
+    }
+  },
+  "diabetes_management": {
+    "target": {
+      "hba1c": "<7-8% (individualized based on age, comorbidities)",
+      "approach": "Collaborative with primary care/endocrinology"
+    },
+    "medication_considerations": {
+      "metformin": "First-line if eGFR >30; cardiovascular neutral to beneficial",
+      "sglt2_inhibitors": {
+        "benefit": "Cardiovascular and renal protection",
+        "caution": "Avoid if recurrent infections, caution with diuretics"
+      },
+      "glp1_agonists": {
+        "benefit": "Cardiovascular protection, weight loss",
+        "examples": "Semaglutide, dulaglutide, liraglutide"
+      }
+    },
+    "importance": "Uncontrolled diabetes accelerates atherosclerosis and impairs wound healing"
+  },
+  "lifestyle_modifications": {
+    "diet": {
+      "recommendation": "Mediterranean-style diet",
+      "components": [
+        "Fruits and vegetables",
+        "Whole grains",
+        "Fish/seafood",
+        "Olive oil",
+        "Limit red meat, processed foods, added sugars"
+      ],
+      "post_sbs_considerations": "May need modification for malabsorption"
+    },
+    "exercise": {
+      "recommendation": "150 minutes/week moderate-intensity activity",
+      "benefit": "Improved fitness, glucose control, weight management",
+      "cardiac_rehabilitation": "Consider referral for structured program"
+    },
+    "weight_management": {
+      "note": "Many CMI patients are underweight; goal is nutritional recovery first",
+      "obese_patients": "Gradual weight loss after nutritional stabilization"
+    }
+  },
+  "special_considerations": {
+    "anticoagulation_for_af": {
+      "indication": "If atrial fibrillation present (common in this population)",
+      "management": "DOAC or warfarin per standard AF guidelines",
+      "with_antiplatelet": "Consider DOAC monotherapy or DOAC + single antiplatelet (avoid triple therapy if possible)"
+    },
+    "renal_function": {
+      "monitoring": "CKD common in this population; monitor eGFR",
+      "drug_adjustments": "Adjust renally-cleared medications as needed"
+    },
+    "polypharmacy": {
+      "challenge": "Many patients on multiple medications",
+      "approach": "Regular medication review; prioritize high-impact medications"
+    }
+  },
+  "clinical_pearls": [
+    {
+      "pearl": "Cardiovascular events (MI, stroke) are a leading cause of death in mesenteric ischemia patients—aggressive secondary prevention is as important as treating the mesenteric disease",
+      "implication": "Ensure comprehensive vascular secondary prevention at discharge"
+    },
+    {
+      "pearl": "Smoking cessation is the single most impactful modifiable risk factor for mesenteric patency and survival",
+      "implication": "Emphasize smoking cessation counseling at every visit"
+    },
+    {
+      "pearl": "High-intensity statin therapy should be standard for all atherosclerotic mesenteric ischemia patients regardless of baseline LDL",
+      "implication": "Prescribe statin at discharge; aim for LDL <70"
+    },
+    {
+      "pearl": "Patients with mesenteric ischemia need lifelong antiplatelet therapy after stenting—similar to coronary stents",
+      "implication": "Counsel on importance of medication adherence; do not stop antiplatelet without discussion"
+    }
+  ],
+  "relationships": {
+    "prerequisites": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:021",
+        "title": "Open Surgical Revascularization",
+        "relationship": "post_procedure"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:022",
+        "title": "Endovascular Treatment",
+        "relationship": "post_procedure"
+      }
+    ],
+    "enables": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:035",
+        "title": "Surveillance Protocols",
+        "relationship": "part_of_follow_up"
+      }
+    ],
+    "related_concepts": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:033",
+        "title": "Reintervention Rates",
+        "relationship": "risk_reduction"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:020",
+        "title": "Anticoagulation Therapy",
+        "relationship": "acute_treatment"
+      }
+    ],
+    "cross_domain": [
+      {
+        "domain": "medicine/cardiology/secondary-prevention",
+        "relationship": "extrapolated_evidence",
+        "note": "Evidence from coronary disease applied"
+      },
+      {
+        "domain": "medicine/endocrinology/diabetes-management",
+        "relationship": "comorbidity_management",
+        "note": "Diabetes optimization important"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "title": "Clinical Guidelines on the Management of Patients with Mesenteric Artery Disease",
+        "authors": "Björck M, Koelemay M, Acosta S, et al.",
+        "publication": "European Journal of Vascular and Endovascular Surgery",
+        "year": 2017,
+        "volume": 53,
+        "pages": "460-510",
+        "doi": "10.1016/j.ejvs.2017.01.010",
+        "type": "clinical_guideline"
+      },
+      {
+        "title": "2019 ACC/AHA Guideline on the Primary Prevention of Cardiovascular Disease",
+        "authors": "Arnett DK, Blumenthal RS, Fonarow GC, et al.",
+        "publication": "Journal of the American College of Cardiology",
+        "year": 2019,
+        "volume": 74,
+        "pages": "e177-e232",
+        "doi": "10.1016/j.jacc.2019.03.010",
+        "type": "clinical_guideline"
+      },
+      {
+        "title": "2017 ESC/ESVS Guidelines on the Diagnosis and Treatment of Peripheral Arterial Diseases",
+        "authors": "Aboyans V, Ricco JB, Bartelink MEL, et al.",
+        "publication": "European Heart Journal",
+        "year": 2018,
+        "volume": 39,
+        "pages": "763-816",
+        "doi": "10.1093/eurheartj/ehx095",
+        "type": "clinical_guideline"
+      }
+    ],
+    "evidence_level": "Moderate (extrapolated from general ASCVD prevention literature)",
+    "last_verified": "2025-12-30"
+  }
+}

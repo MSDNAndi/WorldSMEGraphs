@@ -1,0 +1,229 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-026-bowel-viability-assessment",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:22:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:22:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "surgical_dilemma",
+    "difficulty": "expert",
+    "importance": "critical",
+    "aku_id": "026",
+    "keywords": [
+      "bowel viability",
+      "intraoperative assessment",
+      "second-look laparotomy",
+      "intestinal perfusion",
+      "necrosis"
+    ],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Intraoperative bowel viability assessment remains one of the most challenging aspects of mesenteric ischemia surgery, requiring integration of clinical signs (color, peristalsis, bleeding), adjunctive technologies (fluorescein, Doppler), and surgical judgment to distinguish reversibly ischemic from irreversibly necrotic bowel, with second-look laparotomy serving as a critical safety net.",
+      "formal": "Viability Assessment: Visual inspection + Palpation + Doppler signals + Adjuncts (fluorescein/ICG) + Time for reperfusion → Viable (observe) OR Nonviable (resect) OR Indeterminate (second-look)"
+    },
+    "explanation": {
+      "intuition": "Assessing bowel viability is like trying to determine if a wilted plant is salvageable or dead. A plant that's drooping from lack of water might recover once watered, but one whose roots have rotted will not. Similarly, bowel that looks dark from temporary blood deprivation may pink up after revascularization, while truly necrotic bowel is dead regardless of blood flow restoration.",
+      "key_insight": "No single test can definitively distinguish ischemic from necrotic bowel at the time of surgery. Even the best clinical judgment has a 10-20% error rate. This uncertainty is why the second-look laparotomy was developed - a planned return in 24-48 hours to reassess questionable segments after giving reperfusion time to declare whether bowel will survive.",
+      "technical_details": "The bowel's survival depends on the depth and duration of ischemia. Mucosal ischemia may recover completely, while transmural necrosis will not. The challenge is that transmural necrosis may not be apparent at the time of initial surgery, especially in the setting of reperfusion. Waiting 15-30 minutes after revascularization before making final resection decisions is standard practice."
+    }
+  },
+  "clinical_assessment": {
+    "visual_inspection": {
+      "signs_of_viability": [
+        "Pink or red color (especially after revascularization)",
+        "Shiny, glistening serosa",
+        "Visible peristalsis",
+        "Absence of grey or green discoloration"
+      ],
+      "signs_of_nonviability": [
+        "Black, green, or grey discoloration",
+        "Dull, lusterless serosa",
+        "Thinned, paper-like bowel wall",
+        "Foul odor (putrefaction)",
+        "Absence of any color change after revascularization"
+      ],
+      "indeterminate_signs": [
+        "Dark red or dusky appearance",
+        "Mottled or patchy coloration",
+        "Slow return of color"
+      ],
+      "limitations": "Subjective, significant inter-observer variability, 15-25% inaccuracy"
+    },
+    "palpation_and_motility": {
+      "viable": "Palpable mesenteric arterial pulses, visible peristalsis, normal wall thickness",
+      "nonviable": "Absent pulses, no peristalsis, thin or doughy wall",
+      "warming": "Apply warm saline-soaked packs and wait 15-30 minutes before final judgment"
+    },
+    "bleeding_test": {
+      "technique": "Small cut or needle puncture in antimesenteric border",
+      "viable": "Brisk, red arterial bleeding",
+      "nonviable": "Dark, venous blood or no bleeding",
+      "limitations": "Does not assess mucosal perfusion"
+    }
+  },
+  "adjunctive_technologies": {
+    "doppler_ultrasound": {
+      "technique": "Handheld continuous-wave Doppler probe on mesenteric arcade and bowel wall",
+      "interpretation": {
+        "viable": "Arterial signals in mesentery and antimesenteric border",
+        "nonviable": "Absent arterial signals"
+      },
+      "sensitivity": "82-90%",
+      "specificity": "80-85%",
+      "limitations": "Cannot assess mucosal perfusion, artifact from adjacent vessels"
+    },
+    "fluorescein_angiography": {
+      "technique": "IV fluorescein (10-15 mL of 10%), examination under Wood's lamp",
+      "interpretation": {
+        "viable": "Bright yellow-green fluorescence within 3-5 minutes",
+        "nonviable": "Absent or patchy fluorescence"
+      },
+      "sensitivity": "90-95%",
+      "specificity": "65-75%",
+      "limitations": "Low specificity, false positives (edematous bowel), anaphylaxis risk"
+    },
+    "ICG_angiography": {
+      "technique": "IV indocyanine green, near-infrared fluorescence imaging system",
+      "interpretation": {
+        "viable": "Uniform fluorescent signal on bowel wall",
+        "nonviable": "Absent or patchy signal"
+      },
+      "advantages": "Real-time, quantifiable, can assess perfusion dynamically",
+      "sensitivity": "~95%",
+      "specificity": "~85%",
+      "equipment": "Requires specialized camera (FireFly, SPY)",
+      "limitations": "Cost, equipment availability"
+    },
+    "pulse_oximetry": {
+      "technique": "Reflectance pulse oximeter probe placed on bowel serosa",
+      "interpretation": "SpO2 values and waveform analysis",
+      "limitations": "Limited by motion artifact, not widely adopted"
+    },
+    "laser_doppler_flowmetry": {
+      "technique": "Laser probe measures microvascular blood flow",
+      "interpretation": "Quantitative flow measurements",
+      "limitations": "Specialized equipment, interpretation challenging"
+    }
+  },
+  "second_look_laparotomy": {
+    "definition": "Planned re-exploration 24-48 hours after initial surgery to reassess bowel viability",
+    "indications": [
+      "Questionable bowel viability at initial surgery",
+      "Massive resection with borderline remaining bowel",
+      "Hemodynamic instability precluding careful assessment",
+      "Damage control surgery with temporary closure",
+      "Ongoing vasopressor requirements"
+    ],
+    "technique": {
+      "timing": "Typically 24-48 hours",
+      "assessment": "Re-examine all bowel, especially margins of prior resection",
+      "decision": "Resect any newly apparent necrosis, consider anastomosis if stable"
+    },
+    "outcomes": {
+      "additional_resection_rate": "20-40%",
+      "mortality_benefit": "Reduced mortality in selected series",
+      "recommendation": "Low threshold to plan second-look in uncertain cases"
+    },
+    "dilemma_in_practice": "Some surgeons advocate mandatory second-look for all AMI; others use selective approach based on intraoperative findings"
+  },
+  "resection_decisions": {
+    "clear_cut_cases": {
+      "obviously_viable": "No resection needed",
+      "obviously_necrotic": "Resect with 2-3 cm margins into healthy tissue"
+    },
+    "questionable_cases": {
+      "approach_1": "Resect questionable segment, primary anastomosis, second-look",
+      "approach_2": "Preserve questionable segment, plan obligatory second-look",
+      "approach_3": "Resect with stoma, assess stability before anastomosis"
+    },
+    "margin_selection": {
+      "principle": "Resect to bleeding, healthy margins",
+      "technique": "Cut incrementally until brisk arterial bleeding seen",
+      "balance": "Minimize resection to preserve bowel length vs. leaving ischemic tissue"
+    }
+  },
+  "error_patterns": {
+    "under_resection": {
+      "consequence": "Anastomotic leak, sepsis, death",
+      "cause": "Reluctance to resect borderline tissue"
+    },
+    "over_resection": {
+      "consequence": "Short bowel syndrome, TPN dependence",
+      "cause": "Excessive caution, removing potentially viable bowel"
+    },
+    "failure_to_second_look": {
+      "consequence": "Missed progression to necrosis",
+      "prevention": "Low threshold to plan second-look"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:021",
+        "title": "Open Surgical Revascularization",
+        "strength": 1.0
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:023",
+        "title": "Bowel Resection",
+        "strength": 1.0
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "review_article",
+        "citation": "Urbanavicius L, Pattyn P, de Putte DV, Venskutonis D. How to assess intestinal viability during surgery: A review of techniques. World J Gastrointest Surg. 2011;3(5):59-69",
+        "doi": "10.4240/wjgs.v3.i5.59",
+        "confidence": 0.95
+      },
+      {
+        "type": "textbook",
+        "citation": "Cronenwett JL, Johnston KW, eds. Rutherford's Vascular Surgery. 9th ed. Philadelphia: Elsevier; 2019. Chapter 104: Mesenteric Vascular Disease",
+        "isbn": "978-0323427913",
+        "confidence": 0.98
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "general_surgery_residents",
+      "vascular_surgeons"
+    ],
+    "estimated_time": "40min",
+    "learning_objectives": [
+      "Describe clinical and adjunctive methods for assessing bowel viability",
+      "Understand the role and timing of second-look laparotomy",
+      "Recognize the limitations of all assessment methods",
+      "Apply a systematic approach to resection decisions"
+    ],
+    "clinical_pearls": [
+      "No test is 100% - when in doubt, second-look",
+      "Wait 15-30 minutes after revascularization before deciding",
+      "ICG angiography is the best adjunct if available",
+      "Better to second-look unnecessarily than to miss progressive necrosis"
+    ]
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-048-ir-perspective",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T06:20:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "interventional-radiology-perspective"
+    ],
+    "confidence": 0.91,
+    "status": "validated",
+    "last_updated": "2025-12-30T06:20:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "perspective",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "048",
+    "keywords": [
+      "interventional radiology",
+      "IR perspective",
+      "endovascular",
+      "multidisciplinary care",
+      "radiologist viewpoint"
+    ],
+    "medical_specialty": "interventional_radiology",
+    "clinical_context": "multidisciplinary_collaboration"
+  },
+  "content": {
+    "statement": {
+      "text": "The interventional radiologist plays a critical role in mesenteric ischemia care as both diagnostician (often first to identify ischemia on CT) and interventionalist; effective collaboration with vascular surgeons requires mutual understanding of each specialty's capabilities, limitations, and the complementary nature of endovascular and open surgical approaches.",
+      "formal": "IR Role: (1) Diagnostic imaging interpretation (CTA, may first identify AMI); (2) Endovascular intervention (thrombectomy, thrombolysis, angioplasty/stenting); (3) NOMI management (vasodilator infusion); (4) Collaboration with surgery for hybrid/staged approaches"
+    },
+    "explanation": {
+      "intuition": "In many institutions, the interventional radiologist is called first for acute mesenteric ischemia because they perform the diagnostic angiography and can immediately transition to intervention. Understanding the IR perspective helps surgeons communicate effectively, plan hybrid approaches, and recognize when endovascular treatment is preferred vs. when open surgery is necessary.",
+      "key_insight": "The IR-surgery relationship should be collaborative, not competitive. The best outcomes often come from combined approaches—IR for rapid revascularization, surgery for bowel assessment and resection. Pre-procedural communication about clinical status and surgical backup is essential.",
+      "technical_details": "IRs bring expertise in catheter navigation, device selection, and radiation management. They may have earlier access to newer devices and techniques. However, they typically rely on surgeons for bowel viability assessment and resection decisions."
+    }
+  },
+  "ir_diagnostic_role": {
+    "ct_interpretation": {
+      "first_contact": "IR or radiology often first identifies mesenteric ischemia on CTA read",
+      "findings_to_communicate": [
+        "Occlusion location and extent",
+        "Arterial vs venous etiology",
+        "Embolic vs thrombotic appearance",
+        "Bowel wall changes (concerning for necrosis)",
+        "Pneumatosis, portal venous gas (ominous)"
+      ],
+      "importance": "Prompt and accurate interpretation accelerates treatment"
+    },
+    "communication": {
+      "critical_findings_protocol": "AMI is a critical finding requiring immediate communication",
+      "direct_contact": "Should call surgeon directly, not just note in report",
+      "information_to_provide": [
+        "Level of occlusion",
+        "Suspected mechanism (embolism vs thrombosis)",
+        "Evidence of bowel compromise",
+        "Assessment of vessels for intervention feasibility"
+      ]
+    }
+  },
+  "ir_interventional_role": {
+    "capabilities": [
+      {
+        "procedure": "Diagnostic mesenteric angiography",
+        "context": "When CTA inconclusive or intervention planned"
+      },
+      {
+        "procedure": "Mechanical thrombectomy",
+        "devices": ["Aspiration catheters", "Rheolytic devices"],
+        "context": "First-line for acute SMA occlusion"
+      },
+      {
+        "procedure": "Catheter-directed thrombolysis",
+        "context": "Adjunct to mechanical thrombectomy; standalone less common now"
+      },
+      {
+        "procedure": "Angioplasty and stenting",
+        "context": "CMI treatment; underlying stenosis after acute thrombectomy"
+      },
+      {
+        "procedure": "Vasodilator infusion",
+        "context": "NOMI—papaverine or prostaglandin infusion via SMA catheter"
+      },
+      {
+        "procedure": "Venous intervention",
+        "context": "MVT—thrombolysis, thrombectomy (less common)"
+      }
+    ],
+    "technical_expertise": [
+      "Complex catheter navigation",
+      "Wire and catheter selection",
+      "Device deployment",
+      "Radiation dose management",
+      "Complications management"
+    ],
+    "limitations": [
+      "Cannot assess bowel viability at bedside",
+      "Cannot perform bowel resection",
+      "May not be available 24/7 at all centers",
+      "Device/technique limitations in some anatomies"
+    ]
+  },
+  "ir_surgery_collaboration": {
+    "models": {
+      "sequential": {
+        "description": "IR performs endovascular intervention, then surgery assesses bowel",
+        "advantages": ["Rapid revascularization", "Preserves surgical field"],
+        "timing": "Surgery follows within hours of successful revascularization"
+      },
+      "hybrid_simultaneous": {
+        "description": "Revascularization and bowel assessment in same setting (hybrid OR)",
+        "advantages": ["Real-time assessment", "Single anesthesia"],
+        "requirement": "Hybrid OR with imaging capability"
+      },
+      "staged": {
+        "description": "IR initial intervention, interval clinical assessment, surgery if needed",
+        "use_case": "Borderline cases, CMI presentations"
+      }
+    },
+    "communication_points": {
+      "pre_procedure": [
+        "Clinical status and surgical backup plan",
+        "Whether bowel assessment/exploration planned after",
+        "Patient hemodynamic stability",
+        "Goals of care if elderly/comorbid"
+      ],
+      "intra_procedure": [
+        "Findings and technical success",
+        "Need for additional procedures",
+        "Complications"
+      ],
+      "post_procedure": [
+        "Handoff with summary of intervention",
+        "Anticoagulation plan",
+        "Timing for surgical assessment"
+      ]
+    }
+  },
+  "nomi_management_ir": {
+    "role": "Primary treatment is often endovascular vasodilator infusion",
+    "technique": {
+      "access": "Femoral artery; catheter positioned in SMA",
+      "agents": [
+        {"agent": "Papaverine", "dose": "30-60 mg/hr", "duration": "24-72 hours"},
+        {"agent": "Prostaglandin E1", "dose": "Variable", "use": "Alternative to papaverine"}
+      ],
+      "monitoring": [
+        "Serial angiography to assess response",
+        "Clinical assessment for improvement",
+        "Watch for systemic hypotension"
+      ]
+    },
+    "collaboration": {
+      "surgery_involvement": "Consult for bowel assessment if signs of necrosis",
+      "icu_involvement": "Manage underlying cause, hemodynamics"
+    }
+  },
+  "clinical_pearls": [
+    {
+      "pearl": "The radiologist reading the CTA may be the first to diagnose AMI—prompt communication to the clinical team is critical",
+      "implication": "Establish protocols for critical finding notification"
+    },
+    {
+      "pearl": "IR can often achieve rapid revascularization, but this doesn't guarantee bowel viability—surgical assessment remains essential",
+      "implication": "Plan for surgical evaluation after endovascular success"
+    },
+    {
+      "pearl": "NOMI is primarily an IR/ICU problem, but surgeons must be involved if peritonitis develops",
+      "implication": "Don't delay surgical consultation if NOMI patient deteriorates"
+    },
+    {
+      "pearl": "Hybrid OR environments allow simultaneous revascularization and bowel assessment—ideal for acute AMI when available",
+      "implication": "Consider institutional investment in hybrid OR capability"
+    }
+  ],
+  "relationships": {
+    "prerequisites": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:022",
+        "title": "Endovascular Treatment",
+        "relationship": "treatment_expertise"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:015",
+        "title": "CTA Imaging",
+        "relationship": "diagnostic_expertise"
+      }
+    ],
+    "enables": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:024",
+        "title": "Hybrid Approaches",
+        "relationship": "collaboration_model"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:043",
+        "title": "Transfer and Resource Decisions",
+        "relationship": "availability_factor"
+      }
+    ],
+    "related_concepts": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:025",
+        "title": "Open vs Endovascular Dilemma",
+        "relationship": "treatment_decision"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:047",
+        "title": "Mechanical Thrombectomy",
+        "relationship": "ir_procedure"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "title": "The role of interventional radiology in the management of mesenteric ischemia",
+        "authors": "Defined GG, et al.",
+        "publication": "Techniques in Vascular and Interventional Radiology",
+        "year": 2022,
+        "volume": 25,
+        "pages": "100817",
+        "doi": "10.1016/j.tvir.2022.100817",
+        "type": "review"
+      },
+      {
+        "title": "Clinical Guidelines on the Management of Patients with Mesenteric Artery Disease",
+        "authors": "Björck M, Koelemay M, Acosta S, et al.",
+        "publication": "European Journal of Vascular and Endovascular Surgery",
+        "year": 2017,
+        "volume": 53,
+        "pages": "460-510",
+        "doi": "10.1016/j.ejvs.2017.01.010",
+        "type": "clinical_guideline"
+      }
+    ],
+    "evidence_level": "Expert consensus and observational data",
+    "last_verified": "2025-12-30"
+  }
+}

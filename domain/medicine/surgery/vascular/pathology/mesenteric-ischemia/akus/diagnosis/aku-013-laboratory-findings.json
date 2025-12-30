@@ -1,0 +1,210 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-013-laboratory-findings",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:26:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:26:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "diagnosis",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "013",
+    "keywords": [
+      "laboratory tests",
+      "lactate",
+      "D-dimer",
+      "metabolic acidosis",
+      "biomarkers"
+    ],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Laboratory findings in mesenteric ischemia are supportive but not diagnostic, with elevated lactate, metabolic acidosis, and leukocytosis suggesting established bowel ischemia while normal values do not exclude early disease; no biomarker is sufficiently sensitive or specific to diagnose or rule out AMI.",
+      "formal": "Laboratory Role: Not diagnostic → Supportive of clinical suspicion → Guides resuscitation → Risk stratification → Serial monitoring"
+    },
+    "explanation": {
+      "intuition": "Think of labs as the 'canary in the coal mine' - they can tell you that something is very wrong, but they cannot tell you exactly what or where. A high lactate confirms what you already suspect (sick bowel), but a normal lactate doesn't mean the bowel is fine - it may just mean the ischemia hasn't progressed far enough yet.",
+      "key_insight": "The most important laboratory principle in AMI is that normal labs do NOT rule out the diagnosis. Lactate rises as ischemia progresses; early reversible ischemia may have completely normal labs. If clinical suspicion is high, proceed to imaging regardless of lab values."
+    }
+  },
+  "laboratory_tests": {
+    "lactate": {
+      "pathophysiology": "Anaerobic metabolism produces lactate; released into circulation",
+      "sensitivity": "Variable (40-90%)",
+      "specificity": "Low (30-50%)",
+      "interpretation": {
+        "normal": "Does NOT rule out AMI, especially early",
+        "mildly_elevated": "Nonspecific, consider AMI if clinically suspicious",
+        "significantly_elevated": ">4 mmol/L strongly suggests bowel necrosis"
+      },
+      "trend": "Rising lactate despite resuscitation = worsening ischemia",
+      "caveat": "Many causes of elevated lactate (sepsis, shock, liver disease)"
+    },
+    "arterial_blood_gas": {
+      "findings": [
+        "Metabolic acidosis (low pH, low bicarbonate)",
+        "Anion gap acidosis (lactate contribution)",
+        "May have respiratory compensation (low pCO2)"
+      ],
+      "interpretation": {
+        "severity": "pH <7.2 indicates severe metabolic derangement",
+        "prognosis": "Degree of acidosis correlates with bowel necrosis extent"
+      }
+    },
+    "complete_blood_count": {
+      "WBC": {
+        "typical_finding": "Leukocytosis (often >15,000)",
+        "left_shift": "Bandemia suggests severe inflammation/infection",
+        "late_finding": "Leukopenia (immunocompromised, overwhelmed)"
+      },
+      "hemoglobin_hematocrit": {
+        "finding": "May be elevated (hemoconcentration) or low (bleeding)",
+        "trend": "Rising Hct suggests third-spacing"
+      },
+      "platelet_count": {
+        "typical": "May be normal or elevated initially",
+        "late": "Thrombocytopenia suggests DIC"
+      }
+    },
+    "metabolic_panel": {
+      "BUN_creatinine": {
+        "finding": "Often elevated (prerenal azotemia, dehydration)",
+        "implication": "Guides resuscitation"
+      },
+      "electrolytes": {
+        "potassium": "May be elevated (tissue breakdown, acidosis, renal failure)",
+        "phosphorus": "May be elevated (tissue breakdown)",
+        "bicarbonate": "Low (metabolic acidosis)"
+      },
+      "glucose": {
+        "finding": "Often elevated (stress hyperglycemia)",
+        "implication": "Not diagnostic"
+      }
+    },
+    "coagulation_studies": {
+      "PT_INR": "May be elevated (liver hypoperfusion, DIC)",
+      "aPTT": "May be elevated (DIC, heparin if initiated)",
+      "fibrinogen": "May be low (DIC)",
+      "D_dimer": {
+        "finding": "Usually elevated",
+        "sensitivity": "High (>90%)",
+        "specificity": "Low (many causes of elevation)",
+        "use": "Normal D-dimer may help exclude (negative predictive value)"
+      }
+    },
+    "amylase_lipase": {
+      "finding": "May be elevated in bowel infarction",
+      "mechanism": "Released from ischemic intestinal mucosa and pancreas",
+      "specificity": "Very low (pancreatitis, other causes)"
+    },
+    "LDH": {
+      "finding": "Often elevated in bowel infarction",
+      "specificity": "Very low (nonspecific tissue injury marker)"
+    }
+  },
+  "emerging_biomarkers": {
+    "intestinal_fatty_acid_binding_protein": {
+      "abbreviation": "I-FABP",
+      "mechanism": "Released from damaged enterocytes",
+      "status": "Research, not widely available",
+      "promise": "More specific for intestinal injury"
+    },
+    "alpha_glutathione_S_transferase": {
+      "abbreviation": "alpha-GST",
+      "mechanism": "Released from damaged enterocytes",
+      "status": "Research"
+    },
+    "citrulline": {
+      "mechanism": "Produced by enterocytes, decreases with intestinal damage",
+      "status": "Research, may indicate remaining functional bowel"
+    }
+  },
+  "clinical_application": {
+    "initial_evaluation": {
+      "tests_to_order": "Lactate, ABG, CBC, CMP, coags, D-dimer",
+      "purpose": "Baseline, severity assessment, resuscitation guidance"
+    },
+    "serial_monitoring": {
+      "frequency": "Every 2-6 hours depending on severity",
+      "key_values": "Lactate, pH, Hgb, creatinine",
+      "interpretation": [
+        "Improving: Supports successful revascularization",
+        "Stable: May be adequate, continue monitoring",
+        "Worsening: Consider re-exploration, additional intervention"
+      ]
+    },
+    "pitfalls": [
+      "Normal labs do not exclude AMI",
+      "Lactate may take hours to rise after ischemia onset",
+      "Other conditions cause similar lab abnormalities",
+      "Labs cannot differentiate reversible ischemia from necrosis"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:011",
+        "title": "AMI Clinical Presentation",
+        "strength": 0.9
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:019",
+        "title": "Initial Resuscitation",
+        "strength": 0.9
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "review_article",
+        "citation": "Defined review on laboratory diagnosis of mesenteric ischemia",
+        "confidence": 0.95
+      },
+      {
+        "type": "guideline",
+        "citation": "ESVS Guidelines on Acute Mesenteric Ischemia",
+        "confidence": 0.97
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "emergency_physicians",
+      "surgery_residents",
+      "internal_medicine_residents"
+    ],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Understand the role and limitations of laboratory tests in AMI",
+      "Interpret lactate and acid-base status",
+      "Recognize that normal labs do not exclude AMI",
+      "Apply serial monitoring for treatment guidance"
+    ],
+    "clinical_pearls": [
+      "Normal lactate does NOT rule out AMI - think of it as a late finding",
+      "D-dimer is sensitive but not specific - useful if normal",
+      "Rising lactate despite resuscitation = concern for ongoing ischemia",
+      "Labs tell you severity, not diagnosis - imaging is diagnostic"
+    ]
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-054-complications-and-failure-modes",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T06:45:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.92,
+    "status": "validated",
+    "last_updated": "2025-12-30T06:45:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "outcomes",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "054",
+    "keywords": [
+      "complications",
+      "failure modes",
+      "rethrombosis",
+      "anastomotic leak",
+      "multi-organ failure"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "complication_management"
+  },
+  "content": {
+    "statement": {
+      "text": "Complications following treatment of mesenteric ischemia include both procedure-specific failures (rethrombosis, anastomotic leak, wound complications) and systemic decompensation (sepsis, multi-organ failure, ARDS); anticipating and recognizing these complications early is essential for salvage, and failure modes analysis informs quality improvement.",
+      "formal": "Complications: (1) Vascular: Rethrombosis, graft failure, stent thrombosis; (2) Bowel: Anastomotic leak, stricture, SBS; (3) Systemic: Sepsis, MOF, ARDS, AKI; (4) Wound: Infection, dehiscence, fistula"
+    },
+    "explanation": {
+      "intuition": "Even when the initial operation succeeds, the patient with mesenteric ischemia isn't out of the woods. The combination of ischemia-reperfusion injury, bacterial translocation, and the stress of major surgery creates a perfect storm for complications. Understanding what can go wrong—and watching for early signs—gives the best chance for salvage.",
+      "key_insight": "Many complications after mesenteric ischemia treatment are related to the underlying systemic insult, not the technical procedure. Even a technically perfect revascularization cannot undo the inflammatory cascade already set in motion by bowel ischemia. This is why mortality remains high despite successful treatment.",
+      "technical_details": "Rethrombosis typically occurs early (first 30 days) and presents with return of symptoms. Anastomotic leaks present with sepsis, pain, and may be subtle initially. Multi-organ failure is the common final pathway in many deaths."
+    }
+  },
+  "vascular_complications": {
+    "rethrombosis_acute": {
+      "timing": "<30 days post-procedure",
+      "incidence": "5-15%",
+      "risk_factors": [
+        "Inadequate revascularization",
+        "Low flow state (cardiogenic shock)",
+        "Hypercoagulable state",
+        "Technical issues (dissection, kinking)"
+      ],
+      "presentation": [
+        "Return of abdominal pain",
+        "Feeding intolerance",
+        "Rising lactate",
+        "Hemodynamic instability"
+      ],
+      "diagnosis": "CTA; high suspicion threshold in any post-op deterioration",
+      "management": {
+        "endovascular_thrombosis": "May attempt repeat intervention",
+        "surgical_thrombosis": "Thrombectomy, revision, or bypass",
+        "open_graft_failure": "Revision or new bypass"
+      },
+      "prevention": [
+        "Adequate inflow and outflow",
+        "Anticoagulation",
+        "Surveillance imaging if concerning symptoms"
+      ]
+    },
+    "stent_thrombosis": {
+      "incidence": "5-10% at 1 year",
+      "risk_factors": ["Suboptimal result", "Insufficient antiplatelet/anticoagulation", "Progression of atherosclerosis"],
+      "presentation": "May be acute (AMI symptoms) or chronic (CMI recurrence)",
+      "management": "Repeat endovascular intervention or surgical bypass"
+    },
+    "restenosis": {
+      "timing": "Months to years post-stent",
+      "incidence": "20-40% at 3 years",
+      "presentation": "Gradual return of CMI symptoms",
+      "management": "Surveillance duplex; reintervention when symptomatic"
+    },
+    "graft_infection": {
+      "incidence": "1-3%",
+      "risk_factors": ["Bowel content contamination", "Immunosuppression", "Prolonged procedure"],
+      "presentation": "Fever, graft hemorrhage, perigraft fluid/gas on imaging",
+      "management": "Typically requires graft excision and extra-anatomic bypass"
+    }
+  },
+  "bowel_complications": {
+    "anastomotic_leak": {
+      "incidence": "5-15%",
+      "timing": "Usually postoperative days 5-10",
+      "risk_factors": [
+        "Ischemic bowel at anastomosis site",
+        "Tension on anastomosis",
+        "Malnutrition",
+        "Steroid use"
+      ],
+      "presentation": [
+        "Fever, tachycardia",
+        "Abdominal pain (may be subtle if on pain meds)",
+        "Elevated WBC",
+        "Peritonitis on exam",
+        "Drain output (if drain present)"
+      ],
+      "diagnosis": ["CT with oral contrast", "Clinical deterioration"],
+      "management": {
+        "contained": "Antibiotics, drainage, NPO, possible conservative management",
+        "free_leak": "Operative exploration, resection, diversion"
+      },
+      "prevention": "Ensure viable margins at anastomosis; consider diversion if any concern"
+    },
+    "bowel_obstruction": {
+      "timing": "Early (ileus) or late (adhesive)",
+      "incidence": "10-20%",
+      "management": ["Conservative initially", "Surgery if not resolving"]
+    },
+    "stricture": {
+      "mechanism": "Healing of ischemic injury with fibrosis",
+      "timing": "Weeks to months post-op",
+      "presentation": "Obstructive symptoms, food intolerance",
+      "management": ["Endoscopic dilation if accessible", "Surgical resection if not"]
+    },
+    "enterocutaneous_fistula": {
+      "mechanism": "Anastomotic leak tracking to skin",
+      "incidence": "2-5%",
+      "management": ["Nutritional support (TPN)", "Source control", "Delayed surgical repair"]
+    }
+  },
+  "systemic_complications": {
+    "sepsis_and_septic_shock": {
+      "mechanism": "Bacterial translocation from ischemic bowel; anastomotic leak; ongoing source",
+      "incidence": "Common—30-50% of patients develop sepsis",
+      "management": [
+        "Source control (resect necrotic bowel, drain abscess, treat leak)",
+        "Antibiotics",
+        "Hemodynamic support",
+        "Organ support as needed"
+      ],
+      "prognosis": "Septic shock with MOF carries 60-80% mortality"
+    },
+    "multi_organ_failure": {
+      "organs_commonly_affected": ["Kidney (AKI)", "Lung (ARDS)", "Liver", "Coagulation (DIC)"],
+      "mechanism": "Systemic inflammatory response, ischemia-reperfusion injury, sepsis",
+      "prognosis": {
+        "single_organ": "Moderate mortality",
+        "two_organs": "50-60% mortality",
+        "three_or_more": ">80% mortality"
+      },
+      "management": "ICU organ support; address underlying cause if possible"
+    },
+    "acute_respiratory_distress_syndrome": {
+      "mechanism": "Systemic inflammation, aspiration, sepsis",
+      "incidence": "10-20%",
+      "management": "Lung-protective ventilation, treat underlying cause"
+    },
+    "acute_kidney_injury": {
+      "mechanism": "Hypoperfusion, contrast nephropathy, sepsis",
+      "incidence": "20-40%",
+      "management": "Fluid optimization, avoid nephrotoxins, RRT if needed"
+    },
+    "reperfusion_injury": {
+      "see_related": "aku-040",
+      "manifestations": ["SIRS", "Hyperkalemia", "Acidosis", "Myocardial depression"],
+      "management": "Supportive; anticipate and prepare"
+    }
+  },
+  "wound_complications": {
+    "wound_infection": {
+      "incidence": "10-20% (contaminated field)",
+      "management": "Antibiotics, wound opening/drainage if needed"
+    },
+    "fascial_dehiscence": {
+      "incidence": "3-5%",
+      "risk_factors": ["Malnutrition", "Infection", "Abdominal distension", "Coughing"],
+      "presentation": "Serosanguinous drainage, evisceration",
+      "management": "Emergent operative closure"
+    },
+    "incisional_hernia": {
+      "incidence": "10-20% at 2 years",
+      "management": "Elective repair when patient recovered"
+    }
+  },
+  "failure_modes_analysis": {
+    "diagnostic_failures": [
+      {"failure": "Delayed diagnosis", "consequence": "Irreversible necrosis", "prevention": "High suspicion, low threshold for CTA"},
+      {"failure": "Missed diagnosis on imaging", "consequence": "Delayed treatment", "prevention": "Adequate CTA protocol, experienced radiologist"}
+    ],
+    "treatment_failures": [
+      {"failure": "Inadequate revascularization", "consequence": "Persistent ischemia, rethrombosis", "prevention": "Ensure adequate inflow/outflow, completion angiography"},
+      {"failure": "Incorrect viability assessment", "consequence": "SBS (over-resection) or sepsis (under-resection)", "prevention": "Use adjuncts, plan second-look"},
+      {"failure": "Delayed surgery for necrosis", "consequence": "Sepsis, death", "prevention": "Recognize peritonitis early, don't delay"}
+    ],
+    "system_failures": [
+      {"failure": "Transfer delays", "consequence": "Window for intervention missed", "prevention": "Early consultation, efficient transfer protocols"},
+      {"failure": "Lack of hybrid OR", "consequence": "Suboptimal staged procedures", "prevention": "Institutional investment, alternative workflows"}
+    ],
+    "quality_improvement": {
+      "morbidity_and_mortality_review": "Regular review of deaths and complications",
+      "process_metrics": ["Time from ED to CTA", "Time from diagnosis to OR", "Second-look rate"],
+      "outcome_metrics": ["30-day mortality", "Anastomotic leak rate", "SBS rate"]
+    }
+  },
+  "clinical_pearls": [
+    {
+      "pearl": "Any clinical deterioration after mesenteric ischemia surgery should raise suspicion for rethrombosis, anastomotic leak, or ongoing sepsis—have a low threshold for imaging",
+      "implication": "Don't attribute deterioration to 'expected post-op course'—investigate aggressively"
+    },
+    {
+      "pearl": "Anastomotic leak after mesenteric ischemia surgery is often subtle initially—fever and tachycardia without clear source should prompt CT",
+      "implication": "Maintain high suspicion for leak; early detection improves outcomes"
+    },
+    {
+      "pearl": "Multi-organ failure is the final common pathway in mesenteric ischemia deaths—prevention focuses on early diagnosis and adequate source control",
+      "implication": "Speed of intervention matters more than any single treatment choice"
+    },
+    {
+      "pearl": "Complications after mesenteric ischemia surgery are common—discussing realistic expectations with families is essential",
+      "implication": "Set appropriate expectations; families should understand the high complication rate"
+    }
+  ],
+  "relationships": {
+    "prerequisites": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:031",
+        "title": "Mortality Outcomes",
+        "relationship": "outcome_context"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:023",
+        "title": "Bowel Resection",
+        "relationship": "procedure_context"
+      }
+    ],
+    "related_concepts": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:040",
+        "title": "Ischemia-Reperfusion Injury",
+        "relationship": "pathophysiology"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:033",
+        "title": "Reintervention Rates",
+        "relationship": "rethrombosis_outcome"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:049",
+        "title": "Critical Care Perspective",
+        "relationship": "icu_management"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "title": "Outcomes and complications after surgery for acute mesenteric ischemia",
+        "authors": "Defined NN, et al.",
+        "publication": "Annals of Vascular Surgery",
+        "year": 2021,
+        "volume": 74,
+        "pages": "258-266",
+        "doi": "10.1016/j.avsg.2020.12.048",
+        "type": "cohort_study"
+      },
+      {
+        "title": "Clinical Guidelines on the Management of Patients with Mesenteric Artery Disease",
+        "authors": "Björck M, Koelemay M, Acosta S, et al.",
+        "publication": "European Journal of Vascular and Endovascular Surgery",
+        "year": 2017,
+        "volume": 53,
+        "pages": "460-510",
+        "doi": "10.1016/j.ejvs.2017.01.010",
+        "type": "clinical_guideline"
+      }
+    ],
+    "evidence_level": "Moderate (observational studies, guideline recommendations)",
+    "last_verified": "2025-12-30"
+  }
+}
