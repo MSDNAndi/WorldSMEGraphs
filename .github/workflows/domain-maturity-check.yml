@@ -9,6 +9,9 @@ on:
 jobs:
   check-maturity:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     
     steps:
       - name: Checkout code
@@ -122,95 +125,114 @@ jobs:
         if: always()
         with:
           script: |
-            const fs = require('fs');
-            const path = require('path');
-            
-            let comment = '## 📊 Domain Maturity Report\n\n';
-            
-            // Read all JSON reports
-            const reportDir = 'maturity-reports';
-            const files = fs.readdirSync(reportDir).filter(f => f.endsWith('.json'));
-            
-            if (files.length === 0) {
-              comment += '⚠️ No maturity reports generated (no domains with AKUs found).\n';
-            } else {
-              files.forEach(file => {
-                const reportPath = path.join(reportDir, file);
-                const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
-                
-                const domain = report.domain_path;
-                const level = report.maturity_level;
-                const levelName = report.maturity_name;
-                const completeness = report.completeness_percentage;
-                const akuCount = report.aku_counts.total;
-                const target = report.aku_counts.target;
-                const validationRate = report.validation.pass_rate_pct;
-                
-                // Level emoji
-                const emojis = {1: '🌱', 2: '🌿', 3: '🌳', 4: '🏛️', 5: '💎'};
-                const emoji = emojis[level] || '❓';
-                
-                comment += `### ${emoji} ${domain}\n\n`;
-                comment += `- **Maturity**: Level ${level} - ${levelName}\n`;
-                comment += `- **Completeness**: ${completeness}% (${akuCount}/${target} AKUs)\n`;
-                comment += `- **Validation**: ${validationRate}% pass rate\n`;
-                
-                // Type distribution
-                const dist = report.type_distribution;
-                comment += `- **Distribution**: `;
-                comment += `Def ${dist.definitions || 0}% | `;
-                comment += `Form ${dist.formulas || 0}% | `;
-                comment += `Theory ${dist.theory || 0}% | `;
-                comment += `Ex ${dist.examples || 0}%\n`;
-                
-                // Top gap
-                const gaps = report.gaps || [];
-                if (gaps.length > 0) {
-                  comment += `- **Top Priority**: ${gaps[0]}\n`;
-                }
-                
-                comment += '\n';
-              });
+            try {
+              const fs = require('fs');
+              const path = require('path');
               
-              // Add regression warnings
-              const regressionDetails = '${{ steps.regression.outputs.regression_details }}';
-              if (regressionDetails) {
-                comment += '### ⚠️ Quality Concerns\n\n';
-                comment += regressionDetails + '\n\n';
+              let comment = '## 📊 Domain Maturity Report\n\n';
+              
+              // Read all JSON reports
+              const reportDir = 'maturity-reports';
+              let files = [];
+              
+              // Check if directory exists before reading
+              if (fs.existsSync(reportDir)) {
+                files = fs.readdirSync(reportDir).filter(f => f.endsWith('.json'));
               }
               
-              // Add sufficiency summary
-              comment += '### ✅ Sufficiency Assessment\n\n';
-              files.forEach(file => {
-                const reportPath = path.join(reportDir, file);
-                const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
-                const level = report.maturity_level;
+              if (files.length === 0) {
+                comment += '⚠️ No maturity reports generated (no domains with AKUs found).\n';
+              } else {
+                files.forEach(file => {
+                  const reportPath = path.join(reportDir, file);
+                  const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+                  
+                  const domain = report.domain_path;
+                  const level = report.maturity_level;
+                  const levelName = report.maturity_name;
+                  const completeness = report.completeness_percentage;
+                  const akuCount = report.aku_counts.total;
+                  const target = report.aku_counts.target;
+                  const validationRate = report.validation.pass_rate_pct;
+                  
+                  // Level emoji
+                  const emojis = {1: '🌱', 2: '🌿', 3: '🌳', 4: '🏛️', 5: '💎'};
+                  const emoji = emojis[level] || '❓';
+                  
+                  comment += `### ${emoji} ${domain}\n\n`;
+                  comment += `- **Maturity**: Level ${level} - ${levelName}\n`;
+                  comment += `- **Completeness**: ${completeness}% (${akuCount}/${target} AKUs)\n`;
+                  comment += `- **Validation**: ${validationRate}% pass rate\n`;
+                  
+                  // Type distribution
+                  const dist = report.type_distribution;
+                  comment += `- **Distribution**: `;
+                  comment += `Def ${dist.definitions || 0}% | `;
+                  comment += `Form ${dist.formulas || 0}% | `;
+                  comment += `Theory ${dist.theory || 0}% | `;
+                  comment += `Ex ${dist.examples || 0}%\n`;
+                  
+                  // Top gap
+                  const gaps = report.gaps || [];
+                  if (gaps.length > 0) {
+                    comment += `- **Top Priority**: ${gaps[0]}\n`;
+                  }
+                  
+                  comment += '\n';
+                });
                 
-                comment += `**${report.domain_path}** (Level ${level}):\n`;
-                if (level >= 2) {
-                  comment += '- ✓ Expert-level reference (single domain)\n';
+                // Add regression warnings
+                const regressionDetails = '${{ steps.regression.outputs.regression_details }}';
+                if (regressionDetails) {
+                  comment += '### ⚠️ Quality Concerns\n\n';
+                  comment += regressionDetails + '\n\n';
                 }
-                if (level >= 3) {
-                  comment += '- ✓ Expert consultation (interconnected)\n';
-                  comment += '- ✓ Graduate coursework\n';
-                }
-                if (level >= 4) {
-                  comment += '- ✓ Publication-quality reference\n';
-                }
-                if (level < 3) {
-                  comment += '- ✗ NOT ready for multi-domain expert queries\n';
-                }
-                comment += '\n';
-              });
+                
+                // Add sufficiency summary
+                comment += '### ✅ Sufficiency Assessment\n\n';
+                files.forEach(file => {
+                  const reportPath = path.join(reportDir, file);
+                  const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+                  const level = report.maturity_level;
+                  
+                  comment += `**${report.domain_path}** (Level ${level}):\n`;
+                  if (level >= 2) {
+                    comment += '- ✓ Expert-level reference (single domain)\n';
+                  }
+                  if (level >= 3) {
+                    comment += '- ✓ Expert consultation (interconnected)\n';
+                    comment += '- ✓ Graduate coursework\n';
+                  }
+                  if (level >= 4) {
+                    comment += '- ✓ Publication-quality reference\n';
+                  }
+                  if (level < 3) {
+                    comment += '- ✗ NOT ready for multi-domain expert queries\n';
+                  }
+                  comment += '\n';
+                });
+              }
+              
+              // Check if we have a PR context before trying to comment
+              if (context.issue && context.issue.number) {
+                // Post comment
+                await github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: comment
+                });
+                console.log('Comment posted successfully');
+              } else {
+                console.log('Not a PR context, skipping comment');
+                console.log('Comment content:', comment);
+              }
+            } catch (error) {
+              console.error('Error in Comment on PR step:', error);
+              console.error('Stack trace:', error.stack);
+              // Don't fail the workflow, just log the error
+              core.warning(`Failed to post comment: ${error.message}`);
             }
-            
-            // Post comment
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: comment
-            });
       
       - name: Upload maturity reports
         uses: actions/upload-artifact@v4
