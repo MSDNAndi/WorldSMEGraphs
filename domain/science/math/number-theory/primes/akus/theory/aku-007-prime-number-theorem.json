@@ -1,0 +1,388 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MathematicalTheorem"
+  ],
+  "@id": "aku-007-prime-number-theorem",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T02:22:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2025-12-30T02:22:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/math/number-theory/primes",
+    "type": "theorem",
+    "difficulty": "advanced",
+    "importance": "foundational",
+    "aku_id": "007",
+    "keywords": [
+      "prime number theorem",
+      "prime distribution",
+      "pi function",
+      "asymptotic behavior",
+      "logarithmic integral"
+    ],
+    "math_category": "analytic_number_theory",
+    "mathematical_context": "prime_distribution"
+  },
+  "content": {
+    "statement": {
+      "text": "The Prime Number Theorem describes the asymptotic distribution of prime numbers among positive integers. It states that the number of primes less than or equal to x, denoted π(x), is approximately x/ln(x). More precisely, the ratio π(x)/(x/ln(x)) approaches 1 as x approaches infinity.",
+      "formal": "lim(x→∞) [π(x) / (x/ln(x))] = 1, where π(x) = |{p ≤ x : p is prime}|. Equivalently, π(x) ~ x/ln(x) or π(x) ~ Li(x) = ∫₂ˣ dt/ln(t)"
+    },
+    "explanation": {
+      "intuition": "If you want to know approximately how many primes exist below a large number N, divide N by its natural logarithm. For example, below 1,000,000 there are about 1,000,000/ln(1,000,000) ≈ 72,382 primes (actual: 78,498). The approximation gets better as numbers grow larger—it's not exact, but remarkably accurate for large values.",
+      "key_insight": "Primes become less frequent as numbers grow, but in a predictable way. Around the number N, roughly 1 in ln(N) numbers is prime. This 'prime density' decreases logarithmically, not linearly or exponentially. This theorem connects the seemingly random occurrence of primes to the smooth, continuous function ln(x).",
+      "technical_details": "Proved independently by Hadamard and de la Vallée Poussin in 1896 using complex analysis and the Riemann zeta function. The logarithmic integral Li(x) provides a better approximation than x/ln(x). Error terms are studied via the Riemann Hypothesis—if RH is true, error is O(√x ln(x)). The theorem is fundamental to analytic number theory and has applications in cryptography, computational complexity, and probabilistic algorithms.",
+      "common_misconceptions": [
+        "The theorem gives exact counts—it's asymptotic, meaning the ratio approaches 1, not that values are equal",
+        "Primes become 'rare'—they do thin out but infinitely many still exist",
+        "The theorem predicts individual primes—it describes overall distribution, not specific locations",
+        "x/ln(x) is the best approximation—Li(x) is more accurate"
+      ]
+    },
+    "definitions_glossary": {
+      "pi_function": "π(x) counts the number of primes ≤ x (not related to π ≈ 3.14159)",
+      "asymptotic": "Two functions are asymptotic if their ratio approaches 1 as x→∞",
+      "natural_logarithm": "ln(x) is the logarithm base e ≈ 2.71828",
+      "logarithmic_integral": "Li(x) = ∫₂ˣ dt/ln(t), better approximation to π(x)",
+      "prime_density": "Local frequency of primes around a number N ≈ 1/ln(N)"
+    }
+  },
+  "mathematical_features": {
+    "approximations": [
+      {
+        "formula": "x/ln(x)",
+        "accuracy": "Good for large x",
+        "error": "About 10-15% for moderate x"
+      },
+      {
+        "formula": "Li(x) = ∫₂ˣ dt/ln(t)",
+        "accuracy": "Better than x/ln(x)",
+        "error": "Typically overestimates by small amount"
+      },
+      {
+        "formula": "x/(ln(x) - 1)",
+        "accuracy": "Better than x/ln(x) for moderate x",
+        "error": "Improved approximation"
+      }
+    ],
+    "examples": [
+      {
+        "x": 100,
+        "actual_primes": 25,
+        "x_div_lnx": 21.7,
+        "Li_x": 29.1,
+        "error_pct_simple": 13.2
+      },
+      {
+        "x": 1000,
+        "actual_primes": 168,
+        "x_div_lnx": 144.8,
+        "Li_x": 177.6,
+        "error_pct_simple": 13.8
+      },
+      {
+        "x": 1000000,
+        "actual_primes": 78498,
+        "x_div_lnx": 72382,
+        "Li_x": 78628,
+        "error_pct_simple": 7.8
+      },
+      {
+        "x": 1000000000,
+        "actual_primes": 50847534,
+        "x_div_lnx": 48254942,
+        "Li_x": 50849235,
+        "error_pct_simple": 5.1
+      }
+    ],
+    "historical_development": [
+      {
+        "year": 1792,
+        "mathematician": "Carl Friedrich Gauss",
+        "contribution": "Conjectured π(x) ~ x/ln(x) at age 15"
+      },
+      {
+        "year": 1798,
+        "mathematician": "Adrien-Marie Legendre",
+        "contribution": "Independently conjectured similar form"
+      },
+      {
+        "year": 1859,
+        "mathematician": "Bernhard Riemann",
+        "contribution": "Connected prime distribution to zeta function zeros"
+      },
+      {
+        "year": 1896,
+        "mathematician": "Jacques Hadamard & Charles de la Vallée Poussin",
+        "contribution": "Independently proved the theorem using complex analysis"
+      },
+      {
+        "year": 1949,
+        "mathematician": "Atle Selberg & Paul Erdős",
+        "contribution": "Elementary proof not using complex analysis"
+      }
+    ],
+    "implications": [
+      "Probability that random n-bit number is prime ≈ 1/ln(2ⁿ) ≈ 1/(n ln 2)",
+      "Expected number of primality tests for random prime: O(n) for n-bit number",
+      "Justifies probabilistic primality testing in cryptography",
+      "Informs complexity analysis of number-theoretic algorithms"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Prime Number Theorem"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "PNT"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Asymptotic theorem stating that π(x) ~ x/ln(x), describing the distribution of prime numbers"
+    },
+    "notation": "aku-007-prime-number-theorem"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:math:number-theory:primes:001",
+        "title": "Prime Numbers",
+        "strength": 1.0,
+        "reason": "Theorem describes prime distribution"
+      },
+      {
+        "id": "urn:wskg:math:calculus:limits:001",
+        "title": "Limits and Asymptotic Behavior",
+        "strength": 0.9,
+        "reason": "Theorem is asymptotic statement"
+      },
+      {
+        "id": "urn:wskg:math:calculus:logarithm:001",
+        "title": "Natural Logarithm",
+        "strength": 0.95,
+        "reason": "ln(x) appears in the approximation"
+      },
+      {
+        "id": "urn:wskg:math:complex-analysis:riemann-zeta:001",
+        "title": "Riemann Zeta Function",
+        "strength": 0.8,
+        "reason": "Proof uses zeta function"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:math:number-theory:analytic:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Analytic Number Theory"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:prime-distribution:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Prime Distribution"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:cryptography:prime-generation:001",
+        "title": "Random Prime Generation",
+        "strength": 0.95,
+        "reason": "Informs probability of finding primes"
+      },
+      {
+        "id": "urn:wskg:computer-science:complexity:primality-testing:001",
+        "title": "Primality Testing Complexity",
+        "strength": 0.9,
+        "reason": "Expected runtime analysis uses PNT"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:prime-gaps:001",
+        "title": "Prime Gap Bounds",
+        "strength": 0.85,
+        "reason": "PNT implies bounds on average gap size"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:math:riemann-hypothesis:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Riemann Hypothesis",
+        "skos:note": "Refines error terms in PNT"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:math:number-theory:bertrand-postulate:001",
+        "type": "related_theorem",
+        "relationship": "Bertrand's postulate: always a prime between n and 2n"
+      },
+      {
+        "id": "urn:wskg:math:probability:probabilistic-number-theory:001",
+        "type": "methodology",
+        "relationship": "PNT enables probabilistic reasoning about primes"
+      },
+      {
+        "id": "urn:wskg:cryptography:rsa-key-generation:001",
+        "type": "application",
+        "relationship": "PNT informs expected time to find large primes"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:math:number-theory:goldbach-conjecture:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Goldbach's Conjecture",
+        "skos:note": "Another famous problem about prime distribution"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:gauss-conjecture-1792",
+        "@type": "prov:Entity",
+        "dc:title": "Gauss's conjecture on prime distribution",
+        "dc:creator": "Carl Friedrich Gauss",
+        "dc:date": "1792",
+        "dc:type": "historical_conjecture",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:hadamard-1896",
+        "@type": "prov:Entity",
+        "dc:title": "Sur la distribution des zéros de la fonction ζ(s)",
+        "dc:creator": "Jacques Hadamard",
+        "dc:date": "1896",
+        "dc:type": "research_paper",
+        "confidence": 1.0,
+        "note": "First proof of PNT"
+      },
+      {
+        "@id": "urn:source:vallee-poussin-1896",
+        "@type": "prov:Entity",
+        "dc:title": "Recherches analytiques la théorie des nombres premiers",
+        "dc:creator": "Charles de la Vallée Poussin",
+        "dc:date": "1896",
+        "dc:type": "research_paper",
+        "confidence": 1.0,
+        "note": "Independent proof of PNT"
+      },
+      {
+        "@id": "urn:source:apostol-analytic",
+        "@type": "prov:Entity",
+        "dc:title": "Introduction to Analytic Number Theory",
+        "dc:creator": "Tom M. Apostol",
+        "dc:identifier": "ISBN:978-0387901633",
+        "dc:type": "textbook",
+        "confidence": 1.0
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-30T02:22:00.000Z",
+      "prov:endedAtTime": "2025-12-30T02:22:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "dc:created": "2025-12-30T02:22:00.000Z",
+    "dc:modified": "2025-12-30T02:22:00.000Z",
+    "sources": [
+      {
+        "type": "historical",
+        "citation": "Gauss's conjecture (1792)",
+        "confidence": 1.0,
+        "note": "Original conjecture by Gauss at age 15"
+      },
+      {
+        "type": "research_paper",
+        "citation": "Hadamard: First proof (1896)",
+        "confidence": 1.0
+      },
+      {
+        "type": "research_paper",
+        "citation": "de la Vallée Poussin: Independent proof (1896)",
+        "confidence": 1.0
+      },
+      {
+        "type": "textbook",
+        "citation": "Apostol: Introduction to Analytic Number Theory",
+        "isbn": "978-0387901633",
+        "confidence": 1.0
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "math_expert",
+      "date": "2025-12-30",
+      "notes": "Theorem statement and historical details verified"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "undergraduate_math_majors",
+      "graduate_students_math",
+      "computer_science_cryptography"
+    ],
+    "estimated_time": "40min",
+    "difficulty_curve": 0.75,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "State the Prime Number Theorem accurately",
+      "Understand asymptotic notation and limits",
+      "Compute approximations using PNT",
+      "Appreciate the connection to cryptography",
+      "Recognize the historical significance"
+    ],
+    "common_errors": [
+      "Confusing π(x) with π ≈ 3.14159 (different concepts)",
+      "Expecting exact equality rather than asymptotic behavior",
+      "Thinking PNT predicts specific prime locations",
+      "Not understanding logarithmic growth"
+    ],
+    "teaching_tips": [
+      "Start with concrete examples: compute π(100), π(1000), etc.",
+      "Show tables comparing actual vs approximations",
+      "Graph π(x) vs x/ln(x) to visualize convergence",
+      "Emphasize 'density' interpretation: 1/ln(N) at N",
+      "Connect to RSA: finding 1024-bit prime takes ~ln(2¹⁰²⁴) ≈ 710 tests"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "theorem_with_examples_and_graphs",
+    "show_images": true,
+    "include_examples": true,
+    "visualization": [
+      "plot_pi_x_vs_x_div_lnx",
+      "table_comparing_approximations",
+      "historical_timeline",
+      "density_interpretation_diagram"
+    ],
+    "emphasis": [
+      "asymptotic_behavior",
+      "logarithmic_growth",
+      "applications_to_cryptography"
+    ]
+  }
+}

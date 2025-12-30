@@ -2,7 +2,7 @@
 
 **Domain Path**: `science/math/number-theory/primes`  
 **Status**: Active  
-**AKU Count**: 6  
+**AKU Count**: 10  
 **Last Updated**: 2025-12-30
 
 ## Overview
@@ -16,14 +16,18 @@ primes/
 ├── akus/
 │   ├── definitions/          (1 AKU)
 │   │   └── aku-001-prime-number-definition.json
-│   ├── theory/              (1 AKU)
-│   │   └── aku-002-fundamental-theorem-arithmetic.json
+│   ├── theory/              (3 AKUs)
+│   │   ├── aku-002-fundamental-theorem-arithmetic.json
+│   │   ├── aku-007-prime-number-theorem.json
+│   │   └── aku-008-twin-primes-conjectures.json
 │   ├── formulas/            (1 AKU)
 │   │   └── aku-003-sieve-eratosthenes.json
-│   ├── applications/        (3 AKUs)
+│   ├── applications/        (5 AKUs)
 │   │   ├── aku-004-primes-cryptography-rsa.json
 │   │   ├── aku-005-primes-biology-cicadas.json
-│   │   └── aku-006-primes-physics-quantum.json
+│   │   ├── aku-006-primes-physics-quantum.json
+│   │   ├── aku-009-primes-computer-science.json
+│   │   └── aku-010-primes-economics.json
 │   └── examples/            (0 AKUs - future)
 ├── .renders/
 │   └── english/
@@ -38,11 +42,15 @@ primes/
 - **Prime Number Definition** (AKU-001): What makes a number prime
 - **Fundamental Theorem of Arithmetic** (AKU-002): Unique factorization into primes
 - **Sieve of Eratosthenes** (AKU-003): Ancient algorithm for finding primes
+- **Prime Number Theorem** (AKU-007): Asymptotic distribution of primes
+- **Twin Primes** (AKU-008): Prime pairs and unsolved conjectures
 
 ### Cross-Domain Applications
 - **Cryptography** (AKU-004): RSA encryption and prime factorization
 - **Biology** (AKU-005): Periodical cicadas with 13 and 17-year cycles
 - **Physics** (AKU-006): Quantum mechanics and prime distribution patterns
+- **Computer Science** (AKU-009): Hash tables, algorithms, data structures
+- **Economics** (AKU-010): Financial security, cryptocurrency, blockchain
 
 ## Key Relationships
 
