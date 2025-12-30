@@ -430,7 +430,7 @@ No laboratory test can diagnose or rule out mesenteric ischemia. The laboratory'
 | Lactate | Rising levels concerning for necrosis | Normal does NOT exclude early ischemia |
 | D-dimer | High NPV if normal | Nonspecific; elevated in many conditions |
 | WBC | Leukocytosis common; leukopenia ominous | Nonspecific |
-| Base deficit | Correlates with severity | Not diagnostic |
+| Base excess/deficit | Correlates with severity | Not diagnostic |
 
 > **Clinical Pearl**: A normal lactate should NEVER be used to rule out mesenteric ischemia. Lactate rises late, after irreversible damage. Don't let reassuring labs delay imaging.
 
@@ -1102,9 +1102,7 @@ MALS is a controversial cause of chronic mesenteric symptoms from extrinsic comp
 
 ### 9.4 Colonic Ischemia: Conservative vs. Surgical Management
 
-Colonic ischemia requires stratified management based on severity.
-
-Colonic ischemia is the most common form of intestinal ischemia, typically affecting watershed areas.
+Colonic ischemia is the most common form of intestinal ischemia, typically affecting watershed areas, and requires stratified management based on severity.
 
 **Spectrum:**
 - Mild mucosal (80-85%): Self-limited
@@ -2018,7 +2016,24 @@ Current evidence is limited by:
     d. No additional measures needed
 
 **Answer Key:** 
-1-c, 2-c, 3-b, 4-b, 5-c, 6-c, 7-b, 8-b, 9-b, 10-b, 11-a, 12-b, 13-b, 14-b, 15-b
+
+| Q | Answer | Rationale |
+|---|--------|-----------|
+| 1 | c | CTA is the diagnostic cornerstone for suspected AMI |
+| 2 | c | Portal venous gas is highly specific for intestinal necrosis |
+| 3 | b | Lactate is often normal in early ischemia—don't be falsely reassured |
+| 4 | b | Endovascular angioplasty/stenting is first-line for elective CMI |
+| 5 | c | When in doubt about viability, preserve and plan second-look |
+| 6 | c | NOMI shows patent vessels with branch narrowing; treat with papaverine |
+| 7 | b | Anticoagulation is the cornerstone of MVT treatment |
+| 8 | b | Peritonitis mandates open surgery for bowel assessment |
+| 9 | b | Bloody diarrhea post-AAA repair = colonic ischemia until proven otherwise |
+| 10 | b | MALS is a diagnosis of exclusion requiring thorough GI workup first |
+| 11 | a | Surveillance every 3-6 months initially, then annually |
+| 12 | b | Peritonitis is a contraindication to endovascular-first approach |
+| 13 | b | Papaverine causes splanchnic vasodilation to counter NOMI vasoconstriction |
+| 14 | b | 200 cm with colon = likely enteral autonomy after intestinal adaptation |
+| 15 | b | Comprehensive secondary prevention is essential for atherosclerotic disease |
 
 ---
 
