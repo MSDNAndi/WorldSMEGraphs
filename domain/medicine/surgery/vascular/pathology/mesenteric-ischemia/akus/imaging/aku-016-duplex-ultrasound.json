@@ -1,0 +1,216 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-016-duplex-ultrasound",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:42:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:42:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "imaging",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "016",
+    "keywords": [
+      "duplex ultrasound",
+      "mesenteric duplex",
+      "velocity criteria",
+      "stenosis detection",
+      "surveillance"
+    ],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Mesenteric duplex ultrasound is a non-invasive, non-ionizing modality that detects mesenteric arterial stenosis based on elevated velocities, with peak systolic velocities >275-300 cm/s in the SMA and >200 cm/s in the celiac artery indicating hemodynamically significant (>70%) stenosis.",
+      "formal": "Mesenteric Duplex Criteria: SMA PSV >275-300 cm/s → >70% stenosis | Celiac PSV >200 cm/s → >70% stenosis | No flow → occlusion"
+    },
+    "explanation": {
+      "intuition": "Duplex ultrasound works on a simple principle: blood flowing through a narrowed segment must speed up (like water through a kinked hose). By measuring how fast the blood is moving, we can estimate how narrow the vessel is. A stenosis causes the blood to accelerate as it squeezes through the tight spot.",
+      "key_insight": "Mesenteric duplex is most valuable as a screening test for chronic mesenteric ischemia and for post-treatment surveillance. It is less useful for acute mesenteric ischemia, where the speed and comprehensiveness of CTA are preferred."
+    }
+  },
+  "technique": {
+    "patient_preparation": {
+      "fasting": "8-12 hours to reduce bowel gas",
+      "timing": "Morning appointment preferred",
+      "hydration": "May take small sips of water",
+      "medications": "Take as usual"
+    },
+    "transducer": {
+      "type": "Curvilinear or phased array",
+      "frequency": "2-5 MHz (low frequency for penetration)"
+    },
+    "approach": {
+      "celiac_artery": {
+        "view": "Sagittal, just below xiphoid",
+        "landmark": "First branch of abdominal aorta",
+        "challenge": "May be compressed by median arcuate ligament"
+      },
+      "SMA": {
+        "view": "Sagittal, anterior aorta",
+        "landmark": "Second major aortic branch (just below celiac)",
+        "angle": "Measure at origin and mid-vessel"
+      },
+      "IMA": {
+        "view": "Sagittal, lower abdominal aorta",
+        "challenge": "Often occluded, may not be identifiable",
+        "importance": "Less critical due to collaterals"
+      }
+    },
+    "measurements": {
+      "peak_systolic_velocity": "PSV - most important parameter",
+      "end_diastolic_velocity": "EDV - secondary parameter",
+      "waveform": "Assess for damping distal to stenosis",
+      "aortic_velocity": "For ratio calculation"
+    }
+  },
+  "velocity_criteria": {
+    "celiac_artery": {
+      "normal": "<200 cm/s",
+      "greater_than_70%": ">200 cm/s or no flow",
+      "ratio": ">3:1 celiac:aorta"
+    },
+    "SMA": {
+      "normal": "<275 cm/s",
+      "greater_than_50%": ">300 cm/s",
+      "greater_than_70%": ">400 cm/s or no flow",
+      "ratio": ">3:1 SMA:aorta",
+      "postprandial": "Normal increase in diastolic flow"
+    },
+    "IMA": {
+      "normal": "<200 cm/s",
+      "stenosis": "Often occluded, less clinically relevant"
+    }
+  },
+  "applications": {
+    "screening_for_CMI": {
+      "role": "Initial non-invasive evaluation",
+      "indication": "Suspected CMI based on symptoms",
+      "advantages": "Non-invasive, no contrast, no radiation",
+      "limitations": "Operator-dependent, body habitus, bowel gas"
+    },
+    "surveillance_post_treatment": {
+      "role": "Primary surveillance modality",
+      "frequency": {
+        "post_stent": "1 month, then every 3-6 months year 1, annually thereafter",
+        "post_bypass": "1 month, then every 6 months year 1, annually thereafter"
+      },
+      "target": "Detect restenosis before symptom recurrence"
+    },
+    "functional_testing": {
+      "postprandial_testing": {
+        "technique": "Duplex before and after standardized meal",
+        "normal_response": "Increased diastolic flow in SMA",
+        "abnormal": "Blunted postprandial response suggests ischemia"
+      }
+    }
+  },
+  "advantages": {
+    "safety": "No radiation, no contrast",
+    "accessibility": "Widely available",
+    "repeatability": "Can be performed serially",
+    "cost": "Less expensive than CT or MR",
+    "functional": "Can assess hemodynamic significance"
+  },
+  "limitations": {
+    "technical": [
+      "Operator-dependent",
+      "Obesity limits penetration",
+      "Bowel gas obscures vessels",
+      "Patient must be able to fast"
+    ],
+    "anatomic": [
+      "Cannot assess distal mesenteric branches",
+      "Cannot directly visualize bowel",
+      "Cannot assess for aneurysms as well as CT"
+    ],
+    "acute_settings": [
+      "Not appropriate for acute mesenteric ischemia diagnosis",
+      "CTA is preferred in emergency settings"
+    ]
+  },
+  "integration_with_other_modalities": {
+    "duplex_first": {
+      "scenario": "CMI screening",
+      "follow_up": "If positive, confirm with CTA before intervention"
+    },
+    "duplex_for_surveillance": {
+      "scenario": "Post-intervention monitoring",
+      "follow_up": "CTA if duplex suggests restenosis and intervention considered"
+    },
+    "CTA_first": {
+      "scenario": "Acute mesenteric ischemia",
+      "role_of_duplex": "Not primary, may be used for follow-up"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:003",
+        "title": "Chronic Mesenteric Ischemia",
+        "strength": 0.9
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:015",
+        "type": "complementary_modality",
+        "relationship": "CTA provides anatomic detail when duplex abnormal"
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:035",
+        "type": "enables",
+        "relationship": "Duplex is primary surveillance tool"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "citation": "SVS/ESVS consensus on mesenteric duplex criteria",
+        "confidence": 0.95
+      },
+      {
+        "type": "technical_review",
+        "citation": "Defined technical review on mesenteric duplex ultrasound",
+        "confidence": 0.9
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "vascular_technologists",
+      "vascular_surgeons"
+    ],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Know velocity criteria for mesenteric stenosis",
+      "Understand appropriate applications of mesenteric duplex",
+      "Recognize limitations of the modality",
+      "Apply duplex to screening and surveillance"
+    ],
+    "clinical_pearls": [
+      "Duplex is for screening and surveillance, not for acute diagnosis",
+      "Fasting is essential for good study quality",
+      "PSV >275-300 cm/s in SMA suggests significant stenosis",
+      "Abnormal duplex should be confirmed with CTA before intervention"
+    ]
+  }
+}
