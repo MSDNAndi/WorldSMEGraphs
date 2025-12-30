@@ -44,6 +44,17 @@ WorldSMEGraphs/
 │   │   │   │       └── german/
 │   │   │   │           ├── grundschule.md
 │   │   │   │           └── hochschule.md
+│   │   │   ├── number-theory/
+│   │   │   │   └── primes/                # Prime Numbers ✓ Complete (10 AKUs)
+│   │   │   │       ├── concept-index.yaml
+│   │   │   │       ├── README.md
+│   │   │   │       ├── akus/
+│   │   │   │       │   ├── definitions/     (1 AKU)
+│   │   │   │       │   ├── theory/          (3 AKUs)
+│   │   │   │       │   ├── formulas/        (1 AKU)
+│   │   │   │       │   └── applications/    (5 AKUs)
+│   │   │   │       └── .renders/
+│   │   │   │           └── english/         (to be created)
 │   │   │   ├── geometry/
 │   │   │   └── calculus/
 │   │   ├── physics/
@@ -267,8 +278,9 @@ Listed in `.gitignore`:
 
 ---
 
-**Last Updated**: 2025-12-27  
+**Last Updated**: 2025-12-30  
 **Major Changes**: 
+- 2025-12-30: Added prime numbers domain with 10 AKUs and cross-domain connections
 - 2025-12-27: Added medicine domain with vascular surgery Type 2 endoleak (5 AKUs complete)
 - 2025-12-27: Updated agent infrastructure section for .agent.md format migration
 - 2025-12-26: Initial structure documentation
