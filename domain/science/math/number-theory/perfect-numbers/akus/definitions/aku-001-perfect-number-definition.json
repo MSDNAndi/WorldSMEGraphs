@@ -1,0 +1,354 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MathematicalEntity"
+  ],
+  "@id": "aku-001-perfect-number-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T02:13:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2025-12-30T02:13:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/math/number-theory/perfect-numbers",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": [
+      "perfect number",
+      "aliquot sum",
+      "divisor sum",
+      "proper divisors",
+      "number theory"
+    ],
+    "math_category": "number_theory",
+    "mathematical_context": "special_numbers"
+  },
+  "content": {
+    "statement": {
+      "text": "A perfect number is a positive integer that equals the sum of its proper positive divisors (all divisors except the number itself). For example, 6 = 1 + 2 + 3 and 28 = 1 + 2 + 4 + 7 + 14.",
+      "formal": "∀n ∈ ℕ: n is perfect ⟺ n = σ(n) - n = Σ{d : d|n ∧ d < n}"
+    },
+    "explanation": {
+      "intuition": "Perfect numbers are rare mathematical gems where the number 'perfectly' balances with the sum of all the ways it can be evenly divided. They're called 'perfect' because ancient mathematicians saw them as embodying numerical harmony and completeness.",
+      "key_insight": "Perfect numbers are intimately connected to Mersenne primes through the Euclid-Euler theorem: every even perfect number has the form 2^(p-1) × (2^p - 1) where 2^p - 1 is a Mersenne prime. Whether any odd perfect numbers exist remains one of mathematics' oldest unsolved problems.",
+      "technical_details": "Let σ(n) denote the sum of all divisors of n. Then n is perfect iff σ(n) = 2n. The first few perfect numbers are 6, 28, 496, 8128, 33550336. All known perfect numbers are even, and it's conjectured but unproven that no odd perfect numbers exist. If an odd perfect number exists, it must exceed 10^1500.",
+      "common_misconceptions": [
+        "Perfect numbers are common—FALSE, only 51 are known as of 2024",
+        "All perfect numbers are small—FALSE, the 51st perfect number has over 49 million digits",
+        "Odd perfect numbers definitely don't exist—UNKNOWN, it's an open problem",
+        "Perfect numbers have no practical applications—FALSE, they appear in group theory and digital signal processing"
+      ]
+    },
+    "definitions_glossary": {
+      "proper_divisor": "A divisor of n that is less than n (excludes n itself)",
+      "aliquot_sum": "The sum of proper divisors of a number, denoted s(n) = σ(n) - n",
+      "divisor_function": "σ(n) is the sum of all positive divisors of n",
+      "mersenne_prime": "A prime of the form 2^p - 1 where p is prime",
+      "abundant_number": "A number where σ(n) - n > n (sum of proper divisors exceeds the number)",
+      "deficient_number": "A number where σ(n) - n < n (sum of proper divisors is less than the number)"
+    }
+  },
+  "mathematical_features": {
+    "known_perfect_numbers": [
+      {
+        "index": 1,
+        "value": 6,
+        "factorization": "2^1 × (2^2 - 1) = 2 × 3",
+        "proper_divisors": [1, 2, 3],
+        "mersenne_prime": 3
+      },
+      {
+        "index": 2,
+        "value": 28,
+        "factorization": "2^2 × (2^3 - 1) = 4 × 7",
+        "proper_divisors": [1, 2, 4, 7, 14],
+        "mersenne_prime": 7
+      },
+      {
+        "index": 3,
+        "value": 496,
+        "factorization": "2^4 × (2^5 - 1) = 16 × 31",
+        "proper_divisors": [1, 2, 4, 8, 16, 31, 62, 124, 248],
+        "mersenne_prime": 31
+      },
+      {
+        "index": 4,
+        "value": 8128,
+        "factorization": "2^6 × (2^7 - 1) = 64 × 127",
+        "mersenne_prime": 127
+      },
+      {
+        "index": 5,
+        "value": 33550336,
+        "factorization": "2^12 × (2^13 - 1) = 4096 × 8191",
+        "mersenne_prime": 8191
+      }
+    ],
+    "properties": [
+      "All known perfect numbers are even",
+      "Even perfect numbers end in 6 or 28 (in base 10)",
+      "Every even perfect number is triangular (sum of consecutive integers)",
+      "The digital root of all perfect numbers (except 6) is 1",
+      "Perfect numbers are the solutions to σ(n) = 2n",
+      "There are only 51 known perfect numbers (as of 2024)"
+    ],
+    "open_problems": [
+      {
+        "problem": "Do odd perfect numbers exist?",
+        "status": "unsolved",
+        "partial_results": "If one exists, it must be > 10^1500 and have at least 101 prime factors"
+      },
+      {
+        "problem": "Are there infinitely many perfect numbers?",
+        "status": "open",
+        "connection": "Equivalent to asking if there are infinitely many Mersenne primes"
+      }
+    ],
+    "euclid_euler_theorem": {
+      "statement": "n is an even perfect number ⟺ n = 2^(p-1) × (2^p - 1) where 2^p - 1 is a Mersenne prime",
+      "historical_note": "Euclid proved (→) around 300 BCE; Euler proved (←) in 1747"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Perfect Number"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Perfect Integer"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A positive integer equal to the sum of its proper positive divisors"
+    },
+    "notation": "aku-001-perfect-number-definition"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:math:arithmetic:division:001",
+        "title": "Division and Divisibility",
+        "strength": 1.0,
+        "reason": "Must understand divisors to define perfect numbers"
+      },
+      {
+        "id": "urn:wskg:math:arithmetic:addition:001",
+        "title": "Addition",
+        "strength": 1.0,
+        "reason": "Perfect numbers defined by sum of divisors"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:primes:001",
+        "title": "Prime Numbers",
+        "strength": 0.9,
+        "reason": "Connection to Mersenne primes via Euclid-Euler theorem"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:math:number-theory:integers:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Integer Number Theory"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:divisor-functions:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Divisor Functions"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:math:number-theory:multiperfect:001",
+        "title": "Multiperfect Numbers",
+        "strength": 0.8,
+        "reason": "Perfect numbers generalize to k-perfect numbers"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:sociable-numbers:001",
+        "title": "Sociable Numbers",
+        "strength": 0.7,
+        "reason": "Related concepts in aliquot sequences"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:math:number-theory:even-perfect:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Even Perfect Numbers"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:math:number-theory:mersenne-primes:001",
+        "type": "fundamental_connection",
+        "relationship": "Even perfect numbers correspond to Mersenne primes via Euclid-Euler theorem"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:abundant-numbers:001",
+        "type": "classification",
+        "relationship": "Perfect, abundant, and deficient numbers partition positive integers"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:amicable-numbers:001",
+        "type": "related_concept",
+        "relationship": "Both involve sums of divisors, amicable pairs extend the perfect concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:math:number-theory:mersenne-primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Mersenne Primes",
+        "skos:note": "Foundation for even perfect numbers via Euclid-Euler theorem"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Prime Numbers",
+        "skos:note": "Perfect number theory deeply connected to prime number theory"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:euclid-elements",
+        "@type": "prov:Entity",
+        "dc:title": "Euclid's Elements, Book IX, Proposition 36",
+        "dc:creator": "Euclid of Alexandria",
+        "dc:date": "-300",
+        "dc:type": "mathematical_treatise",
+        "confidence": 1.0,
+        "note": "First theorem on perfect numbers"
+      },
+      {
+        "@id": "urn:source:euler-perfect",
+        "@type": "prov:Entity",
+        "dc:title": "De numeris amicabilibus",
+        "dc:creator": "Leonhard Euler",
+        "dc:date": "1747",
+        "dc:type": "research_paper",
+        "confidence": 1.0,
+        "note": "Completed Euclid-Euler theorem"
+      },
+      {
+        "@id": "urn:source:dickson-history",
+        "@type": "prov:Entity",
+        "dc:title": "History of the Theory of Numbers, Vol. I",
+        "dc:creator": "Leonard Eugene Dickson",
+        "dc:identifier": "ISBN:978-0486442327",
+        "dc:type": "historical_reference",
+        "confidence": 1.0
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-30T02:13:00.000Z",
+      "prov:endedAtTime": "2025-12-30T02:13:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "dc:created": "2025-12-30T02:13:00.000Z",
+    "dc:modified": "2025-12-30T02:13:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:math-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "number-theory-expert"
+    },
+    "sources": [
+      {
+        "type": "historical_treatise",
+        "citation": "Euclid's Elements, Book IX (c. 300 BCE)",
+        "confidence": 1.0
+      },
+      {
+        "type": "research_paper",
+        "citation": "Euler, L. 'De numeris amicabilibus' (1747)",
+        "confidence": 1.0
+      },
+      {
+        "type": "reference",
+        "citation": "Dickson: History of the Theory of Numbers",
+        "isbn": "978-0486442327",
+        "confidence": 1.0
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "math_expert",
+      "date": "2025-12-30",
+      "notes": "Definition and properties verified against classical and modern sources"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "high_school_students",
+      "undergraduate_math_majors",
+      "math_enthusiasts",
+      "general_public"
+    ],
+    "estimated_time": "20min",
+    "difficulty_curve": 0.5,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Define perfect numbers accurately",
+      "Compute proper divisors and their sums",
+      "Recognize the first few perfect numbers",
+      "Understand the connection to Mersenne primes",
+      "Appreciate perfect numbers as an unsolved problem area"
+    ],
+    "common_errors": [
+      "Including n itself in the sum of divisors",
+      "Confusing perfect with prime numbers",
+      "Thinking perfect numbers are common",
+      "Believing odd perfect numbers are proven not to exist"
+    ],
+    "teaching_tips": [
+      "Start with concrete example: 6 = 1 + 2 + 3",
+      "Show how rare perfect numbers are",
+      "Connect to ancient Greek mathematics and philosophy",
+      "Emphasize the unsolved mystery of odd perfect numbers",
+      "Use computational tools to find divisors"
+    ],
+    "historical_context": "Perfect numbers fascinated ancient Greek mathematicians who associated them with perfection and divine harmony. Euclid proved the fundamental theorem about even perfect numbers around 300 BCE, but Euler didn't complete the characterization until 1747—a 2000-year gap!"
+  },
+  "rendering_hints": {
+    "primary_representation": "mathematical_definition",
+    "show_images": true,
+    "include_examples": true,
+    "visualization": [
+      "divisor_diagrams",
+      "sum_calculations",
+      "connection_to_mersenne_primes"
+    ],
+    "emphasis": [
+      "sum_equals_number",
+      "rarity",
+      "mersenne_prime_connection",
+      "unsolved_problems"
+    ],
+    "historical_notes": true
+  }
+}

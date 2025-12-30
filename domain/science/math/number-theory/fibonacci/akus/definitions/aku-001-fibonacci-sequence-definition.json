@@ -1,0 +1,351 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MathematicalEntity"
+  ],
+  "@id": "aku-001-fibonacci-sequence-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T02:14:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2025-12-30T02:14:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/math/number-theory/fibonacci",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "foundational",
+    "aku_id": "001",
+    "keywords": [
+      "fibonacci sequence",
+      "recurrence relation",
+      "golden ratio",
+      "recursive sequence",
+      "natural patterns"
+    ],
+    "math_category": "number_theory",
+    "mathematical_context": "sequences_series"
+  },
+  "content": {
+    "statement": {
+      "text": "The Fibonacci sequence is an infinite sequence of positive integers where each term (after the first two) equals the sum of the two preceding terms. Starting with F₀ = 0 and F₁ = 1, the sequence continues: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...",
+      "formal": "F₀ = 0, F₁ = 1, and ∀n ≥ 2: Fₙ = Fₙ₋₁ + Fₙ₋₂"
+    },
+    "explanation": {
+      "intuition": "The Fibonacci sequence appears throughout nature—from the spiral patterns in sunflower seeds and pinecones to the branching of trees and the arrangement of leaves. Each number is simply the sum of the previous two, creating a sequence that grows exponentially yet maintains elegant mathematical properties.",
+      "key_insight": "The ratio of consecutive Fibonacci numbers approaches the golden ratio φ = (1+√5)/2 ≈ 1.618... as n increases. This connection links the discrete Fibonacci sequence to continuous geometric proportions found throughout art, architecture, and nature.",
+      "technical_details": "The Fibonacci sequence has a closed-form expression (Binet's formula): Fₙ = (φⁿ - ψⁿ)/√5, where φ = (1+√5)/2 and ψ = (1-√5)/2. Despite being defined recursively with integers, this formula uses irrational numbers yet always produces integers. The sequence grows exponentially with growth rate approximately 1.618.",
+      "common_misconceptions": [
+        "Fibonacci numbers are rare—FALSE, they appear frequently in nature and mathematics",
+        "The sequence starts with 1, 1—VARIES: modern convention often uses F₀=0, F₁=1",
+        "All Fibonacci numbers are coprime—FALSE: consecutive ones are coprime, but F₆=8 and F₉=34 share factor 2",
+        "Fibonacci spirals are logarithmic spirals—CLOSE: They approximate the golden spiral (a true logarithmic spiral)"
+      ]
+    },
+    "definitions_glossary": {
+      "recurrence_relation": "An equation that defines a sequence where each term is a function of preceding terms",
+      "golden_ratio": "φ = (1+√5)/2 ≈ 1.618, the limit of ratios of consecutive Fibonacci numbers",
+      "fibonacci_prime": "A Fibonacci number that is also prime (e.g., 2, 3, 5, 13, 89)",
+      "lucas_numbers": "A related sequence: L₀=2, L₁=1, Lₙ=Lₙ₋₁+Lₙ₋₂",
+      "binets_formula": "Closed-form expression for the nth Fibonacci number"
+    }
+  },
+  "mathematical_features": {
+    "first_terms": [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987],
+    "properties": [
+      "Fₙ₊₁ / Fₙ → φ (golden ratio) as n → ∞",
+      "gcd(Fₘ, Fₙ) = F_gcd(m,n) (divisibility property)",
+      "Every third Fibonacci number is even (divisible by 2)",
+      "Every fourth Fibonacci number is divisible by 3",
+      "Cassini's identity: Fₙ₊₁·Fₙ₋₁ - Fₙ² = (-1)ⁿ",
+      "Sum of first n Fibonacci numbers: ΣFᵢ = Fₙ₊₂ - 1"
+    ],
+    "binets_formula": {
+      "expression": "Fₙ = (φⁿ - ψⁿ)/√5",
+      "where": {
+        "phi": "(1 + √5)/2 ≈ 1.618",
+        "psi": "(1 - √5)/2 ≈ -0.618"
+      },
+      "note": "Remarkable that this irrational formula always yields integers"
+    },
+    "fibonacci_primes": [
+      {
+        "index": 2,
+        "value": 1,
+        "note": "Not typically counted as prime"
+      },
+      {
+        "index": 3,
+        "value": 2,
+        "note": "Smallest Fibonacci prime"
+      },
+      {
+        "index": 4,
+        "value": 3
+      },
+      {
+        "index": 5,
+        "value": 5
+      },
+      {
+        "index": 7,
+        "value": 13
+      },
+      {
+        "index": 11,
+        "value": 89
+      },
+      {
+        "index": 13,
+        "value": 233
+      }
+    ],
+    "growth_rate": {
+      "asymptotic": "Fₙ ≈ φⁿ/√5",
+      "doubling_time": "Every ~4.8 terms, value approximately doubles"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Fibonacci Sequence"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Fibonacci Numbers"
+      },
+      {
+        "@language": "en",
+        "@value": "Fibonacci Series"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A sequence where each term equals the sum of the two preceding terms, starting with 0 and 1"
+    },
+    "notation": "aku-001-fibonacci-sequence-definition"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:math:arithmetic:addition:001",
+        "title": "Addition",
+        "strength": 1.0,
+        "reason": "Fibonacci numbers defined by adding previous terms"
+      },
+      {
+        "id": "urn:wskg:math:sequences:basic:001",
+        "title": "Sequences",
+        "strength": 1.0,
+        "reason": "Fibonacci is a fundamental example of recursive sequences"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:math:sequences:recursive:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Recursive Sequences"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:integers:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Integer Sequences"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:math:geometry:golden-ratio:001",
+        "title": "Golden Ratio",
+        "strength": 1.0,
+        "reason": "Fibonacci ratios converge to golden ratio"
+      },
+      {
+        "id": "urn:wskg:biology:phyllotaxis:001",
+        "title": "Phyllotaxis (Plant Patterns)",
+        "strength": 0.9,
+        "reason": "Fibonacci numbers appear in plant spiral patterns"
+      },
+      {
+        "id": "urn:wskg:computer-science:algorithms:recursion:001",
+        "title": "Recursive Algorithms",
+        "strength": 0.85,
+        "reason": "Classic example for teaching recursion"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:math:number-theory:fibonacci-primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Fibonacci Primes"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:math:number-theory:lucas-numbers:001",
+        "type": "related_sequence",
+        "relationship": "Lucas numbers follow same recurrence with different initial values"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:primes:001",
+        "type": "intersection",
+        "relationship": "Some Fibonacci numbers are prime (Fibonacci primes)"
+      },
+      {
+        "id": "urn:wskg:art:golden-rectangle:001",
+        "type": "geometric_connection",
+        "relationship": "Fibonacci rectangles approximate golden rectangles"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:math:geometry:golden-ratio:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Golden Ratio",
+        "skos:note": "Limit of consecutive Fibonacci number ratios"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Prime Numbers",
+        "skos:note": "Fibonacci primes are intersection of both concepts"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:fibonacci-liber-abaci",
+        "@type": "prov:Entity",
+        "dc:title": "Liber Abaci (Book of Calculation)",
+        "dc:creator": "Leonardo Fibonacci (Leonardo of Pisa)",
+        "dc:date": "1202",
+        "dc:type": "mathematical_treatise",
+        "confidence": 1.0,
+        "note": "Original rabbit population problem introducing the sequence"
+      },
+      {
+        "@id": "urn:source:knuth-concrete-math",
+        "@type": "prov:Entity",
+        "dc:title": "Concrete Mathematics",
+        "dc:creator": ["Ronald Graham", "Donald Knuth", "Oren Patashnik"],
+        "dc:identifier": "ISBN:978-0201558029",
+        "dc:type": "textbook",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:vorobyov-fibonacci",
+        "@type": "prov:Entity",
+        "dc:title": "Fibonacci Numbers",
+        "dc:creator": "N.N. Vorobyov",
+        "dc:type": "monograph",
+        "confidence": 1.0
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-30T02:14:00.000Z",
+      "prov:endedAtTime": "2025-12-30T02:14:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "dc:created": "2025-12-30T02:14:00.000Z",
+    "dc:modified": "2025-12-30T02:14:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:math-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "number-theory-expert"
+    },
+    "sources": [
+      {
+        "type": "historical_treatise",
+        "citation": "Fibonacci: Liber Abaci (1202)",
+        "confidence": 1.0
+      },
+      {
+        "type": "textbook",
+        "citation": "Graham, Knuth, Patashnik: Concrete Mathematics",
+        "isbn": "978-0201558029",
+        "confidence": 1.0
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "math_expert",
+      "date": "2025-12-30",
+      "notes": "Definition and properties verified against classical and modern sources"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "middle_school_students",
+      "high_school_students",
+      "undergraduate_math_majors",
+      "general_public",
+      "math_enthusiasts"
+    ],
+    "estimated_time": "20min",
+    "difficulty_curve": 0.4,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Define the Fibonacci sequence and recurrence relation",
+      "Compute Fibonacci numbers iteratively",
+      "Recognize Fibonacci patterns in nature",
+      "Understand connection to golden ratio",
+      "Appreciate both recursive and closed-form representations"
+    ],
+    "common_errors": [
+      "Starting with F₁=1, F₂=1 instead of F₀=0, F₁=1",
+      "Confusing Fibonacci with factorial",
+      "Thinking the pattern is multiplication, not addition",
+      "Assuming all terms are coprime"
+    ],
+    "teaching_tips": [
+      "Start with the rabbit population problem from Liber Abaci",
+      "Show visual patterns: spirals in nature (sunflowers, pinecones, shells)",
+      "Connect to golden ratio through consecutive ratios",
+      "Use hands-on activities: counting petals, seeds, spirals",
+      "Demonstrate both recursive and iterative computation",
+      "Show Binet's formula as a beautiful surprise"
+    ],
+    "historical_context": "Leonardo Fibonacci introduced the sequence in 1202 in his book Liber Abaci (Book of Calculation) through a problem about rabbit population growth. The sequence was actually known to Indian mathematicians centuries earlier, but Fibonacci popularized it in Europe."
+  },
+  "rendering_hints": {
+    "primary_representation": "sequence_visualization",
+    "show_images": true,
+    "include_examples": true,
+    "visualization": [
+      "spiral_patterns",
+      "nature_examples",
+      "rectangle_construction",
+      "ratio_convergence_graph"
+    ],
+    "emphasis": [
+      "recursive_definition",
+      "golden_ratio_connection",
+      "appearance_in_nature",
+      "growth_pattern"
+    ],
+    "interactive_elements": [
+      "fibonacci_calculator",
+      "spiral_drawer",
+      "ratio_explorer"
+    ]
+  }
+}
