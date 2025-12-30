@@ -1,0 +1,341 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MathematicalTheorem"
+  ],
+  "@id": "aku-002-fundamental-theorem-arithmetic",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T02:02:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "confidence": 1.0,
+    "status": "validated",
+    "last_updated": "2025-12-30T02:02:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/math/number-theory/primes",
+    "type": "theorem",
+    "difficulty": "intermediate",
+    "importance": "foundational",
+    "aku_id": "002",
+    "keywords": [
+      "fundamental theorem of arithmetic",
+      "unique factorization",
+      "prime factorization",
+      "uniqueness",
+      "existence"
+    ],
+    "math_category": "number_theory",
+    "mathematical_context": "foundational_theorems"
+  },
+  "content": {
+    "statement": {
+      "text": "Every integer greater than 1 is either prime or can be uniquely represented as a product of prime numbers, up to the order of the factors. This is known as the Fundamental Theorem of Arithmetic or the Unique Factorization Theorem.",
+      "formal": "∀n ∈ ℤ, n > 1: ∃!{p₁, p₂, ..., pₖ} primes, ∃!{e₁, e₂, ..., eₖ} ∈ ℕ: n = p₁^e₁ · p₂^e₂ · ... · pₖ^eₖ where p₁ < p₂ < ... < pₖ"
+    },
+    "explanation": {
+      "intuition": "Just as every molecule can be broken down into a unique combination of atoms, every whole number can be broken down into a unique combination of prime numbers. For example, 60 = 2² × 3 × 5, and this is the only way to express 60 as a product of primes (ignoring order).",
+      "key_insight": "This theorem establishes primes as the fundamental multiplicative building blocks of integers. The uniqueness of factorization is what makes prime numbers so central to number theory and its applications, from cryptography to algebraic structures.",
+      "technical_details": "The theorem has two parts: (1) Existence - every integer > 1 can be factored into primes, proven by strong induction; (2) Uniqueness - this factorization is unique up to order, proven using Euclid's Lemma (if prime p divides ab, then p divides a or p divides b). Without uniqueness, many mathematical structures would not work consistently.",
+      "common_misconceptions": [
+        "'Up to order' means 12 = 2×2×3 = 2×3×2 = 3×2×2 are all the same factorization",
+        "The theorem only applies to positive integers > 1; negative integers and 0, 1 are excluded",
+        "Uniqueness fails in some algebraic number systems, making this theorem special to integers"
+      ]
+    },
+    "definitions_glossary": {
+      "prime_factorization": "The representation of a number as a product of prime powers",
+      "canonical_form": "The standard representation p₁^e₁ · p₂^e₂ · ... · pₖ^eₖ with primes in ascending order",
+      "multiplicity": "The exponent eᵢ indicating how many times prime pᵢ appears in the factorization",
+      "euclids_lemma": "If prime p divides ab, then p divides a or p divides b",
+      "strong_induction": "Proof technique assuming statement holds for all smaller values"
+    }
+  },
+  "mathematical_features": {
+    "examples": [
+      {
+        "number": 60,
+        "factorization": "2² × 3 × 5",
+        "primes": [2, 3, 5],
+        "exponents": [2, 1, 1]
+      },
+      {
+        "number": 100,
+        "factorization": "2² × 5²",
+        "primes": [2, 5],
+        "exponents": [2, 2]
+      },
+      {
+        "number": 2310,
+        "factorization": "2 × 3 × 5 × 7 × 11",
+        "primes": [2, 3, 5, 7, 11],
+        "exponents": [1, 1, 1, 1, 1],
+        "note": "Product of first 5 primes (primorial)"
+      }
+    ],
+    "applications": [
+      "Computing GCD and LCM using prime factorizations",
+      "Cryptography - RSA relies on difficulty of factoring large composites",
+      "Algebraic number theory - generalizations and counterexamples",
+      "Computational complexity - integer factorization problem",
+      "Abstract algebra - unique factorization domains (UFDs)"
+    ],
+    "proof_outline": {
+      "existence": [
+        "Use strong induction on n",
+        "Base case: n = 2 is prime, factorization is just 2",
+        "Induction: If n is prime, done. If composite, n = ab with 1 < a, b < n",
+        "By induction hypothesis, a and b have prime factorizations",
+        "Combine factorizations to get factorization of n"
+      ],
+      "uniqueness": [
+        "Assume n has two factorizations: p₁...pᵣ = q₁...qₛ",
+        "Then p₁ divides q₁...qₛ",
+        "By Euclid's Lemma, p₁ divides some qⱼ",
+        "Since qⱼ is prime, p₁ = qⱼ",
+        "Cancel and continue by induction"
+      ]
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Fundamental Theorem of Arithmetic"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Unique Factorization Theorem"
+      },
+      {
+        "@language": "en",
+        "@value": "Unique Prime Factorization"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Every integer greater than 1 is either prime or can be uniquely represented as a product of prime numbers"
+    },
+    "notation": "aku-002-fundamental-theorem-arithmetic"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:math:number-theory:primes:001",
+        "title": "Prime Numbers",
+        "strength": 1.0,
+        "reason": "Must understand prime numbers to understand their unique factorization property"
+      },
+      {
+        "id": "urn:wskg:math:arithmetic:division:001",
+        "title": "Division and Divisibility",
+        "strength": 1.0,
+        "reason": "Factorization is based on divisibility"
+      },
+      {
+        "id": "urn:wskg:math:proof-techniques:induction:001",
+        "title": "Mathematical Induction",
+        "strength": 0.8,
+        "reason": "Proof uses strong induction"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:math:number-theory:theorems:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Number Theory Theorems"
+      },
+      {
+        "@id": "urn:wskg:math:algebra:unique-factorization:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Unique Factorization Domains"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:math:number-theory:gcd-lcm:001",
+        "title": "GCD and LCM Computation",
+        "strength": 1.0,
+        "reason": "Prime factorizations enable efficient GCD/LCM algorithms"
+      },
+      {
+        "id": "urn:wskg:cryptography:rsa:factoring:001",
+        "title": "RSA Factoring Problem",
+        "strength": 0.95,
+        "reason": "RSA security depends on difficulty of factoring into primes"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:divisor-function:001",
+        "title": "Divisor Functions",
+        "strength": 0.9,
+        "reason": "Computing number of divisors uses prime factorization"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:math:number-theory:prime-factorization-algorithms:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Prime Factorization Algorithms"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:math:algebra:gaussian-integers:001",
+        "type": "counterexample",
+        "relationship": "Some number systems lack unique factorization (e.g., ℤ[√-5])"
+      },
+      {
+        "id": "urn:wskg:computer-science:complexity:integer-factorization:001",
+        "type": "computational",
+        "relationship": "Finding prime factorization is computationally hard for large numbers"
+      },
+      {
+        "id": "urn:wskg:cryptography:factoring-algorithms:001",
+        "type": "application",
+        "relationship": "Breaking RSA requires efficient factorization algorithms"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:cryptography:rsa:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "RSA Cryptography",
+        "skos:note": "Security depends on factorization difficulty"
+      },
+      {
+        "@id": "urn:wskg:math:algebra:unique-factorization-domains:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Unique Factorization Domains",
+        "skos:note": "Algebraic generalization to other number systems"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:euclid-elements-book7",
+        "@type": "prov:Entity",
+        "dc:title": "Euclid's Elements, Book VII, Proposition 30-32",
+        "dc:creator": "Euclid of Alexandria",
+        "dc:date": "-300",
+        "dc:type": "mathematical_treatise",
+        "confidence": 1.0,
+        "note": "Contains essential lemmas including Euclid's Lemma"
+      },
+      {
+        "@id": "urn:source:gauss-disquisitiones",
+        "@type": "prov:Entity",
+        "dc:title": "Disquisitiones Arithmeticae",
+        "dc:creator": "Carl Friedrich Gauss",
+        "dc:date": "1801",
+        "dc:identifier": "Article 16",
+        "dc:type": "mathematical_treatise",
+        "confidence": 1.0,
+        "note": "First explicit statement and proof of the theorem"
+      },
+      {
+        "@id": "urn:source:hardy-wright-ch1",
+        "@type": "prov:Entity",
+        "dc:title": "An Introduction to the Theory of Numbers, Chapter 1",
+        "dc:creator": ["G.H. Hardy", "E.M. Wright"],
+        "dc:identifier": "ISBN:978-0199219865",
+        "dc:type": "textbook",
+        "confidence": 1.0
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-30T02:02:00.000Z",
+      "prov:endedAtTime": "2025-12-30T02:02:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "dc:created": "2025-12-30T02:02:00.000Z",
+    "dc:modified": "2025-12-30T02:02:00.000Z",
+    "sources": [
+      {
+        "type": "historical_treatise",
+        "citation": "Euclid's Elements, Book VII (c. 300 BCE)",
+        "confidence": 1.0,
+        "note": "Contains foundational lemmas including Euclid's Lemma"
+      },
+      {
+        "type": "historical_treatise",
+        "citation": "Gauss: Disquisitiones Arithmeticae, Article 16 (1801)",
+        "confidence": 1.0,
+        "note": "First complete, rigorous proof of unique factorization"
+      },
+      {
+        "type": "textbook",
+        "citation": "Hardy & Wright: An Introduction to the Theory of Numbers",
+        "isbn": "978-0199219865",
+        "confidence": 1.0
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "math_expert",
+      "date": "2025-12-30",
+      "notes": "Theorem statement and proof outline verified"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "high_school_students_advanced",
+      "undergraduate_math_majors",
+      "computer_science_students"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.6,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "State the Fundamental Theorem of Arithmetic accurately",
+      "Understand both existence and uniqueness parts",
+      "Compute prime factorizations for concrete numbers",
+      "Appreciate the significance for number theory and applications",
+      "Recognize where unique factorization fails (other number systems)"
+    ],
+    "common_errors": [
+      "Forgetting that uniqueness is 'up to order' of factors",
+      "Not distinguishing between existence and uniqueness",
+      "Thinking the theorem is obvious (uniqueness requires proof)",
+      "Not understanding why this makes integers special"
+    ],
+    "teaching_tips": [
+      "Start with concrete examples: factor 60, 100, 1000",
+      "Emphasize 'up to order' with examples like 12 = 2×2×3 = 3×2×2",
+      "Show failure in ℤ[√-5] where 6 = 2×3 = (1+√-5)(1-√-5)",
+      "Connect to chemistry analogy: primes as atoms, composites as molecules",
+      "Discuss applications in cryptography to show real-world importance"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "theorem_statement_and_examples",
+    "show_images": true,
+    "include_examples": true,
+    "visualization": [
+      "factor_tree_demonstrating_uniqueness",
+      "comparison_with_non_ufd_example",
+      "prime_factorization_table"
+    ],
+    "emphasis": [
+      "uniqueness_property",
+      "both_existence_and_uniqueness",
+      "applications_in_cryptography"
+    ]
+  }
+}

@@ -1,0 +1,344 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "Algorithm"
+  ],
+  "@id": "aku-003-sieve-eratosthenes",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T02:05:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "math-expert",
+      "computer-science-expert"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2025-12-30T02:05:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/math/number-theory/primes",
+    "type": "algorithm",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "003",
+    "keywords": [
+      "sieve of eratosthenes",
+      "prime generation",
+      "algorithm",
+      "ancient algorithm",
+      "computational number theory"
+    ],
+    "math_category": "number_theory",
+    "cs_category": "algorithms",
+    "mathematical_context": "computational_methods"
+  },
+  "content": {
+    "statement": {
+      "text": "The Sieve of Eratosthenes is an ancient algorithm for finding all prime numbers up to a given limit n. It works by iteratively marking the multiples of each prime as composite, starting from 2.",
+      "formal": "Algorithm: For limit n, mark all multiples of p (where 2 ≤ p ≤ √n and p unmarked) as composite. Remaining unmarked numbers are prime."
+    },
+    "explanation": {
+      "intuition": "Imagine a list of numbers from 2 to 100. Start with 2, the first prime, and cross out every 2nd number after it (4, 6, 8, ...). Then find the next unmarked number (3), and cross out every 3rd number (6, 9, 12, ...). Continue this process. The numbers that remain unmarked are all prime.",
+      "key_insight": "The algorithm's efficiency comes from recognizing that to find all primes up to n, you only need to test up to √n. Any composite number n has a prime factor ≤ √n, so all composites will be marked by the time you reach √n.",
+      "technical_details": "Time complexity is O(n log log n), which is very efficient for generating all primes up to n. Space complexity is O(n). The algorithm can be optimized by starting the marking at p² instead of 2p, since all smaller multiples will have been marked by smaller primes. Modern variants include segmented sieves for memory efficiency.",
+      "common_misconceptions": [
+        "You don't need to check all numbers up to n, only up to √n",
+        "The algorithm finds primes, it doesn't test if a single number is prime",
+        "Crossing out multiples of 2 means you can skip all even numbers in subsequent steps",
+        "The algorithm is named after Greek mathematician Eratosthenes of Cyrene (276-194 BCE)"
+      ]
+    },
+    "definitions_glossary": {
+      "sieve": "A filtering process that separates primes from composites",
+      "composite_number": "A number with more than two factors (not prime)",
+      "multiple": "A number that can be divided evenly by another number",
+      "time_complexity": "Computational measure of how runtime scales with input size",
+      "segmented_sieve": "Memory-efficient variant that processes the range in segments"
+    }
+  },
+  "algorithmic_features": {
+    "pseudocode": [
+      "Input: integer n > 1",
+      "Output: list of all primes ≤ n",
+      "",
+      "1. Create boolean array isPrime[2..n], initialized to true",
+      "2. For p = 2 to √n:",
+      "   a. If isPrime[p] is true:",
+      "      i. p is prime, add to result",
+      "      ii. Mark all multiples of p (starting at p²) as composite:",
+      "          For i = p² to n, step p:",
+      "             isPrime[i] = false",
+      "3. Return all numbers where isPrime[k] = true"
+    ],
+    "complexity": {
+      "time": "O(n log log n)",
+      "space": "O(n)",
+      "optimized_time": "O(n log log n) with wheel factorization",
+      "optimized_space": "O(√n) with segmented sieve"
+    },
+    "example_trace": {
+      "n": 30,
+      "steps": [
+        "Start: 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30",
+        "Mark multiples of 2: 2,3,X,5,X,7,X,9,X,11,X,13,X,15,X,17,X,19,X,21,X,23,X,25,X,27,X,29,X",
+        "Mark multiples of 3: 2,3,X,5,X,7,X,X,X,11,X,13,X,X,X,17,X,19,X,X,X,23,X,25,X,X,X,29,X",
+        "Mark multiples of 5: 2,3,X,5,X,7,X,X,X,11,X,13,X,X,X,17,X,19,X,X,X,23,X,X,X,X,X,29,X",
+        "Done (√30 < 6): Primes are 2,3,5,7,11,13,17,19,23,29"
+      ]
+    },
+    "optimizations": [
+      {
+        "name": "Start at p²",
+        "description": "When marking multiples of p, start at p² instead of 2p",
+        "reason": "All smaller multiples already marked by smaller primes"
+      },
+      {
+        "name": "Skip even numbers",
+        "description": "After 2, only check odd numbers",
+        "reason": "All even numbers > 2 are composite"
+      },
+      {
+        "name": "Wheel factorization",
+        "description": "Skip multiples of small primes (2, 3, 5)",
+        "benefit": "Reduces iterations by ~75%"
+      },
+      {
+        "name": "Segmented sieve",
+        "description": "Process the range [2,n] in smaller segments",
+        "benefit": "Reduces memory from O(n) to O(√n)"
+      }
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Sieve of Eratosthenes"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Eratosthenes Sieve"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Ancient algorithm for finding all prime numbers up to a given limit by iteratively marking multiples of each prime as composite"
+    },
+    "notation": "aku-003-sieve-eratosthenes"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:math:number-theory:primes:001",
+        "title": "Prime Numbers",
+        "strength": 1.0,
+        "reason": "Algorithm finds prime numbers"
+      },
+      {
+        "id": "urn:wskg:math:arithmetic:multiples:001",
+        "title": "Multiples and Divisibility",
+        "strength": 1.0,
+        "reason": "Algorithm marks multiples as composite"
+      },
+      {
+        "id": "urn:wskg:computer-science:algorithms:arrays:001",
+        "title": "Array Data Structure",
+        "strength": 0.8,
+        "reason": "Implementation uses boolean arrays"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:math:number-theory:prime-generation:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Prime Number Generation"
+      },
+      {
+        "@id": "urn:wskg:computer-science:algorithms:number-theoretic:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Number-Theoretic Algorithms"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:math:number-theory:prime-counting:001",
+        "title": "Prime Counting Function π(n)",
+        "strength": 0.9,
+        "reason": "Sieve allows counting primes up to n"
+      },
+      {
+        "id": "urn:wskg:computer-science:algorithms:segmented-sieve:001",
+        "title": "Segmented Sieve",
+        "strength": 0.95,
+        "reason": "Memory-efficient variant of Eratosthenes sieve"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:prime-gaps:001",
+        "title": "Prime Gap Analysis",
+        "strength": 0.8,
+        "reason": "Generated prime lists enable gap studies"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:algorithms:segmented-sieve:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Segmented Sieve"
+      },
+      {
+        "@id": "urn:wskg:algorithms:atkin-sieve:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Sieve of Atkin"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:computer-science:algorithms:trial-division:001",
+        "type": "comparison",
+        "relationship": "Trial division tests single numbers; sieve generates many primes efficiently"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:bertrand-postulate:001",
+        "type": "application",
+        "relationship": "Sieve can verify Bertrand's postulate for small ranges"
+      },
+      {
+        "id": "urn:wskg:computer-science:algorithms:wheel-factorization:001",
+        "type": "optimization",
+        "relationship": "Wheel factorization optimizes the sieve"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:computer-science:algorithms:primality-testing:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Primality Testing",
+        "skos:note": "Different problem: testing if single number is prime"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:eratosthenes-original",
+        "@type": "prov:Entity",
+        "dc:title": "Eratosthenes' Method (attributed)",
+        "dc:creator": "Eratosthenes of Cyrene",
+        "dc:date": "-240",
+        "dc:type": "historical_algorithm",
+        "confidence": 0.9,
+        "note": "Original work lost; algorithm described by later mathematicians"
+      },
+      {
+        "@id": "urn:source:knuth-taocp-v2",
+        "@type": "prov:Entity",
+        "dc:title": "The Art of Computer Programming, Volume 2: Seminumerical Algorithms",
+        "dc:creator": "Donald E. Knuth",
+        "dc:identifier": "ISBN:978-0201896848",
+        "dc:type": "textbook",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:crandall-pomerance",
+        "@type": "prov:Entity",
+        "dc:title": "Prime Numbers: A Computational Perspective",
+        "dc:creator": ["Richard Crandall", "Carl Pomerance"],
+        "dc:identifier": "ISBN:978-0387252827",
+        "dc:type": "textbook",
+        "confidence": 1.0
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-30T02:05:00.000Z",
+      "prov:endedAtTime": "2025-12-30T02:05:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "math-expert",
+      "computer-science-expert"
+    ],
+    "dc:created": "2025-12-30T02:05:00.000Z",
+    "dc:modified": "2025-12-30T02:05:00.000Z",
+    "sources": [
+      {
+        "type": "historical",
+        "citation": "Eratosthenes of Cyrene (c. 240 BCE)",
+        "confidence": 0.9,
+        "note": "Algorithm attributed to Eratosthenes; original work lost"
+      },
+      {
+        "type": "textbook",
+        "citation": "Knuth: The Art of Computer Programming, Vol 2",
+        "isbn": "978-0201896848",
+        "confidence": 1.0
+      },
+      {
+        "type": "textbook",
+        "citation": "Crandall & Pomerance: Prime Numbers - A Computational Perspective",
+        "isbn": "978-0387252827",
+        "confidence": 1.0
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "computer_science_expert",
+      "date": "2025-12-30",
+      "notes": "Algorithm and complexity analysis verified"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "middle_school_students",
+      "high_school_students",
+      "undergraduate_cs_students",
+      "general_public"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.5,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Understand how the Sieve of Eratosthenes works",
+      "Trace the algorithm on small examples",
+      "Recognize the efficiency advantages",
+      "Implement the algorithm in code",
+      "Appreciate the historical significance"
+    ],
+    "common_errors": [
+      "Checking all numbers up to n instead of just √n",
+      "Not starting at p² when marking multiples",
+      "Forgetting to handle the number 2 specially",
+      "Confusing prime generation (sieve) with primality testing (single number)"
+    ],
+    "teaching_tips": [
+      "Start with visual demonstration: draw grid of numbers 1-100",
+      "Have students physically cross out multiples",
+      "Use animation to show the process step-by-step",
+      "Discuss why only checking up to √n is sufficient",
+      "Connect to historical context: Eratosthenes also measured Earth's circumference"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "algorithm_with_visualization",
+    "show_images": true,
+    "include_examples": true,
+    "visualization": [
+      "animated_sieve_process",
+      "number_grid_with_crossouts",
+      "complexity_comparison_graph"
+    ],
+    "emphasis": [
+      "iterative_marking_process",
+      "efficiency_advantage",
+      "stopping_at_sqrt_n"
+    ]
+  }
+}
