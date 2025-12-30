@@ -1,5 +1,7 @@
 # WorldSMEGraphs
 
+[![Domain Maturity Check](https://github.com/MSDNAndi/WorldSMEGraphs/actions/workflows/domain-maturity-check.yml/badge.svg)](https://github.com/MSDNAndi/WorldSMEGraphs/actions/workflows/domain-maturity-check.yml)
+
 > A file-based, language-agnostic knowledge representation system for subject matter expert domains
 
 ## Overview
