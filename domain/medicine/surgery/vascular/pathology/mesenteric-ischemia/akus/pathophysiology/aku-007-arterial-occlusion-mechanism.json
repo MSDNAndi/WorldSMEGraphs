@@ -1,0 +1,229 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-007-arterial-occlusion-mechanism",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:08:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:08:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "pathophysiology",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "007",
+    "keywords": [
+      "arterial embolism",
+      "arterial thrombosis",
+      "SMA occlusion",
+      "intestinal infarction",
+      "ischemia-reperfusion injury"
+    ],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Acute arterial occlusion of the mesenteric vessels causes intestinal ischemia through either embolic lodging in the SMA (typically 3-10 cm from origin) or in-situ thrombosis of atherosclerotic stenosis, with distinct clinical patterns, collateral development, and prognosis for each mechanism.",
+      "formal": "Arterial Occlusion → Tissue Hypoxia → ATP Depletion → Cell Death → Mucosal Barrier Loss → Bacterial Translocation → Sepsis → MODS"
+    },
+    "explanation": {
+      "intuition": "Think of arterial embolism as a sudden dam breaking - the downstream effects are immediate and severe. In contrast, arterial thrombosis is like a dam that has been slowly silting up until it finally closes - the body may have had time to build bypass channels (collaterals), but the final closure is still catastrophic.",
+      "key_insight": "The key difference between embolism and thrombosis is time for collateral development. Embolic occlusion is sudden with no collaterals, causing immediate severe ischemia. Thrombotic occlusion on chronic stenosis may have developed collaterals, but these are overwhelmed when complete occlusion occurs.",
+      "technical_details": "Emboli typically lodge at branch points where vessel caliber decreases. The SMA's first major branch (middle colic) is approximately 3-10 cm from origin, explaining why emboli lodge here and spare proximal jejunum and colon while infarcting mid-gut territory."
+    }
+  },
+  "embolism_mechanism": {
+    "source_of_emboli": {
+      "cardiac_sources": {
+        "atrial_fibrillation": "Most common (50-70% of cardiac emboli)",
+        "left_ventricular_thrombus": "Post-MI, especially anterior",
+        "valvular_disease": "Endocarditis, prosthetic valves",
+        "patent_foramen_ovale": "Paradoxical embolism"
+      },
+      "aortic_sources": {
+        "atherosclerotic_plaque": "Cholesterol embolism",
+        "aortic_aneurysm": "Mural thrombus"
+      }
+    },
+    "typical_location": {
+      "primary_site": "3-10 cm distal to SMA origin",
+      "reason": "Just past takeoff of middle colic artery where caliber decreases",
+      "consequence": "Spares proximal jejunum and transverse colon"
+    },
+    "clinical_pattern": {
+      "onset": "Sudden, dramatic ('intestinal apoplexy')",
+      "pain_character": "Severe, periumbilical, out of proportion to exam",
+      "associated_findings": "Often history of prior embolic events (stroke, limb)",
+      "bowel_involvement": "Mid-jejunum to right colon typically affected"
+    }
+  },
+  "thrombosis_mechanism": {
+    "underlying_pathology": {
+      "atherosclerosis": "Progressive plaque formation at vessel origin",
+      "location": "Typically ostial or within first 2 cm",
+      "progression": "Gradual stenosis → plaque rupture/hemorrhage → acute thrombosis"
+    },
+    "pre-existing_symptoms": {
+      "chronic_symptoms": "Often history of postprandial pain, weight loss (CMI)",
+      "percentage": "30-50% have prior CMI symptoms",
+      "acute_trigger": "Dehydration, low-flow state, or spontaneous plaque event"
+    },
+    "clinical_pattern": {
+      "onset": "More variable, may be subacute",
+      "pain_character": "May have been present for weeks with acute worsening",
+      "associated_findings": "Cachexia, malnutrition from prior CMI",
+      "bowel_involvement": "More extensive (entire SMA territory) due to proximal occlusion"
+    },
+    "collateral_status": {
+      "presence": "May have developed over time",
+      "adequacy": "Usually insufficient for complete occlusion",
+      "implication": "May allow more time before infarction but larger territory at risk"
+    }
+  },
+  "ischemia_cascade": {
+    "phase_1": {
+      "time": "0-30 minutes",
+      "events": [
+        "Cessation of oxidative phosphorylation",
+        "ATP depletion begins",
+        "Switch to anaerobic metabolism"
+      ],
+      "reversibility": "Fully reversible"
+    },
+    "phase_2": {
+      "time": "30 minutes - 2 hours",
+      "events": [
+        "Cellular swelling (Na/K pump failure)",
+        "Mucosal injury begins at villous tips",
+        "Subepithelial bleb formation"
+      ],
+      "reversibility": "Largely reversible"
+    },
+    "phase_3": {
+      "time": "2-6 hours",
+      "events": [
+        "Mucosal sloughing",
+        "Bacterial translocation begins",
+        "Submucosal hemorrhage",
+        "Lactate production accelerates"
+      ],
+      "reversibility": "Partial, may heal with stricture"
+    },
+    "phase_4": {
+      "time": "6-12 hours",
+      "events": [
+        "Transmural necrosis",
+        "Loss of bowel wall integrity",
+        "Massive bacterial translocation",
+        "Systemic inflammatory response"
+      ],
+      "reversibility": "Irreversible, requires resection"
+    },
+    "phase_5": {
+      "time": ">12 hours",
+      "events": [
+        "Perforation",
+        "Peritonitis",
+        "Septic shock",
+        "Multi-organ dysfunction"
+      ],
+      "reversibility": "Often fatal despite treatment"
+    }
+  },
+  "reperfusion_injury": {
+    "mechanism": "Paradoxical worsening after blood flow restoration",
+    "pathophysiology": [
+      "Oxygen free radical generation",
+      "Xanthine oxidase activation",
+      "Neutrophil activation and infiltration",
+      "Complement activation",
+      "Microvascular thrombosis"
+    ],
+    "clinical_manifestations": [
+      "Continued bowel deterioration despite revascularization",
+      "Systemic inflammatory response",
+      "Remote organ injury (ARDS, AKI)"
+    ],
+    "mitigation_strategies": [
+      "Controlled reperfusion",
+      "Oxygen radical scavengers (experimental)",
+      "Second-look laparotomy to assess delayed injury"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:004",
+        "title": "Mesenteric Arterial Anatomy",
+        "strength": 1.0
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:010",
+        "title": "Intestinal Infarction",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:021",
+        "title": "Open Surgical Revascularization",
+        "strength": 0.9
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "review_article",
+        "citation": "Oldenburg WA, et al. Acute mesenteric ischemia: a clinical review. Arch Intern Med. 2004;164(10):1054-62",
+        "confidence": 0.95
+      },
+      {
+        "type": "textbook",
+        "citation": "Rutherford's Vascular Surgery, 9th Edition",
+        "confidence": 0.98
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "general_surgery_residents"
+    ],
+    "estimated_time": "30min",
+    "learning_objectives": [
+      "Compare and contrast embolism versus thrombosis mechanisms",
+      "Understand the temporal progression of ischemic injury",
+      "Recognize reperfusion injury and its implications",
+      "Appreciate the time-critical nature of intervention"
+    ],
+    "clinical_pearls": [
+      "Emboli lodge past the middle colic takeoff - proximal jejunum is often spared",
+      "Prior CMI symptoms suggest thrombosis on pre-existing stenosis",
+      "The 6-hour window to transmural necrosis drives the urgency",
+      "Reperfusion injury means bowel may look worse after revascularization"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10",
+      "codeValue": "K55.01",
+      "description": "Acute (reversible) ischemia of small intestine",
+      "matchType": "relatedMatch"
+    }
+  ]
+}
