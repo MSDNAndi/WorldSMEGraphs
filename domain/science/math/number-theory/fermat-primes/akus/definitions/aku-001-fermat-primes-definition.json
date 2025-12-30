@@ -1,0 +1,384 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MathematicalEntity"
+  ],
+  "@id": "aku-001-fermat-primes-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T02:18:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2025-12-30T02:18:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/math/number-theory/fermat-primes",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": [
+      "fermat prime",
+      "fermat number",
+      "prime numbers",
+      "constructible polygons",
+      "geometric construction"
+    ],
+    "math_category": "number_theory",
+    "mathematical_context": "special_primes"
+  },
+  "content": {
+    "statement": {
+      "text": "A Fermat prime is a prime number of the form Fₙ = 2^(2^n) + 1, where n is a non-negative integer. Fermat numbers are numbers of this form (whether prime or composite); those that are prime are called Fermat primes.",
+      "formal": "Fₙ is a Fermat prime ⟺ (Fₙ = 2^(2^n) + 1) ∧ (n ∈ ℕ₀) ∧ (Fₙ is prime)"
+    },
+    "explanation": {
+      "intuition": "Fermat primes are 'one more than a power of a power of 2'. Pierre de Fermat conjectured that all numbers of this form were prime, but Euler disproved this in 1732 by factoring F₅. Remarkably, only 5 Fermat primes are known, and it's conjectured that no others exist.",
+      "key_insight": "Fermat primes have a stunning connection to geometry: a regular polygon with n sides can be constructed with compass and straightedge if and only if n is a power of 2 times a product of distinct Fermat primes. This 2000-year-old construction problem was solved by Gauss, linking number theory and geometry.",
+      "technical_details": "If 2^m + 1 is prime, then m must be a power of 2 (i.e., m = 2^n). This is why we use 2^(2^n) in the definition. The known Fermat primes are F₀=3, F₁=5, F₂=17, F₃=257, F₄=65537. F₅ and higher are composite. As n increases, Fermat numbers grow extremely rapidly, making primality testing increasingly difficult.",
+      "common_misconceptions": [
+        "All Fermat numbers are prime—FALSE: Fermat conjectured this but it's wrong",
+        "Many Fermat primes exist—FALSE: only 5 are known, likely only 5 exist",
+        "Fermat primes are similar to Mersenne primes—PARTIALLY: both are special forms, but Mersenne primes are abundant while Fermat primes are extremely rare",
+        "If 2^n + 1 is prime, it's a Fermat prime—FALSE: n must be a power of 2"
+      ]
+    },
+    "definitions_glossary": {
+      "fermat_number": "A number of the form Fₙ = 2^(2^n) + 1 (may or may not be prime)",
+      "constructible_polygon": "A regular polygon that can be drawn with compass and straightedge",
+      "gauss_construction_theorem": "Regular n-gon is constructible iff n = 2^k × p₁ × p₂ × ... × pₘ where pᵢ are distinct Fermat primes",
+      "pépin_test": "Primality test specifically for Fermat numbers"
+    }
+  },
+  "mathematical_features": {
+    "known_fermat_primes": [
+      {
+        "index": 0,
+        "value": 3,
+        "form": "2^(2^0) + 1 = 2^1 + 1",
+        "constructible_polygons": [3]
+      },
+      {
+        "index": 1,
+        "value": 5,
+        "form": "2^(2^1) + 1 = 2^2 + 1",
+        "constructible_polygons": [5]
+      },
+      {
+        "index": 2,
+        "value": 17,
+        "form": "2^(2^2) + 1 = 2^4 + 1",
+        "constructible_polygons": [17],
+        "note": "17-gon construction discovered by Gauss at age 19 (1796)"
+      },
+      {
+        "index": 3,
+        "value": 257,
+        "form": "2^(2^3) + 1 = 2^8 + 1",
+        "constructible_polygons": [257]
+      },
+      {
+        "index": 4,
+        "value": 65537,
+        "form": "2^(2^4) + 1 = 2^16 + 1",
+        "constructible_polygons": [65537],
+        "note": "Largest known Fermat prime; often used in RSA encryption"
+      }
+    ],
+    "composite_fermat_numbers": [
+      {
+        "index": 5,
+        "value": "4294967297",
+        "form": "2^32 + 1",
+        "factorization": "641 × 6700417",
+        "discovered_by": "Euler (1732)",
+        "note": "Disproved Fermat's conjecture"
+      },
+      {
+        "index": 6,
+        "value": "2^64 + 1",
+        "status": "composite (factors known)"
+      }
+    ],
+    "properties": [
+      "Only 5 Fermat primes are known",
+      "All known Fermat numbers beyond F₄ are composite",
+      "Fermat numbers grow extremely rapidly: F₅ has 10 digits, F₆ has 20 digits",
+      "If Fₙ and Fₘ are Fermat numbers with n ≠ m, then gcd(Fₙ, Fₘ) = 1",
+      "Fermat primes are all of the form 4k + 1"
+    ],
+    "gauss_construction_theorem": {
+      "statement": "A regular n-sided polygon is constructible with compass and straightedge if and only if n = 2^k × p₁ × p₂ × ... × pₘ where k ≥ 0 and p₁, p₂, ..., pₘ are distinct Fermat primes",
+      "examples_constructible": [
+        {
+          "n": 3,
+          "form": "F₀ = 3",
+          "note": "Equilateral triangle"
+        },
+        {
+          "n": 15,
+          "form": "3 × 5 = F₀ × F₁",
+          "note": "Product of two Fermat primes"
+        },
+        {
+          "n": 17,
+          "form": "F₂ = 17",
+          "note": "Gauss's breakthrough discovery"
+        },
+        {
+          "n": 51,
+          "form": "3 × 17 = F₀ × F₂"
+        }
+      ],
+      "examples_not_constructible": [
+        {
+          "n": 7,
+          "reason": "7 is prime but not a Fermat prime"
+        },
+        {
+          "n": 9,
+          "reason": "9 = 3² (Fermat prime appears twice)"
+        }
+      ]
+    },
+    "open_problems": [
+      {
+        "problem": "Are there infinitely many Fermat primes?",
+        "status": "unsolved",
+        "conjecture": "widely believed that only 5 exist"
+      },
+      {
+        "problem": "Are there infinitely many composite Fermat numbers?",
+        "status": "unsolved",
+        "evidence": "all tested Fₙ for n ≥ 5 are composite"
+      }
+    ],
+    "pepin_test": {
+      "statement": "For n ≥ 1, Fₙ is prime if and only if 3^((Fₙ-1)/2) ≡ -1 (mod Fₙ)",
+      "note": "Efficient deterministic test for Fermat primality"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Fermat Prime"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Fermat Number (when prime)"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A prime number of the form 2^(2^n) + 1 where n is a non-negative integer"
+    },
+    "notation": "aku-001-fermat-primes-definition"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:math:number-theory:primes:001",
+        "title": "Prime Numbers",
+        "strength": 1.0,
+        "reason": "Must understand primes to define Fermat primes"
+      },
+      {
+        "id": "urn:wskg:math:algebra:exponents:001",
+        "title": "Exponents and Powers",
+        "strength": 1.0,
+        "reason": "Double exponentiation in definition"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:math:number-theory:primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Prime Numbers"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:special-primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Special Forms of Primes"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:math:geometry:constructions:001",
+        "title": "Geometric Constructions",
+        "strength": 1.0,
+        "reason": "Fermat primes determine which regular polygons are constructible"
+      },
+      {
+        "id": "urn:wskg:cryptography:rsa:001",
+        "title": "RSA Cryptography",
+        "strength": 0.7,
+        "reason": "F₄ = 65537 commonly used as RSA public exponent"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:math:number-theory:mersenne-primes:001",
+        "type": "analogous_concept",
+        "relationship": "Both are special prime forms; Mersenne: 2^p-1, Fermat: 2^(2^n)+1"
+      },
+      {
+        "id": "urn:wskg:math:geometry:regular-polygons:001",
+        "type": "application",
+        "relationship": "Fermat primes determine constructibility of regular polygons"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:math:geometry:constructions:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Geometric Constructions",
+        "skos:note": "Gauss proved constructibility depends on Fermat primes"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:mersenne-primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Mersenne Primes",
+        "skos:note": "Another important class of special-form primes"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:fermat-letter",
+        "@type": "prov:Entity",
+        "dc:title": "Letter to Mersenne",
+        "dc:creator": "Pierre de Fermat",
+        "dc:date": "1640",
+        "dc:type": "correspondence",
+        "confidence": 1.0,
+        "note": "Fermat's conjecture that all such numbers are prime"
+      },
+      {
+        "@id": "urn:source:euler-refutation",
+        "@type": "prov:Entity",
+        "dc:title": "Factorization of F₅",
+        "dc:creator": "Leonhard Euler",
+        "dc:date": "1732",
+        "dc:type": "mathematical_proof",
+        "confidence": 1.0,
+        "note": "Disproved Fermat's conjecture"
+      },
+      {
+        "@id": "urn:source:gauss-disquisitiones",
+        "@type": "prov:Entity",
+        "dc:title": "Disquisitiones Arithmeticae",
+        "dc:creator": "Carl Friedrich Gauss",
+        "dc:date": "1801",
+        "dc:type": "mathematical_treatise",
+        "confidence": 1.0,
+        "note": "Proved connection to constructible polygons"
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-30T02:18:00.000Z",
+      "prov:endedAtTime": "2025-12-30T02:18:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "dc:created": "2025-12-30T02:18:00.000Z",
+    "dc:modified": "2025-12-30T02:18:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:math-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "number-theory-expert"
+    },
+    "sources": [
+      {
+        "type": "correspondence",
+        "citation": "Fermat's letter to Mersenne (1640)",
+        "confidence": 1.0
+      },
+      {
+        "type": "mathematical_proof",
+        "citation": "Euler's factorization of F₅ (1732)",
+        "confidence": 1.0
+      },
+      {
+        "type": "treatise",
+        "citation": "Gauss: Disquisitiones Arithmeticae (1801)",
+        "confidence": 1.0
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "math_expert",
+      "date": "2025-12-30",
+      "notes": "Definition and properties verified against classical and modern sources"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "high_school_students",
+      "undergraduate_math_majors",
+      "math_enthusiasts"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.65,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Define Fermat primes and Fermat numbers",
+      "Understand Fermat's (incorrect) conjecture",
+      "Recognize the extreme rarity of Fermat primes",
+      "Appreciate Gauss's construction theorem",
+      "Connect number theory to geometric constructions"
+    ],
+    "common_errors": [
+      "Thinking all Fermat numbers are prime",
+      "Confusing with Mersenne primes",
+      "Not recognizing the double exponentiation",
+      "Thinking Fermat primes are common"
+    ],
+    "teaching_tips": [
+      "Start with the 5 known Fermat primes",
+      "Tell the story of Fermat's conjecture and Euler's refutation",
+      "Show Gauss's breakthrough with the 17-gon",
+      "Demonstrate rapid growth of Fermat numbers",
+      "Connect to constructible polygons visually",
+      "Mention use of F₄ in RSA cryptography"
+    ],
+    "historical_context": "Pierre de Fermat conjectured in 1640 that all numbers of the form 2^(2^n) + 1 were prime. This stood until Euler found F₅ = 641 × 6700417 in 1732. Young Carl Friedrich Gauss (age 19) proved in 1796 that regular polygons with Fermat prime sides could be constructed with compass and straightedge, solving a 2000-year-old problem and inspiring him to pursue mathematics."
+  },
+  "rendering_hints": {
+    "primary_representation": "mathematical_definition",
+    "show_images": true,
+    "include_examples": true,
+    "visualization": [
+      "growth_comparison",
+      "constructible_polygons",
+      "timeline_of_discoveries",
+      "gauss_17_gon_construction"
+    ],
+    "emphasis": [
+      "double_exponentiation",
+      "extreme_rarity",
+      "geometric_connection",
+      "fermats_conjecture_failure",
+      "rapid_growth"
+    ],
+    "historical_notes": true,
+    "geometric_connections": true
+  }
+}
