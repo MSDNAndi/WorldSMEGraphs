@@ -363,6 +363,49 @@ Currently using ad-hoc knowledge representation without alignment to standard on
 
 ---
 
+#### Issue #9: Mesenteric Ischemia Domain - Content Gaps
+**Status**: 🟡 Open  
+**Created**: 2025-12-30  
+**Priority**: High  
+**Area**: Medical Knowledge Content
+
+**Description**:
+Contrarian agent critical analysis identified significant content gaps in the mesenteric ischemia knowledge domain (29 AKUs). Despite competent core content, several critical topics are missing.
+
+**Critical Gaps Identified**:
+1. **Differential diagnosis AKU** — Must exclude before committing to mesenteric ischemia diagnosis
+2. **Atypical presentations AKU** — Elderly, demented, pediatric, post-operative cases are missed due to atypical features
+3. **Ischemia-reperfusion injury AKU** — Essential for understanding complications and post-op care
+4. **Expanded NOMI content** — Highest mortality type but has least coverage
+
+**Additional Findings**:
+- Vague citations need strengthening ("Defined systematic review" not acceptable)
+- Single-perspective bias (vascular surgeon only)
+- Missing interdisciplinary perspectives (IR, critical care, emergency)
+- Book chapter needs structural enhancements
+
+**Impact**:
+- Incomplete clinical guidance may miss diagnoses
+- Evidence quality issues affect academic credibility
+- Limited utility for non-vascular surgery audiences
+
+**Action Items**:
+- [ ] Create aku-038 (Differential Diagnosis)
+- [ ] Create aku-039 (Atypical Presentations)  
+- [ ] Create aku-040 (Ischemia-Reperfusion Injury)
+- [ ] Expand aku-008 (NOMI) with ICU protocols
+- [ ] Audit and fix all vague citations
+- [ ] Add IR/critical care perspective content
+
+**Documentation**:
+- Critical Analysis: `domain/medicine/surgery/vascular/pathology/mesenteric-ischemia/.project/critical-analysis-contrarian-review.md`
+- Improvement Plan: `domain/medicine/surgery/vascular/pathology/mesenteric-ischemia/.project/improvement-plan.md`
+
+**Assigned To**: Medical content team  
+**Target Date**: 2026-01-15  
+
+---
+
 ### 🟢 Minor Issues
 *Nice to have improvements, not urgent*
 

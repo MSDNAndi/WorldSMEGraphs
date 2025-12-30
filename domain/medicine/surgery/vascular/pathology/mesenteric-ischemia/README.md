@@ -126,17 +126,15 @@ A comprehensive ~25-30 page book chapter suitable for a surgical textbook or ref
 
 ## Future Development
 
-### Planned Additional AKUs
-- Epidemiology and risk factors
-- Laboratory evaluation
-- Physical examination findings
-- Mesenteric duplex ultrasound
-- Damage control surgery
-- Timing of revascularization
-- Managing elderly and comorbid patients
-- Short bowel syndrome
-- Surveillance protocols
-- Secondary prevention
+### Potential Additional AKUs (Reserved Numbering)
+- `aku-006`: CMI epidemiology (separate from AMI)
+- `aku-014`: Physical examination findings
+- `aku-017`: Conventional/digital subtraction angiography
+- `aku-018`: MR angiography
+- `aku-033`: Reintervention and patency rates
+- `aku-034`: Quality of life outcomes
+- `aku-036`: Secondary prevention strategies
+- `aku-037`: Nutritional management
 
 ### Planned Renders
 - Medical student guide (simplified)
@@ -157,6 +155,29 @@ All AKUs include:
 - Pedagogical guidance including learning objectives and clinical pearls
 - Relationship mapping to other concepts
 - Rendering hints for visualization
+
+### Atomicity Audit (2025-12-30)
+
+All 29 AKUs have been audited for atomicity compliance:
+- **Result**: 100% pass (29/29 atomic)
+- **Violations Found**: None (no over-bundled or under-specified AKUs)
+- **Transformations Required**: None
+- **Full Report**: `.project/audits/mesenteric-ischemia-atomicity-audit.md`
+
+### Critical Analysis (2025-12-30)
+
+A comprehensive contrarian review has been conducted identifying areas for improvement:
+- **Overall Assessment**: Competent but incomplete
+- **Critical Gaps Identified**: 4 (differential diagnosis, atypical presentations, ischemia-reperfusion, NOMI expansion)
+- **High Priority Recommendations**: 10
+- **Full Report**: `.project/critical-analysis-contrarian-review.md`
+- **Action Plan**: `.project/improvement-plan.md`
+
+**Key Findings:**
+1. Vascular surgeon perspective bias — needs interdisciplinary input
+2. Evidence quality gaps — some citations need strengthening
+3. Missing critical topics for clinical completeness
+4. Book chapter needs structural enhancements (summary boxes, algorithms)
 
 ## Usage
 

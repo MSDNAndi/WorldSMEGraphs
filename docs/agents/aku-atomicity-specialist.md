@@ -221,8 +221,16 @@ definition→formula→example as coherent sequence within 3 consecutive AKUs.
   - Detailed quality criteria and success metrics
   - Integration with verification, pedagogy, and ontology agents
 
+## Completed Audits
+
+### Mesenteric Ischemia Domain (2025-12-30)
+- **Domain**: `medicine/surgery/vascular/pathology/mesenteric-ischemia`
+- **Result**: ✅ 100% pass (29/29 AKUs atomic)
+- **Key Validation**: All 6 surgical dilemma AKUs represent exactly ONE discrete clinical decision
+- **Report**: `.project/audits/mesenteric-ischemia-atomicity-audit.md`
+
 ---
 
-**Last Updated**: 2025-12-29  
+**Last Updated**: 2025-12-30  
 **Maintained by**: Agent Recruiter  
 **Status**: Active
