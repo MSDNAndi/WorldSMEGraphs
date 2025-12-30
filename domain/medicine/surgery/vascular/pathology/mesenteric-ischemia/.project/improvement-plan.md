@@ -186,11 +186,23 @@ Note: Original AKU-046-050 renumbered as biomarkers and perspectives were added 
 
 ## Notes
 
-- Priority should be Phase 1 items - they address safety concerns
-- Phase 2 and 3 can proceed in parallel
-- Consider recruiting domain experts for perspective content
-- Visual content will require image sourcing/creation
+- ✅ Phase 1 items complete - safety concerns addressed
+- ✅ Phase 2 complete - all AKUs implemented
+- ⏳ Phase 3 pending - book chapter re-render
+- Future: Replace placeholder citations ("Defined XX, et al.") with specific author names
+- Future: Visual content will require image sourcing/creation
 
 ---
 
-*Last Updated: 2025-12-30*
+## Remaining Placeholder Citations
+
+The following AKUs contain placeholder author names for secondary sources (primary ESVS guideline citations are complete):
+- aku-015, aku-024, aku-025, aku-031, aku-032
+- aku-033, aku-034, aku-047, aku-048, aku-049
+- aku-050, aku-051, aku-053, aku-054, aku-055
+
+These should be researched and updated with actual author names in a future session.
+
+---
+
+*Last Updated: 2025-12-30T06:55:00.000Z*
