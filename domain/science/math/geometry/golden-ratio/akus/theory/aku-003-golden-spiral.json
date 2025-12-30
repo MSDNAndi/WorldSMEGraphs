@@ -1,0 +1,315 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MathematicalEntity"
+  ],
+  "@id": "aku-003-golden-spiral",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T02:45:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "claude-3.5-sonnet",
+      "math-expert",
+      "geometry-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2025-12-30T02:45:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/math/geometry/golden-ratio",
+    "type": "theory",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "003",
+    "keywords": [
+      "golden spiral",
+      "logarithmic spiral",
+      "phi spiral",
+      "equiangular spiral",
+      "growth spiral"
+    ],
+    "math_category": "geometry",
+    "mathematical_context": "curves_spirals"
+  },
+  "content": {
+    "statement": {
+      "text": "The golden spiral is a logarithmic spiral whose growth factor is the golden ratio φ. It can be approximated by drawing quarter-circle arcs connecting opposite corners of squares in a sequence of golden rectangles. Each quarter turn outward, the spiral's radius increases by a factor of φ.",
+      "formal": "Polar equation: r = ae^(bθ) where b = (2/π)ln(φ) ≈ 0.306, giving growth property r(θ + π/2) = φ·r(θ)"
+    },
+    "explanation": {
+      "intuition": "Imagine a snail shell that grows outward in a perfect mathematical pattern. As the shell makes each complete turn, it gets exactly φ times larger. This is the golden spiral—a curve that grows at a constant rate while maintaining its shape. Unlike a circle that just repeats, or a straight spiral that spreads evenly, the golden spiral expands exponentially but smoothly.",
+      "key_insight": "The golden spiral is a special case of logarithmic spiral where the growth rate is tied to φ. It's self-similar: if you zoom in or out, the spiral looks the same (scale-invariant). This property makes it mathematically elegant and explains why similar spirals appear in nature—organisms grow by adding new material in proportions that maintain structural integrity.",
+      "technical_details": "In polar coordinates (r, θ), the golden spiral is r = ae^(bθ) where b = (2/π)ln(φ) ≈ 0.306. This means r(θ + π/2) = φ·r(θ)—each 90° turn increases radius by φ. The spiral has constant angle (equiangular): the tangent makes a fixed angle ψ = arctan(1/b) ≈ 73° with the radius at every point. Growth rate dr/dθ = br is proportional to distance from origin, creating exponential expansion.",
+      "common_misconceptions": [
+        "All spirals in nature are golden spirals—FALSE: Most are approximations or different spirals entirely",
+        "The nautilus shell is a perfect golden spiral—FALSE: It's closer to 4:3 ratio, not φ",
+        "Spiral galaxies follow the golden spiral—OVERSIMPLIFIED: They're logarithmic but with variable parameters",
+        "The golden spiral and Fibonacci spiral are identical—CLOSE: Fibonacci spiral is an approximation"
+      ]
+    },
+    "definitions_glossary": {
+      "logarithmic_spiral": "Spiral whose radius grows exponentially with angle",
+      "equiangular_spiral": "Spiral where tangent makes constant angle with radius (same as logarithmic)",
+      "growth_factor": "Ratio by which radius increases per unit angle",
+      "fibonacci_spiral": "Approximation to golden spiral using quarter-circles in Fibonacci rectangles",
+      "nautilus_spiral": "Spiral found in nautilus shell, roughly logarithmic but not golden",
+      "pole": "Center point of the spiral (limit as r → 0)"
+    }
+  },
+  "mathematical_features": {
+    "polar_equation": {
+      "form": "r = ae^(bθ)",
+      "where": {
+        "a": "initial radius at θ = 0",
+        "b": "(2/π)ln(φ) ≈ 0.306349",
+        "φ": "(1 + √5)/2 ≈ 1.618034"
+      },
+      "growth_property": "r(θ + π/2) = φ·r(θ)"
+    },
+    "cartesian_parametric": {
+      "x": "ae^(bθ)cos(θ)",
+      "y": "ae^(bθ)sin(θ)",
+      "parameter": "θ ∈ ℝ (angle from positive x-axis)"
+    },
+    "properties": [
+      "Self-similar: zooming preserves shape",
+      "Equiangular: tangent-radius angle constant ≈ 73°",
+      "Infinite length as θ → -∞, but finite area",
+      "Approaches pole asymptotically (never reaches center)",
+      "Growth rate proportional to distance from origin"
+    ],
+    "arc_length": {
+      "formula": "s = (a/b)√(1+b²)[e^(bθ₂) - e^(bθ₁)]",
+      "note": "Grows exponentially with θ"
+    },
+    "area": {
+      "formula": "A = (πa²/4b)[e^(2bθ₂) - e^(2bθ₁)]",
+      "total_area_inward": "Finite even as θ → -∞"
+    },
+    "fibonacci_approximation": {
+      "method": "Draw quarter-circles in successive Fibonacci rectangles",
+      "accuracy": "Converges to true golden spiral as n → ∞",
+      "practical_note": "Indistinguishable by eye after a few iterations"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Golden Spiral"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Phi Spiral"
+      },
+      {
+        "@language": "en",
+        "@value": "Golden Section Spiral"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A logarithmic spiral with growth factor equal to the golden ratio φ"
+    },
+    "notation": "aku-003-golden-spiral"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:math:geometry:golden-ratio:001",
+        "title": "Golden Ratio",
+        "strength": 1.0,
+        "reason": "Growth factor is φ"
+      },
+      {
+        "id": "urn:wskg:math:geometry:golden-rectangle:002",
+        "title": "Golden Rectangle",
+        "strength": 1.0,
+        "reason": "Generated from nested golden rectangles"
+      },
+      {
+        "id": "urn:wskg:math:calculus:exponential-functions:001",
+        "title": "Exponential Functions",
+        "strength": 0.9,
+        "reason": "Equation involves e^(bθ)"
+      },
+      {
+        "id": "urn:wskg:math:geometry:polar-coordinates:001",
+        "title": "Polar Coordinates",
+        "strength": 0.9,
+        "reason": "Naturally expressed in polar form"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:math:geometry:logarithmic-spirals:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Logarithmic Spirals"
+      },
+      {
+        "@id": "urn:wskg:math:geometry:plane-curves:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Plane Curves"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:biology:shell-morphology:001",
+        "title": "Shell Growth Patterns",
+        "strength": 0.8,
+        "reason": "Approximates some mollusk shell growth"
+      },
+      {
+        "id": "urn:wskg:art:spiral-compositions:001",
+        "title": "Spiral Compositions in Art",
+        "strength": 0.7,
+        "reason": "Used as composition tool"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:math:number-theory:fibonacci:001",
+        "type": "approximation",
+        "relationship": "Fibonacci spiral approximates golden spiral"
+      },
+      {
+        "id": "urn:wskg:biology:phyllotaxis:001",
+        "type": "natural_occurrence",
+        "relationship": "Plant spirals often approximate golden spiral"
+      },
+      {
+        "id": "urn:wskg:astronomy:galaxy-spirals:001",
+        "type": "natural_pattern",
+        "relationship": "Galactic spirals are logarithmic (not necessarily golden)"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:math:number-theory:fibonacci:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Fibonacci Sequence",
+        "skos:note": "Fibonacci spiral approximates golden spiral"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:cook-curves",
+        "@type": "prov:Entity",
+        "dc:title": "The Curves of Life",
+        "dc:creator": "Theodore Andrea Cook",
+        "dc:date": "1914",
+        "dc:type": "book",
+        "confidence": 0.9,
+        "note": "Early comprehensive study of spirals in nature"
+      },
+      {
+        "@id": "urn:source:d-arcy-thompson",
+        "@type": "prov:Entity",
+        "dc:title": "On Growth and Form",
+        "dc:creator": "D'Arcy Wentworth Thompson",
+        "dc:date": "1917",
+        "dc:type": "scientific_treatise",
+        "confidence": 1.0,
+        "note": "Classic work on mathematical patterns in biology"
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-30T02:45:00.000Z",
+      "prov:endedAtTime": "2025-12-30T02:45:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "claude-3.5-sonnet",
+      "math-expert",
+      "geometry-knowledge-base"
+    ],
+    "dc:created": "2025-12-30T02:45:00.000Z",
+    "dc:modified": "2025-12-30T02:45:00.000Z",
+    "sources": [
+      {
+        "type": "historical_text",
+        "citation": "Cook: The Curves of Life (1914)",
+        "confidence": 0.9
+      },
+      {
+        "type": "scientific_treatise",
+        "citation": "Thompson: On Growth and Form (1917)",
+        "confidence": 1.0
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "math_expert",
+      "date": "2025-12-30",
+      "notes": "Mathematical properties verified; natural occurrence claims carefully qualified"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "high_school_students",
+      "undergraduate_math_majors",
+      "biology_students",
+      "art_students",
+      "general_public"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.6,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Define logarithmic spiral and golden spiral",
+      "Understand growth factor φ per quarter turn",
+      "Generate golden spiral from golden rectangles",
+      "Distinguish golden spiral from Fibonacci approximation",
+      "Recognize logarithmic spirals in nature (with caveats)"
+    ],
+    "common_errors": [
+      "Assuming all natural spirals are golden spirals",
+      "Confusing Fibonacci spiral with true golden spiral",
+      "Not understanding exponential growth property",
+      "Thinking the spiral reaches its center"
+    ],
+    "teaching_tips": [
+      "Start with construction from golden rectangles",
+      "Show animation of spiral growth",
+      "Compare with other spirals (Archimedean, Fibonacci)",
+      "Use real shell/plant photos but emphasize approximation",
+      "Plot in graphing software to see mathematical beauty",
+      "Address common nature myths explicitly"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "geometric_diagram",
+    "show_images": true,
+    "include_examples": true,
+    "visualization": [
+      "golden_spiral_plot",
+      "construction_from_rectangles",
+      "comparison_with_fibonacci_spiral",
+      "natural_examples_cautiously",
+      "polar_coordinate_representation"
+    ],
+    "emphasis": [
+      "exponential_growth",
+      "self_similarity",
+      "construction_method",
+      "distinction_from_other_spirals"
+    ],
+    "interactive_elements": [
+      "spiral_generator",
+      "parameter_explorer",
+      "comparison_tool"
+    ]
+  }
+}

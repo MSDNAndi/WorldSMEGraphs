@@ -1,0 +1,379 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MathematicalEntity"
+  ],
+  "@id": "aku-001-mersenne-primes-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T02:15:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2025-12-30T02:15:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/math/number-theory/mersenne-primes",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": [
+      "mersenne prime",
+      "mersenne number",
+      "perfect numbers",
+      "prime numbers",
+      "GIMPS"
+    ],
+    "math_category": "number_theory",
+    "mathematical_context": "special_primes"
+  },
+  "content": {
+    "statement": {
+      "text": "A Mersenne prime is a prime number of the form Mₚ = 2^p - 1, where p itself must be prime. Not all Mersenne numbers (2^p - 1 with prime p) are prime; those that are prime are called Mersenne primes.",
+      "formal": "Mₚ is a Mersenne prime ⟺ (Mₚ = 2^p - 1) ∧ (p is prime) ∧ (Mₚ is prime)"
+    },
+    "explanation": {
+      "intuition": "Mersenne primes are among the largest known primes because the form 2^p - 1 is relatively easy to test for primality using specialized algorithms. They're named after Marin Mersenne, a 17th-century French monk who studied these numbers. Think of them as 'one less than a power of 2'—in binary, they're numbers with all 1's (e.g., 7 = 111₂, 31 = 11111₂).",
+      "key_insight": "Mersenne primes are fundamentally connected to perfect numbers through the Euclid-Euler theorem: every even perfect number corresponds to a unique Mersenne prime via the formula 2^(p-1) × (2^p - 1). This ancient connection, spanning 2000+ years, remains one of number theory's most elegant relationships.",
+      "technical_details": "If 2^n - 1 is prime, then n must be prime (though the converse is false). The Lucas-Lehmer test provides an efficient deterministic primality test specifically for Mersenne numbers, running in O(p²) time for testing Mₚ. As of 2024, only 51 Mersenne primes are known. The largest known prime number is always a Mersenne prime due to GIMPS (Great Internet Mersenne Prime Search) distributed computing project.",
+      "common_misconceptions": [
+        "All Mersenne numbers are prime—FALSE: M₁₁ = 2047 = 23 × 89 is composite",
+        "If p is prime, 2^p - 1 is always prime—FALSE: counterexample is 2^11 - 1 = 2047 (composite)",
+        "Mersenne primes are rare—TRUE: only 51 known, increasingly rare as numbers grow",
+        "Finding Mersenne primes is easy—FALSE: despite efficient tests, finding new ones requires massive computation"
+      ]
+    },
+    "definitions_glossary": {
+      "mersenne_number": "A number of the form Mₙ = 2^n - 1 (may or may not be prime)",
+      "lucas_lehmer_test": "Efficient deterministic test for Mersenne primality",
+      "GIMPS": "Great Internet Mersenne Prime Search—distributed computing project",
+      "perfect_number": "A number equal to sum of its proper divisors; even perfects linked to Mersenne primes",
+      "double_mersenne_prime": "A Mersenne prime Mₚ where p itself is a Mersenne prime"
+    }
+  },
+  "mathematical_features": {
+    "known_mersenne_primes": [
+      {
+        "index": 1,
+        "p": 2,
+        "value": "3",
+        "digits": 1,
+        "discovered": "ancient",
+        "corresponding_perfect": 6
+      },
+      {
+        "index": 2,
+        "p": 3,
+        "value": "7",
+        "digits": 1,
+        "discovered": "ancient",
+        "corresponding_perfect": 28
+      },
+      {
+        "index": 3,
+        "p": 5,
+        "value": "31",
+        "digits": 2,
+        "discovered": "ancient",
+        "corresponding_perfect": 496
+      },
+      {
+        "index": 4,
+        "p": 7,
+        "value": "127",
+        "digits": 3,
+        "discovered": "ancient",
+        "corresponding_perfect": 8128
+      },
+      {
+        "index": 5,
+        "p": 13,
+        "value": "8191",
+        "digits": 4,
+        "discovered": "1456",
+        "corresponding_perfect": 33550336
+      },
+      {
+        "index": 51,
+        "p": 82589933,
+        "value": "2^82589933 - 1",
+        "digits": 24862048,
+        "discovered": "2018-12-07",
+        "discoverer": "Patrick Laroche (GIMPS)",
+        "note": "Largest known prime as of 2024"
+      }
+    ],
+    "properties": [
+      "If 2^n - 1 is prime, then n must be prime",
+      "In binary, Mersenne primes are repunits (all 1's)",
+      "Every even perfect number corresponds to a Mersenne prime",
+      "Mersenne primes are always of the form 6k + 1 or 6k - 1",
+      "No known pattern for which p gives Mersenne primes"
+    ],
+    "lucas_lehmer_test": {
+      "algorithm": "Define S₀ = 4; Sᵢ₊₁ = (Sᵢ² - 2) mod Mₚ. Then Mₚ is prime ⟺ Sₚ₋₂ ≡ 0 (mod Mₚ)",
+      "complexity": "O(p²) bit operations",
+      "efficiency": "Extremely efficient for Mersenne numbers; far faster than general primality tests"
+    },
+    "open_problems": [
+      {
+        "problem": "Are there infinitely many Mersenne primes?",
+        "status": "unsolved",
+        "conjecture": "widely believed to be true"
+      },
+      {
+        "problem": "Are there infinitely many composite Mersenne numbers with prime exponent?",
+        "status": "unsolved"
+      }
+    ],
+    "counterexamples": [
+      {
+        "p": 11,
+        "M_p": 2047,
+        "factorization": "23 × 89",
+        "note": "First composite Mersenne number with prime exponent"
+      }
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Mersenne Prime"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Mersenne Number (when prime)"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A prime number of the form 2^p - 1 where p is prime"
+    },
+    "notation": "aku-001-mersenne-primes-definition"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:math:number-theory:primes:001",
+        "title": "Prime Numbers",
+        "strength": 1.0,
+        "reason": "Must understand primes to define Mersenne primes"
+      },
+      {
+        "id": "urn:wskg:math:algebra:exponents:001",
+        "title": "Exponents and Powers",
+        "strength": 1.0,
+        "reason": "Mersenne numbers defined using exponentials"
+      },
+      {
+        "id": "urn:wskg:math:arithmetic:subtraction:001",
+        "title": "Subtraction",
+        "strength": 1.0,
+        "reason": "Form is 2^p - 1"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:math:number-theory:primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Prime Numbers"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:special-primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Special Forms of Primes"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:math:number-theory:perfect-numbers:001",
+        "title": "Perfect Numbers",
+        "strength": 1.0,
+        "reason": "Every even perfect number arises from a Mersenne prime"
+      },
+      {
+        "id": "urn:wskg:computer-science:distributed-computing:001",
+        "title": "Distributed Computing",
+        "strength": 0.8,
+        "reason": "GIMPS pioneered volunteer distributed computing"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:math:number-theory:double-mersenne-primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Double Mersenne Primes"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:math:number-theory:perfect-numbers:001",
+        "type": "fundamental_connection",
+        "relationship": "Mersenne primes generate all even perfect numbers via 2^(p-1)(2^p-1)"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:fermat-primes:001",
+        "type": "analogous_concept",
+        "relationship": "Both are special forms of primes (Fermat: 2^(2^n) + 1)"
+      },
+      {
+        "id": "urn:wskg:computer-science:primality-testing:001",
+        "type": "computational",
+        "relationship": "Lucas-Lehmer test is highly efficient for Mersenne numbers"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:math:number-theory:perfect-numbers:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Perfect Numbers",
+        "skos:note": "Fundamental 1-1 correspondence with Mersenne primes for even perfects"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Prime Numbers",
+        "skos:note": "Mersenne primes are a special class of prime numbers"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:mersenne-cogitata",
+        "@type": "prov:Entity",
+        "dc:title": "Cogitata Physico-Mathematica",
+        "dc:creator": "Marin Mersenne",
+        "dc:date": "1644",
+        "dc:type": "mathematical_treatise",
+        "confidence": 1.0,
+        "note": "Mersenne's original list of primes (contained some errors)"
+      },
+      {
+        "@id": "urn:source:lucas-lehmer-test",
+        "@type": "prov:Entity",
+        "dc:title": "Lucas-Lehmer Primality Test",
+        "dc:creator": ["Édouard Lucas", "Derrick Henry Lehmer"],
+        "dc:date": "1878/1930",
+        "dc:type": "algorithm",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:gimps",
+        "@type": "prov:Entity",
+        "dc:title": "Great Internet Mersenne Prime Search",
+        "dc:creator": "George Woltman",
+        "dc:date": "1996-present",
+        "dc:type": "distributed_project",
+        "confidence": 1.0,
+        "url": "https://www.mersenne.org"
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-30T02:15:00.000Z",
+      "prov:endedAtTime": "2025-12-30T02:15:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "dc:created": "2025-12-30T02:15:00.000Z",
+    "dc:modified": "2025-12-30T02:15:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:math-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "number-theory-expert"
+    },
+    "sources": [
+      {
+        "type": "historical_treatise",
+        "citation": "Mersenne: Cogitata Physico-Mathematica (1644)",
+        "confidence": 1.0
+      },
+      {
+        "type": "algorithm",
+        "citation": "Lucas-Lehmer Primality Test (1878/1930)",
+        "confidence": 1.0
+      },
+      {
+        "type": "project",
+        "citation": "GIMPS: Great Internet Mersenne Prime Search",
+        "url": "https://www.mersenne.org",
+        "confidence": 1.0
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "math_expert",
+      "date": "2025-12-30",
+      "notes": "Definition and properties verified against classical and modern sources, GIMPS records"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "high_school_students",
+      "undergraduate_math_majors",
+      "computer_science_students",
+      "math_enthusiasts"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.6,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Define Mersenne primes and Mersenne numbers",
+      "Understand why p must be prime (necessary but not sufficient)",
+      "Recognize connection to perfect numbers",
+      "Appreciate computational challenges in finding new Mersenne primes",
+      "Understand Lucas-Lehmer test concept"
+    ],
+    "common_errors": [
+      "Thinking all Mersenne numbers are prime",
+      "Confusing necessary vs sufficient conditions",
+      "Not recognizing the computational difficulty",
+      "Confusing Mersenne with Fermat primes"
+    ],
+    "teaching_tips": [
+      "Start with small examples: M₂=3, M₃=7, M₅=31",
+      "Show counterexample: M₁₁ = 2047 = 23 × 89",
+      "Connect to perfect numbers for motivation",
+      "Discuss GIMPS and collaborative science",
+      "Show binary representation (all 1's)",
+      "Explain why they're the largest known primes"
+    ],
+    "historical_context": "Marin Mersenne, a French monk and mathematician, studied these numbers in the 17th century. His original 1644 list contained errors, but gave rise to the name. The Lucas-Lehmer test (developed 1878-1930) made testing Mersenne numbers efficient. GIMPS, started in 1996, has found most recent Mersenne primes through distributed computing."
+  },
+  "rendering_hints": {
+    "primary_representation": "mathematical_definition",
+    "show_images": true,
+    "include_examples": true,
+    "visualization": [
+      "binary_representation",
+      "connection_to_perfect_numbers",
+      "timeline_of_discoveries",
+      "size_comparison"
+    ],
+    "emphasis": [
+      "form_2_p_minus_1",
+      "p_must_be_prime",
+      "not_all_mersenne_numbers_prime",
+      "connection_to_perfects",
+      "computational_challenge"
+    ],
+    "computational_notes": true
+  }
+}

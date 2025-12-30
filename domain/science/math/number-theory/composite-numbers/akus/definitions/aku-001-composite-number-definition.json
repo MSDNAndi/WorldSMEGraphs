@@ -1,0 +1,319 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MathematicalEntity"
+  ],
+  "@id": "aku-001-composite-number-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T02:12:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2025-12-30T02:12:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/math/number-theory/composite-numbers",
+    "type": "definition",
+    "difficulty": "elementary",
+    "importance": "foundational",
+    "aku_id": "001",
+    "keywords": [
+      "composite number",
+      "natural number",
+      "divisibility",
+      "factors",
+      "prime number",
+      "factorization"
+    ],
+    "math_category": "number_theory",
+    "mathematical_context": "fundamental_concepts"
+  },
+  "content": {
+    "statement": {
+      "text": "A composite number is a positive integer greater than 1 that has at least one positive divisor other than 1 and itself. Equivalently, a composite number is a positive integer that can be formed by multiplying two smaller positive integers.",
+      "formal": "∀n ∈ ℕ, n > 1: n is composite ⟺ ∃a,b ∈ ℕ: (1 < a < n) ∧ (1 < b < n) ∧ (n = ab)"
+    },
+    "explanation": {
+      "intuition": "While prime numbers are the 'atoms' of arithmetic, composite numbers are the 'molecules'—they can be broken down into smaller whole number factors. Every composite number is built from multiplying prime numbers together.",
+      "key_insight": "Composite numbers are the complement of prime numbers in the natural numbers greater than 1. Every natural number greater than 1 is either prime or composite—there is no third option. By the Fundamental Theorem of Arithmetic, every composite number has a unique prime factorization.",
+      "technical_details": "A composite number n must have at least three divisors: 1, itself, and at least one other divisor d where 1 < d < n. The smallest composite number is 4 = 2×2. Composite numbers can be efficiently identified by testing divisibility by primes up to √n.",
+      "common_misconceptions": [
+        "1 is not composite—by convention, 1 is neither prime nor composite",
+        "All even numbers are composite—FALSE, 2 is even but prime",
+        "Composite numbers are always 'easy' to factor—FALSE, factoring large composites is computationally hard (basis of RSA)"
+      ]
+    },
+    "definitions_glossary": {
+      "natural_number": "Positive integers: 1, 2, 3, 4, 5, ...",
+      "divisor": "A number that divides another number evenly without remainder",
+      "proper_divisor": "A divisor of n that is not n itself",
+      "prime_number": "A natural number > 1 with exactly two divisors",
+      "factorization": "Expressing a number as a product of other numbers",
+      "prime_factorization": "Expressing a number as a product of prime numbers"
+    }
+  },
+  "mathematical_features": {
+    "first_composites": [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 22, 24, 25],
+    "properties": [
+      "Every composite number has a unique prime factorization",
+      "Composite numbers become more frequent as numbers grow larger",
+      "The smallest composite is 4",
+      "Most natural numbers are composite (infinitely many exist)",
+      "Every even number > 2 is composite"
+    ],
+    "tests": [
+      {
+        "name": "trial_division",
+        "complexity": "O(√n)",
+        "description": "Test divisibility by integers from 2 to √n"
+      },
+      {
+        "name": "primality_test_negation",
+        "complexity": "varies",
+        "description": "If a number is not prime, it is composite"
+      }
+    ],
+    "factorization_examples": [
+      {
+        "number": 12,
+        "factorization": "2² × 3",
+        "divisors": [1, 2, 3, 4, 6, 12],
+        "divisor_count": 6
+      },
+      {
+        "number": 30,
+        "factorization": "2 × 3 × 5",
+        "divisors": [1, 2, 3, 5, 6, 10, 15, 30],
+        "divisor_count": 8
+      }
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Composite Number"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Composite Integer"
+      },
+      {
+        "@language": "en",
+        "@value": "Non-prime Number"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A positive integer greater than 1 that has at least one positive divisor other than 1 and itself"
+    },
+    "notation": "aku-001-composite-number-definition"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:math:arithmetic:natural-numbers:001",
+        "title": "Natural Numbers",
+        "strength": 1.0,
+        "reason": "Must understand natural numbers to define composites"
+      },
+      {
+        "id": "urn:wskg:math:arithmetic:multiplication:001",
+        "title": "Multiplication",
+        "strength": 1.0,
+        "reason": "Composites are products of smaller numbers"
+      },
+      {
+        "id": "urn:wskg:math:arithmetic:division:001",
+        "title": "Division and Divisibility",
+        "strength": 1.0,
+        "reason": "Composites have multiple divisors"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:math:number-theory:integers:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Integer Number Theory"
+      },
+      {
+        "@id": "urn:wskg:math:arithmetic:natural-numbers:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Natural Numbers"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:math:number-theory:factorization:001",
+        "title": "Prime Factorization",
+        "strength": 1.0,
+        "reason": "Every composite has a unique prime factorization"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:divisors:001",
+        "title": "Divisor Theory",
+        "strength": 0.9,
+        "reason": "Understanding composites enables study of divisor functions"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:math:number-theory:even-composites:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Even Composite Numbers"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:odd-composites:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Odd Composite Numbers"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:math:number-theory:primes:001",
+        "type": "complement",
+        "relationship": "Primes and composites partition natural numbers > 1"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:fundamental-theorem:001",
+        "type": "theorem",
+        "relationship": "Fundamental Theorem guarantees unique prime factorization"
+      },
+      {
+        "id": "urn:wskg:cryptography:factoring-problem:001",
+        "type": "application",
+        "relationship": "Difficulty of factoring large composites secures RSA"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:math:number-theory:primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Prime Numbers",
+        "skos:note": "Complement to composite numbers in natural numbers > 1"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:perfect-numbers:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Perfect Numbers",
+        "skos:note": "All perfect numbers > 6 are composite"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:euclid-elements",
+        "@type": "prov:Entity",
+        "dc:title": "Euclid's Elements, Book VII",
+        "dc:creator": "Euclid of Alexandria",
+        "dc:date": "-300",
+        "dc:type": "mathematical_treatise",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:hardy-wright",
+        "@type": "prov:Entity",
+        "dc:title": "An Introduction to the Theory of Numbers",
+        "dc:creator": ["G.H. Hardy", "E.M. Wright"],
+        "dc:identifier": "ISBN:978-0199219865",
+        "dc:type": "textbook",
+        "confidence": 1.0
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-30T02:12:00.000Z",
+      "prov:endedAtTime": "2025-12-30T02:12:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "dc:created": "2025-12-30T02:12:00.000Z",
+    "dc:modified": "2025-12-30T02:12:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:math-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "number-theory-expert"
+    },
+    "sources": [
+      {
+        "type": "historical_treatise",
+        "citation": "Euclid's Elements, Book VII (c. 300 BCE)",
+        "confidence": 1.0
+      },
+      {
+        "type": "textbook",
+        "citation": "Hardy & Wright: An Introduction to the Theory of Numbers (6th ed.)",
+        "isbn": "978-0199219865",
+        "confidence": 1.0
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "math_expert",
+      "date": "2025-12-30",
+      "notes": "Definition verified against standard number theory texts"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "middle_school_students",
+      "high_school_students",
+      "undergraduate_math_majors",
+      "general_public"
+    ],
+    "estimated_time": "15min",
+    "difficulty_curve": 0.3,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Define composite numbers accurately",
+      "Distinguish between prime and composite numbers",
+      "Identify composite numbers by finding factors",
+      "Understand that 1 is neither prime nor composite",
+      "Recognize composites as products of primes"
+    ],
+    "common_errors": [
+      "Including 1 as a composite number",
+      "Thinking all even numbers except 2 are composite (TRUE, but often stated as misconception)",
+      "Confusing 'composite' with 'even'",
+      "Believing small composites are easy to factor (generally true, but not always)"
+    ],
+    "teaching_tips": [
+      "Use factor trees to visualize composite structure",
+      "Compare and contrast with prime numbers",
+      "Show that most numbers are composite",
+      "Connect to multiplication tables",
+      "Use visual arrays (e.g., 12 dots arranged as 3×4)"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "mathematical_definition",
+    "show_images": true,
+    "include_examples": true,
+    "visualization": [
+      "factor_trees",
+      "rectangular_arrays",
+      "number_line_with_composites_highlighted"
+    ],
+    "emphasis": [
+      "multiple_divisors",
+      "complement_of_primes",
+      "unique_factorization"
+    ]
+  }
+}

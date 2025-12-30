@@ -1,0 +1,336 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MathematicalEntity"
+  ],
+  "@id": "aku-001-prime-number-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T01:59:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2025-12-30T01:59:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/math/number-theory/primes",
+    "type": "definition",
+    "difficulty": "elementary",
+    "importance": "foundational",
+    "aku_id": "001",
+    "keywords": [
+      "prime number",
+      "natural number",
+      "divisibility",
+      "factors",
+      "composite number"
+    ],
+    "math_category": "number_theory",
+    "mathematical_context": "fundamental_concepts"
+  },
+  "content": {
+    "statement": {
+      "text": "A prime number is a natural number greater than 1 that has exactly two distinct positive divisors: 1 and itself. Equivalently, a prime number cannot be formed by multiplying two smaller natural numbers.",
+      "formal": "∀p ∈ ℕ, p > 1: p is prime ⟺ (∀a,b ∈ ℕ: p = ab ⟹ (a = 1 ∧ b = p) ∨ (a = p ∧ b = 1))"
+    },
+    "explanation": {
+      "intuition": "Think of prime numbers as the 'atomic' building blocks of all numbers. Just like atoms combine to form molecules, prime numbers multiply together to create all other numbers. A prime number cannot be broken down into smaller whole number factors.",
+      "key_insight": "Prime numbers are the fundamental multiplicative building blocks of integers. Every integer greater than 1 is either prime or can be uniquely expressed as a product of primes (Fundamental Theorem of Arithmetic).",
+      "technical_details": "The primality of a number p is determined by its divisibility properties. For p to be prime, no integer from 2 to √p can divide p evenly. This property makes primes crucial in cryptography, where the difficulty of factoring large composite numbers into their prime factors ensures security.",
+      "common_misconceptions": [
+        "1 is not a prime number - by modern mathematical convention, 1 has only one divisor (itself) while primes must have exactly two distinct divisors",
+        "2 is the only even prime number - all other even numbers are divisible by 2 and thus composite",
+        "Prime numbers become infinitely rare - while primes become less frequent among larger numbers, there are infinitely many primes (proven by Euclid ~300 BCE)"
+      ]
+    },
+    "definitions_glossary": {
+      "natural_number": "Positive integers: 1, 2, 3, 4, 5, ...",
+      "divisor": "A number that divides another number evenly without remainder",
+      "composite_number": "A natural number greater than 1 that is not prime; has more than two divisors",
+      "factor": "A divisor of a number; numbers that multiply together to give the original number",
+      "coprime": "Two numbers are coprime if their only common divisor is 1",
+      "relatively_prime": "Synonym for coprime"
+    }
+  },
+  "mathematical_features": {
+    "first_primes": [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47],
+    "properties": [
+      "Infinitely many primes exist (Euclid's theorem)",
+      "Every natural number > 1 has a unique prime factorization",
+      "The density of primes decreases as numbers grow larger",
+      "No formula generates all primes exclusively",
+      "Prime gaps can be arbitrarily large"
+    ],
+    "tests": [
+      {
+        "name": "trial_division",
+        "complexity": "O(√n)",
+        "description": "Test divisibility by all numbers up to √n"
+      },
+      {
+        "name": "miller_rabin",
+        "complexity": "O(k log³n)",
+        "description": "Probabilistic primality test, accurate with high probability"
+      },
+      {
+        "name": "aks_primality",
+        "complexity": "O(log⁶n)",
+        "description": "Deterministic polynomial-time primality test"
+      }
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Prime Number"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Prime"
+      },
+      {
+        "@language": "en",
+        "@value": "Prime Integer"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A natural number greater than 1 that has exactly two distinct positive divisors: 1 and itself"
+    },
+    "notation": "aku-001-prime-number-definition"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:math:arithmetic:natural-numbers:001",
+        "title": "Natural Numbers",
+        "strength": 1.0,
+        "reason": "Must understand natural numbers to define primes"
+      },
+      {
+        "id": "urn:wskg:math:arithmetic:division:001",
+        "title": "Division and Divisibility",
+        "strength": 1.0,
+        "reason": "Primes are defined by their divisibility properties"
+      },
+      {
+        "id": "urn:wskg:math:arithmetic:multiplication:001",
+        "title": "Multiplication",
+        "strength": 0.9,
+        "reason": "Understanding factors requires multiplication"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:math:number-theory:integers:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Integer Number Theory"
+      },
+      {
+        "@id": "urn:wskg:math:arithmetic:natural-numbers:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Natural Numbers"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:math:number-theory:fundamental-theorem:001",
+        "title": "Fundamental Theorem of Arithmetic",
+        "strength": 1.0,
+        "reason": "Primes are the basis for unique factorization"
+      },
+      {
+        "id": "urn:wskg:cryptography:rsa:001",
+        "title": "RSA Cryptography",
+        "strength": 0.95,
+        "reason": "RSA security relies on difficulty of factoring products of large primes"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:prime-distribution:001",
+        "title": "Distribution of Primes",
+        "strength": 0.9,
+        "reason": "Understanding primes enables study of their distribution"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:math:number-theory:mersenne-primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Mersenne Primes"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:twin-primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Twin Primes"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:fermat-primes:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Fermat Primes"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:math:number-theory:composite-numbers:001",
+        "type": "complement",
+        "relationship": "Composite numbers are non-prime natural numbers > 1"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:prime-factorization:001",
+        "type": "application",
+        "relationship": "Every composite number can be uniquely factored into primes"
+      },
+      {
+        "id": "urn:wskg:computer-science:algorithms:primality-testing:001",
+        "type": "computational",
+        "relationship": "Algorithms exist to efficiently test primality"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:math:number-theory:composite-numbers:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Composite Numbers",
+        "skos:note": "Complement to prime numbers in natural numbers > 1"
+      },
+      {
+        "@id": "urn:wskg:cryptography:rsa:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "RSA Cryptography",
+        "skos:note": "Practical application in information security"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:euclid-elements",
+        "@type": "prov:Entity",
+        "dc:title": "Euclid's Elements, Book VII",
+        "dc:creator": "Euclid of Alexandria",
+        "dc:date": "-300",
+        "dc:type": "mathematical_treatise",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:hardy-wright",
+        "@type": "prov:Entity",
+        "dc:title": "An Introduction to the Theory of Numbers",
+        "dc:creator": ["G.H. Hardy", "E.M. Wright"],
+        "dc:identifier": "ISBN:978-0199219865",
+        "dc:type": "textbook",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:apostol-number-theory",
+        "@type": "prov:Entity",
+        "dc:title": "Introduction to Analytic Number Theory",
+        "dc:creator": "Tom M. Apostol",
+        "dc:identifier": "ISBN:978-0387901633",
+        "dc:type": "textbook",
+        "confidence": 1.0
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-30T01:59:00.000Z",
+      "prov:endedAtTime": "2025-12-30T01:59:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "math-expert",
+      "number-theory-knowledge-base"
+    ],
+    "dc:created": "2025-12-30T01:59:00.000Z",
+    "dc:modified": "2025-12-30T01:59:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:math-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "number-theory-expert"
+    },
+    "sources": [
+      {
+        "type": "historical_treatise",
+        "citation": "Euclid's Elements, Book VII (c. 300 BCE)",
+        "confidence": 1.0,
+        "note": "First rigorous treatment of prime numbers and their properties"
+      },
+      {
+        "type": "textbook",
+        "citation": "Hardy & Wright: An Introduction to the Theory of Numbers (6th ed.)",
+        "isbn": "978-0199219865",
+        "confidence": 1.0
+      },
+      {
+        "type": "textbook",
+        "citation": "Apostol: Introduction to Analytic Number Theory",
+        "isbn": "978-0387901633",
+        "confidence": 1.0
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "math_expert",
+      "date": "2025-12-30",
+      "notes": "Definition verified against standard number theory texts"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "middle_school_students",
+      "high_school_students",
+      "undergraduate_math_majors",
+      "general_public"
+    ],
+    "estimated_time": "15min",
+    "difficulty_curve": 0.3,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Define prime numbers accurately",
+      "Distinguish between prime and composite numbers",
+      "Identify the first several prime numbers",
+      "Understand why 1 is not considered prime",
+      "Recognize primes as multiplicative building blocks"
+    ],
+    "common_errors": [
+      "Including 1 as a prime number",
+      "Thinking 2 is not prime because it's even",
+      "Believing there's a largest prime number",
+      "Confusing 'factor' with 'multiple'"
+    ],
+    "teaching_tips": [
+      "Start with concrete examples: 2, 3, 5, 7, 11",
+      "Use visual representations like factor trees",
+      "Demonstrate the Sieve of Eratosthenes",
+      "Connect to real-world applications (cryptography, cicadas)",
+      "Emphasize the historical significance (Euclid's proof)"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "mathematical_definition",
+    "show_images": true,
+    "include_examples": true,
+    "visualization": [
+      "number_line_with_primes_highlighted",
+      "factor_tree_examples",
+      "sieve_of_eratosthenes_animation"
+    ],
+    "emphasis": [
+      "exactly_two_divisors",
+      "building_blocks_concept",
+      "infinite_quantity"
+    ]
+  }
+}

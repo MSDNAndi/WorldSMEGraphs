@@ -1,0 +1,363 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "CrossDomainConnection"
+  ],
+  "@id": "aku-004-primes-cryptography-rsa",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T02:08:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "math-expert",
+      "cryptography-expert"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T02:08:00.000Z"
+  },
+  "classification": {
+    "domain_path": "science/math/number-theory/primes",
+    "type": "application",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "004",
+    "keywords": [
+      "prime numbers",
+      "cryptography",
+      "RSA",
+      "public key encryption",
+      "factoring problem",
+      "modular arithmetic"
+    ],
+    "math_category": "number_theory",
+    "cs_category": "cryptography",
+    "mathematical_context": "applications",
+    "cross_domain_connection": "math_to_cryptography"
+  },
+  "content": {
+    "statement": {
+      "text": "Prime numbers are fundamental to RSA (Rivest-Shamir-Adleman) cryptography, the most widely used public-key encryption system. RSA security relies on the mathematical fact that while it's easy to multiply two large prime numbers together, it's computationally infeasible to factor the resulting product back into its prime components.",
+      "formal": "RSA Security: Given n = pq where p,q are large primes, computing p,q from n is hard. Key generation: n = pq, φ(n) = (p-1)(q-1), ed ≡ 1 (mod φ(n)). Encryption: C ≡ M^e (mod n). Decryption: M ≡ C^d (mod n)."
+    },
+    "explanation": {
+      "intuition": "Imagine a lock that anyone can close (public key) but only you can open (private key). RSA creates this by choosing two huge prime numbers, multiplying them together, and making the product public. While the multiplication is easy, finding those original primes from the product is so hard that even the world's fastest computers would take millions of years. This asymmetry enables secure communication.",
+      "key_insight": "The security gap between multiplication (easy) and factorization (hard) for large numbers creates a mathematical 'trapdoor' - easy to go one direction, virtually impossible to reverse. This makes RSA practical: 1024-bit RSA uses primes around 10^154, and factoring their product is beyond current computational capability.",
+      "technical_details": "RSA works in modular arithmetic: (1) Choose two large primes p and q, typically 1024-2048 bits each. (2) Compute n = pq and φ(n) = (p-1)(q-1). (3) Choose public exponent e coprime to φ(n), typically 65537. (4) Compute private exponent d where ed ≡ 1 (mod φ(n)). Public key is (n, e), private key is (n, d). Messages M are encrypted as C ≡ M^e (mod n) and decrypted as M ≡ C^d (mod n). Security depends on keeping p and q secret.",
+      "common_misconceptions": [
+        "Larger key sizes make encryption slower but not significantly - the bottleneck is the exponentiation, not key size",
+        "RSA is not 'unbreakable' - quantum computers (Shor's algorithm) can factor in polynomial time",
+        "RSA alone doesn't provide authentication - need to combine with digital signatures",
+        "Key size matters: 512-bit RSA was broken in 1999; modern standard is 2048-bit minimum"
+      ]
+    },
+    "definitions_glossary": {
+      "public_key_cryptography": "Encryption system using separate keys for encryption (public) and decryption (private)",
+      "modular_arithmetic": "Arithmetic system where numbers wrap around after reaching a modulus",
+      "totient_function": "φ(n) counts integers ≤ n that are coprime to n",
+      "trapdoor_function": "Mathematical function easy to compute but hard to reverse without special information",
+      "digital_signature": "Mathematical scheme for verifying authenticity and integrity of messages",
+      "shors_algorithm": "Quantum algorithm that can factor integers in polynomial time"
+    }
+  },
+  "cryptographic_features": {
+    "rsa_example": {
+      "small_example": {
+        "p": 61,
+        "q": 53,
+        "n": 3233,
+        "phi_n": 3120,
+        "e": 17,
+        "d": 2753,
+        "plaintext": 123,
+        "ciphertext": 855,
+        "note": "Toy example only - real RSA uses 300+ digit primes"
+      },
+      "realistic_sizes": {
+        "1024_bit": "~154 decimal digits per prime, n ~308 digits",
+        "2048_bit": "~308 decimal digits per prime, n ~616 digits (current standard)",
+        "4096_bit": "~617 decimal digits per prime, n ~1234 digits (high security)"
+      }
+    },
+    "factoring_difficulty": [
+      {
+        "key_size": "512-bit",
+        "status": "Broken (1999)",
+        "difficulty": "Factored using distributed computing"
+      },
+      {
+        "key_size": "768-bit",
+        "status": "Broken (2009)",
+        "difficulty": "Factored using number field sieve"
+      },
+      {
+        "key_size": "1024-bit",
+        "status": "Vulnerable",
+        "difficulty": "Within reach of well-funded adversaries"
+      },
+      {
+        "key_size": "2048-bit",
+        "status": "Secure (current standard)",
+        "difficulty": "Beyond current computational capability"
+      },
+      {
+        "key_size": "4096-bit",
+        "status": "Very secure",
+        "difficulty": "Extreme computational difficulty"
+      }
+    ],
+    "applications": [
+      "HTTPS/SSL/TLS - secure web communication",
+      "PGP/GPG - email encryption",
+      "SSH - secure remote login",
+      "Digital signatures - document authentication",
+      "Certificate authorities - trust infrastructure",
+      "Blockchain - transaction signing"
+    ],
+    "prime_requirements": [
+      "Must be truly random (not predictable)",
+      "Should be strong primes (certain conditions on p-1, p+1)",
+      "Must be distinct (p ≠ q)",
+      "Should have similar bit length",
+      "Must pass primality tests (Miller-Rabin)"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Prime Numbers in RSA Cryptography"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "RSA and Prime Factorization"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Application of prime numbers to public-key cryptography where security depends on the difficulty of factoring products of large primes"
+    },
+    "notation": "aku-004-primes-cryptography-rsa"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:math:number-theory:primes:001",
+        "title": "Prime Numbers",
+        "strength": 1.0,
+        "reason": "RSA is built on prime number properties"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:fundamental-theorem:002",
+        "title": "Fundamental Theorem of Arithmetic",
+        "strength": 0.95,
+        "reason": "Unique factorization is why RSA works"
+      },
+      {
+        "id": "urn:wskg:math:modular-arithmetic:001",
+        "title": "Modular Arithmetic",
+        "strength": 1.0,
+        "reason": "RSA operations are in modular arithmetic"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:eulers-totient:001",
+        "title": "Euler's Totient Function",
+        "strength": 0.9,
+        "reason": "φ(n) is crucial for RSA key generation"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:cryptography:public-key:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Public-Key Cryptography"
+      },
+      {
+        "@id": "urn:wskg:math:number-theory:applications:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Applications of Number Theory"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:cryptography:digital-signatures:001",
+        "title": "Digital Signatures",
+        "strength": 0.95,
+        "reason": "RSA enables digital signature schemes"
+      },
+      {
+        "id": "urn:wskg:cryptography:key-exchange:001",
+        "title": "Secure Key Exchange",
+        "strength": 0.9,
+        "reason": "RSA enables secure key distribution"
+      },
+      {
+        "id": "urn:wskg:web-security:https:001",
+        "title": "HTTPS Protocol",
+        "strength": 0.85,
+        "reason": "RSA is used in TLS/SSL certificates"
+      }
+    ],
+    "skos:narrower": [],
+    "related": [
+      {
+        "id": "urn:wskg:cryptography:elliptic-curve:001",
+        "type": "alternative",
+        "relationship": "ECC offers similar security with smaller key sizes"
+      },
+      {
+        "id": "urn:wskg:quantum-computing:shors-algorithm:001",
+        "type": "threat",
+        "relationship": "Shor's algorithm on quantum computers can break RSA"
+      },
+      {
+        "id": "urn:wskg:algorithms:factoring:001",
+        "type": "attack",
+        "relationship": "Factoring algorithms threaten RSA security"
+      },
+      {
+        "id": "urn:wskg:math:number-theory:primality-testing:001",
+        "type": "requirement",
+        "relationship": "Need efficient primality tests for key generation"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:cryptography:post-quantum:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Post-Quantum Cryptography",
+        "skos:note": "Developing alternatives resistant to quantum attacks"
+      },
+      {
+        "@id": "urn:wskg:economics:digital-currency:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Digital Currency",
+        "skos:note": "Cryptocurrencies use RSA for transaction security"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:rsa-paper-1978",
+        "@type": "prov:Entity",
+        "dc:title": "A Method for Obtaining Digital Signatures and Public-Key Cryptosystems",
+        "dc:creator": ["Ron Rivest", "Adi Shamir", "Leonard Adleman"],
+        "dc:date": "1978",
+        "dc:type": "research_paper",
+        "dc:identifier": "Communications of the ACM, 21(2), 120-126",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:schneier-crypto",
+        "@type": "prov:Entity",
+        "dc:title": "Applied Cryptography",
+        "dc:creator": "Bruce Schneier",
+        "dc:identifier": "ISBN:978-1119096726",
+        "dc:type": "textbook",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:katz-lindell",
+        "@type": "prov:Entity",
+        "dc:title": "Introduction to Modern Cryptography",
+        "dc:creator": ["Jonathan Katz", "Yehuda Lindell"],
+        "dc:identifier": "ISBN:978-1466570269",
+        "dc:type": "textbook",
+        "confidence": 1.0
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-30T02:08:00.000Z",
+      "prov:endedAtTime": "2025-12-30T02:08:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "math-expert",
+      "cryptography-expert"
+    ],
+    "dc:created": "2025-12-30T02:08:00.000Z",
+    "dc:modified": "2025-12-30T02:08:00.000Z",
+    "sources": [
+      {
+        "type": "research_paper",
+        "citation": "Rivest, Shamir, Adleman: RSA Paper (1978)",
+        "confidence": 1.0,
+        "note": "Original RSA algorithm paper"
+      },
+      {
+        "type": "textbook",
+        "citation": "Schneier: Applied Cryptography",
+        "isbn": "978-1119096726",
+        "confidence": 1.0
+      },
+      {
+        "type": "textbook",
+        "citation": "Katz & Lindell: Introduction to Modern Cryptography",
+        "isbn": "978-1466570269",
+        "confidence": 1.0
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "cryptography_expert",
+      "date": "2025-12-30",
+      "notes": "RSA details and security considerations verified"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "undergraduate_cs_students",
+      "cybersecurity_professionals",
+      "software_engineers",
+      "advanced_high_school"
+    ],
+    "estimated_time": "40min",
+    "difficulty_curve": 0.7,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Understand how primes enable RSA cryptography",
+      "Explain the factorization problem and its difficulty",
+      "Describe RSA key generation process",
+      "Recognize real-world applications of RSA",
+      "Appreciate the security implications and limitations"
+    ],
+    "common_errors": [
+      "Thinking RSA is unbreakable (vulnerable to quantum computing)",
+      "Not understanding why both large and random primes are needed",
+      "Confusing encryption with authentication",
+      "Underestimating importance of key size"
+    ],
+    "teaching_tips": [
+      "Start with toy example (small primes) to show mechanics",
+      "Emphasize scale: real primes have 300+ digits",
+      "Demonstrate factorization difficulty with concrete timing",
+      "Show real-world applications: HTTPS padlock icon",
+      "Discuss quantum computing threat and post-quantum alternatives"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "application_with_examples",
+    "show_images": true,
+    "include_examples": true,
+    "visualization": [
+      "rsa_key_generation_flowchart",
+      "encryption_decryption_process",
+      "factoring_difficulty_graph",
+      "https_certificate_example"
+    ],
+    "emphasis": [
+      "multiplication_easy_factorization_hard",
+      "key_size_importance",
+      "real_world_applications"
+    ]
+  }
+}

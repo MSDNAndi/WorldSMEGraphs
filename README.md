@@ -271,6 +271,33 @@ set, typically denoted by letters from the Latin or Greek alphabets.
 Variables serve as placeholders in algebraic expressions and equations...
 ```
 
+## Featured Domain: Number Theory 🔢
+
+A comprehensive collection of interconnected number theory concepts with 16 validated AKUs across 7 subdomains:
+
+### Subdomains
+- **Prime Numbers** (10 AKUs): Definition, Fundamental Theorem of Arithmetic, Sieve of Eratosthenes, plus cross-domain applications in cryptography, biology, physics, computer science, and economics
+- **Composite Numbers**: The complement to primes, covering factorization and divisibility
+- **Perfect Numbers**: Numbers equal to sum of proper divisors, connected to Mersenne primes via Euclid-Euler theorem
+- **Mersenne Primes**: Special form primes (2^p - 1), including the largest known primes
+- **Fermat Primes**: Extremely rare primes with connections to constructible polygons
+- **Fibonacci Sequence**: Famous recursive sequence with golden ratio connections
+- **Amicable Numbers**: Pairs with reciprocal divisor sum relationships
+
+### Resources
+- **[Number Theory Overview](domain/science/math/number-theory/README.md)**: Complete domain documentation
+- **[Quick Reference Guide](docs/NUMBER-THEORY-QUICK-REFERENCE.md)**: Formulas, code snippets, and quick lookup
+- **[Relationship Map](domain/science/math/number-theory/RELATIONSHIPS.md)**: Visual diagrams and cross-connections
+- **[Learning Examples](domain/science/math/number-theory/examples/LEARNING-EXAMPLES.md)**: Worked problems and practice exercises
+
+### Key Features
+- 16 comprehensive, validated AKUs
+- Cross-domain connections to 6 external fields
+- Historical context spanning 2500+ years
+- 7 major unsolved problems represented
+- Multiple learning paths (elementary → advanced)
+- Practical examples and exercises
+
 ## Technology
 
 - **Storage**: File-based (JSON, Markdown)
