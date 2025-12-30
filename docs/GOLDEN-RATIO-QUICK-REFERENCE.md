@@ -247,9 +247,9 @@ Nature uses golden angle because φ is "most irrational" - avoids resonance patt
 ---
 
 ## See Also
-- **[Golden Ratio README](domain/science/math/geometry/golden-ratio/README.md)**
-- **[Fibonacci Sequence](domain/science/math/number-theory/fibonacci/README.md)**
-- **[Number Theory Overview](domain/science/math/number-theory/README.md)**
+- **[Golden Ratio README](../domain/science/math/geometry/golden-ratio/README.md)** - Full domain documentation
+- **[Fibonacci Sequence](../domain/science/math/number-theory/fibonacci/README.md)** - Fibonacci convergence to φ
+- **[Number Theory Overview](../domain/science/math/number-theory/README.md)** - Related mathematical concepts
 
 ---
 
