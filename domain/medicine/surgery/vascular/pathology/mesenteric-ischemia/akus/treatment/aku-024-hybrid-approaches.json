@@ -1,0 +1,202 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-024-hybrid-approaches",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:33:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:33:00.000Z"
+  },
+  "classification": {
+    "domain_path": "medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "treatment",
+    "difficulty": "expert",
+    "importance": "high",
+    "aku_id": "024",
+    "keywords": [
+      "hybrid surgery",
+      "combined approach",
+      "endovascular plus laparotomy",
+      "retrograde stenting",
+      "hybrid suite"
+    ],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Hybrid approaches in mesenteric ischemia combine endovascular revascularization techniques with open surgical assessment, enabling rapid minimally invasive blood flow restoration while maintaining the ability to directly visualize and resect nonviable bowel.",
+      "formal": "Hybrid Approach: Endovascular revascularization + Laparoscopic/open bowel assessment = Best of both worlds"
+    },
+    "explanation": {
+      "intuition": "The hybrid approach is like having your cake and eating it too. You get the speed and minimally invasive nature of endovascular revascularization, but you also get to look at the bowel. This addresses the fundamental weakness of pure endovascular therapy - the inability to assess bowel viability.",
+      "key_insight": "The hybrid approach is particularly valuable when bowel viability is uncertain. It allows you to restore blood flow quickly (potentially faster than preparing for open bypass), then immediately assess whether the bowel is salvageable or needs resection."
+    }
+  },
+  "hybrid_strategies": {
+    "endovascular_then_laparoscopy": {
+      "sequence": [
+        "1. Endovascular revascularization in angio suite",
+        "2. Transfer to OR for laparoscopic bowel assessment",
+        "3. Convert to laparotomy only if resection needed"
+      ],
+      "advantages": [
+        "Minimally invasive if bowel viable",
+        "Rapid revascularization",
+        "Avoids unnecessary laparotomy in some cases"
+      ],
+      "disadvantages": [
+        "Requires two locations/setups",
+        "Laparoscopy may be limited in distended abdomen"
+      ]
+    },
+    "endovascular_then_laparotomy": {
+      "sequence": [
+        "1. Endovascular revascularization in angio suite",
+        "2. Immediate exploratory laparotomy"
+      ],
+      "indication": "When bowel resection is expected or peritonitis present",
+      "advantages": "Full bowel assessment capability",
+      "disadvantages": "Requires laparotomy"
+    },
+    "hybrid_suite_simultaneous": {
+      "sequence": [
+        "1. Laparotomy in hybrid OR",
+        "2. On-table angiography",
+        "3. Endovascular intervention with bowel exposed",
+        "4. Immediate bowel assessment and resection if needed"
+      ],
+      "advantages": [
+        "Single setup",
+        "Immediate assessment",
+        "Flexibility to convert approaches"
+      ],
+      "disadvantages": [
+        "Requires hybrid OR availability",
+        "Complex setup"
+      ],
+      "availability": "Limited to major centers"
+    },
+    "retrograde_open_mesenteric_stenting": {
+      "abbreviation": "ROMS",
+      "technique": [
+        "1. Laparotomy and SMA exposure",
+        "2. Arteriotomy in mid-SMA",
+        "3. Retrograde wire passage to aorta",
+        "4. Angioplasty and stenting from SMA toward aorta",
+        "5. Arteriotomy closure",
+        "6. Bowel assessment"
+      ],
+      "indication": "Failed antegrade access, proximal SMA disease, at laparotomy",
+      "advantages": [
+        "Excellent proximal lesion access",
+        "Combines open exposure with endovascular technique",
+        "Direct bowel assessment"
+      ],
+      "disadvantages": [
+        "Requires laparotomy",
+        "Technical complexity"
+      ],
+      "success_rate": "80-90%"
+    }
+  },
+  "patient_selection": {
+    "ideal_for_hybrid": [
+      "Uncertain bowel viability",
+      "Need for rapid revascularization AND bowel assessment",
+      "Failed pure endovascular approach",
+      "Endovascular-amenable lesion but concern for necrosis"
+    ],
+    "hybrid_suite_required": [
+      "Retrograde open mesenteric stenting",
+      "Simultaneous approach",
+      "Complex cases with multiple procedures"
+    ]
+  },
+  "outcomes": {
+    "mortality": "Variable, 25-50% in reported series",
+    "advantages_demonstrated": [
+      "Faster revascularization in some series",
+      "Ability to assess bowel",
+      "May reduce mortality compared to delayed surgery"
+    ],
+    "evidence_quality": "Limited - mostly case series"
+  },
+  "practical_considerations": {
+    "OR_setup": {
+      "hybrid_suite": "Ideal but not always available",
+      "portable_imaging": "C-arm can be used in standard OR",
+      "coordination": "Requires OR, anesthesia, vascular surgery, potentially IR"
+    },
+    "timing": {
+      "sequence": "Revascularize first, then assess bowel",
+      "waiting": "Allow 15-30 minutes for reperfusion before viability assessment"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:021",
+        "title": "Open Surgical Revascularization",
+        "strength": 0.9
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:022",
+        "title": "Endovascular Treatment",
+        "strength": 0.9
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:025",
+        "type": "integrates_concepts",
+        "relationship": "Hybrid approach addresses the open vs endovascular dilemma"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "case_series",
+        "citation": "Blauw JT, et al. Retrograde open mesenteric stenting for AMI. J Vasc Surg. 2014",
+        "confidence": 0.9
+      },
+      {
+        "type": "review_article",
+        "citation": "Defined review on hybrid approaches to mesenteric ischemia",
+        "confidence": 0.9
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_attendings",
+      "senior_vascular_surgery_residents",
+      "interventional_radiologists"
+    ],
+    "estimated_time": "25min",
+    "learning_objectives": [
+      "Describe different hybrid approach strategies",
+      "Understand the rationale for combining techniques",
+      "Recognize candidates for hybrid approach",
+      "Know the technique of retrograde open mesenteric stenting"
+    ],
+    "clinical_pearls": [
+      "Hybrid = endovascular speed + open visualization",
+      "When in doubt, you can always look at the bowel",
+      "ROMS is a great salvage technique when antegrade fails",
+      "Hybrid suite is ideal but not required"
+    ]
+  }
+}
