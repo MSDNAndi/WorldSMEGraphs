@@ -1,0 +1,97 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:monoids:reduce-fold",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/monoids",
+    "subdomain": "programming",
+    "type": "concept",
+    "difficulty": "intermediate",
+    "importance": "practical",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "Monoids provide the mathematical foundation for reduce/fold operations: combining a collection of values using an associative operation with an identity element as the base case.",
+    "explanation": {
+      "intuition": "Reduce/fold is the essence of aggregation: start with an identity, then combine elements one by one. Monoids guarantee this is well-defined and can be parallelized. Sum a list? Fold with (+, 0). Concatenate strings? Fold with (++, '').",
+      "key_insight": "Every monoidal fold is inherently parallelizable because associativity allows arbitrary grouping. This is the foundation of MapReduce: map transforms data, reduce combines it monoidally.",
+      "technical_details": "Given monoid (M, ·, e) and collection [a₁, a₂, ..., aₙ], fold computes a₁ · a₂ · ... · aₙ, starting from e. Associativity ensures result is independent of grouping. For empty collection, result is e."
+    },
+    "formal_relationship": {
+      "fold_definition": "fold :: Monoid m => [m] -> m\nfold = foldr mappend mempty",
+      "equivalence": "fold [a, b, c, d] = a · b · c · d = (((e · a) · b) · c) · d",
+      "parallel_version": "fold [a, b, c, d] = (a · b) · (c · d)  -- can parallelize pairs"
+    },
+    "implementations": [
+      {
+        "language": "Haskell",
+        "code": "-- Generic monoid fold\nmconcat :: Monoid m => [m] -> m\nmconcat = foldr mappend mempty\n\n-- Examples\nmconcat [Sum 1, Sum 2, Sum 3]  -- Sum 6\nmconcat [\"hello\", \" \", \"world\"]  -- \"hello world\"\nmconcat [[1,2], [3,4], [5]]  -- [1,2,3,4,5]"
+      },
+      {
+        "language": "JavaScript",
+        "code": "// reduce with monoidal structure\n[1, 2, 3, 4].reduce((acc, x) => acc + x, 0)  // 10\n['hello', ' ', 'world'].reduce((acc, x) => acc + x, '')  // 'hello world'\n[[1,2], [3,4]].reduce((acc, arr) => acc.concat(arr), [])  // [1,2,3,4]"
+      },
+      {
+        "language": "Python",
+        "code": "from functools import reduce\n\n# Addition monoid\nreduce(lambda acc, x: acc + x, [1, 2, 3, 4], 0)  # 10\n\n# String concatenation monoid\nreduce(lambda acc, x: acc + x, ['hello', ' ', 'world'], '')  # 'hello world'"
+      },
+      {
+        "language": "Scala",
+        "code": "// Using Cats Monoid\nimport cats.Monoid\nimport cats.instances.int._\nimport cats.syntax.monoid._\n\nList(1, 2, 3, 4).combineAll  // 10\nList(\"hello\", \" \", \"world\").combineAll  // \"hello world\""
+      }
+    ],
+    "parallel_fold": {
+      "explanation": "Associativity enables splitting work across processors",
+      "example": "fold [1,2,3,4,5,6,7,8] =\n  (fold [1,2,3,4]) · (fold [5,6,7,8])  -- parallel computation\n  = ((1·2)·(3·4)) · ((5·6)·(7·8))      -- more parallelism",
+      "benefit": "MapReduce, Spark, parallel collections all leverage this"
+    },
+    "edge_cases": {
+      "empty_collection": "fold [] = mempty (identity element)",
+      "single_element": "fold [a] = a",
+      "importance": "Identity handles empty case without special logic"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:monoids:monoid-definition",
+      "aku:functional-theory:monoids:monoid-laws",
+      "aku:functional-theory:monoids:programming"
+    ],
+    "enables": [
+      "aku:computer-science:parallel-computing:mapreduce"
+    ],
+    "related_to": [
+      "aku:computer-science:functional-programming:higher-order-functions",
+      "aku:computer-science:algorithms:divide-and-conquer"
+    ],
+    "part_of": "aku:functional-theory:monoids"
+  },
+  "ontology": {
+    "skos:broader": ["monoids", "aggregation-patterns", "fold-operations"],
+    "skos:narrower": ["parallel-fold", "sequential-fold"],
+    "skos:related": ["reduce", "aggregate", "mapreduce", "parallel-computation"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "online",
+        "citation": "Functional programming literature on folds and monoids"
+      },
+      {
+        "type": "textbook",
+        "citation": "Bird, R., & Wadler, P. (1988). Introduction to Functional Programming."
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "validated"
+  }
+}

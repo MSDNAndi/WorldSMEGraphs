@@ -1,0 +1,131 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:monads:language-implementations",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/monads",
+    "subdomain": "programming",
+    "type": "implementation",
+    "difficulty": "intermediate",
+    "importance": "practical",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "Monads appear across languages: Haskell's do-notation and Monad type class, Scala's for-comprehension, JavaScript promises with .then(), Rust's Result with ?, and Python's async/await.",
+    "explanation": {
+      "intuition": "Languages express monads differently but the pattern is the same: sequence effectful operations cleanly. Haskell is explicit, JavaScript embeds it in Promises, Rust uses ? for error propagation, Python uses async/await for asynchrony.",
+      "key_insight": "Monads aren't just a Haskell thing - they're a universal pattern. Once you see it, you recognize it everywhere: promises, async/await, optional chaining, LINQ, even exception handling.",
+      "technical_details": "Each language provides syntax or conventions for monadic operations. The core operations (return/pure and bind/>>=) may have different names, but the structure is identical."
+    },
+    "implementations": [
+      {
+        "language": "Haskell",
+        "syntax": "do-notation and Monad type class",
+        "type_class": "class Monad m where\n  return :: a -> m a\n  (>>=)  :: m a -> (a -> m b) -> m b",
+        "do_notation": "do\n  x <- action1\n  y <- action2 x\n  return (x + y)\n-- Desugars to: action1 >>= \\x -> action2 x >>= \\y -> return (x + y)",
+        "examples": [
+          "do { x <- Just 5; return (x * 2) }  -- Just 10",
+          "do { line <- getLine; putStrLn line }  -- IO monad"
+        ]
+      },
+      {
+        "language": "Scala",
+        "syntax": "for-comprehension and monadic trait",
+        "pattern": "Types with map and flatMap are monadic",
+        "for_comprehension": "for {\n  x <- Option(5)\n  y <- Option(10)\n} yield x + y  // Some(15)",
+        "desugaring": "for { x <- m; y <- f(x) } yield g(x,y)\n// Becomes: m.flatMap(x => f(x).map(y => g(x,y)))",
+        "examples": [
+          "for { x <- Some(5) } yield x * 2  // Some(10)",
+          "for { line <- Future(readLine()) } yield line.toUpperCase"
+        ]
+      },
+      {
+        "language": "JavaScript",
+        "monad": "Promise",
+        "operations": ".then() is bind, Promise.resolve() is return",
+        "example": "Promise.resolve(5)\n  .then(x => Promise.resolve(x * 2))\n  .then(x => console.log(x))  // 10",
+        "async_await": "async function example() {\n  const x = await fetchUser();  // like do-notation!\n  const y = await getOrders(x);\n  return y;\n}",
+        "note": "async/await is syntactic sugar for Promise monad"
+      },
+      {
+        "language": "Rust",
+        "monad": "Option and Result",
+        "syntax": "? operator for monadic bind",
+        "example": "fn divide_then_sqrt(x: i32, y: i32) -> Result<f64, String> {\n  let quotient = safe_div(x, y)?;  // ? propagates error\n  let result = safe_sqrt(quotient)?;\n  Ok(result)\n}",
+        "note": "? operator desugars to match and early return (monadic bind)"
+      },
+      {
+        "language": "Python",
+        "approach": "async/await for asynchronous monads",
+        "example": "async def example():\n  user = await get_user(id)  # await is like do-notation\n  orders = await get_orders(user)\n  return orders",
+        "note": "async/await implements Future/Promise monad pattern"
+      },
+      {
+        "language": "C#",
+        "monad": "LINQ query syntax",
+        "syntax": "from...select comprehension",
+        "example": "var query = from x in numbers\n            where x > 0\n            select x * 2;",
+        "note": "LINQ is monadic (SelectMany is bind)",
+        "async": "async Task<int> Example() {\n  var user = await GetUser();\n  var orders = await GetOrders(user);\n  return orders.Count;\n}"
+      },
+      {
+        "language": "Swift",
+        "monads": "Optional chaining and Result",
+        "optional_chaining": "user?.address?.city  // short-circuits on nil (Maybe monad)",
+        "result": "Result type with map and flatMap for error handling"
+      }
+    ],
+    "syntactic_sugar": {
+      "observation": "Many languages provide syntactic sugar for monads",
+      "forms": [
+        "do-notation (Haskell)",
+        "for-comprehension (Scala)",
+        "async/await (JavaScript, Python, C#, Rust)",
+        "LINQ query syntax (C#)",
+        "? operator (Rust)",
+        "Optional chaining (Swift, JavaScript)"
+      ],
+      "purpose": "Make monadic code look sequential and imperative"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:monads:monad-definition",
+      "aku:functional-theory:monads:examples"
+    ],
+    "enables": [],
+    "related_to": [
+      "aku:computer-science:programming-languages:syntax",
+      "aku:computer-science:async-programming"
+    ],
+    "part_of": "aku:functional-theory:monads"
+  },
+  "ontology": {
+    "skos:broader": ["monad-implementations", "language-features"],
+    "skos:narrower": ["do-notation", "for-comprehensions", "async-await"],
+    "skos:related": ["syntactic-sugar", "language-design"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "documentation",
+        "citation": "Programming language documentation"
+      },
+      {
+        "type": "online",
+        "citation": "Monad tutorials across languages"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "validated"
+  }
+}

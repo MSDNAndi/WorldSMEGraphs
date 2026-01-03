@@ -1,0 +1,100 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:monoids:programming",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/monoids",
+    "subdomain": "programming",
+    "type": "concept",
+    "difficulty": "intermediate",
+    "importance": "practical",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "In programming, monoids enable generic aggregation through type classes or interfaces, providing a uniform API for combining values: mappend for the operation and mempty for identity.",
+    "explanation": {
+      "intuition": "Monoids in programming let you write 'combine these things' once and have it work for numbers, strings, lists, or any monoidal structure. The pattern abstracts aggregation, enabling powerful abstractions like parallel fold.",
+      "key_insight": "Recognizing monoids enables writing more generic, reusable code. A function that works on 'any monoid' automatically works for sums, products, concatenation, and custom combiners.",
+      "technical_details": "Languages with type classes (Haskell) or traits (Scala, Rust) can express monoids as interfaces with methods for the operation and identity. This enables generic algorithms like mconcat (combine many values) and parallel fold."
+    },
+    "type_class_definition": {
+      "haskell": "class Monoid m where\n  mempty  :: m              -- identity\n  mappend :: m -> m -> m    -- operation\n  mconcat :: [m] -> m       -- fold (derived)\n  mconcat = foldr mappend mempty",
+      "scala": "trait Monoid[A] {\n  def empty: A               // identity\n  def combine(x: A, y: A): A // operation\n}",
+      "rust": "trait Monoid {\n  fn empty() -> Self;\n  fn combine(self, other: Self) -> Self;\n}"
+    },
+    "implementations": [
+      {
+        "language": "Haskell",
+        "examples": [
+          {
+            "type": "Sum",
+            "code": "instance Monoid (Sum Int) where\n  mempty = Sum 0\n  mappend (Sum x) (Sum y) = Sum (x + y)\n\n-- Usage\nmconcat [Sum 1, Sum 2, Sum 3]  -- Sum 6"
+          },
+          {
+            "type": "String",
+            "code": "instance Monoid [a] where  -- Lists\n  mempty = []\n  mappend = (++)\n\n-- Usage\nmconcat [\"hello\", \" \", \"world\"]  -- \"hello world\""
+          }
+        ]
+      },
+      {
+        "language": "JavaScript",
+        "approach": "No built-in monoid abstraction, but pattern applies",
+        "example": "const Sum = {\n  empty: 0,\n  combine: (x, y) => x + y\n};\n\nconst Product = {\n  empty: 1,\n  combine: (x, y) => x * y\n};\n\nfunction mconcat(monoid, values) {\n  return values.reduce(monoid.combine, monoid.empty);\n}\n\nmconcat(Sum, [1, 2, 3]);      // 6\nmconcat(Product, [2, 3, 4]);  // 24"
+      },
+      {
+        "language": "Scala",
+        "example": "// Using Cats library\nimport cats.Monoid\nimport cats.instances.int._\nimport cats.instances.string._\nimport cats.syntax.monoid._\n\nList(1, 2, 3).combineAll  // 6\nList(\"hello\", \" \", \"world\").combineAll  // \"hello world\""
+      }
+    ],
+    "benefits": [
+      "Generic aggregation code works for any monoid",
+      "Enables parallel computation (associativity)",
+      "Provides base case for empty collections (identity)",
+      "MapReduce pattern emerges naturally",
+      "Type-safe combination of values"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:monoids:monoid-definition",
+      "aku:functional-theory:monoids:examples"
+    ],
+    "enables": [
+      "aku:functional-theory:monoids:reduce-fold",
+      "aku:functional-theory:monads:monad-definition"
+    ],
+    "related_to": [
+      "aku:computer-science:type-classes",
+      "aku:computer-science:functional-programming:higher-order-functions"
+    ],
+    "part_of": "aku:functional-theory:monoids"
+  },
+  "ontology": {
+    "skos:broader": ["monoids", "type-classes", "design-patterns"],
+    "skos:narrower": ["monoid-instances", "generic-aggregation"],
+    "skos:related": ["type-classes", "aggregation", "fold-operations"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "online",
+        "citation": "Haskell documentation: Data.Monoid"
+      },
+      {
+        "type": "online",
+        "citation": "Scala Cats library documentation"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "validated"
+  }
+}

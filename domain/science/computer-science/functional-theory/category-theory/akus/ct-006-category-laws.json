@@ -1,0 +1,100 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:category-theory:category-laws",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.98,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/category-theory",
+    "subdomain": "foundations",
+    "type": "theorem",
+    "difficulty": "graduate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "Category axioms require that composition be associative and that identity morphisms act as neutral elements: (h∘g)∘f = h∘(g∘f), f∘id_A = f, and id_B∘f = f.",
+    "explanation": {
+      "intuition": "The laws ensure categories behave like well-structured systems. Associativity means the order of grouping operations doesn't matter (like addition). Identity laws mean 'doing nothing' really does nothing.",
+      "key_insight": "These laws are not arbitrary - they capture the minimal requirements for compositional reasoning. Without associativity, we couldn't reason about complex compositions. Without identities, we'd lack a baseline 'do nothing' operation.",
+      "technical_details": "The category laws are: (1) Associativity: For composable morphisms f: A→B, g: B→C, h: C→D, we have h∘(g∘f) = (h∘g)∘f. (2) Left identity: f∘id_A = f. (3) Right identity: id_B∘f = f. These must hold for all objects and morphisms."
+    },
+    "formal_definition": {
+      "associativity": {
+        "latex": "\\text{For } f: A \\to B, g: B \\to C, h: C \\to D: \\quad h \\circ (g \\circ f) = (h \\circ g) \\circ f",
+        "description": "Composition is associative - parentheses don't matter"
+      },
+      "left_identity": {
+        "latex": "\\text{For } f: A \\to B: \\quad f \\circ \\text{id}_A = f",
+        "description": "Composing with identity on the right gives the original morphism"
+      },
+      "right_identity": {
+        "latex": "\\text{For } f: A \\to B: \\quad \\text{id}_B \\circ f = f",
+        "description": "Composing with identity on the left gives the original morphism"
+      }
+    },
+    "implications": [
+      "Compositional reasoning is well-defined",
+      "We can chain morphisms without ambiguity",
+      "Identity provides a canonical 'baseline' morphism",
+      "Categories form an algebraic structure similar to monoids"
+    ],
+    "verification_examples": [
+      {
+        "category": "Set",
+        "associativity": "Function composition is associative: h(g(f(x))) can be computed in any grouping",
+        "identity": "id_B(f(x)) = f(x) and f(id_A(x)) = f(x)"
+      },
+      {
+        "category": "Programming",
+        "haskell": "-- Associativity\n(h . g) . f = h . (g . f)\n-- Identity\nf . id = f\nid . f = f"
+      }
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:category-theory:category-definition",
+      "aku:functional-theory:category-theory:composition",
+      "aku:functional-theory:category-theory:identity-morphisms"
+    ],
+    "enables": [
+      "aku:functional-theory:category-theory:examples",
+      "aku:functional-theory:functors:functor-definition",
+      "aku:functional-theory:monoids:monoid-laws"
+    ],
+    "related_to": [
+      "aku:mathematics:algebra:associativity",
+      "aku:mathematics:algebra:identity-element",
+      "aku:mathematics:algebra:monoids"
+    ],
+    "part_of": "aku:functional-theory:category-theory"
+  },
+  "ontology": {
+    "skos:broader": ["category-axioms", "algebraic-laws"],
+    "skos:narrower": ["associativity", "identity-laws"],
+    "skos:related": ["monoid-axioms", "composition-rules", "algebraic-structures"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Mac Lane, S. (1971). Categories for the Working Mathematician. Springer.",
+        "pages": "7-10"
+      },
+      {
+        "type": "textbook",
+        "citation": "Awodey, S. (2010). Category Theory (2nd ed.). Oxford University Press.",
+        "pages": "4-6"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "peer_reviewed"
+  }
+}

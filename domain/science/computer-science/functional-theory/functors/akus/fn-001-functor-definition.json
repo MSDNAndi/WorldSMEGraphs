@@ -1,0 +1,79 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:functors:functor-definition",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.98,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/functors",
+    "subdomain": "foundations",
+    "type": "definition",
+    "difficulty": "graduate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "A functor F: C→D is a structure-preserving mapping between categories that maps objects to objects and morphisms to morphisms, preserving composition and identities.",
+    "explanation": {
+      "intuition": "A functor is a 'translator' between categories. It takes an entire category's structure (objects and arrows) and maps it into another category, preserving all the relationships. Think of translating a road network from one country to another while keeping all connections intact.",
+      "key_insight": "Functors are morphisms in the category of categories. They represent structure-preserving transformations at a higher level - not just between objects, but between entire mathematical worlds.",
+      "technical_details": "A functor F: C→D consists of: (1) An object function: A ↦ F(A) for each object A in C, (2) A morphism function: (f: A→B) ↦ (F(f): F(A)→F(B)) for each morphism f in C. These must satisfy: F(id_A) = id_F(A) and F(g∘f) = F(g)∘F(f)."
+    },
+    "formal_definition": {
+      "latex": "\\text{A functor } F: \\mathcal{C} \\to \\mathcal{D} \\text{ consists of:} \\\\ \\text{1. Object map: } F: \\text{ob}(\\mathcal{C}) \\to \\text{ob}(\\mathcal{D}) \\\\ \\text{2. Morphism map: } F: \\text{hom}_{\\mathcal{C}}(A,B) \\to \\text{hom}_{\\mathcal{D}}(F(A), F(B)) \\\\ \\text{satisfying:} \\\\ F(\\text{id}_A) = \\text{id}_{F(A)} \\\\ F(g \\circ f) = F(g) \\circ F(f)",
+      "components": [
+        "Object mapping: F(A) for each object A",
+        "Morphism mapping: F(f) for each morphism f",
+        "Preserves identity: F(id_A) = id_F(A)",
+        "Preserves composition: F(g∘f) = F(g)∘F(f)"
+      ]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:category-theory:category-definition",
+      "aku:functional-theory:category-theory:morphisms",
+      "aku:functional-theory:category-theory:composition",
+      "aku:functional-theory:category-theory:category-laws"
+    ],
+    "enables": [
+      "aku:functional-theory:functors:functor-laws",
+      "aku:functional-theory:functors:mathematical-examples",
+      "aku:functional-theory:functors:programming-map",
+      "aku:functional-theory:monads:monad-definition"
+    ],
+    "related_to": [
+      "aku:mathematics:algebra:homomorphisms",
+      "aku:computer-science:type-theory:type-constructors"
+    ],
+    "part_of": "aku:functional-theory:functors"
+  },
+  "ontology": {
+    "skos:broader": ["category-theory", "structure-preserving-maps"],
+    "skos:narrower": ["endofunctors", "covariant-functors", "contravariant-functors"],
+    "skos:related": ["natural-transformations", "category-morphisms", "type-constructors"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Mac Lane, S. (1971). Categories for the Working Mathematician. Springer.",
+        "pages": "13-20"
+      },
+      {
+        "type": "textbook",
+        "citation": "Awodey, S. (2010). Category Theory (2nd ed.). Oxford University Press.",
+        "pages": "11-20"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "peer_reviewed"
+  }
+}

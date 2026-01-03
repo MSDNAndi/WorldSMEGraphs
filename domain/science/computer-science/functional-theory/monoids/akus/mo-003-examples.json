@@ -1,0 +1,138 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:monoids:examples",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/monoids",
+    "subdomain": "examples",
+    "type": "examples",
+    "difficulty": "intermediate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "Common monoids include: integers under addition (0 is identity), integers under multiplication (1 is identity), strings under concatenation (empty string is identity), lists under concatenation, functions under composition, boolean operations (AND with true, OR with false).",
+    "explanation": {
+      "intuition": "Monoids are everywhere! Whenever you can 'combine' things associatively with a 'neutral' starting point, you have a monoid. This pattern appears in numbers, text, data structures, and operations.",
+      "key_insight": "Recognizing monoids enables leveraging their properties: parallel computation, fold operations, MapReduce patterns. The same abstract structure underlies diverse concrete examples.",
+      "technical_details": "Each example provides a set M, binary operation ·, and identity e satisfying monoid laws. The diversity of examples shows the universality of the monoid abstraction across mathematics and computing."
+    },
+    "concrete_examples": [
+      {
+        "name": "Addition on natural numbers",
+        "set": "ℕ = {0, 1, 2, 3, ...}",
+        "operation": "+ (addition)",
+        "identity": "0",
+        "verification": "(2 + 3) + 4 = 2 + (3 + 4) = 9, and 0 + 5 = 5",
+        "practical_use": "Summing values, counting"
+      },
+      {
+        "name": "Multiplication on positive integers",
+        "set": "ℕ⁺ = {1, 2, 3, ...}",
+        "operation": "× (multiplication)",
+        "identity": "1",
+        "verification": "(2 × 3) × 4 = 2 × (3 × 4) = 24, and 1 × 5 = 5",
+        "practical_use": "Computing products, scaling"
+      },
+      {
+        "name": "String concatenation",
+        "set": "Strings",
+        "operation": "++ or concat",
+        "identity": "\"\" (empty string)",
+        "verification": "(\"hello\" ++ \" \") ++ \"world\" = \"hello\" ++ (\" \" ++ \"world\"), \"\" ++ \"hello\" = \"hello\"",
+        "practical_use": "Building strings, logging"
+      },
+      {
+        "name": "List concatenation",
+        "set": "Lists of type A",
+        "operation": "++ or concat",
+        "identity": "[] (empty list)",
+        "verification": "([1,2] ++ [3]) ++ [4,5] = [1,2] ++ ([3] ++ [4,5]), [] ++ [1,2] = [1,2]",
+        "practical_use": "Merging collections, data aggregation"
+      },
+      {
+        "name": "Function composition",
+        "set": "Endomorphisms A→A",
+        "operation": "∘ (composition)",
+        "identity": "id (identity function)",
+        "verification": "(h∘g)∘f = h∘(g∘f), id∘f = f",
+        "practical_use": "Function pipelines, transformations"
+      },
+      {
+        "name": "Boolean AND",
+        "set": "{true, false}",
+        "operation": "∧ (logical AND)",
+        "identity": "true",
+        "verification": "(a ∧ b) ∧ c = a ∧ (b ∧ c), true ∧ a = a",
+        "practical_use": "Combining predicates, validation"
+      },
+      {
+        "name": "Boolean OR",
+        "set": "{true, false}",
+        "operation": "∨ (logical OR)",
+        "identity": "false",
+        "verification": "(a ∨ b) ∨ c = a ∨ (b ∨ c), false ∨ a = a",
+        "practical_use": "Existence checks, fallbacks"
+      },
+      {
+        "name": "Max/Min on numbers",
+        "set": "Numbers with -∞/+∞",
+        "operation": "max or min",
+        "identity": "-∞ for max, +∞ for min",
+        "verification": "max(max(a,b),c) = max(a,max(b,c))",
+        "practical_use": "Finding extremes in data"
+      },
+      {
+        "name": "Set union",
+        "set": "Power set P(S)",
+        "operation": "∪ (union)",
+        "identity": "∅ (empty set)",
+        "verification": "(A ∪ B) ∪ C = A ∪ (B ∪ C), ∅ ∪ A = A",
+        "practical_use": "Combining collections, membership"
+      }
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:monoids:monoid-definition",
+      "aku:functional-theory:monoids:monoid-laws"
+    ],
+    "enables": [
+      "aku:functional-theory:monoids:programming",
+      "aku:functional-theory:monoids:reduce-fold"
+    ],
+    "related_to": [
+      "aku:mathematics:algebra:groups",
+      "aku:mathematics:set-theory:operations"
+    ],
+    "part_of": "aku:functional-theory:monoids"
+  },
+  "ontology": {
+    "skos:broader": ["monoid-examples", "algebraic-structures"],
+    "skos:narrower": ["numeric-monoids", "collection-monoids", "logical-monoids"],
+    "skos:related": ["aggregation-operations", "combiners"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Abstract algebra textbooks"
+      },
+      {
+        "type": "online",
+        "citation": "Functional programming literature"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "validated"
+  }
+}

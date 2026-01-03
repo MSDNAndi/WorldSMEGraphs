@@ -1,0 +1,107 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:functors:endofunctors",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/functors",
+    "subdomain": "advanced",
+    "type": "concept",
+    "difficulty": "graduate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "An endofunctor is a functor from a category to itself (F: C→C), mapping objects and morphisms within the same category. All monads are endofunctors.",
+    "explanation": {
+      "intuition": "An endofunctor is a 'self-transformation' of a category - it maps objects and morphisms back into the same category. Think of reshaping data while staying in the same universe of types. Most functors in programming are endofunctors.",
+      "key_insight": "Endofunctors are crucial for monads because monads require composition of a functor with itself (F∘F), which only makes sense for endofunctors. This is why 'a monad is a monoid in the category of endofunctors'.",
+      "technical_details": "An endofunctor F: C→C maps C to itself. For types, List: Types→Types is an endofunctor (maps Int to List<Int>, etc.). Endofunctors can be composed (F∘G is an endofunctor if F and G are), enabling monad structure."
+    },
+    "formal_definition": {
+      "latex": "\\text{Endofunctor: } F: \\mathcal{C} \\to \\mathcal{C} \\\\ \\text{where source and target categories are identical}",
+      "properties": [
+        "Source category = Target category",
+        "Composable with itself: F∘F: C→C",
+        "Forms a monoid under composition",
+        "Foundation for monads"
+      ]
+    },
+    "examples": [
+      {
+        "category": "Set",
+        "endofunctor": "Power set P: Set→Set",
+        "description": "Maps each set to its power set"
+      },
+      {
+        "category": "Types (Hask)",
+        "endofunctors": [
+          "List: Types→Types",
+          "Maybe: Types→Types",
+          "IO: Types→Types",
+          "(,) A: Types→Types (pairing with fixed A)"
+        ],
+        "description": "Nearly all type constructors are endofunctors"
+      },
+      {
+        "category": "Grp",
+        "endofunctor": "Abelianization Ab: Grp→Grp",
+        "description": "Maps groups to their abelianization"
+      }
+    ],
+    "significance": [
+      "Required for monad definition (monads are endofunctors with unit and join)",
+      "Enable self-composition (F(F(A)) makes sense)",
+      "Form a category themselves (category of endofunctors)",
+      "Most functors in programming are endofunctors on Types"
+    ],
+    "connection_to_monads": {
+      "statement": "A monad is an endofunctor M: C→C equipped with natural transformations η: Id→M (unit) and μ: M∘M→M (join)",
+      "why_endofunctor": "We need M∘M (M applied twice) to make sense, requiring M: C→C"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:functors:functor-definition",
+      "aku:functional-theory:category-theory:composition"
+    ],
+    "enables": [
+      "aku:functional-theory:monads:monad-definition",
+      "aku:functional-theory:monads:monoid-connection"
+    ],
+    "related_to": [
+      "aku:functional-theory:category-theory:category-definition",
+      "aku:computer-science:type-theory:type-constructors"
+    ],
+    "part_of": "aku:functional-theory:functors"
+  },
+  "ontology": {
+    "skos:broader": ["functors", "self-maps"],
+    "skos:narrower": ["monad-functors", "comonad-functors"],
+    "skos:related": ["self-composition", "monad-foundations", "type-constructors"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Mac Lane, S. (1971). Categories for the Working Mathematician. Springer.",
+        "pages": "137-140"
+      },
+      {
+        "type": "online",
+        "citation": "nLab: Endofunctor",
+        "url": "https://ncatlab.org/nlab/show/endofunctor"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "peer_reviewed"
+  }
+}

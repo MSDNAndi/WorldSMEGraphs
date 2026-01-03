@@ -1,0 +1,108 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:functors:programming-map",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/functors",
+    "subdomain": "programming",
+    "type": "concept",
+    "difficulty": "intermediate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "In programming, functors correspond to type constructors with a map/fmap operation that applies a function to values inside a context while preserving the context structure.",
+    "explanation": {
+      "intuition": "A functor in programming is a 'container' or 'context' (like List, Maybe, Future) that you can map over. The map operation applies a function to the contents without changing the container structure. It's like applying a transformation to items in a box without changing the box itself.",
+      "key_insight": "Functors abstract the pattern of 'applying a function to values in a context'. Whether it's a list, an optional value, or a computation, the functor laws ensure map behaves consistently and compositionally.",
+      "technical_details": "A functor F in programming is a type constructor F<_> with an operation fmap: (A→B) → (F<A>→F<B>) satisfying: fmap(id) = id and fmap(g∘f) = fmap(g)∘fmap(f). This structure makes F a functor from Types to Types."
+    },
+    "type_signature": {
+      "haskell": "class Functor f where\n  fmap :: (a -> b) -> f a -> f b",
+      "scala": "trait Functor[F[_]] {\n  def map[A, B](fa: F[A])(f: A => B): F[B]\n}",
+      "typescript": "interface Functor<F> {\n  map<A, B>(fa: F<A>, f: (a: A) => B): F<B>\n}",
+      "rust": "trait Functor<A> {\n  type Mapped<B>;\n  fn fmap<B, F: Fn(A) -> B>(self, f: F) -> Self::Mapped<B>;\n}"
+    },
+    "examples": [
+      {
+        "functor": "List/Array",
+        "haskell": "instance Functor [] where\n  fmap = map",
+        "javascript": "// fmap for arrays is .map()\n[1, 2, 3].map(x => x * 2)  // [2, 4, 6]",
+        "python": "# fmap for lists via map()\nlist(map(lambda x: x * 2, [1, 2, 3]))  # [2, 4, 6]"
+      },
+      {
+        "functor": "Maybe/Option",
+        "haskell": "instance Functor Maybe where\n  fmap f Nothing  = Nothing\n  fmap f (Just x) = Just (f x)",
+        "scala": "// Option is a functor\nSome(5).map(_ * 2)  // Some(10)\nNone.map(_ * 2)     // None",
+        "rust": "// Option<T> implements functor via map\nSome(5).map(|x| x * 2)  // Some(10)\nNone.map(|x: i32| x * 2)  // None"
+      },
+      {
+        "functor": "Future/Promise",
+        "javascript": "// Promises are functors via .then()\nPromise.resolve(5).then(x => x * 2)  // Promise(10)",
+        "scala": "// Future is a functor\nFuture.successful(5).map(_ * 2)  // Future(10)"
+      },
+      {
+        "functor": "Function (Reader)",
+        "haskell": "instance Functor ((->) r) where\n  fmap = (.)",
+        "description": "Functions from a fixed type form a functor (function composition)"
+      }
+    ],
+    "functor_laws_in_code": {
+      "identity": {
+        "law": "fmap id = id",
+        "javascript": "functor.map(x => x) === functor",
+        "verification": "Mapping identity gives back the original functor"
+      },
+      "composition": {
+        "law": "fmap (g . f) = fmap g . fmap f",
+        "javascript": "functor.map(x => g(f(x))) === functor.map(f).map(g)",
+        "verification": "Composing then mapping equals mapping then composing"
+      }
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:functors:functor-definition",
+      "aku:functional-theory:functors:functor-laws"
+    ],
+    "enables": [
+      "aku:functional-theory:functors:language-implementations",
+      "aku:functional-theory:monads:monad-definition"
+    ],
+    "related_to": [
+      "aku:computer-science:functional-programming:map-operation",
+      "aku:computer-science:type-theory:type-constructors"
+    ],
+    "part_of": "aku:functional-theory:functors"
+  },
+  "ontology": {
+    "skos:broader": ["functors", "type-classes", "design-patterns"],
+    "skos:narrower": ["list-functor", "option-functor", "future-functor"],
+    "skos:related": ["map-operation", "type-constructors", "computational-contexts"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "online",
+        "citation": "Haskell Wiki: Functor",
+        "url": "https://wiki.haskell.org/Functor"
+      },
+      {
+        "type": "textbook",
+        "citation": "Lipovača, M. (2011). Learn You a Haskell for Great Good!",
+        "pages": "130-145"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "peer_reviewed"
+  }
+}

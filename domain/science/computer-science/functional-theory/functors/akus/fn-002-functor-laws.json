@@ -1,0 +1,98 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:functors:functor-laws",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.98,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/functors",
+    "subdomain": "foundations",
+    "type": "theorem",
+    "difficulty": "graduate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "Functors must satisfy two laws: (1) Identity preservation: F(id_A) = id_F(A), and (2) Composition preservation: F(g∘f) = F(g)∘F(f).",
+    "explanation": {
+      "intuition": "Functor laws ensure that the 'translation' between categories is faithful. Identity preservation means 'doing nothing' stays 'doing nothing'. Composition preservation means combining operations before translation equals translating then combining.",
+      "key_insight": "These laws guarantee that functors preserve the categorical structure completely. Without them, we'd just have arbitrary mappings, not structure-preserving transformations.",
+      "technical_details": "Given F: C→D, identity law requires F(id_A) = id_F(A) for every object A. Composition law requires F(g∘f) = F(g)∘F(f) for all composable morphisms f: A→B and g: B→C. These ensure F respects the category structure."
+    },
+    "formal_definition": {
+      "identity_law": {
+        "latex": "\\forall A \\in \\text{ob}(\\mathcal{C}): \\quad F(\\text{id}_A) = \\text{id}_{F(A)}",
+        "description": "Functor maps identity morphisms to identity morphisms",
+        "consequence": "The neutral element structure is preserved"
+      },
+      "composition_law": {
+        "latex": "\\forall f: A \\to B, g: B \\to C: \\quad F(g \\circ f) = F(g) \\circ F(f)",
+        "description": "Functor preserves composition of morphisms",
+        "consequence": "The compositional structure is preserved"
+      }
+    },
+    "verification": [
+      "Identity law ensures F maps 'no-ops' to 'no-ops'",
+      "Composition law ensures F respects sequential operations",
+      "Together they guarantee F is a category homomorphism",
+      "Laws make functors into morphisms in Cat (category of categories)"
+    ],
+    "programming_interpretation": [
+      {
+        "law": "Identity",
+        "code": "fmap id = id",
+        "meaning": "Mapping the identity function gives the identity"
+      },
+      {
+        "law": "Composition",
+        "code": "fmap (g . f) = fmap g . fmap f",
+        "meaning": "Mapping a composition equals composing the maps"
+      }
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:functors:functor-definition",
+      "aku:functional-theory:category-theory:composition",
+      "aku:functional-theory:category-theory:identity-morphisms"
+    ],
+    "enables": [
+      "aku:functional-theory:functors:mathematical-examples",
+      "aku:functional-theory:functors:programming-map",
+      "aku:functional-theory:monads:monad-laws"
+    ],
+    "related_to": [
+      "aku:functional-theory:category-theory:category-laws",
+      "aku:mathematics:algebra:homomorphism-properties"
+    ],
+    "part_of": "aku:functional-theory:functors"
+  },
+  "ontology": {
+    "skos:broader": ["functor-axioms", "category-theory-laws"],
+    "skos:narrower": ["identity-preservation", "composition-preservation"],
+    "skos:related": ["structure-preservation", "homomorphism-laws"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Mac Lane, S. (1971). Categories for the Working Mathematician. Springer.",
+        "pages": "13-15"
+      },
+      {
+        "type": "textbook",
+        "citation": "Awodey, S. (2010). Category Theory (2nd ed.). Oxford University Press.",
+        "pages": "11-13"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "peer_reviewed"
+  }
+}

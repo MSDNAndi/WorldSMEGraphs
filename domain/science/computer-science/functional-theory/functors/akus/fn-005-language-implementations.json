@@ -1,0 +1,101 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:functors:language-implementations",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/functors",
+    "subdomain": "programming",
+    "type": "implementation",
+    "difficulty": "intermediate",
+    "importance": "practical",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "Functors are implemented across programming languages with varying syntax: Haskell's Functor type class, Scala's map method, JavaScript's array.map() and Promise.then(), Rust's Iterator and Option, Python's map() function.",
+    "explanation": {
+      "intuition": "Different languages express the functor pattern in idiomatic ways. The mathematical structure is the same, but the syntax varies: Haskell makes it explicit with type classes, JavaScript embeds it in methods, Python uses functions.",
+      "key_insight": "The functor pattern is universal but expressed idiomatically in each language. Recognition of this pattern enables transferring knowledge across languages and understanding deep commonalities in different APIs.",
+      "technical_details": "Each implementation provides a way to apply a function A→B to values in a context F<A> to produce F<B>, satisfying functor laws. The context might be a list, optional, future, stream, or any computational context."
+    },
+    "implementations": [
+      {
+        "language": "Haskell",
+        "approach": "Explicit Functor type class",
+        "code": "class Functor f where\n  fmap :: (a -> b) -> f a -> f b\n\n-- Usage\nfmap (+1) [1,2,3]        -- [2,3,4]\nfmap (*2) (Just 5)       -- Just 10\nfmap show (Right 42)     -- Right \"42\"",
+        "notes": "Most explicit functor implementation, laws checked by programmer"
+      },
+      {
+        "language": "Scala",
+        "approach": "map method convention",
+        "code": "trait Functor[F[_]] {\n  def map[A, B](fa: F[A])(f: A => B): F[B]\n}\n\n// Standard library types have map\nList(1,2,3).map(_ + 1)        // List(2,3,4)\nOption(5).map(_ * 2)          // Some(10)\nEither.right(42).map(_.toString)  // Right(\"42\")",
+        "notes": "map method is idiomatic, standard library types follow functor laws"
+      },
+      {
+        "language": "JavaScript",
+        "approach": "Method-based (array.map, promise.then)",
+        "code": "// Arrays\n[1, 2, 3].map(x => x + 1)  // [2, 3, 4]\n\n// Promises (functor via .then)\nPromise.resolve(5).then(x => x * 2)  // Promise(10)\n\n// Custom functor\nclass Box {\n  constructor(value) { this.value = value; }\n  map(f) { return new Box(f(this.value)); }\n}",
+        "notes": "No type system enforcement, but pattern is pervasive"
+      },
+      {
+        "language": "Rust",
+        "approach": "Iterator trait and Option/Result types",
+        "code": "// Iterator is a functor\nvec![1, 2, 3].iter().map(|x| x + 1).collect();  // [2, 3, 4]\n\n// Option is a functor\nSome(5).map(|x| x * 2)  // Some(10)\nNone.map(|x: i32| x * 2)  // None\n\n// Result is a functor\nOk::<i32, String>(5).map(|x| x * 2)  // Ok(10)",
+        "notes": "Strong type system, zero-cost abstractions"
+      },
+      {
+        "language": "Python",
+        "approach": "Built-in map function and comprehensions",
+        "code": "# Built-in map (lazy)\nlist(map(lambda x: x + 1, [1, 2, 3]))  # [2, 3, 4]\n\n# List comprehension (idiomatic)\n[x + 1 for x in [1, 2, 3]]  # [2, 3, 4]\n\n# Custom functor\nclass Functor:\n    def __init__(self, value):\n        self.value = value\n    def fmap(self, f):\n        return Functor(f(self.value))",
+        "notes": "Dynamic typing, comprehensions are idiomatic"
+      },
+      {
+        "language": "Java",
+        "approach": "Stream API and Optional",
+        "code": "// Stream is a functor\nStream.of(1, 2, 3).map(x -> x + 1)  // Stream[2, 3, 4]\n\n// Optional is a functor\nOptional.of(5).map(x -> x * 2)  // Optional[10]\nOptional.empty().map(x -> x * 2)  // Optional.empty",
+        "notes": "Added in Java 8, functional programming influence"
+      }
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:functors:functor-definition",
+      "aku:functional-theory:functors:programming-map"
+    ],
+    "enables": [
+      "aku:functional-theory:monads:language-implementations"
+    ],
+    "related_to": [
+      "aku:computer-science:programming-languages:type-systems",
+      "aku:computer-science:functional-programming:higher-order-functions"
+    ],
+    "part_of": "aku:functional-theory:functors"
+  },
+  "ontology": {
+    "skos:broader": ["functor-implementations", "language-features"],
+    "skos:narrower": ["type-class-functors", "method-based-functors"],
+    "skos:related": ["map-implementations", "type-systems", "functional-languages"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "documentation",
+        "citation": "Language documentation and standard libraries"
+      },
+      {
+        "type": "online",
+        "citation": "Programming language design patterns"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "validated"
+  }
+}
