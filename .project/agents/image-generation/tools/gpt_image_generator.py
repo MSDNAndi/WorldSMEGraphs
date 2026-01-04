@@ -46,6 +46,7 @@ import asyncio
 import argparse
 import hashlib
 import subprocess
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional, List, Dict, Any, Tuple
@@ -250,8 +251,7 @@ class ContentSafetyHandler:
         result = prompt
         for old, new in cls.SAFE_REPLACEMENTS.items():
             if old.lower() in result.lower():
-                # Case-insensitive replacement
-                import re
+                # Case-insensitive replacement using pre-imported re module
                 pattern = re.compile(re.escape(old), re.IGNORECASE)
                 result = pattern.sub(new, result)
         return result

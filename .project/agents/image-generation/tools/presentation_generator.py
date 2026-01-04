@@ -159,139 +159,58 @@ class PresentationConfig:
 
 
 # =============================================================================
-# CONTENT SAFETY HANDLER
+# CONTENT SAFETY HANDLER (Import from gpt_image_generator for shared code)
 # =============================================================================
 
-class ContentSafetyHandler:
-    """
-    Handles content safety errors by modifying prompts.
+# Try to import ContentSafetyHandler from gpt_image_generator
+try:
+    from gpt_image_generator import ContentSafetyHandler
+    CONTENT_SAFETY_AVAILABLE = True
+except ImportError:
+    # Fallback: Define minimal version if import fails
+    CONTENT_SAFETY_AVAILABLE = False
+    import re
     
-    When the image generation API rejects a prompt due to content safety,
-    this handler analyzes the error and modifies the prompt to be compliant.
-    """
-    
-    # Keywords that might trigger content safety
-    SENSITIVE_KEYWORDS = {
-        "death", "kill", "blood", "violence", "weapon", "gun", "knife",
-        "adult", "nude", "explicit", "sexy", "provocative",
-        "drug", "cocaine", "heroin", "marijuana",
-        "hate", "racist", "discrimination",
-        "political", "election", "president", "government",
-    }
-    
-    # Safe replacements for technical concepts
-    SAFE_REPLACEMENTS = {
-        "death": "transition",
-        "kill": "terminate gracefully",
-        "blood": "energy flow",
-        "attack": "challenge",
-        "crash": "unexpected stop",
-        "destroy": "clean up",
-        "explode": "expand rapidly",
-        "injection": "insertion",
-        "execute": "run",
-        "daemon": "background service",
-        "master": "primary",
-        "slave": "replica",
-        "kill signal": "stop signal",
-        "killer feature": "standout feature",
-    }
-    
-    @classmethod
-    def sanitize_prompt(cls, prompt: str) -> str:
-        """
-        Pre-emptively sanitize a prompt before sending to the API.
+    class ContentSafetyHandler:
+        """Fallback ContentSafetyHandler when gpt_image_generator is not available."""
         
-        Args:
-            prompt: Original prompt text
-            
-        Returns:
-            Sanitized prompt with sensitive terms replaced
-        """
-        sanitized = prompt.lower()
+        SAFE_REPLACEMENTS = {
+            "death": "transition",
+            "kill": "terminate gracefully",
+            "blood": "energy flow",
+            "attack": "challenge",
+            "crash": "unexpected stop",
+            "destroy": "clean up",
+            "explode": "expand rapidly",
+            "injection": "insertion",
+            "execute": "run",
+            "daemon": "background service",
+            "master": "primary",
+            "slave": "replica",
+        }
         
-        for old, new in cls.SAFE_REPLACEMENTS.items():
-            if old in sanitized:
-                prompt = prompt.replace(old, new)
-                prompt = prompt.replace(old.capitalize(), new.capitalize())
-                prompt = prompt.replace(old.upper(), new.upper())
+        @classmethod
+        def sanitize_prompt(cls, prompt: str) -> str:
+            """Pre-emptively sanitize a prompt before sending to the API."""
+            result = prompt
+            for old, new in cls.SAFE_REPLACEMENTS.items():
+                if old.lower() in result.lower():
+                    pattern = re.compile(re.escape(old), re.IGNORECASE)
+                    result = pattern.sub(new, result)
+            return result
         
-        return prompt
-    
-    @classmethod
-    def handle_safety_error(cls, original_prompt: str, error_message: str) -> Tuple[str, bool]:
-        """
-        Handle a content safety error by modifying the prompt.
-        
-        Args:
-            original_prompt: The prompt that was rejected
-            error_message: The error message from the API
-            
-        Returns:
-            Tuple of (modified_prompt, should_retry)
-        """
-        error_lower = error_message.lower()
-        
-        # Identify the type of content safety issue
-        if any(word in error_lower for word in ["violence", "violent", "weapon"]):
-            modification_hint = CONTENT_SAFETY_ALTERNATIVES["violence"]
-        elif any(word in error_lower for word in ["adult", "explicit", "nsfw"]):
-            modification_hint = CONTENT_SAFETY_ALTERNATIVES["adult"]
-        elif any(word in error_lower for word in ["controversial", "sensitive"]):
-            modification_hint = CONTENT_SAFETY_ALTERNATIVES["controversial"]
-        elif any(word in error_lower for word in ["political", "partisan"]):
-            modification_hint = CONTENT_SAFETY_ALTERNATIVES["political"]
-        else:
-            modification_hint = "Use abstract, professional imagery"
-        
-        # Apply sanitization
-        modified_prompt = cls.sanitize_prompt(original_prompt)
-        
-        # Add explicit safety hints
-        safety_suffix = """
+        @classmethod
+        def handle_safety_error(cls, original_prompt: str, error_message: str) -> Tuple[str, bool]:
+            """Handle a content safety error by modifying the prompt."""
+            modified = cls.sanitize_prompt(original_prompt)
+            safety_suffix = """
 
 Style: Clean, professional, abstract representation.
 Constraints:
 - Family-friendly content only
-- No violence or weapons
-- No controversial imagery
 - Professional corporate style
-- Abstract geometric shapes preferred
 """
-        
-        modified_prompt = modified_prompt + safety_suffix
-        
-        return modified_prompt, True
-    
-    @classmethod
-    def make_prompt_super_explicit(cls, prompt: str, context: str = "technical") -> str:
-        """
-        Make a prompt super explicit per OpenAI guidelines.
-        
-        For content safety, being more explicit about what we DO want
-        often works better than trying to avoid what we don't want.
-        """
-        explicit_prompt = f"""Create a professional, family-friendly illustration.
-
-Subject: {prompt}
-
-Style:
-- Clean, modern digital illustration
-- Professional corporate/tech presentation style
-- Soft, pleasing colors with good contrast
-- No photorealistic humans (use abstract figures if needed)
-
-Technical Requirements:
-- Safe for all audiences (PG rating)
-- Suitable for business presentation
-- High quality, well-composed
-
-Constraints:
-- Original artwork only
-- No text, logos, or watermarks
-- No controversial elements
-"""
-        return explicit_prompt
+            return modified + safety_suffix, True
 
 
 # =============================================================================
@@ -888,7 +807,7 @@ Constraints:
 
 Now go forth and map things!
 
-🍵 ☕ 🫖""",
+[Tea service illustration]""",
             speaker_notes="Wrap up warmly. Thank the audience genuinely.",
             image_prompt="""Create a closing slide illustration with British warmth.
 
