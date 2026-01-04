@@ -43,7 +43,7 @@ import asyncio
 import argparse
 import hashlib
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional, List, Dict, Any, Tuple
 from dataclasses import dataclass, field
@@ -57,12 +57,11 @@ import urllib.parse
 # =============================================================================
 
 class AspectRatio(Enum):
-    """Supported aspect ratios with their resolutions."""
+    """Supported aspect ratios with their resolutions for GPT Image 1.5."""
     SQUARE = ("1024x1024", 1024, 1024)
-    PORTRAIT = ("1024x1792", 1024, 1792)
-    LANDSCAPE = ("1792x1024", 1792, 1024)
-    WIDE = ("1536x1024", 1536, 1024)
-    TALL = ("1024x1536", 1024, 1536)
+    PORTRAIT = ("1024x1536", 1024, 1536)  # 2:3 tall
+    LANDSCAPE = ("1536x1024", 1536, 1024)  # 3:2 wide
+    AUTO = ("auto", 0, 0)  # Model decides
     
     @property
     def size(self) -> str:
@@ -78,10 +77,11 @@ class AspectRatio(Enum):
 
 
 class Quality(Enum):
-    """Image quality settings."""
-    STANDARD = "standard"
-    HD = "hd"
-    HIGH = "high"  # Alias for HD
+    """Image quality settings for GPT Image models."""
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
+    AUTO = "auto"  # Default - model selects best quality
 
 
 @dataclass
@@ -89,17 +89,17 @@ class GenerationConfig:
     """Configuration for image generation."""
     prompt: str
     aspect_ratio: AspectRatio = AspectRatio.LANDSCAPE
-    quality: Quality = Quality.HD
+    quality: Quality = Quality.HIGH
     n_variations: int = 1
     output_dir: Path = field(default_factory=lambda: Path("./generated_images"))
     output_prefix: str = "image"
-    response_format: str = "b64_json"  # or "url"
-    style: str = "vivid"  # or "natural"
+    output_format: str = "png"  # png, jpeg, or webp
+    background: str = "auto"  # auto, transparent, or opaque
     
     # Retry configuration
     max_retries: int = 3
     retry_delay_base: float = 2.0  # Exponential backoff base
-    timeout_seconds: int = 120
+    timeout_seconds: int = 180  # GPT image models can take time
     poll_interval: float = 5.0
     
     # Source control
@@ -237,23 +237,28 @@ class GPTImageClient:
             )
     
     def _build_request(self, config: GenerationConfig) -> Tuple[str, bytes, Dict[str, str]]:
-        """Build the API request."""
-        url = self.image_endpoint
+        """Build the API request according to OpenAI GPT Image 1.5 API spec."""
+        # Use the specific endpoint or default to OpenAI
+        url = self.image_endpoint or "https://api.openai.com/v1/images/generations"
         
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}",
-            "api-key": self.api_key,  # Azure-specific header
         }
         
+        # Add Azure-specific header if using Azure endpoint
+        if self.endpoint and "azure" in self.endpoint.lower():
+            headers["api-key"] = self.api_key
+        
+        # Build payload according to GPT Image 1.5 API spec
         payload = {
             "model": "gpt-image-1.5",
             "prompt": config.prompt,
             "n": config.n_variations,
             "size": config.aspect_ratio.size,
-            "quality": config.quality.value if config.quality != Quality.HIGH else "hd",
-            "response_format": config.response_format,
-            "style": config.style,
+            "quality": config.quality.value,
+            "output_format": config.output_format,
+            "background": config.background,
         }
         
         return url, json.dumps(payload).encode("utf-8"), headers
@@ -386,28 +391,36 @@ class GPTImageClient:
         saved_paths = []
         images = response.get("data", [])
         
-        timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+        timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
         prompt_hash = hashlib.md5(config.prompt.encode()).hexdigest()[:8]
+        
+        # Determine file extension from output format
+        ext = config.output_format if config.output_format in ["png", "jpeg", "webp"] else "png"
         
         for i, image_data in enumerate(images):
             suffix = f"_v{i+1}" if len(images) > 1 else ""
-            filename = f"{config.output_prefix}_{timestamp}_{prompt_hash}{suffix}.png"
+            filename = f"{config.output_prefix}_{timestamp}_{prompt_hash}{suffix}.{ext}"
             filepath = config.output_dir / filename
             
-            if config.response_format == "b64_json":
-                # Decode base64 image
-                image_bytes = base64.b64decode(image_data.get("b64_json", ""))
+            # GPT Image models return base64-encoded images directly
+            b64_data = image_data.get("b64_json", "")
+            if b64_data:
+                image_bytes = base64.b64decode(b64_data)
             else:
-                # Download from URL
+                # Fallback: try URL if available (for dall-e models)
                 url = image_data.get("url", "")
-                with urllib.request.urlopen(url) as resp:
-                    image_bytes = resp.read()
+                if url:
+                    with urllib.request.urlopen(url) as resp:
+                        image_bytes = resp.read()
+                else:
+                    print(f"Warning: No image data found for image {i+1}")
+                    continue
             
             # Save image
             with open(filepath, "wb") as f:
                 f.write(image_bytes)
             
-            print(f"Saved: {filepath}")
+            print(f"✓ Saved: {filepath} ({len(image_bytes)} bytes)")
             saved_paths.append(filepath)
             
             # Add to git if requested
@@ -431,7 +444,7 @@ class GPTImageClient:
                 "aspect_ratio": config.aspect_ratio.name,
                 "quality": config.quality.value,
                 "n_variations": config.n_variations,
-                "generated_at": datetime.utcnow().isoformat() + "Z",
+                "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
                 "files": [str(p) for p in saved_paths],
                 "response": response
             }, f, indent=2)
@@ -466,16 +479,19 @@ def create_parser() -> argparse.ArgumentParser:
     
     # Generation options
     parser.add_argument("--aspect", "-a", type=str, default="landscape",
-                       choices=["square", "portrait", "landscape", "wide", "tall"],
+                       choices=["square", "portrait", "landscape", "auto"],
                        help="Aspect ratio (default: landscape)")
-    parser.add_argument("--quality", "-q", type=str, default="hd",
-                       choices=["standard", "hd"],
-                       help="Image quality (default: hd)")
+    parser.add_argument("--quality", "-q", type=str, default="high",
+                       choices=["low", "medium", "high", "auto"],
+                       help="Image quality (default: high)")
     parser.add_argument("--variations", "-n", type=int, default=1,
                        help="Number of variations to generate (default: 1)")
-    parser.add_argument("--style", "-s", type=str, default="vivid",
-                       choices=["vivid", "natural"],
-                       help="Image style (default: vivid)")
+    parser.add_argument("--format", type=str, default="png",
+                       choices=["png", "jpeg", "webp"],
+                       help="Output image format (default: png)")
+    parser.add_argument("--background", type=str, default="auto",
+                       choices=["auto", "transparent", "opaque"],
+                       help="Background type (default: auto)")
     
     # Enhancement options
     parser.add_argument("--enhance", "-e", action="store_true",
@@ -487,8 +503,8 @@ def create_parser() -> argparse.ArgumentParser:
     # Retry options
     parser.add_argument("--max-retries", type=int, default=3,
                        help="Maximum retry attempts (default: 3)")
-    parser.add_argument("--timeout", type=int, default=120,
-                       help="Request timeout in seconds (default: 120)")
+    parser.add_argument("--timeout", type=int, default=180,
+                       help="Request timeout in seconds (default: 180)")
     
     # Git options
     parser.add_argument("--no-git", action="store_true",
@@ -529,14 +545,15 @@ async def main():
         "square": AspectRatio.SQUARE,
         "portrait": AspectRatio.PORTRAIT,
         "landscape": AspectRatio.LANDSCAPE,
-        "wide": AspectRatio.WIDE,
-        "tall": AspectRatio.TALL,
+        "auto": AspectRatio.AUTO,
     }
     
     # Map quality
     quality_map = {
-        "standard": Quality.STANDARD,
-        "hd": Quality.HD,
+        "low": Quality.LOW,
+        "medium": Quality.MEDIUM,
+        "high": Quality.HIGH,
+        "auto": Quality.AUTO,
     }
     
     if args.dry_run:
@@ -546,7 +563,8 @@ async def main():
             print(f"    Aspect: {args.aspect} ({aspect_map[args.aspect].size})")
             print(f"    Quality: {args.quality}")
             print(f"    Variations: {args.variations}")
-            print(f"    Style: {args.style}")
+            print(f"    Format: {args.format}")
+            print(f"    Background: {args.background}")
             print(f"    Output dir: {args.output_dir}")
         return 0
     
@@ -571,7 +589,8 @@ async def main():
             n_variations=args.variations,
             output_dir=args.output_dir,
             output_prefix=Path(args.output).stem if args.output else "image",
-            style=args.style,
+            output_format=args.format,
+            background=args.background,
             max_retries=args.max_retries,
             timeout_seconds=args.timeout,
             add_to_git=not args.no_git,

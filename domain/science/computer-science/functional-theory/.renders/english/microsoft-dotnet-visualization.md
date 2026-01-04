@@ -7,11 +7,20 @@ format: "PowerPoint-style presentation with visual diagrams"
 audience: "Microsoft developers (C# enthusiasts curious about F#)"
 akus_visualized: 27
 humor_level: "Inside jokes for .NET developers with a healthy dose of self-deprecation"
-images_prompt_file: "./images/microsoft_fp_prompts.txt"
+images:
+  title_slide: "../images/title_slide_20260104_100934_f404aa05.png"
+  category_theory: "../images/category_theory_20260104_101047_0da765db.png"
+  functor: "../images/functor_20260104_101212_9e1945a6.png"
+  monoid: "../images/monoid_20260104_101339_67c3713a.png"
+  monad: "../images/monad_20260104_101458_9b5f6ba1.png"
+  grand_unification: "../images/grand_unification_20260104_101633_2b9bcd67.png"
 ---
 
 # 🪟 Functional Theory for the Microsoft Developer
 ## Or: How I Learned to Stop Writing Enterprise Java and Love the Lambda
+
+<!-- SLIDE BACKGROUND: Use title_slide image -->
+![Title Slide Background](../images/title_slide_20260104_100934_f404aa05.png)
 
 ```
 ╔══════════════════════════════════════════════════════════════════╗
@@ -213,6 +222,9 @@ flowchart LR
 
 # 📚 Slide 6: Category Theory - Core Components
 
+<!-- SLIDE IMAGE: Category Theory visualization -->
+![Category Theory](../images/category_theory_20260104_101047_0da765db.png)
+
 ## What IS a Category?
 ### (Like Interfaces, But for Everything)
 
@@ -275,6 +287,9 @@ Func<int, int> identity = x => x;
 
 # 🔄 Slide 11: Functors - It's Just .Select()!
 
+<!-- SLIDE IMAGE: Functor visualization -->
+![Functor](../images/functor_20260104_101212_9e1945a6.png)
+
 ## Structure-Preserving Maps
 ### (The Fancy Name for What LINQ Does)
 
@@ -336,6 +351,9 @@ Lazy<int> lazyNumber = new Lazy<int>(() => ExpensiveCalculation());
 ---
 
 # ⚙️ Slide 16: Monoids - The .Aggregate() Secret
+
+<!-- SLIDE IMAGE: Monoid visualization -->
+![Monoid](../images/monoid_20260104_101339_67c3713a.png)
 
 ## Three Components, That's All!
 ### (This Is Why Reduce/Fold Works)
@@ -400,6 +418,9 @@ int parallelSum = numbers.AsParallel().Aggregate(0, (a, b) => a + b);
 ---
 
 # 🎭 Slide 20: Monads - The SelectMany Secret
+
+<!-- SLIDE IMAGE: Monad visualization -->
+![Monad](../images/monad_20260104_101458_9b5f6ba1.png)
 
 ## What Problem Do Monads Solve?
 ### (Hint: You've Been Using Them With LINQ Query Syntax)
@@ -538,6 +559,9 @@ let validateUser user = result {
 ---
 
 # 🔗 Slide 26: The Grand Unification
+
+<!-- SLIDE IMAGE: Grand Unification visualization -->
+![Grand Unification](../images/grand_unification_20260104_101633_2b9bcd67.png)
 
 ## How All Concepts Connect in .NET
 
