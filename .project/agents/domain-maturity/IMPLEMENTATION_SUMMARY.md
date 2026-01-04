@@ -111,7 +111,7 @@ NOT Sufficient For:
 ```
 
 ### 4. Completeness Metadata Template
-**File**: `domain/science/physics/quantum-mechanics/planck-units/COMPLETENESS_METADATA.yaml` (5KB)
+**File**: `domain/natural-sciences/physics/quantum-mechanics/planck-units/COMPLETENESS_METADATA.yaml` (5KB)
 
 **Purpose**: Domain-specific metadata that overrides heuristics
 

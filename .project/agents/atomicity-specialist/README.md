@@ -35,7 +35,7 @@ python tools/analyze_atomicity.py --domain economics/bwl/finance/valuation/npv
 
 ### Invoke the Agent
 ```bash
-@aku-atomicity-specialist Analyze domain/economics/finance/ for atomicity 
+@aku-atomicity-specialist Analyze domain/social-sciences/economics/finance/ for atomicity 
 violations. Provide split/merge recommendations prioritized by learning impact.
 ```
 
