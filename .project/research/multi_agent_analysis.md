@@ -501,7 +501,7 @@ Output: Custom-generated explanatory text
 
 **If approved, next commits will be:**
 1. `.project/knowledge-format-v2.md` - Updated specification
-2. `domain/economics/bwl/finance/npv/` - Pilot implementation (50 AKUs)
+2. `domain/social-sciences/economics/bwl/finance/npv/` - Pilot implementation (50 AKUs)
 3. `tools/aku-validator.py` - Basic validation tooling
 4. Documentation of pilot results
 

@@ -214,9 +214,9 @@ Multiple mature ontology systems exist for knowledge representation:
 
 #### Problem 1: Local Sequential Numbering
 ```
-domain/medicine/.../type-2/akus/definitions/aku-001-...
-domain/medicine/.../type-2/akus/definitions/aku-002-...
-domain/economics/bwl/finance/akus/definitions/aku-001-...  # COLLISION!
+domain/health-sciences/medicine/.../type-2/akus/definitions/aku-001-...
+domain/health-sciences/medicine/.../type-2/akus/definitions/aku-002-...
+domain/social-sciences/economics/bwl/finance/akus/definitions/aku-001-...  # COLLISION!
 ```
 
 **Issues**:
@@ -329,7 +329,7 @@ def generate_aku_id(file_path: Path, concept_name: str) -> str:
     return f"{domain_path}:{concept_name}:{short_hash}"
 
 # Example usage:
-path = Path("domain/medicine/surgery/vascular/complications/endoleaks/type-2/akus/definitions")
+path = Path("domain/health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2/akus/definitions")
 concept = "type2-endoleak-definition"
 aku_id = generate_aku_id(path, concept)
 # Result: "medicine:surgery:vascular:complications:endoleaks:type-2:type2-endoleak-definition:7f3a91c8"

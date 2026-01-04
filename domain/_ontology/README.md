@@ -259,11 +259,11 @@ Maps to multiple new locations:
 - `science/physics/` → `natural-sciences/physics/`
 - `science/computer-science/` → `formal-sciences/computer-science/`
 
-### Current `domain/economics/`
+### Current `domain/social-sciences/economics/`
 Maps to:
 - `economics/` → `social-sciences/economics/`
 
-### Current `domain/medicine/`
+### Current `domain/health-sciences/medicine/`
 Maps to:
 - `medicine/` → `health-sciences/medicine/`
 
