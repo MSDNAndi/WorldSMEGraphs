@@ -437,11 +437,11 @@ Rendering engine selects template based on:
 
 ```bash
 # Command line tool (planned)
-render --graph domain/science/math/algebra/knowledge.graph \
+render --graph domain/formal-sciences/mathematics/pure-mathematics/algebra/knowledge.graph \
        --language english \
        --audience elementary-school \
        --format markdown \
-       --output domain/science/math/algebra/.renders/english/
+       --output domain/formal-sciences/mathematics/pure-mathematics/algebra/.renders/english/
 ```
 
 ### CI/CD Integration
