@@ -19,23 +19,35 @@ WorldSMEGraphs is a comprehensive system for creating, storing, and rendering in
 
 ### Understanding the Structure
 
+**New Global Hierarchy** (2026-01-04):
 ```
 domain/
-├── science/
-│   └── math/
-│       └── algebra/
-│           ├── knowledge.graph        # Language-agnostic representation
-│           └── .renders/             # Human-readable versions
-│               ├── english/
-│               │   ├── elementary-school.md
-│               │   ├── graduate.md
-│               │   └── 4-year-old.md
-│               └── german/
-│                   └── grundschule.md
-└── economics/
-    └── macroeconomics/
-        └── ...
+├── formal-sciences/          # Mathematics, Computer Science, Logic
+│   └── mathematics/
+│       └── pure-mathematics/
+│           └── category-theory/     # 8 AKUs
+│               └── akus/
+├── natural-sciences/         # Physics, Chemistry, Biology
+│   └── physics/              # 136 AKUs
+│       ├── quantum-mechanics/
+│       └── measurement-limits/
+├── social-sciences/          # Economics, Psychology, Sociology
+│   └── economics/            # 1 AKU (11 pending fix)
+│       └── bwl/finance/valuation/npv/
+└── health-sciences/          # Medicine, Nursing, Pharmacy
+    └── medicine/             # 64 AKUs
+        └── surgery/vascular/
 ```
+
+**Legacy Structure** (being phased out):
+```
+domain/
+├── science/                  # OLD - use formal-sciences/ or natural-sciences/
+├── economics/                # OLD - use social-sciences/economics/
+└── medicine/                 # OLD - use health-sciences/medicine/
+```
+
+See [`domain/_ontology/global-hierarchy.yaml`](domain/_ontology/global-hierarchy.yaml) for complete taxonomy.
 
 ### Core Concepts
 
@@ -75,7 +87,7 @@ Generate content in:
 - **HTML** for interactive applications
 
 ### 🤖 AI-Powered Agents
-60 specialized GitHub Copilot agents in `.github/agents/`:
+61 specialized GitHub Copilot agents in `.github/agents/`:
 - **Core Infrastructure**: Coordinator, Recruiter (format gatekeeper), Quality
 - **Content Creation**: Parsers, miners, extractors for textbooks, papers, videos
 - **Knowledge Organization**: Ontology, semantic harmonization, terminology
