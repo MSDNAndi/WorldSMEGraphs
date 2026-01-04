@@ -353,6 +353,75 @@ Each generation creates a JSON metadata file:
 | Poor quality | Refine prompt, add more explicit detail |
 | Wrong orientation | Be MORE EXPLICIT about directions |
 | Wrong style | Specify style more explicitly |
+| Content safety rejection | See Manual Review section below |
+
+## Content Safety Handling
+
+Content safety rejections require special handling because automated fixes often aren't sufficient. The system supports both automatic and manual review workflows.
+
+### Automatic Sanitization (First Pass)
+
+The `ContentSafetyHandler` automatically:
+1. Pre-sanitizes prompts before sending (removes known sensitive terms)
+2. Attempts to modify rejected prompts with safety constraints
+3. Logs problematic prompts for manual review
+
+### Manual Review Workflow (IMPORTANT!)
+
+**Fully automated content safety fixing is NOT reliable.** Many rejections require human judgment to fix properly.
+
+When a prompt is rejected:
+1. The system logs it to `.project/agents/image-generation/content-safety-review.yaml`
+2. A human or custom agent must review and fix the prompt
+3. The fixed prompt can be used for regeneration
+
+#### Review Log Format
+
+```yaml
+# content-safety-review.yaml
+pending_review:
+  - id: safety-20260104_123456
+    status: pending_review  # or 'fixed', 'skip', 'escalate'
+    original_prompt: "The problematic prompt..."
+    error_message: "API error message..."
+    auto_modified_prompt: "Automatic modification attempt..."
+    reviewer_notes: ""  # Human adds notes here
+    final_prompt: ""    # Human provides fixed prompt
+    resolution: ""      # Options: fixed, skip, escalate
+```
+
+#### Resolution Options
+
+| Resolution | Meaning |
+|------------|---------|
+| `fixed` | Human provided a working `final_prompt` |
+| `skip` | Image should be omitted from presentation |
+| `escalate` | Need expert help, cannot be easily fixed |
+
+### Agent-Assisted Review
+
+For batch processing, use a custom agent to review problematic prompts:
+
+```
+@image-generation review-safety-log
+
+Review the content-safety-review.yaml file and:
+1. Analyze why each prompt was rejected
+2. Suggest safer alternative prompts that maintain the intent
+3. Update the log with your recommendations
+```
+
+### Testing Content Safety
+
+To test the content safety system:
+
+```bash
+# Test with a prompt that might be flagged
+python gpt_image_generator.py --prompt "test prompt" --test-safety
+
+# Review pending prompts
+python gpt_image_generator.py --show-pending-reviews
+```
 
 ## Rate Limit Management
 

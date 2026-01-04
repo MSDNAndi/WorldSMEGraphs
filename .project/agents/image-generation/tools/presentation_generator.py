@@ -28,24 +28,18 @@ Version: 1.0.0
 Created: 2026-01-04
 """
 
-import os
-import sys
-import json
 import asyncio
 import argparse
 from pathlib import Path
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Optional, Tuple
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
-import io
 
 # PowerPoint library
 try:
     from pptx import Presentation
     from pptx.util import Inches, Pt
     from pptx.dml.color import RGBColor
-    from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
-    from pptx.enum.shapes import MSO_SHAPE
+    from pptx.enum.text import PP_ALIGN
     PPTX_AVAILABLE = True
 except ImportError:
     PPTX_AVAILABLE = False
@@ -65,9 +59,9 @@ except ImportError:
     REPORTLAB_AVAILABLE = False
     print("Warning: reportlab not installed. Run: pip install reportlab")
 
-# Image handling
+# Image handling (PIL availability check)
 try:
-    from PIL import Image
+    __import__("PIL")
     PIL_AVAILABLE = True
 except ImportError:
     PIL_AVAILABLE = False

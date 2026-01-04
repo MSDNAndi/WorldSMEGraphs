@@ -283,6 +283,82 @@ Additional Constraints:
 """
         
         return modified + safety_suffix
+    
+    @classmethod
+    def log_for_manual_review(cls, original_prompt: str, error_message: str, 
+                              auto_modified: str, log_path: Path = None) -> Path:
+        """
+        Log a prompt that needs manual inspection by a human or custom agent.
+        
+        Content safety issues often require human judgment to fix properly.
+        This method logs the problematic prompt for later review.
+        
+        Args:
+            original_prompt: The prompt that was rejected
+            error_message: The error message from the API
+            auto_modified: The automatically modified version (may still need work)
+            log_path: Optional path to log file. Defaults to 'content-safety-review.yaml'
+            
+        Returns:
+            Path to the log file
+        """
+        if log_path is None:
+            log_path = Path(".project/agents/image-generation/content-safety-review.yaml")
+        
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        
+        # Load existing log or create new
+        existing_entries = []
+        if log_path.exists():
+            with open(log_path, 'r') as f:
+                data = yaml.safe_load(f) or {}
+                existing_entries = data.get('pending_review', [])
+        
+        # Create entry for review
+        from datetime import datetime, timezone
+        entry = {
+            'id': f"safety-{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}",
+            'timestamp': datetime.now(timezone.utc).isoformat(),
+            'status': 'pending_review',
+            'original_prompt': original_prompt,
+            'error_message': error_message,
+            'auto_modified_prompt': auto_modified,
+            'reviewer_notes': '',
+            'final_prompt': '',
+            'resolution': ''  # Options: 'fixed', 'skip', 'escalate'
+        }
+        
+        existing_entries.append(entry)
+        
+        # Save log
+        with open(log_path, 'w') as f:
+            yaml.dump({
+                'description': 'Prompts requiring manual review for content safety issues',
+                'instructions': '''
+Review each entry and either:
+1. Edit 'final_prompt' with a safe version, set resolution to 'fixed'
+2. Set resolution to 'skip' if the image should be omitted
+3. Set resolution to 'escalate' if unsure and need expert help
+''',
+                'pending_review': existing_entries
+            }, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+        
+        print(f"⚠️  Logged prompt for manual review: {log_path}")
+        return log_path
+    
+    @classmethod
+    def get_pending_reviews(cls, log_path: Path = None) -> list:
+        """Get prompts pending manual review."""
+        if log_path is None:
+            log_path = Path(".project/agents/image-generation/content-safety-review.yaml")
+        
+        if not log_path.exists():
+            return []
+        
+        with open(log_path, 'r') as f:
+            data = yaml.safe_load(f) or {}
+        
+        return [e for e in data.get('pending_review', []) if e.get('status') == 'pending_review']
 
 
 # =============================================================================
@@ -1074,7 +1150,6 @@ async def main():
     
     # Summary
     successful = sum(1 for r in all_results if r.success)
-    rate_limited = sum(1 for r in all_results if r.rate_limited)
     print(f"\n{'='*60}")
     print(f"Summary: {successful}/{len(all_results)} prompts succeeded")
     print(f"{'='*60}")

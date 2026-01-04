@@ -17,11 +17,10 @@ Usage:
 """
 
 import json
-import os
 import sys
 import yaml
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import List, Tuple
 
 class CrossDomainValidator:
     def __init__(self, hierarchy_path: str = None):
