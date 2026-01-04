@@ -61,6 +61,7 @@
 | [TOOLS-DOCUMENTATION.md](TOOLS-DOCUMENTATION.md) | Comprehensive tool guide | Developers ⭐ NEW |
 | [CROSS-DOMAIN-LINKING-GUIDE.md](CROSS-DOMAIN-LINKING-GUIDE.md) | Visual linking guide with diagrams | All ⭐ NEW |
 | [FAQ.md](FAQ.md) | 30+ frequently asked questions | All ⭐ NEW |
+| [MAINTENANCE-BEST-PRACTICES.md](MAINTENANCE-BEST-PRACTICES.md) | Long-term maintenance guidelines | Maintainers, Contributors ⭐ NEW |
 
 ### Project Management
 
