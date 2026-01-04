@@ -11,7 +11,7 @@
 
 ## 📖 Page 1: Title Page
 
-**[ILLUSTRATION: Bright title with cartoon hearts and blood vessels]**
+![Page 1: Title Page](./peppa-images/image_001_20260104_205235_4a6935a5.png)
 
 # Dr. Valerie's Vascular Adventure
 
@@ -21,7 +21,7 @@
 
 ## 📖 Page 2: Meet Dr. Valerie
 
-**[ILLUSTRATION: Friendly female doctor in scrubs with stethoscope, big smile, colorful clinic background]**
+![Page 2: Meet Dr. Valerie](./peppa-images/image_002_20260104_205239_6bc21800.png)
 
 **Text:**
 "Hi! I'm Dr. Valerie, and I'm a vascular surgeon. That's a fancy name for a doctor who takes care of your body's special roads!"
@@ -30,7 +30,7 @@
 
 ## 📖 Page 3: The Body's Road System
 
-**[ILLUSTRATION: Simple body outline with colorful tubes (red and blue) branching throughout]**
+![Page 3: The Body's Road System](./peppa-images/image_003_20260104_205223_b218a085.png)
 
 **Text:**
 "Inside your body, you have thousands of tiny roads called blood vessels. They carry blood everywhere!"
@@ -44,7 +44,7 @@
 
 ## 📖 Page 4: Meet Your Heart
 
-**[ILLUSTRATION: Cartoon heart with a friendly face, pumping animation indicated by motion lines]**
+![Page 4: Meet Your Heart](./peppa-images/image_004_20260104_205225_e38c401b.png)
 
 **Text:**
 "Your heart is like a super pump! 
@@ -55,7 +55,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 5: Red Roads - Arteries
 
-**[ILLUSTRATION: Red highway with blood cells carrying oxygen tanks]**
+![Page 5: Red Roads - Arteries](./peppa-images/image_005_20260104_205231_fab79b79.png)
 
 **Text:**
 "Red roads (arteries) are like delivery trucks! They carry oxygen and food FROM your heart TO your body parts."
@@ -64,7 +64,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 6: Blue Roads - Veins
 
-**[ILLUSTRATION: Blue highway with blood cells carrying empty boxes back]**
+![Page 6: Blue Roads - Veins](./peppa-images/image_006_20260104_205315_69b6071b.png)
 
 **Text:**
 "Blue roads (veins) are like garbage trucks! They bring old blood BACK to your heart to get cleaned up."
@@ -73,7 +73,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 7: Tiny Bridges - Capillaries
 
-**[ILLUSTRATION: Microscopic view of capillaries connecting red and blue roads, with nutrients passing through]**
+![Page 7: Tiny Bridges - Capillaries](./peppa-images/image_007_20260104_205314_ea44b17a.png)
 
 **Text:**
 "Where red and blue roads meet, there are tiny tiny bridges called capillaries. They're so small you can't even see them!"
@@ -82,7 +82,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 8: When Roads Have Problems
 
-**[ILLUSTRATION: Split scene - one side showing a blocked road, other showing a leak]**
+![Page 8: When Roads Have Problems](./peppa-images/image_008_20260104_205315_6636c4cf.png)
 
 **Text:**
 "Sometimes roads can have problems:
@@ -93,7 +93,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 9: Enter Dr. Valerie!
 
-**[ILLUSTRATION: Dr. Valerie in superhero pose with medical tools as her "superpowers"]**
+![Page 9: Enter Dr. Valerie!](./peppa-images/image_009_20260104_205338_b8581554.png)
 
 **Text:**
 "That's when Dr. Valerie helps! She has special tools to fix the roads and keep blood flowing smoothly."
@@ -102,7 +102,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 10: The Special Camera
 
-**[ILLUSTRATION: Dr. Valerie looking at a screen showing the inside of blood vessels]**
+![Page 10: The Special Camera](./peppa-images/image_010_20260104_205327_3f428388.png)
 
 **Text:**
 "Dr. Valerie has a tiny camera that can see INSIDE your blood vessels! It's like having X-ray vision!"
@@ -111,7 +111,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 11: Fixing a Blockage
 
-**[ILLUSTRATION: Before/after comparison of blocked vs. cleared artery, shown as a traffic jam clearing]**
+![Page 11: Fixing a Blockage](./peppa-images/image_011_20260104_205414_c46339e9.png)
 
 **Text:**
 "When a road is blocked, Dr. Valerie can clear it out. It's like clearing a traffic jam so cars can move again!"
@@ -120,7 +120,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 12: Fixing a Leak
 
-**[ILLUSTRATION: Dr. Valerie patching a blood vessel, shown as fixing a garden hose]**
+![Page 12: Fixing a Leak](./peppa-images/image_012_20260104_205358_e7a54086.png)
 
 **Text:**
 "When a road has a leak, Dr. Valerie can patch it up. It's like putting a bandage on a boo-boo!"
@@ -129,7 +129,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 13: Meet Little Timmy
 
-**[ILLUSTRATION: Cute cartoon boy looking slightly worried]**
+![Page 13: Meet Little Timmy](./peppa-images/image_013_20260104_205414_0c3e8b95.png)
 
 **Text:**
 "One day, Little Timmy's grandpa wasn't feeling well. His leg roads had a blockage!"
@@ -138,7 +138,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 14: Dr. Valerie Helps Grandpa
 
-**[ILLUSTRATION: Dr. Valerie examining grandpa's leg with her tools, both smiling]**
+![Page 14: Dr. Valerie Helps Grandpa](./peppa-images/image_014_20260104_205418_33cf2b15.png)
 
 **Text:**
 "Dr. Valerie used her special tools to fix Grandpa's leg roads. It didn't hurt at all!"
@@ -147,7 +147,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 15: Grandpa Feels Better!
 
-**[ILLUSTRATION: Grandpa playing with Timmy in the park, both happy and active]**
+![Page 15: Grandpa Feels Better!](./peppa-images/image_015_20260104_205438_6b9c4420.png)
 
 **Text:**
 "After Dr. Valerie fixed the roads, Grandpa could walk and play again! His blood flowed smoothly to his legs."
@@ -156,7 +156,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 16: How to Keep Roads Healthy
 
-**[ILLUSTRATION: Four panels showing healthy activities]**
+![Page 16: How to Keep Roads Healthy](./peppa-images/image_016_20260104_205446_4330beb5.png)
 
 **Text:**
 "You can help your blood vessel roads stay healthy!"
@@ -170,7 +170,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 17: Eat Rainbow Foods
 
-**[ILLUSTRATION: Plate with colorful foods shaped like a rainbow]**
+![Page 17: Eat Rainbow Foods](./peppa-images/image_017_20260104_205511_d87e6945.png)
 
 **Text:**
 "Eat foods of every color! Red tomatoes, orange carrots, yellow bananas, green broccoli, blue blueberries!"
@@ -179,7 +179,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 18: Move Your Body
 
-**[ILLUSTRATION: Kids doing various activities - jumping, dancing, riding bikes]**
+![Page 18: Move Your Body](./peppa-images/image_018_20260104_205513_fa8b3a5c.png)
 
 **Text:**
 "When you move and play, your heart pumps faster! This makes your blood vessel roads stronger!"
@@ -188,7 +188,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 19: Dr. Valerie's Clinic
 
-**[ILLUSTRATION: Cutaway view of Dr. Valerie's clinic with different rooms and equipment]**
+![Page 19: Dr. Valerie's Clinic](./peppa-images/image_019_20260104_205519_e4988533.png)
 
 **Text:**
 "At Dr. Valerie's clinic, there are special machines that help her see and fix blood vessels. Science is amazing!"
@@ -197,7 +197,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 20: The Blood Vessel Team
 
-**[ILLUSTRATION: Dr. Valerie with nurses, technicians, all as friendly cartoon characters]**
+![Page 20: The Blood Vessel Team](./peppa-images/image_020_20260104_205537_4e0bb4a9.png)
 
 **Text:**
 "Dr. Valerie works with a whole team! Nurses, technicians, and other doctors all help take care of people's roads."
@@ -206,7 +206,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 21: You're Amazing Inside!
 
-**[ILLUSTRATION: Child looking at a body diagram, amazed expression, sparkles around]**
+![Page 21: You're Amazing Inside!](./peppa-images/image_021_20260104_205541_9d7094ca.png)
 
 **Text:**
 "Your body is AMAZING! Right now, your blood is traveling through all your roads, bringing food and oxygen everywhere!"
@@ -215,7 +215,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 22: Listen to Your Body
 
-**[ILLUSTRATION: Child with hand on heart, feeling pulse on wrist]**
+![Page 22: Listen to Your Body](./peppa-images/image_022_20260104_205551_c730edb2.png)
 
 **Text:**
 "Put your hand on your chest. Feel that *thump-thump*? That's your heart working hard to keep you healthy!"
@@ -224,7 +224,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 23: Thank You, Dr. Valerie!
 
-**[ILLUSTRATION: Group of happy families and children thanking Dr. Valerie]**
+![Page 23: Thank You, Dr. Valerie!](./peppa-images/image_023_20260104_205610_c77ed1be.png)
 
 **Text:**
 "Thank you, Dr. Valerie, for keeping our blood vessel roads healthy and happy!"
@@ -233,7 +233,7 @@ It pushes blood through all your roads, all day and all night!"
 
 ## 📖 Page 24: The End - You're a Body Expert Now!
 
-**[ILLUSTRATION: Certificate-style page with "Body Expert" badge]**
+![Page 24: You're a Body Expert Now!](./peppa-images/image_024_20260104_205616_80064278.png)
 
 **Text:**
 "Now YOU know about blood vessels! You're a body expert!
