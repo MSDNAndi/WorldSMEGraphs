@@ -6,10 +6,53 @@ This domain contains comprehensive, atomic knowledge units (AKUs) covering the m
 
 **Purpose**: Provide a rigorous, language-agnostic knowledge foundation for a technical presentation on functional theory, suitable for rendering to multiple audience levels.
 
-## Placement and cross-domain alignment
+## ⚠️ Important: Ontology Note
 
-- **Why under computer science**: The collection is scoped to functional programming practice and theory, so category theory is housed here to keep the programming-focused learning paths cohesive.
-- **Cross-link to mathematics**: Category theory remains mathematically native; `concept-index.yaml` maintains links to abstract algebra, set theory, and logic to reuse and align with mathematics while serving computing use cases.
+> **Native Domain vs Application Domain**
+> 
+> Per the [Global Domain Hierarchy](../../../_ontology/global-hierarchy.yaml), category theory, 
+> functors, monoids, and monads are **mathematically native** concepts that belong in:
+> `formal-sciences/mathematics/pure-mathematics/category-theory/`
+> 
+> This domain (`functional-theory`) contains **APPLICATION AKUs** that explain how these 
+> mathematical concepts are **used in functional programming**. The AKUs here provide 
+> programming-specific context, code examples, and practical applications.
+> 
+> **Migration Status**: See Issue #3 for the plan to properly separate native mathematical 
+> definitions from programming applications with cross-domain linking.
+
+## Placement and Cross-Domain Alignment
+
+- **Current Location**: `science/computer-science/functional-theory/`
+- **Global Hierarchy Path**: `formal-sciences/computer-science/programming-paradigms/functional-programming`
+- **Native Math Location**: `formal-sciences/mathematics/pure-mathematics/category-theory/`
+
+### Cross-Domain Linking Pattern
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    MATHEMATICS (Native Domain)                   │
+│  formal-sciences/mathematics/pure-mathematics/category-theory/  │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ • Category definitions                                      ││
+│  │ • Functor theorems                                          ││
+│  │ • Monad axioms                                              ││
+│  │ • Mathematical proofs                                       ││
+│  └─────────────────────────────────────────────────────────────┘│
+└───────────────────────────┬─────────────────────────────────────┘
+                            │ uses/applies
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              COMPUTER SCIENCE (Application Domain)              │
+│  formal-sciences/computer-science/programming-paradigms/fp/     │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │ • Programming examples (Haskell, Scala, etc.)               ││
+│  │ • Practical applications (error handling, async)            ││
+│  │ • Code patterns and idioms                                  ││
+│  │ • Cross-domain LINKS to math definitions                    ││
+│  └─────────────────────────────────────────────────────────────┘│
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ## Domain Structure
 
@@ -26,6 +69,18 @@ functional-theory/
 ├── concept-index.yaml   # Complete relationship graph
 └── README.md           # This file
 ```
+
+## Rendered Presentations
+
+This domain has been rendered into multiple formats:
+
+| File | Description | Lines |
+|------|-------------|-------|
+| `technical-presentation.md` | 60-minute talk with jokes | 918 |
+| `undergraduate-guide.md` | CS student learning guide | ~600 |
+| `quick-reference.md` | Cheat sheet / reference card | ~350 |
+| `advanced-research.md` | Graduate/researcher guide | ~700 |
+| `powerpoint-visualization.md` | **NEW** Visual diagrams & slides | 1,390 |
 
 ## Content Coverage
 

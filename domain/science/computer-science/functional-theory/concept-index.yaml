@@ -2,14 +2,46 @@
 # Functional Theory Concept Index
 # Comprehensive knowledge graph of category theory, functors, monoids, and monads
 # Created: 2026-01-03T23:36:18.481Z
+# Updated: 2026-01-04 - Added global hierarchy reference and cross-domain linking
 
 domain:
   name: Functional Theory
   path: science/computer-science/functional-theory
   description: Mathematical foundations of functional programming including category theory, functors, monoids, and monads
+  
+  # Global Hierarchy Reference (per domain/_ontology/global-hierarchy.yaml)
+  global_hierarchy_path: formal-sciences/computer-science/programming-paradigms/functional-programming
+  
+  # IMPORTANT: Ontology Clarification
+  # Category theory, functors, monoids, and monads are MATHEMATICALLY native concepts.
+  # This domain contains APPLICATION AKUs that explain how these concepts are USED in programming.
+  # The mathematical definitions should ultimately reside in:
+  #   formal-sciences/mathematics/pure-mathematics/category-theory/
+  # This domain LINKS to those definitions while providing programming-specific context.
+  
   placement_rationale: >
-    Placed under computer science to serve functional programming use cases,
-    with cross-links to mathematics (abstract algebra, set theory, logic) for theoretical rigor.
+    This domain contains functional programming APPLICATION of mathematical concepts.
+    Per the global hierarchy (domain/_ontology/global-hierarchy.yaml), mathematical 
+    concepts like category theory, functors, monoids, and monads have their NATIVE 
+    home in formal-sciences/mathematics/pure-mathematics/. This domain provides 
+    programming-specific context, code examples, and practical applications that 
+    LINK to the mathematical definitions. See Issue #3 for migration plan.
+  
+  cross_domain_references:
+    uses:
+      - path: formal-sciences/mathematics/pure-mathematics/category-theory
+        relationship: applies
+        concepts: [categories, morphisms, composition, identity, functors, natural-transformations]
+        notes: "FP applies category theory concepts to structure computations"
+      - path: formal-sciences/mathematics/pure-mathematics/algebra
+        relationship: uses
+        concepts: [monoids, semigroups, groups]
+        notes: "Algebraic structures used for aggregation and composition"
+      - path: formal-sciences/mathematics/pure-mathematics/logic/type-theory
+        relationship: uses  
+        concepts: [types, type-constructors, polymorphism]
+        notes: "Type theory provides the type system foundation"
+  
   total_akus: 27
 
 subdomain_index:
