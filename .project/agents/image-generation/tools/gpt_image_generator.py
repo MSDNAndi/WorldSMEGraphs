@@ -56,12 +56,29 @@ import urllib.error
 import urllib.parse
 import random
 
+# Try to import yaml for config loading (optional dependency)
+try:
+    import yaml
+    YAML_AVAILABLE = True
+except ImportError:
+    YAML_AVAILABLE = False
+
 # =============================================================================
-# RATE LIMIT TRACKING
+# CONSTANTS
 # =============================================================================
 
 # Path to rate limits file (relative to this script)
 RATE_LIMITS_FILE = Path(__file__).parent.parent / "rate-limits.yaml"
+
+# Prompt length threshold for structured enhancement (chars)
+PROMPT_LENGTH_THRESHOLD = 200
+
+# Maximum number of rate limit events to track in history
+RATE_LIMIT_HISTORY_SIZE = 10
+
+# =============================================================================
+# RATE LIMIT TRACKING
+# =============================================================================
 
 @dataclass
 class RateLimitConfig:
@@ -79,9 +96,10 @@ class RateLimitConfig:
     def load_from_yaml(cls) -> "RateLimitConfig":
         """Load rate limit config from YAML file if available."""
         config = cls()
+        if not YAML_AVAILABLE:
+            return config  # Use defaults if yaml not available
         try:
             if RATE_LIMITS_FILE.exists():
-                import yaml  # Optional, fallback to defaults if not available
                 with open(RATE_LIMITS_FILE) as f:
                     data = yaml.safe_load(f)
                     if data:
@@ -355,7 +373,7 @@ def enhance_prompt(base_prompt: str, style_hints: Optional[str] = None,
             enhancements.append(f"{key}: {value}")
     
     # Build enhanced prompt with structure if it's short
-    if len(base_prompt) < 200:
+    if len(base_prompt) < PROMPT_LENGTH_THRESHOLD:
         # Add structured format for short prompts
         structured_prompt = f"""
 {base_prompt}
@@ -476,8 +494,16 @@ class GPTImageClient:
         async def generate_with_semaphore(config: GenerationConfig, index: int) -> Tuple[int, GenerationResult]:
             async with semaphore:
                 print(f"  [{index+1}/{len(configs)}] Starting: {config.prompt[:50]}...")
-                result = await self.generate_image(config)
-                return index, result
+                try:
+                    result = await self.generate_image(config)
+                    return index, result
+                except Exception as e:
+                    # Wrap any exception in a failed GenerationResult
+                    return index, GenerationResult(
+                        success=False,
+                        error_message=str(e),
+                        prompt_used=config.prompt
+                    )
         
         # Launch all tasks concurrently (semaphore limits actual concurrency)
         tasks = [
@@ -487,25 +513,13 @@ class GPTImageClient:
         
         print(f"\n🎨 Generating {len(configs)} images in parallel (max {max_concurrent} concurrent)...")
         
-        # Wait for all to complete
-        indexed_results = await asyncio.gather(*tasks, return_exceptions=True)
+        # Wait for all to complete - exceptions are now wrapped in GenerationResult
+        indexed_results = await asyncio.gather(*tasks)
         
-        # Sort results back to original order and handle exceptions
+        # Sort results back to original order (all items are now (index, result) tuples)
         results = [None] * len(configs)
-        for item in indexed_results:
-            if isinstance(item, Exception):
-                # Find the first None slot for this exception
-                for i, r in enumerate(results):
-                    if r is None:
-                        results[i] = GenerationResult(
-                            success=False,
-                            error_message=str(item),
-                            prompt_used=configs[i].prompt
-                        )
-                        break
-            else:
-                index, result = item
-                results[index] = result
+        for index, result in indexed_results:
+            results[index] = result
         
         # Summary
         successful = sum(1 for r in results if r and r.success)
@@ -583,9 +597,9 @@ class GPTImageClient:
         }
         self._rate_limit_events.append(event)
         
-        # Keep only last 10 events
-        if len(self._rate_limit_events) > 10:
-            self._rate_limit_events = self._rate_limit_events[-10:]
+        # Keep only last N events (defined by constant)
+        if len(self._rate_limit_events) > RATE_LIMIT_HISTORY_SIZE:
+            self._rate_limit_events = self._rate_limit_events[-RATE_LIMIT_HISTORY_SIZE:]
     
     async def _attempt_generation(self, config: GenerationConfig) -> GenerationResult:
         """Single generation attempt."""
