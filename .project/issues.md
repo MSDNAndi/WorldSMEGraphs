@@ -1,7 +1,8 @@
 # Open Issues and Blockers
 
-> **Last Updated**: 2026-01-04T01:15:00Z  
-> **Purpose**: Track open issues, blockers, and problems needing resolution
+> **Last Updated**: 2026-01-04  
+> **Purpose**: Track open issues, blockers, and problems needing resolution  
+> **Archives**: Resolved issues are archived in `.project/tracking/archived/`
 
 ## Status Legend
 - 🔴 **Blocker**: Preventing progress on critical work
@@ -499,26 +500,11 @@ Need ability to search across all AKUs by keywords, concepts, formulas.
 
 ## Resolved Issues
 
-### ✅ Issue #R1: No GitHub Copilot Agent Configurations
-**Resolved**: 2025-12-27  
-**Resolution**: Created all 53 agent YAML configurations per GitHub Copilot documentation
+*Resolved issues are now archived in `.project/tracking/archived/` by month.*
 
-### ✅ Issue #R2: No UTC Timestamps on AKUs
-**Resolved**: 2025-12-27  
-**Resolution**: Added ISO 8601 UTC millisecond timestamps to all 6 existing AKUs
-
-### ✅ Issue #R3: No Validation Tools
-**Resolved**: 2025-12-27  
-**Resolution**: Created validate_aku.py with comprehensive checks including timestamps
-
-### ✅ Issue #R4: Agent Configurations Need More Detail  
-**Resolved**: 2025-12-27  
-**Resolution**: Enhanced all 53 agents to 180+ lines with comprehensive specifications
-- 31 agents brought from below 180 lines to compliant status
-- Added extensive usage examples across all domains
-- Included detailed workflows, input/output specs, expertise areas
-- Achieved 100% compliance (53/53 agents ≥180 lines)
-- Verification script confirms all agents meet quality standards
+**Recent Archives**:
+- [December 2025](.project/tracking/archived/2025-12/issues-resolved.md)
+- [January 2026](.project/tracking/archived/2026-01/issues-resolved.md)
 
 ---
 
