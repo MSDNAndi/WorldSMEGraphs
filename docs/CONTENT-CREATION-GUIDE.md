@@ -639,7 +639,7 @@ See: `domain/formal-sciences/mathematics/pure-mathematics/category-theory/akus/c
 
 ### Example 2: Formula with Multiple Audiences
 
-See: `domain/economics/bwl/finance/valuation/npv/akus/examples/example-npv-definition-with-semantic-annotations.json`
+See: `domain/social-sciences/economics/bwl/finance/valuation/npv/akus/examples/example-npv-definition-with-semantic-annotations.json`
 
 ### Example 3: Cross-Domain Application
 

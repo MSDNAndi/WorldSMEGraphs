@@ -9,21 +9,21 @@
 ## Concept Quick Lookup
 
 ### Prime Numbers
-- **Path**: `domain/science/math/number-theory/primes/`
+- **Path**: `domain/formal-sciences/mathematics/pure-mathematics/number-theory/primes/`
 - **Definition**: Natural number > 1 with exactly two divisors (1 and itself)
 - **Examples**: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29...
 - **Key Property**: Infinitely many exist (Euclid's proof)
 - **10 AKUs**: Definition, Fundamental Theorem, Sieve, RSA crypto, Cicadas, Quantum, Distribution, Twin primes, CS applications, Economics
 
 ### Composite Numbers
-- **Path**: `domain/science/math/number-theory/composite-numbers/`
+- **Path**: `domain/formal-sciences/mathematics/pure-mathematics/number-theory/composite-numbers/`
 - **Definition**: Natural number > 1 with at least one divisor other than 1 and itself
 - **Examples**: 4, 6, 8, 9, 10, 12, 14, 15, 16, 18...
 - **Key Property**: Can be factored into primes (unique factorization)
 - **1 AKU**: Definition and properties
 
 ### Perfect Numbers
-- **Path**: `domain/science/math/number-theory/perfect-numbers/`
+- **Path**: `domain/formal-sciences/mathematics/pure-mathematics/number-theory/perfect-numbers/`
 - **Definition**: Equals sum of its proper divisors
 - **Examples**: 6, 28, 496, 8128, 33550336
 - **Key Property**: Every even perfect ↔ unique Mersenne prime (Euclid-Euler)
@@ -32,7 +32,7 @@
 - **1 AKU**: Definition and Euclid-Euler theorem
 
 ### Mersenne Primes
-- **Path**: `domain/science/math/number-theory/mersenne-primes/`
+- **Path**: `domain/formal-sciences/mathematics/pure-mathematics/number-theory/mersenne-primes/`
 - **Definition**: Prime of form 2^p - 1 where p is prime
 - **Examples**: M₂=3, M₃=7, M₅=31, M₇=127, M₁₃=8191
 - **Key Property**: Largest known primes (efficient Lucas-Lehmer test)
@@ -42,7 +42,7 @@
 - **1 AKU**: Definition, Lucas-Lehmer, GIMPS
 
 ### Fermat Primes
-- **Path**: `domain/science/math/number-theory/fermat-primes/`
+- **Path**: `domain/formal-sciences/mathematics/pure-mathematics/number-theory/fermat-primes/`
 - **Definition**: Prime of form 2^(2^n) + 1
 - **Examples**: F₀=3, F₁=5, F₂=17, F₃=257, F₄=65537
 - **Key Property**: Only 5 known; likely no more exist
@@ -51,7 +51,7 @@
 - **1 AKU**: Definition, Gauss construction theorem
 
 ### Fibonacci Sequence
-- **Path**: `domain/science/math/number-theory/fibonacci/`
+- **Path**: `domain/formal-sciences/mathematics/pure-mathematics/number-theory/fibonacci/`
 - **Definition**: F₀=0, F₁=1, Fₙ=Fₙ₋₁+Fₙ₋₂
 - **Sequence**: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89...
 - **Key Property**: Ratio Fₙ₊₁/Fₙ → φ (golden ratio ≈ 1.618)
@@ -60,7 +60,7 @@
 - **1 AKU**: Definition, golden ratio, applications
 
 ### Amicable Numbers
-- **Path**: `domain/science/math/number-theory/amicable-numbers/`
+- **Path**: `domain/formal-sciences/mathematics/pure-mathematics/number-theory/amicable-numbers/`
 - **Definition**: Pair (m,n) where σ(m)-m=n and σ(n)-n=m
 - **Smallest Pair**: (220, 284) - known to Pythagoreans
 - **Key Property**: Generalization of perfect numbers (self-amicable → mutually amicable)
@@ -189,7 +189,7 @@ def fibonacci(n):
 python .project/agents/quality-assurance/tools/validate_aku_v2.py <path-to-aku.json>
 
 # Validate all AKUs in number theory
-python .project/agents/quality-assurance/tools/validate_aku_v2.py --directory domain/science/math/number-theory/
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --directory domain/formal-sciences/mathematics/pure-mathematics/number-theory/
 
 # Check project structure
 bash .github/scripts/validate-structure.sh
@@ -220,8 +220,8 @@ Each subdomain follows this structure:
 
 ## Related Documentation
 
-- **Domain Overview**: `domain/science/math/number-theory/README.md`
-- **Relationships Map**: `domain/science/math/number-theory/RELATIONSHIPS.md`
+- **Domain Overview**: `domain/formal-sciences/mathematics/pure-mathematics/number-theory/README.md`
+- **Relationships Map**: `domain/formal-sciences/mathematics/pure-mathematics/number-theory/RELATIONSHIPS.md`
 - **AKU Creation Guide**: `docs/NEW-AKU-CREATION-GUIDE.md`
 - **Validation Tools**: `.project/agents/quality-assurance/tools/`
 - **Contributing Guide**: `docs/CONTRIBUTING.md`
