@@ -59,14 +59,6 @@ except ImportError:
     REPORTLAB_AVAILABLE = False
     print("Warning: reportlab not installed. Run: pip install reportlab")
 
-# Image handling (PIL availability check)
-try:
-    import PIL
-    PIL_AVAILABLE = True
-except ImportError:
-    PIL_AVAILABLE = False
-    print("Warning: Pillow not installed. Run: pip install Pillow")
-
 # YAML for slide definitions
 try:
     import yaml
