@@ -1,6 +1,29 @@
 # GitHub Copilot Custom Instructions for WorldSMEGraphs
 
+---
+# ⏱️ **CRITICAL: 50-MINUTE WORK SESSION RULE** ⏱️
+---
+
+**🚨 READ THIS FIRST - MANDATORY FOR EVERY SESSION 🚨**
+
+**YOU MUST WORK FOR A MINIMUM OF 50 MINUTES FROM SESSION START**
+
+1. **IMMEDIATELY** run: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"` at session start
+2. Calculate end time: start + 50 minutes
+3. Work continuously until reaching 50 minutes
+4. **NEVER** finish before 48 minutes without explicit human approval
+5. If task complete before 50 minutes: **FIND MORE WORK IMMEDIATELY**
+6. Check `.project/issues.md` and `.project/improvements.md` for next tasks
+7. There is ALWAYS more work to do - keep working until 50 minutes
+
+**Finishing early (< 45 minutes) is UNACCEPTABLE and violates project rules.**
+
+See detailed requirements in [Work Continuity and 50-Minute Rule](#5-work-continuity-and-50-minute-rule-️-critical) below.
+
+---
+
 ## Table of Contents
+- [**⏱️ 50-Minute Rule (CRITICAL - READ FIRST)**](#5-work-continuity-and-50-minute-rule-️-critical)
 - [Project Mission](#project-mission)
 - [Core Principles](#core-principles)
 - [Project Structure](#project-structure)
@@ -56,7 +79,37 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
 - Maintain consistency across all documentation
 
 ### 5. Work Continuity and 50-Minute Rule ⏱️ **CRITICAL**
-**MANDATORY**: You MUST work continuously for 50 minutes from session start.
+
+---
+# 🚨 THIS IS THE MOST IMPORTANT RULE IN THE ENTIRE PROJECT 🚨
+---
+
+**MANDATORY**: You MUST work continuously for **AT LEAST 50 MINUTES** from session start.
+
+**NO EXCEPTIONS. NO SHORTCUTS. NO EARLY FINISHES.**
+
+If you finish before 50 minutes, you have FAILED this session and violated project requirements.
+
+---
+
+#### ⚠️ Common Mistakes That Violate This Rule ⚠️
+
+**DO NOT:**
+- ❌ Finish after completing "just" one task
+- ❌ Think "the work is done" before 50 minutes
+- ❌ Create "SESSION COMPLETE" commits before minute 48
+- ❌ Stop working because you can't think of what to do next
+- ❌ End session early because "most of the work is done"
+- ❌ Commit and stop before checking if 50 minutes have elapsed
+
+**REMEMBER:**
+- ✅ Commits are checkpoints, NOT stopping points
+- ✅ There is ALWAYS more work in issues.md or improvements.md
+- ✅ Documentation can ALWAYS be improved
+- ✅ Code quality can ALWAYS be enhanced
+- ✅ If you can't find work, you're not looking hard enough
+
+---
 
 #### Session Start (REQUIRED)
 1. **IMMEDIATELY** run: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"` and record start time
