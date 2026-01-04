@@ -1,6 +1,6 @@
 # WorldSMEGraphs Project Structure
 
-> **Last Updated**: 2025-12-29  
+> **Last Updated**: 2026-01-04  
 > **Maintained By**: File Organization Agent, Implementation Agent  
 > **Review Frequency**: After every significant structure change
 
@@ -57,6 +57,14 @@ WorldSMEGraphs/
 │   │   │   │           └── english/         (to be created)
 │   │   │   ├── geometry/
 │   │   │   └── calculus/
+│   │   ├── computer-science/
+│   │   │   └── functional-theory/         # Category theory, functors, monoids, monads (27 AKUs)
+│   │   │       ├── concept-index.yaml
+│   │   │       ├── README.md
+│   │   │       ├── category-theory/       # 8 AKUs (math-native, scoped here for FP use cases)
+│   │   │       ├── functors/              # 6 AKUs
+│   │   │       ├── monoids/               # 5 AKUs
+│   │   │       └── monads/                # 8 AKUs
 │   │   ├── physics/
 │   │   └── chemistry/
 │   │
@@ -202,6 +210,7 @@ Organize domains hierarchically from broad to specific:
 - Level 1: Major category (science, economics, humanities)
 - Level 2: Discipline (math, physics, macroeconomics)
 - Level 3: Topic (algebra, mechanics, monetary-policy)
+- Math-native foundations that are curated for programming (e.g., category theory for functional programming) can live under computer science, with cross-domain links back to mathematics for rigor and reuse.
 
 ### 2. Separation of Concerns
 - **Knowledge**: Language-agnostic in `.graph` files
@@ -294,8 +303,9 @@ Listed in `.gitignore`:
 
 ---
 
-**Last Updated**: 2025-12-30  
+**Last Updated**: 2026-01-04  
 **Major Changes**: 
+- 2026-01-04: Added functional-theory domain under science/computer-science (category theory, functors, monoids, monads) with cross-links to mathematics
 - 2025-12-30: Added mesenteric ischemia domain with 29 AKUs and rendered book chapter (25-30 pages)
 - 2025-12-30: Added prime numbers domain with 10 AKUs and cross-domain connections
 - 2025-12-27: Added medicine domain with vascular surgery Type 2 endoleak (5 AKUs complete)
