@@ -158,6 +158,33 @@ If you finish before 50 minutes, you have FAILED this session and violated proje
 7. Use agents for specialized work
 8. **NEVER** stop before 50 minutes - there is ALWAYS more work
 
+**⚠️ CRITICAL: What is "Fake Working" vs Real Work ⚠️**
+
+**FAKE WORKING (PROHIBITED):**
+- ❌ Making many small documentation commits just to fill time
+- ❌ Updating paths in 20+ files separately (1 minute each) to reach 50 minutes
+- ❌ Creating trivial commits after main work is done to "run down the clock"
+- ❌ Doing busywork instead of substantive development
+- ❌ Making purely cosmetic changes without adding value
+- ❌ Splitting one logical change into 10+ commits artificially
+
+**REAL WORK (REQUIRED):**
+- ✅ Creating new AKUs with rigorous content
+- ✅ Implementing new features or capabilities
+- ✅ Fixing bugs and improving code quality
+- ✅ Writing comprehensive documentation (not just updating paths)
+- ✅ Enhancing agent configurations with substantial content
+- ✅ Creating tools, scripts, or automation
+- ✅ Conducting research and creating specifications
+- ✅ Building prototypes or proof-of-concepts
+- ✅ Reviewing and improving existing content quality
+
+**Quality Over Quantity:**
+- One substantive commit (e.g., creating 10 rigorous AKUs) is better than 20 trivial commits
+- Each commit should add meaningful value to the project
+- If you've completed the main task early, find SUBSTANTIVE next work
+- Look for high-impact items in improvements.md, not busywork
+
 #### Approaching End (Minute 40-45)
 - **MUST** check current time: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"`
 - **MUST** check time again at minutes 40, 45, and 48
@@ -578,6 +605,56 @@ After 5 review cycles without improvement, an agent must be replaced or complete
 - **Never commit** build artifacts, dependencies, or temporary files
 - **Use .gitignore** for exclusions
 - **Review changes** before committing
+
+## Content Quality Philosophy
+
+### Fix and Improve, Don't Just Delete
+
+When you encounter poor quality content (unfunny storytelling, unprofessional material, half-done renderings):
+
+**❌ WRONG APPROACH:**
+- Simply delete the content
+- Remove without replacement
+- Eliminate without understanding the goal
+
+**✅ CORRECT APPROACH:**
+1. **Understand the intent**: Why was this created? What audience need was it addressing?
+2. **Identify the problems**: What makes it unprofessional? Why is it "unfunny" or poorly designed?
+3. **Create better content**: 
+   - Replace unfunny storytelling with engaging, professional educational content
+   - Improve bad visual design with proper design principles
+   - Complete half-done renderings to professional standards
+   - Ensure rigor while maintaining accessibility
+4. **Maintain the value**: If content serves a purpose (e.g., child-friendly education), improve it to professional standards rather than eliminating the concept
+
+**Example - Functional Programming Presentations:**
+- ❌ Delete british-humor.pptx and rpg.pptx
+- ✅ Create professional presentations with:
+  - Clear learning objectives
+  - Rigorous technical content
+  - Professional visual design
+  - Engaging but appropriate storytelling
+  - Proper citations and examples
+
+**Example - Child-Friendly Content:**
+- ❌ Delete child AKUs because "children is an audience not a type"
+- ✅ Understand the need:
+  - Children ARE a rendering audience
+  - Create adult-level rigorous AKUs
+  - Then render those AKUs for child audiences in `.renders/`
+  - Maintain scientific rigor in AKUs, accessibility in renderings
+
+### Workflow for Quality Content Creation
+
+When asked to fix poor content:
+1. **Plan content first**: Define learning objectives, scope, structure
+2. **Plan story/narrative**: How will this engage the audience? What's the flow?
+3. **Write content**: Create rigorous, well-researched material
+4. **Plan visuals**: Specify what diagrams, images, examples are needed
+5. **Create visuals**: Use proper design principles, tools, and standards
+6. **Iterate**: Review, get feedback, improve
+
+Never skip straight to implementation. Always plan, then execute, then refine.
 
 ## Getting Started
 1. Review `.project/structure.md` for current project organization
