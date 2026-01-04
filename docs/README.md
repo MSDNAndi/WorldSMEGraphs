@@ -1,8 +1,39 @@
 # Documentation Index
 
-> **Last Updated**: 2025-12-30T00:25:00Z
+> **Last Updated**: 2026-01-04T17:21:00Z
 
 Welcome to the WorldSMEGraphs documentation! This directory contains comprehensive guides for contributors, developers, and users.
+
+## ⭐ New Comprehensive Guides (2026-01-04)
+
+- **[CONTENT-CREATION-GUIDE.md](CONTENT-CREATION-GUIDE.md)** - Complete content creation handbook (19KB)
+  - All 6 AKU types with examples
+  - Writing for 7 audience levels (toddler → professional)
+  - Quality standards and workflow
+  - Cross-domain linking patterns
+
+- **[VISUALIZATION-STYLE-GUIDE.md](VISUALIZATION-STYLE-GUIDE.md)** - Visual content standards (16KB)
+  - 6 visual types (diagrams, flowcharts, infographics)
+  - WCAG accessibility guidelines (A, AA, AAA)
+  - Color palettes and typography
+  - ASCII diagram templates
+
+- **[MULTILINGUAL-CONTENT-GUIDE.md](MULTILINGUAL-CONTENT-GUIDE.md)** - Internationalization guide (16KB)
+  - Language-agnostic architecture
+  - Translation standards (3 quality levels)
+  - Cultural adaptation guidelines
+  - Support for 10+ languages
+
+- **[API-DOCUMENTATION-GUIDE.md](API-DOCUMENTATION-GUIDE.md)** - API design and usage (18KB)
+  - Complete AKU JSON Schema (v2.0)
+  - REST API and GraphQL schemas
+  - Query patterns and examples
+  - Python and JavaScript SDKs
+
+- **[tutorials/PYTHON-AKU-TUTORIAL.md](tutorials/PYTHON-AKU-TUTORIAL.md)** - Python developer guide
+  - Reading and creating AKUs
+  - Validation and batch processing
+  - Best practices and patterns
 
 ## Quick Start Guides
 
@@ -107,10 +138,19 @@ The `templates/` subdirectory contains reusable templates for common tasks:
 
 ### Creating Content
 
-1. Start with [NEW-AKU-CREATION-GUIDE.md](NEW-AKU-CREATION-GUIDE.md)
-2. Review domain-specific guides ([Medical](MEDICAL-ONTOLOGY-ANNOTATION-GUIDE.md) or [Economics](ECONOMICS-ONTOLOGY-QUICK-REFERENCE.md))
-3. Check [ONTOLOGY-QUICKSTART.md](ONTOLOGY-QUICKSTART.md) for ontology concepts
-4. Use templates from `templates/` directory
+1. Start with **[CONTENT-CREATION-GUIDE.md](CONTENT-CREATION-GUIDE.md)** - comprehensive handbook ⭐ NEW
+2. Review [NEW-AKU-CREATION-GUIDE.md](NEW-AKU-CREATION-GUIDE.md) for step-by-step walkthrough
+3. Check domain-specific guides ([Medical](MEDICAL-ONTOLOGY-ANNOTATION-GUIDE.md) or [Economics](ECONOMICS-ONTOLOGY-QUICK-REFERENCE.md))
+4. Review [MULTILINGUAL-CONTENT-GUIDE.md](MULTILINGUAL-CONTENT-GUIDE.md) for multi-language content ⭐ NEW
+5. Use [VISUALIZATION-STYLE-GUIDE.md](VISUALIZATION-STYLE-GUIDE.md) for visual content ⭐ NEW
+6. Use templates from `templates/` directory
+
+### Developing with APIs
+
+1. Read **[API-DOCUMENTATION-GUIDE.md](API-DOCUMENTATION-GUIDE.md)** for complete API reference ⭐ NEW
+2. Use **[tutorials/PYTHON-AKU-TUTORIAL.md](tutorials/PYTHON-AKU-TUTORIAL.md)** for Python development ⭐ NEW
+3. Check REST and GraphQL schemas
+4. Review SDK examples (Python, JavaScript/TypeScript)
 
 ### Setting Up Development Environment
 
@@ -203,4 +243,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
 **Maintained By**: Documentation Team  
 **Review Schedule**: Monthly  
-**Last Major Update**: 2025-12-30 (Added CI-CD.md, created index)
+**Last Major Update**: 2026-01-04 (Added 5 comprehensive guides: Content Creation, Visualization, Multilingual, API, Python Tutorial)
