@@ -18,7 +18,7 @@
 
 **Recent Archives**:
 - [December 2025](.project/tracking/archived/2025-12/improvements-completed.md)
-- [January 2026](.project/tracking/archived/2026-01/issues-resolved.md) (includes IMP-COMPLETE-005)
+- [January 2026](.project/tracking/archived/2026-01/improvements-completed.md)
 
 ---
 
