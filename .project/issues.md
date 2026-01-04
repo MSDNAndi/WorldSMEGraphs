@@ -475,8 +475,8 @@ Contrarian agent critical analysis identified significant content gaps in the me
 - [ ] Add IR/critical care perspective content
 
 **Documentation**:
-- Critical Analysis: `domain/medicine/surgery/vascular/pathology/mesenteric-ischemia/.project/critical-analysis-contrarian-review.md`
-- Improvement Plan: `domain/medicine/surgery/vascular/pathology/mesenteric-ischemia/.project/improvement-plan.md`
+- Critical Analysis: `domain/health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia/.project/critical-analysis-contrarian-review.md`
+- Improvement Plan: `domain/health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia/.project/improvement-plan.md`
 
 **Assigned To**: Medical content team  
 **Target Date**: 2026-01-15  

@@ -389,11 +389,11 @@ Code Review: 2 rounds, all feedback addressed ✅
 **Duration**: 10 minutes (40 minutes remaining, will find more work)
 
 ### Documentation Links
-- Full Report: domain/science/physics/quantum-mechanics/planck-units/QUALITY_AUDIT_REPORT.md
-- Executive Summary: domain/science/physics/quantum-mechanics/planck-units/AUDIT_EXECUTIVE_SUMMARY.md
-- Issue Tracker: domain/science/physics/quantum-mechanics/planck-units/ISSUE_TRACKER.md
-- Quick Reference: domain/science/physics/quantum-mechanics/planck-units/QUICK_REFERENCE.md
-- Visual Analysis: domain/science/physics/quantum-mechanics/planck-units/VISUAL_GAP_ANALYSIS.md
+- Full Report: domain/natural-sciences/physics/quantum-mechanics/planck-units/QUALITY_AUDIT_REPORT.md
+- Executive Summary: domain/natural-sciences/physics/quantum-mechanics/planck-units/AUDIT_EXECUTIVE_SUMMARY.md
+- Issue Tracker: domain/natural-sciences/physics/quantum-mechanics/planck-units/ISSUE_TRACKER.md
+- Quick Reference: domain/natural-sciences/physics/quantum-mechanics/planck-units/QUICK_REFERENCE.md
+- Visual Analysis: domain/natural-sciences/physics/quantum-mechanics/planck-units/VISUAL_GAP_ANALYSIS.md
 
 **Verdict**: 🟡 CONDITIONAL PASS - Execute 5-phase action plan immediately
 
