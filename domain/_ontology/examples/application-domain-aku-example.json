@@ -1,0 +1,190 @@
+{
+  "@context": [
+    "https://worldsmegraphs.org/contexts/base.jsonld",
+    "https://worldsmegraphs.org/contexts/science.jsonld",
+    "https://worldsmegraphs.org/contexts/cross-domain.jsonld"
+  ],
+  "@id": "wsmg:cs/fp/monad-in-programming",
+  "@type": [
+    "schema:DefinedTerm",
+    "skos:Concept",
+    "wsmg:ProgrammingConcept"
+  ],
+  
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-04T01:18:00.000Z",
+    "modified": "2026-01-04T01:18:00.000Z",
+    "contributors": ["ontology-agent"],
+    "status": "example",
+    "confidence": 0.95,
+    "purpose": "Demonstrates application domain AKU that LINKS to native math definition"
+  },
+  
+  "classification": {
+    "domain_path": "formal-sciences/computer-science/programming-paradigms/functional-programming",
+    "isNativeDomain": false,
+    "isApplicationDomain": true,
+    "type": "concept",
+    "difficulty": "intermediate",
+    "importance": "core"
+  },
+  
+  "cross_domain_references": {
+    "note": "This AKU APPLIES concepts from mathematics. The authoritative definition lives in the mathematics domain.",
+    "applies": [
+      {
+        "@id": "wsmg:math/category-theory/monad-definition",
+        "relationship": "applies",
+        "sourceDomain": "formal-sciences/mathematics/pure-mathematics/category-theory",
+        "applicationContext": "In functional programming, the categorical monad definition is instantiated to structure computations with effects. The mathematical unit (η) becomes 'return' or 'pure', and multiplication (μ) becomes 'join'. The 'bind' operator (>>=) is derived from these."
+      }
+    ],
+    "uses": [
+      {
+        "@id": "wsmg:math/category-theory/functor",
+        "relationship": "uses",
+        "applicationContext": "Monads are functors with additional structure"
+      },
+      {
+        "@id": "wsmg:math/algebra/monoid",
+        "relationship": "uses",
+        "applicationContext": "Monads form a monoid in the category of endofunctors"
+      }
+    ]
+  },
+  
+  "content": {
+    "prefLabel": {
+      "@value": "Monad in Functional Programming",
+      "@language": "en"
+    },
+    "altLabel": [
+      {
+        "@value": "Computational Monad",
+        "@language": "en"
+      },
+      {
+        "@value": "Programmable Semicolon",
+        "@language": "en"
+      }
+    ],
+    "definition": {
+      "@value": "In functional programming, a monad is a design pattern that structures computations as sequences of steps, where each step can have additional 'effects' (failure, state, I/O, etc.) beyond just returning a value. A monad consists of a type constructor M, a function 'return' (or 'pure') that wraps a value into the monad, and a function 'bind' (>>=) that chains computations.",
+      "@language": "en"
+    },
+    "connection_to_math": {
+      "note": "See cross_domain_references.applies for authoritative mathematical definition",
+      "correspondence": {
+        "type_constructor_M": "Endofunctor T",
+        "return_or_pure": "Unit natural transformation η",
+        "join": "Multiplication natural transformation μ",
+        "bind": "Derived from join: m >>= f = join (fmap f m)"
+      }
+    },
+    "monad_interface": {
+      "haskell": {
+        "class_definition": "class Monad m where\n  return :: a -> m a\n  (>>=) :: m a -> (a -> m b) -> m b",
+        "laws": [
+          "Left Identity: return a >>= f ≡ f a",
+          "Right Identity: m >>= return ≡ m",
+          "Associativity: (m >>= f) >>= g ≡ m >>= (\\x -> f x >>= g)"
+        ]
+      },
+      "scala": {
+        "trait_definition": "trait Monad[F[_]] {\n  def pure[A](a: A): F[A]\n  def flatMap[A, B](fa: F[A])(f: A => F[B]): F[B]\n}",
+        "notes": "Scala uses 'flatMap' instead of 'bind'"
+      },
+      "javascript": {
+        "pattern": "Promises are monadic: .then() is analogous to bind",
+        "example": "fetch(url).then(response => response.json()).then(data => process(data))"
+      }
+    },
+    "common_monads": [
+      {
+        "name": "Maybe/Option",
+        "purpose": "Handling optional values / potential absence",
+        "effect": "Computation may fail to produce a value"
+      },
+      {
+        "name": "Either/Result",
+        "purpose": "Error handling with error information",
+        "effect": "Computation may fail with an error value"
+      },
+      {
+        "name": "List",
+        "purpose": "Non-deterministic computation",
+        "effect": "Computation may produce multiple results"
+      },
+      {
+        "name": "IO",
+        "purpose": "Input/Output operations",
+        "effect": "Computation performs side effects"
+      },
+      {
+        "name": "State",
+        "purpose": "Stateful computation",
+        "effect": "Computation reads/writes state"
+      },
+      {
+        "name": "Reader",
+        "purpose": "Dependency injection / shared environment",
+        "effect": "Computation reads from environment"
+      },
+      {
+        "name": "Writer",
+        "purpose": "Logging / accumulating output",
+        "effect": "Computation produces auxiliary output"
+      }
+    ],
+    "pedagogical_note": {
+      "@value": "Monads are often considered difficult because they abstract over the notion of 'effect' or 'context'. The key insight is that monads allow sequencing computations while handling effects automatically - whether that's checking for null, propagating errors, or managing state.",
+      "@language": "en"
+    }
+  },
+  
+  "relationships": {
+    "broader": ["wsmg:cs/fp/functor-in-programming"],
+    "narrower": [
+      "wsmg:cs/fp/maybe-monad",
+      "wsmg:cs/fp/io-monad",
+      "wsmg:cs/fp/state-monad"
+    ],
+    "related": [
+      "wsmg:cs/fp/applicative-functor",
+      "wsmg:cs/fp/do-notation",
+      "wsmg:cs/fp/for-comprehension"
+    ],
+    "prerequisites": [
+      "wsmg:cs/fp/functor-in-programming",
+      "wsmg:cs/fp/higher-order-functions",
+      "wsmg:cs/fp/type-constructors"
+    ]
+  },
+  
+  "provenance": {
+    "sources": [
+      {
+        "title": "Notions of computation and monads",
+        "author": "Eugenio Moggi",
+        "year": 1991,
+        "journal": "Information and Computation",
+        "note": "Introduced monads as a framework for structuring denotational semantics of effects"
+      },
+      {
+        "title": "The essence of functional programming",
+        "author": "Philip Wadler",
+        "year": 1992,
+        "conference": "POPL '92",
+        "note": "Made monads accessible to functional programmers"
+      },
+      {
+        "title": "Monads for functional programming",
+        "author": "Philip Wadler",
+        "year": 1995,
+        "publisher": "Springer",
+        "note": "Tutorial on using monads in functional programming"
+      }
+    ]
+  }
+}

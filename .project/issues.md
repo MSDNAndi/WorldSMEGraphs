@@ -1,7 +1,8 @@
 # Open Issues and Blockers
 
-> **Last Updated**: 2025-12-27T03:36:30Z  
-> **Purpose**: Track open issues, blockers, and problems needing resolution
+> **Last Updated**: 2026-01-04  
+> **Purpose**: Track open issues, blockers, and problems needing resolution  
+> **Archives**: Resolved issues are archived in `.project/tracking/archived/`
 
 ## Status Legend
 - 🔴 **Blocker**: Preventing progress on critical work
@@ -22,6 +23,44 @@
 
 ### 🟡 Important Issues  
 *Should be addressed in current phase*
+
+#### Issue #3: Category Theory Migration to Mathematics
+**Status**: 🟡 Open  
+**Created**: 2026-01-04  
+**Priority**: High  
+**Area**: Domain Organization
+
+**Description**:
+Category theory is currently located under `science/computer-science/functional-theory/category-theory/` which violates the native domain placement principle. Per the new global hierarchy (`domain/_ontology/global-hierarchy.yaml`), category theory belongs in its native mathematical domain.
+
+**Current Location**:
+`domain/science/computer-science/functional-theory/category-theory/` (8 AKUs)
+
+**Target Location**:
+`domain/formal-sciences/mathematics/pure-mathematics/category-theory/`
+
+**Impact**:
+- Ontological integrity compromised
+- Sets bad precedent for other concepts
+- Cross-domain linking patterns unclear
+
+**Action Items**:
+- [ ] Create new directory structure under formal-sciences
+- [ ] Move category theory AKUs to mathematics native location
+- [ ] Update functional-programming to use cross-domain links
+- [ ] Update concept-index.yaml in functional-theory
+- [ ] Create application context AKUs for FP
+- [ ] Update all cross-references
+- [ ] Validate all moved AKUs
+
+**Dependencies**: 
+- Global hierarchy approved ✅ (domain/_ontology/global-hierarchy.yaml)
+- Cross-domain linking pattern defined ✅ (domain/_contexts/cross-domain.jsonld)
+
+**Assigned To**: TBD  
+**Target Date**: 2026-01-15
+
+---
 
 #### Issue #0: Copilot Instructions Setup
 **Status**: ✅ Resolved  
@@ -461,26 +500,11 @@ Need ability to search across all AKUs by keywords, concepts, formulas.
 
 ## Resolved Issues
 
-### ✅ Issue #R1: No GitHub Copilot Agent Configurations
-**Resolved**: 2025-12-27  
-**Resolution**: Created all 53 agent YAML configurations per GitHub Copilot documentation
+*Resolved issues are now archived in `.project/tracking/archived/` by month.*
 
-### ✅ Issue #R2: No UTC Timestamps on AKUs
-**Resolved**: 2025-12-27  
-**Resolution**: Added ISO 8601 UTC millisecond timestamps to all 6 existing AKUs
-
-### ✅ Issue #R3: No Validation Tools
-**Resolved**: 2025-12-27  
-**Resolution**: Created validate_aku.py with comprehensive checks including timestamps
-
-### ✅ Issue #R4: Agent Configurations Need More Detail  
-**Resolved**: 2025-12-27  
-**Resolution**: Enhanced all 53 agents to 180+ lines with comprehensive specifications
-- 31 agents brought from below 180 lines to compliant status
-- Added extensive usage examples across all domains
-- Included detailed workflows, input/output specs, expertise areas
-- Achieved 100% compliance (53/53 agents ≥180 lines)
-- Verification script confirms all agents meet quality standards
+**Recent Archives**:
+- [December 2025](.project/tracking/archived/2025-12/issues-resolved.md)
+- [January 2026](.project/tracking/archived/2026-01/issues-resolved.md)
 
 ---
 
