@@ -7,30 +7,35 @@
 ## Overview
 WorldSMEGraphs is a file-based knowledge representation system for subject matter expert domains. All data is stored in files, enabling version control, portability, and collaborative editing.
 
-## 🚧 Migration Status (2026-01-04)
+## 🚧 Migration Status (2026-01-04 - Updated 14:41 UTC)
 
-**Active Migration**: Transitioning from legacy structure to global hierarchy per `domain/_ontology/global-hierarchy.yaml`
+**Migration Complete for Phase 1-4!** ✅ Transitioning from legacy structure to global hierarchy per `domain/_ontology/global-hierarchy.yaml`
 
 ### Completed ✅
 - **Category Theory (8 AKUs)**: Migrated from `science/computer-science/functional-theory/category-theory/` → `formal-sciences/mathematics/pure-mathematics/category-theory/`
 - **Functional Programming AKUs (19 AKUs)**: Updated with `isApplicationDomain: true` and `cross_domain_references`
+- **Physics (136 AKUs)**: Migrated from `science/physics/` → `natural-sciences/physics/` ✅ NEW
+- **Economics (1 AKU)**: Migrated from `economics/` → `social-sciences/economics/` ✅ NEW
+- **Medicine (64 AKUs)**: Migrated from `medicine/` → `health-sciences/medicine/` ✅ NEW
 - **New hierarchy directories created**: formal-sciences, natural-sciences, social-sciences, health-sciences
+- **Comprehensive READMEs created**: All 4 top-level domains documented (formal, natural, social, health)
 
-### In Progress 🔄
-- **Documentation updates**: Updating structure.md, README files
-- **Validation**: Running cross-domain validators on migrated content
+**Total Migrated**: 228 AKUs (8 category theory + 19 FP updates + 136 physics + 1 economics + 64 medicine)
+
+### Cleanup Needed 🔧
+- **Economics (11 AKUs)**: Missing `classification.domain_path` - need manual fixing
+- **Medicine (3 AKUs)**: Terminology files missing `classification.domain_path` - need manual fixing
+- **Physics (2 AKUs)**: Skipped during migration - need investigation
 
 ### Pending ⏳
-- **Physics (138 AKUs)**: To migrate from `science/physics/` → `natural-sciences/physics/`
-- **Economics (12 AKUs)**: To migrate from `economics/` → `social-sciences/economics/`
-- **Medicine (67 AKUs)**: To migrate from `medicine/` → `health-sciences/medicine/`
 - **Mathematics**: Remaining math content in `science/math/` → `formal-sciences/mathematics/`
 - **Computer Science**: Other CS content → `formal-sciences/computer-science/`
+- **Legacy Cleanup**: Remove old directories after final verification
 
-### Migration Tools
+### Migration Tools ✅
 - `domain/_ontology/tools/migrate_category_theory.py` - Category theory migration (completed)
 - `domain/_ontology/tools/update_fp_cross_domain.py` - FP cross-domain refs (completed)
-- Future: General-purpose domain migration script for remaining content
+- `domain/_ontology/tools/migrate_domain.py` - General-purpose migration (completed) ✅ NEW
 
 See: Issue #3 in `.project/issues.md` for detailed migration plan
 
@@ -41,35 +46,43 @@ domain/
 ├── _contexts/                 # JSON-LD semantic vocabularies
 ├── _ontology/                 # Global hierarchy and tools
 │
-├── formal-sciences/          # ✓ NEW - Abstract/formal sciences
+├── formal-sciences/          # ✅ ACTIVE - Abstract/formal sciences
 │   ├── mathematics/
 │   │   └── pure-mathematics/
-│   │       └── category-theory/     # ✓ MIGRATED (8 AKUs)
+│   │       └── category-theory/     # ✅ MIGRATED (8 AKUs)
 │   │           ├── akus/
 │   │           └── README.md
 │   └── computer-science/
 │       └── programming-paradigms/
 │           └── functional-programming/  # Future FP home
 │
-├── natural-sciences/         # ✓ NEW - Empirical sciences
-│   ├── physics/              # To migrate from science/physics/ (138 AKUs)
-│   ├── chemistry/
-│   └── biology/
+├── natural-sciences/         # ✅ ACTIVE - Empirical sciences  
+│   └── physics/              # ✅ MIGRATED (136 AKUs from science/physics/)
+│       ├── measurement-limits/
+│       ├── quantum-mechanics/
+│       ├── cosmology/
+│       ├── general-relativity/
+│       ├── particle-physics/
+│       └── atomic-physics/
 │
-├── social-sciences/          # ✓ NEW - Human society
-│   └── economics/            # To migrate from economics/ (12 AKUs)
+├── social-sciences/          # ✅ ACTIVE - Human society
+│   └── economics/            # ✅ MIGRATED (1/12 AKUs from economics/)
+│       └── bwl/finance/valuation/npv/
 │
-├── health-sciences/          # ✓ NEW - Health and medicine
-│   └── medicine/             # To migrate from medicine/ (67 AKUs)
+├── health-sciences/          # ✅ ACTIVE - Health and medicine
+│   └── medicine/             # ✅ MIGRATED (64/67 AKUs from medicine/)
+│       └── surgery/vascular/
+│           ├── complications/endoleaks/
+│           └── pathology/mesenteric-ischemia/
 │
-├── science/                  # 🔄 LEGACY - Being phased out
+├── science/                  # ⏳ LEGACY - Being phased out
 │   ├── math/                 # To migrate to formal-sciences/mathematics/
 │   ├── computer-science/
 │   │   └── functional-theory/   # FP app AKUs (19, updated with cross-refs)
-│   └── physics/              # To migrate to natural-sciences/physics/
+│   └── physics/              # ⏳ OLD LOCATION - migrated to natural-sciences/
 │
-├── economics/                # 🔄 LEGACY - Being phased out
-└── medicine/                 # 🔄 LEGACY - Being phased out
+├── economics/                # ⏳ LEGACY - Being phased out (11 remaining AKUs)
+└── medicine/                 # ⏳ LEGACY - Being phased out (3 remaining AKUs)
 ```
 
 ## Top-Level Structure
