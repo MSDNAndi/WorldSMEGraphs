@@ -8,6 +8,8 @@
 
 ### For New Users
 - **Start Here**: [Migration Quick-Start Guide](MIGRATION-QUICKSTART.md)
+- **Navigation**: [Domain Navigation Guide](DOMAIN-NAVIGATION-GUIDE.md) ⭐ NEW
+- **Checklist**: [Migration Checklist Template](MIGRATION-CHECKLIST-TEMPLATE.md) ⭐ NEW
 - **Overview**: [Migration Summary](MIGRATION-SUMMARY.md)
 - **Results**: [Validation Report](VALIDATION-REPORT.md)
 
@@ -19,11 +21,15 @@
 ### For Developers
 - **Global Hierarchy**: [global-hierarchy.yaml](global-hierarchy.yaml)
 - **Migration Guide**: [MIGRATION-GUIDE.md](MIGRATION-GUIDE.md)
+- **Tools Documentation**: [TOOLS-DOCUMENTATION.md](TOOLS-DOCUMENTATION.md) ⭐ NEW
+- **Domain Comparison**: [DOMAIN-COMPARISON-MATRIX.md](DOMAIN-COMPARISON-MATRIX.md) ⭐ NEW
 - **Design Documentation**: [README.md](README.md)
 
 ### For Contributors
 - **Contributing Guide**: [`../../docs/CONTRIBUTING.md`](../../docs/CONTRIBUTING.md)
+- **Migration Checklist**: [MIGRATION-CHECKLIST-TEMPLATE.md](MIGRATION-CHECKLIST-TEMPLATE.md) ⭐ NEW
 - **Quick-Start**: [MIGRATION-QUICKSTART.md](MIGRATION-QUICKSTART.md)
+- **Before/After Comparison**: [BEFORE-AFTER-COMPARISON.md](BEFORE-AFTER-COMPARISON.md)
 
 ## Documentation Overview
 
@@ -40,9 +46,19 @@
 | Document | Purpose | Audience |
 |----------|---------|----------|
 | [MIGRATION-QUICKSTART.md](MIGRATION-QUICKSTART.md) | Quick 3-step guide | New users |
+| [MIGRATION-CHECKLIST-TEMPLATE.md](MIGRATION-CHECKLIST-TEMPLATE.md) | 22-step detailed checklist | Contributors ⭐ NEW |
 | [MIGRATION-SUMMARY.md](MIGRATION-SUMMARY.md) | Complete migration record | All |
 | [VALIDATION-REPORT.md](VALIDATION-REPORT.md) | Quality assurance results | QA, Management |
 | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Common issues & solutions | Developers, Users |
+| [BEFORE-AFTER-COMPARISON.md](BEFORE-AFTER-COMPARISON.md) | Visual hierarchy transformation | All |
+
+### Navigation & Reference
+
+| Document | Purpose | Audience |
+|----------|---------|----------|
+| [DOMAIN-NAVIGATION-GUIDE.md](DOMAIN-NAVIGATION-GUIDE.md) | Complete navigation system | All ⭐ NEW |
+| [DOMAIN-COMPARISON-MATRIX.md](DOMAIN-COMPARISON-MATRIX.md) | Side-by-side domain analysis | Architects, Developers ⭐ NEW |
+| [TOOLS-DOCUMENTATION.md](TOOLS-DOCUMENTATION.md) | Comprehensive tool guide | Developers ⭐ NEW |
 
 ### Project Management
 
