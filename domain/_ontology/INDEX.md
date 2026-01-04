@@ -4,6 +4,25 @@
 > **Last Updated**: 2026-01-04  
 > **Status**: Complete for Phase 1-4
 
+## 🌟 New Comprehensive Guides (2026-01-04)
+
+**Essential Developer Resources** - See `../../docs/`:
+
+| Guide | Size | Purpose |
+|-------|------|---------|
+| [CONTENT-CREATION-GUIDE.md](../../docs/CONTENT-CREATION-GUIDE.md) | 19KB | Complete content creation handbook (6 types, 7 audiences) |
+| [VISUALIZATION-STYLE-GUIDE.md](../../docs/VISUALIZATION-STYLE-GUIDE.md) | 16KB | Visual content standards (WCAG accessibility) |
+| [MULTILINGUAL-CONTENT-GUIDE.md](../../docs/MULTILINGUAL-CONTENT-GUIDE.md) | 16KB | Internationalization guide (10+ languages) |
+| [API-DOCUMENTATION-GUIDE.md](../../docs/API-DOCUMENTATION-GUIDE.md) | 18KB | API design and usage (REST + GraphQL) |
+| [tutorials/PYTHON-AKU-TUTORIAL.md](../../docs/tutorials/PYTHON-AKU-TUTORIAL.md) | - | Python developer tutorial |
+
+**Quick Reference Cards** - See `../../docs/quick-reference/`:
+- [AKU Format Cheatsheet](../../docs/quick-reference/AKU-FORMAT-CHEATSHEET.md) - Essential structure reference
+- [Validation Commands](../../docs/quick-reference/VALIDATION-COMMANDS-CHEATSHEET.md) - Testing commands
+- [Git Workflow](../../docs/quick-reference/GIT-WORKFLOW-CHEATSHEET.md) - Version control patterns
+
+---
+
 ## Quick Links
 
 ### For New Users
