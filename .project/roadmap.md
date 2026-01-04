@@ -1,7 +1,7 @@
 # WorldSMEGraphs Roadmap
 
-> **Last Updated**: 2025-12-27  
-> **Status**: Planning Phase  
+> **Last Updated**: 2026-01-04  
+> **Status**: Foundation Phase  
 > **Next Review**: 2026-01-26
 
 ## Vision
@@ -30,6 +30,15 @@ Create a comprehensive, interconnected knowledge representation system for subje
   - [x] Validation tools implemented
   - [x] Migration strategy documented (5 phases)
   - [x] Implementation guide created
+- [x] **Global Domain Hierarchy** (NEW - 2026-01-04)
+  - [x] Designed rigorous taxonomy based on UNESCO/LOC/DDC/MSC/ACM
+  - [x] Established 8 top-level domains
+  - [x] Defined native domain placement principle
+  - [x] Created cross-domain linking patterns (uses/applies/extends/informs)
+  - [x] Added cross-domain.jsonld vocabulary
+  - [x] Created example AKUs demonstrating pattern
+  - [x] Built cross-domain validation tool
+  - [ ] **Pending**: Migrate category theory to mathematics (Issue #3)
 - [ ] Define rendering system architecture
 - [ ] Create initial documentation
 - [ ] Set up quality assurance processes

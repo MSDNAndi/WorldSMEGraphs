@@ -268,6 +268,23 @@ python .project/agents/quality-assurance/tools/validate_aku.py --pilot npv
 - Flexible schema based on content type
 - Detailed error reporting with suggestions
 
+### Validating Cross-Domain Linking
+Ensure AKUs follow the cross-domain linking pattern:
+
+```bash
+# Validate single AKU for cross-domain compliance
+python domain/_ontology/tools/validate_cross_domain.py path/to/aku.json
+
+# Validate all AKUs in a directory
+python domain/_ontology/tools/validate_cross_domain.py --directory path/to/akus/
+```
+
+**Cross-domain validator checks:**
+- Native domain AKUs have `isNativeDomain: true`
+- Application domain AKUs have `cross_domain_references`
+- All cross-domain links point to valid paths
+- Domain paths align with `domain/_ontology/global-hierarchy.yaml`
+
 ### Validating Agents
 Check that all agent configurations meet the 180-line minimum requirement:
 
@@ -579,6 +596,7 @@ If stuck or uncertain:
 ### Essential Files
 - **This File**: `.github/copilot-instructions.md` - Main Copilot instructions
 - **Project Structure**: `.project/structure.md` - File organization and layout
+- **Global Hierarchy**: `domain/_ontology/global-hierarchy.yaml` - Domain taxonomy
 - **Roadmap**: `.project/roadmap.md` - Project goals and timeline
 - **Issues**: `.project/issues.md` - Open issues and blockers
 - **Improvements**: `.project/improvements.md` - Enhancement proposals
@@ -588,6 +606,7 @@ If stuck or uncertain:
 ### Important Directories
 - **Agents**: `.github/agents/` - 60+ custom agent definitions
 - **Domains**: `domain/` - Knowledge domain hierarchies
+- **Domain Ontology**: `domain/_ontology/` - Global hierarchy and cross-domain tools
 - **Documentation**: `docs/` - General project documentation
 - **Project Metadata**: `.project/` - Project planning and tracking
 - **Validation Tools**: `.project/agents/quality-assurance/tools/` - AKU validators
@@ -596,6 +615,9 @@ If stuck or uncertain:
 ```bash
 # Validate AKUs
 python .project/agents/quality-assurance/tools/validate_aku.py path/to/aku.json
+
+# Validate cross-domain linking
+python domain/_ontology/tools/validate_cross_domain.py path/to/aku.json
 
 # Check agent quality
 bash .github/scripts/check-agent-lengths.sh

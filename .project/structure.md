@@ -30,7 +30,19 @@ WorldSMEGraphs/
 │   └── work-continuation.md # Work session guide (50-minute sessions)
 │
 ├── domain/                  # Knowledge domain hierarchies
-│   ├── science/            # Science domains
+│   ├── _contexts/          # JSON-LD context files for semantic vocabulary
+│   │   ├── README.md              # Context file documentation
+│   │   ├── base.jsonld            # Core vocabulary (Schema.org, SKOS, DC)
+│   │   ├── medicine.jsonld        # Medical domain vocabulary (SNOMED CT, MeSH)
+│   │   ├── economics.jsonld       # Economics domain vocabulary (FIBO)
+│   │   ├── science.jsonld         # Science domain vocabulary (QUDT, ChEBI)
+│   │   └── cross-domain.jsonld    # Cross-domain relationship vocabulary ✓ NEW
+│   │
+│   ├── _ontology/          # Global domain taxonomy and ontology ✓ NEW
+│   │   ├── README.md              # Design documentation
+│   │   └── global-hierarchy.yaml  # Authoritative domain hierarchy
+│   │
+│   ├── science/            # Science domains (to be migrated to formal-sciences/natural-sciences)
 │   │   ├── math/
 │   │   │   ├── algebra/
 │   │   │   │   ├── knowledge.graph        # Language-agnostic representation
@@ -58,10 +70,10 @@ WorldSMEGraphs/
 │   │   │   ├── geometry/
 │   │   │   └── calculus/
 │   │   ├── computer-science/
-│   │   │   └── functional-theory/         # Category theory, functors, monoids, monads (27 AKUs)
-│   │   │       ├── concept-index.yaml
-│   │   │       ├── README.md
-│   │   │       ├── category-theory/       # 8 AKUs (math-native, scoped here for FP use cases)
+│   │   │   └── functional-theory/         # FP concepts (27 AKUs) - to be refactored
+│   │   │       ├── concept-index.yaml     # NOTE: Category theory to migrate to
+│   │   │       ├── README.md              # formal-sciences/mathematics/pure-mathematics/category-theory
+│   │   │       ├── category-theory/       # 8 AKUs (⚠️ migration pending per global-hierarchy.yaml)
 │   │   │       ├── functors/              # 6 AKUs
 │   │   │       ├── monoids/               # 5 AKUs
 │   │   │       └── monads/                # 8 AKUs
@@ -205,20 +217,33 @@ General documentation accessible to all users:
 
 ## Organization Principles
 
-### 1. Hierarchy by Subject Matter
-Organize domains hierarchically from broad to specific:
-- Level 1: Major category (science, economics, humanities)
-- Level 2: Discipline (math, physics, macroeconomics)
-- Level 3: Topic (algebra, mechanics, monetary-policy)
-- Math-native foundations that are curated for programming (e.g., category theory for functional programming) can live under computer science, with cross-domain links back to mathematics for rigor and reuse.
+### 1. Native Domain Placement (NEW)
+Concepts belong to their NATIVE domain (origin), not application domains:
+- **Category Theory** → `formal-sciences/mathematics/pure-mathematics/category-theory/` (not under computer-science)
+- **Linear Algebra** → `formal-sciences/mathematics/pure-mathematics/algebra/linear-algebra/` (even if used 95% in ML)
+- Applications create LINKS to source concepts, not copies
 
-### 2. Separation of Concerns
+See `domain/_ontology/global-hierarchy.yaml` for the authoritative domain taxonomy.
+
+### 2. Hierarchy by Subject Matter
+Organize domains hierarchically from broad to specific:
+- Level 1: Top-level domain (formal-sciences, natural-sciences, social-sciences, health-sciences, engineering, humanities, arts)
+- Level 2: Discipline (mathematics, physics, economics, medicine)
+- Level 3: Subdiscipline (pure-mathematics, applied-mathematics, vascular-surgery)
+- Level 4+: Specific topics (category-theory, linear-algebra, endoleaks)
+
+### 3. Cross-Domain Linking
+- Applications link to native concepts using `crossDomainReferences`
+- Use relationship types: `uses`, `applies`, `extends`, `informs`
+- See `domain/_contexts/cross-domain.jsonld` for vocabulary
+
+### 4. Separation of Concerns
 - **Knowledge**: Language-agnostic in `.graph` files
 - **Renderings**: Language and audience-specific in `.renders/`
 - **Metadata**: Schemas and configuration separate from content
 - **Infrastructure**: GitHub and project config in dotfiles
 
-### 3. Consistent Structure
+### 5. Consistent Structure
 Each domain topic follows the same pattern:
 ```
 [topic]/
@@ -229,7 +254,7 @@ Each domain topic follows the same pattern:
         └── [audience].[format]
 ```
 
-### 4. File-Based Everything
+### 6. File-Based Everything
 - No external databases required
 - All data in version control
 - Portable and collaborative
@@ -300,12 +325,17 @@ Listed in `.gitignore`:
 - [Knowledge Format Specification](knowledge-format.md)
 - [Rendering Specification](rendering-spec.md)
 - [Project Roadmap](roadmap.md)
+- [Global Domain Hierarchy](../domain/_ontology/global-hierarchy.yaml) ✓ NEW
+- [Cross-Domain Context](../domain/_contexts/cross-domain.jsonld) ✓ NEW
 
 ---
 
 **Last Updated**: 2026-01-04  
 **Major Changes**: 
-- 2026-01-04: Added functional-theory domain under science/computer-science (category theory, functors, monoids, monads) with cross-links to mathematics
+- 2026-01-04: Added global domain hierarchy (`domain/_ontology/global-hierarchy.yaml`) with rigorous taxonomy based on UNESCO/LOC/DDC
+- 2026-01-04: Added cross-domain relationship vocabulary (`domain/_contexts/cross-domain.jsonld`)
+- 2026-01-04: Established native domain placement principle - category theory belongs to mathematics, not computer-science
+- 2026-01-04: Added functional-theory domain under science/computer-science (category theory, functors, monoids, monads) - ⚠️ migration pending
 - 2025-12-30: Added mesenteric ischemia domain with 29 AKUs and rendered book chapter (25-30 pages)
 - 2025-12-30: Added prime numbers domain with 10 AKUs and cross-domain connections
 - 2025-12-27: Added medicine domain with vascular surgery Type 2 endoleak (5 AKUs complete)

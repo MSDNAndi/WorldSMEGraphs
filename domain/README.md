@@ -1,24 +1,54 @@
 # Domain Directory
 
 > **Purpose**: Root directory for all subject matter expert knowledge domains
+> **Last Updated**: 2026-01-04
 
 ## Overview
 This directory contains hierarchically organized knowledge graphs for various subject matter expert domains. Each domain follows a consistent structure to enable cross-linking and systematic knowledge representation.
+
+## 🆕 Global Domain Hierarchy
+
+The authoritative domain taxonomy is defined in [`_ontology/global-hierarchy.yaml`](_ontology/global-hierarchy.yaml).
+
+**Key Principles**:
+1. **Native Domain Placement**: Concepts belong to their ORIGIN domain, not application domains
+2. **Single Source of Truth**: AKUs created only in native domain; others link to them
+3. **Cross-Domain Linking**: Applications reference native concepts, don't copy them
+
+**Top-Level Domains**:
+- `formal-sciences/` - Mathematics, Computer Science, Logic
+- `natural-sciences/` - Physics, Chemistry, Biology, Earth Sciences
+- `social-sciences/` - Economics, Psychology, Sociology
+- `health-sciences/` - Medicine, Nursing, Pharmacy
+- `engineering/` - Mechanical, Electrical, Civil
+- `humanities/` - Philosophy, History, Linguistics
+- `arts/` - Visual Arts, Music, Design
+- `interdisciplinary/` - Cognitive Science, Data Science
+
+See [`_ontology/README.md`](_ontology/README.md) for design documentation.
 
 ## Domain Organization
 
 ### Hierarchical Structure
 ```
 domain/
-├── [category]/           # Major category (science, economics, humanities, etc.)
+├── _ontology/            # Global domain taxonomy (NEW)
+│   ├── global-hierarchy.yaml  # Authoritative hierarchy
+│   ├── README.md              # Design documentation
+│   ├── examples/              # Cross-domain linking examples
+│   └── tools/                 # Validation tools
+├── _contexts/            # JSON-LD context files
+│   ├── base.jsonld           # Core vocabulary
+│   ├── cross-domain.jsonld   # Cross-domain vocabulary (NEW)
+│   └── [domain].jsonld       # Domain-specific vocabularies
+├── [category]/           # Major category (science, economics, etc.)
 │   ├── [discipline]/     # Specific discipline within category
 │   │   ├── [topic]/      # Specific topic within discipline
 │   │   │   ├── knowledge.graph      # Core knowledge representation
 │   │   │   ├── schema.json          # Schema definition
 │   │   │   ├── README.md            # Topic documentation
 │   │   │   └── .renders/            # Human-readable renderings
-│   │   │       ├── [language]/
-│   │   │       │   └── [audience].[format]
+│   │   │       └── [language]/[audience].[format]
 │   │   └── README.md     # Discipline documentation
 │   └── README.md         # Category documentation
 └── README.md             # This file

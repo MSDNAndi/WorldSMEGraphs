@@ -1,6 +1,6 @@
 # Improvements and Enhancement Ideas
 
-> **Last Updated**: 2025-12-30T05:30:00Z  
+> **Last Updated**: 2026-01-04T01:26:00Z  
 > **Purpose**: Track enhancement ideas, technical debt, and future improvements
 
 ## Categories
@@ -12,6 +12,59 @@
 ---
 
 ## Recently Completed Improvements
+
+### ✅ IMP-COMPLETE-005: Global Domain Hierarchy Design
+**Category**: Ontology & Knowledge Organization  
+**Impact**: High  
+**Effort**: ~50 minutes  
+**Priority**: Foundation Phase  
+**Status**: ✅ Completed (2026-01-04)
+
+**Description**:
+Designed and implemented a comprehensive, ontologically rigorous global domain hierarchy based on established taxonomies (UNESCO ISCED-F, Library of Congress, Dewey Decimal, MSC 2020, ACM CCS).
+
+**Key Deliverables**:
+1. **Global Hierarchy** (`domain/_ontology/global-hierarchy.yaml`)
+   - 8 top-level domains: Formal Sciences, Natural Sciences, Social Sciences, Health Sciences, Engineering, Humanities, Arts, Interdisciplinary
+   - Category theory correctly placed under mathematics (native domain principle)
+   - Cross-domain linking patterns (uses, applies, extends, informs)
+   - Migration plan for existing content
+
+2. **Design Documentation** (`domain/_ontology/README.md`)
+   - Native domain placement principle explained
+   - Migration path documented
+   - Examples of correct patterns
+
+3. **JSON-LD Vocabulary** (`domain/_contexts/cross-domain.jsonld`)
+   - Cross-domain relationship types
+   - Native/application domain markers
+   - Hierarchy navigation properties
+
+4. **Example AKUs** (`domain/_ontology/examples/`)
+   - Native domain AKU (math monad)
+   - Application domain AKU (FP monad linking to math)
+   - Pattern documentation
+
+5. **Validation Tool** (`domain/_ontology/tools/validate_cross_domain.py`)
+   - Validates AKUs follow cross-domain patterns
+   - Checks native vs application markers
+   - Boundary-aware path matching
+
+**Principles Established**:
+- Concepts belong to NATIVE domain (origin), not application domains
+- Applications LINK to native concepts, don't copy
+- One authoritative location per concept
+
+**Future Work** (Issue #3):
+- Migrate category theory from computer-science to mathematics
+- Update functional-programming to use cross-domain links
+- Create application context AKUs
+
+**Completed By**: Copilot Agent (ontology-agent)  
+**Created**: 2026-01-04  
+**Session Duration**: ~50 minutes
+
+---
 
 ### ✅ IMP-COMPLETE-004: Mesenteric Ischemia AKU Expansion
 **Category**: Medical Knowledge Quality  

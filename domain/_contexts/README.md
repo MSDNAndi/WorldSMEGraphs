@@ -61,6 +61,42 @@ These context files enable semantic interoperability by:
 
 **Usage**: For physics, chemistry, biology, and other science AKUs
 
+### `cross-domain.jsonld`
+**Purpose**: Cross-domain relationship vocabulary
+
+**Includes**:
+- Cross-domain link types (uses, applies, extends, informs)
+- Native domain markers
+- Application domain references
+- Hierarchy navigation properties
+- Top-level domain type definitions
+
+**Usage**: For AKUs that reference concepts from other domains
+
+**Key Properties**:
+- `nativeDomain`: Where a concept was originally developed
+- `applicationDomain`: Where a concept is applied
+- `uses`: Domain uses concepts as tools/foundations
+- `applies`: Domain applies concepts practically
+- `extends`: Domain extends/specializes concepts
+- `informs`: Bidirectional mutual influence
+
+**Example**:
+```json
+{
+  "@context": [
+    "https://worldsmegraphs.org/contexts/base.jsonld",
+    "https://worldsmegraphs.org/contexts/cross-domain.jsonld"
+  ],
+  "@id": "wsmg:cs/fp/monad-applications",
+  "crossDomainReferences": [{
+    "uses": "wsmg:math/category-theory/monad-definition",
+    "relationship": "applies",
+    "applicationContext": "Monads structure effectful computations in FP"
+  }]
+}
+```
+
 ## How to Use
 
 ### In AKU Files
@@ -199,5 +235,5 @@ Current version: **1.0.0** (2025-12-27)
 
 **Owner**: @ontology, @semantic-harmonization  
 **Review Schedule**: Quarterly  
-**Last Updated**: 2025-12-27  
-**Next Review**: 2026-03-27
+**Last Updated**: 2026-01-04  
+**Next Review**: 2026-04-04
