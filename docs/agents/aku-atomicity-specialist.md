@@ -80,7 +80,7 @@ An Atomic Knowledge Unit (AKU) is the smallest piece of knowledge that:
 
 ### Analyze for Violations
 ```bash
-@aku-atomicity-specialist Analyze domain/economics/bwl/finance/valuation/npv/akus/ 
+@aku-atomicity-specialist Analyze domain/social-sciences/economics/bwl/finance/valuation/npv/akus/ 
 for over-bundled AKUs. Look for: (1) AKUs teaching multiple concepts, (2) Mixed 
 definition + formula + example in single AKU, (3) Multi-step calculations in one unit.
 Report violations with split recommendations.
@@ -105,7 +105,7 @@ aku-discount-rate-range.json, aku-discount-rate-notation.json] into single cohes
 ### Domain Audit
 ```bash
 @aku-atomicity-specialist Audit entire NPV pilot 
-(domain/economics/bwl/finance/valuation/npv/) for atomicity violations. Provide: 
+(domain/social-sciences/economics/bwl/finance/valuation/npv/) for atomicity violations. Provide: 
 (1) List of over-bundled AKUs with concept count, (2) Under-specified fragments, 
 (3) Recommended splits/merges, (4) Priority ranking by learning impact.
 ```
