@@ -59,6 +59,8 @@
 | [DOMAIN-NAVIGATION-GUIDE.md](DOMAIN-NAVIGATION-GUIDE.md) | Complete navigation system | All ⭐ NEW |
 | [DOMAIN-COMPARISON-MATRIX.md](DOMAIN-COMPARISON-MATRIX.md) | Side-by-side domain analysis | Architects, Developers ⭐ NEW |
 | [TOOLS-DOCUMENTATION.md](TOOLS-DOCUMENTATION.md) | Comprehensive tool guide | Developers ⭐ NEW |
+| [CROSS-DOMAIN-LINKING-GUIDE.md](CROSS-DOMAIN-LINKING-GUIDE.md) | Visual linking guide with diagrams | All ⭐ NEW |
+| [FAQ.md](FAQ.md) | 30+ frequently asked questions | All ⭐ NEW |
 
 ### Project Management
 
