@@ -1,0 +1,303 @@
+---
+# Functional Theory Concept Index
+# Comprehensive knowledge graph of category theory, functors, monoids, and monads
+# Created: 2026-01-03T23:36:18.481Z
+# Updated: 2026-01-04 - Added global hierarchy reference and cross-domain linking
+
+domain:
+  name: Functional Theory
+  path: science/computer-science/functional-theory
+  description: Mathematical foundations of functional programming including category theory, functors, monoids, and monads
+  
+  # Global Hierarchy Reference (per domain/_ontology/global-hierarchy.yaml)
+  # This domain is an APPLICATION domain for functional programming
+  application_domain_path: formal-sciences/computer-science/programming-paradigms/functional-programming
+  
+  # The mathematical concepts used here have their NATIVE home in mathematics:
+  native_math_domain_path: formal-sciences/mathematics/pure-mathematics/category-theory
+  
+  # IMPORTANT: Ontology Clarification - MIGRATION IN PROGRESS
+  # Category theory, functors, monoids, and monads are MATHEMATICALLY native concepts.
+  # 
+  # MIGRATION STATUS (2026-01-04):
+  # ✅ Category theory (8 AKUs) → MIGRATED to formal-sciences/mathematics/pure-mathematics/category-theory/
+  # 🔄 Functors, Monoids, Monads (19 AKUs) → UPDATED with cross-domain references
+  #
+  # This domain now contains APPLICATION AKUs for functional programming that LINK to
+  # mathematical definitions in their native domains.
+  
+  placement_rationale: >
+    This domain contains functional programming APPLICATION of mathematical concepts.
+    Per the global hierarchy (domain/_ontology/global-hierarchy.yaml), mathematical 
+    concepts have their NATIVE home in formal-sciences/mathematics/pure-mathematics/.
+    
+    MIGRATION COMPLETED (2026-01-04):
+    - Category theory AKUs moved to formal-sciences/mathematics/pure-mathematics/category-theory/
+    - Remaining AKUs updated with isApplicationDomain: true
+    - All AKUs now have cross_domain_references to native math concepts
+  
+  cross_domain_references:
+    applies:
+      - path: formal-sciences/mathematics/pure-mathematics/category-theory
+        relationship: applies
+        concepts: [categories, morphisms, composition, identity, functors, monads, natural-transformations]
+        notes: "FP applies category theory concepts to structure computations"
+        native_akus_location: formal-sciences/mathematics/pure-mathematics/category-theory/akus/
+      - path: formal-sciences/mathematics/pure-mathematics/algebra
+        relationship: uses
+        concepts: [monoids, semigroups, groups]
+        notes: "Algebraic structures used for aggregation and composition"
+      - path: formal-sciences/mathematics/pure-mathematics/logic/type-theory
+        relationship: uses  
+        concepts: [types, type-constructors, polymorphism]
+        notes: "Type theory provides the type system foundation"
+  
+  total_akus: 19
+  migrated_akus: 8
+  aku_breakdown:
+    functors: 6
+    monoids: 5
+    monads: 8
+    category_theory_migrated: 8
+
+subdomain_index:
+  category-theory:
+    description: "MIGRATED TO: formal-sciences/mathematics/pure-mathematics/category-theory/"
+    migration_date: 2026-01-04
+    aku_count: 8
+    new_location: formal-sciences/mathematics/pure-mathematics/category-theory/akus/
+    note: >
+      Category theory AKUs have been moved to their native mathematical domain.
+      All 8 AKUs are now located in formal-sciences/mathematics/pure-mathematics/category-theory/
+      and marked with isNativeDomain: true. They include cross_domain_applications sections
+      documenting their use in functional programming.
+    migrated_akus:
+      - id: ct-001-historical-origins
+        title: Historical Origins of Category Theory
+        new_path: formal-sciences/mathematics/pure-mathematics/category-theory/akus/ct-001-historical-origins.json
+        
+      - id: ct-002-category-definition
+        title: Category Definition
+        new_path: formal-sciences/mathematics/pure-mathematics/category-theory/akus/ct-002-category-definition.json
+        
+      - id: ct-003-morphisms
+        title: Morphisms (Arrows)
+        new_path: formal-sciences/mathematics/pure-mathematics/category-theory/akus/ct-003-morphisms.json
+        
+      - id: ct-004-composition
+        title: Composition Operation
+        new_path: formal-sciences/mathematics/pure-mathematics/category-theory/akus/ct-004-composition.json
+        
+      - id: ct-005-identity-morphisms
+        title: Identity Morphisms
+        new_path: formal-sciences/mathematics/pure-mathematics/category-theory/akus/ct-005-identity-morphisms.json
+        
+      - id: ct-006-category-laws
+        title: Category Axioms and Laws
+        new_path: formal-sciences/mathematics/pure-mathematics/category-theory/akus/ct-006-category-laws.json
+        
+      - id: ct-007-examples
+        title: Examples of Categories
+        new_path: formal-sciences/mathematics/pure-mathematics/category-theory/akus/ct-007-examples.json
+        
+      - id: ct-008-universal-properties
+        title: Universal Properties
+        new_path: formal-sciences/mathematics/pure-mathematics/category-theory/akus/ct-008-universal-properties.json
+
+  functors:
+    description: Structure-preserving mappings between categories
+    aku_count: 6
+    akus:
+      - id: fn-001-functor-definition
+        title: Functor Definition
+        concepts: [functor, category-morphism, structure-preservation]
+        difficulty: graduate
+        prerequisites: [ct-002-category-definition, ct-006-category-laws]
+        
+      - id: fn-002-functor-laws
+        title: Functor Laws
+        concepts: [identity-preservation, composition-preservation, functor-axioms]
+        difficulty: graduate
+        prerequisites: [fn-001-functor-definition]
+        
+      - id: fn-003-mathematical-examples
+        title: Mathematical Functor Examples
+        concepts: [power-set, free-group, forgetful, fundamental-group, homology]
+        difficulty: graduate
+        prerequisites: [fn-001-functor-definition, fn-002-functor-laws]
+        
+      - id: fn-004-programming-map
+        title: Functors in Programming (Map)
+        concepts: [map, fmap, type-constructor, computational-context]
+        difficulty: intermediate
+        prerequisites: [fn-001-functor-definition, fn-002-functor-laws]
+        
+      - id: fn-005-language-implementations
+        title: Functor Implementations Across Languages
+        concepts: [Haskell, Scala, JavaScript, Rust, Python, map-implementations]
+        difficulty: intermediate
+        prerequisites: [fn-004-programming-map]
+        
+      - id: fn-006-endofunctors
+        title: Endofunctors
+        concepts: [endofunctor, self-map, monad-foundation, type-constructors]
+        difficulty: graduate
+        prerequisites: [fn-001-functor-definition]
+
+  monoids:
+    description: Algebraic structure with associative operation and identity
+    aku_count: 5
+    akus:
+      - id: mo-001-monoid-definition
+        title: Monoid Definition
+        concepts: [monoid, associative-operation, identity-element, algebraic-structure]
+        difficulty: intermediate
+        
+      - id: mo-002-monoid-laws
+        title: Monoid Laws
+        concepts: [associativity, identity-laws, monoid-axioms]
+        difficulty: intermediate
+        prerequisites: [mo-001-monoid-definition]
+        
+      - id: mo-003-examples
+        title: Monoid Examples
+        concepts: [addition, multiplication, concatenation, composition, boolean-operations]
+        difficulty: intermediate
+        prerequisites: [mo-001-monoid-definition, mo-002-monoid-laws]
+        
+      - id: mo-004-programming
+        title: Monoids in Programming
+        concepts: [type-classes, generic-aggregation, mempty, mappend, mconcat]
+        difficulty: intermediate
+        prerequisites: [mo-001-monoid-definition, mo-003-examples]
+        
+      - id: mo-005-reduce-fold
+        title: Monoids and Reduce/Fold Operations
+        concepts: [fold, reduce, aggregation, parallel-computation, mapreduce]
+        difficulty: intermediate
+        prerequisites: [mo-004-programming]
+
+  monads:
+    description: Endofunctors with unit and join for composing effectful computations
+    aku_count: 8
+    akus:
+      - id: md-001-monad-definition
+        title: Monad Definition
+        concepts: [monad, endofunctor, unit, join, return, bind]
+        difficulty: graduate
+        prerequisites: [fn-001-functor-definition, fn-006-endofunctors]
+        
+      - id: md-002-monad-laws
+        title: Monad Laws
+        concepts: [left-identity, right-identity, associativity, coherence-laws]
+        difficulty: graduate
+        prerequisites: [md-001-monad-definition]
+        
+      - id: md-003-why-monads
+        title: Why Monads Matter
+        concepts: [effectful-computation, composition, kleisli-arrows, problem-solution]
+        difficulty: graduate
+        prerequisites: [md-001-monad-definition]
+        
+      - id: md-004-kleisli-category
+        title: Kleisli Category
+        concepts: [kleisli-category, kleisli-arrows, monadic-composition, fish-operator]
+        difficulty: graduate
+        prerequisites: [md-001-monad-definition, md-003-why-monads]
+        
+      - id: md-005-examples
+        title: Common Monad Examples
+        concepts: [Maybe, List, IO, State, Reader, Writer, Either, Result]
+        difficulty: intermediate
+        prerequisites: [md-001-monad-definition, md-003-why-monads]
+        
+      - id: md-006-language-implementations
+        title: Monads Across Programming Languages
+        concepts: [do-notation, for-comprehension, async-await, promises, question-mark-operator]
+        difficulty: intermediate
+        prerequisites: [md-005-examples]
+        
+      - id: md-007-tutorial-fallacy
+        title: The Monad Tutorial Fallacy
+        concepts: [pedagogy, analogies, experiential-learning, functional-programming-culture]
+        difficulty: intermediate
+        prerequisites: [md-001-monad-definition, md-005-examples]
+        
+      - id: md-008-monoid-connection
+        title: Monads as Monoids in Category of Endofunctors
+        concepts: [monoid-monad-connection, category-of-endofunctors, abstraction-levels]
+        difficulty: graduate
+        prerequisites: [mo-001-monoid-definition, md-001-monad-definition, fn-006-endofunctors]
+
+# Cross-domain relationships
+cross_domain_links:
+  mathematics:
+    - abstract-algebra: [groups, monoids, semigroups]
+    - set-theory: [functions, sets, power-set]
+    - topology: [fundamental-group, homology, continuous-maps]
+    - logic: [type-theory, constructive-mathematics]
+    
+  computer-science:
+    - type-theory: [type-constructors, type-systems, dependent-types]
+    - functional-programming: [higher-order-functions, composition, immutability]
+    - programming-languages: [Haskell, Scala, Rust, JavaScript, Python]
+    - error-handling: [Option, Either, Result, exceptions]
+    - async-programming: [promises, futures, async-await]
+    - parallel-computing: [mapreduce, parallel-fold]
+
+# Learning paths
+learning_paths:
+  beginner:
+    description: Entry point for those new to functional theory
+    sequence:
+      - Start with monoids (most concrete)
+      - Move to functors (map operation)
+      - Understand endofunctors
+      - Finally approach monads
+    akus: [mo-001, mo-003, mo-004, fn-004, fn-005, fn-006, md-005, md-006]
+    
+  mathematical:
+    description: Category theory first approach
+    sequence:
+      - Category theory foundations
+      - Functors as category morphisms
+      - Monoids as algebraic structures
+      - Monads as monoids in endofunctors
+    akus: [ct-001, ct-002, ct-003, ct-004, ct-005, ct-006, ct-007, fn-001, fn-002, fn-003, mo-001, mo-002, md-001, md-002, md-008]
+    
+  practical:
+    description: Programming-focused approach
+    sequence:
+      - Functors in programming (map)
+      - Monoids for aggregation
+      - Monad examples and use cases
+      - Language implementations
+    akus: [fn-004, fn-005, mo-003, mo-004, mo-005, md-005, md-006, md-007]
+
+# Visualization suggestions
+visualization_hints:
+  category_diagrams:
+    - Commutative diagrams for composition
+    - Object-arrow graphs for categories
+    - Functor mappings between categories
+    
+  monad_visualizations:
+    - Nested context flattening (join)
+    - Kleisli arrow composition
+    - Monad bind operation flow
+    
+  relationship_graphs:
+    - Prerequisites tree
+    - Concept dependency graph
+    - Cross-domain connections
+
+# Metadata
+metadata:
+  created: 2026-01-03T23:36:18.481Z
+  version: 1.0.0
+  contributors: [knowledge-graph-agent]
+  status: complete
+  validation_status: pending
+  total_concepts: 150+
+  language_agnostic: true
+  rendering_ready: true
