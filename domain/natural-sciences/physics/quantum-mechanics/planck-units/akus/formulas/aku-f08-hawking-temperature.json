@@ -1,0 +1,130 @@
+{
+  "@context": "aku-v2",
+  "@type": "formula",
+  "@id": "physics:quantum:planck-units:hawking-temperature",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T21:46:00.000Z",
+    "updated": "2025-12-29T21:46:00.000Z",
+    "contributors": [
+      "copilot",
+      "physics-agent"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "modified": "2026-01-04T14:38:39.414Z"
+  },
+  "classification": {
+    "domain_path": "natural-sciences/physics/quantum-mechanics/planck-units",
+    "type": "formula",
+    "subtype": "quantum_gravity",
+    "difficulty": "advanced",
+    "importance": "foundational",
+    "isNativeDomain": true
+  },
+  "content": {
+    "title": "Hawking Temperature Formula",
+    "summary": "The Hawking temperature is the temperature at which a black hole emits thermal radiation due to quantum effects near the event horizon. It reveals deep connections between quantum mechanics, general relativity, and thermodynamics.",
+    "formula": {
+      "standard": "T_H = ℏc³/(8πGMk_B)",
+      "planck_form": "T_H = (m_P/M) × T_P/(8π)",
+      "latex": "T_H = \\frac{\\hbar c^3}{8\\pi G M k_B} = \\frac{m_P}{8\\pi M} T_P",
+      "in_natural_units": "T_H = 1/(8πM) (with ℏ = c = G = k_B = 1)"
+    },
+    "derivation_approaches": {
+      "heuristic": {
+        "description": "Uncertainty principle near horizon",
+        "steps": [
+          "Particles confined to region ~r_s = 2GM/c²",
+          "Uncertainty in momentum: Δp ~ ℏ/r_s ~ ℏc²/(2GM)",
+          "Characteristic energy: E ~ Δp × c ~ ℏc³/(2GM)",
+          "Temperature: k_B T ~ E, giving T ~ ℏc³/(GMk_B)"
+        ],
+        "note": "Gives correct order of magnitude; factor of 8π from proper calculation"
+      },
+      "rigorous": {
+        "description": "Bogoliubov transformation of vacuum modes",
+        "steps": [
+          "Quantize scalar field on black hole background",
+          "Compare in and out vacuum states",
+          "Find thermal spectrum with temperature T_H"
+        ],
+        "reference": "Hawking, 1975"
+      }
+    },
+    "numerical_examples": [
+      {
+        "object": "Solar mass black hole",
+        "mass": "M = M_☉ = 2×10³⁰ kg",
+        "temperature": "T_H = 6×10⁻⁸ K",
+        "comparison": "100 million times colder than CMB"
+      },
+      {
+        "object": "Planck mass black hole",
+        "mass": "M = m_P = 2.18×10⁻⁸ kg",
+        "temperature": "T_H = T_P/(8π) ≈ 4.5×10³¹ K",
+        "comparison": "Highest temperature possible in physics"
+      },
+      {
+        "object": "Primordial BH evaporating now",
+        "mass": "M ≈ 5×10¹¹ kg",
+        "temperature": "T_H ≈ 10¹¹ K",
+        "comparison": "Comparable to GUT scale"
+      }
+    ],
+    "key_relationships": {
+      "inverse_mass": "T_H ∝ 1/M: smaller black holes are hotter",
+      "planck_scale": "At M = m_P, temperature reaches T_P/8π",
+      "entropy_connection": "S = k_B A/(4ℓ_P²), dS/dM = c²/(T_H)",
+      "evaporation_time": "τ ∝ M³, from Stefan-Boltzmann law"
+    },
+    "physical_interpretation": {
+      "particle_creation": "Virtual particle pairs near horizon: one falls in, one escapes",
+      "information_loss": "Thermal radiation appears to lose information (paradox)",
+      "negative_heat_capacity": "Losing energy makes BH hotter (unstable equilibrium)"
+    },
+    "significance": {
+      "theoretical": [
+        "First prediction combining quantum mechanics and general relativity",
+        "Revealed black holes have thermodynamic properties",
+        "Led to black hole information paradox"
+      ],
+      "observational": "Not yet detected due to extremely low temperatures of astrophysical BHs"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:planck-temperature",
+        "required": true
+      },
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:planck-mass",
+        "required": true
+      }
+    ],
+    "related_concepts": [
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:bekenstein-hawking-entropy",
+        "relationship": "thermodynamic_relation"
+      },
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:black-hole-thermodynamics",
+        "relationship": "foundation"
+      }
+    ]
+  },
+  "provenance": {
+    "primary_sources": [
+      {
+        "type": "historical",
+        "author": "Hawking",
+        "title": "Particle creation by black holes",
+        "journal": "Communications in Mathematical Physics",
+        "year": 1975,
+        "volume": 43,
+        "pages": "199-220"
+      }
+    ]
+  }
+}

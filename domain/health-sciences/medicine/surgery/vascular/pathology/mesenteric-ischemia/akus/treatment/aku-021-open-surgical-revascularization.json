@@ -1,0 +1,261 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-021-open-surgical-revascularization",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:16:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:16:00.000Z",
+    "modified": "2026-01-04T14:38:55.243Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "treatment",
+    "difficulty": "expert",
+    "importance": "critical",
+    "aku_id": "021",
+    "keywords": [
+      "open surgery",
+      "bypass",
+      "endarterectomy",
+      "embolectomy",
+      "mesenteric revascularization"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Open surgical revascularization for mesenteric ischemia includes embolectomy (for acute embolic occlusion), bypass grafting (for thrombotic or chronic disease), and endarterectomy, with the choice of procedure depending on etiology, anatomic factors, and need for concurrent bowel assessment or resection.",
+      "formal": "Open Mesenteric Revascularization: Embolectomy (acute embolic) OR Bypass (chronic/thrombotic) OR Endarterectomy (aortic origin disease) ± Bowel assessment/resection"
+    },
+    "explanation": {
+      "intuition": "Open surgery for mesenteric ischemia is like plumbing work on the body's digestive blood supply. If something is stuck in the pipe (embolus), you can fish it out. If the pipe is clogged at its origin (atherosclerosis), you can either clean it out or bypass it entirely with a new pipe. The advantage of open surgery is that you can directly see and handle the bowel to assess viability.",
+      "key_insight": "The decision between open and endovascular revascularization is not just about the vessel - it's about the patient and the bowel. Open surgery allows direct bowel assessment and second-look laparotomy, making it preferable when bowel viability is uncertain. Endovascular-first approach is gaining favor in stable patients with viable bowel.",
+      "technical_details": "SMA revascularization requires careful attention to inflow (aorta) and target vessel quality. Antegrade bypass from supraceliac aorta provides superior long-term patency but requires supraceliac clamping. Retrograde bypass from iliac artery is technically easier but has lower patency. Prosthetic conduit (PTFE, Dacron) is acceptable when the field is not grossly contaminated."
+    }
+  },
+  "surgical_techniques": {
+    "embolectomy": {
+      "indication": "Acute SMA embolism",
+      "approach": "Transverse or midline laparotomy",
+      "technique": {
+        "exposure": "Base of transverse mesocolon, identify SMA",
+        "arteriotomy": "Transverse, distal to embolus location",
+        "extraction": "Fogarty balloon catheter, proximal and distal passes",
+        "closure": "Primary or patch closure",
+        "completion": "Intraoperative Doppler, palpable pulses"
+      },
+      "advantages": [
+        "Direct revascularization",
+        "Allows concurrent bowel assessment",
+        "No need for conduit"
+      ],
+      "limitations": [
+        "May not retrieve organized thrombus",
+        "Risk of intimal injury",
+        "Requires laparotomy"
+      ],
+      "success_rate": "70-90% for fresh emboli"
+    },
+    "bypass_grafting": {
+      "indication": "Thrombotic occlusion, chronic mesenteric ischemia, failed embolectomy",
+      "inflow_options": {
+        "supraceliac_aorta": {
+          "approach": "Left medial visceral rotation or transcrural exposure",
+          "advantages": "Best long-term patency, antegrade flow",
+          "disadvantages": "Supraceliac clamping, more dissection"
+        },
+        "infrarenal_aorta": {
+          "approach": "Transperitoneal or retroperitoneal",
+          "advantages": "Familiar exposure",
+          "disadvantages": "Often diseased, retrograde flow"
+        },
+        "iliac_artery": {
+          "approach": "Retrograde bypass",
+          "advantages": "Avoids aortic clamping, easier exposure",
+          "disadvantages": "Lower patency, may kink"
+        }
+      },
+      "conduit_options": {
+        "autologous_vein": {
+          "source": "Greater saphenous, arm vein",
+          "advantages": "Infection resistant, best if contaminated field",
+          "disadvantages": "May not be available, size mismatch"
+        },
+        "prosthetic": {
+          "types": [
+            "PTFE",
+            "Dacron"
+          ],
+          "advantages": "Readily available, consistent",
+          "disadvantages": "Infection risk if contaminated"
+        }
+      },
+      "target": "SMA beyond occlusion, celiac branches as needed",
+      "configuration": {
+        "single_vessel": "SMA bypass alone often sufficient due to collaterals",
+        "multi_vessel": "SMA + celiac for CMI, especially if celiac severely diseased"
+      }
+    },
+    "endarterectomy": {
+      "indication": "Ostial atherosclerotic disease, especially during AAA repair",
+      "technique": {
+        "transaortic": "Trapdoor endarterectomy from within aorta",
+        "direct": "Endarterectomy of SMA origin with patch"
+      },
+      "advantages": "Avoids conduit, restores native anatomy",
+      "disadvantages": "Limited extent of disease treatment, aortic clamping required",
+      "patency": "Lower than bypass for extensive disease"
+    },
+    "reimplantation": {
+      "indication": "SMA reimplantation during aortic reconstruction",
+      "technique": "Mobilize SMA, reimplant onto graft",
+      "considerations": "Used during thoracoabdominal aortic surgery"
+    }
+  },
+  "intraoperative_considerations": {
+    "bowel_assessment": {
+      "timing": "After revascularization, allow 15-30 minutes for reperfusion",
+      "signs_of_viability": [
+        "Return of pink color",
+        "Peristalsis",
+        "Palpable mesenteric pulses",
+        "Arterial bleeding from cut edge",
+        "Doppler signals in bowel wall"
+      ],
+      "signs_of_nonviability": [
+        "Persistent dark discoloration",
+        "No peristalsis after warm saline",
+        "No bleeding from cut edge",
+        "Foul odor"
+      ],
+      "adjuncts": [
+        "Intravenous fluorescein (Woods lamp)",
+        "Laser Doppler flowmetry",
+        "Pulse oximetry probe on bowel"
+      ]
+    },
+    "decision_to_resect": {
+      "clear_necrosis": "Resect, create anastomosis or stoma",
+      "questionable_viability": "Consider second-look laparotomy in 24-48 hours",
+      "massive_involvement": "Damage control, deferred decision"
+    }
+  },
+  "perioperative_management": {
+    "preoperative": [
+      "Aggressive fluid resuscitation",
+      "Broad-spectrum antibiotics",
+      "Anticoagulation (heparin)",
+      "Correct metabolic acidosis if possible"
+    ],
+    "intraoperative": [
+      "Central line, arterial line monitoring",
+      "Cell salvage if significant blood loss expected",
+      "Warm fluids, patient warming",
+      "Heparin anticoagulation"
+    ],
+    "postoperative": [
+      "ICU monitoring",
+      "Continue anticoagulation",
+      "Serial lactate monitoring",
+      "Low threshold for second-look laparotomy"
+    ]
+  },
+  "outcomes": {
+    "perioperative_mortality": {
+      "acute_embolism": "30-50%",
+      "acute_thrombosis": "50-70%",
+      "chronic_CMI": "5-10%"
+    },
+    "patency_rates": {
+      "antegrade_bypass": "80-90% at 5 years",
+      "retrograde_bypass": "60-70% at 5 years",
+      "endarterectomy": "70-80% at 5 years"
+    },
+    "survival": {
+      "determinants": [
+        "Time to revascularization",
+        "Extent of bowel necrosis",
+        "Patient comorbidities"
+      ]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:015",
+        "title": "CTA Imaging",
+        "strength": 0.95
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:023",
+        "title": "Bowel Resection",
+        "strength": 0.9
+      }
+    ],
+    "competes_with": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:022",
+        "title": "Endovascular Treatment",
+        "relationship": "Alternative revascularization strategy"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Rutherford's Vascular Surgery, 9th Edition",
+        "confidence": 0.98
+      },
+      {
+        "type": "review_article",
+        "citation": "Schermerhorn ML, et al. Mesenteric revascularization: surgical management. Semin Vasc Surg. 2010",
+        "confidence": 0.95
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "vascular_surgeons"
+    ],
+    "estimated_time": "45min",
+    "learning_objectives": [
+      "Describe the indications for different open surgical approaches",
+      "Understand bypass conduit and inflow/outflow selection",
+      "Learn techniques for intraoperative bowel viability assessment",
+      "Recognize when to plan second-look laparotomy"
+    ],
+    "clinical_pearls": [
+      "Embolectomy for emboli, bypass for everything else",
+      "Supraceliac inflow = better patency, more demanding surgery",
+      "When in doubt about bowel viability, plan a second-look",
+      "Don't forget the bowel - revascularization means nothing if you leave dead gut"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "35631",
+      "description": "Bypass graft, aorta-mesenteric artery",
+      "matchType": "exactMatch"
+    }
+  ]
+}

@@ -1,0 +1,398 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-002-endoleak-classification",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-27T14:57:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base",
+      "terminology-agent"
+    ],
+    "confidence": 0.95,
+    "status": "enhanced",
+    "last_updated": "2025-12-27T20:04:12.000Z",
+    "modified": "2026-01-04T14:38:55.276Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "002",
+    "keywords": [
+      "endoleak classification",
+      "type 1 endoleak",
+      "type 2 endoleak",
+      "type 3 endoleak",
+      "type 4 endoleak",
+      "type 5 endoleak",
+      "endotension"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "evar_complications",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Endoleaks are classified into five types based on their mechanism and source: Type 1 (attachment site leak), Type 2 (retrograde branch vessel flow), Type 3 (graft structural failure), Type 4 (graft porosity), and Type 5 (endotension without visible leak).",
+      "formal": "Endoleak Classification System: Types 1-5 defined by etiology, with Type 1/3 requiring urgent intervention, Type 2 often observed, Type 4 rarely significant, Type 5 controversial"
+    },
+    "explanation": {
+      "intuition": "Think of endoleaks like different types of water leaks in a pipe repair: some are at the connection points (Type 1), some come from side branches (Type 2), some are cracks in the repair itself (Type 3), some are tiny pores (Type 4), and some cause swelling without visible leak (Type 5).",
+      "key_insight": "The classification system is clinically critical because it determines urgency and management: Type 1 and 3 require urgent intervention due to high pressure, while Type 2 can often be observed because many resolve spontaneously.",
+      "technical_details": "The classification is based on both the anatomic source of leak and the hemodynamic consequences. Type 1 and 3 expose the sac to systemic arterial pressure, while Type 2 involves lower-pressure collateral flow. Type 4 is rarely clinically significant with modern grafts. Type 5 is diagnosed when sac expansion occurs without identifiable leak on imaging."
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Endoleak Classification System"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Classification of endoleaks into five types based on mechanism and source: Type 1 (attachment site leak), Type 2 (retrograde branch vessel flow), Type 3 (graft structural failure), Type 4 (graft porosity), and Type 5 (endotension)"
+    },
+    "notation": "aku-002-endoleak-classification"
+  },
+  "classification_details": {
+    "type_1": {
+      "definition": "Incomplete seal at graft attachment sites",
+      "subtypes": {
+        "type_1a": "Proximal attachment site leak",
+        "type_1b": "Distal attachment site leak",
+        "type_1c": "Iliac occluder plug leak"
+      },
+      "incidence": "8-10% at initial procedure, <5% persistent",
+      "pressure": "systemic_arterial_pressure",
+      "urgency": "urgent_intervention_required",
+      "risk_level": "high",
+      "typical_management": "Additional stent-graft, proximal/distal extension, conversion to open repair"
+    },
+    "type_2": {
+      "definition": "Retrograde flow through aortic branch vessels",
+      "source_vessels": [
+        "lumbar_arteries",
+        "inferior_mesenteric_artery",
+        "accessory_renal_arteries",
+        "median_sacral_artery"
+      ],
+      "incidence": "10-45% of EVAR cases",
+      "pressure": "collateral_circulation_pressure",
+      "urgency": "observation_unless_sac_expansion",
+      "risk_level": "moderate",
+      "spontaneous_resolution": "~50% within 6 months",
+      "typical_management": "Observation if sac stable, embolization if persistent with sac growth"
+    },
+    "type_3": {
+      "definition": "Structural failure of stent-graft",
+      "subtypes": {
+        "type_3a": "Junctional separation between components",
+        "type_3b": "Fabric tear or graft disruption"
+      },
+      "incidence": "1-5% with newer generation devices",
+      "pressure": "systemic_arterial_pressure",
+      "urgency": "urgent_intervention_required",
+      "risk_level": "high",
+      "typical_management": "Additional stent-graft to bridge defect, extension, or conversion"
+    },
+    "type_4": {
+      "definition": "Flow through porous graft fabric",
+      "incidence": "rare with modern grafts (<1%)",
+      "pressure": "transmural_through_fabric",
+      "urgency": "usually_not_clinically_significant",
+      "risk_level": "low",
+      "temporal_pattern": "Typically occurs immediately post-op, resolves as graft incorporates",
+      "typical_management": "Observation, rarely requires intervention"
+    },
+    "type_5": {
+      "definition": "Endotension - sac expansion without identifiable leak on imaging",
+      "incidence": "1-5%, controversial entity",
+      "pressure": "mechanism_unclear",
+      "urgency": "intervention_if_significant_expansion",
+      "risk_level": "uncertain",
+      "controversy": "Debate about whether represents undetected leak vs. true entity",
+      "typical_management": "Enhanced imaging techniques, possible conversion to open repair if expansion continues"
+    }
+  },
+  "clinical_decision_framework": {
+    "immediate_intervention_required": [
+      "Type 1 (any subtype)",
+      "Type 3 (any subtype)"
+    ],
+    "observation_appropriate": [
+      "Type 2 with stable or decreasing sac size",
+      "Type 4 (most cases)",
+      "Type 5 with minimal sac growth"
+    ],
+    "delayed_intervention_considered": [
+      "Type 2 with sac expansion >5mm",
+      "Type 2 with sac expansion >10mm absolute",
+      "Type 5 with significant ongoing expansion"
+    ]
+  },
+  "imaging_characteristics": {
+    "CT_angiography_findings": {
+      "type_1": "Contrast in sac adjacent to attachment zones",
+      "type_2": "Contrast in sac with identifiable feeding/draining vessels",
+      "type_3": "Contrast between graft components or through fabric tear",
+      "type_4": "Diffuse contrast blush through graft wall",
+      "type_5": "No contrast in sac but sac expansion documented"
+    },
+    "temporal_imaging_patterns": {
+      "type_1": "Present immediately, persists",
+      "type_2": "May appear late, can resolve",
+      "type_3": "Can occur anytime, indicates device failure",
+      "type_4": "Immediate, typically resolves",
+      "type_5": "Progressive sac growth without visible leak"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:procedures:evar:001",
+        "title": "Endovascular Aortic Repair",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:radiology:ct-angiography:001",
+        "title": "CT Angiography Interpretation",
+        "strength": 0.85
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:procedures:evar:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Endovascular Aortic Repair"
+      },
+      {
+        "@id": "urn:wskg:medicine:radiology:ct-angiography:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "CT Angiography Interpretation"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:complications:endoleak-management:001",
+        "title": "Endoleak Management Algorithms",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:followup:post-evar-surveillance:001",
+        "title": "Post-EVAR Surveillance",
+        "strength": 0.9
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:endoleak-management:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Endoleak Management Algorithms"
+      },
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:followup:post-evar-surveillance:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Post-EVAR Surveillance"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:complications:sac-expansion:001",
+        "type": "consequence",
+        "relationship": "Endoleaks can lead to aneurysm sac expansion"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:sac-expansion:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Aneurysm Sac Expansion",
+        "skos:note": "Endoleaks can lead to aneurysm sac expansion"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:broadMatch": [
+      "http://snomed.info/id/445080003",
+      "http://id.nlm.nih.gov/mesh/D000078862"
+    ],
+    "skos:closeMatch": [
+      "http://id.who.int/icd/entity/1573326799"
+    ]
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:jvs-reporting-standards-2002",
+        "@type": "prov:Entity",
+        "dc:title": "Reporting standards for endovascular aortic aneurysm repair",
+        "dc:publisher": "Journal of Vascular Surgery",
+        "dc:date": "2002",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0,
+        "dc:description": "Original classification system definition"
+      },
+      {
+        "@id": "urn:source:rutherford-9ed",
+        "@type": "prov:Entity",
+        "dc:title": "Rutherford's Vascular Surgery and Endovascular Therapy, 9th Edition",
+        "dc:identifier": "ISBN:978-0323427913",
+        "dc:type": "textbook",
+        "confidence": 0.98
+      },
+      {
+        "@id": "urn:source:jvs-tevar-endoleaks",
+        "@type": "prov:Entity",
+        "dc:title": "Endoleaks after endovascular repair of thoracic aortic aneurysms",
+        "dc:publisher": "Journal of Vascular Surgery",
+        "dc:type": "review_article",
+        "confidence": 0.95
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_knowledge_synthesis",
+      "prov:startedAtTime": "2025-12-27T14:57:00.000Z",
+      "prov:endedAtTime": "2025-12-27T20:21:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base",
+      "terminology-agent",
+      "semantic-harmonization-agent"
+    ],
+    "dc:created": "2025-12-27T14:57:00.000Z",
+    "dc:modified": "2025-12-27T20:21:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:vascular-surgery-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "terminology-agent"
+    },
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "citation": "Reporting standards for endovascular aortic aneurysm repair",
+        "journal": "Journal of Vascular Surgery",
+        "year": 2002,
+        "confidence": 1.0,
+        "note": "Original classification system definition"
+      },
+      {
+        "type": "textbook",
+        "citation": "Rutherford's Vascular Surgery and Endovascular Therapy, 9th Edition",
+        "isbn": "978-0323427913",
+        "confidence": 0.98
+      },
+      {
+        "type": "review_article",
+        "citation": "Endoleaks after endovascular repair of thoracic aortic aneurysms",
+        "journal": "Journal of Vascular Surgery",
+        "confidence": 0.95
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "vascular_surgery_expert",
+      "date": "2025-12-27",
+      "notes": "Classification verified against current SVS standards"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "interventional_radiologists",
+      "medical_students",
+      "radiology_residents"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.6,
+    "learning_objectives": [
+      "Classify endoleaks into five types based on mechanism",
+      "Understand the clinical urgency of each type",
+      "Recognize imaging characteristics of each type",
+      "Apply classification to guide management decisions"
+    ],
+    "mnemonic": "Attachment-Arteries-Apart-pOrous-Tension (Types 1-2-3-4-5)",
+    "common_errors": [
+      "Not recognizing the urgency difference between Type 1/3 vs Type 2",
+      "Confusing Type 2 source vessels with Type 1 attachment sites",
+      "Assuming all endoleaks require immediate intervention"
+    ],
+    "teaching_points": [
+      "Type 1 and 3 = high pressure = urgent",
+      "Type 2 = low pressure = often watch",
+      "Type 4 = rare with modern grafts",
+      "Type 5 = controversial diagnosis of exclusion"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "comparison_table",
+    "show_images": true,
+    "include_decision_tree": true,
+    "visualization": [
+      "side_by_side_comparison",
+      "management_algorithm",
+      "imaging_examples"
+    ],
+    "emphasis": [
+      "urgency_stratification",
+      "imaging_differences",
+      "management_approach"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "449567000",
+      "uri": "http://snomed.info/id/449567000",
+      "description": "Type II endoleak (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "445080003",
+      "uri": "http://snomed.info/id/445080003",
+      "description": "Endoleak (disorder) - parent concept",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D000078862",
+      "uri": "http://id.nlm.nih.gov/mesh/D000078862",
+      "description": "Endoleak (general term)",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-11",
+      "codeValue": "MH84.Z",
+      "uri": "http://id.who.int/icd/entity/1573326799",
+      "description": "Other specified complications following procedures on circulatory system",
+      "matchType": "closeMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "233689003",
+      "uri": "http://snomed.info/id/233689003",
+      "description": "Endovascular repair of aneurysm (procedure)",
+      "matchType": "exactMatch",
+      "relationship": "procedure_context"
+    }
+  ]
+}

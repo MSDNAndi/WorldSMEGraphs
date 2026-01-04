@@ -1,0 +1,249 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-022-endovascular-treatment",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:18:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:18:00.000Z",
+    "modified": "2026-01-04T14:38:55.244Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "treatment",
+    "difficulty": "expert",
+    "importance": "critical",
+    "aku_id": "022",
+    "keywords": [
+      "endovascular",
+      "angioplasty",
+      "stenting",
+      "thrombolysis",
+      "percutaneous intervention"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Endovascular treatment for mesenteric ischemia includes percutaneous transluminal angioplasty with stenting for chronic stenosis, catheter-directed thrombolysis or aspiration thrombectomy for acute occlusion, offering less invasive revascularization with the trade-off of inability to directly assess bowel viability.",
+      "formal": "Endovascular Approach: CTA diagnosis → Arterial access → Selective catheterization → Thrombolysis/Thrombectomy/Angioplasty/Stenting → Surveillance"
+    },
+    "explanation": {
+      "intuition": "Endovascular treatment is like unclogging a drain from the inside rather than digging up the pipe. Using catheters threaded through blood vessels, you can dissolve clots, suck out debris, or push open narrowed arteries and hold them open with stents. It's less invasive but you can't directly look at or touch the bowel.",
+      "key_insight": "The fundamental dilemma with endovascular-first approach in acute mesenteric ischemia is that you cannot assess bowel viability. This makes patient selection critical: endovascular is excellent for the stable patient without peritonitis, but delayed recognition of dead bowel can be fatal. Close monitoring and low threshold for laparotomy are essential.",
+      "technical_details": "SMA intervention typically uses femoral or brachial access. For acute occlusion, aspiration thrombectomy or pharmacomechanical thrombectomy are preferred over prolonged thrombolysis due to time constraints. For chronic disease, balloon-expandable stents are preferred at the ostium due to radial force requirements."
+    }
+  },
+  "techniques": {
+    "for_acute_occlusion": {
+      "aspiration_thrombectomy": {
+        "technique": "Large-bore catheter aspiration of thrombus",
+        "access": "Femoral or brachial",
+        "devices": [
+          "Penumbra",
+          "AngioJet",
+          "Indigo"
+        ],
+        "advantages": "Rapid clot removal, less bleeding than lysis",
+        "limitations": "May not remove organized thrombus"
+      },
+      "pharmacomechanical_thrombectomy": {
+        "technique": "Combination of mechanical disruption and thrombolysis",
+        "devices": [
+          "AngioJet with tPA",
+          "Trellis"
+        ],
+        "advantages": "Synergistic clot removal",
+        "duration": "Single session preferred"
+      },
+      "catheter_directed_thrombolysis": {
+        "technique": "Infusion catheter positioned in thrombus",
+        "agents": [
+          "tPA 0.5-1 mg/hr",
+          "Reteplase",
+          "Urokinase"
+        ],
+        "duration": "12-24 hours with serial angiography",
+        "advantages": "Can treat extensive disease",
+        "disadvantages": "Time-consuming, bleeding risk, delays surgery"
+      },
+      "balloon_angioplasty_plus_stenting": {
+        "role": "For underlying stenosis after thrombus removal",
+        "approach": "Address residual stenosis to prevent rethrombosis"
+      }
+    },
+    "for_chronic_disease": {
+      "primary_stenting": {
+        "indication": "CMI with ostial/proximal SMA stenosis",
+        "technique": [
+          "Femoral or brachial access",
+          "Selective SMA catheterization",
+          "Wire across stenosis",
+          "Predilation if needed",
+          "Balloon-expandable stent deployment",
+          "Post-dilation"
+        ],
+        "stent_type": {
+          "ostial_lesions": "Balloon-expandable (superior radial force)",
+          "distal_lesions": "Self-expanding may be used"
+        },
+        "stent_diameter": "6-8 mm typically",
+        "stent_length": "Cover lesion with minimal protrusion into aorta"
+      },
+      "target_vessels": {
+        "SMA": "Primary target for CMI",
+        "celiac": "Added if severely diseased",
+        "both": "Two-vessel stenting for multi-vessel disease"
+      }
+    }
+  },
+  "patient_selection": {
+    "ideal_for_endovascular": [
+      "Chronic mesenteric ischemia (elective)",
+      "Acute occlusion with stable vital signs",
+      "No peritonitis",
+      "Short segment stenosis/occlusion",
+      "High surgical risk patient"
+    ],
+    "prefer_open_surgery": [
+      "Peritonitis or signs of bowel necrosis",
+      "Hemodynamic instability",
+      "Need to assess bowel viability",
+      "Failed endovascular attempt",
+      "Extensive chronic occlusion"
+    ],
+    "hybrid_approach": {
+      "indication": "Endovascular revascularization followed by laparoscopy or laparotomy for bowel assessment",
+      "advantages": "Minimally invasive revascularization with bowel evaluation",
+      "setting": "Requires hybrid OR or coordinated team"
+    }
+  },
+  "outcomes": {
+    "technical_success": {
+      "chronic_stenosis": "90-95%",
+      "acute_occlusion": "70-90%"
+    },
+    "clinical_success": {
+      "symptom_relief_CMI": "80-95%",
+      "mortality_AMI": "Varies 25-50% (depends on patient selection)"
+    },
+    "patency": {
+      "primary_patency_1yr": "70-85%",
+      "primary_patency_3yr": "50-70%",
+      "assisted_patency_3yr": "80-90%",
+      "comparison": "Lower than open bypass but acceptable with surveillance"
+    },
+    "complications": {
+      "access_site": "5-10% (hematoma, pseudoaneurysm)",
+      "embolization": "5-10%",
+      "dissection": "2-5%",
+      "stent_thrombosis": "5-10%",
+      "renal_dysfunction": "5-10% (contrast nephropathy)"
+    }
+  },
+  "advantages_vs_open": [
+    "Less invasive, faster recovery",
+    "Can be performed under local anesthesia",
+    "Lower perioperative morbidity",
+    "Repeatable if needed",
+    "May be done in high-risk surgical patients"
+  ],
+  "disadvantages_vs_open": [
+    "Cannot assess bowel viability",
+    "Lower long-term patency",
+    "Risk of embolization during manipulation",
+    "Requires surveillance and reintervention",
+    "Limited role if bowel necrosis present"
+  ],
+  "surveillance": {
+    "protocol": {
+      "post_procedure": "Duplex ultrasound at 1 month",
+      "first_year": "Duplex every 3-6 months",
+      "subsequent": "Duplex annually",
+      "indications_for_reintervention": [
+        "In-stent restenosis >70%",
+        "Recurrent symptoms",
+        "PSV >400 cm/s or ratio >4:1"
+      ]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:015",
+        "title": "CTA Imaging",
+        "strength": 0.95
+      }
+    ],
+    "competes_with": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:021",
+        "title": "Open Surgical Revascularization",
+        "relationship": "Alternative approach with different trade-offs"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "review_article",
+        "citation": "Björnsson S, et al. Endovascular treatment of acute mesenteric ischemia. CVIR. 2019",
+        "confidence": 0.95
+      },
+      {
+        "type": "guideline",
+        "citation": "SVS Guidelines on mesenteric artery disease",
+        "confidence": 0.96
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "interventional_radiology_fellows",
+      "vascular_surgeons"
+    ],
+    "estimated_time": "35min",
+    "learning_objectives": [
+      "Compare endovascular techniques for acute vs chronic disease",
+      "Understand patient selection for endovascular approach",
+      "Recognize the limitations regarding bowel assessment",
+      "Know surveillance requirements after stenting"
+    ],
+    "clinical_pearls": [
+      "Endovascular first for CMI, but think twice in AMI with uncertain bowel",
+      "Aspiration thrombectomy > prolonged lysis in acute setting",
+      "Balloon-expandable stents for ostial lesions, period",
+      "Surveillance is mandatory - plan for reintervention"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "37246",
+      "description": "Transluminal balloon angioplasty, visceral artery",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "37247",
+      "description": "Transluminal stent placement, visceral artery",
+      "matchType": "exactMatch"
+    }
+  ]
+}

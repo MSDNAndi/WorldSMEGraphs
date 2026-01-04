@@ -1,0 +1,123 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "ScientificConcept"
+  ],
+  "@id": "aku-013-minimum-measurable-frequency",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T00:25:00.000Z",
+    "contributors": [
+      "physics-expert-agent"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T00:25:00.000Z",
+    "modified": "2026-01-04T14:38:39.392Z"
+  },
+  "classification": {
+    "domain_path": "natural-sciences/physics/measurement-limits/minimum-measurable-quantities",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "foundational",
+    "aku_id": "013",
+    "keywords": [
+      "minimum frequency",
+      "lowest frequency",
+      "radio waves",
+      "gravitational waves",
+      "pulsar timing"
+    ],
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "There is NO fundamental minimum frequency—electromagnetic waves can have arbitrarily low frequencies (long wavelengths). The lowest radio waves used are ELF (Extremely Low Frequency) at 3-30 Hz for submarine communication. Gravitational wave searches probe nanohertz (10⁻⁹ Hz) via pulsar timing. A 'year wave' has f = 1/(365.25×86400) ≈ 3×10⁻⁸ Hz. The Planck frequency (fₚ ≈ 1.9 × 10⁴³ Hz) is a MAXIMUM, not minimum.",
+      "formal": "No minimum: f → 0 is allowed; ELF radio: 3-30 Hz; Pulsar timing: ~10⁻⁹ Hz; Planck: 1.9 × 10⁴³ Hz (maximum)",
+      "key_values": {
+        "pulsar_timing_array": "~10⁻⁹ Hz (nanohertz)",
+        "elf_radio": "3-30 Hz",
+        "audio_limit": "~20 Hz (human hearing)",
+        "planck_frequency": "1.9 × 10⁴³ Hz (maximum, not minimum)"
+      }
+    },
+    "explanation": {
+      "intuition": "Frequency can be arbitrarily low because wavelength can be arbitrarily long. A wave with a 1-year period has f ≈ 30 nHz. Pulsar timing arrays search for gravitational waves with periods of years. The Planck frequency represents the MAXIMUM meaningful oscillation rate—one cycle per Planck time. Above this, quantum gravity effects dominate.",
+      "key_insight": "The practical limit on low frequencies is measurement time: to measure frequency f precisely, you need observation time t >> 1/f. NANOGrav and similar experiments have observed for ~15 years, probing ~10⁻⁹ Hz gravitational waves."
+    },
+    "comparison_with_planck": {
+      "planck_frequency": "fₚ = 1/tₚ ≈ 1.9 × 10⁴³ Hz",
+      "nanohertz": "10⁻⁹ Hz",
+      "ratio": "fₚ / f_nano ≈ 10⁵²",
+      "interpretation": "Planck frequency is MAXIMUM—the highest possible oscillation rate. There is no minimum frequency."
+    }
+  },
+  "frequency_hierarchy": {
+    "lowest_to_highest": [
+      {
+        "name": "Pulsar timing (gravitational waves)",
+        "value_Hz": 1e-09,
+        "description": "~nanohertz, periods of years"
+      },
+      {
+        "name": "ELF radio",
+        "value_Hz": 10,
+        "description": "Submarine communication"
+      },
+      {
+        "name": "Audio range",
+        "value_Hz": 1000,
+        "description": "Human hearing"
+      },
+      {
+        "name": "AM radio",
+        "value_Hz": 1000000.0,
+        "description": "~MHz"
+      },
+      {
+        "name": "Visible light",
+        "value_Hz": 500000000000000.0,
+        "description": "~500 THz"
+      },
+      {
+        "name": "Gamma rays",
+        "value_Hz": 1e+20,
+        "description": "~10²⁰ Hz"
+      },
+      {
+        "name": "Planck frequency",
+        "value_Hz": 1.9e+43,
+        "description": "Theoretical maximum"
+      }
+    ]
+  },
+  "relationships": {
+    "related": [
+      {
+        "id": "aku-033-planck-frequency",
+        "type": "contrast",
+        "relationship": "Planck frequency is MAXIMUM, not minimum",
+        "domain": "science/physics/quantum-mechanics/planck-units"
+      },
+      {
+        "id": "aku-002-minimum-measurable-energy",
+        "type": "sibling",
+        "relationship": "E = hf connects energy and frequency"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "experiment",
+        "citation": "NANOGrav Collaboration: Evidence for gravitational wave background",
+        "journal": "Astrophysical Journal Letters",
+        "year": 2023
+      }
+    ]
+  }
+}

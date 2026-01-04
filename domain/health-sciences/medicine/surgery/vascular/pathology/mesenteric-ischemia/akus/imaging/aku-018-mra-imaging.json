@@ -1,0 +1,303 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-018-mra-imaging",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T06:00:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.93,
+    "status": "validated",
+    "last_updated": "2025-12-30T06:00:00.000Z",
+    "modified": "2026-01-04T14:38:55.260Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "imaging",
+    "difficulty": "intermediate",
+    "importance": "moderate",
+    "aku_id": "018",
+    "keywords": [
+      "MR angiography",
+      "MRA",
+      "magnetic resonance imaging",
+      "gadolinium",
+      "mesenteric imaging",
+      "non-invasive vascular imaging"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "diagnostic_evaluation",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Magnetic resonance angiography (MRA) provides non-invasive evaluation of the mesenteric vasculature without ionizing radiation and with excellent soft tissue contrast; however, it is generally considered second-line to CTA for mesenteric ischemia due to longer acquisition times, motion artifact susceptibility, and limited availability in emergency settings.",
+      "formal": "MRA Role: Alternative to CTA when iodinated contrast contraindicated or radiation concerns; Sensitivity/Specificity for stenosis: 90-100%/90-95%; Limitations: Motion artifact, time-consuming, claustrophobia, pacemakers"
+    },
+    "explanation": {
+      "intuition": "MRA uses magnetic fields and radiofrequency pulses to generate images of blood vessels without radiation. For mesenteric evaluation, contrast-enhanced MRA (CE-MRA) with gadolinium provides excellent visualization of the major mesenteric arteries. The technology is excellent for chronic disease but less practical for acute emergencies.",
+      "key_insight": "MRA's primary advantage is avoiding iodinated contrast (important for renal insufficiency) and ionizing radiation (important for young patients or surveillance). However, the longer scan times and requirement for patient cooperation make it less suitable than CTA for acute mesenteric ischemia.",
+      "technical_details": "Modern MRA techniques include contrast-enhanced (CE-MRA), time-of-flight (TOF), and phase-contrast imaging. CE-MRA with gadolinium provides the best vessel visualization. Non-contrast techniques (SSFP, ASL) are emerging for patients who cannot receive gadolinium."
+    }
+  },
+  "technical_aspects": {
+    "sequences": {
+      "contrast_enhanced_mra": {
+        "technique": "Gadolinium-based contrast with T1-weighted gradient echo",
+        "acquisition": "Breath-hold acquisition during arterial phase",
+        "advantages": [
+          "Excellent vessel delineation",
+          "3D reformatting possible"
+        ],
+        "timing": "Critical—requires accurate bolus timing or bolus tracking"
+      },
+      "time_of_flight": {
+        "technique": "Flow-dependent signal without contrast",
+        "advantages": "No contrast needed",
+        "disadvantages": [
+          "Slow",
+          "Signal loss at stenoses",
+          "Saturation artifacts"
+        ],
+        "use": "Limited utility for mesenteric imaging"
+      },
+      "phase_contrast": {
+        "technique": "Encodes velocity information",
+        "use": "Quantitative flow measurement",
+        "application": "Assessing functional significance of stenosis"
+      },
+      "steady_state_free_precession": {
+        "technique": "Bright blood imaging without contrast",
+        "emerging_role": "Non-contrast MRA in patients who cannot receive gadolinium"
+      }
+    },
+    "contrast_agents": {
+      "gadolinium_based": {
+        "types": [
+          "Extracellular agents (standard)",
+          "Blood pool agents (extended imaging window)"
+        ],
+        "dose": "0.1-0.2 mmol/kg typical",
+        "considerations": {
+          "nsf_risk": "Nephrogenic systemic fibrosis risk if eGFR <30 (use Group II agents if necessary)",
+          "group_classification": "Group I (higher NSF risk) vs. Group II (lower risk)"
+        }
+      },
+      "non_contrast_techniques": {
+        "indications": "Severe renal impairment (eGFR <30), gadolinium allergy",
+        "techniques": [
+          "Arterial spin labeling",
+          "SSFP-based",
+          "Flow-sensitive dephasing"
+        ],
+        "limitations": "Lower spatial resolution, less validated"
+      }
+    },
+    "protocol_considerations": {
+      "patient_preparation": [
+        "Fasting 4-6 hours (reduces bowel motion)",
+        "Screen for contraindications (pacemakers, claustrophobia)",
+        "IV access for contrast"
+      ],
+      "imaging_planes": "Coronal and sagittal for optimal vessel visualization",
+      "breath_holding": "Required for optimal image quality (20-30 second holds)",
+      "total_time": "30-45 minutes typically"
+    }
+  },
+  "diagnostic_performance": {
+    "for_mesenteric_stenosis": {
+      "sensitivity": "90-100%",
+      "specificity": "90-95%",
+      "note": "For >50% stenosis of celiac and SMA"
+    },
+    "comparison_to_cta": {
+      "spatial_resolution": "Slightly inferior to CTA",
+      "stenosis_grading": "May overestimate stenosis (signal loss at stenoses)",
+      "bowel_evaluation": "Less detailed bowel wall assessment than CTA"
+    },
+    "limitations": {
+      "motion_artifact": "Respiratory and bowel motion degrade images",
+      "stenosis_overestimation": "Turbulence causes signal loss, mimicking severe stenosis",
+      "calcification": "Cannot visualize calcium (unlike CTA)",
+      "acute_setting": "Logistically challenging for emergencies"
+    }
+  },
+  "indications": {
+    "preferred_indications": [
+      "Chronic mesenteric ischemia workup in young patients (radiation concerns)",
+      "Surveillance after prior intervention",
+      "Iodinated contrast allergy or contraindication",
+      "Moderate renal insufficiency (eGFR 30-60, avoiding iodinated contrast)",
+      "MALS evaluation (can assess respiratory variation)"
+    ],
+    "less_suitable": [
+      "Acute mesenteric ischemia (time-critical, CTA faster)",
+      "Hemodynamically unstable patients",
+      "Patients with pacemakers/ICDs (depending on device)",
+      "Claustrophobic patients",
+      "Patients unable to breath-hold"
+    ]
+  },
+  "findings": {
+    "stenosis": {
+      "appearance": "Signal void or narrowing at vessel origin",
+      "grading": "Visual assessment or quantitative diameter measurement",
+      "pitfall": "Signal loss from turbulence may overestimate severity"
+    },
+    "occlusion": {
+      "appearance": "Absent flow signal in vessel",
+      "collaterals": "May see reconstitution via collateral pathways"
+    },
+    "dissection": {
+      "appearance": "Intimal flap with true and false lumen",
+      "advantage": "Excellent for aortic dissection extending to mesenteric vessels"
+    },
+    "aneurysm": {
+      "appearance": "Vessel dilatation",
+      "thrombus": "Can characterize mural thrombus"
+    },
+    "mals": {
+      "technique": "Respiratory-gated or multi-phase imaging",
+      "finding": "Celiac compression worse in expiration"
+    }
+  },
+  "advantages_and_disadvantages": {
+    "advantages": [
+      "No ionizing radiation",
+      "No iodinated contrast (avoids CI-AKI)",
+      "Excellent soft tissue contrast",
+      "Multi-planar imaging",
+      "Can assess flow quantitatively",
+      "Good for surveillance/follow-up"
+    ],
+    "disadvantages": [
+      "Longer acquisition time than CTA",
+      "Motion sensitivity",
+      "Limited availability in emergency settings",
+      "Contraindicated in some pacemaker/ICD patients",
+      "Claustrophobia issues",
+      "Gadolinium concerns in severe renal failure",
+      "Cannot visualize calcification",
+      "More expensive than CTA"
+    ]
+  },
+  "clinical_pearls": [
+    {
+      "pearl": "MRA is an excellent alternative to CTA for chronic mesenteric ischemia workup in patients with renal insufficiency or contrast allergy",
+      "implication": "Have MRA in your armamentarium for the right patients"
+    },
+    {
+      "pearl": "Signal loss at stenotic lesions can cause MRA to overestimate stenosis severity—correlate with clinical picture",
+      "implication": "Don't over-interpret apparent 'critical' stenosis on MRA without clinical correlation"
+    },
+    {
+      "pearl": "MRA can assess respiratory variation in MALS—obtaining images in inspiration and expiration adds diagnostic value",
+      "implication": "Useful for MALS evaluation in young patients"
+    },
+    {
+      "pearl": "For acute mesenteric ischemia, CTA remains the modality of choice—MRA is too slow and logistically complex for emergencies",
+      "implication": "Don't delay diagnosis waiting for MRA in acute presentations"
+    }
+  ],
+  "emerging_technologies": {
+    "four_dimensional_flow": {
+      "technique": "Time-resolved 3D phase-contrast MRI",
+      "advantage": "Comprehensive flow quantification in all directions",
+      "application": "Functional assessment of mesenteric hemodynamics",
+      "status": "Research/limited clinical use"
+    },
+    "non_contrast_techniques": {
+      "techniques": [
+        "Arterial spin labeling MRA",
+        "Quiescent interval single-shot MRA"
+      ],
+      "advantage": "No gadolinium required",
+      "status": "Emerging, validation ongoing"
+    },
+    "compressed_sensing": {
+      "benefit": "Faster acquisition with maintained quality",
+      "implication": "May make MRA more practical for acute settings in future"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:004",
+        "title": "Mesenteric Arterial Anatomy",
+        "relationship": "anatomical_foundation"
+      }
+    ],
+    "enables": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:022",
+        "title": "Endovascular Treatment",
+        "relationship": "treatment_planning"
+      }
+    ],
+    "related_concepts": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:015",
+        "title": "CTA Imaging",
+        "relationship": "comparison"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:016",
+        "title": "Duplex Ultrasound",
+        "relationship": "alternative_imaging"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:017",
+        "title": "Conventional Angiography",
+        "relationship": "gold_standard"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:045",
+        "title": "MALS",
+        "relationship": "diagnostic_application"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "title": "MR angiography of mesenteric arteries in patients with mesenteric ischemia: evaluation at 3T",
+        "authors": "Laissy JP, Trillaud H, Douek P",
+        "publication": "European Radiology",
+        "year": 2020,
+        "volume": 30,
+        "pages": "3158-3166",
+        "doi": "10.1007/s00330-019-06594-5",
+        "type": "prospective_study"
+      },
+      {
+        "title": "Clinical Guidelines on the Management of Patients with Mesenteric Artery Disease",
+        "authors": "Björck M, Koelemay M, Acosta S, et al.",
+        "publication": "European Journal of Vascular and Endovascular Surgery",
+        "year": 2017,
+        "volume": 53,
+        "pages": "460-510",
+        "doi": "10.1016/j.ejvs.2017.01.010",
+        "type": "clinical_guideline"
+      },
+      {
+        "title": "ACR Manual on Contrast Media",
+        "authors": "American College of Radiology Committee on Drugs and Contrast Media",
+        "publication": "American College of Radiology",
+        "year": 2023,
+        "edition": "2023",
+        "type": "guideline"
+      }
+    ],
+    "evidence_level": "Moderate (comparative studies, limited by heterogeneous techniques)",
+    "last_verified": "2025-12-30"
+  }
+}

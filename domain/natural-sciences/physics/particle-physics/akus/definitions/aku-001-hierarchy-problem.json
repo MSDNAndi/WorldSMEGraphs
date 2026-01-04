@@ -1,0 +1,108 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "ScientificConcept"
+  ],
+  "@id": "aku-particle-physics-001-hierarchy-problem",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T22:15:00.000Z",
+    "contributors": [
+      "physics-knowledge-base",
+      "particle-physics-expert"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-29T22:15:00.000Z",
+    "modified": "2026-01-04T14:38:39.462Z"
+  },
+  "classification": {
+    "domain_path": "natural-sciences/physics/particle-physics",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "foundational",
+    "aku_id": "pp-001",
+    "keywords": [
+      "hierarchy problem",
+      "electroweak scale",
+      "Planck scale",
+      "mass hierarchy",
+      "fine-tuning",
+      "naturalness"
+    ],
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "The hierarchy problem is the puzzle of why the electroweak scale (~246 GeV) is so much smaller than the Planck scale (~10^19 GeV) - a ratio of about 10^17. This enormous gap between the two fundamental scales in physics appears unnatural because quantum corrections should push the Higgs mass toward the Planck scale.",
+      "formal": "m_Higgs ≈ 125 GeV << M_Planck ≈ 1.22 × 10^19 GeV",
+      "formula_latex": "\\frac{M_{\\text{Planck}}}{m_{\\text{Higgs}}} \\approx 10^{17}"
+    },
+    "explanation": {
+      "intuition": "Imagine you're trying to balance a pencil on its tip - quantum mechanics would constantly try to tip it over. The hierarchy problem is similar: quantum effects try to push the Higgs mass toward the Planck scale, yet it remains tiny. This requires incredibly precise cancellations, which seems unnatural without some underlying reason.",
+      "key_insight": "The problem isn't that the Standard Model is inconsistent, but that it appears 'fine-tuned' - the bare Higgs mass and quantum corrections must cancel to 1 part in 10^34 to give the observed mass. This suggests missing physics between these scales.",
+      "technical_details": "In the Standard Model, the Higgs mass receives quantum corrections: δm_H² ~ Λ² where Λ is the cutoff scale. If Λ = M_Planck, then δm_H² ~ 10^38 GeV², yet the observed m_H² ~ 10^4 GeV². This requires cancellation to 34 decimal places."
+    },
+    "examples": [
+      {
+        "description": "The ratio of Planck mass to Higgs mass",
+        "calculation": "M_P/m_H = 1.22 × 10^19 GeV / 125 GeV ≈ 10^17"
+      }
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "aku:planck-units:003-planck-mass-definition",
+        "title": "Planck Mass Definition",
+        "strength": 1.0,
+        "reason": "Defines the upper scale of the hierarchy"
+      }
+    ],
+    "related_concepts": [
+      {
+        "id": "aku:planck-units:t03-planck-scale-interpretations",
+        "relationship": "explains_scale",
+        "description": "Planck scale interpretation and smallest units"
+      },
+      {
+        "id": "aku:planck-units:c03-energy-scales-physics",
+        "relationship": "contextualizes",
+        "description": "Energy scale ladder in physics"
+      }
+    ],
+    "cross_domain_links": [
+      {
+        "domain": "planck-units",
+        "concept": "planck_mass",
+        "relationship": "defines_upper_scale"
+      },
+      {
+        "domain": "cosmology",
+        "concept": "inflation",
+        "relationship": "potential_solution"
+      }
+    ]
+  },
+  "provenance": {
+    "primary_sources": [
+      {
+        "type": "review",
+        "author": "Giudice, G.F.",
+        "title": "Naturalness after LHC8",
+        "journal": "PoS EPS-HEP2013",
+        "year": 2013
+      },
+      {
+        "type": "textbook",
+        "author": "Peskin, M. & Schroeder, D.",
+        "title": "An Introduction to Quantum Field Theory",
+        "year": 1995
+      }
+    ]
+  }
+}

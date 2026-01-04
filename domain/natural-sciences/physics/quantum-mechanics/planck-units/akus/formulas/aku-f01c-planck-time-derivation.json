@@ -1,0 +1,87 @@
+{
+  "@context": "aku-v2",
+  "@type": "formula",
+  "@id": "physics:quantum:planck-units:planck-time-derivation",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T21:52:00.000Z",
+    "updated": "2025-12-29T21:52:00.000Z",
+    "contributors": [
+      "copilot",
+      "physics-agent"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "modified": "2026-01-04T14:38:39.414Z"
+  },
+  "classification": {
+    "domain_path": "natural-sciences/physics/quantum-mechanics/planck-units",
+    "type": "formula",
+    "subtype": "derivation",
+    "difficulty": "introductory",
+    "importance": "foundational",
+    "isNativeDomain": true
+  },
+  "content": {
+    "title": "Derivation of Planck Time via Dimensional Analysis",
+    "summary": "Step-by-step derivation of the Planck time t_P from fundamental constants c, ℏ, and G using dimensional analysis.",
+    "target": {
+      "quantity": "Time",
+      "dimension": "[T]",
+      "notation": "[M⁰ L⁰ T¹]"
+    },
+    "derivation": {
+      "ansatz": "t_P = c^α × ℏ^β × G^γ",
+      "dimensional_equation": "[T] = [L T⁻¹]^α × [M L² T⁻¹]^β × [M⁻¹ L³ T⁻²]^γ",
+      "expanding": "[M⁰ L⁰ T¹] = [M^(β-γ) L^(α+2β+3γ) T^(-α-β-2γ)]",
+      "system_of_equations": [
+        "M: 0 = β - γ → β = γ",
+        "L: 0 = α + 2β + 3γ = α + 5β (using β = γ)",
+        "T: 1 = -α - β - 2γ = -α - 3β (using β = γ)"
+      ],
+      "solution": {
+        "from_L": "α = -5β",
+        "into_T": "1 = -(-5β) - 3β = 5β - 3β = 2β → β = 1/2",
+        "therefore": "β = 1/2, γ = 1/2, α = -5/2"
+      },
+      "result": "t_P = c^(-5/2) × ℏ^(1/2) × G^(1/2) = √(ℏG/c⁵)"
+    },
+    "alternative_derivation": {
+      "using_planck_length": "t_P = ℓ_P/c = √(ℏG/c³)/c = √(ℏG/c⁵)",
+      "interpretation": "Planck time is the light-travel time across one Planck length"
+    },
+    "verification": {
+      "check_dimensions": "[ℏG/c⁵] = [M L² T⁻¹ × M⁻¹ L³ T⁻² / L⁵ T⁻⁵] = [L⁵ × T⁻³ / L⁵ × T⁻⁵] = [T²] → √[T²] = [T] ✓"
+    },
+    "numerical_value": {
+      "formula": "t_P = √((1.055×10⁻³⁴ × 6.674×10⁻¹¹)/(2.998×10⁸)⁵)",
+      "calculation": "t_P = √(7.039×10⁻⁴⁵/2.430×10⁴²) = √(2.896×10⁻⁸⁷)",
+      "result": "t_P = 5.39 × 10⁻⁴⁴ s"
+    },
+    "physical_interpretation": "The Planck time is the unique time constructible from fundamental constants. It represents the shortest meaningful time interval in physics, below which the concept of time itself may break down."
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:dimensional-analysis-method",
+        "required": true
+      }
+    ],
+    "leads_to": [
+      {
+        "urn": "urn:aku:physics:quantum:planck-units:planck-time",
+        "relationship": "derives"
+      }
+    ]
+  },
+  "provenance": {
+    "primary_sources": [
+      {
+        "type": "historical",
+        "author": "Planck",
+        "title": "Über irreversible Strahlungsvorgänge",
+        "year": 1899
+      }
+    ]
+  }
+}
