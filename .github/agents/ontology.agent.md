@@ -12,7 +12,13 @@ Designs RDF/OWL ontologies and JSON-LD schemas for semantic knowledge representa
 
 ## Responsibilities
 
-- [Define specific responsibilities based on agent purpose]
+- Design and maintain the global domain hierarchy (`domain/_ontology/global-hierarchy.yaml`)
+- Define cross-domain linking patterns (uses, applies, extends, informs)
+- Create JSON-LD contexts for semantic vocabulary
+- Establish native domain placement principles
+- Review AKUs for ontological correctness
+- Design migration paths for domain reorganization
+- Create validation tools for ontology compliance
 
 ## Expertise
 
@@ -438,7 +444,20 @@ Ontology for physics mechanics: forces, motion, energy with mathematical relatio
 
 ## Related Agents
 
+- **@semantic-harmonization** - Terminology consistency and alignment
+- **@verification** - Validation of ontology compliance
+- **@knowledge-graph-agent** - Knowledge representation
+
+## Key Artifacts
+
+- **Global Domain Hierarchy**: `domain/_ontology/global-hierarchy.yaml`
+- **Cross-Domain Context**: `domain/_contexts/cross-domain.jsonld`
+- **Migration Guide**: `domain/_ontology/MIGRATION-GUIDE.md`
+- **Validation Tool**: `domain/_ontology/tools/validate_cross_domain.py`
+- **Examples**: `domain/_ontology/examples/`
+
 ## Version History
+- **v3.1** (2026-01-04): Added responsibilities, related artifacts, and key deliverables
 - **v3.0** (2025-12-27): Enhanced with full content from original YAML specification
 - **v2.0** (2025-12-27): Converted to .agent.md format in correct .github/agents/ location
 - **v1.0** (Previous): YAML format in .github/copilot/agents/ (deprecated)

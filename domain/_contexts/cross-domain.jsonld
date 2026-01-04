@@ -1,0 +1,197 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "wsmg": "https://worldsmegraphs.org/vocab/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dc": "http://purl.org/dc/terms/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    
+    "CrossDomainLink": {
+      "@id": "wsmg:CrossDomainLink",
+      "@type": "@id"
+    },
+    
+    "DomainPath": {
+      "@id": "wsmg:DomainPath",
+      "@type": "xsd:string"
+    },
+    
+    "nativeDomain": {
+      "@id": "wsmg:nativeDomain",
+      "@type": "@id",
+      "rdfs:comment": "The domain where this concept was originally developed"
+    },
+    
+    "applicationDomain": {
+      "@id": "wsmg:applicationDomain",
+      "@type": "@id",
+      "rdfs:comment": "A domain where this concept is applied"
+    },
+    
+    "crossDomainReferences": {
+      "@id": "wsmg:crossDomainReferences",
+      "@container": "@set"
+    },
+    
+    "uses": {
+      "@id": "wsmg:uses",
+      "@type": "@id",
+      "rdfs:comment": "Domain uses concepts from another domain as tools or foundations",
+      "rdfs:subPropertyOf": "skos:related"
+    },
+    
+    "applies": {
+      "@id": "wsmg:applies",
+      "@type": "@id",
+      "rdfs:comment": "Domain applies concepts from another domain in a practical context",
+      "rdfs:subPropertyOf": "skos:related"
+    },
+    
+    "extends": {
+      "@id": "wsmg:extends",
+      "@type": "@id",
+      "rdfs:comment": "Domain extends or specializes concepts from another domain",
+      "rdfs:subPropertyOf": "skos:related"
+    },
+    
+    "informs": {
+      "@id": "wsmg:informs",
+      "@type": "@id",
+      "rdfs:comment": "Bidirectional relationship where concepts mutually influence each other",
+      "rdfs:subPropertyOf": "skos:related"
+    },
+    
+    "sourceDomain": {
+      "@id": "wsmg:sourceDomain",
+      "@type": "@id",
+      "rdfs:comment": "The domain from which concepts are being referenced"
+    },
+    
+    "targetDomain": {
+      "@id": "wsmg:targetDomain",
+      "@type": "@id",
+      "rdfs:comment": "The domain to which concepts are being referenced"
+    },
+    
+    "relationship": {
+      "@id": "wsmg:relationship",
+      "@type": "xsd:string",
+      "rdfs:comment": "Type of cross-domain relationship (uses, applies, extends, informs)"
+    },
+    
+    "referencedConcepts": {
+      "@id": "wsmg:referencedConcepts",
+      "@container": "@list",
+      "rdfs:comment": "List of concept IDs being referenced"
+    },
+    
+    "applicationContext": {
+      "@id": "wsmg:applicationContext",
+      "@type": "xsd:string",
+      "rdfs:comment": "Explanation of how concepts are applied in this domain context"
+    },
+    
+    "bidirectional": {
+      "@id": "wsmg:bidirectional",
+      "@type": "xsd:boolean",
+      "rdfs:comment": "Whether the cross-domain relationship is bidirectional"
+    },
+    
+    "domainPath": {
+      "@id": "wsmg:domainPath",
+      "@type": "xsd:string",
+      "rdfs:comment": "Full path to domain in hierarchy (e.g., formal-sciences/mathematics/pure-mathematics/category-theory)"
+    },
+    
+    "isNativeDomain": {
+      "@id": "wsmg:isNativeDomain",
+      "@type": "xsd:boolean",
+      "rdfs:comment": "Whether this is the native/origin domain for the concept"
+    },
+    
+    "isApplicationDomain": {
+      "@id": "wsmg:isApplicationDomain",
+      "@type": "xsd:boolean",
+      "rdfs:comment": "Whether this domain applies concepts from elsewhere"
+    },
+    
+    "hierarchyLevel": {
+      "@id": "wsmg:hierarchyLevel",
+      "@type": "xsd:integer",
+      "rdfs:comment": "Depth in domain hierarchy (0 = root domain)"
+    },
+    
+    "parentDomain": {
+      "@id": "wsmg:parentDomain",
+      "@type": "@id",
+      "rdfs:comment": "Parent domain in hierarchy"
+    },
+    
+    "childDomains": {
+      "@id": "wsmg:childDomains",
+      "@container": "@set",
+      "rdfs:comment": "Child domains in hierarchy"
+    },
+    
+    "taxonomySource": {
+      "@id": "wsmg:taxonomySource",
+      "@type": "xsd:string",
+      "rdfs:comment": "Source taxonomy used for classification (UNESCO, LOC, DDC, MSC, ACM)"
+    },
+    
+    "taxonomyCode": {
+      "@id": "wsmg:taxonomyCode",
+      "@type": "xsd:string",
+      "rdfs:comment": "Code from source taxonomy system"
+    },
+    
+    "FormalSciences": {
+      "@id": "wsmg:FormalSciences",
+      "@type": "wsmg:TopLevelDomain",
+      "rdfs:comment": "Sciences studying abstract structures using deductive methodology"
+    },
+    
+    "NaturalSciences": {
+      "@id": "wsmg:NaturalSciences",
+      "@type": "wsmg:TopLevelDomain",
+      "rdfs:comment": "Sciences studying the natural world through observation and experimentation"
+    },
+    
+    "SocialSciences": {
+      "@id": "wsmg:SocialSciences",
+      "@type": "wsmg:TopLevelDomain",
+      "rdfs:comment": "Sciences studying human society, institutions, and behavior"
+    },
+    
+    "HealthSciences": {
+      "@id": "wsmg:HealthSciences",
+      "@type": "wsmg:TopLevelDomain",
+      "rdfs:comment": "Sciences concerned with human health, disease, and healthcare"
+    },
+    
+    "Engineering": {
+      "@id": "wsmg:Engineering",
+      "@type": "wsmg:TopLevelDomain",
+      "rdfs:comment": "Application of scientific and mathematical knowledge to practical problems"
+    },
+    
+    "Humanities": {
+      "@id": "wsmg:Humanities",
+      "@type": "wsmg:TopLevelDomain",
+      "rdfs:comment": "Disciplines studying human culture, expression, and experience"
+    },
+    
+    "Arts": {
+      "@id": "wsmg:Arts",
+      "@type": "wsmg:TopLevelDomain",
+      "rdfs:comment": "Creative disciplines focused on aesthetic expression and experience"
+    },
+    
+    "Interdisciplinary": {
+      "@id": "wsmg:Interdisciplinary",
+      "@type": "wsmg:TopLevelDomain",
+      "rdfs:comment": "Fields that inherently span multiple traditional domains"
+    }
+  }
+}

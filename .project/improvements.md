@@ -1,7 +1,8 @@
 # Improvements and Enhancement Ideas
 
-> **Last Updated**: 2025-12-30T05:30:00Z  
-> **Purpose**: Track enhancement ideas, technical debt, and future improvements
+> **Last Updated**: 2026-01-04  
+> **Purpose**: Track enhancement ideas, technical debt, and future improvements  
+> **Archives**: Completed improvements are archived in `.project/tracking/archived/`
 
 ## Categories
 - 🎯 **High Impact**: Significant value, should prioritize
@@ -11,177 +12,13 @@
 
 ---
 
-## Recently Completed Improvements
+## Completed Improvements
 
-### ✅ IMP-COMPLETE-004: Mesenteric Ischemia AKU Expansion
-**Category**: Medical Knowledge Quality  
-**Impact**: High  
-**Effort**: ~50 minutes  
-**Priority**: Medical Pilot Phase  
-**Status**: ✅ Completed (2025-12-30)
+*Completed improvements are now archived in `.project/tracking/archived/` by month.*
 
-**Description**:
-Expanded mesenteric ischemia domain from 29 → 55 comprehensive AKUs following contrarian review recommendations. Added emerging research, alternative perspectives, and training content.
-
-**New AKUs Added (26 total)**:
-- 006: CMI Epidemiology
-- 014: Physical Examination
-- 017-018: Angiography, MRA
-- 033-034: Reintervention, Quality of Life
-- 036-037: Prevention, Nutrition
-- 044-045: Post-aortic Surgery, MALS
-- 046-047: Biomarkers, Thrombectomy
-- 048-050: IR/ICU/ED Perspectives
-- 051-055: MVT Treatment, Algorithms, Assessment, Complications, Training
-
-**Key Improvements**:
-- Incorporated latest research (I-FABP, DOACs, mechanical thrombectomy)
-- Added multidisciplinary perspectives (IR, critical care, emergency)
-- Included training and simulation content
-- Documented scope caveats (adult-focused, resource-rich assumptions)
-- Created domain summary for book chapter planning
-
-**Quality Metrics**:
-- All 55 AKUs pass atomicity audit
-- Primary citations (ESVS 2017) complete throughout
-- Relationships properly linked
-- 13 categories covering full clinical spectrum
-
-**Completed By**: Copilot Agent  
-**Created**: 2025-12-30  
-**Session Duration**: ~50 minutes
-
----
-
-### ✅ IMP-COMPLETE-003: Mesenteric Ischemia Critical Analysis
-**Category**: Medical Knowledge Quality  
-**Impact**: High  
-**Effort**: 1 hour  
-**Priority**: Medical Pilot Phase  
-**Status**: ✅ Completed (2025-12-30)
-
-**Description**:
-Comprehensive contrarian review of the mesenteric ischemia knowledge domain (29 AKUs + 12,000-word book chapter) identifying gaps, biases, and improvement opportunities.
-
-**Key Findings**:
-- 4 critical missing AKUs identified (differential diagnosis, atypical presentations, I-R injury, NOMI expansion)
-- Evidence quality gaps (vague citations need strengthening)
-- Single-perspective bias (needs interdisciplinary input)
-- Book chapter needs structural enhancements (summary boxes, embedded algorithms)
-- 20 total prioritized recommendations
-
-**Deliverables**:
-- `domain/medicine/.../mesenteric-ischemia/.project/critical-analysis-contrarian-review.md` (comprehensive analysis)
-- `domain/medicine/.../mesenteric-ischemia/.project/improvement-plan.md` (actionable improvement plan)
-- Updated domain README with critical analysis reference
-
-**Benefits**:
-- Clear roadmap for domain improvement
-- Identified safety-relevant content gaps
-- Evidence quality improvement pathway
-- Broadened perspective requirements documented
-
-**Completed By**: Contrarian Agent  
-**Created**: 2025-12-30  
-**Total Time**: 45 minutes
-
----
-
-### ✅ IMP-COMPLETE-002: GitHub Actions Workflow Fixes
-**Category**: Infrastructure / CI/CD  
-**Impact**: High  
-**Effort**: 20 minutes  
-**Priority**: Critical  
-**Status**: ✅ Completed (2025-12-30)
-
-**Description**:
-Fixed failing `domain-maturity-check.yml` workflow that was blocking PR merges. Added comprehensive error handling, permissions, and documentation.
-
-**Root Causes Fixed**:
-- Missing `permissions` block (needed `pull-requests: write`)
-- No error handling in GitHub Script step
-- Directory existence not checked before reading
-- PR context not validated before commenting
-- Deprecation warning in Python datetime usage
-
-**Implemented Fixes**:
-- Added permissions block to workflow
-- Wrapped GitHub Script in comprehensive try-catch
-- Added directory existence checks (`fs.existsSync`)
-- Added PR context validation
-- Fixed deprecation warning in `domain_maturity_tracker.py`
-- Maintained ISO 8601 with 'Z' suffix consistency
-
-**Documentation & Testing**:
-- Enhanced `.github/workflows/README.md` with active workflow docs
-- Added comprehensive troubleshooting guide (4 categories)
-- Added workflow status badge to main README
-- Created local test script (`.github/scripts/test-workflow-locally.sh`)
-- Updated `.gitignore` to exclude `maturity-reports/`
-- Code review completed with all feedback addressed
-
-**Deliverables**:
-- Fixed `.github/workflows/domain-maturity-check.yml`
-- Enhanced `.github/workflows/README.md` (+98 lines)
-- New `.github/scripts/test-workflow-locally.sh` (132 lines)
-- Fixed `.project/agents/domain-maturity/domain_maturity_tracker.py`
-- Updated `README.md` with workflow badge
-- Updated `.gitignore`
-
-**Benefits**:
-- Workflow now runs successfully on PRs
-- Comprehensive error handling prevents failures
-- Local testing capability for contributors
-- Full documentation for troubleshooting
-- No deprecation warnings in logs
-- Improved developer experience
-
----
-
-### ✅ IMP-COMPLETE-001: AKU Atomicity Specialist Agent
-**Category**: Agent Infrastructure  
-**Impact**: High  
-**Effort**: 3 hours  
-**Priority**: Phase 1  
-**Status**: ✅ Completed (2025-12-29)
-
-**Description**:
-Created specialized agent for managing AKU granularity - detecting and fixing atomicity violations through split, merge, and recombination operations.
-
-**Implemented Features**:
-- Comprehensive agent specification (521 lines)
-- Domain-specific atomicity rules (math, medicine, economics, science)
-- Analysis capabilities for over-bundled and under-specified AKUs
-- Transformation operations (split, merge, recombine)
-- Quality assurance and validation integration
-- Practical analysis tool (analyze_atomicity.py)
-- Cross-references with related agents
-
-**Deliverables**:
-- `.github/agents/aku-atomicity-specialist.agent.md` (521 lines)
-- `docs/agents/aku-atomicity-specialist.md` (comprehensive documentation)
-- `.project/agents/atomicity-specialist/tools/analyze_atomicity.py` (working tool)
-- `.project/agents/atomicity-specialist/tools/README.md` (tool documentation)
-- Updated 4 related agents with cross-references
-- Updated `.github/agents/README.md` (60 → 61 agents)
-
-**Testing**:
-- Validated agent format (passes check-agent-lengths.sh)
-- Tested analysis tool on example NPV AKU
-- Correctly identified 8 concepts in over-bundled AKU
-- Generated actionable recommendations
-
-**Benefits**:
-- Systematic approach to maintaining AKU atomicity
-- Automated detection of granularity issues
-- Improved learning effectiveness through proper granularity
-- Better knowledge reusability and composition
-- Enhanced assessment granularity
-
-**Completed By**: Agent Recruiter  
-**Created**: 2025-12-29  
-**Completed**: 2025-12-29  
-**Total Time**: 3 hours
+**Recent Archives**:
+- [December 2025](.project/tracking/archived/2025-12/improvements-completed.md)
+- [January 2026](.project/tracking/archived/2026-01/improvements-completed.md)
 
 ---
 

@@ -227,7 +227,53 @@ Agents are invoked using the `@agent-name` syntax followed by specific instructi
 - **Rendering**: rendering, pedagogy, visualization, accessibility
 - **Domain Experts**: math-expert, generic-domain-empathy (with personas)
 - **Quality Assurance**: code-review-agent, contrarian
+- **Image Generation**: image-generation (GPT Image 1.5 via Azure AI Foundry)
 - **And 40+ more specialized agents** - see `.github/agents/` directory
+
+## Image Generation Capabilities
+
+WorldSMEGraphs includes AI image generation for presentations and documentation using GPT Image 1.5.
+
+### Image Generation Tool
+**Location**: `.project/agents/image-generation/tools/gpt_image_generator.py`
+
+```bash
+# Generate single image
+python .project/agents/image-generation/tools/gpt_image_generator.py \
+  --prompt "Your prompt" --aspect landscape --quality high
+
+# Parallel batch generation (recommended)
+python .project/agents/image-generation/tools/gpt_image_generator.py \
+  --prompt-file prompts.txt --parallel 5 --enhance
+
+# Show prompting guidelines
+python .project/agents/image-generation/tools/gpt_image_generator.py --guidelines
+```
+
+### Presentation Generator
+**Location**: `.project/agents/image-generation/tools/presentation_generator.py`
+
+Generates complete PPTX and PDF presentations with AI-generated images for each slide.
+
+### Content Safety Handling
+The image generation system includes automatic content safety handling:
+- Pre-sanitizes prompts for sensitive technical terms
+- Automatically modifies prompts if rejected by API
+- Retries with safer alternatives
+- Logs all modifications for transparency
+
+### Super Explicit Prompts (Critical)
+Always be SUPER EXPLICIT about directions, orientations, and positions in image prompts:
+
+```
+BAD:  "arrows showing data flow"
+GOOD: "arrows flowing LEFT to RIGHT showing data flow direction, 
+       with arrowheads on the RIGHT side of each connection"
+```
+
+### Environment Secrets Required
+- `AI_FOUNDRY_API_KEY`: Azure AI Foundry API key
+- `GPT_IMAGE_1DOT5_ENDPOINT_URL`: GPT Image 1.5 endpoint
 
 ## Build, Test, and Validation
 
@@ -267,6 +313,23 @@ python .project/agents/quality-assurance/tools/validate_aku.py --pilot npv
 - Domain-specific validation rules (medicine, math, economics, science)
 - Flexible schema based on content type
 - Detailed error reporting with suggestions
+
+### Validating Cross-Domain Linking
+Ensure AKUs follow the cross-domain linking pattern:
+
+```bash
+# Validate single AKU for cross-domain compliance
+python domain/_ontology/tools/validate_cross_domain.py path/to/aku.json
+
+# Validate all AKUs in a directory
+python domain/_ontology/tools/validate_cross_domain.py --directory path/to/akus/
+```
+
+**Cross-domain validator checks:**
+- Native domain AKUs have `isNativeDomain: true`
+- Application domain AKUs have `cross_domain_references`
+- All cross-domain links point to valid paths
+- Domain paths align with `domain/_ontology/global-hierarchy.yaml`
 
 ### Validating Agents
 Check that all agent configurations meet the 180-line minimum requirement:
@@ -579,6 +642,7 @@ If stuck or uncertain:
 ### Essential Files
 - **This File**: `.github/copilot-instructions.md` - Main Copilot instructions
 - **Project Structure**: `.project/structure.md` - File organization and layout
+- **Global Hierarchy**: `domain/_ontology/global-hierarchy.yaml` - Domain taxonomy
 - **Roadmap**: `.project/roadmap.md` - Project goals and timeline
 - **Issues**: `.project/issues.md` - Open issues and blockers
 - **Improvements**: `.project/improvements.md` - Enhancement proposals
@@ -588,6 +652,7 @@ If stuck or uncertain:
 ### Important Directories
 - **Agents**: `.github/agents/` - 60+ custom agent definitions
 - **Domains**: `domain/` - Knowledge domain hierarchies
+- **Domain Ontology**: `domain/_ontology/` - Global hierarchy and cross-domain tools
 - **Documentation**: `docs/` - General project documentation
 - **Project Metadata**: `.project/` - Project planning and tracking
 - **Validation Tools**: `.project/agents/quality-assurance/tools/` - AKU validators
@@ -596,6 +661,9 @@ If stuck or uncertain:
 ```bash
 # Validate AKUs
 python .project/agents/quality-assurance/tools/validate_aku.py path/to/aku.json
+
+# Validate cross-domain linking
+python domain/_ontology/tools/validate_cross_domain.py path/to/aku.json
 
 # Check agent quality
 bash .github/scripts/check-agent-lengths.sh

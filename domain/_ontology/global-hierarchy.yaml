@@ -1,0 +1,1575 @@
+# =============================================================================
+# WorldSMEGraphs Global Domain Hierarchy
+# =============================================================================
+# 
+# Purpose: Defines the authoritative, ontologically rigorous domain hierarchy
+# for all knowledge organization in WorldSMEGraphs.
+#
+# Design Principles:
+#   1. ONTOLOGICAL RIGOR: Concepts belong to their NATIVE domain (origin),
+#      not their application domains
+#   2. SINGLE SOURCE OF TRUTH: One authoritative location per concept
+#   3. CROSS-DOMAIN LINKING: Applications create links, not copies
+#   4. EXTENSIBILITY: Hierarchy supports easy addition of new domains
+#   5. STANDARD ALIGNMENT: Based on established taxonomies (UNESCO, LOC, DDC)
+#
+# Version: 1.0.0
+# Created: 2026-01-04T01:05:00.000Z
+# Authors: ontology-agent
+# Aligned With: 
+#   - UNESCO ISCED-F 2013 (International Standard Classification of Education)
+#   - Library of Congress Classification
+#   - Dewey Decimal Classification
+#   - ACM Computing Classification System
+#   - Mathematics Subject Classification (MSC 2020)
+# =============================================================================
+
+schema_version: "1.0.0"
+last_updated: "2026-01-04T01:05:00.000Z"
+
+# =============================================================================
+# CORE DESIGN PRINCIPLES
+# =============================================================================
+
+principles:
+  native_domain_placement:
+    description: >
+      Every concept belongs to exactly one NATIVE domain - the field where
+      it was originally developed, even if heavily used elsewhere.
+    examples:
+      - concept: Category Theory
+        native_domain: mathematics/pure-mathematics/category-theory
+        application_domains:
+          - computer-science/programming-paradigms/functional-programming
+          - physics/quantum-physics/quantum-mechanics
+      - concept: Linear Algebra
+        native_domain: mathematics/pure-mathematics/algebra/linear-algebra
+        application_domains:
+          - computer-science/artificial-intelligence/machine-learning
+          - physics/classical-mechanics
+          - economics/econometrics
+      - concept: Calculus
+        native_domain: mathematics/pure-mathematics/analysis/calculus
+        application_domains:
+          - physics/classical-mechanics
+          - economics/mathematical-economics
+          - engineering/all-branches
+
+  single_source_of_truth:
+    description: >
+      AKUs are created ONLY in the native domain. Other domains 
+      LINK to these AKUs; they do not duplicate content.
+    implementation:
+      native_domain: Contains full AKU definitions
+      application_domain: Contains cross-domain references and application context
+
+  cross_domain_linking:
+    description: >
+      Applications and uses of concepts in other domains are expressed
+      through semantic links, not content duplication.
+    link_types:
+      - uses: "Application domain uses concept from source domain"
+      - applies: "Concept is applied in this context"
+      - extends: "Domain extends concept with additional structure"
+      - specializes: "Domain-specific specialization of concept"
+
+# =============================================================================
+# TOP-LEVEL DOMAIN TAXONOMY
+# =============================================================================
+# 
+# Level 0: Root domains organized by UNESCO/ISCED-F classification
+# with adjustments for WorldSMEGraphs practical needs
+#
+# These are the broadest categorizations of human knowledge.
+# =============================================================================
+
+domains:
+  # ---------------------------------------------------------------------------
+  # FORMAL SCIENCES - Abstract structures, logic, reasoning
+  # ---------------------------------------------------------------------------
+  formal-sciences:
+    name: Formal Sciences
+    description: >
+      Sciences that study abstract structures and formal systems using 
+      deductive methodology. These provide foundational tools for all
+      other domains.
+    unesco_code: "05"  # Natural sciences (partial)
+    lcc_class: ["QA", "BC"]  # Mathematics, Logic
+    
+    subdomain_hierarchy:
+      mathematics:
+        name: Mathematics
+        description: Study of abstract structures, patterns, and relationships
+        msc_coverage: "00-99"
+        subdomains:
+          pure-mathematics:
+            name: Pure Mathematics
+            description: Mathematics studied for its own sake
+            subdomains:
+              logic:
+                name: Mathematical Logic
+                description: Formal logical systems and foundations
+                topics:
+                  - propositional-logic
+                  - predicate-logic
+                  - proof-theory
+                  - model-theory
+                  - computability-theory
+                  - set-theory
+                  - type-theory
+                
+              algebra:
+                name: Algebra
+                description: Study of algebraic structures and operations
+                topics:
+                  - elementary-algebra
+                  - linear-algebra
+                  - abstract-algebra
+                  - group-theory
+                  - ring-theory
+                  - field-theory
+                  - module-theory
+                  - homological-algebra
+                  - universal-algebra
+                  - commutative-algebra
+                  - non-commutative-algebra
+                
+              analysis:
+                name: Analysis
+                description: Study of continuous change and limits
+                topics:
+                  - calculus
+                  - real-analysis
+                  - complex-analysis
+                  - functional-analysis
+                  - harmonic-analysis
+                  - measure-theory
+                  - differential-equations
+                  - dynamical-systems
+                  - operator-theory
+                
+              geometry:
+                name: Geometry
+                description: Study of shapes, sizes, and spatial properties
+                topics:
+                  - euclidean-geometry
+                  - non-euclidean-geometry
+                  - algebraic-geometry
+                  - differential-geometry
+                  - riemannian-geometry
+                  - symplectic-geometry
+                  - discrete-geometry
+                  - convex-geometry
+                
+              topology:
+                name: Topology
+                description: Study of properties preserved under continuous deformation
+                topics:
+                  - general-topology
+                  - algebraic-topology
+                  - differential-topology
+                  - geometric-topology
+                  - knot-theory
+                  - homotopy-theory
+                  - homology-theory
+                
+              number-theory:
+                name: Number Theory
+                description: Study of integers and number-theoretic functions
+                topics:
+                  - elementary-number-theory
+                  - primes
+                  - analytic-number-theory
+                  - algebraic-number-theory
+                  - diophantine-equations
+                  - modular-forms
+                  - elliptic-curves
+                
+              # ---------------------------------------------------------------
+              # CATEGORY THEORY - NATIVE HOME
+              # ---------------------------------------------------------------
+              category-theory:
+                name: Category Theory
+                description: >
+                  Study of abstract structures and relationships between 
+                  mathematical objects. Provides unifying language for 
+                  mathematics and formal connections between areas.
+                native_domain: true
+                msc_code: "18"
+                topics:
+                  - categories-and-morphisms
+                  - functors
+                  - natural-transformations
+                  - limits-and-colimits
+                  - adjunctions
+                  - monads
+                  - kan-extensions
+                  - enriched-categories
+                  - higher-category-theory
+                  - topos-theory
+                cross_domain_applications:
+                  - domain: computer-science/programming-paradigms/functional-programming
+                    relationship: applies
+                    notes: >
+                      Functional programming uses categorical concepts like 
+                      functors, monads, and morphisms to structure computations
+                  - domain: computer-science/type-theory
+                    relationship: uses
+                    notes: >
+                      Type theory uses categorical semantics, especially 
+                      cartesian closed categories and toposes
+                  - domain: physics/quantum-physics
+                    relationship: applies
+                    notes: >
+                      Quantum mechanics uses category theory for quantum 
+                      computing and topological quantum field theory
+                  - domain: formal-sciences/mathematics/pure-mathematics/logic
+                    relationship: extends
+                    notes: >
+                      Categorical logic provides semantics for logical systems
+                
+              combinatorics:
+                name: Combinatorics
+                description: Study of counting, arrangement, and combination
+                topics:
+                  - enumerative-combinatorics
+                  - graph-theory
+                  - ramsey-theory
+                  - extremal-combinatorics
+                  - probabilistic-combinatorics
+                  - algebraic-combinatorics
+          
+          applied-mathematics:
+            name: Applied Mathematics
+            description: Mathematics applied to solve real-world problems
+            subdomains:
+              numerical-analysis:
+                name: Numerical Analysis
+                description: Algorithms for numerical approximation
+                topics:
+                  - numerical-linear-algebra
+                  - numerical-integration
+                  - numerical-optimization
+                  - error-analysis
+                  - floating-point-arithmetic
+              
+              probability-theory:
+                name: Probability Theory
+                description: Mathematical study of random phenomena
+                topics:
+                  - probability-spaces
+                  - random-variables
+                  - distributions
+                  - stochastic-processes
+                  - markov-chains
+                  - martingales
+              
+              statistics:
+                name: Statistics
+                description: Collection, analysis, and interpretation of data
+                topics:
+                  - descriptive-statistics
+                  - inferential-statistics
+                  - regression-analysis
+                  - hypothesis-testing
+                  - bayesian-statistics
+                  - multivariate-statistics
+              
+              operations-research:
+                name: Operations Research
+                description: Application of analytical methods to decision-making
+                topics:
+                  - linear-programming
+                  - integer-programming
+                  - optimization
+                  - queuing-theory
+                  - game-theory
+                  - decision-theory
+              
+              mathematical-physics:
+                name: Mathematical Physics
+                description: Mathematical methods for physics problems
+                topics:
+                  - differential-equations
+                  - partial-differential-equations
+                  - variational-methods
+                  - spectral-theory
+              
+              mathematical-economics:
+                name: Mathematical Economics
+                description: Mathematical methods for economics
+                topics:
+                  - economic-modeling
+                  - equilibrium-theory
+                  - optimization-economics
+      
+      # -----------------------------------------------------------------------
+      # COMPUTER SCIENCE - Within Formal Sciences
+      # -----------------------------------------------------------------------
+      computer-science:
+        name: Computer Science
+        description: Study of computation, information processing, and systems
+        acm_ccs: "10"
+        lcc_class: "QA76"
+        subdomains:
+          theoretical-computer-science:
+            name: Theoretical Computer Science
+            description: Theoretical foundations of computation
+            subdomains:
+              automata-theory:
+                name: Automata Theory
+                description: Abstract machines and formal languages
+                topics:
+                  - finite-automata
+                  - pushdown-automata
+                  - turing-machines
+                  - formal-languages
+                  - regular-expressions
+              
+              computational-complexity:
+                name: Computational Complexity
+                description: Classification of problems by computational resources
+                topics:
+                  - time-complexity
+                  - space-complexity
+                  - complexity-classes
+                  - np-completeness
+                  - approximation-algorithms
+              
+              type-theory:
+                name: Type Theory
+                description: Formal systems for classifying values
+                topics:
+                  - simple-types
+                  - polymorphic-types
+                  - dependent-types
+                  - linear-types
+                  - refinement-types
+                cross_domain_uses:
+                  - domain: formal-sciences/mathematics/pure-mathematics/category-theory
+                    relationship: uses
+                    concepts: [cartesian-closed-categories, topos-theory]
+              
+              algorithms:
+                name: Algorithms
+                description: Step-by-step computational procedures
+                topics:
+                  - sorting-algorithms
+                  - searching-algorithms
+                  - graph-algorithms
+                  - dynamic-programming
+                  - greedy-algorithms
+                  - divide-and-conquer
+          
+          programming-paradigms:
+            name: Programming Paradigms
+            description: Styles and approaches to programming
+            subdomains:
+              # -----------------------------------------------------------------
+              # FUNCTIONAL PROGRAMMING - Uses category theory concepts
+              # -----------------------------------------------------------------
+              functional-programming:
+                name: Functional Programming
+                description: >
+                  Programming paradigm based on mathematical functions,
+                  immutability, and declarative style
+                cross_domain_uses:
+                  - domain: formal-sciences/mathematics/pure-mathematics/category-theory
+                    relationship: applies
+                    concepts:
+                      - functors
+                      - monads
+                      - natural-transformations
+                      - morphisms
+                    notes: >
+                      Functional programming APPLIES category theory concepts.
+                      The mathematical definitions live in category-theory;
+                      programming implementations LINK to those definitions.
+                  - domain: formal-sciences/mathematics/pure-mathematics/algebra
+                    relationship: uses
+                    concepts:
+                      - monoids
+                      - semigroups
+                      - groups
+                topics:
+                  - pure-functions
+                  - immutability
+                  - higher-order-functions
+                  - function-composition
+                  - currying-and-partial-application
+                  - lazy-evaluation
+                  - pattern-matching
+                  - type-classes
+                  - algebraic-data-types
+                  - effect-systems
+              
+              object-oriented-programming:
+                name: Object-Oriented Programming
+                description: Programming with objects, classes, and inheritance
+                topics:
+                  - classes-and-objects
+                  - inheritance
+                  - polymorphism
+                  - encapsulation
+                  - design-patterns
+              
+              imperative-programming:
+                name: Imperative Programming
+                description: Programming with statements that change state
+                topics:
+                  - sequential-execution
+                  - control-flow
+                  - loops
+                  - state-mutation
+              
+              logic-programming:
+                name: Logic Programming
+                description: Programming using logical inference
+                topics:
+                  - horn-clauses
+                  - unification
+                  - backtracking
+                  - constraint-logic-programming
+          
+          software-engineering:
+            name: Software Engineering
+            description: Systematic approach to software development
+            topics:
+              - software-architecture
+              - design-patterns
+              - testing
+              - version-control
+              - agile-methodologies
+              - devops
+          
+          artificial-intelligence:
+            name: Artificial Intelligence
+            description: Creation of intelligent systems
+            subdomains:
+              machine-learning:
+                name: Machine Learning
+                description: Systems that learn from data
+                topics:
+                  - supervised-learning
+                  - unsupervised-learning
+                  - reinforcement-learning
+                  - deep-learning
+                  - neural-networks
+                cross_domain_uses:
+                  - domain: formal-sciences/mathematics/pure-mathematics/algebra/linear-algebra
+                    relationship: uses
+                  - domain: formal-sciences/mathematics/applied-mathematics/probability-theory
+                    relationship: uses
+                  - domain: formal-sciences/mathematics/applied-mathematics/statistics
+                    relationship: uses
+              
+              natural-language-processing:
+                name: Natural Language Processing
+                description: Processing and understanding human language
+                topics:
+                  - tokenization
+                  - parsing
+                  - sentiment-analysis
+                  - machine-translation
+                  - large-language-models
+              
+              computer-vision:
+                name: Computer Vision
+                description: Understanding visual information
+                topics:
+                  - image-processing
+                  - object-detection
+                  - image-segmentation
+                  - face-recognition
+          
+          data-structures:
+            name: Data Structures
+            description: Organizing and storing data efficiently
+            topics:
+              - arrays
+              - linked-lists
+              - trees
+              - graphs
+              - hash-tables
+              - heaps
+          
+          databases:
+            name: Databases
+            description: Storing, retrieving, and managing data
+            topics:
+              - relational-databases
+              - nosql-databases
+              - query-optimization
+              - transactions
+              - indexing
+          
+          systems:
+            name: Computer Systems
+            description: Hardware and system software
+            topics:
+              - operating-systems
+              - distributed-systems
+              - networking
+              - compilers
+              - computer-architecture
+
+  # ---------------------------------------------------------------------------
+  # NATURAL SCIENCES - Empirical study of the physical world
+  # ---------------------------------------------------------------------------
+  natural-sciences:
+    name: Natural Sciences
+    description: >
+      Sciences that study the natural world through observation and 
+      experimentation.
+    unesco_code: "05"
+    lcc_class: ["Q"]
+    
+    subdomain_hierarchy:
+      physics:
+        name: Physics
+        description: Study of matter, energy, and their interactions
+        subdomains:
+          classical-mechanics:
+            name: Classical Mechanics
+            description: Motion of macroscopic objects
+            topics:
+              - kinematics
+              - dynamics
+              - statics
+              - lagrangian-mechanics
+              - hamiltonian-mechanics
+          
+          electromagnetism:
+            name: Electromagnetism
+            description: Electricity, magnetism, and light
+            topics:
+              - electrostatics
+              - magnetostatics
+              - electromagnetic-waves
+              - maxwells-equations
+          
+          thermodynamics:
+            name: Thermodynamics
+            description: Heat, energy, and entropy
+            topics:
+              - laws-of-thermodynamics
+              - entropy
+              - statistical-mechanics
+              - phase-transitions
+          
+          quantum-physics:
+            name: Quantum Physics
+            description: Physics at atomic and subatomic scales
+            topics:
+              - quantum-mechanics
+              - quantum-field-theory
+              - quantum-electrodynamics
+              - quantum-computing
+            cross_domain_uses:
+              - domain: formal-sciences/mathematics/pure-mathematics/category-theory
+                relationship: applies
+                concepts: [monoidal-categories, topological-quantum-field-theory]
+          
+          relativity:
+            name: Relativity
+            description: Space, time, and gravity
+            topics:
+              - special-relativity
+              - general-relativity
+              - cosmology
+          
+          condensed-matter:
+            name: Condensed Matter Physics
+            description: Properties of condensed phases of matter
+            topics:
+              - solid-state-physics
+              - superconductivity
+              - semiconductors
+      
+      chemistry:
+        name: Chemistry
+        description: Study of matter and its transformations
+        subdomains:
+          general-chemistry:
+            name: General Chemistry
+            topics:
+              - atomic-structure
+              - chemical-bonding
+              - stoichiometry
+              - thermochemistry
+          
+          organic-chemistry:
+            name: Organic Chemistry
+            description: Chemistry of carbon compounds
+            topics:
+              - functional-groups
+              - reaction-mechanisms
+              - stereochemistry
+              - synthesis
+          
+          inorganic-chemistry:
+            name: Inorganic Chemistry
+            description: Non-carbon chemistry
+            topics:
+              - coordination-chemistry
+              - main-group-chemistry
+              - organometallics
+          
+          physical-chemistry:
+            name: Physical Chemistry
+            description: Physical principles of chemistry
+            topics:
+              - quantum-chemistry
+              - spectroscopy
+              - kinetics
+              - electrochemistry
+          
+          biochemistry:
+            name: Biochemistry
+            description: Chemistry of living organisms
+            topics:
+              - proteins
+              - nucleic-acids
+              - metabolism
+              - enzymes
+      
+      biology:
+        name: Biology
+        description: Study of living organisms
+        subdomains:
+          molecular-biology:
+            name: Molecular Biology
+            topics:
+              - dna-replication
+              - gene-expression
+              - protein-synthesis
+          
+          cell-biology:
+            name: Cell Biology
+            topics:
+              - cell-structure
+              - cell-cycle
+              - signal-transduction
+          
+          genetics:
+            name: Genetics
+            topics:
+              - mendelian-genetics
+              - population-genetics
+              - genomics
+          
+          evolution:
+            name: Evolutionary Biology
+            topics:
+              - natural-selection
+              - speciation
+              - phylogenetics
+          
+          ecology:
+            name: Ecology
+            topics:
+              - ecosystems
+              - population-dynamics
+              - conservation
+          
+          physiology:
+            name: Physiology
+            topics:
+              - organ-systems
+              - homeostasis
+              - neurophysiology
+      
+      earth-sciences:
+        name: Earth Sciences
+        description: Study of Earth and its systems
+        subdomains:
+          geology:
+            name: Geology
+            topics:
+              - mineralogy
+              - petrology
+              - tectonics
+              - stratigraphy
+          
+          meteorology:
+            name: Meteorology
+            topics:
+              - atmospheric-science
+              - weather-systems
+              - climate
+          
+          oceanography:
+            name: Oceanography
+            topics:
+              - marine-biology
+              - ocean-circulation
+              - marine-geology
+      
+      astronomy:
+        name: Astronomy
+        description: Study of celestial objects and phenomena
+        topics:
+          - stellar-astronomy
+          - planetary-science
+          - galactic-astronomy
+          - cosmology
+
+  # ---------------------------------------------------------------------------
+  # SOCIAL SCIENCES - Study of human society and behavior
+  # ---------------------------------------------------------------------------
+  social-sciences:
+    name: Social Sciences
+    description: >
+      Sciences that study human society, institutions, and behavior.
+    unesco_code: "03"
+    lcc_class: ["H"]
+    
+    subdomain_hierarchy:
+      economics:
+        name: Economics
+        description: Production, distribution, and consumption of goods and services
+        subdomains:
+          microeconomics:
+            name: Microeconomics
+            description: Individual economic agents and markets
+            topics:
+              - supply-and-demand
+              - consumer-theory
+              - producer-theory
+              - market-structures
+              - game-theory
+          
+          macroeconomics:
+            name: Macroeconomics
+            description: Economy-wide phenomena
+            topics:
+              - gdp
+              - inflation
+              - unemployment
+              - monetary-policy
+              - fiscal-policy
+              - economic-growth
+          
+          financial-economics:
+            name: Financial Economics
+            description: Allocation of resources over time under uncertainty
+            topics:
+              - asset-pricing
+              - corporate-finance
+              - investments
+              - derivatives
+              - risk-management
+              - net-present-value  # (NPV)
+              - internal-rate-of-return  # (IRR)
+              - weighted-average-cost-of-capital  # (WACC)
+          
+          econometrics:
+            name: Econometrics
+            description: Statistical methods in economics
+            topics:
+              - regression-analysis
+              - time-series
+              - panel-data
+              - instrumental-variables
+          
+          behavioral-economics:
+            name: Behavioral Economics
+            description: Psychology and economics
+            topics:
+              - cognitive-biases
+              - heuristics
+              - decision-making
+              - nudge-theory
+      
+      psychology:
+        name: Psychology
+        description: Study of mind and behavior
+        subdomains:
+          cognitive-psychology:
+            name: Cognitive Psychology
+            topics:
+              - perception
+              - memory
+              - attention
+              - problem-solving
+          
+          developmental-psychology:
+            name: Developmental Psychology
+            topics:
+              - child-development
+              - lifespan-development
+              - cognitive-development
+          
+          social-psychology:
+            name: Social Psychology
+            topics:
+              - attitudes
+              - group-dynamics
+              - social-influence
+          
+          clinical-psychology:
+            name: Clinical Psychology
+            topics:
+              - psychopathology
+              - psychotherapy
+              - assessment
+      
+      sociology:
+        name: Sociology
+        description: Study of social behavior and institutions
+        topics:
+          - social-structure
+          - social-stratification
+          - institutions
+          - social-movements
+      
+      political-science:
+        name: Political Science
+        description: Study of politics and government
+        topics:
+          - political-theory
+          - comparative-politics
+          - international-relations
+          - public-policy
+      
+      anthropology:
+        name: Anthropology
+        description: Study of human cultures and societies
+        topics:
+          - cultural-anthropology
+          - physical-anthropology
+          - archaeology
+          - linguistics
+
+  # ---------------------------------------------------------------------------
+  # HEALTH SCIENCES - Study of health and medicine
+  # ---------------------------------------------------------------------------
+  health-sciences:
+    name: Health Sciences
+    description: >
+      Sciences concerned with human health, disease, and healthcare.
+    unesco_code: "09"
+    lcc_class: ["R"]
+    
+    subdomain_hierarchy:
+      medicine:
+        name: Medicine
+        description: Prevention, diagnosis, and treatment of disease
+        subdomains:
+          surgery:
+            name: Surgery
+            description: Manual and instrumental treatment of disease
+            subdomains:
+              general-surgery:
+                name: General Surgery
+                topics:
+                  - abdominal-surgery
+                  - trauma-surgery
+              
+              vascular-surgery:
+                name: Vascular Surgery
+                topics:
+                  - arterial-procedures
+                  - venous-procedures
+                  - endovascular-procedures
+                subdomains:
+                  procedures:
+                    topics:
+                      - evar
+                      - open-repair
+                      - bypass
+                  pathology:
+                    topics:
+                      - abdominal-aortic-aneurysm  # (AAA)
+                      - mesenteric-ischemia
+                      - peripheral-artery-disease
+                  complications:
+                    topics:
+                      - endoleaks
+              
+              cardiac-surgery:
+                name: Cardiac Surgery
+                topics:
+                  - coronary-artery-bypass-graft  # (CABG)
+                  - valve-replacement
+              
+              neurosurgery:
+                name: Neurosurgery
+                topics:
+                  - brain-surgery
+                  - spine-surgery
+              
+              orthopedic-surgery:
+                name: Orthopedic Surgery
+                topics:
+                  - joint-replacement
+                  - fracture-repair
+          
+          internal-medicine:
+            name: Internal Medicine
+            description: Diagnosis and treatment of adult diseases
+            subdomains:
+              cardiology:
+                name: Cardiology
+                topics:
+                  - heart-disease
+                  - arrhythmias
+                  - heart-failure
+              
+              gastroenterology:
+                name: Gastroenterology
+                topics:
+                  - digestive-disorders
+                  - liver-disease
+              
+              pulmonology:
+                name: Pulmonology
+                topics:
+                  - respiratory-diseases
+                  - lung-function
+              
+              nephrology:
+                name: Nephrology
+                topics:
+                  - kidney-disease
+                  - dialysis
+              
+              endocrinology:
+                name: Endocrinology
+                topics:
+                  - diabetes
+                  - thyroid-disorders
+                  - hormonal-disorders
+              
+              oncology:
+                name: Oncology
+                topics:
+                  - cancer-diagnosis
+                  - chemotherapy
+                  - immunotherapy
+          
+          pediatrics:
+            name: Pediatrics
+            description: Medical care of children
+            topics:
+              - child-health
+              - developmental-disorders
+          
+          psychiatry:
+            name: Psychiatry
+            description: Mental health disorders
+            topics:
+              - depression
+              - anxiety-disorders
+              - psychotic-disorders
+          
+          emergency-medicine:
+            name: Emergency Medicine
+            description: Acute illness and injury
+            topics:
+              - trauma
+              - resuscitation
+              - acute-care
+      
+      nursing:
+        name: Nursing
+        description: Patient care and health promotion
+        topics:
+          - patient-care
+          - health-education
+          - clinical-procedures
+      
+      pharmacy:
+        name: Pharmacy
+        description: Drug development and dispensing
+        topics:
+          - pharmacology
+          - pharmaceutical-chemistry
+          - drug-interactions
+      
+      public-health:
+        name: Public Health
+        description: Population health and prevention
+        topics:
+          - epidemiology
+          - health-policy
+          - disease-prevention
+          - health-promotion
+
+  # ---------------------------------------------------------------------------
+  # ENGINEERING - Application of science to practical problems
+  # ---------------------------------------------------------------------------
+  engineering:
+    name: Engineering
+    description: >
+      Application of scientific and mathematical knowledge to practical 
+      problems and creation of useful systems.
+    unesco_code: "07"
+    lcc_class: ["T"]
+    
+    subdomain_hierarchy:
+      mechanical-engineering:
+        name: Mechanical Engineering
+        topics:
+          - mechanics
+          - thermodynamics
+          - manufacturing
+          - robotics
+      
+      electrical-engineering:
+        name: Electrical Engineering
+        topics:
+          - circuits
+          - electronics
+          - power-systems
+          - signal-processing
+      
+      civil-engineering:
+        name: Civil Engineering
+        topics:
+          - structural-engineering
+          - transportation
+          - environmental-engineering
+          - construction
+      
+      chemical-engineering:
+        name: Chemical Engineering
+        topics:
+          - process-engineering
+          - reaction-engineering
+          - separation-processes
+      
+      biomedical-engineering:
+        name: Biomedical Engineering
+        topics:
+          - medical-devices
+          - tissue-engineering
+          - biomechanics
+
+  # ---------------------------------------------------------------------------
+  # HUMANITIES - Study of human culture and experience
+  # ---------------------------------------------------------------------------
+  humanities:
+    name: Humanities
+    description: >
+      Disciplines that study human culture, expression, and experience.
+    unesco_code: "02"
+    lcc_class: ["A", "B", "P"]
+    
+    subdomain_hierarchy:
+      philosophy:
+        name: Philosophy
+        description: Fundamental questions about existence, knowledge, and values
+        subdomains:
+          metaphysics:
+            name: Metaphysics
+            topics:
+              - ontology
+              - causation
+              - free-will
+              - identity
+          
+          epistemology:
+            name: Epistemology
+            topics:
+              - knowledge
+              - justification
+              - skepticism
+              - truth
+          
+          ethics:
+            name: Ethics
+            topics:
+              - normative-ethics
+              - metaethics
+              - applied-ethics
+          
+          logic-philosophical:
+            name: Logic (Philosophical)
+            topics:
+              - formal-logic
+              - informal-logic
+              - philosophy-of-logic
+          
+          philosophy-of-science:
+            name: Philosophy of Science
+            topics:
+              - scientific-method
+              - confirmation
+              - explanation
+          
+          philosophy-of-mind:
+            name: Philosophy of Mind
+            topics:
+              - consciousness
+              - intentionality
+              - mental-causation
+      
+      history:
+        name: History
+        description: Study of the past
+        subdomains:
+          ancient-history:
+            name: Ancient History
+            topics:
+              - classical-antiquity
+              - ancient-egypt
+              - mesopotamia
+          
+          medieval-history:
+            name: Medieval History
+            topics:
+              - european-middle-ages
+              - byzantine-empire
+              - islamic-golden-age
+          
+          modern-history:
+            name: Modern History
+            topics:
+              - early-modern
+              - industrial-revolution
+              - contemporary-history
+      
+      linguistics:
+        name: Linguistics
+        description: Scientific study of language
+        topics:
+          - phonetics
+          - phonology
+          - morphology
+          - syntax
+          - semantics
+          - pragmatics
+          - sociolinguistics
+      
+      literature:
+        name: Literature
+        description: Study of written works
+        topics:
+          - literary-theory
+          - poetry
+          - prose
+          - drama
+          - comparative-literature
+      
+      religious-studies:
+        name: Religious Studies
+        description: Academic study of religion
+        topics:
+          - world-religions
+          - theology
+          - comparative-religion
+          - philosophy-of-religion
+
+  # ---------------------------------------------------------------------------
+  # ARTS - Creative expression and aesthetic experience
+  # ---------------------------------------------------------------------------
+  arts:
+    name: Arts
+    description: >
+      Creative disciplines focused on aesthetic expression and experience.
+    unesco_code: "02"
+    lcc_class: ["M", "N"]
+    
+    subdomain_hierarchy:
+      visual-arts:
+        name: Visual Arts
+        topics:
+          - painting
+          - sculpture
+          - photography
+          - digital-art
+          - art-history
+      
+      performing-arts:
+        name: Performing Arts
+        topics:
+          - theater
+          - dance
+          - performance-art
+      
+      music:
+        name: Music
+        topics:
+          - music-theory
+          - composition
+          - musicology
+          - music-performance
+      
+      design:
+        name: Design
+        topics:
+          - graphic-design
+          - industrial-design
+          - ux-design
+          - architecture
+
+  # ---------------------------------------------------------------------------
+  # INTERDISCIPLINARY DOMAINS
+  # ---------------------------------------------------------------------------
+  interdisciplinary:
+    name: Interdisciplinary Fields
+    description: >
+      Fields that inherently span multiple traditional domains.
+    
+    subdomain_hierarchy:
+      cognitive-science:
+        name: Cognitive Science
+        description: Study of the mind from multiple perspectives
+        crosses:
+          - formal-sciences/computer-science/artificial-intelligence
+          - social-sciences/psychology/cognitive-psychology
+          - humanities/philosophy/philosophy-of-mind
+          - natural-sciences/biology/neuroscience
+      
+      bioinformatics:
+        name: Bioinformatics
+        description: Computational analysis of biological data
+        crosses:
+          - formal-sciences/computer-science
+          - natural-sciences/biology
+          - formal-sciences/mathematics/applied-mathematics/statistics
+      
+      environmental-science:
+        name: Environmental Science
+        description: Interdisciplinary study of the environment
+        crosses:
+          - natural-sciences/earth-sciences
+          - natural-sciences/biology/ecology
+          - social-sciences
+          - engineering
+      
+      data-science:
+        name: Data Science
+        description: Extracting knowledge from data
+        crosses:
+          - formal-sciences/computer-science
+          - formal-sciences/mathematics/applied-mathematics/statistics
+          - formal-sciences/mathematics/applied-mathematics/probability-theory
+
+# =============================================================================
+# CROSS-DOMAIN RELATIONSHIP PATTERNS
+# =============================================================================
+
+cross_domain_patterns:
+  description: >
+    Patterns for expressing relationships between concepts across domains.
+    These patterns ensure that concepts have a single authoritative location
+    while being richly linked to their applications.
+
+  relationship_types:
+    # Native ownership
+    native_domain:
+      description: The domain where this concept was originally developed
+      cardinality: exactly-one
+      example:
+        concept: Category Theory
+        native_domain: formal-sciences/mathematics/pure-mathematics/category-theory
+
+    # Application relationships
+    applies:
+      description: Domain applies concepts from another domain
+      direction: application -> native
+      example:
+        from: formal-sciences/computer-science/programming-paradigms/functional-programming
+        to: formal-sciences/mathematics/pure-mathematics/category-theory
+        concepts: [functors, monads, natural-transformations]
+    
+    uses:
+      description: Domain uses concepts as tools or foundations
+      direction: application -> native
+      example:
+        from: formal-sciences/computer-science/artificial-intelligence/machine-learning
+        to: formal-sciences/mathematics/pure-mathematics/algebra/linear-algebra
+        concepts: [matrices, vector-spaces, eigenvalues]
+    
+    extends:
+      description: Domain extends or specializes concepts for its context
+      direction: application -> native
+      example:
+        from: formal-sciences/computer-science/type-theory
+        to: formal-sciences/mathematics/pure-mathematics/category-theory
+        extension: categorical-semantics-of-types
+    
+    informs:
+      description: Concepts from one domain inform understanding in another
+      direction: bidirectional
+      example:
+        between:
+          - natural-sciences/physics/quantum-physics
+          - formal-sciences/mathematics/pure-mathematics/algebra/linear-algebra
+        concepts: [hilbert-spaces, operators]
+
+  implementation_in_akus:
+    description: How to implement cross-domain links in AKU files
+    
+    native_domain_aku:
+      location: In the native domain path
+      contains:
+        - Full concept definition
+        - All core content
+        - References to applications (optional)
+      example_path: >
+        domain/formal-sciences/mathematics/pure-mathematics/category-theory/akus/monads/
+    
+    application_domain_aku:
+      location: In the application domain path
+      contains:
+        - Application-specific context
+        - Cross-domain links to native concept
+        - Domain-specific examples
+      structure:
+        cross_domain_references:
+          uses:
+            - "@id": "wsmg:formal-sciences/mathematics/pure-mathematics/category-theory/monads"
+              relationship: "uses"
+              context: "Monads structure effectful computations in functional programming"
+      example_path: >
+        domain/formal-sciences/computer-science/programming-paradigms/functional-programming/akus/monad-applications/
+
+  link_format:
+    description: Standard format for cross-domain links in AKUs
+    schema:
+      "@type": "wsmg:CrossDomainLink"
+      source_domain: "string - path to source domain"
+      target_domain: "string - path to target domain"
+      relationship: "enum: applies | uses | extends | informs"
+      concepts: "array of concept IDs"
+      notes: "string - explanation of the relationship"
+      bidirectional: "boolean - whether link is bidirectional"
+
+# =============================================================================
+# CATEGORY THEORY SPECIFIC RECOMMENDATIONS
+# =============================================================================
+
+category_theory_placement:
+  authoritative_location:
+    path: formal-sciences/mathematics/pure-mathematics/category-theory
+    rationale: >
+      Category theory is a branch of pure mathematics developed by 
+      Samuel Eilenberg and Saunders Mac Lane in 1945 for algebraic topology.
+      It is fundamentally mathematical, providing abstract structure for
+      relating different areas of mathematics.
+  
+  migration_plan:
+    # Current ACTUAL location in repository (legacy structure)
+    current_location: science/computer-science/functional-theory/category-theory
+    # Target location per global hierarchy
+    target_location: formal-sciences/mathematics/pure-mathematics/category-theory
+    
+    notes: >
+      The current repository uses 'functional-theory' as a legacy path.
+      The new hierarchy uses 'functional-programming' under programming-paradigms.
+      During migration, functional programming application AKUs will be created
+      at the new canonical location.
+    
+    steps:
+      - step: 1
+        action: Create new directory structure
+        path: domain/formal-sciences/mathematics/pure-mathematics/category-theory/
+        
+      - step: 2
+        action: Move category theory AKUs
+        from: domain/science/computer-science/functional-theory/category-theory/
+        to: domain/formal-sciences/mathematics/pure-mathematics/category-theory/
+        
+      - step: 3
+        action: Update cross-domain links
+        notes: >
+          Update all AKUs that reference category theory to point to the
+          new location. Create cross-domain reference AKUs for functional programming.
+        
+      - step: 4
+        action: Create application context AKUs
+        location: domain/formal-sciences/computer-science/programming-paradigms/functional-programming/
+        purpose: >
+          Create AKUs that explain how category theory concepts are APPLIED
+          in functional programming, linking to the mathematics-native definitions.
+        
+      - step: 5
+        action: Update concept-index.yaml
+        file: domain/science/computer-science/functional-theory/concept-index.yaml
+        changes:
+          - Update placement_rationale to reference mathematics-native location
+          - Add cross_domain_references section
+          - Update paths in AKU references
+        
+      - step: 6
+        action: Document the relationship
+        file: domain/formal-sciences/mathematics/pure-mathematics/category-theory/README.md
+        content: >
+          Document category theory's native mathematical status and its
+          important applications in computer science, physics, and elsewhere.
+
+  functional_programming_integration:
+    description: >
+      How functional programming should relate to category-theory concepts
+    
+    pattern:
+      native_math_akus:
+        location: formal-sciences/mathematics/pure-mathematics/category-theory/
+        contains:
+          - Pure mathematical definitions
+          - Abstract formulations
+          - Mathematical examples (Set, Grp, Top, etc.)
+          - Theorems and proofs
+      
+      programming_application_akus:
+        location: formal-sciences/computer-science/programming-paradigms/functional-programming/
+        contains:
+          - Programming-specific interpretations
+          - Code examples (Haskell, Scala, etc.)
+          - Practical use cases
+          - Cross-domain links to math definitions
+    
+    example_structure:
+      math_aku:
+        "@id": "wsmg:math/category-theory/monad-definition"
+        "@type": ["MathematicalConcept", "skos:Concept"]
+        definition: >
+          A monad on a category C is a triple (T, η, μ) consisting of an 
+          endofunctor T: C → C and two natural transformations η: 1_C → T 
+          and μ: T² → T satisfying certain coherence conditions.
+      
+      programming_aku:
+        "@id": "wsmg:cs/functional-programming/monad-in-programming"
+        "@type": ["ProgrammingConcept", "skos:Concept"]
+        cross_domain_references:
+          uses:
+            - "@id": "wsmg:math/category-theory/monad-definition"
+              relationship: "applies"
+        content: >
+          In functional programming, a monad is a design pattern that 
+          allows structuring programs as sequences of computations...
+
+# =============================================================================
+# IMPLEMENTATION NOTES
+# =============================================================================
+
+implementation:
+  directory_structure:
+    description: >
+      The domain hierarchy maps directly to file system directories
+    notes:
+      - Top-level domains become direct subdirectories of domain/
+      - Subdomain hierarchy creates nested directories
+      - Cross-domain links are implemented in AKU files, not directory structure
+    
+    example:
+      formal-sciences:
+        mathematics:
+          pure-mathematics:
+            category-theory:
+              - akus/
+              - concept-index.yaml
+              - README.md
+          
+          applied-mathematics:
+            statistics:
+              - akus/
+              - concept-index.yaml
+        
+        computer-science:
+          programming-paradigms:
+            functional-programming:
+              - akus/
+              - cross-references/  # Links to math concepts
+              - concept-index.yaml
+  
+  backwards_compatibility:
+    current_domains:
+      - science: Maps to natural-sciences (partially) and formal-sciences
+      - economics: Maps to social-sciences/economics
+      - medicine: Maps to health-sciences/medicine
+    
+    migration_path:
+      phase_1: Create new hierarchy alongside existing
+      phase_2: Migrate content to new locations
+      phase_3: Update all cross-references
+      phase_4: Deprecate old paths
+
+  json_ld_integration:
+    description: How the hierarchy integrates with JSON-LD contexts
+    contexts:
+      base: Applies to all domains
+      domain_specific: Create contexts for major domains
+    
+    namespace_pattern:
+      formal_sciences: "https://worldsmegraphs.org/domain/formal-sciences/"
+      natural_sciences: "https://worldsmegraphs.org/domain/natural-sciences/"
+      social_sciences: "https://worldsmegraphs.org/domain/social-sciences/"
+      health_sciences: "https://worldsmegraphs.org/domain/health-sciences/"
+      engineering: "https://worldsmegraphs.org/domain/engineering/"
+      humanities: "https://worldsmegraphs.org/domain/humanities/"
+      arts: "https://worldsmegraphs.org/domain/arts/"
+
+# =============================================================================
+# VALIDATION RULES
+# =============================================================================
+
+validation:
+  rules:
+    - name: single-native-domain
+      description: Every concept must have exactly one native domain
+      check: Each AKU has a unique domain_path
+    
+    - name: valid-cross-references
+      description: All cross-domain references must point to valid AKUs
+      check: Target AKU exists at referenced path
+    
+    - name: hierarchy-consistency
+      description: Directory structure matches this hierarchy
+      check: domain directories exist for all defined paths
+    
+    - name: no-concept-duplication
+      description: Concepts are not duplicated across domains
+      check: AKUs with same semantic meaning exist only once
+    
+    - name: proper-linking
+      description: Application domains link to, not copy, native concepts
+      check: Cross-domain references use link types, not content duplication
+
+# =============================================================================
+# REFERENCES
+# =============================================================================
+
+references:
+  taxonomies:
+    - name: "UNESCO ISCED-F 2013"
+      url: "https://uis.unesco.org/en/topic/international-standard-classification-education-isced"
+      description: International Standard Classification of Education - Fields
+    
+    - name: "Library of Congress Classification"
+      url: "https://www.loc.gov/catdir/cpso/lcc.html"
+      description: Classification system used by Library of Congress
+    
+    - name: "Dewey Decimal Classification"
+      url: "https://www.oclc.org/dewey.en.html"
+      description: Widely used library classification system
+    
+    - name: "Mathematics Subject Classification 2020"
+      url: "https://mathscinet.ams.org/mathscinet/msc/msc2020.html"
+      description: Standard classification for mathematics
+    
+    - name: "ACM Computing Classification System"
+      url: "https://dl.acm.org/ccs"
+      description: Standard classification for computing
+
+  ontologies:
+    - name: "SKOS"
+      url: "https://www.w3.org/2004/02/skos/"
+      description: Simple Knowledge Organization System
+    
+    - name: "Schema.org"
+      url: "https://schema.org/"
+      description: Vocabulary for structured data on the web
+    
+    - name: "Dublin Core"
+      url: "https://www.dublincore.org/"
+      description: Metadata standards for resources
+
+# =============================================================================
+# End of Global Domain Hierarchy
+# Version: 1.0.0
+# This file is the authoritative source for domain organization in WorldSMEGraphs
+# =============================================================================

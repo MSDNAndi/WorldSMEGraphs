@@ -1,0 +1,165 @@
+{
+  "@context": [
+    "https://worldsmegraphs.org/contexts/base.jsonld",
+    "https://worldsmegraphs.org/contexts/science.jsonld",
+    "https://worldsmegraphs.org/contexts/cross-domain.jsonld"
+  ],
+  "@id": "wsmg:math/category-theory/monad-definition",
+  "@type": [
+    "schema:DefinedTerm",
+    "skos:Concept",
+    "wsmg:MathematicalConcept"
+  ],
+  
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-04T01:15:00.000Z",
+    "modified": "2026-01-04T01:15:00.000Z",
+    "contributors": ["ontology-agent"],
+    "status": "example",
+    "confidence": 0.99,
+    "purpose": "Demonstrates native domain AKU for cross-domain pattern"
+  },
+  
+  "classification": {
+    "domain_path": "formal-sciences/mathematics/pure-mathematics/category-theory",
+    "isNativeDomain": true,
+    "type": "definition",
+    "difficulty": "graduate",
+    "importance": "foundational",
+    "msc_code": "18C15",
+    "taxonomySource": "MSC 2020"
+  },
+  
+  "content": {
+    "prefLabel": {
+      "@value": "Monad",
+      "@language": "en"
+    },
+    "altLabel": [
+      {
+        "@value": "Triple",
+        "@language": "en"
+      },
+      {
+        "@value": "Standard Construction",
+        "@language": "en"
+      }
+    ],
+    "definition": {
+      "@value": "A monad on a category C is a triple (T, η, μ) consisting of an endofunctor T: C → C together with two natural transformations η: 1_C → T (the unit) and μ: T² → T (the multiplication) satisfying the coherence conditions: μ ∘ Tμ = μ ∘ μT (associativity) and μ ∘ Tη = μ ∘ ηT = 1_T (unit laws).",
+      "@language": "en"
+    },
+    "notation": {
+      "formal": "(T, η, μ)",
+      "components": {
+        "T": "Endofunctor T: C → C",
+        "η": "Unit natural transformation η: 1_C → T",
+        "μ": "Multiplication natural transformation μ: T² → T"
+      }
+    },
+    "coherence_conditions": [
+      {
+        "name": "Associativity",
+        "equation": "μ ∘ Tμ = μ ∘ μT",
+        "diagram": "Commutative diagram for associativity"
+      },
+      {
+        "name": "Left Unit",
+        "equation": "μ ∘ ηT = 1_T"
+      },
+      {
+        "name": "Right Unit",
+        "equation": "μ ∘ Tη = 1_T"
+      }
+    ],
+    "examples": [
+      {
+        "name": "Identity Monad",
+        "description": "T = 1_C (identity functor) with η = μ = identity"
+      },
+      {
+        "name": "Power Set Monad",
+        "description": "In Set, T = P (power set functor)"
+      },
+      {
+        "name": "Free Monoid Monad",
+        "description": "In Set, T maps a set to its free monoid (list of elements)"
+      }
+    ],
+    "scopeNote": {
+      "@value": "This is the categorical definition of monad, not the computer science interpretation. For programming applications, see the 'cross_domain_applications' section below.",
+      "@language": "en"
+    }
+  },
+  
+  "relationships": {
+    "broader": ["wsmg:math/category-theory/endofunctor"],
+    "narrower": [],
+    "related": [
+      "wsmg:math/category-theory/natural-transformation",
+      "wsmg:math/category-theory/kleisli-category",
+      "wsmg:math/category-theory/eilenberg-moore-category",
+      "wsmg:math/algebra/monoid"
+    ],
+    "prerequisites": [
+      "wsmg:math/category-theory/category-definition",
+      "wsmg:math/category-theory/functor",
+      "wsmg:math/category-theory/natural-transformation",
+      "wsmg:math/category-theory/endofunctor"
+    ]
+  },
+  
+  "cross_domain_applications": {
+    "note": "This section documents where this mathematical concept is APPLIED. The applications themselves are AKUs in their respective domains that LINK to this definition.",
+    "applications": [
+      {
+        "domain": "formal-sciences/computer-science/programming-paradigms/functional-programming",
+        "context": "Monads structure effectful computations in functional programming languages",
+        "concepts": ["Maybe monad", "IO monad", "List monad", "State monad"],
+        "related_akus": ["wsmg:cs/fp/monad-in-programming"]
+      },
+      {
+        "domain": "formal-sciences/computer-science/type-theory",
+        "context": "Monads provide semantics for computational effects in type theory",
+        "related_akus": ["wsmg:cs/type-theory/computational-effects"]
+      },
+      {
+        "domain": "natural-sciences/physics/quantum-physics",
+        "context": "Monads appear in categorical quantum mechanics",
+        "related_akus": ["wsmg:physics/quantum/categorical-qm"]
+      }
+    ]
+  },
+  
+  "provenance": {
+    "sources": [
+      {
+        "title": "Categories for the Working Mathematician",
+        "author": "Saunders Mac Lane",
+        "year": 1971,
+        "publisher": "Springer",
+        "chapter": "VI",
+        "pages": "133-146"
+      },
+      {
+        "title": "Notions of computation and monads",
+        "author": "Eugenio Moggi",
+        "year": 1991,
+        "journal": "Information and Computation",
+        "volume": 93,
+        "issue": 1,
+        "pages": "55-92",
+        "doi": "10.1016/0890-5401(91)90052-4"
+      }
+    ],
+    "historical_note": "The monad concept was introduced by Roger Godement in 1958 (under the name 'standard construction') and developed further by many category theorists. The name 'monad' was introduced by Mac Lane."
+  },
+  
+  "external_mappings": {
+    "wikidata": "TBD-verify-correct-id",
+    "wikidata_note": "Verify correct Wikidata ID for 'monad (category theory)' before production use",
+    "nlab": "https://ncatlab.org/nlab/show/monad",
+    "mathworld": "https://mathworld.wolfram.com/Monad.html"
+  }
+}
