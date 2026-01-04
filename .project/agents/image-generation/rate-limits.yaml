@@ -1,0 +1,80 @@
+# Rate Limit Tracking for GPT Image 1.5
+# =====================================
+# This file tracks observed rate limits from the API to enable
+# intelligent parallel generation and smart backoff.
+#
+# Updated automatically by the image generation tool.
+# Manual adjustments welcome when limits are observed.
+
+version: "1.0.0"
+last_updated: "2026-01-04T10:30:00Z"
+
+# API Rate Limits (observed and documented)
+api_limits:
+  # Requests per minute limit
+  requests_per_minute:
+    observed: null  # Will be populated on first rate limit encounter
+    documented: 50  # From OpenAI documentation
+    safe_target: 40  # 80% of documented for safety margin
+  
+  # Tokens per minute limit (for image models, this is image tokens)
+  tokens_per_minute:
+    observed: null
+    documented: 150000
+    safe_target: 120000
+  
+  # Concurrent requests limit
+  concurrent_requests:
+    observed: null
+    documented: 10  # Typical Azure limit
+    safe_target: 5  # Conservative for parallel generation
+  
+  # Images per request limit
+  images_per_request:
+    observed: null
+    documented: 10
+    safe_target: 3  # Balance between efficiency and reliability
+
+# Backoff Configuration
+backoff:
+  # Type: "linear" or "exponential" - we use linear per requirements
+  type: "linear"
+  
+  # Base delay in seconds for linear backoff
+  base_delay_seconds: 5
+  
+  # Maximum delay cap to prevent excessive waits
+  max_delay_seconds: 60
+  
+  # Increment per retry (for linear backoff)
+  linear_increment_seconds: 5
+  
+  # Number of retries before giving up
+  max_retries: 5
+  
+  # Whether to "push the limits sometimes"
+  push_limits_probability: 0.1  # 10% chance to exceed safe_target
+
+# Rate Limit History (last 10 encounters)
+rate_limit_history: []
+# Format:
+# - timestamp: "2026-01-04T10:30:00Z"
+#   error_code: 429
+#   retry_after_header: 30
+#   concurrent_at_time: 5
+#   message: "Rate limit exceeded"
+
+# Performance Metrics
+performance_metrics:
+  total_requests: 0
+  successful_requests: 0
+  rate_limited_requests: 0
+  average_generation_time_seconds: null
+  last_successful_batch_size: null
+
+# Notes for Future Optimization
+notes:
+  - "Monitor rate_limit_history to adjust safe_target values"
+  - "If push_limits succeeds often, consider increasing safe_target"
+  - "Track average_generation_time to estimate batch completion"
+  - "Azure limits may differ from OpenAI - observe and adjust"

@@ -6,8 +6,11 @@ GPT Image 1.5 Generator for WorldSMEGraphs
 A robust async image generation tool using Azure AI Foundry's GPT Image 1.5 model.
 
 Features:
+- **PARALLEL GENERATION**: Generate multiple images concurrently up to rate limits
+- **LINEAR BACKOFF**: Smart linear backoff (not geometric) when hitting rate limits
+- **RATE LIMIT TRACKING**: Tracks observed limits in repository for optimization
+- **SUPER EXPLICIT PROMPTS**: Comprehensive prompt enhancement based on best practices
 - Async generation with polling for long-running operations
-- Automatic retry logic with exponential backoff
 - Multiple variation support
 - Automatic source control tracking
 - High-quality output at maximum supported resolutions
@@ -19,19 +22,19 @@ Environment Variables Required:
 
 Supported Resolutions (GPT Image 1.5):
 - 1024x1024 (square) - default
-- 1024x1792 (portrait) 
-- 1792x1024 (landscape)
-- 1536x1024 (wide landscape - 3:2)
-- 1024x1536 (tall portrait - 2:3)
+- 1024x1536 (portrait) - 2:3 tall
+- 1536x1024 (landscape) - 3:2 wide
 
 Usage:
     python gpt_image_generator.py --prompt "Your prompt" --output image.png
     python gpt_image_generator.py --prompt "Your prompt" --aspect landscape --variations 3
     python gpt_image_generator.py --prompt-file prompts.txt --output-dir ./images/
+    python gpt_image_generator.py --prompt-file prompts.txt --parallel 5  # Parallel generation
 
 Author: WorldSMEGraphs Image Generation Agent
-Version: 1.0.0
+Version: 2.0.0  # Major upgrade with parallel generation and linear backoff
 Created: 2026-01-04
+Updated: 2026-01-04
 """
 
 import os
@@ -51,6 +54,62 @@ from enum import Enum
 import urllib.request
 import urllib.error
 import urllib.parse
+import random
+
+# =============================================================================
+# RATE LIMIT TRACKING
+# =============================================================================
+
+# Path to rate limits file (relative to this script)
+RATE_LIMITS_FILE = Path(__file__).parent.parent / "rate-limits.yaml"
+
+@dataclass
+class RateLimitConfig:
+    """Rate limit configuration loaded from repository."""
+    requests_per_minute_safe: int = 40
+    concurrent_requests_safe: int = 5
+    backoff_type: str = "linear"
+    base_delay_seconds: float = 5.0
+    linear_increment_seconds: float = 5.0
+    max_delay_seconds: float = 60.0
+    max_retries: int = 5
+    push_limits_probability: float = 0.1
+    
+    @classmethod
+    def load_from_yaml(cls) -> "RateLimitConfig":
+        """Load rate limit config from YAML file if available."""
+        config = cls()
+        try:
+            if RATE_LIMITS_FILE.exists():
+                import yaml  # Optional, fallback to defaults if not available
+                with open(RATE_LIMITS_FILE) as f:
+                    data = yaml.safe_load(f)
+                    if data:
+                        api_limits = data.get("api_limits", {})
+                        backoff = data.get("backoff", {})
+                        config.requests_per_minute_safe = api_limits.get("requests_per_minute", {}).get("safe_target", 40)
+                        config.concurrent_requests_safe = api_limits.get("concurrent_requests", {}).get("safe_target", 5)
+                        config.backoff_type = backoff.get("type", "linear")
+                        config.base_delay_seconds = backoff.get("base_delay_seconds", 5.0)
+                        config.linear_increment_seconds = backoff.get("linear_increment_seconds", 5.0)
+                        config.max_delay_seconds = backoff.get("max_delay_seconds", 60.0)
+                        config.max_retries = backoff.get("max_retries", 5)
+                        config.push_limits_probability = backoff.get("push_limits_probability", 0.1)
+        except Exception:
+            pass  # Use defaults if YAML loading fails
+        return config
+
+
+def calculate_linear_backoff(retry_count: int, config: RateLimitConfig) -> float:
+    """Calculate linear backoff delay (not exponential per requirements)."""
+    delay = config.base_delay_seconds + (retry_count * config.linear_increment_seconds)
+    return min(delay, config.max_delay_seconds)
+
+
+def should_push_limits(config: RateLimitConfig) -> bool:
+    """Occasionally push beyond safe limits to test actual boundaries."""
+    return random.random() < config.push_limits_probability
+
 
 # =============================================================================
 # CONFIGURATION
@@ -96,9 +155,10 @@ class GenerationConfig:
     output_format: str = "png"  # png, jpeg, or webp
     background: str = "auto"  # auto, transparent, or opaque
     
-    # Retry configuration
-    max_retries: int = 3
-    retry_delay_base: float = 2.0  # Exponential backoff base
+    # Retry configuration - now uses LINEAR backoff
+    max_retries: int = 5  # Increased for linear backoff
+    retry_delay_base: float = 5.0  # Base delay for linear backoff
+    retry_delay_increment: float = 5.0  # Linear increment per retry
     timeout_seconds: int = 180  # GPT image models can take time
     poll_interval: float = 5.0
     
@@ -119,83 +179,196 @@ class GenerationResult:
     generation_time_seconds: float = 0.0
     retries_used: int = 0
     metadata: Dict[str, Any] = field(default_factory=dict)
+    rate_limited: bool = False  # Track if we hit rate limits
 
 
 # =============================================================================
 # PROMPTING BEST PRACTICES (Based on GPT Image 1.5 Prompting Guide)
+# From: https://github.com/openai/openai-cookbook/blob/main/examples/multimodal/image-gen-1.5-prompting_guide.ipynb
 # =============================================================================
 
 PROMPT_GUIDELINES = """
-GPT Image 1.5 Prompting Best Practices:
-========================================
+GPT Image 1.5 Prompting Best Practices (Comprehensive Guide)
+=============================================================
 
-1. BE SPECIFIC AND DETAILED
-   - Include subject, setting, lighting, mood, style
-   - Bad: "a cat"
-   - Good: "A fluffy orange tabby cat sitting on a windowsill, soft afternoon 
-           sunlight streaming through, cozy home interior, photorealistic"
+KEY PRINCIPLES FROM OPENAI COOKBOOK:
+1. BE SUPER EXPLICIT - The model has world knowledge but needs explicit instructions
+   for domain-specific accuracy (e.g., blood flow direction, arrow orientations)
+2. USE STRUCTURED PROMPTS - Organize with sections: Scene, Style, Constraints, etc.
+3. SEPARATE INVARIANTS - Clearly state what should NOT change
+4. ITERATE SMALL - Make small changes, restate invariants on every iteration
 
-2. SPECIFY VISUAL STYLE
-   - Photography: "photorealistic", "35mm film", "cinematic"
-   - Illustration: "digital illustration", "watercolor", "vector art"
-   - Technical: "technical diagram", "infographic", "flowchart"
+PROMPT STRUCTURE TEMPLATE:
+--------------------------
+```
+Create [TYPE OF IMAGE].
 
-3. DESCRIBE COMPOSITION
-   - Camera angle: "bird's eye view", "low angle", "close-up", "wide shot"
-   - Layout: "centered composition", "rule of thirds", "symmetrical"
+Scene:
+[Detailed scene description with specific elements, positions, and relationships]
 
-4. INCLUDE LIGHTING
-   - "soft diffused lighting", "dramatic shadows", "golden hour"
-   - "studio lighting", "natural daylight", "neon lights"
+Style:
+[Visual style, lighting, mood, technique - be specific]
 
-5. AVOID NEGATIVES
-   - Instead of "no people", describe what you DO want
-   - The model handles positive instructions better
+Technical Details:
+[Colors, materials, textures - be explicit about directions, orientations]
 
-6. FOR DIAGRAMS/INFOGRAPHICS
-   - Specify: colors, layout, typography style, icon style
-   - Include: "clean lines", "minimal design", "professional"
-   - Avoid: text in images (use overlays instead)
+Constraints:
+- [What to avoid or exclude]
+- Original artwork only
+- No watermarks/logos
 
-7. FOR PRESENTATIONS
-   - Use: "presentation slide background", "clean corporate style"
-   - Specify: color palette, mood (professional, creative, technical)
+[Optional] Include ONLY this text: "[exact text if needed]"
+```
+
+BEING SUPER EXPLICIT (Critical for accuracy):
+- BAD: "blood vessels with blood flow"
+- GOOD: "blood vessels showing red oxygenated blood flowing FROM the heart 
+         through arteries (arrows pointing outward from center), and blue 
+         deoxygenated blood flowing TOWARD the heart through veins 
+         (arrows pointing inward toward center)"
+
+- BAD: "morphism arrows in category theory"  
+- GOOD: "morphism arrows connecting objects, all arrows pointing LEFT TO RIGHT
+         to indicate composition direction, with arrow heads on the RIGHT side
+         of each connection, demonstrating f: A → B composition"
+
+VISUAL STYLE SPECIFICATIONS:
+- Photography: "photorealistic", "35mm film", "cinematic", "studio photography"
+- Illustration: "digital illustration", "watercolor", "vector art", "hand-painted"
+- Technical: "technical diagram", "infographic", "flowchart", "schematic"
+- Corporate: "clean corporate style", "professional presentation", "minimal design"
+
+COMPOSITION SPECIFICATIONS:
+- Camera angle: "bird's eye view", "isometric", "low angle", "close-up", "wide shot"
+- Layout: "centered composition", "rule of thirds", "symmetrical", "asymmetrical"
+- Depth: "shallow depth of field", "deep focus", "bokeh background"
+
+LIGHTING SPECIFICATIONS:
+- "soft diffused lighting", "dramatic shadows", "golden hour", "blue hour"
+- "studio lighting with soft boxes", "natural daylight through windows"
+- "rim lighting", "backlit", "silhouette", "high key", "low key"
+
+TEXTURE & MATERIAL SPECIFICATIONS:
+- "realistic textures", "smooth gradients", "glossy finish", "matte surface"
+- "paper texture", "fabric texture", "metallic sheen", "glass transparency"
+
+AVOIDING COMMON MISTAKES:
+1. ❌ Using negative instructions ("no people") 
+   ✓ Instead, describe what you DO want
+2. ❌ Vague style descriptions ("nice", "good")
+   ✓ Use specific style terms ("photorealistic", "watercolor illustration")
+3. ❌ Assuming the model knows specific orientations
+   ✓ Explicitly state directions (left-to-right, clockwise, etc.)
+4. ❌ Requesting text in images (often renders poorly)
+   ✓ Use overlays or keep text minimal and specify font style
+5. ❌ Overly complex prompts without structure
+   ✓ Use sections with clear headers
+
+FOR TECHNICAL/SCIENTIFIC DIAGRAMS:
+- ALWAYS specify:
+  - Arrow directions and what they represent
+  - Color coding and its meaning
+  - Relative positions and relationships
+  - Label placements (even if using overlays later)
+  - Scale relationships between elements
+
+FOR PRESENTATION SLIDES:
+```
+Create a presentation slide background for [TOPIC].
+
+Visual Elements:
+[Specific abstract elements that convey the concept]
+
+Color Palette:
+[Exact colors or color scheme, e.g., "Microsoft Azure blue (#0078D4) 
+with purple accents (#8661C5)"]
+
+Style:
+Professional corporate presentation, clean modern design,
+subtle geometric patterns, suitable for developer conference,
+no text elements, high quality.
+
+Mood:
+[Professional, innovative, technical, warm, etc.]
+```
+
+CONSISTENCY ACROSS MULTIPLE IMAGES:
+When generating a series, use "Character Consistency" sections:
+```
+Character/Element Consistency:
+- Same [color palette/proportions/style] as previous images
+- Maintain [specific visual elements]
+- Do not redesign the [element]
+```
 """
 
 
-def enhance_prompt(base_prompt: str, style_hints: Optional[str] = None) -> str:
+def enhance_prompt(base_prompt: str, style_hints: Optional[str] = None, 
+                   domain_hints: Optional[Dict[str, str]] = None) -> str:
     """
     Enhance a prompt with best practices for better results.
+    
+    Based on the OpenAI GPT Image 1.5 Prompting Guide, this function
+    ensures prompts are SUPER EXPLICIT to minimize generation errors.
     
     Args:
         base_prompt: The user's original prompt
         style_hints: Optional style guidance (e.g., "technical", "fun", "professional")
+        domain_hints: Optional domain-specific hints for explicit specifications
+                     e.g., {"arrows": "left-to-right", "flow": "clockwise"}
     
     Returns:
-        Enhanced prompt with quality improvements
+        Enhanced prompt with quality improvements and explicit specifications
     """
     enhancements = []
     
     # Check if prompt lacks quality specifiers
-    quality_keywords = ["high quality", "detailed", "professional", "hd", "4k"]
+    quality_keywords = ["high quality", "detailed", "professional", "hd", "4k", "high-end"]
     if not any(kw in base_prompt.lower() for kw in quality_keywords):
         enhancements.append("high quality")
     
     # Check if prompt lacks style specifiers
-    style_keywords = ["style", "illustration", "photo", "render", "drawing"]
+    style_keywords = ["style", "illustration", "photo", "render", "drawing", "realistic"]
     if not any(kw in base_prompt.lower() for kw in style_keywords):
         if style_hints == "technical":
-            enhancements.append("clean technical illustration style")
+            enhancements.append("clean technical illustration style with precise lines")
         elif style_hints == "fun":
             enhancements.append("vibrant colorful illustration style")
         elif style_hints == "professional":
-            enhancements.append("professional corporate style")
+            enhancements.append("professional corporate style, clean and modern")
+        elif style_hints == "scientific":
+            enhancements.append("scientific illustration style with accurate proportions")
     
     # Check if prompt lacks lighting
-    lighting_keywords = ["lighting", "light", "shadows", "bright", "dark"]
+    lighting_keywords = ["lighting", "light", "shadows", "bright", "dark", "lit"]
     if not any(kw in base_prompt.lower() for kw in lighting_keywords):
-        enhancements.append("well-lit")
+        enhancements.append("soft professional lighting")
     
+    # Check if prompt lacks composition hints
+    composition_keywords = ["composition", "centered", "layout", "angle", "view"]
+    if not any(kw in base_prompt.lower() for kw in composition_keywords):
+        enhancements.append("well-composed")
+    
+    # Add domain-specific explicit hints
+    if domain_hints:
+        for key, value in domain_hints.items():
+            enhancements.append(f"{key}: {value}")
+    
+    # Build enhanced prompt with structure if it's short
+    if len(base_prompt) < 200:
+        # Add structured format for short prompts
+        structured_prompt = f"""
+{base_prompt}
+
+Style: {', '.join(enhancements) if enhancements else 'professional, clean'}
+
+Constraints:
+- Original artwork only
+- No watermarks or logos
+"""
+        return structured_prompt.strip()
+    
+    # For longer prompts, just append enhancements
     if enhancements:
         return f"{base_prompt}, {', '.join(enhancements)}"
     return base_prompt
@@ -211,8 +384,9 @@ class GPTImageClient:
     
     Handles:
     - Authentication with Azure AI Foundry
-    - Async image generation with polling
-    - Retry logic with exponential backoff
+    - PARALLEL image generation (up to rate limits)
+    - LINEAR backoff retry logic (not exponential)
+    - Rate limit tracking and intelligent throttling
     - Response parsing and image saving
     """
     
@@ -220,6 +394,16 @@ class GPTImageClient:
         self.api_key = os.environ.get("AI_FOUNDRY_API_KEY")
         self.endpoint = os.environ.get("AI_FOUNDRY_ENDPOINT")
         self.image_endpoint = os.environ.get("GPT_IMAGE_1DOT5_ENDPOINT_URL")
+        
+        # Load rate limit configuration
+        self.rate_config = RateLimitConfig.load_from_yaml()
+        
+        # Track concurrent requests
+        self._active_requests = 0
+        self._request_lock = asyncio.Lock()
+        
+        # Rate limit tracking
+        self._rate_limit_events = []
         
         # Validate environment
         missing = []
@@ -263,9 +447,81 @@ class GPTImageClient:
         
         return url, json.dumps(payload).encode("utf-8"), headers
     
+    async def generate_images_parallel(self, configs: List[GenerationConfig], 
+                                        max_concurrent: Optional[int] = None) -> List[GenerationResult]:
+        """
+        Generate multiple images in PARALLEL up to rate limits.
+        
+        This is the preferred method for batch generation. It respects rate limits
+        and uses intelligent linear backoff when limits are hit.
+        
+        Args:
+            configs: List of generation configurations
+            max_concurrent: Max concurrent requests (default: from rate_config)
+            
+        Returns:
+            List of GenerationResults in same order as configs
+        """
+        if max_concurrent is None:
+            # Optionally push limits sometimes
+            if should_push_limits(self.rate_config):
+                max_concurrent = self.rate_config.concurrent_requests_safe + 2
+                print(f"🚀 Pushing limits: trying {max_concurrent} concurrent requests")
+            else:
+                max_concurrent = self.rate_config.concurrent_requests_safe
+        
+        # Create semaphore to limit concurrency
+        semaphore = asyncio.Semaphore(max_concurrent)
+        
+        async def generate_with_semaphore(config: GenerationConfig, index: int) -> Tuple[int, GenerationResult]:
+            async with semaphore:
+                print(f"  [{index+1}/{len(configs)}] Starting: {config.prompt[:50]}...")
+                result = await self.generate_image(config)
+                return index, result
+        
+        # Launch all tasks concurrently (semaphore limits actual concurrency)
+        tasks = [
+            generate_with_semaphore(config, i) 
+            for i, config in enumerate(configs)
+        ]
+        
+        print(f"\n🎨 Generating {len(configs)} images in parallel (max {max_concurrent} concurrent)...")
+        
+        # Wait for all to complete
+        indexed_results = await asyncio.gather(*tasks, return_exceptions=True)
+        
+        # Sort results back to original order and handle exceptions
+        results = [None] * len(configs)
+        for item in indexed_results:
+            if isinstance(item, Exception):
+                # Find the first None slot for this exception
+                for i, r in enumerate(results):
+                    if r is None:
+                        results[i] = GenerationResult(
+                            success=False,
+                            error_message=str(item),
+                            prompt_used=configs[i].prompt
+                        )
+                        break
+            else:
+                index, result = item
+                results[index] = result
+        
+        # Summary
+        successful = sum(1 for r in results if r and r.success)
+        rate_limited = sum(1 for r in results if r and r.rate_limited)
+        print(f"\n✅ Completed: {successful}/{len(configs)} successful")
+        if rate_limited:
+            print(f"⚠️  Rate limited: {rate_limited} requests (handled with backoff)")
+        
+        return results
+    
     async def generate_image(self, config: GenerationConfig) -> GenerationResult:
         """
-        Generate image(s) with retry logic and polling.
+        Generate image(s) with LINEAR backoff retry logic.
+        
+        Uses linear backoff (not exponential) as per requirements for
+        a more gradual and predictable retry pattern.
         
         Args:
             config: Generation configuration
@@ -276,30 +532,60 @@ class GPTImageClient:
         start_time = time.time()
         retries = 0
         last_error = None
+        rate_limited = False
         
-        while retries <= config.max_retries:
+        while retries <= self.rate_config.max_retries:
             try:
-                result = await self._attempt_generation(config)
-                result.generation_time_seconds = time.time() - start_time
-                result.retries_used = retries
-                return result
+                async with self._request_lock:
+                    self._active_requests += 1
                 
+                try:
+                    result = await self._attempt_generation(config)
+                    result.generation_time_seconds = time.time() - start_time
+                    result.retries_used = retries
+                    result.rate_limited = rate_limited
+                    return result
+                finally:
+                    async with self._request_lock:
+                        self._active_requests -= 1
+                    
             except Exception as e:
                 last_error = str(e)
                 retries += 1
                 
-                if retries <= config.max_retries:
-                    delay = config.retry_delay_base ** retries
-                    print(f"Retry {retries}/{config.max_retries} after {delay:.1f}s: {e}")
+                # Check if rate limited
+                is_rate_limit = "429" in str(e) or "rate" in str(e).lower()
+                if is_rate_limit:
+                    rate_limited = True
+                    self._record_rate_limit_event(str(e))
+                
+                if retries <= self.rate_config.max_retries:
+                    # LINEAR backoff (not exponential)
+                    delay = calculate_linear_backoff(retries, self.rate_config)
+                    print(f"  ⏳ Retry {retries}/{self.rate_config.max_retries} after {delay:.1f}s: {e}")
                     await asyncio.sleep(delay)
         
         return GenerationResult(
             success=False,
-            error_message=f"Failed after {config.max_retries} retries: {last_error}",
+            error_message=f"Failed after {self.rate_config.max_retries} retries: {last_error}",
             prompt_used=config.prompt,
             generation_time_seconds=time.time() - start_time,
-            retries_used=retries
+            retries_used=retries,
+            rate_limited=rate_limited
         )
+    
+    def _record_rate_limit_event(self, error_message: str):
+        """Record a rate limit event for tracking."""
+        event = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "concurrent_at_time": self._active_requests,
+            "message": error_message[:200]  # Truncate long messages
+        }
+        self._rate_limit_events.append(event)
+        
+        # Keep only last 10 events
+        if len(self._rate_limit_events) > 10:
+            self._rate_limit_events = self._rate_limit_events[-10:]
     
     async def _attempt_generation(self, config: GenerationConfig) -> GenerationResult:
         """Single generation attempt."""
@@ -493,16 +779,22 @@ def create_parser() -> argparse.ArgumentParser:
                        choices=["auto", "transparent", "opaque"],
                        help="Background type (default: auto)")
     
+    # PARALLEL GENERATION options (NEW)
+    parser.add_argument("--parallel", type=int, default=None,
+                       help="Max concurrent requests for parallel generation (default: from rate-limits.yaml)")
+    parser.add_argument("--sequential", action="store_true",
+                       help="Force sequential generation (one at a time)")
+    
     # Enhancement options
     parser.add_argument("--enhance", "-e", action="store_true",
-                       help="Enhance prompt with best practices")
+                       help="Enhance prompt with best practices (RECOMMENDED)")
     parser.add_argument("--style-hint", type=str, default=None,
-                       choices=["technical", "fun", "professional"],
+                       choices=["technical", "fun", "professional", "scientific"],
                        help="Style hint for prompt enhancement")
     
-    # Retry options
-    parser.add_argument("--max-retries", type=int, default=3,
-                       help="Maximum retry attempts (default: 3)")
+    # Retry options (LINEAR backoff)
+    parser.add_argument("--max-retries", type=int, default=5,
+                       help="Maximum retry attempts with LINEAR backoff (default: 5)")
     parser.add_argument("--timeout", type=int, default=180,
                        help="Request timeout in seconds (default: 180)")
     
@@ -512,9 +804,11 @@ def create_parser() -> argparse.ArgumentParser:
     
     # Utility options
     parser.add_argument("--guidelines", action="store_true",
-                       help="Print prompting guidelines and exit")
+                       help="Print comprehensive prompting guidelines and exit")
     parser.add_argument("--dry-run", action="store_true",
                        help="Show what would be generated without making API calls")
+    parser.add_argument("--show-rate-limits", action="store_true",
+                       help="Show current rate limit configuration and exit")
     
     return parser
 
@@ -528,6 +822,19 @@ async def main():
         print(PROMPT_GUIDELINES)
         return 0
     
+    if args.show_rate_limits:
+        config = RateLimitConfig.load_from_yaml()
+        print("Current Rate Limit Configuration:")
+        print(f"  Requests/min (safe): {config.requests_per_minute_safe}")
+        print(f"  Concurrent (safe):   {config.concurrent_requests_safe}")
+        print(f"  Backoff type:        {config.backoff_type}")
+        print(f"  Base delay:          {config.base_delay_seconds}s")
+        print(f"  Linear increment:    {config.linear_increment_seconds}s")
+        print(f"  Max delay:           {config.max_delay_seconds}s")
+        print(f"  Max retries:         {config.max_retries}")
+        print(f"  Push limits prob:    {config.push_limits_probability*100:.0f}%")
+        return 0
+    
     # Collect prompts
     prompts = []
     if args.prompt:
@@ -536,8 +843,9 @@ async def main():
         with open(args.prompt_file) as f:
             prompts = [line.strip() for line in f if line.strip() and not line.startswith("#")]
     
-    # Enhance prompts if requested
+    # Enhance prompts if requested (RECOMMENDED for best results)
     if args.enhance:
+        print("🔧 Enhancing prompts with best practices...")
         prompts = [enhance_prompt(p, args.style_hint) for p in prompts]
     
     # Map aspect ratio
@@ -558,8 +866,10 @@ async def main():
     
     if args.dry_run:
         print("DRY RUN - Would generate the following:")
+        mode = "sequential" if args.sequential else f"parallel (max {args.parallel or 'auto'})"
+        print(f"Mode: {mode}")
         for i, prompt in enumerate(prompts, 1):
-            print(f"\n[{i}] Prompt: {prompt}")
+            print(f"\n[{i}] Prompt: {prompt[:100]}...")
             print(f"    Aspect: {args.aspect} ({aspect_map[args.aspect].size})")
             print(f"    Quality: {args.quality}")
             print(f"    Variations: {args.variations}")
@@ -575,41 +885,59 @@ async def main():
         print(f"Error: {e}", file=sys.stderr)
         return 1
     
-    # Generate images
-    all_results = []
-    for i, prompt in enumerate(prompts, 1):
-        print(f"\n{'='*60}")
-        print(f"Generating {i}/{len(prompts)}: {prompt[:50]}...")
-        print(f"{'='*60}")
-        
+    # Build configs for all prompts
+    configs = []
+    for i, prompt in enumerate(prompts):
         config = GenerationConfig(
             prompt=prompt,
             aspect_ratio=aspect_map[args.aspect],
             quality=quality_map[args.quality],
             n_variations=args.variations,
             output_dir=args.output_dir,
-            output_prefix=Path(args.output).stem if args.output else "image",
+            output_prefix=Path(args.output).stem if args.output else f"image_{i+1:03d}",
             output_format=args.format,
             background=args.background,
             max_retries=args.max_retries,
             timeout_seconds=args.timeout,
             add_to_git=not args.no_git,
         )
+        configs.append(config)
+    
+    # Choose generation mode
+    if args.sequential or len(configs) == 1:
+        # Sequential generation (one at a time)
+        print(f"\n🎨 Generating {len(configs)} images sequentially...")
+        all_results = []
+        for i, config in enumerate(configs, 1):
+            print(f"\n{'='*60}")
+            print(f"[{i}/{len(configs)}] {config.prompt[:50]}...")
+            print(f"{'='*60}")
+            
+            result = await client.generate_image(config)
+            all_results.append(result)
+            
+            if result.success:
+                print(f"\n✓ Success! Generated {len(result.file_paths)} image(s)")
+                print(f"  Time: {result.generation_time_seconds:.1f}s")
+                print(f"  Retries: {result.retries_used}")
+                for path in result.file_paths:
+                    print(f"  File: {path}")
+            else:
+                print(f"\n✗ Failed: {result.error_message}")
+    else:
+        # PARALLEL generation (recommended for multiple images)
+        all_results = await client.generate_images_parallel(configs, max_concurrent=args.parallel)
         
-        result = await client.generate_image(config)
-        all_results.append(result)
-        
-        if result.success:
-            print(f"\n✓ Success! Generated {len(result.file_paths)} image(s)")
-            print(f"  Time: {result.generation_time_seconds:.1f}s")
-            print(f"  Retries: {result.retries_used}")
-            for path in result.file_paths:
-                print(f"  File: {path}")
-        else:
-            print(f"\n✗ Failed: {result.error_message}")
+        # Print individual results
+        for i, result in enumerate(all_results, 1):
+            if result.success:
+                print(f"  [{i}] ✓ {', '.join(str(p) for p in result.file_paths)}")
+            else:
+                print(f"  [{i}] ✗ {result.error_message}")
     
     # Summary
     successful = sum(1 for r in all_results if r.success)
+    rate_limited = sum(1 for r in all_results if r.rate_limited)
     print(f"\n{'='*60}")
     print(f"Summary: {successful}/{len(all_results)} prompts succeeded")
     print(f"{'='*60}")

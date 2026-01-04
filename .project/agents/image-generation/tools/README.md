@@ -1,18 +1,22 @@
 # GPT Image 1.5 Generation Tool
 
-> **Version**: 1.0.0  
+> **Version**: 2.0.0  
 > **Created**: 2026-01-04  
+> **Updated**: 2026-01-04  
 > **Author**: WorldSMEGraphs Image Generation Agent
 
 A robust Python tool for generating images using GPT Image 1.5 via Azure AI Foundry.
 
-## Features
+## Features (v2.0)
 
+- ✅ **PARALLEL Generation**: Generate multiple images concurrently (respects rate limits)
+- ✅ **LINEAR Backoff**: Smart linear backoff (not exponential) when rate limited
+- ✅ **Rate Limit Tracking**: Observed limits stored in `rate-limits.yaml`
+- ✅ **Super Explicit Prompts**: Comprehensive prompt enhancement based on OpenAI guide
 - ✅ **Async Generation**: Handles long-running operations gracefully with polling
-- ✅ **Automatic Retry**: Exponential backoff retry logic for reliability
+- ✅ **Automatic Retry**: Linear backoff retry logic for reliability
 - ✅ **Multiple Variations**: Generate multiple image variations in one call
 - ✅ **Auto Git Tracking**: Automatically adds generated images to source control
-- ✅ **Prompt Enhancement**: Built-in prompt optimization for better results
 - ✅ **Comprehensive Logging**: Detailed output for debugging and monitoring
 
 ## Prerequisites
@@ -31,6 +35,7 @@ The following GitHub environment secrets must be configured:
 
 - Python 3.8+
 - Standard library only (no external dependencies)
+- Optional: PyYAML for rate limit config loading
 
 ## Usage
 
@@ -50,6 +55,26 @@ python gpt_image_generator.py --prompt "Abstract art" --variations 3
 python gpt_image_generator.py --prompt-file prompts.txt --output-dir ./images/
 ```
 
+### PARALLEL Generation (NEW in v2.0)
+
+```bash
+# Generate multiple images IN PARALLEL (recommended for batches)
+python gpt_image_generator.py --prompt-file prompts.txt --parallel 5
+
+# Force sequential generation
+python gpt_image_generator.py --prompt-file prompts.txt --sequential
+```
+
+### Rate Limit Management
+
+```bash
+# Show current rate limit configuration
+python gpt_image_generator.py --show-rate-limits
+
+# Show comprehensive prompting guidelines
+python gpt_image_generator.py --guidelines
+```
+
 ### Command Line Options
 
 ```
@@ -62,22 +87,27 @@ Output Options:
   --output-dir, -d      Output directory (default: ./generated_images)
 
 Generation Options:
-  --aspect, -a          Aspect ratio: square|portrait|landscape|wide|tall
-  --quality, -q         Image quality: standard|hd
+  --aspect, -a          Aspect ratio: square|portrait|landscape|auto
+  --quality, -q         Image quality: low|medium|high|auto
   --variations, -n      Number of variations (default: 1)
-  --style, -s           Image style: vivid|natural
+  --format              Output format: png|jpeg|webp
+
+PARALLEL Options (NEW):
+  --parallel            Max concurrent requests (default: from rate-limits.yaml)
+  --sequential          Force sequential generation (one at a time)
 
 Enhancement Options:
-  --enhance, -e         Enhance prompt with best practices
-  --style-hint          Style hint: technical|fun|professional
+  --enhance, -e         Enhance prompt with best practices (RECOMMENDED)
+  --style-hint          Style hint: technical|fun|professional|scientific
 
 Reliability Options:
-  --max-retries         Maximum retry attempts (default: 3)
-  --timeout             Request timeout in seconds (default: 120)
+  --max-retries         Maximum retry attempts with LINEAR backoff (default: 5)
+  --timeout             Request timeout in seconds (default: 180)
 
 Other Options:
   --no-git              Don't add generated images to git
-  --guidelines          Print prompting guidelines and exit
+  --guidelines          Print comprehensive prompting guidelines and exit
+  --show-rate-limits    Show current rate limit configuration
   --dry-run             Show what would be generated without API calls
 ```
 
@@ -88,58 +118,66 @@ GPT Image 1.5 supports the following resolutions:
 | Aspect Ratio | Resolution | Use Case |
 |--------------|------------|----------|
 | `square` | 1024×1024 | Social media, icons |
-| `portrait` | 1024×1792 | Phone wallpapers, stories |
-| `landscape` | 1792×1024 | Presentations, banners |
-| `wide` | 1536×1024 | Wide banners (3:2) |
-| `tall` | 1024×1536 | Tall graphics (2:3) |
+| `portrait` | 1024×1536 | Phone wallpapers, stories (2:3) |
+| `landscape` | 1536×1024 | Presentations, banners (3:2) |
 
 ## Prompting Best Practices
 
-### 1. Be Specific and Detailed
+### BE SUPER EXPLICIT
 
+The model has world knowledge but needs **explicit instructions** for domain-specific accuracy.
+
+❌ **BAD - VAGUE:**
 ```
-# Bad
-"a cat"
-
-# Good
-"A fluffy orange tabby cat sitting on a windowsill, soft afternoon 
-sunlight streaming through, cozy home interior, photorealistic"
+blood vessels with blood flow
 ```
 
-### 2. Specify Visual Style
+✅ **GOOD - SUPER EXPLICIT:**
+```
+blood vessels showing red oxygenated blood flowing FROM the heart 
+through arteries (arrows pointing AWAY from center), and blue 
+deoxygenated blood flowing TOWARD the heart through veins 
+(arrows pointing TOWARD center)
+```
+
+### Use Structured Prompts
+
+```
+Create [TYPE OF IMAGE].
+
+Scene:
+[Detailed description with explicit positions and directions]
+
+Style:
+[Visual style, lighting, mood - be specific]
+
+Constraints:
+- Original artwork only
+- No watermarks or logos
+```
+
+### Specify Visual Style
 
 - **Photography**: "photorealistic", "35mm film", "cinematic"
 - **Illustration**: "digital illustration", "watercolor", "vector art"
 - **Technical**: "technical diagram", "infographic", "flowchart"
+- **Corporate**: "clean corporate style", "professional presentation"
 
-### 3. Describe Composition
+## Rate Limit Configuration
 
-- **Camera angle**: "bird's eye view", "low angle", "close-up"
-- **Layout**: "centered composition", "rule of thirds", "symmetrical"
+Rate limits are configured in `../rate-limits.yaml`:
 
-### 4. Include Lighting
+```yaml
+backoff:
+  type: "linear"              # NOT exponential
+  base_delay_seconds: 5       # Initial delay
+  linear_increment_seconds: 5 # Delay increase per retry
+  max_delay_seconds: 60       # Cap on delay
+  max_retries: 5
 
-- "soft diffused lighting", "dramatic shadows", "golden hour"
-- "studio lighting", "natural daylight", "neon lights"
-
-### 5. Avoid Negatives
-
-Instead of "no people", describe what you DO want.
-
-### 6. For Technical Diagrams
-
-```
-"Clean technical illustration showing [concept], minimal design, 
-professional corporate color palette (blues and grays), 
-clean lines, no text, suitable for presentation slide"
-```
-
-### 7. For Presentation Slides
-
-```
-"Abstract background suitable for presentation slide, 
-[color palette] gradient, subtle geometric patterns, 
-professional corporate style, clean and modern"
+api_limits:
+  concurrent_requests:
+    safe_target: 5            # Max parallel requests
 ```
 
 ## Output Files
@@ -154,6 +192,7 @@ Metadata includes:
 - Generation settings
 - Timestamp
 - API response data
+- Rate limit events (if any)
 
 ## Error Handling
 
@@ -161,86 +200,15 @@ The tool handles common errors:
 
 | Error | Handling |
 |-------|----------|
-| Rate limiting | Exponential backoff retry |
+| Rate limiting (429) | LINEAR backoff retry (not exponential) |
 | Timeout | Retry with same request |
 | Network errors | Retry with backoff |
 | Invalid prompt | Return error message |
 | Missing secrets | Clear error message listing missing vars |
 
-## Integration with WorldSMEGraphs
-
-### In Workflows
-
-```yaml
-- name: Generate Presentation Images
-  env:
-    AI_FOUNDRY_API_KEY: ${{ secrets.AI_FOUNDRY_API_KEY }}
-    AI_FOUNDRY_ENDPOINT: ${{ secrets.AI_FOUNDRY_ENDPOINT }}
-    GPT_IMAGE_1DOT5_ENDPOINT_URL: ${{ secrets.GPT_IMAGE_1DOT5_ENDPOINT_URL }}
-  run: |
-    python .project/agents/image-generation/tools/gpt_image_generator.py \
-      --prompt-file presentation_prompts.txt \
-      --output-dir ./domain/presentations/images/ \
-      --aspect landscape \
-      --quality hd
-```
-
-### In Python Scripts
-
-```python
-import asyncio
-from gpt_image_generator import GPTImageClient, GenerationConfig, AspectRatio, Quality
-
-async def generate_presentation_image():
-    client = GPTImageClient()
-    
-    config = GenerationConfig(
-        prompt="Abstract technology background with neural network visualization",
-        aspect_ratio=AspectRatio.LANDSCAPE,
-        quality=Quality.HD,
-        n_variations=2,
-        output_dir=Path("./images"),
-        add_to_git=True
-    )
-    
-    result = await client.generate_image(config)
-    
-    if result.success:
-        print(f"Generated: {result.file_paths}")
-    else:
-        print(f"Error: {result.error_message}")
-
-asyncio.run(generate_presentation_image())
-```
-
-## Troubleshooting
-
-### "Missing environment variables" error
-
-Ensure all three secrets are configured in your GitHub environment.
-
-### "HTTP 429" (Rate Limited)
-
-The tool will automatically retry with exponential backoff. If it persists, wait a few minutes.
-
-### "Timeout" errors
-
-Increase the `--timeout` value. Image generation can take up to 60 seconds.
-
-### Images look different than expected
-
-1. Use `--enhance` flag to apply best practices
-2. Be more specific in your prompt
-3. Try `--style natural` for more realistic results
-
-## Related Resources
-
-- [OpenAI Image Generation Documentation](https://platform.openai.com/docs/api-reference/images)
-- [GPT Image 1.5 Prompting Guide](https://cookbook.openai.com/examples/multimodal/image-gen-1.5-prompting_guide)
-- [Azure AI Foundry Documentation](https://learn.microsoft.com/azure/ai-studio/)
-
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.0.0 | 2026-01-04 | PARALLEL generation, LINEAR backoff, rate tracking, super explicit prompts |
 | 1.0.0 | 2026-01-04 | Initial release |

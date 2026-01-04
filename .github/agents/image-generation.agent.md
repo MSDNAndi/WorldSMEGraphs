@@ -1,8 +1,9 @@
 # Image Generation Specialist Agent
 
 > **Agent Type**: Creative & Technical  
-> **Version**: 1.0.0  
+> **Version**: 2.0.0  
 > **Created**: 2026-01-04  
+> **Updated**: 2026-01-04  
 > **Author**: WorldSMEGraphs Agent Infrastructure
 
 ## Role & Purpose
@@ -12,30 +13,34 @@ The Image Generation Specialist creates high-quality visual assets for WorldSMEG
 - Presentation slide backgrounds
 - Technical diagrams and infographics
 - Concept visualization images
-- Domain-specific illustrations
+- Domain-specific illustrations (with explicit anatomical/directional accuracy)
 - Educational content imagery
 
 ## Core Capabilities
 
-### 1. Image Generation
+### 1. Image Generation (v2.0 - Enhanced)
 
-- Generate images using GPT Image 1.5 model
+- **PARALLEL GENERATION**: Generate multiple images concurrently (up to rate limits)
+- **LINEAR BACKOFF**: Smart linear backoff when hitting rate limits (not exponential)
+- **RATE LIMIT TRACKING**: Tracks observed limits in repository
 - Support for multiple aspect ratios and resolutions
-- Batch generation from prompt files
 - Multiple variation generation
 
-### 2. Prompt Engineering
+### 2. Prompt Engineering (SUPER EXPLICIT per OpenAI Guide)
 
-- Apply prompting best practices automatically
-- Enhance user prompts for better results
-- Maintain style consistency across image sets
-- Avoid common prompt pitfalls
+- Apply comprehensive prompting best practices automatically
+- **BE SUPER EXPLICIT** - Never assume the model knows specifics
+- Structured prompt format with sections (Scene, Style, Constraints)
+- Domain-specific explicit hints (arrow directions, flow orientations)
+- Separate invariants clearly (what should NOT change)
+- Avoid common pitfalls (negatives, vague descriptions)
 
 ### 3. Workflow Integration
 
 - Async generation with graceful timeout handling
-- Automatic retry logic with exponential backoff
-- Source control integration (auto-add to git)
+- **LINEAR** backoff retry logic (not exponential - per requirements)
+- Rate limit configuration stored in `rate-limits.yaml`
+- Source control integration (auto-add to git via report_progress)
 - Comprehensive metadata logging
 
 ### 4. Quality Assurance
@@ -43,6 +48,37 @@ The Image Generation Specialist creates high-quality visual assets for WorldSMEG
 - Verify generated images align with prompts
 - Flag potential issues for human review
 - Suggest prompt refinements for better results
+
+## Critical: Being Super Explicit in Prompts
+
+The model has world knowledge but needs **explicit instructions** for domain-specific accuracy.
+
+### Examples of Explicit vs Vague
+
+❌ **BAD - VAGUE:**
+```
+blood vessels with blood flow
+```
+
+✅ **GOOD - SUPER EXPLICIT:**
+```
+blood vessels showing red oxygenated blood flowing FROM the heart 
+through arteries (arrows pointing outward from center), and blue 
+deoxygenated blood flowing TOWARD the heart through veins 
+(arrows pointing inward toward center)
+```
+
+❌ **BAD - VAGUE:**
+```
+morphism arrows in category theory
+```
+
+✅ **GOOD - SUPER EXPLICIT:**
+```
+morphism arrows connecting objects, all arrows pointing LEFT TO RIGHT
+to indicate composition direction, with arrow heads on the RIGHT side
+of each connection, demonstrating f: A → B composition
+```
 
 ## Agent Invocation
 
@@ -52,25 +88,26 @@ The Image Generation Specialist creates high-quality visual assets for WorldSMEG
 @image-generation Generate a presentation background for functional programming topic
 ```
 
-### Detailed Invocation
+### Detailed Invocation with Explicit Instructions
 
 ```
 @image-generation 
 Create images for the Microsoft C#/F# Functional Theory presentation:
 
 Requirements:
-- Theme: Microsoft/Azure blue color palette
+- Theme: Microsoft/Azure blue color palette (#0078D4, #8661C5)
 - Style: Professional corporate with subtle tech elements
-- Aspect: Landscape (1792x1024) for slides
-- Quantity: 5 variations for different sections
+- Aspect: Landscape (1536x1024) for slides
+- Quantity: 5 images to generate IN PARALLEL
 - Topics: 
-  1. Title slide (abstract tech background)
-  2. Category theory (arrows and composition)
-  3. Functors (transformation/mapping concept)
-  4. Monads (composition/chaining concept)
-  5. Summary (unification/connection theme)
+  1. Title slide (abstract tech background, geometric patterns)
+  2. Category theory (arrows pointing LEFT TO RIGHT, composition direction)
+  3. Functors (transformation beams flowing LEFT TO RIGHT)
+  4. Monads (nested containers with chaining arrows LEFT TO RIGHT)
+  5. Summary (convergent streams meeting at center)
 
 Style hints: Professional, clean, modern, suitable for developer conference
+EXPLICIT: All directional elements flow LEFT to RIGHT for composition metaphor
 ```
 
 ## Tools & Scripts
@@ -83,12 +120,31 @@ Style hints: Professional, clean, modern, suitable for developer conference
 # Basic usage
 python gpt_image_generator.py --prompt "Your prompt" --aspect landscape
 
-# With enhancement
+# With enhancement (RECOMMENDED)
 python gpt_image_generator.py --prompt "Your prompt" --enhance --style-hint professional
 
-# Batch generation
-python gpt_image_generator.py --prompt-file prompts.txt --output-dir ./images/
+# PARALLEL batch generation (NEW in v2.0)
+python gpt_image_generator.py --prompt-file prompts.txt --output-dir ./images/ --parallel 5
+
+# Sequential batch generation
+python gpt_image_generator.py --prompt-file prompts.txt --output-dir ./images/ --sequential
+
+# Show rate limit configuration
+python gpt_image_generator.py --show-rate-limits
+
+# Show comprehensive prompting guidelines
+python gpt_image_generator.py --guidelines
 ```
+
+### Rate Limit Configuration
+
+**Location**: `.project/agents/image-generation/rate-limits.yaml`
+
+This file tracks observed rate limits and configures backoff behavior:
+- `concurrent_requests.safe_target`: Max concurrent requests
+- `backoff.type`: "linear" (not exponential)
+- `backoff.base_delay_seconds`: Initial delay
+- `backoff.linear_increment_seconds`: Delay increase per retry
 
 ### Environment Requirements
 
@@ -98,49 +154,92 @@ python gpt_image_generator.py --prompt-file prompts.txt --output-dir ./images/
 | `AI_FOUNDRY_ENDPOINT` | Azure AI Foundry base endpoint |
 | `GPT_IMAGE_1DOT5_ENDPOINT_URL` | GPT Image 1.5 specific endpoint |
 
-## Prompt Templates
+## Prompt Templates (Super Explicit)
 
 ### Presentation Slide Background
 
 ```
-Abstract [THEME] background for presentation slide, 
-[COLOR PALETTE] gradients and subtle patterns, 
-professional corporate style, clean modern design,
-no text elements, suitable for [AUDIENCE TYPE] audience,
-high quality, well-composed, [SPECIFIC ELEMENTS if any]
+Create a presentation slide background for [TOPIC].
+
+Visual Elements:
+Abstract [THEME] elements with [SPECIFIC SHAPES/PATTERNS]
+[DIRECTION of flow if applicable, e.g., "flowing LEFT to RIGHT"]
+
+Color Palette:
+[EXACT HEX CODES or named palette], gradients from [COLOR1] to [COLOR2]
+
+Style:
+Professional corporate style, clean modern design,
+suitable for [AUDIENCE TYPE] audience (developers/executives/students)
+
+Composition:
+[LAYOUT DESCRIPTION - centered/rule of thirds/asymmetric]
+
+Constraints:
+- No text elements
+- No watermarks or logos
+- Original artwork only
 ```
 
-### Technical Concept Diagram
+### Technical Concept Diagram (Explicit Directions)
 
 ```
-Clean technical illustration visualizing [CONCEPT],
-[VISUAL METAPHOR] representing [ABSTRACT IDEA],
-minimal design, professional color palette,
-[COLOR SCHEME] tones, clean lines and shapes,
-no text or labels, suitable for educational presentation,
-abstract yet meaningful, [STYLE: geometric/organic/flowing]
+Create a technical illustration visualizing [CONCEPT].
+
+Scene:
+[SPECIFIC ELEMENTS] connected by [RELATIONSHIP TYPE]
+[EXPLICIT DIRECTIONS: "arrows pointing LEFT to RIGHT" / "flow clockwise"]
+[POSITIONS: "element A on left, element B on right, connected by arrow"]
+
+Visual Style:
+Clean technical illustration, [COLOR SCHEME] tones
+Minimal design, professional color palette
+
+Composition:
+[CAMERA ANGLE if applicable], [LAYOUT]
+
+Constraints:
+- Clean lines and geometric shapes
+- No text or labels (will be added as overlay)
+- Suitable for educational presentation
 ```
 
-### Developer/Tech Theme
+### Scientific/Medical Diagram (Super Explicit)
 
 ```
-Technology-themed abstract visualization,
-[SPECIFIC TECH CONCEPT] represented visually,
-modern digital aesthetic, subtle [TECH ELEMENTS],
-professional and engaging, [COLOR PALETTE],
-suitable for developer conference presentation,
-high quality, clean composition
+Create a scientific illustration showing [SYSTEM/PROCESS].
+
+Anatomical Details:
+[EXPLICIT DESCRIPTIONS with directions]
+Example: "Red oxygenated blood flows FROM heart OUTWARD through arteries
+(arrows pointing AWAY from center). Blue deoxygenated blood flows TOWARD
+heart through veins (arrows pointing TOWARD center)."
+
+Labels to Show (positions):
+- [LABEL1] at [POSITION, e.g., "top left"]
+- [LABEL2] at [POSITION]
+
+Color Coding:
+- [COLOR1] for [MEANING]
+- [COLOR2] for [MEANING]
+
+Style:
+Scientific illustration, educational quality, accurate proportions
+
+Constraints:
+- Anatomically/scientifically accurate orientations
+- Professional medical illustration style
 ```
 
 ## Workflow Example
 
-### Step 1: Define Image Needs
+### Step 1: Define Image Needs with Explicit Details
 
 ```
 Images needed for Microsoft C#/F# Functional Programming Presentation:
-1. Title slide background (abstract tech, blue)
-2. Category theory visualization (arrows, composition)
-3. Functor concept (transformation, mapping)
+1. Title slide background (abstract tech, blue #0078D4, purple #8661C5)
+2. Category theory visualization (arrows LEFT TO RIGHT, composition)
+3. Functor concept (transformation beams LEFT TO RIGHT)
 4. Monad concept (chaining, composition)
 5. Summary/unification (connection, convergence)
 ```
@@ -161,23 +260,34 @@ Abstract visualization of sequential composition and chaining, flowing connected
 Unified connection visualization showing diverse elements coming together, convergence and synthesis theme, professional tech aesthetic, blue purple and teal harmony, abstract geometric design, no text, suitable for conclusion slide
 ```
 
-### Step 3: Generate Images
+### Step 3: Generate Images IN PARALLEL
 
 ```bash
+# PARALLEL generation (recommended for multiple prompts)
 python .project/agents/image-generation/tools/gpt_image_generator.py \
   --prompt-file prompts_microsoft_fp.txt \
   --output-dir domain/science/computer-science/functional-theory/.renders/images/ \
   --aspect landscape \
-  --quality hd \
-  --variations 2
+  --quality high \
+  --parallel 5 \
+  --enhance
+
+# Sequential generation (if needed)
+python .project/agents/image-generation/tools/gpt_image_generator.py \
+  --prompt-file prompts_microsoft_fp.txt \
+  --output-dir domain/science/computer-science/functional-theory/.renders/images/ \
+  --aspect landscape \
+  --quality high \
+  --sequential
 ```
 
 ### Step 4: Review & Select
 
 1. Open generated images
 2. Verify alignment with intended purpose
-3. Select best variations
-4. Document choices in metadata
+3. Check explicit elements are correct (arrow directions, flow, etc.)
+4. Select best variations
+5. Document choices in metadata
 
 ## Output Standards
 
@@ -200,10 +310,11 @@ Each generation creates a JSON metadata file:
 {
   "prompt": "Original prompt text",
   "aspect_ratio": "LANDSCAPE",
-  "quality": "hd",
+  "quality": "high",
   "n_variations": 2,
   "generated_at": "2026-01-04T10:30:00Z",
-  "files": ["path/to/image1.png", "path/to/image2.png"]
+  "files": ["path/to/image1.png", "path/to/image2.png"],
+  "rate_limited": false
 }
 ```
 
@@ -211,32 +322,51 @@ Each generation creates a JSON metadata file:
 
 ### DO
 
-- ✅ Be specific and detailed in prompts
-- ✅ Specify visual style explicitly
-- ✅ Describe composition and layout
-- ✅ Include lighting and mood
-- ✅ Use positive descriptions
-- ✅ Generate multiple variations for selection
-- ✅ Review images before using
+- ✅ **BE SUPER EXPLICIT** about directions, orientations, positions
+- ✅ Use structured prompts with sections (Scene, Style, Constraints)
+- ✅ Specify exact colors with hex codes when possible
+- ✅ Describe composition and layout explicitly
+- ✅ Include lighting and mood specifications
+- ✅ Use positive descriptions (what you WANT, not what to avoid)
+- ✅ Generate images IN PARALLEL for efficiency
+- ✅ Use `--enhance` flag for automatic best practices
+- ✅ Review images for explicit element accuracy
 
 ### DON'T
 
-- ❌ Use negative instructions ("no people")
-- ❌ Request text in images
-- ❌ Use overly complex prompts
+- ❌ Use negative instructions ("no people") - describe what you WANT instead
+- ❌ Assume the model knows specific orientations - BE EXPLICIT
+- ❌ Request text in images (often renders poorly)
+- ❌ Use vague style descriptions ("nice", "good")
 - ❌ Ignore aspect ratio for use case
 - ❌ Skip the enhancement flag for quick prompts
 - ❌ Use generated images without review
+- ❌ Use exponential backoff - use LINEAR backoff instead
 
 ## Error Handling
 
 | Error | Action |
 |-------|--------|
 | Missing env vars | Check GitHub secrets configuration |
-| Rate limited | Wait and retry (automatic) |
+| Rate limited (429) | Automatic LINEAR backoff and retry |
 | Timeout | Increase timeout, simplify prompt |
-| Poor quality | Refine prompt, add more detail |
+| Poor quality | Refine prompt, add more explicit detail |
+| Wrong orientation | Be MORE EXPLICIT about directions |
 | Wrong style | Specify style more explicitly |
+
+## Rate Limit Management
+
+The tool includes intelligent rate limit management:
+
+1. **Parallel Generation**: Up to 5 concurrent requests by default
+2. **Linear Backoff**: 5s base + 5s per retry (not exponential)
+3. **Rate Tracking**: Observed limits stored in `rate-limits.yaml`
+4. **Push Limits**: 10% chance to test beyond safe limits
+
+To view current rate limit configuration:
+```bash
+python .project/agents/image-generation/tools/gpt_image_generator.py --show-rate-limits
+```
 
 ## Related Agents
 
@@ -252,9 +382,11 @@ Each generation creates a JSON metadata file:
 | Average generation time | <60s |
 | Prompt alignment score | >4/5 |
 | First-try success rate | >80% |
+| Parallel efficiency | >3x vs sequential |
 
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.0.0 | 2026-01-04 | PARALLEL generation, LINEAR backoff, rate limit tracking, super explicit prompts |
 | 1.0.0 | 2026-01-04 | Initial creation |
