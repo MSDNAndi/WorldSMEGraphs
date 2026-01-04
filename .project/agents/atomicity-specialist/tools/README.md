@@ -25,7 +25,7 @@ python analyze_atomicity.py path/to/aku.json
 python analyze_atomicity.py path/to/aku.json --verbose
 
 # Analyze entire directory
-python analyze_atomicity.py --directory domain/economics/bwl/finance/
+python analyze_atomicity.py --directory domain/social-sciences/economics/bwl/finance/
 
 # Analyze by domain path
 python analyze_atomicity.py --domain economics/bwl/finance/valuation/npv
@@ -114,7 +114,7 @@ This tool is designed to support the `@aku-atomicity-specialist` agent:
 
 ```bash
 # Agent invocation example
-@aku-atomicity-specialist Analyze domain/economics/bwl/finance/valuation/npv/ 
+@aku-atomicity-specialist Analyze domain/social-sciences/economics/bwl/finance/valuation/npv/ 
 for atomicity violations using analyze_atomicity.py tool. Provide split/merge 
 recommendations with rationale.
 ```
