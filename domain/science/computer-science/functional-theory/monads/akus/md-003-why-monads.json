@@ -5,8 +5,10 @@
   "metadata": {
     "version": "2.0.0",
     "created": "2026-01-03T23:36:18.481Z",
-    "modified": "2026-01-03T23:36:18.481Z",
-    "contributors": ["knowledge-graph-agent"],
+    "modified": "2026-01-04T13:49:03.543Z",
+    "contributors": [
+      "knowledge-graph-agent"
+    ],
     "confidence": 0.95,
     "status": "validated",
     "language_agnostic": true
@@ -17,7 +19,10 @@
     "type": "concept",
     "difficulty": "graduate",
     "importance": "foundational",
-    "maturity": "stable"
+    "maturity": "stable",
+    "isApplicationDomain": true,
+    "isNativeDomain": false,
+    "notes": []
   },
   "content": {
     "statement": "Monads solve the problem of composing effectful computations in a pure functional setting, providing a principled way to sequence operations that produce values in a computational context while managing the context automatically.",
@@ -64,11 +69,19 @@
     "comparison": {
       "without_monads": {
         "code": "// Nested unwrapping (callback hell/pyramid of doom)\ngetUser(id, function(user) {\n  getOrders(user, function(orders) {\n    getDetails(orders, function(details) {\n      // finally use details\n    });\n  });\n});",
-        "problems": ["Deeply nested", "Hard to read", "Error handling repeated"]
+        "problems": [
+          "Deeply nested",
+          "Hard to read",
+          "Error handling repeated"
+        ]
       },
       "with_monads": {
         "code": "// Flat, sequential (Promise is a monad)\ngetUser(id)\n  .then(user => getOrders(user))\n  .then(orders => getDetails(orders))\n  .then(details => /* use details */);",
-        "benefits": ["Flat structure", "Readable", "Error propagation automatic"]
+        "benefits": [
+          "Flat structure",
+          "Readable",
+          "Error propagation automatic"
+        ]
       }
     }
   },
@@ -89,9 +102,18 @@
     "part_of": "aku:functional-theory:monads"
   },
   "ontology": {
-    "skos:broader": ["monad-motivation", "computational-effects"],
-    "skos:narrower": ["effect-composition", "kleisli-composition"],
-    "skos:related": ["effectful-programming", "pure-functional-programming"]
+    "skos:broader": [
+      "monad-motivation",
+      "computational-effects"
+    ],
+    "skos:narrower": [
+      "effect-composition",
+      "kleisli-composition"
+    ],
+    "skos:related": [
+      "effectful-programming",
+      "pure-functional-programming"
+    ]
   },
   "provenance": {
     "sources": [
@@ -106,5 +128,16 @@
     ],
     "derived_from": [],
     "validation_status": "peer_reviewed"
+  },
+  "cross_domain_references": {
+    "note": "This programming concept APPLIES mathematical concepts from their native domains",
+    "applies": [
+      {
+        "sourceDomain": "formal-sciences/mathematics/pure-mathematics/category-theory",
+        "concept": "monad",
+        "relationship": "applies",
+        "applicationContext": "Monads in programming are inspired by the mathematical definition of monads as monoids in the category of endofunctors"
+      }
+    ]
   }
 }
