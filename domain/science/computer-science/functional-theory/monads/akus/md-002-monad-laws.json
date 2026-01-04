@@ -1,0 +1,113 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:monads:monad-laws",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.98,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/monads",
+    "subdomain": "foundations",
+    "type": "theorem",
+    "difficulty": "graduate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "Monads must satisfy three laws: left identity (return a >>= f ≡ f a), right identity (m >>= return ≡ m), and associativity ((m >>= f) >>= g ≡ m >>= (\\x -> f x >>= g)).",
+    "explanation": {
+      "intuition": "Monad laws ensure composition behaves sensibly. Left identity: wrapping then unwrapping does nothing. Right identity: unwrapping then wrapping does nothing. Associativity: chaining operations can be regrouped without changing meaning.",
+      "key_insight": "These laws guarantee monadic composition is coherent and predictable. They enable equational reasoning: you can refactor monadic code by applying laws, confident the behavior won't change.",
+      "technical_details": "The laws can be stated using either bind (>>=) or join (μ) and return (η). With bind: three identity and associativity laws. With join: μ∘Mμ = μ∘μM and μ∘Mη = μ∘ηM = id. Both formulations are equivalent."
+    },
+    "bind_formulation": {
+      "left_identity": {
+        "law": "return a >>= f ≡ f a",
+        "latex": "\\eta(a) >>= f \\equiv f(a)",
+        "description": "Returning a value then binding is the same as just applying the function",
+        "intuition": "Wrapping then immediately unwrapping is a no-op"
+      },
+      "right_identity": {
+        "law": "m >>= return ≡ m",
+        "latex": "m >>= \\eta \\equiv m",
+        "description": "Binding with return does nothing",
+        "intuition": "Unwrapping then rewrapping is a no-op"
+      },
+      "associativity": {
+        "law": "(m >>= f) >>= g ≡ m >>= (\\x -> f x >>= g)",
+        "latex": "(m >>= f) >>= g \\equiv m >>= (\\lambda x. f(x) >>= g)",
+        "description": "Order of nesting bind operations doesn't matter",
+        "intuition": "Chaining computations can be regrouped like function composition"
+      }
+    },
+    "join_formulation": {
+      "associativity": {
+        "law": "μ ∘ M(μ) = μ ∘ μ(M)",
+        "latex": "\\mu \\circ M\\mu = \\mu \\circ \\mu M",
+        "description": "Flattening M(M(M(a))) works the same regardless of which layer we flatten first",
+        "diagram": "M(M(M(a))) can flatten outer or inner layers first, result is same"
+      },
+      "left_identity": {
+        "law": "μ ∘ M(η) = id",
+        "latex": "\\mu \\circ M\\eta = \\text{id}_M",
+        "description": "Wrapping then flattening is identity",
+        "intuition": "M(η(a)) → M(a) via join is identity"
+      },
+      "right_identity": {
+        "law": "μ ∘ η(M) = id",
+        "latex": "\\mu \\circ \\eta M = \\text{id}_M",
+        "description": "Wrapping at outer level then flattening is identity",
+        "intuition": "η(M(a)) → M(a) via join is identity"
+      }
+    },
+    "verification_example": {
+      "monad": "Maybe",
+      "left_identity": "return 5 >>= (\\x -> Just (x * 2)) ≡ Just 5 >>= (\\x -> Just (x * 2)) ≡ Just 10",
+      "right_identity": "Just 5 >>= return ≡ Just 5 >>= Just ≡ Just 5",
+      "associativity": "(Just 5 >>= half) >>= toString ≡ Just 5 >>= (\\x -> half x >>= toString)"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:monads:monad-definition",
+      "aku:functional-theory:functors:functor-laws"
+    ],
+    "enables": [
+      "aku:functional-theory:monads:why-monads",
+      "aku:functional-theory:monads:examples",
+      "aku:functional-theory:monads:kleisli-category"
+    ],
+    "related_to": [
+      "aku:functional-theory:category-theory:category-laws",
+      "aku:functional-theory:monoids:monoid-laws"
+    ],
+    "part_of": "aku:functional-theory:monads"
+  },
+  "ontology": {
+    "skos:broader": ["monad-axioms", "category-theory-laws"],
+    "skos:narrower": ["identity-laws", "associativity-law"],
+    "skos:related": ["coherence-laws", "equational-reasoning"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Mac Lane, S. (1971). Categories for the Working Mathematician. Springer.",
+        "pages": "137-150"
+      },
+      {
+        "type": "online",
+        "citation": "Haskell Wiki: Monad laws",
+        "url": "https://wiki.haskell.org/Monad_laws"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "peer_reviewed"
+  }
+}

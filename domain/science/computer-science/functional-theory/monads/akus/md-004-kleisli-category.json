@@ -1,0 +1,99 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:monads:kleisli-category",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/monads",
+    "subdomain": "advanced",
+    "type": "concept",
+    "difficulty": "graduate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "The Kleisli category of a monad M has the same objects as the base category, but morphisms A→B are Kleisli arrows (functions A→M(B)), with composition given by monadic bind and identity by return.",
+    "explanation": {
+      "intuition": "The Kleisli category is the 'world of effectful computations'. Normal functions A→B become effectful functions A→M(B). Monadic bind (>>=) becomes the composition operation in this world, making Kleisli arrows composable just like regular functions.",
+      "key_insight": "Every monad defines a Kleisli category where 'effectful computations' form a proper category with monadic composition. This explains why monads enable composition of effectful operations - they create a category where such composition is well-defined.",
+      "technical_details": "Given monad M on category C, the Kleisli category C_M has: Objects: same as C. Morphisms: f: A→B in C_M corresponds to f: A→M(B) in C. Composition: g ∘_M f = λx. f(x) >>= g. Identity: return: A→M(A). This forms a valid category satisfying category laws."
+    },
+    "formal_definition": {
+      "latex": "\\text{Kleisli category } \\mathcal{C}_M \\text{ for monad } M: \\\\ \\text{Objects: } \\text{ob}(\\mathcal{C}_M) = \\text{ob}(\\mathcal{C}) \\\\ \\text{Morphisms: } \\mathcal{C}_M(A, B) = \\mathcal{C}(A, M(B)) \\\\ \\text{Composition: } g \\circ_M f = \\lambda x. f(x) >>= g \\\\ \\text{Identity: } \\eta_A : A \\to M(A)",
+      "components": [
+        "Objects: unchanged from base category",
+        "Morphisms: Kleisli arrows f: A→M(B)",
+        "Composition: monadic bind",
+        "Identity: return/unit"
+      ]
+    },
+    "example": {
+      "monad": "Maybe",
+      "kleisli_arrow_1": "safe_div :: Int -> Maybe Int",
+      "kleisli_arrow_2": "safe_sqrt :: Int -> Maybe Int",
+      "composition": "safe_sqrt ∘_M safe_div = \\x -> safe_div x >>= safe_sqrt",
+      "verification": "(safe_sqrt ∘_M safe_div)(10) = safe_div(10) >>= safe_sqrt\n  = Just 5 >>= safe_sqrt\n  = safe_sqrt(5)\n  = Just 2.23..."
+    },
+    "why_it_matters": [
+      "Kleisli categories explain why monadic composition works",
+      "They show that effectful computations form a proper categorical structure",
+      "Enable reasoning about effectful programs using category theory",
+      "Provide foundation for monad transformers and effect systems",
+      "Show deep connection between monads and composition"
+    ],
+    "relationship_to_monads": {
+      "statement": "Monads and Kleisli categories are two views of the same structure",
+      "monad_view": "Endofunctor with unit and join",
+      "kleisli_view": "Category of Kleisli arrows with monadic composition",
+      "equivalence": "These perspectives are mathematically equivalent"
+    },
+    "programming_perspective": {
+      "haskell": "-- Kleisli composition operator\n(>=>) :: Monad m => (a -> m b) -> (b -> m c) -> (a -> m c)\nf >=> g = \\x -> f x >>= g\n\n-- Example\nsafe_div >=> safe_sqrt :: Int -> Maybe Int",
+      "scala": "// Kleisli in Cats library\nimport cats.data.Kleisli\n\nval f: Kleisli[Option, Int, Int] = Kleisli(safe_div)\nval g: Kleisli[Option, Int, Double] = Kleisli(safe_sqrt)\nval composed = f andThen g  // Kleisli composition"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:monads:monad-definition",
+      "aku:functional-theory:monads:why-monads",
+      "aku:functional-theory:category-theory:category-definition"
+    ],
+    "enables": [
+      "aku:functional-theory:monads:examples"
+    ],
+    "related_to": [
+      "aku:functional-theory:category-theory:morphisms",
+      "aku:functional-theory:category-theory:composition"
+    ],
+    "part_of": "aku:functional-theory:monads"
+  },
+  "ontology": {
+    "skos:broader": ["category-theory", "monad-theory"],
+    "skos:narrower": ["kleisli-arrows", "kleisli-composition"],
+    "skos:related": ["effectful-computation", "monadic-composition"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Mac Lane, S. (1971). Categories for the Working Mathematician. Springer.",
+        "pages": "147-150"
+      },
+      {
+        "type": "online",
+        "citation": "nLab: Kleisli category",
+        "url": "https://ncatlab.org/nlab/show/Kleisli+category"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "peer_reviewed"
+  }
+}

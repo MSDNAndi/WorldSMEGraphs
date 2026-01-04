@@ -1,0 +1,101 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:monoids:monoid-laws",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.98,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/monoids",
+    "subdomain": "foundations",
+    "type": "theorem",
+    "difficulty": "intermediate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "Monoid laws require associativity of the binary operation (a·b)·c = a·(b·c) and identity behavior e·a = a·e = a for all elements.",
+    "explanation": {
+      "intuition": "Associativity means grouping doesn't matter: (1+2)+3 = 1+(2+3). Identity means there's a 'do nothing' element: 0+5 = 5. These laws ensure monoids behave predictably and enable parallel computation.",
+      "key_insight": "The laws aren't arbitrary - they're the minimal requirements for safe aggregation. Associativity allows reordering computations (crucial for parallelism), identity provides a base case for empty aggregations.",
+      "technical_details": "For monoid (M, ·, e): Associativity requires (a·b)·c = a·(b·c) for all a,b,c ∈ M. Left identity requires e·a = a. Right identity requires a·e = a. These ensure the monoid structure is well-behaved."
+    },
+    "formal_laws": {
+      "associativity": {
+        "latex": "\\forall a, b, c \\in M: \\quad (a \\cdot b) \\cdot c = a \\cdot (b \\cdot c)",
+        "description": "The order of applying operations doesn't matter",
+        "consequence": "Enables parallel computation and arbitrary grouping"
+      },
+      "left_identity": {
+        "latex": "\\forall a \\in M: \\quad e \\cdot a = a",
+        "description": "Identity on the left does nothing",
+        "consequence": "Provides base case for left-associative folds"
+      },
+      "right_identity": {
+        "latex": "\\forall a \\in M: \\quad a \\cdot e = a",
+        "description": "Identity on the right does nothing",
+        "consequence": "Provides base case for right-associative folds"
+      }
+    },
+    "implications": [
+      "Operations can be reordered without changing result",
+      "Empty collections have a meaningful identity value",
+      "Parallel reduction is safe and well-defined",
+      "Monoids enable MapReduce-style computation"
+    ],
+    "verification_examples": [
+      {
+        "monoid": "Addition on integers",
+        "associativity": "(1 + 2) + 3 = 1 + (2 + 3) = 6",
+        "identity": "0 + 5 = 5 + 0 = 5"
+      },
+      {
+        "monoid": "String concatenation",
+        "associativity": "('hello' + ' ') + 'world' = 'hello' + (' ' + 'world')",
+        "identity": "'' + 'hello' = 'hello' + '' = 'hello'"
+      },
+      {
+        "monoid": "Function composition",
+        "associativity": "(h∘g)∘f = h∘(g∘f)",
+        "identity": "id∘f = f∘id = f"
+      }
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:monoids:monoid-definition"
+    ],
+    "enables": [
+      "aku:functional-theory:monoids:examples",
+      "aku:functional-theory:monoids:programming",
+      "aku:functional-theory:monoids:reduce-fold"
+    ],
+    "related_to": [
+      "aku:functional-theory:category-theory:category-laws",
+      "aku:mathematics:algebra:associativity"
+    ],
+    "part_of": "aku:functional-theory:monoids"
+  },
+  "ontology": {
+    "skos:broader": ["algebraic-laws", "monoid-axioms"],
+    "skos:narrower": ["associativity", "identity-laws"],
+    "skos:related": ["composition-laws", "neutral-elements"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Mac Lane, S. (1971). Categories for the Working Mathematician. Springer.",
+        "pages": "2-3"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "peer_reviewed"
+  }
+}

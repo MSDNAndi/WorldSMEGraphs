@@ -1,0 +1,110 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:monads:why-monads",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/monads",
+    "subdomain": "motivation",
+    "type": "concept",
+    "difficulty": "graduate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "Monads solve the problem of composing effectful computations in a pure functional setting, providing a principled way to sequence operations that produce values in a computational context while managing the context automatically.",
+    "explanation": {
+      "intuition": "Without monads, composing functions that return 'wrapped' values (Maybe, List, IO) is awkward. You can't directly pipe f: A→Maybe<B> into g: B→Maybe<C> because types don't match. Monads provide >>= to handle this composition elegantly.",
+      "key_insight": "Monads abstract the pattern of 'computation with effects'. Whether it's optionality (Maybe), multiple results (List), IO, state, or errors, monads provide a uniform interface for chaining such computations.",
+      "technical_details": "Functions of type A→M<B> are called Kleisli arrows. Regular composition (∘) doesn't work for them, but monadic composition (>>=) does. Monads make the category of Kleisli arrows composable."
+    },
+    "the_problem": {
+      "scenario": "Composing functions with effects",
+      "example": "// Want to compose:\nsafe_div :: Int -> Int -> Maybe Int\nsafe_sqrt :: Int -> Maybe Int\n\n// Can't use regular composition because:\nsafe_div(10, 2) // Maybe Int\nsafe_sqrt expects Int, not Maybe Int\n\n// Manual unwrapping is tedious:\ncase safe_div(10, 2) of\n  Nothing -> Nothing\n  Just x -> safe_sqrt(x)"
+    },
+    "the_solution": {
+      "monadic_composition": "safe_div(10, 2) >>= safe_sqrt\n// >>= handles unwrapping and rewrapping automatically",
+      "generalization": "Monads provide >>= for any computational context",
+      "benefit": "Write effectful code that looks sequential and clean"
+    },
+    "what_monads_enable": [
+      {
+        "capability": "Sequencing effectful operations",
+        "example": "Chain database queries, each depending on previous result"
+      },
+      {
+        "capability": "Error handling without explicit checks",
+        "example": "Either/Result monad propagates errors automatically"
+      },
+      {
+        "capability": "Managing state implicitly",
+        "example": "State monad threads state through computations"
+      },
+      {
+        "capability": "IO in pure languages",
+        "example": "IO monad separates pure code from side effects"
+      },
+      {
+        "capability": "Nondeterminism",
+        "example": "List monad represents all possible outcomes"
+      },
+      {
+        "capability": "Async computations",
+        "example": "Promise/Future monad sequences asynchronous operations"
+      }
+    ],
+    "comparison": {
+      "without_monads": {
+        "code": "// Nested unwrapping (callback hell/pyramid of doom)\ngetUser(id, function(user) {\n  getOrders(user, function(orders) {\n    getDetails(orders, function(details) {\n      // finally use details\n    });\n  });\n});",
+        "problems": ["Deeply nested", "Hard to read", "Error handling repeated"]
+      },
+      "with_monads": {
+        "code": "// Flat, sequential (Promise is a monad)\ngetUser(id)\n  .then(user => getOrders(user))\n  .then(orders => getDetails(orders))\n  .then(details => /* use details */);",
+        "benefits": ["Flat structure", "Readable", "Error propagation automatic"]
+      }
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:monads:monad-definition",
+      "aku:functional-theory:functors:programming-map"
+    ],
+    "enables": [
+      "aku:functional-theory:monads:examples",
+      "aku:functional-theory:monads:kleisli-category",
+      "aku:functional-theory:monads:language-implementations"
+    ],
+    "related_to": [
+      "aku:computer-science:functional-programming:composition",
+      "aku:computer-science:error-handling"
+    ],
+    "part_of": "aku:functional-theory:monads"
+  },
+  "ontology": {
+    "skos:broader": ["monad-motivation", "computational-effects"],
+    "skos:narrower": ["effect-composition", "kleisli-composition"],
+    "skos:related": ["effectful-programming", "pure-functional-programming"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "academic_paper",
+        "citation": "Moggi, E. (1991). Notions of computation and monads. Information and Computation, 93(1), 55-92."
+      },
+      {
+        "type": "academic_paper",
+        "citation": "Wadler, P. (1992). The essence of functional programming. POPL '92."
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "peer_reviewed"
+  }
+}

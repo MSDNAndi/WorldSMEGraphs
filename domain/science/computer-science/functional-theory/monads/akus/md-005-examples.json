@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:monads:examples",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/monads",
+    "subdomain": "examples",
+    "type": "examples",
+    "difficulty": "intermediate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "Common monads include Maybe/Option (optional values), List (nondeterminism), IO (side effects), State (stateful computation), Reader (shared environment), Writer (logging), Either/Result (error handling).",
+    "explanation": {
+      "intuition": "Each monad captures a specific computational effect. Maybe adds optionality, List adds multiple results, IO adds side effects, State adds mutable state, etc. The monad interface (return, >>=) works uniformly across all these effects.",
+      "key_insight": "Different effects share the same monad structure. Once you understand monads abstractly, you can work with any effect using the same patterns. The 'shape' of effectful programming is always the same.",
+      "technical_details": "Each monad M defines: (1) How to inject a pure value (return), (2) How to chain effectful operations (>>=), (3) How to satisfy monad laws. The specific implementations vary, but the interface is uniform."
+    },
+    "concrete_examples": [
+      {
+        "name": "Maybe/Option",
+        "type": "Maybe a = Nothing | Just a",
+        "effect": "Optionality - computation might fail",
+        "return": "return x = Just x",
+        "bind": "Nothing >>= f = Nothing\nJust x >>= f = f x",
+        "use_case": "Null-safe operations, partial functions, early returns",
+        "example": "safe_div 10 2 >>= safe_sqrt  -- Just 2.23...\nsafe_div 10 0 >>= safe_sqrt  -- Nothing"
+      },
+      {
+        "name": "List",
+        "type": "[a]",
+        "effect": "Nondeterminism - multiple possible results",
+        "return": "return x = [x]",
+        "bind": "xs >>= f = concat (map f xs)",
+        "use_case": "All possibilities, search spaces, parsing",
+        "example": "[1,2,3] >>= \\x -> [x, -x]  -- [1,-1,2,-2,3,-3]"
+      },
+      {
+        "name": "IO",
+        "type": "IO a",
+        "effect": "Side effects - interacts with external world",
+        "return": "return x = pure action that produces x",
+        "bind": "m >>= f sequences two IO actions",
+        "use_case": "File I/O, network, user input, any side effect",
+        "example": "getLine >>= \\name -> putStrLn (\"Hello, \" ++ name)"
+      },
+      {
+        "name": "State s",
+        "type": "State s a = s -> (a, s)",
+        "effect": "Stateful computation - threaded state",
+        "return": "return x = \\s -> (x, s)",
+        "bind": "m >>= f = \\s -> let (a, s') = m s in f a s'",
+        "use_case": "Mutable state without mutation, threading context",
+        "example": "Incrementing counter, symbol tables, game state"
+      },
+      {
+        "name": "Reader r",
+        "type": "Reader r a = r -> a",
+        "effect": "Shared environment - implicit parameter",
+        "return": "return x = \\r -> x",
+        "bind": "m >>= f = \\r -> f (m r) r",
+        "use_case": "Configuration, dependency injection, context",
+        "example": "Reading configuration without passing it explicitly"
+      },
+      {
+        "name": "Writer w",
+        "type": "Writer w a = (a, w)",
+        "effect": "Accumulating output - logging",
+        "return": "return x = (x, mempty)",
+        "bind": "(a, w1) >>= f = let (b, w2) = f a in (b, w1 <> w2)",
+        "use_case": "Logging, tracing, collecting auxiliary data",
+        "example": "Computation with accumulated log messages"
+      },
+      {
+        "name": "Either e / Result",
+        "type": "Either e a = Left e | Right a",
+        "effect": "Error handling with error values",
+        "return": "return x = Right x",
+        "bind": "Left e >>= f = Left e\nRight x >>= f = f x",
+        "use_case": "Exceptions, error propagation, validation",
+        "example": "Chain operations that can fail with error information"
+      }
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:monads:monad-definition",
+      "aku:functional-theory:monads:why-monads"
+    ],
+    "enables": [
+      "aku:functional-theory:monads:language-implementations",
+      "aku:functional-theory:monads:tutorial-fallacy"
+    ],
+    "related_to": [
+      "aku:computer-science:error-handling",
+      "aku:computer-science:state-management"
+    ],
+    "part_of": "aku:functional-theory:monads"
+  },
+  "ontology": {
+    "skos:broader": ["monad-examples", "computational-effects"],
+    "skos:narrower": ["option-monad", "list-monad", "io-monad", "state-monad"],
+    "skos:related": ["effect-systems", "monadic-computation"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "online",
+        "citation": "Haskell documentation: Standard monads"
+      },
+      {
+        "type": "textbook",
+        "citation": "Lipovača, M. (2011). Learn You a Haskell for Great Good!"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "validated"
+  }
+}

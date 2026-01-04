@@ -1,0 +1,105 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:functional-theory:functors:mathematical-examples",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-03T23:36:18.481Z",
+    "contributors": ["knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "science/computer-science/functional-theory/functors",
+    "subdomain": "examples",
+    "type": "examples",
+    "difficulty": "graduate",
+    "importance": "foundational",
+    "maturity": "stable"
+  },
+  "content": {
+    "statement": "Functors appear throughout mathematics: power set P: Set→Set, free group F: Set→Grp, forgetful functors U: Grp→Set, fundamental group π₁: Top→Grp, and homology functors H_n: Top→Vect.",
+    "explanation": {
+      "intuition": "Mathematical functors capture systematic ways of building new structures from old ones. The power set functor builds 'sets of subsets', the free group functor builds 'the freest group possible' from a set, forgetful functors 'forget' structure.",
+      "key_insight": "Functors formalize common mathematical constructions. Many natural operations (taking subsets, building free objects, forgetting structure) are actually functors - structure-preserving transformations between categories.",
+      "technical_details": "Each example maps objects and morphisms while preserving composition and identity. Power set maps sets to their power sets and functions to their inverse images. Free functors build free algebraic structures. Forgetful functors strip away structure."
+    },
+    "concrete_examples": [
+      {
+        "name": "Power set functor P: Set→Set",
+        "object_mapping": "Set A ↦ P(A) = {subsets of A}",
+        "morphism_mapping": "Function f: A→B ↦ P(f): P(A)→P(B) where P(f)(S) = {f(s) | s ∈ S}",
+        "verification": "P(id_A) = id_P(A) and P(g∘f) = P(g)∘P(f)",
+        "significance": "Models nondeterministic computation"
+      },
+      {
+        "name": "Free group functor F: Set→Grp",
+        "object_mapping": "Set X ↦ F(X) = free group on X",
+        "morphism_mapping": "Function f: X→Y ↦ unique group homomorphism F(f): F(X)→F(Y)",
+        "verification": "F preserves composition and identities",
+        "significance": "Constructs groups from generators"
+      },
+      {
+        "name": "Forgetful functor U: Grp→Set",
+        "object_mapping": "Group (G,·) ↦ underlying set G",
+        "morphism_mapping": "Group homomorphism h ↦ underlying function h",
+        "verification": "U forgets group structure, keeping only sets",
+        "significance": "Models 'forgetting' algebraic structure"
+      },
+      {
+        "name": "Fundamental group π₁: Top→Grp",
+        "object_mapping": "Topological space X ↦ fundamental group π₁(X)",
+        "morphism_mapping": "Continuous map f: X→Y ↦ induced homomorphism f₊: π₁(X)→π₁(Y)",
+        "verification": "π₁ translates topology into algebra",
+        "significance": "Bridge between topology and algebra"
+      },
+      {
+        "name": "Homology functors H_n: Top→Vect",
+        "object_mapping": "Topological space X ↦ n-th homology group H_n(X)",
+        "morphism_mapping": "Continuous map f ↦ induced linear map f₊",
+        "verification": "Algebraic topology's main tool",
+        "significance": "Converts topology to linear algebra"
+      }
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:functors:functor-definition",
+      "aku:functional-theory:functors:functor-laws",
+      "aku:functional-theory:category-theory:examples"
+    ],
+    "enables": [
+      "aku:functional-theory:functors:programming-map",
+      "aku:functional-theory:monads:monad-examples"
+    ],
+    "related_to": [
+      "aku:mathematics:set-theory:power-set",
+      "aku:mathematics:algebra:free-groups",
+      "aku:mathematics:topology:fundamental-group"
+    ],
+    "part_of": "aku:functional-theory:functors"
+  },
+  "ontology": {
+    "skos:broader": ["functor-examples", "mathematical-functors"],
+    "skos:narrower": ["algebraic-functors", "topological-functors"],
+    "skos:related": ["free-constructions", "forgetful-functors", "homology-theory"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Mac Lane, S. (1971). Categories for the Working Mathematician. Springer.",
+        "pages": "18-30"
+      },
+      {
+        "type": "textbook",
+        "citation": "Awodey, S. (2010). Category Theory (2nd ed.). Oxford University Press.",
+        "pages": "14-25"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "peer_reviewed"
+  }
+}
