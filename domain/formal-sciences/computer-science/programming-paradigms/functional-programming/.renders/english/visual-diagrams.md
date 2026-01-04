@@ -1,7 +1,47 @@
 # Functional Programming Visual Companion
 
 **Supplement to**: "The Functional Programming Adventure" and "Professional Guide"  
-**Format**: ASCII diagrams and visual explanations
+**Format**: ASCII diagrams, visual explanations, and generated illustrations
+
+---
+
+## Generated Visual Diagrams
+
+### Diagram 1: The Functor Box Concept
+
+![Functor Box Concept](./images/image_001_20260104_211427_210a0c9a.png)
+
+### Diagram 2: Railway-Oriented Programming
+
+![Railway-Oriented Programming](./images/image_002_20260104_211445_db469a46.png)
+
+### Diagram 3: Monad Composition (flatMap)
+
+![Monad Composition](./images/image_003_20260104_211431_96fd561f.png)
+
+### Diagram 4: Common Functors Chart
+
+![Common Functors](./images/image_004_20260104_211440_c06c7ee6.png)
+
+### Diagram 5: Monad Laws
+
+![Monad Laws](./images/image_005_20260104_211435_fbbf4452.png)
+
+### Diagram 6: Functor Box Analogy
+
+![Functor Box Analogy](./images/image_006_20260104_211507_d9ae3b03.png)
+
+### Diagram 7: Pure Function Composition
+
+![Function Composition](./images/image_007_20260104_211507_2ae18a66.png)
+
+### Diagram 8: Map vs FlatMap
+
+![Map vs FlatMap](./images/image_008_20260104_211511_84f5ac42.png)
+
+---
+
+## ASCII Art Diagrams (Text-Based Reference)
 
 ---
 
