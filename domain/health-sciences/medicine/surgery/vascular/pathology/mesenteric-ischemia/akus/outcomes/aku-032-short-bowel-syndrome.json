@@ -1,0 +1,262 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-032-short-bowel-syndrome",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:28:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:28:00.000Z",
+    "modified": "2026-01-04T14:38:55.249Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "outcomes",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "032",
+    "keywords": [
+      "short bowel syndrome",
+      "SBS",
+      "intestinal failure",
+      "parenteral nutrition",
+      "intestinal adaptation"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Short bowel syndrome (SBS) is intestinal failure resulting from extensive bowel resection (typically <200 cm remaining small bowel) leading to malabsorption requiring parenteral nutrition, with outcomes depending on remaining bowel length, presence of ileocecal valve and colon, and intestinal adaptation potential.",
+      "formal": "SBS: Extensive resection → <200 cm small bowel → Malabsorption → TPN dependence → ± Intestinal adaptation → ± Enteral autonomy"
+    },
+    "explanation": {
+      "intuition": "Think of the intestine as a water filter: it needs a minimum length to adequately absorb nutrients and water. If you cut the filter too short, food passes through without being properly absorbed. The body can partially compensate over time (adaptation), but below a certain threshold, people cannot survive without intravenous nutrition.",
+      "key_insight": "SBS is not just about length - it's about function. A patient with 100 cm of jejunum and intact colon may achieve enteral autonomy, while one with 150 cm without colon may remain TPN-dependent. The colon provides significant water and electrolyte absorption and serves as a 'metabolic brake' slowing transit."
+    }
+  },
+  "definitions": {
+    "anatomic": {
+      "small_bowel": "<200 cm remaining (normal ~600 cm)",
+      "ultra_short": "<50 cm remaining"
+    },
+    "functional": {
+      "definition": "Malabsorption requiring parenteral nutrition support",
+      "severity": "Duration and degree of TPN dependence"
+    }
+  },
+  "anatomic_considerations": {
+    "bowel_length_thresholds": {
+      "with_colon_preserved": {
+        "threshold": "60-100 cm may achieve enteral autonomy",
+        "explanation": "Colon provides significant absorptive capacity"
+      },
+      "without_colon": {
+        "threshold": "100-150 cm often still TPN-dependent",
+        "explanation": "Jejunum alone has limited adaptive capacity"
+      },
+      "end_jejunostomy": {
+        "threshold": ">100 cm usually needed for autonomy",
+        "high_output": "Common problem with fluid/electrolyte losses"
+      }
+    },
+    "important_structures": {
+      "ileocecal_valve": {
+        "importance": "Slows transit, reduces bacterial overgrowth",
+        "impact": "Preservation improves adaptation"
+      },
+      "terminal_ileum": {
+        "importance": "B12 absorption, bile salt reabsorption",
+        "impact": "Loss requires B12 supplementation, may cause bile salt diarrhea"
+      },
+      "colon": {
+        "importance": "Water/electrolyte absorption, fermentation of unabsorbed carbs",
+        "impact": "Dramatic effect on fluid losses and nutrition"
+      }
+    }
+  },
+  "pathophysiology": {
+    "malabsorption": {
+      "macronutrients": "Reduced surface area for absorption",
+      "micronutrients": "Specific deficiencies based on remaining bowel",
+      "fluid_electrolytes": "Large volume losses, especially with jejunostomy"
+    },
+    "rapid_transit": {
+      "mechanism": "Reduced bowel length = reduced transit time",
+      "consequence": "Less contact time for absorption"
+    },
+    "bacterial_overgrowth": {
+      "mechanism": "Loss of ICV allows colonic bacteria to colonize small bowel",
+      "consequence": "Nutrient competition, bile salt deconjugation, D-lactic acidosis"
+    }
+  },
+  "management": {
+    "acute_phase": {
+      "timing": "First weeks post-resection",
+      "priorities": [
+        "Fluid and electrolyte replacement (often massive)",
+        "TPN to meet nutritional needs",
+        "Monitoring of output",
+        "Prevention of complications"
+      ]
+    },
+    "adaptation_phase": {
+      "timing": "Months 1-24 post-resection",
+      "process": "Remaining bowel undergoes structural and functional changes",
+      "changes": [
+        "Villous hyperplasia",
+        "Increased crypt depth",
+        "Slowed transit",
+        "Increased absorption per unit length"
+      ],
+      "optimization": [
+        "Enteral nutrition as soon as tolerated",
+        "Small, frequent meals",
+        "High-complex-carbohydrate, low-fat diet with colon",
+        "Oral rehydration solutions"
+      ]
+    },
+    "long_term_phase": {
+      "timing": ">2 years post-resection",
+      "goals": [
+        "Maximize enteral autonomy",
+        "Minimize TPN if possible",
+        "Manage complications"
+      ]
+    },
+    "parenteral_nutrition": {
+      "indication": "Unable to meet needs enterally",
+      "administration": "Typically cycled (12-14 hr overnight)",
+      "monitoring": "Regular lab monitoring, line care",
+      "complications": [
+        "Central line infections",
+        "Liver disease (IFALD)",
+        "Venous thrombosis",
+        "Metabolic bone disease",
+        "Venous access loss"
+      ]
+    }
+  },
+  "pharmacotherapy": {
+    "antisecretory": {
+      "PPIs": "Reduce gastric hypersecretion",
+      "octreotide": "Reduces intestinal secretion (limited use)"
+    },
+    "antimotility": {
+      "loperamide": "Slows transit, reduces output",
+      "codeine": "Alternative antimotility",
+      "diphenoxylate_atropine": "Third-line"
+    },
+    "growth_factors": {
+      "teduglutide": {
+        "mechanism": "GLP-2 analog, promotes mucosal growth",
+        "effect": "May reduce TPN volume requirements",
+        "indication": "TPN-dependent SBS"
+      }
+    }
+  },
+  "surgical_options": {
+    "intestinal_lengthening": {
+      "STEP_procedure": {
+        "name": "Serial Transverse Enteroplasty",
+        "technique": "Sequential stapler applications create zigzag bowel",
+        "effect": "Lengthens and narrows dilated bowel"
+      },
+      "Bianchi_procedure": {
+        "technique": "Longitudinal division and isoperistaltic anastomosis",
+        "effect": "Doubles length from dilated segment"
+      },
+      "indication": "Dilated, dysmotile bowel"
+    },
+    "intestinal_transplant": {
+      "indication": [
+        "Life-threatening TPN complications",
+        "Loss of venous access",
+        "IFALD with impending liver failure"
+      ],
+      "types": [
+        "Isolated intestinal transplant",
+        "Combined liver-intestine",
+        "Multivisceral (stomach, pancreas, intestine ± liver)"
+      ],
+      "outcomes": {
+        "survival_5yr": "60-70%",
+        "graft_survival": "50-60% at 5 years"
+      },
+      "availability": "Limited centers, organ shortage"
+    }
+  },
+  "outcomes": {
+    "enteral_autonomy": {
+      "achievable": "40-60% of SBS patients with proper management",
+      "factors": "Length, anatomy, adaptation, treatment"
+    },
+    "survival": {
+      "with_TPN": "70-80% at 5 years in specialized centers",
+      "determinants": "Access to specialized care, complication prevention"
+    },
+    "quality_of_life": {
+      "impact": "Significant - dietary restrictions, TPN schedule",
+      "improvement": "Possible with adaptation and autonomy"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:023",
+        "title": "Bowel Resection",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:028",
+        "title": "Massive Resection Decisions",
+        "strength": 0.9
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "citation": "ESPEN guidelines on parenteral nutrition in intestinal failure",
+        "confidence": 0.98
+      },
+      {
+        "type": "review_article",
+        "citation": "Defined review on short bowel syndrome management",
+        "confidence": 0.95
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "general_surgery_residents",
+      "gastroenterology_fellows"
+    ],
+    "estimated_time": "35min",
+    "learning_objectives": [
+      "Define short bowel syndrome and its anatomic/functional criteria",
+      "Understand the importance of remaining bowel anatomy",
+      "Describe the phases of management",
+      "Know when to consider surgical options and transplant"
+    ],
+    "clinical_pearls": [
+      "It's not just length - colon and ICV matter enormously",
+      "Enteral nutrition early and often - use it or lose it",
+      "Teduglutide can reduce TPN requirements",
+      "Intestinal transplant is an option, but limited availability"
+    ]
+  }
+}

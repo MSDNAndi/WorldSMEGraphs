@@ -1,0 +1,503 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "ScientificConcept"
+  ],
+  "@id": "aku-f02-natural-units-system",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T15:42:05.260Z",
+    "contributors": [
+      "formula-extractor-agent",
+      "physics-knowledge-base",
+      "theoretical-physics-expert"
+    ],
+    "confidence": 0.97,
+    "status": "deprecated",
+    "deprecation_reason": "Split into atomic components for better learning: aku-f02a (definition), aku-f02b (conversion), aku-f02c (simplification)",
+    "replaced_by": [
+      "aku-f02a-natural-units-definition",
+      "aku-f02b-natural-units-conversion",
+      "aku-f02c-natural-units-simplification"
+    ],
+    "last_updated": "2025-12-29T22:26:00.000Z",
+    "modified": "2026-01-04T14:38:39.408Z"
+  },
+  "classification": {
+    "domain_path": "natural-sciences/physics/quantum-mechanics/planck-units",
+    "type": "formula",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "f02",
+    "keywords": [
+      "natural units",
+      "unit system",
+      "conversion formulas",
+      "theoretical physics",
+      "equation simplification"
+    ],
+    "physics_specialty": "theoretical_physics",
+    "physics_context": "natural_units_conventions",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Natural units (or Planck units) are a unit system where fundamental constants ℏ, c, G, and k_B are set to unity (dimensionless value 1). In this system, all physical quantities become powers of a single dimension (typically energy), and equations simplify dramatically by removing all constant factors. This is the standard working system for theoretical high-energy physics and quantum gravity.",
+      "formal": "Set ℏ = c = G = k_B = 1 (dimensionless) ⟹ All quantities expressed as powers of energy",
+      "formula_unicode": "ℏ = c = G = k_B = 1",
+      "formula_latex": "\\hbar = c = G = k_B = 1 \\text{ (natural units)}"
+    },
+    "explanation": {
+      "intuition": "Imagine measuring distances in 'light-seconds' (how far light travels in one second) instead of meters. In natural units, we take this further: we measure everything in terms of energy. A length becomes 'inverse energy', time becomes 'inverse energy', and mass equals energy. It's like using a universal currency where everything trades at fixed exchange rates.",
+      "key_insight": "In natural units, the fundamental equations of physics become stunningly simple: E = m (not E = mc²), the Schrödinger equation has no ℏ, and Einstein's equations have no G. This reveals the true mathematical structure hidden beneath SI unit factors. When reading modern physics papers, nearly all work is done in natural units.",
+      "technical_details": "Setting ℏ = c = G = 1 removes three dimensions from the system, reducing [M, L, T] to one independent dimension. Conventionally, energy is chosen as the base. Then: [Length] = [Energy]⁻¹, [Time] = [Energy]⁻¹, [Mass] = [Energy]. The Planck scale provides conversion: ℏc ≈ 197 MeV·fm relates energy to length. Temperature units are set by k_B = 1, making [Temperature] = [Energy].",
+      "common_misconceptions": [
+        "Natural units are 'better' than SI - FALSE: they're more convenient for theory, but SI is better for experiments and daily life",
+        "Setting constants to 1 is arbitrary - PARTIALLY FALSE: the choice reveals fundamental structure and is standard in the field",
+        "You lose information by dropping units - FALSE: units are restored when converting back to SI for numerical predictions"
+      ]
+    },
+    "natural_units_system": {
+      "fundamental_settings": {
+        "hbar_equals_1": {
+          "meaning": "ℏ = 1 (dimensionless)",
+          "consequence": "Action, angular momentum become dimensionless numbers",
+          "example": "Electron spin = 1/2 (in units of ℏ)"
+        },
+        "c_equals_1": {
+          "meaning": "c = 1 (dimensionless)",
+          "consequence": "Space and time have same dimensions; velocity is dimensionless",
+          "example": "β = v/c is just v in natural units"
+        },
+        "G_equals_1": {
+          "meaning": "G = 1 (dimensionless)",
+          "consequence": "Gravitational coupling becomes dimensionless",
+          "example": "Schwarzschild radius: r_s = 2M (not 2GM/c²)"
+        },
+        "k_B_equals_1": {
+          "meaning": "k_B = 1 (dimensionless)",
+          "consequence": "Temperature and energy have same dimensions",
+          "example": "Room temperature ≈ 1/40 eV"
+        }
+      },
+      "dimensional_relationships": {
+        "base_dimension": "Energy [E]",
+        "derived_dimensions": {
+          "length": "[L] = [E]⁻¹",
+          "time": "[T] = [E]⁻¹",
+          "mass": "[M] = [E]",
+          "temperature": "[T_temp] = [E]",
+          "momentum": "[p] = [E]",
+          "force": "[F] = [E]²",
+          "action": "[S] = dimensionless (= 1)",
+          "angular_momentum": "[J] = dimensionless (= 1)"
+        },
+        "rationale": "From ℏ = c = 1: [E] = [ℏ]/[T] = 1/[T] and [E] = [M][c]² = [M], so [M] = [E] and [T] = [E]⁻¹. From c = 1: [L] = [c][T] = [T] = [E]⁻¹."
+      },
+      "conversion_to_SI": {
+        "energy_to_length": {
+          "formula": "L[m] = (ℏc / E[J])",
+          "formula_latex": "L = \\frac{\\hbar c}{E}",
+          "numerical": "L[m] ≈ (1.973 × 10⁻⁷ eV·m) / E[eV]",
+          "common_form": "ℏc ≈ 197 MeV·fm",
+          "example": "1 GeV⁻¹ ≈ 0.197 fm"
+        },
+        "energy_to_time": {
+          "formula": "T[s] = (ℏ / E[J])",
+          "formula_latex": "T = \\frac{\\hbar}{E}",
+          "numerical": "T[s] ≈ (6.582 × 10⁻¹⁶ eV·s) / E[eV]",
+          "example": "1 MeV⁻¹ ≈ 6.6 × 10⁻²² s"
+        },
+        "mass_to_energy": {
+          "formula": "E[J] = M[kg] · c²",
+          "formula_latex": "E = Mc^2",
+          "numerical": "E[eV] ≈ M[kg] · (5.61 × 10³⁵ eV/kg)",
+          "common": "Proton mass ≈ 938 MeV/c² → just 938 MeV in natural units",
+          "example": "Electron mass ≈ 0.511 MeV"
+        },
+        "temperature_to_energy": {
+          "formula": "E[J] = k_B · T[K]",
+          "formula_latex": "E = k_B T",
+          "numerical": "E[eV] ≈ T[K] · (8.617 × 10⁻⁵ eV/K)",
+          "example": "Room temperature (300 K) ≈ 0.026 eV ≈ 1/40 eV"
+        }
+      },
+      "practical_examples": {
+        "example_1_particle_mass": {
+          "SI_form": "Electron mass m_e = 9.109 × 10⁻³¹ kg",
+          "energy_form": "E = m_e c² = 8.187 × 10⁻¹⁴ J",
+          "natural_units": "m_e = 511 keV (or 0.511 MeV)",
+          "usage": "In natural units, particle masses are always quoted in eV, MeV, or GeV"
+        },
+        "example_2_converting_GeV_to_meters": {
+          "given": "Cross section σ = 10 GeV⁻²",
+          "conversion_step_1": "1 GeV⁻¹ = (ℏc) / (1 GeV) = (197 MeV·fm) / (1000 MeV) = 0.197 fm",
+          "conversion_step_2": "1 GeV⁻² = (0.197 fm)² = 0.0388 fm²",
+          "result": "σ = 10 × 0.0388 fm² = 0.388 fm²",
+          "SI_result": "σ = 0.388 × 10⁻³⁰ m² = 3.88 × 10⁻³¹ m²"
+        },
+        "example_3_decay_rate": {
+          "given": "Particle lifetime τ = 2 × 10⁶ GeV⁻¹",
+          "conversion": "t[s] = τ[GeV⁻¹] × (ℏ / 1 GeV) = 2 × 10⁶ × (6.582 × 10⁻²⁵ GeV·s / 1 GeV)",
+          "result": "t ≈ 1.3 × 10⁻¹⁸ s",
+          "interpretation": "Extremely short-lived particle"
+        },
+        "example_4_cosmology": {
+          "hubble_parameter": "H₀ ≈ 2.2 × 10⁻⁴² GeV (in natural units)",
+          "conversion_to_SI": "H₀ ≈ 70 km/s/Mpc",
+          "note": "Cosmologists often use eV or GeV for Hubble parameter in natural units"
+        }
+      },
+      "equation_simplifications": {
+        "energy_mass_equivalence": {
+          "SI": "E = mc²",
+          "natural_units": "E = m",
+          "note": "Mass and energy are literally the same quantity"
+        },
+        "de_broglie_wavelength": {
+          "SI": "λ = h/p = 2πℏ/p",
+          "natural_units": "λ = 2π/p or λ = 1/p (depending on convention)",
+          "note": "Wavelength is simply inverse momentum"
+        },
+        "schrodinger_equation": {
+          "SI": "iℏ ∂ψ/∂t = -(ℏ²/2m)∇²ψ + Vψ",
+          "natural_units": "i ∂ψ/∂t = -(1/2m)∇²ψ + Vψ",
+          "note": "No ℏ appears anywhere"
+        },
+        "einstein_field_equations": {
+          "SI": "G_μν = (8πG/c⁴) T_μν",
+          "natural_units": "G_μν = 8π T_μν",
+          "note": "Simple proportionality, no messy constants"
+        },
+        "schwarzschild_radius": {
+          "SI": "r_s = 2GM/c²",
+          "natural_units": "r_s = 2M",
+          "note": "Black hole radius is just twice the mass"
+        },
+        "hawking_temperature": {
+          "SI": "T_H = ℏc³/(8πGMk_B)",
+          "natural_units": "T_H = 1/(8πM)",
+          "note": "Temperature inversely proportional to mass, no constants"
+        },
+        "fine_structure_constant": {
+          "SI": "α = e²/(4πε₀ℏc) ≈ 1/137",
+          "natural_units": "α = e²/(4π) ≈ 1/137",
+          "note": "Still dimensionless, but simpler form (if ε₀ = 1/(4π))"
+        }
+      }
+    }
+  },
+  "physical_features": {
+    "system_type": "natural_units",
+    "base_constants_set_to_unity": [
+      "ℏ",
+      "c",
+      "G",
+      "k_B"
+    ],
+    "independent_dimensions": 1,
+    "base_dimension_choice": "Energy",
+    "applications": [
+      "Theoretical high-energy physics",
+      "Quantum field theory calculations",
+      "General relativity and cosmology",
+      "String theory and quantum gravity",
+      "Academic papers in theoretical physics"
+    ],
+    "advantages": [
+      "Equations dramatically simplified",
+      "Reveals fundamental mathematical structure",
+      "Makes dimensional analysis easier",
+      "Standard language of theoretical physics community",
+      "Easier algebra without carrying factors of c, ℏ, etc."
+    ],
+    "disadvantages": [
+      "Must convert back to SI for numerical predictions",
+      "Can obscure physical intuition for beginners",
+      "Easy to make errors in conversion",
+      "Not suitable for experimental or engineering work"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Natural Units System (Planck Units)"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Natural Unit System"
+      },
+      {
+        "@language": "en",
+        "@value": "Planck Unit System"
+      },
+      {
+        "@language": "en",
+        "@value": "God-given units"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A unit system where fundamental constants ℏ = c = G = k_B = 1, reducing all quantities to powers of energy and simplifying theoretical physics equations by removing constant factors"
+    },
+    "notation": "aku-f02-natural-units-system",
+    "scopeNote": {
+      "@language": "en",
+      "@value": "Standard working units for theoretical physics, quantum field theory, general relativity, and quantum gravity. Essential for reading modern physics literature."
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "aku-f01-dimensional-analysis",
+        "title": "Dimensional Analysis Method",
+        "strength": 0.95,
+        "reason": "Understanding dimensional analysis helps grasp unit conversions"
+      },
+      {
+        "id": "aku-010-reduced-planck-constant",
+        "title": "Reduced Planck Constant",
+        "strength": 0.9,
+        "reason": "Must understand ℏ before setting it to 1"
+      },
+      {
+        "id": "urn:wskg:physics:units:dimensional-analysis:001",
+        "title": "Unit Systems and Dimensions",
+        "strength": 0.9,
+        "reason": "Must understand how unit systems work"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:physics:units:systems:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Physical Unit Systems"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:physics:qft:calculations:001",
+        "title": "Quantum Field Theory Calculations",
+        "strength": 1.0,
+        "reason": "QFT is always done in natural units"
+      },
+      {
+        "id": "urn:wskg:physics:gr:theoretical-work:001",
+        "title": "General Relativity Theoretical Work",
+        "strength": 0.95,
+        "reason": "GR theory uses geometric units (G = c = 1)"
+      },
+      {
+        "id": "aku-f05-quantum-gravity-regime",
+        "title": "Quantum Gravity Regime",
+        "strength": 0.9,
+        "reason": "QG formulas simplest in natural units"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:physics:units:geometric:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Geometric Units (c = G = 1)"
+      },
+      {
+        "@id": "urn:wskg:physics:units:heaviside-lorentz:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Heaviside-Lorentz Units"
+      }
+    ],
+    "related": [
+      {
+        "id": "aku-001-planck-length-definition",
+        "type": "provides_scale",
+        "relationship": "Planck length is the length scale in natural units: ℓₚ = 1"
+      },
+      {
+        "id": "aku-003-planck-mass-definition",
+        "type": "provides_scale",
+        "relationship": "Planck mass is the mass scale: mₚ = 1"
+      },
+      {
+        "id": "aku-004-planck-energy-definition",
+        "type": "provides_scale",
+        "relationship": "Planck energy is the energy scale: Eₚ = 1"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:physics:constants:fundamental:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Fundamental Physical Constants"
+      }
+    ],
+    "conflicts": [],
+    "supersedes": [],
+    "owl:sameAs": [],
+    "skos:exactMatch": [
+      "http://www.wikidata.org/entity/Q1196112"
+    ],
+    "skos:broadMatch": [],
+    "skos:closeMatch": []
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:peskin-schroeder",
+        "@type": "prov:Entity",
+        "dc:title": "An Introduction to Quantum Field Theory",
+        "dc:creator": [
+          "Peskin, M.E.",
+          "Schroeder, D.V."
+        ],
+        "dc:date": "1995",
+        "dc:type": "textbook",
+        "dc:identifier": "ISBN:978-0201503975",
+        "dc:publisher": "Westview Press",
+        "dc:subject": "Appendix: Natural Units",
+        "confidence": 0.98
+      },
+      {
+        "@id": "urn:source:srednicki-qft",
+        "@type": "prov:Entity",
+        "dc:title": "Quantum Field Theory",
+        "dc:creator": [
+          "Srednicki, M."
+        ],
+        "dc:date": "2007",
+        "dc:type": "textbook",
+        "dc:identifier": "ISBN:978-0521864497",
+        "dc:publisher": "Cambridge University Press",
+        "dc:subject": "Chapter 1: Units and scales",
+        "confidence": 0.98
+      },
+      {
+        "@id": "urn:source:wald-gr",
+        "@type": "prov:Entity",
+        "dc:title": "General Relativity",
+        "dc:creator": [
+          "Wald, R.M."
+        ],
+        "dc:date": "1984",
+        "dc:type": "textbook",
+        "dc:identifier": "ISBN:978-0226870373",
+        "dc:publisher": "University of Chicago Press",
+        "dc:subject": "Appendix F: Units and dimensions",
+        "confidence": 0.98
+      },
+      {
+        "@id": "urn:source:baez-natural-units",
+        "@type": "prov:Entity",
+        "dc:title": "How do units work in natural units?",
+        "dc:creator": [
+          "Baez, J.C."
+        ],
+        "dc:date": "2002",
+        "dc:type": "educational_article",
+        "dc:identifier": "Physics FAQ",
+        "confidence": 0.95
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "formula_extraction_and_pedagogical_synthesis",
+      "prov:startedAtTime": "2025-12-29T15:42:05.260Z",
+      "prov:endedAtTime": "2025-12-29T15:42:05.260Z"
+    },
+    "dc:creator": [
+      "formula-extractor-agent",
+      "physics-knowledge-base",
+      "theoretical-physics-expert"
+    ],
+    "dc:created": "2025-12-29T15:42:05.260Z",
+    "dc:modified": "2025-12-29T15:42:05.260Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:formula-extractor",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "physics-knowledge-base"
+    },
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Peskin & Schroeder (1995): An Introduction to Quantum Field Theory",
+        "isbn": "978-0201503975",
+        "confidence": 0.98
+      },
+      {
+        "type": "textbook",
+        "citation": "Srednicki, M. (2007): Quantum Field Theory",
+        "isbn": "978-0521864497",
+        "confidence": 0.98
+      },
+      {
+        "type": "textbook",
+        "citation": "Wald, R.M. (1984): General Relativity",
+        "isbn": "978-0226870373",
+        "confidence": 0.98
+      }
+    ],
+    "extraction_method": "synthesis_from_standard_textbook_conventions",
+    "validation": {
+      "validator": "theoretical_physics_expert_agent",
+      "date": "2025-12-29",
+      "notes": "All conversion formulas verified numerically. Standard conventions from QFT and GR textbooks confirmed."
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "physics_graduate_students",
+      "theoretical_physics_researchers",
+      "advanced_undergraduates"
+    ],
+    "estimated_time": "45-60min",
+    "difficulty_curve": 0.8,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Understand the natural units convention ℏ = c = G = k_B = 1",
+      "Master conversions between natural units and SI units",
+      "Recognize simplified equations in natural units",
+      "Convert energy to length, time, mass, and temperature",
+      "Work fluently in natural units for theoretical physics",
+      "Understand why theoretical physicists prefer this system"
+    ],
+    "common_errors": [
+      "Forgetting to convert back to SI when calculating numerical predictions",
+      "Confusing GeV⁻¹ (inverse energy) with GeV (energy)",
+      "Making sign errors in exponents when converting dimensions",
+      "Thinking natural units are 'more fundamental' than SI (they're just more convenient)"
+    ],
+    "physics_insights": [
+      "Natural units reveal that c, ℏ, G are not 'constants of nature' but 'conversion factors' between human units",
+      "In natural units, velocity is dimensionless: particles move at 'v = 0.999' meaning v = 0.999c",
+      "The fact that Einstein's equations simplify so dramatically in natural units shows the deep unity of spacetime",
+      "When theoretical physicists say 'energy scale of 1 TeV', they mean all physics at that energy, length ≈ 10⁻¹⁹ m, time ≈ 10⁻²⁷ s"
+    ],
+    "teaching_tips": [
+      "Start with c = 1 only (special relativity) before adding ℏ = 1 and G = 1",
+      "Practice conversions with particle masses (electrons, protons) as familiar examples",
+      "Show how research papers use natural units - make it practical",
+      "Emphasize that ℏc ≈ 197 MeV·fm is THE key conversion for particle physics",
+      "Compare equations side-by-side in SI and natural units to show dramatic simplification"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "conversion_tables_and_examples",
+    "show_images": false,
+    "include_scale_diagram": true,
+    "visualization": [
+      "conversion_formula_table",
+      "simplified_equations_comparison",
+      "worked_examples_with_numbers"
+    ],
+    "emphasis": [
+      "conversion_formulas",
+      "practical_examples",
+      "equation_simplifications",
+      "common_usage_in_literature"
+    ]
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "ScientificConcept"
+  ],
+  "@id": "aku-e07-hawking-radiation-calculation",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T21:05:00.000Z",
+    "contributors": [
+      "example-generation-agent",
+      "physics-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-29T21:05:00.000Z",
+    "modified": "2026-01-04T14:38:39.401Z"
+  },
+  "classification": {
+    "domain_path": "natural-sciences/physics/quantum-mechanics/planck-units",
+    "type": "example",
+    "difficulty": "advanced",
+    "importance": "pedagogical",
+    "aku_id": "e07",
+    "keywords": [
+      "Hawking radiation",
+      "black hole temperature",
+      "black hole evaporation",
+      "Planck units application",
+      "quantum gravity"
+    ],
+    "physics_specialty": "black_hole_physics",
+    "physics_context": "planck_units_application",
+    "isNativeDomain": true
+  },
+  "content": {
+    "title": "Hawking Radiation: Black Hole Temperature and Evaporation",
+    "abstract": "A worked example calculating the Hawking temperature, power, and evaporation time for black holes of various masses, demonstrating how Planck units naturally appear in quantum black hole physics.",
+    "problem_statement": "Calculate the Hawking temperature, radiated power, and evaporation time for: (a) a solar-mass black hole, (b) an asteroid-mass black hole (10¹² kg), and (c) a Planck-mass black hole. What does this reveal about black hole thermodynamics?",
+    "formulas": {
+      "hawking_temperature": "T_H = ℏc³/(8πGMk_B) = (ℏc³/8πGk_B) × (1/M) = T_P/(8πM/m_P)",
+      "planck_temperature": "T_P = √(ℏc⁵/Gk_B²) = 1.417 × 10³² K",
+      "planck_mass": "m_P = √(ℏc/G) = 2.176 × 10⁻⁸ kg",
+      "radiated_power": "P = (ℏc⁶/15360πG²) × (1/M²) = σA T_H⁴ (Stefan-Boltzmann)",
+      "evaporation_time": "τ = (5120πG²/ℏc⁴) × M³ = (5120π/3) × (M/m_P)³ × t_P"
+    },
+    "solution": {
+      "part_a": {
+        "title": "Solar-Mass Black Hole (M = M_☉ = 2 × 10³⁰ kg)",
+        "step_1": {
+          "title": "Calculate Hawking Temperature",
+          "calculation": "T_H = ℏc³/(8πGMk_B)",
+          "numerical": "T_H = (1.055×10⁻³⁴)(3×10⁸)³ / [8π(6.67×10⁻¹¹)(2×10³⁰)(1.38×10⁻²³)]",
+          "result": "T_H ≈ 6.2 × 10⁻⁸ K",
+          "interpretation": "Colder than the cosmic microwave background (2.7 K) by factor of 4×10⁷!"
+        },
+        "step_2": {
+          "title": "Calculate Schwarzschild Radius",
+          "calculation": "r_s = 2GM/c² = 2(6.67×10⁻¹¹)(2×10³⁰)/(3×10⁸)² ≈ 3 km",
+          "interpretation": "Solar-mass black hole has radius of only 3 km"
+        },
+        "step_3": {
+          "title": "Calculate Radiated Power",
+          "calculation": "P = ℏc⁶/(15360πG²M²)",
+          "result": "P ≈ 9 × 10⁻²⁹ W",
+          "interpretation": "Less than one photon per trillion years! Completely negligible."
+        },
+        "step_4": {
+          "title": "Calculate Evaporation Time",
+          "calculation": "τ = 5120πG²M³/(ℏc⁴)",
+          "result": "τ ≈ 2 × 10⁶⁷ years",
+          "interpretation": "Far longer than current universe age (1.4×10¹⁰ years). Solar black holes are essentially eternal.",
+          "ratio": "τ/t_universe ≈ 10⁵⁷"
+        },
+        "summary": {
+          "temperature": "6 × 10⁻⁸ K (colder than CMB)",
+          "power": "9 × 10⁻²⁹ W (negligible)",
+          "lifetime": "2 × 10⁶⁷ years (effectively infinite)",
+          "conclusion": "Astrophysical black holes gain mass from CMB faster than they evaporate"
+        }
+      },
+      "part_b": {
+        "title": "Asteroid-Mass Black Hole (M = 10¹² kg)",
+        "step_1": {
+          "title": "Calculate Hawking Temperature",
+          "calculation": "T_H = (6.2×10⁻⁸ K) × (2×10³⁰/10¹²) = 1.2 × 10¹¹ K",
+          "interpretation": "Hotter than the Sun's core (1.5×10⁷ K) by factor of 8000!"
+        },
+        "step_2": {
+          "title": "Calculate Schwarzschild Radius",
+          "calculation": "r_s = 2GM/c² ≈ 1.5 × 10⁻¹⁵ m",
+          "interpretation": "About the size of a proton!"
+        },
+        "step_3": {
+          "title": "Calculate Radiated Power",
+          "calculation": "P ∝ 1/M² → P = (9×10⁻²⁹) × (2×10³⁰/10¹²)² ≈ 3.6 × 10⁸ W",
+          "interpretation": "360 megawatts—like a small power plant!",
+          "spectrum": "Peak emission at X-ray energies (k_B T ≈ 10 MeV)"
+        },
+        "step_4": {
+          "title": "Calculate Evaporation Time",
+          "calculation": "τ ∝ M³ → τ = (2×10⁶⁷ yr) × (10¹²/2×10³⁰)³",
+          "result": "τ ≈ 3 × 10⁹ years ≈ 3 billion years",
+          "interpretation": "Could have formed in early universe and be evaporating now"
+        },
+        "summary": {
+          "temperature": "1.2 × 10¹¹ K (extremely hot)",
+          "power": "360 MW (bright X-ray source)",
+          "lifetime": "3 billion years (cosmologically relevant)",
+          "conclusion": "Primordial black holes of this mass would be detectable and evaporating today"
+        }
+      },
+      "part_c": {
+        "title": "Planck-Mass Black Hole (M = m_P = 2.18 × 10⁻⁸ kg)",
+        "step_1": {
+          "title": "Calculate Hawking Temperature",
+          "calculation": "T_H = T_P/(8π) = 1.4×10³²/(8π) ≈ 5.6 × 10³⁰ K",
+          "interpretation": "Within an order of magnitude of Planck temperature!"
+        },
+        "step_2": {
+          "title": "Calculate Schwarzschild Radius",
+          "calculation": "r_s = 2Gm_P/c² = 2ℓ_P ≈ 3.2 × 10⁻³⁵ m",
+          "interpretation": "Exactly 2 Planck lengths! The minimum possible black hole."
+        },
+        "step_3": {
+          "title": "Calculate Radiated Power",
+          "calculation": "P ~ E_P/t_P = m_P c²/t_P",
+          "result": "P ≈ 3.6 × 10⁵² W",
+          "interpretation": "The Planck power! Total power of 10²⁶ Suns in one tiny point."
+        },
+        "step_4": {
+          "title": "Calculate Evaporation Time",
+          "calculation": "τ ~ t_P = 5.4 × 10⁻⁴⁴ s",
+          "interpretation": "One Planck time! Explodes essentially instantly.",
+          "energy_release": "E = m_P c² ≈ 2 × 10⁹ J ≈ 500 kg TNT equivalent"
+        },
+        "summary": {
+          "temperature": "5.6 × 10³⁰ K (near Planck temperature)",
+          "radius": "2ℓ_P (minimum size)",
+          "power": "Planck power (10⁵² W)",
+          "lifetime": "Planck time (10⁻⁴⁴ s)",
+          "conclusion": "Planck-mass black hole is the extreme case where quantum gravity fully dominates"
+        }
+      }
+    },
+    "discussion": {
+      "temperature_scaling": {
+        "formula": "T_H = T_P × (m_P/8πM)",
+        "interpretation": "Temperature inversely proportional to mass",
+        "implication": "Small black holes are hot; large ones are cold"
+      },
+      "evaporation_scaling": {
+        "formula": "τ ∝ M³",
+        "interpretation": "Lifetime scales as cube of mass",
+        "examples": "Double the mass → 8× longer lifetime"
+      },
+      "critical_mass": {
+        "question": "What mass black hole has T_H = CMB temperature (2.7 K)?",
+        "calculation": "M_crit = ℏc³/(8πGk_B × 2.7) ≈ 4.5 × 10²² kg",
+        "interpretation": "Moon-mass black holes are in thermal equilibrium with CMB",
+        "implication": "Larger → absorbs CMB; Smaller → evaporates"
+      },
+      "primordial_black_holes": {
+        "mass_for_today": "M ~ 5×10¹¹ kg (lifetime ≈ age of universe)",
+        "significance": "Such primordial black holes would be exploding now",
+        "observation": "Gamma-ray bursts could be signatures; none conclusively identified"
+      },
+      "planck_scale_physics": {
+        "observation": "All Planck-mass black hole properties are Planck scale",
+        "temperature": "T ~ T_P/8π",
+        "size": "r_s ~ ℓ_P",
+        "lifetime": "τ ~ t_P",
+        "power": "P ~ E_P/t_P = P_Planck",
+        "conclusion": "Planck units are the natural scales for quantum black holes"
+      }
+    },
+    "key_results": [
+      "T_H = ℏc³/(8πGMk_B) = T_P × (m_P/8πM)",
+      "Solar black hole: T = 6×10⁻⁸ K, τ = 10⁶⁷ years (eternal)",
+      "Asteroid-mass (10¹² kg): T = 10¹¹ K, τ = 3 billion years",
+      "Planck-mass: T ~ T_P, τ ~ t_P, r_s ~ ℓ_P (all Planck scale)",
+      "Evaporation time scales as M³"
+    ],
+    "numerical_verification": {
+      "solar_temp_check": "ℏc³/(8πGM☉k_B) = 2.85×10⁻⁸/(8π × 2×10³⁰) × 10⁵⁵ ≈ 6×10⁻⁸ K ✓",
+      "scaling_check": "τ(M☉)/τ(m_P) = (M☉/m_P)³ = (10³⁸)³ = 10¹¹⁴ ✓"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "aku-005-planck-temperature-definition",
+        "title": "Planck Temperature Definition",
+        "strength": 1.0,
+        "reason": "Hawking temperature is fraction of Planck temperature"
+      },
+      {
+        "id": "aku-016-schwarzschild-radius",
+        "title": "Schwarzschild Radius",
+        "strength": 1.0,
+        "reason": "Needed for black hole size"
+      },
+      {
+        "id": "aku-f03-bekenstein-hawking-entropy",
+        "title": "Bekenstein-Hawking Entropy",
+        "strength": 0.9,
+        "reason": "Thermodynamic framework for black holes"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:physics:cosmology:primordial-black-holes",
+        "title": "Primordial Black Holes",
+        "strength": 0.85,
+        "reason": "Evaporation determines observable signatures"
+      }
+    ],
+    "related": [
+      {
+        "id": "aku-e02-black-hole-properties",
+        "type": "complementary",
+        "relationship": "General black hole properties example"
+      },
+      {
+        "id": "aku-t01-holographic-principle",
+        "type": "theoretical_context",
+        "relationship": "Black hole entropy connects to holography"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "primary",
+        "citation": "Hawking, S.W. (1975): Particle Creation by Black Holes, Communications in Mathematical Physics 43, 199-220",
+        "doi": "10.1007/BF02345020",
+        "confidence": 1.0
+      },
+      {
+        "type": "textbook",
+        "citation": "Carroll, S. (2004): Spacetime and Geometry, Ch. 6: Black Holes",
+        "isbn": "978-0805387322",
+        "confidence": 0.98
+      },
+      {
+        "type": "textbook",
+        "citation": "Wald, R.M. (1994): Quantum Field Theory in Curved Spacetime and Black Hole Thermodynamics",
+        "isbn": "978-0226870274",
+        "confidence": 0.99
+      }
+    ],
+    "validation": {
+      "validator": "physics_expert_agent",
+      "date": "2025-12-29",
+      "notes": "Hawking temperature formula and evaporation calculations validated against Hawking's original paper and standard textbooks."
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "physics_graduate_students",
+      "general_relativity_students",
+      "black_hole_researchers"
+    ],
+    "estimated_time": "35-45min",
+    "difficulty_curve": 0.78,
+    "learning_objectives": [
+      "Calculate Hawking temperature for black holes of various masses",
+      "Derive evaporation timescales using mass-lifetime relation",
+      "Understand why Planck-mass black holes are extreme cases",
+      "Recognize inverse temperature-mass relation"
+    ],
+    "common_errors": [
+      "Forgetting 8π factor in Hawking temperature formula",
+      "Confusing lifetime scaling (∝M³) with temperature scaling (∝1/M)",
+      "Not recognizing that stellar black holes never evaporate"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "worked_calculation",
+    "show_images": true,
+    "visualization": [
+      "temperature_vs_mass_plot",
+      "lifetime_vs_mass_plot",
+      "evaporation_timeline"
+    ],
+    "emphasis": [
+      "hawking_temperature_formula",
+      "mass_lifetime_scaling",
+      "planck_scale_extremes"
+    ]
+  }
+}

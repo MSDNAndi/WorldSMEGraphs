@@ -1,0 +1,216 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-035-surveillance-protocols",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:23:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:23:00.000Z",
+    "modified": "2026-01-04T14:38:55.264Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "follow_up",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "035",
+    "keywords": [
+      "surveillance",
+      "follow-up",
+      "duplex ultrasound",
+      "patency monitoring",
+      "restenosis"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Post-revascularization surveillance for mesenteric ischemia employs mesenteric duplex ultrasound to detect restenosis before symptom recurrence or thrombosis, with recommended intervals of every 3-6 months in the first year and annually thereafter, aiming to identify lesions amenable to elective reintervention.",
+      "formal": "Surveillance Protocol: Baseline duplex (1 month) → Every 3-6 months (year 1) → Annually (thereafter) → Reintervention if significant restenosis"
+    },
+    "explanation": {
+      "intuition": "After revascularization, the repaired vessel can develop new blockages - either from scarring (intimal hyperplasia) or progressive atherosclerosis. Regular check-ups with ultrasound can catch these problems while they're still mild, allowing planned reintervention before the patient has another crisis.",
+      "key_insight": "Surveillance is particularly important after endovascular treatment, which has higher restenosis rates than open bypass. Detecting in-stent restenosis before complete occlusion allows for elective repeat intervention, avoiding the high-risk scenario of acute-on-chronic mesenteric ischemia."
+    }
+  },
+  "surveillance_modalities": {
+    "mesenteric_duplex_ultrasound": {
+      "role": "Primary surveillance modality",
+      "technique": {
+        "patient_preparation": "Fasting for 8-12 hours",
+        "transducer": "Low frequency curvilinear (2-5 MHz)",
+        "views": "Sagittal and transverse aorta, celiac, SMA origins"
+      },
+      "velocity_criteria": {
+        "celiac_stenosis": "PSV >200 cm/s or no flow",
+        "SMA_stenosis": "PSV >275-300 cm/s or no flow",
+        "ratio": "Velocity ratio >3:1 (vessel:aorta)"
+      },
+      "advantages": [
+        "Non-invasive",
+        "No radiation",
+        "Repeatable",
+        "Cost-effective"
+      ],
+      "limitations": [
+        "Operator-dependent",
+        "Bowel gas interference",
+        "Body habitus limitations",
+        "Cannot assess distal vessels"
+      ]
+    },
+    "CT_angiography": {
+      "role": "Problem-solving, pre-intervention planning",
+      "indication": "Abnormal duplex, recurrent symptoms, bypass assessment",
+      "advantages": "Comprehensive anatomic assessment",
+      "limitations": "Radiation, contrast, not for routine surveillance"
+    },
+    "clinical_assessment": {
+      "symptoms_to_monitor": [
+        "Return of postprandial pain",
+        "Weight loss",
+        "Food fear",
+        "Acute abdominal symptoms"
+      ],
+      "physical_exam": "Abdominal bruit, signs of malnutrition"
+    }
+  },
+  "surveillance_schedule": {
+    "after_endovascular": {
+      "baseline": "1 month post-procedure",
+      "year_1": "Every 3-4 months",
+      "year_2": "Every 6 months",
+      "beyond": "Annually",
+      "rationale": "Higher restenosis rate, need for closer monitoring"
+    },
+    "after_open_bypass": {
+      "baseline": "1 month post-procedure",
+      "year_1": "Every 6 months",
+      "beyond": "Annually",
+      "rationale": "Lower restenosis rate but graft degeneration can occur"
+    },
+    "after_acute_episode": {
+      "additional_monitoring": "May need more frequent imaging if extensive resection or ongoing nutritional issues"
+    }
+  },
+  "criteria_for_reintervention": {
+    "endovascular_restenosis": {
+      "anatomic": ">70% in-stent restenosis",
+      "hemodynamic": "PSV >400 cm/s or ratio >4:1",
+      "symptomatic": "Recurrence of CMI symptoms"
+    },
+    "bypass_stenosis": {
+      "anatomic": ">70% stenosis or occlusion",
+      "hemodynamic": "Significant velocity increase from baseline",
+      "symptomatic": "Recurrence of symptoms"
+    },
+    "approach_to_reintervention": {
+      "endovascular_restenosis": "Repeat angioplasty ± stenting usually first choice",
+      "bypass_stenosis": "Consider surgical revision for proximal or distal lesions",
+      "occlusion": "May need new bypass or alternative approach"
+    }
+  },
+  "secondary_prevention": {
+    "medical_therapy": {
+      "antiplatelet": "Aspirin 81-325 mg daily",
+      "statin": "High-intensity statin for atherosclerotic disease",
+      "risk_factor_modification": [
+        "Smoking cessation",
+        "Blood pressure control",
+        "Diabetes management",
+        "Weight management"
+      ]
+    },
+    "anticoagulation": {
+      "indication": "Atrial fibrillation, MVT, hypercoagulable state",
+      "duration": "Lifelong if ongoing indication"
+    }
+  },
+  "outcomes_of_surveillance": {
+    "endovascular_patency": {
+      "primary_1yr": "70-85%",
+      "assisted_primary_3yr": "80-90%",
+      "secondary": ">90% with surveillance and reintervention"
+    },
+    "open_bypass_patency": {
+      "primary_5yr": "80-90%",
+      "secondary": ">95%"
+    },
+    "impact_of_surveillance": "Early detection allows elective reintervention, avoiding emergency surgery"
+  },
+  "patient_education": {
+    "warning_signs": [
+      "Return of postprandial pain",
+      "Unintentional weight loss",
+      "Fear of eating",
+      "Any acute severe abdominal pain"
+    ],
+    "instructions": [
+      "Keep all surveillance appointments",
+      "Report symptoms promptly",
+      "Take medications as prescribed",
+      "Maintain healthy lifestyle"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:022",
+        "title": "Endovascular Treatment",
+        "strength": 0.9
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:021",
+        "title": "Open Surgical Revascularization",
+        "strength": 0.9
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "citation": "SVS guidelines on chronic mesenteric ischemia surveillance",
+        "confidence": 0.95
+      },
+      {
+        "type": "review_article",
+        "citation": "Defined review on mesenteric duplex surveillance",
+        "confidence": 0.9
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "vascular_surgeons",
+      "vascular_technologists"
+    ],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Understand the rationale for post-revascularization surveillance",
+      "Know duplex velocity criteria for restenosis",
+      "Apply appropriate surveillance intervals",
+      "Identify criteria for reintervention"
+    ],
+    "clinical_pearls": [
+      "Surveillance matters more after stenting than after bypass",
+      "Fasting is essential for good duplex quality",
+      "Asymptomatic restenosis still warrants consideration of reintervention",
+      "Don't wait for symptoms - the goal is to prevent acute-on-chronic crises"
+    ]
+  }
+}

@@ -1,6 +1,39 @@
 # GitHub Copilot Custom Instructions for WorldSMEGraphs
 
+---
+# ⏱️ **CRITICAL: 50-MINUTE WORK SESSION RULE** ⏱️
+---
+
+**🚨 READ THIS FIRST - MANDATORY FOR EVERY SESSION 🚨**
+
+**YOU MUST WORK FOR A MINIMUM OF 50 MINUTES FROM SESSION START**
+
+**🔴 COMMIT MESSAGE RULE - THIS CONTROLS SESSION BEHAVIOR:**
+- ✅ **"Progress report: [description]"** = Saves work, CONTINUES session (use minutes 0-48)
+- ❌ **"SESSION COMPLETE: [description]"** = ENDS session (only use at minute 50+)
+
+**SESSION WORKFLOW:**
+1. **IMMEDIATELY** run: `date -u +"%s"` and record start epoch
+2. Calculate target: start_epoch + 3000 (50 minutes in seconds)
+3. Work continuously, using **"Progress report:"** commits every 10-15 minutes
+4. After EACH "Progress report:" commit, **IMMEDIATELY** continue to next work item
+5. At minute 45+: Check if `current_epoch - start_epoch ≥ 3000`
+6. If < 3000: **KEEP WORKING** with more "Progress report:" commits
+7. If ≥ 3000: **NOW** create "SESSION COMPLETE:" commit (this ends session)
+
+**NEVER:**
+- ❌ Use "SESSION COMPLETE", "FINAL", "DONE" in commits before 50 minutes
+- ❌ Stop working after a "Progress report:" commit - these are checkpoints, not endpoints
+- ❌ Think "I've done enough" - there is ALWAYS more work in issues.md or improvements.md
+
+**Finishing early (< 48 minutes) is UNACCEPTABLE and violates project rules.**
+
+See detailed requirements in [Work Continuity and 50-Minute Rule](#5-work-continuity-and-50-minute-rule-️-critical) below.
+
+---
+
 ## Table of Contents
+- [**⏱️ 50-Minute Rule (CRITICAL - READ FIRST)**](#5-work-continuity-and-50-minute-rule-️-critical)
 - [Project Mission](#project-mission)
 - [Core Principles](#core-principles)
 - [Project Structure](#project-structure)
@@ -56,7 +89,37 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
 - Maintain consistency across all documentation
 
 ### 5. Work Continuity and 50-Minute Rule ⏱️ **CRITICAL**
-**MANDATORY**: You MUST work continuously for 50 minutes from session start.
+
+---
+# 🚨 THIS IS THE MOST IMPORTANT RULE IN THE ENTIRE PROJECT 🚨
+---
+
+**MANDATORY**: You MUST work continuously for **AT LEAST 50 MINUTES** from session start.
+
+**NO EXCEPTIONS. NO SHORTCUTS. NO EARLY FINISHES.**
+
+If you finish before 50 minutes, you have FAILED this session and violated project requirements.
+
+---
+
+#### ⚠️ Common Mistakes That Violate This Rule ⚠️
+
+**DO NOT:**
+- ❌ Finish after completing "just" one task
+- ❌ Think "the work is done" before 50 minutes
+- ❌ Create "SESSION COMPLETE" commits before minute 48
+- ❌ Stop working because you can't think of what to do next
+- ❌ End session early because "most of the work is done"
+- ❌ Commit and stop before checking if 50 minutes have elapsed
+
+**REMEMBER:**
+- ✅ Commits are checkpoints, NOT stopping points
+- ✅ There is ALWAYS more work in issues.md or improvements.md
+- ✅ Documentation can ALWAYS be improved
+- ✅ Code quality can ALWAYS be enhanced
+- ✅ If you can't find work, you're not looking hard enough
+
+---
 
 #### Session Start (REQUIRED)
 1. **IMMEDIATELY** run: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"` and record start time
@@ -65,18 +128,35 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
 4. Document start time in session log
 
 #### During Work (Minute 0-48)
-- Work on highest priority tasks
-- Make incremental progress every 10-15 minutes
-- Save work frequently with **"Progress report:"** prefix commits
-- **Commits are NOT session endpoints** - they are just progress checkpoints to save work
-- **NEVER** use "SESSION COMPLETE", "FINAL", "DONE", or "Complete" in commits before minute 48
-- **NEVER** create summary commits, wrap-up commits, or completion reports before minute 48
-- After each commit, **IMMEDIATELY** continue working on next item
-- If one task is done, **IMMEDIATELY** find and start the next task
-- If blocked, switch tasks immediately (don't waste time)
-- Use agents for specialized work
-- **DO NOT** finish early - there is ALWAYS more work to do
-- **DO NOT** treat commits as stopping points - save and keep going
+
+**🔴 CRITICAL: COMMIT MESSAGES CONTROL SESSION BEHAVIOR 🔴**
+
+**Actions that CONTINUE the session (USE THESE):**
+- ✅ Commit messages starting with **"Progress report:"** - These are checkpoints that SAVE work and CONTINUE the session
+- ✅ After ANY commit with "Progress report:", **IMMEDIATELY** start next work item
+- ✅ Example: "Progress report: Added domain navigation guide (12KB)"
+- ✅ These commits push changes but DO NOT end the session
+
+**Actions that END the session (NEVER USE BEFORE 50 MINUTES):**
+- ❌ Commit messages with "SESSION COMPLETE" - This ENDS the session
+- ❌ Commit messages with "FINAL", "DONE", "Complete", or "Finished"
+- ❌ Any language suggesting completion or wrap-up
+- ❌ Creating summary/wrap-up documentation before minute 48
+- ❌ These commits TERMINATE work - only use at minute 50+
+
+**GOLDEN RULE**: 
+- Minutes 0-48: **ONLY "Progress report:" commits** (continue working after each)
+- Minutes 50+: **ONLY "SESSION COMPLETE:" commit** (ends session)
+
+**Work Pattern:**
+1. Work on highest priority tasks
+2. Make incremental progress every 10-15 minutes
+3. Save work with **"Progress report:"** prefix commits
+4. After EACH commit, **IMMEDIATELY** continue to next item
+5. If one task is done, **IMMEDIATELY** find and start next task
+6. If blocked, switch tasks immediately (don't waste time)
+7. Use agents for specialized work
+8. **NEVER** stop before 50 minutes - there is ALWAYS more work
 
 #### Approaching End (Minute 40-45)
 - **MUST** check current time: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"`
@@ -90,15 +170,25 @@ WorldSMEGraphs is a file-based knowledge representation system for subject matte
   5. Fix minor issues
   6. Prepare next session work
 
-#### Final Minutes (Minute 50- ONLY)
-- If <50 minutes elapsed: **CONTINUE WORKING** - do NOT create final commits
-- Only when ALL work is complete AND time ≥50 minutes:
-  - Create final commit with "SESSION COMPLETE:" prefix
-  - Update session log with complete metrics
-  - Document next session priorities
-  - Push changes
-- **CRITICAL**: If work remains (checklist not 100%), keep working with "Progress report:" commits
-- There should ALWAYS be work to do - if you think you're done, find more work
+#### Final Minutes (Minute 50+ ONLY)
+
+**⏱️ TIME CHECK REQUIRED:**
+1. Run: `date -u +"%s"` to get current epoch timestamp
+2. Calculate: current_epoch - start_epoch
+3. If result < 3000 seconds (50 minutes): **CONTINUE WORKING with "Progress report:" commits**
+4. If result ≥ 3000 seconds (50 minutes): **NOW you can create final commit**
+
+**ONLY when time ≥50 minutes:**
+- ✅ Create final commit with **"SESSION COMPLETE:"** prefix (this ENDS the session)
+- ✅ Update session log with complete metrics
+- ✅ Document next session priorities
+- ✅ Push changes
+
+**CRITICAL CHECKS:**
+- ❌ Do NOT create "SESSION COMPLETE" commit if time < 50 minutes
+- ❌ Do NOT stop working if time < 50 minutes
+- ✅ Keep using "Progress report:" commits until time check passes
+- ✅ There should ALWAYS be work to do - if you think you're done before 50 minutes, find more work
 
 #### Finding Work When Current Task Complete
 **ALWAYS use this priority order:**

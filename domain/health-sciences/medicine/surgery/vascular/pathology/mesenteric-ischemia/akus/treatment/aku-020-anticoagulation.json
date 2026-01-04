@@ -1,0 +1,208 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-020-anticoagulation",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T04:37:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2025-12-30T04:37:00.000Z",
+    "modified": "2026-01-04T14:38:55.245Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "treatment",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "020",
+    "keywords": [
+      "anticoagulation",
+      "heparin",
+      "warfarin",
+      "thrombosis prevention",
+      "embolic protection"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Anticoagulation with heparin should be initiated immediately upon clinical suspicion of acute mesenteric ischemia, serving to prevent thrombus propagation, limit ischemic extension, and is essential for all etiologies including embolism, thrombosis, and mesenteric venous thrombosis.",
+      "formal": "Anticoagulation: Clinical suspicion → Immediate heparin → Prevents propagation → Continue perioperatively → Long-term based on etiology"
+    },
+    "explanation": {
+      "intuition": "Anticoagulation is like putting out a fire: the clot that's already there may have caused damage, but if you can prevent it from spreading, you can limit the damage. Starting heparin immediately is one of the few things we can do while arranging for CT and surgery that actually helps the patient.",
+      "key_insight": "Unlike many treatments that require confirmation of diagnosis, heparin should be started on CLINICAL SUSPICION of AMI. The risks of anticoagulation are far outweighed by the benefits of preventing thrombus propagation. Do not wait for CT confirmation to start heparin."
+    }
+  },
+  "acute_anticoagulation": {
+    "timing": "Immediately upon clinical suspicion",
+    "agent_of_choice": "Unfractionated heparin (UFH)",
+    "regimen": {
+      "bolus": "80 U/kg IV bolus (typical ~5000 U)",
+      "infusion": "18 U/kg/hr, titrate to aPTT 1.5-2.5x normal",
+      "monitoring": "aPTT every 6 hours until stable"
+    },
+    "rationale": [
+      "Prevents thrombus propagation",
+      "Limits extension of ischemia",
+      "Reversible for surgery",
+      "Familiar to all providers"
+    ],
+    "why_UFH_preferred": [
+      "Rapidly reversible with protamine",
+      "Short half-life (1-2 hours)",
+      "Can be held for surgery and restarted",
+      "Dose adjustable based on response"
+    ]
+  },
+  "by_etiology": {
+    "embolic_AMI": {
+      "acute": "UFH as above",
+      "perioperative": "May hold for surgery, restart post-op",
+      "long_term": "Warfarin or DOAC for underlying AF or cardiac source",
+      "duration": "Often lifelong if AF present",
+      "target_INR": "2.0-3.0 for AF"
+    },
+    "thrombotic_AMI": {
+      "acute": "UFH as above",
+      "perioperative": "Continue post-op to protect revascularization",
+      "long_term": "Antiplatelet therapy (aspirin) for atherosclerosis",
+      "statin": "High-intensity statin for secondary prevention"
+    },
+    "mesenteric_venous_thrombosis": {
+      "acute": "UFH as above",
+      "transition": "Transition to warfarin or DOAC",
+      "duration": {
+        "provoked": "3-6 months if reversible cause",
+        "unprovoked": "Often indefinite",
+        "thrombophilia": "Based on specific condition, often lifelong"
+      },
+      "special_note": "Anticoagulation is often the ONLY treatment needed for MVT"
+    },
+    "NOMI": {
+      "anticoagulation_role": "Secondary, not primary treatment",
+      "focus": "Hemodynamic optimization, vasodilator therapy",
+      "consider": "Prophylactic heparin for VTE prevention"
+    }
+  },
+  "perioperative_management": {
+    "before_surgery": {
+      "hold_time": "May continue until just before incision",
+      "reversal": "Protamine if excessive bleeding"
+    },
+    "during_surgery": {
+      "embolectomy": "Intraoperative heparin (5000 U) before clamp",
+      "bypass": "Intraoperative heparin, may not reverse"
+    },
+    "after_surgery": {
+      "restart": "Within 12-24 hours if hemostasis adequate",
+      "bridging": "Continue UFH until therapeutic on warfarin if indicated"
+    }
+  },
+  "long_term_options": {
+    "warfarin": {
+      "indication": "AF, mechanical valve, MVT",
+      "target_INR": "2.0-3.0 (higher for mechanical valve)",
+      "advantages": "Long experience, reversible",
+      "disadvantages": "Monitoring required, drug/food interactions"
+    },
+    "DOACs": {
+      "agents": [
+        "Apixaban",
+        "Rivaroxaban",
+        "Dabigatran",
+        "Edoxaban"
+      ],
+      "indication": "AF, VTE (MVT included)",
+      "advantages": "No monitoring, fixed dosing",
+      "disadvantages": "Renal adjustment, limited reversal agents",
+      "evidence_in_MVT": "Limited but growing, generally accepted"
+    },
+    "antiplatelet": {
+      "aspirin": {
+        "indication": "Atherosclerotic disease without embolic source",
+        "dose": "81-325 mg daily"
+      },
+      "clopidogrel": {
+        "indication": "After stenting, aspirin allergy",
+        "dose": "75 mg daily"
+      },
+      "dual_antiplatelet": {
+        "indication": "After mesenteric stenting",
+        "duration": "1-6 months, then aspirin alone"
+      }
+    }
+  },
+  "contraindications_and_cautions": {
+    "relative_contraindications": [
+      "Active bleeding",
+      "Recent major surgery",
+      "Severe thrombocytopenia",
+      "History of HIT"
+    ],
+    "management": "In AMI, benefits almost always outweigh risks",
+    "HIT_alternative": "Argatroban, bivalirudin"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:019",
+        "title": "Initial Resuscitation",
+        "strength": 1.0
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:021",
+        "title": "Open Surgical Revascularization",
+        "strength": 0.9
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "citation": "ESVS Guidelines on Acute Mesenteric Ischemia",
+        "confidence": 0.97
+      },
+      {
+        "type": "consensus",
+        "citation": "ACCP guidelines on antithrombotic therapy",
+        "confidence": 0.95
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "emergency_physicians",
+      "hospitalists"
+    ],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Understand the rationale for immediate anticoagulation in AMI",
+      "Know dosing and monitoring for UFH",
+      "Select appropriate long-term anticoagulation by etiology",
+      "Manage anticoagulation perioperatively"
+    ],
+    "clinical_pearls": [
+      "Start heparin on SUSPICION, not confirmation",
+      "MVT may be treated with anticoagulation alone",
+      "Protect your revascularization with post-op anticoagulation",
+      "Long-term therapy depends on etiology (AF → anticoagulation, atherosclerosis → antiplatelet)"
+    ]
+  }
+}

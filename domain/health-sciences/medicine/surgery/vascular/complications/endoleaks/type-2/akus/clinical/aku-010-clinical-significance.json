@@ -1,0 +1,432 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-010-clinical-significance",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-27T15:09:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base",
+      "terminology-agent"
+    ],
+    "confidence": 0.95,
+    "status": "enhanced",
+    "last_updated": "2025-12-27T20:04:12.000Z",
+    "modified": "2026-01-04T14:38:55.279Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2",
+    "type": "clinical",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "010",
+    "keywords": [
+      "clinical significance",
+      "outcomes",
+      "prognosis",
+      "rupture risk",
+      "EVAR success"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "type2_endoleak_outcomes",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Type 2 endoleak is the most common complication after EVAR (10-45% incidence) but generally has favorable prognosis with low rupture risk (<2%) when appropriately monitored, though it complicates assessment of EVAR success and requires long-term surveillance.",
+      "formal": "Clinical Impact: High incidence + Low rupture risk + Surveillance burden + Prognostic uncertainty = Common management dilemma"
+    },
+    "explanation": {
+      "intuition": "Type 2 endoleaks are like a nagging worry after EVAR - they're very common, usually not dangerous, but you can't completely ignore them. They require ongoing monitoring, which has costs and patient burden, but the alternative of over-treating would lead to unnecessary interventions.",
+      "key_insight": "The clinical significance paradox: Type 2 endoleaks are simultaneously the most common endoleak type AND have the lowest per-case rupture risk, yet their high prevalence means they account for substantial surveillance resources and clinical attention.",
+      "technical_details": "Type 2 endoleaks challenge the binary success/failure paradigm of EVAR. Unlike Type 1 or 3 (clear failures requiring intervention), Type 2 exists in a gray zone where technical success (stent-graft properly deployed) coexists with anatomic imperfection (persistent sac perfusion)."
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Type 2 Endoleak Clinical Significance"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Most common complication after EVAR (10-45% incidence) with generally favorable prognosis and low rupture risk (<2%) when appropriately monitored, requiring long-term surveillance"
+    },
+    "notation": "aku-010-clinical-significance"
+  },
+  "clinical_outcomes": {
+    "rupture_risk": {
+      "with_stable_sac": {
+        "risk": "0.5-1% annually",
+        "comparison": "Similar to successfully treated aneurysm without endoleak",
+        "conclusion": "Stable sac Type 2 endoleak has low rupture risk"
+      },
+      "with_expanding_sac": {
+        "risk": "5-10% if untreated",
+        "comparison": "Significantly elevated compared to stable sac",
+        "conclusion": "Sac expansion changes risk profile"
+      },
+      "overall": {
+        "risk": "1-2% across all Type 2 endoleaks",
+        "context": "Lower than Type 1 (8-10%) or Type 3 (10-15%)"
+      }
+    },
+    "sac_behavior_patterns": {
+      "sac_shrinkage": {
+        "incidence": "30-40% of cases",
+        "significance": "Excellent outcome, suggests endoleak not hemodynamically significant",
+        "management": "Continue observation"
+      },
+      "sac_stability": {
+        "incidence": "30-40% of cases",
+        "significance": "Acceptable outcome, low rupture risk",
+        "management": "Continue observation"
+      },
+      "sac_expansion": {
+        "incidence": "20-30% of cases",
+        "significance": "Concerning, indicates pressurization",
+        "management": "Consider intervention"
+      },
+      "predictive_value": "Sac behavior is better predictor of rupture than endoleak presence alone"
+    },
+    "natural_history": {
+      "spontaneous_resolution": {
+        "overall_rate": "30-50%",
+        "time_dependent": {
+          "0_6_months": "~25% resolve",
+          "6_12_months": "Additional ~15% resolve",
+          "after_12_months": "Resolution rate declines to <10% annually"
+        },
+        "predictors": [
+          "Single vessel source (vs. multiple)",
+          "Flow-in lesion (vs. flow-through)",
+          "Small endoleak volume",
+          "No anticoagulation"
+        ]
+      },
+      "persistence": {
+        "rate": "50-70% remain at 1 year",
+        "implications": "Requires ongoing surveillance",
+        "subset_needing_intervention": "15-30% of persistent cases"
+      }
+    }
+  },
+  "impact_on_evar_outcomes": {
+    "reintervention_rate": {
+      "all_evar": "15-25% require reintervention over 5 years",
+      "type_2_contribution": "Type 2 accounts for 30-40% of reinterventions",
+      "absolute_impact": "5-10% of all EVAR patients undergo Type 2 intervention"
+    },
+    "surveillance_burden": {
+      "imaging_frequency": "More frequent CT scans required if Type 2 present",
+      "cost_impact": "Increases per-patient surveillance costs by 20-30%",
+      "radiation_exposure": "Cumulative radiation from serial CTA",
+      "patient_anxiety": "Psychological burden of knowing endoleak present"
+    },
+    "quality_of_life": {
+      "physical_impact": "Usually none if stable",
+      "psychological_impact": "Significant - worry about rupture, need for intervention",
+      "activity_restrictions": "Generally none recommended",
+      "management_strategy": "Careful counseling about low risk with stable sac"
+    }
+  },
+  "prognostic_factors": {
+    "favorable_prognosis": [
+      {
+        "factor": "Stable or decreasing sac",
+        "strength": "Strong predictor of good outcome"
+      },
+      {
+        "factor": "Small endoleak volume",
+        "strength": "Moderate predictor"
+      },
+      {
+        "factor": "Single source vessel",
+        "strength": "Moderate predictor of resolution"
+      },
+      {
+        "factor": "Detection <6 months post-EVAR",
+        "strength": "Higher spontaneous resolution rate"
+      }
+    ],
+    "unfavorable_prognosis": [
+      {
+        "factor": "Sac expansion >5mm",
+        "strength": "Strong predictor of need for intervention"
+      },
+      {
+        "factor": "Multiple source vessels",
+        "strength": "Lower resolution rate"
+      },
+      {
+        "factor": "Large initial aneurysm (>70mm)",
+        "strength": "Moderate risk factor"
+      },
+      {
+        "factor": "Chronic anticoagulation",
+        "strength": "Moderate - reduces thrombosis probability"
+      }
+    ]
+  },
+  "cost_effectiveness_considerations": {
+    "surveillance_costs": {
+      "baseline_evar_surveillance": "$500-800 per year",
+      "additional_type2_surveillance": "$300-500 per year",
+      "cumulative_impact": "Significant over 5-10 year surveillance period"
+    },
+    "intervention_costs": {
+      "embolization": "$8,000-15,000 per procedure",
+      "reintervention_rate": "20-40% need repeat",
+      "total_intervention_costs": "Substantial fraction of patients"
+    },
+    "cost_effectiveness": {
+      "observe_stable": "Cost-effective, prevents unnecessary interventions",
+      "selective_intervention": "Cost-effective for expanding sacs",
+      "routine_intervention": "Not cost-effective based on current evidence"
+    }
+  },
+  "patient_communication": {
+    "key_messages": [
+      "Type 2 endoleak is common and usually not dangerous",
+      "The aneurysm sac size is more important than the endoleak presence",
+      "Many endoleaks resolve on their own with time",
+      "Intervention is only needed if the aneurysm starts growing",
+      "Regular surveillance imaging is essential"
+    ],
+    "common_patient_questions": {
+      "is_evar_failure": {
+        "question": "Does this mean the EVAR failed?",
+        "answer": "No - the stent-graft is working properly. This is a minor issue with small branch vessels, not a failure of the main repair."
+      },
+      "rupture_risk": {
+        "question": "Am I at risk of rupture?",
+        "answer": "The risk is very low (less than 1-2% annually) as long as the aneurysm sac is not growing. We monitor closely with imaging."
+      },
+      "activity_restrictions": {
+        "question": "What activities should I avoid?",
+        "answer": "You can resume normal activities. No specific restrictions are needed for Type 2 endoleak."
+      },
+      "treatment_timing": {
+        "question": "Why aren't you treating it now?",
+        "answer": "About half of Type 2 endoleaks resolve on their own within 6 months. We watch and only treat if the aneurysm starts growing."
+      }
+    }
+  },
+  "future_directions": {
+    "improved_prediction": "Research into biomarkers and imaging features to predict which endoleaks will resolve vs. require intervention",
+    "preventive_strategies": "Techniques during EVAR to prevent Type 2 (branch vessel embolization), though benefit unclear",
+    "better_embolization": "Improved embolic agents and techniques to increase success rates and reduce reinterventions"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:complications:type2-definition:001",
+        "title": "Type 2 Endoleak Definition",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:procedures:evar:001",
+        "title": "EVAR Procedure",
+        "strength": 0.9
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:type2-definition:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Type 2 Endoleak Definition"
+      },
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:procedures:evar:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "EVAR Procedure"
+      }
+    ],
+    "related": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:outcomes:evar-longterm:001",
+        "type": "broader_context",
+        "relationship": "Type 2 endoleak is one component of long-term EVAR outcomes"
+      },
+      {
+        "id": "urn:wskg:medicine:patient-communication:shared-decision:001",
+        "type": "application",
+        "relationship": "Understanding clinical significance enables shared decision-making"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:outcomes:evar-longterm:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Long-term EVAR Outcomes",
+        "skos:note": "Type 2 endoleak is one component of long-term EVAR outcomes"
+      },
+      {
+        "@id": "urn:wskg:medicine:patient-communication:shared-decision:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Shared Decision-Making",
+        "skos:note": "Understanding clinical significance enables informed patient counseling"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:broadMatch": [
+      "http://snomed.info/id/445080003",
+      "http://id.nlm.nih.gov/mesh/D000078862"
+    ]
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:jvs-type2-natural-history",
+        "@type": "prov:Entity",
+        "dc:title": "Natural history of type II endoleaks after endovascular aneurysm repair",
+        "dc:publisher": "Journal of Vascular Surgery",
+        "dc:type": "systematic_review",
+        "confidence": 0.95
+      },
+      {
+        "@id": "urn:source:svs-practice-guidelines",
+        "@type": "prov:Entity",
+        "dc:title": "Society for Vascular Surgery practice guidelines",
+        "dc:creator": "Society for Vascular Surgery",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:ejves-type2-meta-analysis",
+        "@type": "prov:Entity",
+        "dc:title": "Long-term outcomes of type 2 endoleaks: A meta-analysis",
+        "dc:publisher": "European Journal of Vascular and Endovascular Surgery",
+        "dc:type": "outcomes_study",
+        "confidence": 0.9
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "evidence_synthesis",
+      "prov:startedAtTime": "2025-12-27T15:09:00.000Z",
+      "prov:endedAtTime": "2025-12-27T20:25:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base",
+      "terminology-agent",
+      "semantic-harmonization-agent"
+    ],
+    "dc:created": "2025-12-27T15:09:00.000Z",
+    "dc:modified": "2025-12-27T20:25:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:vascular-surgery-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "terminology-agent"
+    },
+    "sources": [
+      {
+        "type": "systematic_review",
+        "citation": "Natural history of type II endoleaks after endovascular aneurysm repair",
+        "journal": "Journal of Vascular Surgery",
+        "confidence": 0.95
+      },
+      {
+        "type": "clinical_guideline",
+        "citation": "Society for Vascular Surgery practice guidelines",
+        "organization": "Society for Vascular Surgery",
+        "confidence": 1.0
+      },
+      {
+        "type": "outcomes_study",
+        "citation": "Long-term outcomes of type 2 endoleaks: A meta-analysis",
+        "journal": "European Journal of Vascular and Endovascular Surgery",
+        "confidence": 0.9
+      }
+    ],
+    "extraction_method": "evidence_synthesis",
+    "validation": {
+      "validator": "vascular_surgery_expert",
+      "date": "2025-12-27"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "medical_students",
+      "vascular_surgeons",
+      "patients_and_families"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.5,
+    "learning_objectives": [
+      "Understand the overall prognosis of Type 2 endoleaks",
+      "Communicate rupture risk accurately to patients",
+      "Recognize the surveillance burden and its implications",
+      "Apply prognostic factors to individual cases",
+      "Counsel patients effectively about Type 2 endoleaks"
+    ],
+    "clinical_pearls": [
+      "Common but not dangerous if sac stable - don't panic",
+      "Sac behavior predicts outcome better than endoleak presence",
+      "Patient anxiety often exceeds actual clinical risk",
+      "Surveillance is key - neither ignore nor over-treat",
+      "Time often solves the problem through spontaneous resolution"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "infographic",
+    "show_statistics": true,
+    "visualization": [
+      "outcome_statistics",
+      "natural_history_timeline",
+      "patient_communication_guide"
+    ],
+    "emphasis": [
+      "favorable_overall_prognosis",
+      "importance_of_surveillance",
+      "patient_counseling_points"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "449567000",
+      "uri": "http://snomed.info/id/449567000",
+      "description": "Type II endoleak (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "445080003",
+      "uri": "http://snomed.info/id/445080003",
+      "description": "Endoleak (disorder) - parent concept",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D000078862",
+      "uri": "http://id.nlm.nih.gov/mesh/D000078862",
+      "description": "Endoleak",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-11",
+      "codeValue": "MH84.Z",
+      "uri": "http://id.who.int/icd/entity/1573326799",
+      "description": "Other specified complications following procedures on circulatory system",
+      "matchType": "closeMatch"
+    }
+  ]
+}

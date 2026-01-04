@@ -1,0 +1,271 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity",
+    "MedicalCondition"
+  ],
+  "@id": "wsmg-med:type2-endoleak",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2025-12-27T14:55:00.000Z",
+    "last_updated": "2025-12-27T19:57:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base",
+      "terminology-agent"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "changelog": [
+      {
+        "version": "2.0.0",
+        "date": "2025-12-27T19:57:00.000Z",
+        "agent": "terminology",
+        "changes": "Added comprehensive ontology annotations (SNOMED CT, MeSH, ICD-11, UMLS)"
+      },
+      {
+        "version": "1.0.0",
+        "date": "2025-12-27T14:55:00.000Z",
+        "agent": "copilot",
+        "changes": "Initial AKU creation"
+      }
+    ],
+    "modified": "2026-01-04T14:38:55.274Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": [
+      "type 2 endoleak",
+      "retrograde flow",
+      "branch vessels",
+      "EVAR complication",
+      "collateral vessels"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "post_evar_complication",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Type 2 endoleak is a complication following Endovascular Aortic Repair (EVAR) characterized by retrograde blood flow into the aneurysm sac through patent collateral branch vessels, most commonly lumbar arteries and the inferior mesenteric artery (IMA).",
+      "formal": "Type 2 Endoleak: Persistent perfusion of aneurysm sac post-EVAR via retrograde flow through aortic side branches → sac pressurization"
+    },
+    "explanation": {
+      "intuition": "After placing a stent-graft in an aortic aneurysm, some small side branches that branch off the aorta can still allow blood to flow backward into the space around the graft (the aneurysm sac), keeping it pressurized even though the main blood flow is now through the graft.",
+      "key_insight": "Type 2 endoleaks are the most common type (occurring in 10-45% of EVAR cases) but generally have lower risk than Type 1 or 3 endoleaks because the pressure is lower and many resolve spontaneously within 6 months.",
+      "technical_details": "The retrograde flow occurs because the branch vessels maintain patency and receive blood from collateral circulation. This creates a low-pressure circuit that fills the aneurysm sac. The hemodynamic significance depends on the number and size of feeding vessels and the outflow pathways.",
+      "common_misconceptions": [
+        "Not all endoleaks require immediate intervention - many Type 2 endoleaks resolve spontaneously",
+        "Type 2 endoleaks are not caused by technical failure of the EVAR procedure",
+        "Presence of a Type 2 endoleak does not automatically mean EVAR failure - monitoring sac size is critical"
+      ]
+    },
+    "definitions_glossary": {
+      "endoleak": "Persistent blood flow outside the stent-graft lumen but within the aneurysm sac after EVAR",
+      "EVAR": "Endovascular Aortic Repair - minimally invasive procedure to treat aortic aneurysms using a stent-graft",
+      "aneurysm_sac": "The dilated, weakened portion of the aortic wall that forms the aneurysm",
+      "retrograde_flow": "Blood flowing in the opposite direction from normal physiologic flow",
+      "collateral_vessels": "Alternative blood vessel pathways that develop or persist to maintain blood supply",
+      "lumbar_arteries": "Paired segmental arteries that branch from the posterior abdominal aorta",
+      "inferior_mesenteric_artery": "Major branch of abdominal aorta supplying left colon and rectum"
+    }
+  },
+  "relationships": {
+    "broader": [
+      {
+        "@id": "wsmg-med:endoleak",
+        "@type": "skos:Concept",
+        "label": "Endoleak (general)"
+      }
+    ],
+    "narrower": [
+      {
+        "@id": "wsmg-med:type2a-endoleak",
+        "@type": "skos:Concept",
+        "label": "Type 2a endoleak (single feeding vessel)"
+      },
+      {
+        "@id": "wsmg-med:type2b-endoleak",
+        "@type": "skos:Concept",
+        "label": "Type 2b endoleak (multiple feeding vessels)"
+      }
+    ],
+    "related": [
+      {
+        "@id": "wsmg-med:evar",
+        "@type": "skos:Concept",
+        "label": "Endovascular Aortic Repair",
+        "relationship_type": "causal_context"
+      },
+      {
+        "@id": "wsmg-med:abdominal-aortic-aneurysm",
+        "@type": "skos:Concept",
+        "label": "Abdominal Aortic Aneurysm",
+        "relationship_type": "underlying_condition"
+      },
+      {
+        "@id": "wsmg-med:type1-endoleak",
+        "@type": "skos:Concept",
+        "label": "Type 1 endoleak",
+        "relationship_type": "comparison"
+      },
+      {
+        "@id": "wsmg-med:type3-endoleak",
+        "@type": "skos:Concept",
+        "label": "Type 3 endoleak",
+        "relationship_type": "comparison"
+      }
+    ],
+    "exactMatch": [
+      "snomed:449567000",
+      "umls:C3549542"
+    ],
+    "broadMatch": [
+      "snomed:445080003",
+      "mesh:D000078862",
+      "icd11:1792669548"
+    ],
+    "closeMatch": [
+      "icd11:1573326799"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "449567000",
+      "uri": "http://snomed.info/id/449567000",
+      "description": "Type II endoleak (disorder)",
+      "preferred": true
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D000078862",
+      "uri": "http://id.nlm.nih.gov/mesh/D000078862",
+      "description": "Endoleak (general term)",
+      "note": "MeSH does not distinguish Type 2 specifically"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-11",
+      "codeValue": "MH84.Z",
+      "uri": "http://id.who.int/icd/entity/1573326799",
+      "description": "Other specified complications following procedures on circulatory system",
+      "note": "Requires extension code for Type 2 specificity"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "UMLS",
+      "codeValue": "C3549542",
+      "uri": "http://linkedlifedata.com/resource/umls/id/C3549542",
+      "description": "Type II Endoleak"
+    }
+  ],
+  "anatomicalStructure": [
+    {
+      "@type": "AnatomicalStructure",
+      "name": "Lumbar arteries",
+      "snomedCode": "33795007",
+      "uri": "http://snomed.info/id/33795007",
+      "role": "common_source_vessel"
+    },
+    {
+      "@type": "AnatomicalStructure",
+      "name": "Inferior mesenteric artery",
+      "snomedCode": "33616005",
+      "uri": "http://snomed.info/id/33616005",
+      "meshCode": "D008638",
+      "meshUri": "http://id.nlm.nih.gov/mesh/D008638",
+      "role": "common_source_vessel"
+    },
+    {
+      "@type": "AnatomicalStructure",
+      "name": "Aneurysm sac",
+      "snomedCode": "128608001",
+      "uri": "http://snomed.info/id/128608001",
+      "role": "affected_structure"
+    }
+  ],
+  "possibleComplication": {
+    "@id": "wsmg-med:aneurysm-rupture",
+    "name": "Aneurysm rupture",
+    "probability": "low_with_monitoring",
+    "note": "Risk increased if sac diameter increases >5mm"
+  },
+  "riskFactor": [
+    {
+      "factor": "Patent lumbar arteries",
+      "influence": "high"
+    },
+    {
+      "factor": "Patent inferior mesenteric artery",
+      "influence": "high"
+    },
+    {
+      "factor": "Large aneurysm sac",
+      "influence": "moderate"
+    }
+  ],
+  "clinical_features": {
+    "incidence": "10-45% of EVAR procedures",
+    "natural_history": "~50% spontaneous resolution within 6 months",
+    "risk_stratification": "Lower risk than Type 1 or Type 3 endoleaks",
+    "typical_presentation": "Usually asymptomatic, detected on surveillance imaging"
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "citation": "Society for Vascular Surgery practice guidelines for EVAR follow-up",
+        "organization": "Society for Vascular Surgery",
+        "confidence": 1.0,
+        "year": 2018
+      }
+    ],
+    "extraction_method": "expert_knowledge_synthesis",
+    "validation": {
+      "validator": "terminology_agent",
+      "date": "2025-12-27",
+      "notes": "Ontology annotations validated against SNOMED CT, MeSH, ICD-11, UMLS"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "interventional_radiologists",
+      "vascular_surgeons",
+      "medical_students_advanced"
+    ],
+    "estimated_time": "20min",
+    "difficulty_curve": 0.7,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Define Type 2 endoleak and distinguish from other endoleak types",
+      "Identify the anatomic source vessels for Type 2 endoleaks",
+      "Understand the natural history and clinical significance",
+      "Recognize when intervention is required versus observation"
+    ]
+  },
+  "terminology_metadata": {
+    "validation_agent": "terminology",
+    "validation_date": "2025-12-27T19:57:00.000Z",
+    "ontology_version": "1.0",
+    "sources_validated": [
+      "SNOMED CT International Edition",
+      "MeSH 2025",
+      "ICD-11 2024",
+      "UMLS Metathesaurus"
+    ],
+    "confidence": 0.98,
+    "glossary_reference": "file://terminology/glossary-entry.json"
+  }
+}

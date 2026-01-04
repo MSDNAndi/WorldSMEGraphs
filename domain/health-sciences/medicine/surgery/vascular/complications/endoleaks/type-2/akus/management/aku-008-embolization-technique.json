@@ -1,0 +1,498 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalProcedure"
+  ],
+  "@id": "aku-008-embolization-technique",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-27T15:10:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "interventional-radiology-knowledge-base",
+      "terminology-agent"
+    ],
+    "confidence": 0.95,
+    "status": "enhanced",
+    "last_updated": "2025-12-27T20:04:12.000Z",
+    "modified": "2026-01-04T14:38:55.280Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2",
+    "type": "management",
+    "difficulty": "expert",
+    "importance": "high",
+    "aku_id": "008",
+    "keywords": [
+      "embolization",
+      "transarterial",
+      "translumbar",
+      "coils",
+      "liquid embolic",
+      "interventional radiology"
+    ],
+    "medical_specialty": "interventional_radiology",
+    "clinical_context": "type2_endoleak_treatment",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Type 2 endoleak embolization can be performed via transarterial approach (accessing feeding vessels through arterial circulation) or translumbar approach (direct percutaneous puncture of aneurysm sac), using coils and/or liquid embolic agents to occlude the endoleak circuit.",
+      "formal": "Embolization: [Transarterial (via collaterals) OR Translumbar (direct sac puncture)] + [Coils AND/OR Liquid embolic] → Endoleak occlusion (60-85% success, 20-40% recurrence)"
+    },
+    "explanation": {
+      "intuition": "Embolization is like plugging a leak by either (1) going through the plumbing system to reach the leak (transarterial), or (2) sticking a needle directly through the wall to the leak (translumbar). You fill the space with metal coils or liquid glue to block blood flow.",
+      "key_insight": "The key to successful Type 2 embolization is treating BOTH inflow and outflow vessels. If you only plug the inflow, blood can still enter through the outflow vessel running backward. This is why identifying the complete endoleak circuit is critical.",
+      "technical_details": "Success rates vary by approach: transarterial 60-70%, translumbar 70-85%, but translumbar has higher complication risk. Recurrence is common (20-40%) because collateral vessels can recruit new pathways. Liquid embolic agents (Onyx, n-BCA) may provide better sac penetration than coils alone."
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Type 2 Endoleak Embolization Technique"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Interventional procedure using transarterial or translumbar approach with coils and/or liquid embolic agents to occlude Type 2 endoleak circuits"
+    },
+    "notation": "aku-008-embolization-technique"
+  },
+  "transarterial_approach": {
+    "technique": {
+      "access": "Femoral artery (common) or brachial/radial artery",
+      "catheter_selection": [
+        "5F sheath, 5F catheter system typical",
+        "Microcatheter (2.8F) for selective branch vessel cannulation",
+        "Hydrophilic guidewire (0.035\" then 0.014-0.018\")"
+      ],
+      "target_identification": [
+        "Angiography to identify feeding vessels",
+        "Common targets: Iliolumbar artery → Lumbar arteries",
+        "IMA via SMA and marginal artery",
+        "Internal iliac branches"
+      ],
+      "embolization_sequence": [
+        "1. Selective catheterization of feeding vessel",
+        "2. Advance microcatheter as close to sac as possible",
+        "3. Deploy coils from distal to proximal ('sandwich technique')",
+        "4. Or inject liquid embolic with flow arrest",
+        "5. Repeat for draining vessels",
+        "6. Completion angiography"
+      ]
+    },
+    "advantages": [
+      "Minimally invasive",
+      "Can treat multiple vessels in one session",
+      "No direct sac puncture risk",
+      "Outpatient procedure possible"
+    ],
+    "disadvantages": [
+      "Technically challenging - small, tortuous vessels",
+      "May not reach all vessels (anatomic limitations)",
+      "Long procedure times (2-4 hours typical)",
+      "Radiation exposure",
+      "Incomplete occlusion if can't reach sac"
+    ],
+    "success_factors": [
+      "Operator experience",
+      "Vessel size (>2mm easier)",
+      "Presence of identifiable collateral pathway",
+      "Ability to advance catheter to sac"
+    ]
+  },
+  "translumbar_approach": {
+    "technique": {
+      "patient_positioning": "Prone or lateral decubitus",
+      "image_guidance": "CT fluoroscopy or cone-beam CT",
+      "needle_placement": [
+        "Plan trajectory avoiding bowel, kidney",
+        "18-22G needle, posterior approach",
+        "Target: aneurysm sac, avoid graft",
+        "Confirm position with contrast injection"
+      ],
+      "embolization_technique": [
+        "Coil embolization through needle",
+        "Or liquid embolic (Onyx) injection",
+        "Fill sac working toward needle",
+        "Remove needle when sac densely packed"
+      ]
+    },
+    "advantages": [
+      "Direct sac access",
+      "Higher technical success (70-85%)",
+      "Can treat when transarterial fails",
+      "Better sac filling",
+      "Shorter procedure time"
+    ],
+    "disadvantages": [
+      "More invasive",
+      "Bleeding risk (sac puncture)",
+      "Bowel injury risk",
+      "Requires prone positioning",
+      "Higher complication rate (5-10% vs 2-5% transarterial)"
+    ],
+    "contraindications": [
+      "Hostile abdomen (prior surgery, radiation)",
+      "Bowel interposed between sac and back",
+      "Uncorrectable coagulopathy",
+      "Small or thick-walled sac (difficult puncture)"
+    ],
+    "complications": [
+      "Bleeding (most common)",
+      "Bowel perforation",
+      "Infection/abscess",
+      "Graft puncture",
+      "Nerve injury (rare)"
+    ]
+  },
+  "embolic_agents": {
+    "coils": {
+      "types": [
+        "Platinum pushable coils (standard)",
+        "Detachable coils (precise placement)",
+        "Fibered coils (enhanced thrombosis)"
+      ],
+      "advantages": [
+        "Precise placement",
+        "Immediate occlusion",
+        "Retrievable/repositionable (detachable)",
+        "Long track record"
+      ],
+      "disadvantages": [
+        "Require adequate vessel size (>2mm)",
+        "Multiple coils often needed",
+        "Limited sac penetration",
+        "Recanalization possible"
+      ],
+      "deployment_strategy": "Pack densely from distal to proximal to prevent migration"
+    },
+    "liquid_embolic_agents": {
+      "onyx": {
+        "composition": "Ethylene vinyl alcohol copolymer in DMSO",
+        "advantages": [
+          "Better sac penetration",
+          "Can embolize small vessels",
+          "Single agent occlusion",
+          "Controlled flow-directed delivery"
+        ],
+        "disadvantages": [
+          "Requires DMSO-compatible microcatheter",
+          "Learning curve for deployment",
+          "Non-retrievable once injected",
+          "Risk of non-target embolization"
+        ],
+        "technique_notes": "Plug-and-push technique with slow injection"
+      },
+      "n_butyl_cyanoacrylate": {
+        "composition": "Tissue adhesive (glue)",
+        "advantages": [
+          "Immediate polymerization",
+          "Strong adhesion",
+          "Permanent occlusion"
+        ],
+        "disadvantages": [
+          "Very rapid polymerization - technical challenge",
+          "Catheter can become glued",
+          "Risk of non-target embolization",
+          "Difficult to control"
+        ],
+        "mixing": "With lipiodol to slow polymerization"
+      }
+    },
+    "combination_approach": {
+      "rationale": "Coils provide scaffold, liquid embolic fills interstices",
+      "technique": "Deploy coils first, then inject liquid embolic through coil mass",
+      "evidence": "Some studies show improved durability vs. coils alone"
+    }
+  },
+  "procedure_workflow": {
+    "pre_procedure": [
+      "Review CTA to map vessels and plan approach",
+      "Obtain informed consent (including reintervention risk)",
+      "Check coagulation parameters",
+      "Antibiotic prophylaxis (optional, varies by center)",
+      "Arterial access (transarterial) or position patient (translumbar)"
+    ],
+    "intra_procedure_monitoring": [
+      "Fluoroscopy time tracking",
+      "Contrast volume monitoring (renal protection)",
+      "Hemodynamic monitoring",
+      "Pain assessment (translumbar can be uncomfortable)"
+    ],
+    "post_procedure": [
+      "Access site monitoring (transarterial)",
+      "Bed rest 2-4 hours (translumbar)",
+      "Pain control",
+      "Observation for complications",
+      "Discharge same day or overnight"
+    ],
+    "follow_up_imaging": [
+      "CTA at 1 month to assess technical success",
+      "Repeat at 3, 6, 12 months",
+      "Success defined as: Endoleak resolved + Sac stable/decreased"
+    ]
+  },
+  "outcomes_data": {
+    "technical_success": {
+      "transarterial": "60-70%",
+      "translumbar": "70-85%",
+      "definition": "Completion angiogram shows no residual endoleak filling"
+    },
+    "clinical_success": {
+      "rate": "50-70% at 6-12 months",
+      "definition": "Endoleak resolved on CT + Sac stable or decreased"
+    },
+    "recurrence": {
+      "rate": "20-40%",
+      "timeframe": "Median 6-12 months",
+      "predictors": [
+        "Incomplete initial embolization",
+        "Multiple source vessels",
+        "Coils only (vs. liquid embolic)",
+        "Large endoleak volume"
+      ]
+    },
+    "reintervention": {
+      "rate": "20-30% require repeat embolization",
+      "approaches": "Can alternate or combine transarterial and translumbar"
+    },
+    "complications": {
+      "transarterial": "2-5% major (access site, contrast nephropathy)",
+      "translumbar": "5-10% major (bleeding, bowel injury, infection)"
+    }
+  },
+  "decision_algorithm": {
+    "first_line": "Transarterial approach if vessels accessible",
+    "second_line": "Translumbar if transarterial fails or not feasible",
+    "hybrid_approach": "Some operators do translumbar primarily for faster, more complete occlusion",
+    "factors_favoring_transarterial": [
+      "Identifiable collateral pathway",
+      "Large, non-tortuous vessels",
+      "Multiple vessels to treat",
+      "Patient preference (less invasive)"
+    ],
+    "factors_favoring_translumbar": [
+      "Failed transarterial",
+      "No accessible collateral route",
+      "Large sac with extensive endoleak",
+      "Time efficiency desired"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:complications:type2-definition:001",
+        "title": "Type 2 Endoleak Definition",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:anatomy:branch-vessels:004",
+        "title": "Branch Vessel Anatomy",
+        "strength": 0.95
+      },
+      {
+        "id": "urn:wskg:medicine:interventional-radiology:techniques:catheterization:001",
+        "title": "Selective Catheterization Techniques",
+        "strength": 0.9
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:complications:type2-definition:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Type 2 Endoleak Definition"
+      },
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:anatomy:branch-vessels:004",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Branch Vessel Anatomy"
+      },
+      {
+        "@id": "urn:wskg:medicine:interventional-radiology:techniques:catheterization:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Selective Catheterization Techniques"
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:outcomes:type2-longterm:001",
+        "title": "Long-term Outcomes After Type 2 Treatment",
+        "strength": 0.85
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:outcomes:type2-longterm:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Long-term Outcomes After Type 2 Treatment"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:broadMatch": [
+      "http://snomed.info/id/445080003",
+      "http://id.nlm.nih.gov/mesh/D000078862",
+      "http://id.nlm.nih.gov/mesh/D057510"
+    ],
+    "skos:related": [
+      {
+        "@id": "http://id.nlm.nih.gov/mesh/D057510",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Endovascular Procedures",
+        "skos:note": "Embolization is a type of endovascular procedure"
+      }
+    ]
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:sir-standards-type2",
+        "@type": "prov:Entity",
+        "dc:title": "Society of Interventional Radiology Standards of Practice for Type 2 Endoleak",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
+      },
+      {
+        "@id": "urn:source:handbook-ir-5ed",
+        "@type": "prov:Entity",
+        "dc:title": "Handbook of Interventional Radiologic Procedures, 5th Edition",
+        "dc:identifier": "ISBN:978-1496384737",
+        "dc:type": "textbook",
+        "confidence": 0.98
+      },
+      {
+        "@id": "urn:source:jvir-embolization-meta",
+        "@type": "prov:Entity",
+        "dc:title": "Embolization of Type 2 Endoleaks: Systematic Review and Meta-analysis",
+        "dc:publisher": "Journal of Vascular and Interventional Radiology",
+        "dc:type": "systematic_review",
+        "confidence": 0.95
+      }
+    ],
+    "prov:wasGeneratedBy": {
+      "@type": "prov:Activity",
+      "prov:used": "expert_synthesis",
+      "prov:startedAtTime": "2025-12-27T15:10:00.000Z",
+      "prov:endedAtTime": "2025-12-27T20:26:00.000Z"
+    },
+    "dc:creator": [
+      "copilot-agent",
+      "interventional-radiology-knowledge-base",
+      "terminology-agent",
+      "semantic-harmonization-agent"
+    ],
+    "dc:created": "2025-12-27T15:10:00.000Z",
+    "dc:modified": "2025-12-27T20:26:00.000Z",
+    "prov:wasAttributedTo": {
+      "@id": "urn:agent:interventional-radiology-expert",
+      "@type": "prov:Agent",
+      "prov:actedOnBehalfOf": "terminology-agent"
+    },
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "citation": "Society of Interventional Radiology Standards of Practice for Type 2 Endoleak",
+        "confidence": 1.0
+      },
+      {
+        "type": "textbook",
+        "citation": "Handbook of Interventional Radiologic Procedures, 5th Edition",
+        "isbn": "978-1496384737",
+        "confidence": 0.98
+      },
+      {
+        "type": "systematic_review",
+        "citation": "Embolization of Type 2 Endoleaks: Systematic Review and Meta-analysis",
+        "journal": "Journal of Vascular and Interventional Radiology",
+        "confidence": 0.95
+      }
+    ],
+    "extraction_method": "expert_synthesis",
+    "validation": {
+      "validator": "interventional_radiology_expert",
+      "date": "2025-12-27"
+    }
+  },
+  "pedagogical": {
+    "target_audience": [
+      "interventional_radiology_fellows",
+      "vascular_surgery_fellows",
+      "interventional_radiologists",
+      "vascular_surgeons"
+    ],
+    "estimated_time": "45min",
+    "difficulty_curve": 0.85,
+    "learning_objectives": [
+      "Compare transarterial and translumbar embolization approaches",
+      "Select appropriate embolic agents for Type 2 endoleaks",
+      "Perform step-by-step embolization procedure",
+      "Recognize and manage complications",
+      "Interpret outcomes and manage recurrence"
+    ],
+    "clinical_pearls": [
+      "Always embolize BOTH inflow and outflow vessels - incomplete treatment = recurrence",
+      "Translumbar is more invasive but often more effective - consider first-line for complex cases",
+      "Liquid embolic (Onyx) may have lower recurrence than coils alone",
+      "20-40% recurrence is expected - set patient expectations appropriately",
+      "CT at 1 month tells you technical success; 6-12 months tells you clinical success"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "procedural_steps",
+    "show_images": true,
+    "visualization": [
+      "procedural_technique_illustrations",
+      "embolic_agent_comparison",
+      "fluoroscopic_examples",
+      "outcomes_graphs"
+    ],
+    "emphasis": [
+      "transarterial_vs_translumbar_decision",
+      "embolic_agent_selection",
+      "complete_circuit_embolization"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "449567000",
+      "uri": "http://snomed.info/id/449567000",
+      "description": "Type II endoleak (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "445080003",
+      "uri": "http://snomed.info/id/445080003",
+      "description": "Endoleak (disorder) - parent concept",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D000078862",
+      "uri": "http://id.nlm.nih.gov/mesh/D000078862",
+      "description": "Endoleak",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D057510",
+      "uri": "http://id.nlm.nih.gov/mesh/D057510",
+      "description": "Endovascular Procedures",
+      "matchType": "broadMatch",
+      "relationship": "procedure_category"
+    }
+  ]
+}

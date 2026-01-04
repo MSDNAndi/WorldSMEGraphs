@@ -1,0 +1,122 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "aku:math:category-theory:composition",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-03T23:36:18.481Z",
+    "modified": "2026-01-04T13:46:56.588Z",
+    "contributors": [
+      "knowledge-graph-agent"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "language_agnostic": true
+  },
+  "classification": {
+    "domain_path": "formal-sciences/mathematics/pure-mathematics/category-theory",
+    "subdomain": "operations",
+    "type": "definition",
+    "difficulty": "graduate",
+    "importance": "foundational",
+    "maturity": "stable",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": "Composition is a binary operation that combines two compatible morphisms f: A→B and g: B→C to produce a morphism g∘f: A→C, capturing the idea of 'following one arrow after another'.",
+    "explanation": {
+      "intuition": "If f is a road from city A to city B, and g is a road from B to city C, then g∘f is the journey from A to C via B. Composition is how we chain together relationships.",
+      "key_insight": "Composition is the essence of structured computation. It enables building complex transformations from simpler ones, and is the foundation of all compositional reasoning in mathematics and programming.",
+      "technical_details": "Given morphisms f: A→B and g: B→C, composition produces g∘f: A→C. The operation is only defined when the codomain of f equals the domain of g. Composition must be associative and respect identities."
+    },
+    "formal_definition": {
+      "latex": "\\circ : \\text{hom}(B,C) \\times \\text{hom}(A,B) \\to \\text{hom}(A,C) \\\\ (g, f) \\mapsto g \\circ f",
+      "notation": "g∘f (read 'g after f' or 'g composed with f')",
+      "requirements": [
+        "Domain compatibility: codomain(f) = domain(g)",
+        "Associativity: h∘(g∘f) = (h∘g)∘f",
+        "Identity: f∘id_A = f and id_B∘f = f"
+      ]
+    },
+    "examples": [
+      {
+        "category": "Set",
+        "description": "Function composition",
+        "detail": "If f: A→B maps a to f(a) and g: B→C maps b to g(b), then g∘f: A→C maps a to g(f(a))"
+      },
+      {
+        "category": "Programming",
+        "description": "Function pipeline",
+        "haskell": "(g . f) x = g (f x)",
+        "javascript": "const compose = (g, f) => x => g(f(x))",
+        "python": "compose = lambda g, f: lambda x: g(f(x))"
+      }
+    ],
+    "diagram": {
+      "latex": "\\begin{tikzcd} A \\arrow[r, \"f\"] \\arrow[rr, bend right, \"g \\circ f\"'] & B \\arrow[r, \"g\"] & C \\end{tikzcd}",
+      "description": "Commutative diagram showing composition: A→B→C with composite arrow A→C"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "aku:functional-theory:category-theory:category-definition",
+      "aku:functional-theory:category-theory:morphisms"
+    ],
+    "enables": [
+      "aku:functional-theory:category-theory:category-laws",
+      "aku:functional-theory:functors:functor-laws",
+      "aku:functional-theory:monads:monad-composition"
+    ],
+    "related_to": [
+      "aku:mathematics:set-theory:function-composition",
+      "aku:computer-science:functional-programming:function-composition"
+    ],
+    "part_of": "aku:functional-theory:category-theory"
+  },
+  "ontology": {
+    "skos:broader": [
+      "binary-operations",
+      "categorical-operations"
+    ],
+    "skos:narrower": [
+      "vertical-composition",
+      "horizontal-composition"
+    ],
+    "skos:related": [
+      "associativity",
+      "function-composition",
+      "morphism-chaining"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Mac Lane, S. (1971). Categories for the Working Mathematician. Springer.",
+        "pages": "7-8"
+      },
+      {
+        "type": "textbook",
+        "citation": "Awodey, S. (2010). Category Theory (2nd ed.). Oxford University Press.",
+        "pages": "4-6"
+      }
+    ],
+    "derived_from": [],
+    "validation_status": "peer_reviewed"
+  },
+  "cross_domain_applications": {
+    "note": "This mathematical concept is APPLIED in other domains",
+    "applications": [
+      {
+        "domain": "formal-sciences/computer-science/programming-paradigms/functional-programming",
+        "context": "Category theory provides the theoretical foundation for functional programming, including composition, functors, and monads",
+        "relationship": "applies"
+      },
+      {
+        "domain": "formal-sciences/computer-science/type-theory",
+        "context": "Type theory uses categorical semantics, especially cartesian closed categories",
+        "relationship": "uses"
+      }
+    ]
+  }
+}

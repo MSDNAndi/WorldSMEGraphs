@@ -1,0 +1,368 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/science.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "ScientificConcept"
+  ],
+  "@id": "aku-e05-planck-vs-atomic-scales",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-29T20:45:00.000Z",
+    "contributors": [
+      "example-generation-agent",
+      "research-agent",
+      "physics-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2025-12-29T20:45:00.000Z",
+    "modified": "2026-01-04T14:38:39.400Z"
+  },
+  "classification": {
+    "domain_path": "natural-sciences/physics/quantum-mechanics/planck-units",
+    "type": "example",
+    "difficulty": "intermediate",
+    "importance": "foundational",
+    "aku_id": "e05",
+    "keywords": [
+      "Planck scale",
+      "atomic scale",
+      "Bohr radius",
+      "scale comparison",
+      "hierarchy problem",
+      "dimensional analysis"
+    ],
+    "physics_specialty": "quantum_mechanics",
+    "physics_context": "scale_comparison",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "This example compares Planck-scale quantities with their atomic-scale counterparts. The Planck length is ~10²⁵ times smaller than an atom, while the Planck mass is ~10¹⁹ times LARGER than a proton. This dramatic contrast illustrates that Planck units set quantum-gravity scales, not quantum-mechanical scales - atoms are described by ℏ, c, and electron properties, not by G.",
+      "key_insight": "Gravity is irrelevant for atomic physics because Planck mass >> atomic masses"
+    },
+    "scale_comparisons": {
+      "length": {
+        "planck_length": {
+          "value": "1.616 × 10⁻³⁵ m",
+          "symbol": "ℓ_P",
+          "formula": "√(ℏG/c³)"
+        },
+        "bohr_radius": {
+          "value": "5.292 × 10⁻¹¹ m",
+          "symbol": "a₀",
+          "formula": "ℏ/(m_e·c·α) = 4πε₀ℏ²/(m_e·e²)"
+        },
+        "proton_radius": {
+          "value": "8.7 × 10⁻¹⁶ m",
+          "symbol": "r_p",
+          "note": "Charge radius from scattering"
+        },
+        "ratios": {
+          "bohr_to_planck": "a₀/ℓ_P ≈ 3.3 × 10²⁴",
+          "proton_to_planck": "r_p/ℓ_P ≈ 5.4 × 10¹⁹",
+          "interpretation": "Atoms are ~10²⁵ times larger than Planck length; protons are ~10²⁰ times larger"
+        }
+      },
+      "mass": {
+        "planck_mass": {
+          "value": "2.176 × 10⁻⁸ kg = 1.22 × 10¹⁹ GeV/c²",
+          "symbol": "m_P",
+          "formula": "√(ℏc/G)"
+        },
+        "electron_mass": {
+          "value": "9.109 × 10⁻³¹ kg = 0.511 MeV/c²",
+          "symbol": "m_e"
+        },
+        "proton_mass": {
+          "value": "1.673 × 10⁻²⁷ kg = 938 MeV/c²",
+          "symbol": "m_p"
+        },
+        "ratios": {
+          "planck_to_electron": "m_P/m_e ≈ 2.4 × 10²²",
+          "planck_to_proton": "m_P/m_p ≈ 1.3 × 10¹⁹",
+          "interpretation": "Planck mass is ~10²² times heavier than electron, ~10¹⁹ times heavier than proton - this is why gravity is so weak at atomic scales!"
+        }
+      },
+      "time": {
+        "planck_time": {
+          "value": "5.391 × 10⁻⁴⁴ s",
+          "symbol": "t_P",
+          "formula": "√(ℏG/c⁵)"
+        },
+        "atomic_time": {
+          "value": "~10⁻¹⁷ s",
+          "symbol": "t_atomic",
+          "description": "Time for electron to orbit nucleus (ℏ/(m_e·c²·α²))"
+        },
+        "nuclear_time": {
+          "value": "~10⁻²³ s",
+          "symbol": "t_nuclear",
+          "description": "Strong force timescale"
+        },
+        "ratios": {
+          "atomic_to_planck": "t_atomic/t_P ≈ 10²⁷",
+          "nuclear_to_planck": "t_nuclear/t_P ≈ 10²¹",
+          "interpretation": "Even nuclear processes are 10²¹ times slower than Planck time"
+        }
+      },
+      "energy": {
+        "planck_energy": {
+          "value": "1.956 × 10⁹ J = 1.22 × 10¹⁹ GeV",
+          "symbol": "E_P",
+          "formula": "√(ℏc⁵/G)"
+        },
+        "hydrogen_binding": {
+          "value": "13.6 eV",
+          "symbol": "E_1",
+          "description": "Ionization energy of hydrogen ground state"
+        },
+        "proton_mass_energy": {
+          "value": "938 MeV",
+          "symbol": "m_p·c²"
+        },
+        "ratios": {
+          "planck_to_hydrogen": "E_P/E_1 ≈ 9 × 10²⁸",
+          "planck_to_proton": "E_P/(m_p·c²) ≈ 1.3 × 10¹⁹",
+          "interpretation": "Planck energy is ~10²⁸ times larger than atomic binding energies"
+        }
+      }
+    },
+    "dimensionless_ratios": {
+      "description": "Key ratios that set the hierarchy between atomic and Planck scales",
+      "fine_structure_constant": {
+        "value": "α ≈ 1/137.036",
+        "role": "Sets atomic length scale: a₀ = ℏ/(m_e·c·α)"
+      },
+      "gravitational_coupling": {
+        "value": "α_G = G·m_e²/(ℏc) ≈ 1.75 × 10⁻⁴⁵",
+        "role": "Ratio of gravitational to electromagnetic force for electrons"
+      },
+      "electron_to_planck_ratio": {
+        "value": "m_e/m_P ≈ 4.2 × 10⁻²³",
+        "role": "Why gravity is negligible for electrons"
+      },
+      "hierarchy_problem": {
+        "description": "Why is gravity so much weaker than other forces? (m_e << m_P)",
+        "electroweak_to_planck": "v_EW/E_P ≈ 246 GeV / 10¹⁹ GeV ≈ 10⁻¹⁷",
+        "status": "Unexplained; one of the biggest open problems in physics"
+      }
+    },
+    "key_conclusions": [
+      {
+        "conclusion": "Planck length is FAR smaller than atoms",
+        "ratio": "ℓ_P/a₀ ≈ 3 × 10⁻²⁵",
+        "implication": "Quantum gravity effects are utterly negligible in chemistry"
+      },
+      {
+        "conclusion": "Planck mass is FAR larger than atomic masses",
+        "ratio": "m_P/m_e ≈ 2 × 10²²",
+        "implication": "Gravity is negligible between atoms (α_G ~ 10⁻⁴⁵)"
+      },
+      {
+        "conclusion": "Atomic physics uses ℏ, c, m_e, α - NOT G",
+        "implication": "Gravity decouples at atomic scales; quantum gravity is irrelevant"
+      },
+      {
+        "conclusion": "The hierarchy problem",
+        "question": "Why is m_e/m_P so tiny? Why is gravity so weak?",
+        "implication": "One of the deepest unsolved problems in physics"
+      }
+    ],
+    "scale_hierarchy_visualization": {
+      "length_ladder": [
+        {
+          "scale": "10⁻³⁵ m",
+          "name": "Planck length ℓ_P",
+          "type": "minimum?"
+        },
+        {
+          "scale": "10⁻²⁰ m",
+          "name": "Electroweak length",
+          "type": "particle physics"
+        },
+        {
+          "scale": "10⁻¹⁵ m",
+          "name": "Proton radius",
+          "type": "nuclear"
+        },
+        {
+          "scale": "10⁻¹⁰ m",
+          "name": "Bohr radius",
+          "type": "atomic"
+        },
+        {
+          "scale": "10⁻² m",
+          "name": "Human scale",
+          "type": "everyday"
+        },
+        {
+          "scale": "10⁷ m",
+          "name": "Earth radius",
+          "type": "planetary"
+        },
+        {
+          "scale": "10²⁶ m",
+          "name": "Observable universe",
+          "type": "cosmological"
+        }
+      ],
+      "mass_ladder": [
+        {
+          "scale": "10⁻³⁷ kg",
+          "name": "Neutrino mass",
+          "type": "elementary (smallest)"
+        },
+        {
+          "scale": "10⁻³⁰ kg",
+          "name": "Electron mass",
+          "type": "elementary"
+        },
+        {
+          "scale": "10⁻²⁷ kg",
+          "name": "Proton mass",
+          "type": "elementary"
+        },
+        {
+          "scale": "10⁻⁸ kg",
+          "name": "Planck mass m_P",
+          "type": "quantum gravity"
+        },
+        {
+          "scale": "10⁰ kg",
+          "name": "Human scale",
+          "type": "everyday"
+        },
+        {
+          "scale": "10³⁰ kg",
+          "name": "Solar mass",
+          "type": "astrophysical"
+        },
+        {
+          "scale": "10⁵³ kg",
+          "name": "Observable universe",
+          "type": "cosmological"
+        }
+      ]
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Planck vs Atomic Scale Comparison"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Quantum Gravity vs Atomic Physics Scales"
+      },
+      {
+        "@language": "en",
+        "@value": "Hierarchy of Physical Scales"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A comparison of Planck-scale quantities with their atomic-scale counterparts, illustrating the enormous hierarchy between quantum gravity and atomic physics"
+    },
+    "notation": "aku-e05-planck-vs-atomic-scales"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "aku-001-planck-length-definition",
+        "title": "Planck Length",
+        "strength": 1.0
+      },
+      {
+        "id": "aku-003-planck-mass-definition",
+        "title": "Planck Mass",
+        "strength": 1.0
+      }
+    ],
+    "related": [
+      {
+        "id": "aku-006-fine-structure-constant",
+        "type": "dimensional_analysis",
+        "relationship": "α sets atomic scales relative to Compton wavelength"
+      },
+      {
+        "id": "aku-t03-fundamental-limits-smallest-units",
+        "type": "conceptual",
+        "relationship": "Shows Planck mass is NOT a minimum"
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:physics:dimensional-analysis:001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Dimensional Analysis"
+      }
+    ]
+  },
+  "provenance": {
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:nist-codata-2018",
+        "@type": "prov:Entity",
+        "dc:title": "CODATA 2018 Fundamental Constants",
+        "dc:date": "2021",
+        "dc:type": "authoritative_reference",
+        "confidence": 1.0
+      }
+    ],
+    "dc:creator": [
+      "example-generation-agent",
+      "research-agent",
+      "physics-knowledge-base"
+    ],
+    "dc:created": "2025-12-29T20:45:00.000Z",
+    "sources": [
+      {
+        "type": "authoritative_reference",
+        "citation": "NIST CODATA 2018",
+        "confidence": 1.0
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "physics_students",
+      "general_science_audience",
+      "physics_educators"
+    ],
+    "estimated_time": "15-20min",
+    "difficulty_curve": 0.6,
+    "prerequisites_check": true,
+    "learning_objectives": [
+      "Appreciate the enormous gap between atomic and Planck scales",
+      "Understand why gravity is negligible in atomic physics",
+      "Recognize the hierarchy problem as fundamental unsolved question",
+      "Distinguish scales that involve G from those that don't"
+    ],
+    "common_errors": [
+      "Thinking Planck mass is very small (it's actually macroscopic!)",
+      "Missing that atomic physics doesn't involve G at all",
+      "Not appreciating the scale of 10²⁵ (unimaginably huge ratio)"
+    ],
+    "physics_insights": [
+      "a₀/ℓ_P ≈ 10²⁵ - atoms are HUGE compared to Planck scale",
+      "m_P/m_e ≈ 10²² - Planck mass is HUGE compared to electrons",
+      "α_G ≈ 10⁻⁴⁵ - gravity is 10⁴⁵× weaker than electromagnetism for electrons!",
+      "The hierarchy problem: why is m_e/m_P so tiny?"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "comparison_table",
+    "show_images": true,
+    "include_scale_diagram": true,
+    "visualization": [
+      "length_scale_ladder",
+      "mass_scale_ladder",
+      "ratio_comparison_chart"
+    ]
+  }
+}

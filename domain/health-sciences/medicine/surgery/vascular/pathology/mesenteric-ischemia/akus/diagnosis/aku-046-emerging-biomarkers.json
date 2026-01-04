@@ -1,0 +1,296 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aku-046-emerging-biomarkers",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-12-30T06:15:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.85,
+    "status": "validated",
+    "last_updated": "2025-12-30T06:15:00.000Z",
+    "modified": "2026-01-04T14:38:55.269Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "diagnosis",
+    "difficulty": "advanced",
+    "importance": "moderate",
+    "aku_id": "046",
+    "keywords": [
+      "biomarkers",
+      "I-FABP",
+      "intestinal fatty acid binding protein",
+      "citrulline",
+      "D-lactate",
+      "early diagnosis"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "emerging_diagnostics",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Emerging biomarkers for mesenteric ischemia—particularly intestinal fatty acid binding protein (I-FABP) and citrulline—show promise for earlier diagnosis and monitoring of intestinal injury, though none have achieved widespread clinical validation to replace imaging as the diagnostic standard.",
+      "formal": "Emerging Biomarkers: I-FABP (sensitivity 79-90%, specificity 80-91%)—released from ischemic enterocytes; Citrulline (low levels correlate with enterocyte mass loss); D-lactate (bacterial origin, late marker); None yet validated for routine clinical use"
+    },
+    "explanation": {
+      "intuition": "The holy grail of mesenteric ischemia diagnosis would be a blood test that detects intestinal injury before irreversible necrosis occurs. Current markers like lactate and leukocytosis are nonspecific and rise late. Newer biomarkers like I-FABP are more specific to the gut and may provide an earlier signal.",
+      "key_insight": "I-FABP is the most promising emerging biomarker—it's released from damaged enterocytes and can be detected in blood and urine within hours of ischemic injury. However, it's not yet commercially available in most hospitals, and cutoff values are not standardized.",
+      "technical_details": "I-FABP is a small cytoplasmic protein found exclusively in mature enterocytes. It's released when cell membrane integrity is compromised. Half-life is short (11 minutes), so levels reflect active injury. Citrulline is synthesized by enterocytes from glutamine; low levels indicate reduced enterocyte mass."
+    }
+  },
+  "established_markers": {
+    "lactate": {
+      "mechanism": "Anaerobic glycolysis product",
+      "sensitivity": "80-96% (but varies with cutoff)",
+      "specificity": "60-87%",
+      "limitations": [
+        "Rises late (after transmural necrosis)",
+        "Nonspecific (many causes of lactic acidosis)",
+        "Can be normal in early or chronic ischemia"
+      ],
+      "clinical_use": {
+        "role": "Prognostic more than diagnostic",
+        "threshold": "Variable; >2.0-4.0 mmol/L concerning",
+        "serial_trend": "Rising lactate despite resuscitation very concerning"
+      }
+    },
+    "d_dimer": {
+      "sensitivity": "95-100% (very high—rules out if negative)",
+      "specificity": "Low (36-59%)",
+      "clinical_use": {
+        "role": "Negative predictive value high",
+        "limitation": "Elevated in many conditions; not specific"
+      }
+    },
+    "leukocytosis": {
+      "sensitivity": "Variable (50-98%)",
+      "specificity": "Low",
+      "limitation": "Nonspecific; can be absent in immunocompromised"
+    },
+    "base_deficit": {
+      "utility": "Marker of tissue hypoperfusion",
+      "limitation": "Nonspecific; late finding"
+    }
+  },
+  "emerging_biomarkers": {
+    "i_fabp": {
+      "full_name": "Intestinal Fatty Acid Binding Protein",
+      "source": "Mature enterocytes (villous tips)",
+      "mechanism": "Released when enterocyte membrane integrity is lost",
+      "molecular_weight": "15 kDa",
+      "half_life": "11 minutes (renally cleared)",
+      "detection": {
+        "sample_types": [
+          "Serum",
+          "Plasma",
+          "Urine"
+        ],
+        "assays": [
+          "ELISA (research)",
+          "Point-of-care (in development)"
+        ]
+      },
+      "diagnostic_performance": {
+        "sensitivity": "79-90%",
+        "specificity": "80-91%",
+        "note": "Varies by study, cutoffs not standardized"
+      },
+      "advantages": [
+        "Gut-specific",
+        "Rises early (hours) before transmural necrosis",
+        "Can distinguish strangulation from simple obstruction",
+        "Correlates with extent of injury"
+      ],
+      "limitations": [
+        "Not commercially available in most hospitals",
+        "Optimal cutoffs not established",
+        "Elevated in other GI conditions (celiac, IBD, chemotherapy)",
+        "Short half-life may miss if sampled late"
+      ],
+      "clinical_studies": {
+        "ami_diagnosis": "Multiple small studies show promise; no large RCTs",
+        "sbo_strangulation": "May help distinguish strangulated from simple obstruction",
+        "post_operative_monitoring": "Potential role in early detection of bowel complications"
+      },
+      "current_status": "Research tool; clinical adoption pending validation and availability"
+    },
+    "citrulline": {
+      "source": "Synthesized by enterocytes from glutamine",
+      "mechanism": "Low levels indicate reduced functional enterocyte mass",
+      "clinical_interpretation": {
+        "normal": ">20 μmol/L",
+        "reduced_mass": "<20 μmol/L",
+        "severe_reduction": "<10 μmol/L suggests >50% enterocyte loss"
+      },
+      "utility": {
+        "acute_setting": "Limited (not rapid enough for acute diagnosis)",
+        "sbs_monitoring": "Useful for assessing intestinal adaptation and TPN needs",
+        "transplant": "Monitor graft function after intestinal transplant"
+      },
+      "advantages": [
+        "Reflects functional enterocyte mass",
+        "Well-established assay (amino acid analysis)"
+      ],
+      "limitations": [
+        "Not specific for ischemia",
+        "Affected by renal function",
+        "Not rapidly available in emergency setting"
+      ]
+    },
+    "d_lactate": {
+      "source": "Produced by intestinal bacteria, not human cells",
+      "mechanism": "Elevated when bacterial translocation or overgrowth occurs",
+      "clinical_interpretation": {
+        "normal": "<0.2 mmol/L",
+        "elevated": "Suggests bacterial translocation from ischemic gut"
+      },
+      "utility": {
+        "role": "Late marker of mucosal barrier failure",
+        "limitation": "Rises after significant injury has occurred"
+      },
+      "assay_challenge": "Standard lactate assays measure L-lactate; specific D-lactate assay needed"
+    },
+    "alpha_gst": {
+      "full_name": "Alpha-Glutathione S-Transferase",
+      "source": "Hepatocytes (primarily), also intestinal cells",
+      "utility": "Less studied for intestinal ischemia than I-FABP",
+      "status": "Limited data"
+    },
+    "smooth_muscle_proteins": {
+      "examples": [
+        "Smooth muscle myosin heavy chain",
+        "Calponin"
+      ],
+      "mechanism": "Released from ischemic intestinal smooth muscle",
+      "status": "Investigational"
+    }
+  },
+  "point_of_care_development": {
+    "status": "Under development for I-FABP and other markers",
+    "goal": "Rapid bedside testing to inform clinical decisions",
+    "challenges": [
+      "Cutoff standardization",
+      "Validation in diverse populations",
+      "Cost-effectiveness demonstration",
+      "Integration into clinical workflows"
+    ]
+  },
+  "combined_panels": {
+    "concept": "Multiple markers may improve performance",
+    "proposed_combinations": [
+      "I-FABP + D-lactate",
+      "I-FABP + lactate + D-dimer",
+      "Biomarker score + clinical risk factors"
+    ],
+    "current_evidence": "Limited; most studies single-marker",
+    "future_direction": "Biomarker panels integrated with clinical decision rules"
+  },
+  "clinical_pearls": [
+    {
+      "pearl": "A normal lactate does NOT exclude early mesenteric ischemia—lactate rises late when transmural necrosis has occurred",
+      "implication": "Do not delay imaging based on normal lactate if clinical suspicion is high"
+    },
+    {
+      "pearl": "I-FABP is gut-specific and rises earlier than lactate, but it's not yet available in routine clinical practice",
+      "implication": "Know the emerging literature but rely on imaging for diagnosis currently"
+    },
+    {
+      "pearl": "D-dimer has high sensitivity for AMI—a normal D-dimer makes mesenteric ischemia very unlikely",
+      "implication": "Consider D-dimer as part of initial workup; useful for ruling out"
+    },
+    {
+      "pearl": "Serial biomarker trends may be more informative than single values—rising lactate despite resuscitation is ominous",
+      "implication": "Repeat labs to assess trajectory, especially lactate"
+    }
+  ],
+  "relationships": {
+    "prerequisites": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:013",
+        "title": "Laboratory Findings",
+        "relationship": "extends"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:010",
+        "title": "Intestinal Infarction",
+        "relationship": "pathophysiology_basis"
+      }
+    ],
+    "enables": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:038",
+        "title": "Differential Diagnosis",
+        "relationship": "diagnostic_adjunct"
+      }
+    ],
+    "related_concepts": [
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:015",
+        "title": "CTA Imaging",
+        "relationship": "current_gold_standard"
+      },
+      {
+        "aku_id": "urn:wskg:medicine:surgery:vascular:mesenteric-ischemia:032",
+        "title": "Short Bowel Syndrome",
+        "relationship": "citrulline_application"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "title": "Intestinal fatty acid binding protein as a marker for early diagnosis of acute mesenteric ischemia: A meta-analysis",
+        "authors": "Treskes N, Persoon AM, van Zanten ARH",
+        "publication": "Biomarkers",
+        "year": 2017,
+        "volume": 22,
+        "pages": "387-393",
+        "doi": "10.1080/1354750X.2016.1236855",
+        "type": "meta_analysis"
+      },
+      {
+        "title": "Plasma intestinal fatty acid binding protein: A sensitive marker for intestinal ischemia",
+        "authors": "Kanda T, Fujii H, Tani T, et al.",
+        "publication": "Digestive Diseases and Sciences",
+        "year": 1996,
+        "volume": 41,
+        "pages": "1990-1995",
+        "doi": "10.1007/BF02093596",
+        "type": "original_research"
+      },
+      {
+        "title": "Citrulline as a marker of intestinal function and absorption",
+        "authors": "Crenn P, Messing B, Cynober L",
+        "publication": "Annales de Biologie Clinique",
+        "year": 2008,
+        "volume": 66,
+        "pages": "233-239",
+        "doi": "10.1684/abc.2008.0222",
+        "type": "review"
+      },
+      {
+        "title": "Clinical Guidelines on the Management of Patients with Mesenteric Artery Disease",
+        "authors": "Björck M, Koelemay M, Acosta S, et al.",
+        "publication": "European Journal of Vascular and Endovascular Surgery",
+        "year": 2017,
+        "volume": 53,
+        "pages": "460-510",
+        "doi": "10.1016/j.ejvs.2017.01.010",
+        "type": "clinical_guideline"
+      }
+    ],
+    "evidence_level": "Low-Moderate (meta-analyses of heterogeneous studies; no RCTs or clinical adoption guidelines)",
+    "last_verified": "2025-12-30"
+  }
+}
