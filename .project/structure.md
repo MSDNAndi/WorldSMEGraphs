@@ -7,83 +7,113 @@
 ## Overview
 WorldSMEGraphs is a file-based knowledge representation system for subject matter expert domains. All data is stored in files, enabling version control, portability, and collaborative editing.
 
-## 🚧 Migration Status (2026-01-04 - Updated 14:41 UTC)
+## ✅ Migration Status (2026-01-04 - COMPLETE at 18:50 UTC)
 
-**Migration Complete for Phase 1-4!** ✅ Transitioning from legacy structure to global hierarchy per `domain/_ontology/global-hierarchy.yaml`
+**Migration COMPLETE!** ✅ All domains successfully transitioned to global hierarchy per `domain/_ontology/global-hierarchy.yaml`
 
-### Completed ✅
-- **Category Theory (8 AKUs)**: Migrated from `science/computer-science/functional-theory/category-theory/` → `formal-sciences/mathematics/pure-mathematics/category-theory/`
-- **Functional Programming AKUs (19 AKUs)**: Updated with `isApplicationDomain: true` and `cross_domain_references`
-- **Physics (136 AKUs)**: Migrated from `science/physics/` → `natural-sciences/physics/` ✅ NEW
-- **Economics (1 AKU)**: Migrated from `economics/` → `social-sciences/economics/` ✅ NEW
-- **Medicine (64 AKUs)**: Migrated from `medicine/` → `health-sciences/medicine/` ✅ NEW
-- **New hierarchy directories created**: formal-sciences, natural-sciences, social-sciences, health-sciences
-- **Comprehensive READMEs created**: All 4 top-level domains documented (formal, natural, social, health)
+### Final Results ✅
+- **Category Theory (27 AKUs)**: Migrated all components (8 ct + 6 functors + 8 monads + 5 monoids)
+  - FROM: `science/computer-science/functional-theory/` → TO: `formal-sciences/mathematics/pure-mathematics/category-theory/`
+- **Mathematics (21 AKUs)**: Migrated geometry and number-theory content
+  - FROM: `science/math/` → TO: `formal-sciences/mathematics/pure-mathematics/`
+- **Physics (138 AKUs)**: Complete migration including 2 metadata files
+  - FROM: `science/physics/` → TO: `natural-sciences/physics/`
+- **Economics (12 AKUs)**: Complete migration including 11 schema files + 1 terminology
+  - FROM: `economics/` → TO: `social-sciences/economics/`
+- **Medicine (68 AKUs)**: Complete migration including 3 terminology files
+  - FROM: `medicine/` → TO: `health-sciences/medicine/`
 
-**Total Migrated**: 228 AKUs (8 category theory + 19 FP updates + 136 physics + 1 economics + 64 medicine)
+**Total Files Processed**: 293 total (40 newly migrated + 253 verified duplicates)
+- **New migrations**: 40 files (category theory + math)
+- **Missing files added**: 16 files (metadata, terminology, schema)
+- **Duplicates removed**: 293 files from old locations
+- **Legacy directories removed**: 3 (science, economics, medicine)
 
-### Cleanup Needed 🔧
-- **Economics (11 AKUs)**: Missing `classification.domain_path` - need manual fixing
-- **Medicine (3 AKUs)**: Terminology files missing `classification.domain_path` - need manual fixing
-- **Physics (2 AKUs)**: Skipped during migration - need investigation
-
-### Pending ⏳
-- **Mathematics**: Remaining math content in `science/math/` → `formal-sciences/mathematics/`
-- **Computer Science**: Other CS content → `formal-sciences/computer-science/`
-- **Legacy Cleanup**: Remove old directories after final verification
+### Final Statistics
+- **formal-sciences**: 48 JSON files
+- **natural-sciences**: 138 JSON files
+- **social-sciences**: 12 JSON files
+- **health-sciences**: 68 JSON files
+- **Total**: 266 JSON files (256 AKUs + 10 schema/metadata)
 
 ### Migration Tools ✅
-- `domain/_ontology/tools/migrate_category_theory.py` - Category theory migration (completed)
-- `domain/_ontology/tools/update_fp_cross_domain.py` - FP cross-domain refs (completed)
-- `domain/_ontology/tools/migrate_domain.py` - General-purpose migration (completed) ✅ NEW
+- `domain/_ontology/tools/migrate_category_theory.py` - Category theory migration
+- `domain/_ontology/tools/update_fp_cross_domain.py` - FP cross-domain refs
+- `domain/_ontology/tools/migrate_domain.py` - General-purpose migration
 
-See: Issue #3 in `.project/issues.md` for detailed migration plan
+**See**: `.project/tracking/migration-pr30-completion-report.md` for complete details  
+**Issue**: #3 in `.project/issues.md` marked COMPLETE
 
-## New Hierarchy Structure (per global-hierarchy.yaml)
+## Current Hierarchy Structure (post-migration)
 
 ```
 domain/
 ├── _contexts/                 # JSON-LD semantic vocabularies
 ├── _ontology/                 # Global hierarchy and tools
+│   ├── README.md
+│   ├── global-hierarchy.yaml  # Authoritative source
+│   └── tools/
+│       ├── migrate_domain.py
+│       └── validate_cross_domain.py
 │
-├── formal-sciences/          # ✅ ACTIVE - Abstract/formal sciences
+├── formal-sciences/          # ✅ COMPLETE - Abstract/formal sciences
 │   ├── mathematics/
 │   │   └── pure-mathematics/
-│   │       └── category-theory/     # ✅ MIGRATED (8 AKUs)
-│   │           ├── akus/
-│   │           └── README.md
+│   │       ├── category-theory/     # ✅ 27 AKUs (ct, functors, monads, monoids)
+│   │       │   ├── akus/
+│   │       │   ├── functors/
+│   │       │   ├── monads/
+│   │       │   ├── monoids/
+│   │       │   └── README.md
+│   │       ├── geometry/            # ✅ 5 AKUs (golden-ratio)
+│   │       │   └── golden-ratio/
+│   │       └── number-theory/       # ✅ 16 AKUs (7 subdirectories)
+│   │           ├── primes/
+│   │           ├── fibonacci/
+│   │           ├── perfect-numbers/
+│   │           ├── mersenne-primes/
+│   │           ├── composite-numbers/
+│   │           ├── amicable-numbers/
+│   │           └── fermat-primes/
 │   └── computer-science/
 │       └── programming-paradigms/
-│           └── functional-programming/  # Future FP home
+│           └── functional-programming/  # ✅ 19 AKUs with cross-domain refs
 │
-├── natural-sciences/         # ✅ ACTIVE - Empirical sciences  
-│   └── physics/              # ✅ MIGRATED (136 AKUs from science/physics/)
-│       ├── measurement-limits/
-│       ├── quantum-mechanics/
+├── natural-sciences/         # ✅ COMPLETE - Empirical sciences  
+│   └── physics/              # ✅ 138 AKUs
+│       ├── atomic-physics/
 │       ├── cosmology/
 │       ├── general-relativity/
 │       ├── particle-physics/
-│       └── atomic-physics/
+│       ├── measurement-limits/
+│       │   ├── minimum-measurable-quantities/
+│       │   └── theoretical-minimum-limits/
+│       └── quantum-mechanics/
+│           └── planck-units/
 │
-├── social-sciences/          # ✅ ACTIVE - Human society
-│   └── economics/            # ✅ MIGRATED (1/12 AKUs from economics/)
-│       └── bwl/finance/valuation/npv/
+├── social-sciences/          # ✅ COMPLETE - Human society
+│   └── economics/            # ✅ 12 AKUs + schema files
+│       └── bwl/
+│           ├── finance/valuation/npv/
+│           ├── accounting/
+│           ├── entrepreneurship/
+│           ├── marketing/
+│           ├── strategy/
+│           ├── organization/
+│           ├── human-resources/
+│           ├── controlling/
+│           └── operations/
 │
-├── health-sciences/          # ✅ ACTIVE - Health and medicine
-│   └── medicine/             # ✅ MIGRATED (64/67 AKUs from medicine/)
-│       └── surgery/vascular/
-│           ├── complications/endoleaks/
-│           └── pathology/mesenteric-ischemia/
-│
-├── science/                  # ⏳ LEGACY - Being phased out
-│   ├── math/                 # To migrate to formal-sciences/mathematics/
-│   ├── computer-science/
-│   │   └── functional-theory/   # FP app AKUs (19, updated with cross-refs)
-│   └── physics/              # ⏳ OLD LOCATION - migrated to natural-sciences/
-│
-├── economics/                # ⏳ LEGACY - Being phased out (11 remaining AKUs)
-└── medicine/                 # ⏳ LEGACY - Being phased out (3 remaining AKUs)
+└── health-sciences/          # ✅ COMPLETE - Health and medicine
+    └── medicine/             # ✅ 68 AKUs + terminology
+        └── surgery/vascular/
+            ├── complications/endoleaks/
+            ├── pathology/mesenteric-ischemia/
+            ├── child-akus/
+            └── terminology/
 ```
+
+**Legacy directories (`science/`, `economics/`, `medicine/`) have been removed.**
 
 ## Top-Level Structure
 
@@ -116,95 +146,24 @@ WorldSMEGraphs/
 │   │   ├── science.jsonld         # Science domain vocabulary (QUDT, ChEBI)
 │   │   └── cross-domain.jsonld    # Cross-domain relationship vocabulary ✓ NEW
 │   │
-│   ├── _ontology/          # Global domain taxonomy and ontology ✓ NEW
+│   ├── _ontology/          # Global domain taxonomy and ontology
 │   │   ├── README.md              # Design documentation
-│   │   └── global-hierarchy.yaml  # Authoritative domain hierarchy
+│   │   ├── global-hierarchy.yaml  # Authoritative domain hierarchy
+│   │   └── tools/
+│   │       ├── migrate_domain.py          # Migration utility
+│   │       └── validate_cross_domain.py   # Cross-domain link validator
 │   │
-│   ├── science/            # Science domains (to be migrated to formal-sciences/natural-sciences)
-│   │   ├── math/
-│   │   │   ├── algebra/
-│   │   │   │   ├── knowledge.graph        # Language-agnostic representation
-│   │   │   │   ├── schema.json           # Graph schema definition
-│   │   │   │   └── .renders/             # Human-readable renderings
-│   │   │   │       ├── english/
-│   │   │   │       │   ├── elementary-school.md
-│   │   │   │       │   ├── high-school.md
-│   │   │   │       │   ├── graduate.md
-│   │   │   │       │   └── 4-year-old.md
-│   │   │   │       └── german/
-│   │   │   │           ├── grundschule.md
-│   │   │   │           └── hochschule.md
-│   │   │   ├── number-theory/
-│   │   │   │   └── primes/                # Prime Numbers ✓ Complete (10 AKUs)
-│   │   │   │       ├── concept-index.yaml
-│   │   │   │       ├── README.md
-│   │   │   │       ├── akus/
-│   │   │   │       │   ├── definitions/     (1 AKU)
-│   │   │   │       │   ├── theory/          (3 AKUs)
-│   │   │   │       │   ├── formulas/        (1 AKU)
-│   │   │   │       │   └── applications/    (5 AKUs)
-│   │   │   │       └── .renders/
-│   │   │   │           └── english/         (to be created)
-│   │   │   ├── geometry/
-│   │   │   └── calculus/
-│   │   ├── computer-science/
-│   │   │   └── functional-theory/         # FP concepts (27 AKUs) - to be refactored
-│   │   │       ├── concept-index.yaml     # NOTE: Category theory to migrate to
-│   │   │       ├── README.md              # formal-sciences/mathematics/pure-mathematics/category-theory
-│   │   │       ├── category-theory/       # 8 AKUs (⚠️ migration pending per global-hierarchy.yaml)
-│   │   │       ├── functors/              # 6 AKUs
-│   │   │       ├── monoids/               # 5 AKUs
-│   │   │       └── monads/                # 8 AKUs
-│   │   ├── physics/
-│   │   └── chemistry/
+│   ├── formal-sciences/    # Abstract sciences (mathematics, CS, logic)
+│   │   └── (see "Current Hierarchy Structure" section above for details)
 │   │
-│   ├── economics/          # Economics domains
-│   │   ├── macroeconomics/
-│   │   │   ├── knowledge.graph
-│   │   │   └── .renders/
-│   │   │       └── english/
-│   │   │           ├── adult-limited-reading.md
-│   │   │           └── graduate.md
-│   │   └── microeconomics/
+│   ├── natural-sciences/   # Empirical sciences (physics, chemistry, biology)
+│   │   └── (see "Current Hierarchy Structure" section above for details)
 │   │
-│   ├── medicine/           # Medical domains ✓ NEW
-│   │   └── surgery/
-│   │       └── vascular/
-│   │           ├── procedures/
-│   │           │   └── evar/              # EVAR procedure (placeholder)
-│   │           ├── pathology/
-│   │           │   ├── aaa/               # Abdominal Aortic Aneurysm (placeholder)
-│   │           │   └── mesenteric-ischemia/  # Mesenteric Ischemia ✓ Complete (29 AKUs)
-│   │           │       ├── concept-index.yaml
-│   │           │       ├── README.md
-│   │           │       ├── akus/
-│   │           │       │   ├── definitions/        (4 AKUs)
-│   │           │       │   ├── epidemiology/       (1 AKU)
-│   │           │       │   ├── pathophysiology/    (4 AKUs)
-│   │           │       │   ├── diagnosis/          (3 AKUs)
-│   │           │       │   ├── imaging/            (2 AKUs)
-│   │           │       │   ├── treatment/          (6 AKUs)
-│   │           │       │   ├── surgical-dilemmas/  (6 AKUs)
-│   │           │       │   ├── outcomes/           (2 AKUs)
-│   │           │       │   └── follow-up/          (1 AKU)
-│   │           │       └── .renders/
-│   │           │           └── english/
-│   │           │               └── book-chapter-surgical-dilemmas.md  # 25-30 page chapter
-│   │           └── complications/
-│   │               └── endoleaks/
-│   │                   └── type-2/        # Type 2 Endoleak ✓ Complete (5 AKUs)
-│   │                       ├── concept-index.yaml
-│   │                       ├── akus/
-│   │                       │   ├── definitions/     (2 AKUs)
-│   │                       │   ├── pathophysiology/ (1 AKU)
-│   │                       │   ├── diagnosis/       (1 AKU)
-│   │                       │   ├── management/      (1 AKU)
-│   │                       │   └── clinical/        (1 AKU)
-│   │                       └── .renders/
-│   │                           └── english/
-│   │                               └── medical-student-guide.md
+│   ├── social-sciences/    # Social sciences (economics, psychology, sociology)
+│   │   └── (see "Current Hierarchy Structure" section above for details)
 │   │
-│   └── [other-domains]/    # Additional domain hierarchies
+│   └── health-sciences/    # Health sciences (medicine, nursing, pharmacy)
+│       └── (see "Current Hierarchy Structure" section above for details)
 │
 ├── docs/                   # General project documentation
 │   ├── README.md          # Main documentation
@@ -408,12 +367,19 @@ Listed in `.gitignore`:
 
 ---
 
-**Last Updated**: 2026-01-04  
+**Last Updated**: 2026-01-04T18:55:00.000Z  
 **Major Changes**: 
+- **2026-01-04 18:50 UTC**: ✅ MIGRATION COMPLETE - All domains migrated to global hierarchy
+  - Completed migration of 40 files (category theory components + math content)
+  - Added 16 missing files (metadata, terminology, schema)
+  - Removed 3 legacy directories (science, economics, medicine)
+  - Total: 293 files processed (40 new + 253 removed duplicates)
+- 2026-01-04 14:41 UTC: Added physics migration (136 AKUs → natural-sciences/physics/)
+- 2026-01-04 14:41 UTC: Added economics migration (1 AKU → social-sciences/economics/)
+- 2026-01-04 14:41 UTC: Added medicine migration (64 AKUs → health-sciences/medicine/)
 - 2026-01-04: Added global domain hierarchy (`domain/_ontology/global-hierarchy.yaml`) with rigorous taxonomy based on UNESCO/LOC/DDC
 - 2026-01-04: Added cross-domain relationship vocabulary (`domain/_contexts/cross-domain.jsonld`)
 - 2026-01-04: Established native domain placement principle - category theory belongs to mathematics, not computer-science
-- 2026-01-04: Added functional-theory domain under science/computer-science (category theory, functors, monoids, monads) - ⚠️ migration pending
 - 2025-12-30: Added mesenteric ischemia domain with 29 AKUs and rendered book chapter (25-30 pages)
 - 2025-12-30: Added prime numbers domain with 10 AKUs and cross-domain connections
 - 2025-12-27: Added medicine domain with vascular surgery Type 2 endoleak (5 AKUs complete)

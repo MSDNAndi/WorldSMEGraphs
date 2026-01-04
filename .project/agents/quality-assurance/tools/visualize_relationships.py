@@ -261,7 +261,10 @@ def main():
             base_dir = Path("/home/runner/work/WorldSMEGraphs/WorldSMEGraphs")
             domains = {
                 'NPV/Finance': list(base_dir.glob(".project/pilot/npv-finance/akus/**/*.json")),
-                'Medical': list(base_dir.glob("domain/medicine/**/*.json"))
+                'Medical': list(base_dir.glob("domain/health-sciences/medicine/**/*.json")),
+                'Economics': list(base_dir.glob("domain/social-sciences/economics/**/*.json")),
+                'Physics': list(base_dir.glob("domain/natural-sciences/physics/**/*.json")),
+                'Mathematics': list(base_dir.glob("domain/formal-sciences/mathematics/**/*.json"))
             }
         else:
             dir_path = Path(args.directory)

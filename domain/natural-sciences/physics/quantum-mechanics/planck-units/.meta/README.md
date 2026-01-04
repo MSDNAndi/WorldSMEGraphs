@@ -64,7 +64,7 @@ cat akus/QUICK_START.md
 
 # Validate AKUs
 python .project/agents/quality-assurance/tools/validate_aku_v2.py \
-  --directory domain/science/physics/quantum-mechanics/planck-units/akus/definitions/
+  --directory domain/natural-sciences/physics/quantum-mechanics/planck-units/akus/definitions/
 
 # Cite values
 # See akus/QUICK_START.md "How to Use These AKUs > For Researchers"
@@ -262,15 +262,15 @@ Each AKU includes:
 ```bash
 # Validate all AKUs
 python .project/agents/quality-assurance/tools/validate_aku_v2.py \
-  --directory domain/science/physics/quantum-mechanics/planck-units/akus/definitions/
+  --directory domain/natural-sciences/physics/quantum-mechanics/planck-units/akus/definitions/
 
 # Validate single AKU
 python .project/agents/quality-assurance/tools/validate_aku_v2.py \
-  domain/science/physics/quantum-mechanics/planck-units/akus/definitions/aku-001-planck-length-definition.json
+  domain/natural-sciences/physics/quantum-mechanics/planck-units/akus/definitions/aku-001-planck-length-definition.json
 
 # Validate with verbose output
 python .project/agents/quality-assurance/tools/validate_aku_v2.py \
-  --directory domain/science/physics/quantum-mechanics/planck-units/akus/definitions/ \
+  --directory domain/natural-sciences/physics/quantum-mechanics/planck-units/akus/definitions/ \
   --verbose
 ```
 

@@ -66,7 +66,7 @@ transformation:
   - formula_numeric_constants_match_within_0.1_percent
   - 'required_fields: [''label'', ''description'', ''formula'']'
 loading:
-  target_storage: domain/economics/bwl/.integration/wikidata/
+  target_storage: domain/social-sciences/economics/bwl/.integration/wikidata/
   conflict_resolution: merge with internal priority for formulas
   error_handling: retry 3x, then manual review queue
 

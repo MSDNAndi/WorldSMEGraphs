@@ -57,15 +57,15 @@ Validates the factual accuracy, currency, and reliability of all knowledge units
 ### Good Input Examples
 
 ```
-@fact-checking Verify domain/medicine/surgery/vascular/endoleaks/type-2-endoleak-definition.json using peer-reviewed medical literature from last 10 years, check against SNOMED CT terminology
+@fact-checking Verify domain/health-sciences/medicine/surgery/vascular/endoleaks/type-2-endoleak-definition.json using peer-reviewed medical literature from last 10 years, check against SNOMED CT terminology
 ```
 
 ```
-@fact-checking Quick verification for domain/science/math/algebra/npv-formula.json, cross-reference with financial mathematics textbooks
+@fact-checking Quick verification for domain/formal-sciences/mathematics/pure-mathematics/algebra/npv-formula.json, cross-reference with financial mathematics textbooks
 ```
 
 ```
-@fact-checking Comprehensive fact-check for domain/economics/microeconomics/supply-demand/equilibrium-definition.json, verify all numerical claims and definitions
+@fact-checking Comprehensive fact-check for domain/social-sciences/economics/microeconomics/supply-demand/equilibrium-definition.json, verify all numerical claims and definitions
 ```
 
 ## Output Format
@@ -201,15 +201,15 @@ Validates the factual accuracy, currency, and reliability of all knowledge units
 ## Usage Examples
 
 ```
-@fact-checking Verify all medical claims in domain/medicine/vascular/endoleaks/ directory, use comprehensive verification with peer-reviewed sources only
+@fact-checking Verify all medical claims in domain/health-sciences/medicine/vascular/endoleaks/ directory, use comprehensive verification with peer-reviewed sources only
 ```
 
 ```
-@fact-checking Quick check: domain/economics/npv/npv-calculation.json - verify formula accuracy and numerical examples
+@fact-checking Quick check: domain/social-sciences/economics/npv/npv-calculation.json - verify formula accuracy and numerical examples
 ```
 
 ```
-@fact-checking Standard verification for domain/science/physics/mechanics/newtons-laws.json, check against authoritative physics textbooks
+@fact-checking Standard verification for domain/natural-sciences/physics/mechanics/newtons-laws.json, check against authoritative physics textbooks
 ```
 
 ## Integration with Other Agents

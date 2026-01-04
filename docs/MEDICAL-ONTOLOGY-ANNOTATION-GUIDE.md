@@ -440,7 +440,7 @@ python .project/agents/quality-assurance/tools/validate_aku_v2.py path/to/aku.js
 python .project/agents/quality-assurance/tools/validate_aku_v2.py --domain medicine
 
 # Validate specific directory
-python .project/agents/quality-assurance/tools/validate_aku_v2.py --directory domain/medicine/
+python .project/agents/quality-assurance/tools/validate_aku_v2.py --directory domain/health-sciences/medicine/
 ```
 
 ### Manual Validation Checklist
@@ -522,8 +522,8 @@ python .project/agents/quality-assurance/tools/validate_aku_v2.py --directory do
 ## Examples
 
 See complete examples in:
-- `/domain/medicine/surgery/vascular/complications/endoleaks/type-2/terminology/EXAMPLE-enhanced-aku.json`
-- `/domain/medicine/surgery/vascular/complications/endoleaks/type-2/akus/definitions/aku-001-type2-endoleak-definition.json`
+- `/domain/health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2/terminology/EXAMPLE-enhanced-aku.json`
+- `/domain/health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2/akus/definitions/aku-001-type2-endoleak-definition.json`
 
 ---
 

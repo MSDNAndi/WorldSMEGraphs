@@ -145,7 +145,7 @@ Converts language-agnostic knowledge graphs into human-readable formats tailored
 
 ## Usage Example
 ```
-@rendering-agent Render domain/science/math/algebra/knowledge.graph 
+@rendering-agent Render domain/formal-sciences/mathematics/pure-mathematics/algebra/knowledge.graph 
 for elementary school students in English markdown format. 
 Focus on making abstract concepts concrete with examples.
 ```

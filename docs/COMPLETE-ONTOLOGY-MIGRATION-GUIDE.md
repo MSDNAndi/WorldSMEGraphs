@@ -400,7 +400,7 @@ Before finalizing each AKU enhancement:
 
 ### Complete Medical AKU Example
 
-See: `domain/medicine/surgery/vascular/complications/endoleaks/type-2/akus/definitions/aku-001-type2-endoleak-definition.json`
+See: `domain/health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2/akus/definitions/aku-001-type2-endoleak-definition.json`
 
 Key features:
 - SNOMED CT exactMatch (449567000)

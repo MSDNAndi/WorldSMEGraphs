@@ -33,7 +33,7 @@ This document describes the advanced tools created to enhance and maintain the o
 python .project/agents/quality-assurance/tools/validate_uris.py --all --verbose
 
 # Validate specific directory
-python .project/agents/quality-assurance/tools/validate_uris.py --directory domain/medicine/
+python .project/agents/quality-assurance/tools/validate_uris.py --directory domain/health-sciences/medicine/
 
 # Validate single AKU
 python .project/agents/quality-assurance/tools/validate_uris.py path/to/aku.json
@@ -155,7 +155,7 @@ Ontology usage:
 ```bash
 # Validate all AKUs in a directory
 python .project/agents/quality-assurance/tools/batch_processor.py \
-    --validate --directory domain/medicine/ --verbose
+    --validate --directory domain/health-sciences/medicine/ --verbose
 
 # Validate entire repository
 python .project/agents/quality-assurance/tools/batch_processor.py \

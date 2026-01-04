@@ -78,7 +78,7 @@ Quick check of mathematics:calculus:derivative:power-rule AKU - verify formula n
 ```
 
 ```
-Comprehensive review of all AKUs in domain/science/physics/mechanics/ for internal consistency and cross-reference accuracy
+Comprehensive review of all AKUs in domain/natural-sciences/physics/mechanics/ for internal consistency and cross-reference accuracy
 ```
 
 ## Output Format

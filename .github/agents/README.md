@@ -169,7 +169,7 @@ bash ../../scripts/check-agent-lengths.sh
 
 @conflict-resolution Three economics textbooks define 'elasticity' differently, resolve using authority + recency
 
-@aku-atomicity-specialist Analyze domain/economics/bwl/finance/valuation/npv/ for over-bundled AKUs, recommend splits
+@aku-atomicity-specialist Analyze domain/social-sciences/economics/bwl/finance/valuation/npv/ for over-bundled AKUs, recommend splits
 
 @aku-atomicity-specialist Split aku-npv-complete.json into atomic units: definition, formula, decision-rule, example
 ```
@@ -297,7 +297,7 @@ bash ../../scripts/check-agent-lengths.sh
 
 ### 1. Be Specific
 Bad: `@rendering-agent Create a rendering`
-Good: `@rendering-agent Create an elementary school English rendering of domain/science/math/algebra/knowledge.graph focusing on variables and equations`
+Good: `@rendering-agent Create an elementary school English rendering of domain/formal-sciences/mathematics/pure-mathematics/algebra/knowledge.graph focusing on variables and equations`
 
 ### 2. Provide Context
 Include:

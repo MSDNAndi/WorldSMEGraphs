@@ -70,7 +70,7 @@ npv-finance/
 
 Successful pilots graduate to main knowledge graph:
 ```
-.project/pilot/npv-finance/ → domain/economics/bwl/finance/valuation/npv/
+.project/pilot/npv-finance/ → domain/social-sciences/economics/bwl/finance/valuation/npv/
 ```
 
 ## Pilot Pipeline

@@ -32,7 +32,7 @@ Tested path depth limitations on Linux file system with varying directory name l
 
 **Current Domain Example:**
 ```
-domain/medicine/surgery/vascular/complications/endoleaks/type-2/akus/definitions/aku-001-type2-endoleak-definition.json
+domain/health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2/akus/definitions/aku-001-type2-endoleak-definition.json
 ```
 - Path length: 119 characters
 - Depth: 10 levels

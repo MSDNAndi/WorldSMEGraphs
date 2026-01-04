@@ -122,11 +122,11 @@ Match types: All exactMatch
 ```bash
 # For medical
 cp docs/templates/medical-aku-ontology-template.json \
-   domain/medicine/YOUR/PATH/akus/CATEGORY/aku-NNN-concept-name.json
+   domain/health-sciences/medicine/YOUR/PATH/akus/CATEGORY/aku-NNN-concept-name.json
 
 # For economics
 cp docs/templates/economics-aku-ontology-template.json \
-   domain/economics/YOUR/PATH/akus/CATEGORY/aku-NNN-concept-name.json
+   domain/social-sciences/economics/YOUR/PATH/akus/CATEGORY/aku-NNN-concept-name.json
 
 # For science
 cp docs/templates/science-aku-ontology-template.json \

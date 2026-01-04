@@ -179,7 +179,7 @@ Result: FP references math, doesn't duplicate it
 
 #### BEFORE
 ```
-domain/science/physics/                    ◄── Ambiguous "science" category
+domain/natural-sciences/physics/                    ◄── Ambiguous "science" category
 ├── measurement-limits/
 │   └── minimum-measurable-quantities/
 │       └── akus/definitions/ (18 AKUs)
@@ -220,7 +220,7 @@ Result: 136/138 AKUs migrated successfully (99.5%)
 
 #### BEFORE
 ```
-domain/economics/                          ◄── Flat, top-level
+domain/social-sciences/economics/                          ◄── Flat, top-level
 └── bwl/finance/valuation/npv/
     └── akus/examples/ (12 AKUs)
 
@@ -243,7 +243,7 @@ Action needed: Manual fix for remaining AKUs
 
 #### BEFORE
 ```
-domain/medicine/                           ◄── Flat, ambiguous
+domain/health-sciences/medicine/                           ◄── Flat, ambiguous
 └── surgery/vascular/
     ├── complications/endoleaks/type-2/ (8 AKUs)
     └── pathology/mesenteric-ischemia/ (56 AKUs)

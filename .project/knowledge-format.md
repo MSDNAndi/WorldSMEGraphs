@@ -380,8 +380,8 @@ Same UID maps to translations:
 ## Examples
 
 See pilot implementations:
-- `domain/science/math/algebra/knowledge.graph` (planned)
-- `domain/economics/macroeconomics/knowledge.graph` (planned)
+- `domain/formal-sciences/mathematics/pure-mathematics/algebra/knowledge.graph` (planned)
+- `domain/social-sciences/economics/macroeconomics/knowledge.graph` (planned)
 
 ## Future Enhancements
 

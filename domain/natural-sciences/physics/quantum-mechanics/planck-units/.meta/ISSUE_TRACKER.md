@@ -56,7 +56,7 @@
 - **Effort:** 2-3 hours (Actual: 2 hours)
 - **Assigned:** research-agent
 - **Status:** ✅ RESOLVED (2025-12-29T18:57:00Z)
-- **Deliverable:** `/domain/science/physics/quantum-mechanics/planck-units/akus/definitions/aku-018-planck-area-definition.json`
+- **Deliverable:** `/domain/natural-sciences/physics/quantum-mechanics/planck-units/akus/definitions/aku-018-planck-area-definition.json`
 - **Quality:** 18KB comprehensive definition with derivations, calculations, examples, and complete provenance
 
 ---
@@ -105,7 +105,7 @@
 - **Effort:** 2-3 hours (Actual: 2 hours)
 - **Assigned:** research-agent
 - **Status:** ✅ RESOLVED (2025-12-29T19:00:00Z)
-- **Deliverable:** `/domain/science/physics/quantum-mechanics/planck-units/akus/definitions/aku-031-compton-wavelength-definition.json`
+- **Deliverable:** `/domain/natural-sciences/physics/quantum-mechanics/planck-units/akus/definitions/aku-031-compton-wavelength-definition.json`
 - **Quality:** 18KB comprehensive definition with historical context, scale comparisons, QFT significance, and quantum gravity connection
 
 ---
@@ -121,7 +121,7 @@
 - **Effort:** 2-3 hours (Actual: 2 hours)
 - **Assigned:** research-agent
 - **Status:** ✅ RESOLVED (2025-12-29T19:03:00Z)
-- **Deliverable:** `/domain/science/physics/quantum-mechanics/planck-units/akus/definitions/aku-032-schwarzschild-radius-definition.json`
+- **Deliverable:** `/domain/natural-sciences/physics/quantum-mechanics/planck-units/akus/definitions/aku-032-schwarzschild-radius-definition.json`
 - **Quality:** 21KB comprehensive definition with derivations, historical context, observational evidence, and quantum gravity connection
 
 ---
@@ -137,7 +137,7 @@
 - **Effort:** 4-6 hours (Actual: 4 hours)
 - **Assigned:** research-agent
 - **Status:** ✅ RESOLVED (2025-12-29T18:52:00Z)
-- **Deliverable:** `/domain/science/physics/quantum-mechanics/planck-units/akus/theory/aku-t01-holographic-principle.json`
+- **Deliverable:** `/domain/natural-sciences/physics/quantum-mechanics/planck-units/akus/theory/aku-t01-holographic-principle.json`
 - **Quality:** 32KB comprehensive theory AKU with 10 authoritative sources, full mathematical framework, historical context, open questions, and pedagogical guidance
 
 ---
@@ -153,7 +153,7 @@
 - **Effort:** 4-6 hours (Actual: 3 hours)
 - **Assigned:** research-agent
 - **Status:** ✅ RESOLVED (2025-12-29T18:55:00Z)
-- **Deliverable:** `/domain/science/physics/quantum-mechanics/planck-units/akus/theory/aku-t02-planck-epoch-cosmology.json`
+- **Deliverable:** `/domain/natural-sciences/physics/quantum-mechanics/planck-units/akus/theory/aku-t02-planck-epoch-cosmology.json`
 - **Quality:** 28KB comprehensive theory AKU covering physical conditions, quantum spacetime, force unification, observational consequences, and open questions
 
 ---

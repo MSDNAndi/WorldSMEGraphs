@@ -291,7 +291,7 @@ graph TD
 python visualize_relationships.py path/to/aku.json
 
 # Visualize directory
-python visualize_relationships.py --directory domain/economics/
+python visualize_relationships.py --directory domain/social-sciences/economics/
 
 # Generate domain-wide graphs
 python visualize_relationships.py --graph-all

@@ -228,7 +228,7 @@ Create `schema.json`:
 
 Path: `domain/[...]/[topic]/.renders/[language]/[audience].[format]`
 
-Example: `domain/science/math/algebra/.renders/english/elementary-school.md`
+Example: `domain/formal-sciences/mathematics/pure-mathematics/algebra/.renders/english/elementary-school.md`
 
 4. **Write Content**
 
@@ -351,14 +351,14 @@ This project uses specialized AI agents. Leverage them:
 
 **Knowledge Graph Agent**:
 ```
-@knowledge-graph-agent Create a knowledge graph for domain/science/chemistry/atoms
+@knowledge-graph-agent Create a knowledge graph for domain/natural-sciences/chemistry/atoms
 covering protons, neutrons, electrons, and their relationships.
 ```
 
 **Rendering Agent**:
 ```
 @rendering-agent Generate an elementary school rendering of 
-domain/science/math/algebra/knowledge.graph in English.
+domain/formal-sciences/mathematics/pure-mathematics/algebra/knowledge.graph in English.
 ```
 
 **Documentation Agent**:
