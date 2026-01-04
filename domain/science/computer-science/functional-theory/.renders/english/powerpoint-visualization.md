@@ -1213,7 +1213,7 @@ flowchart TB
 
 **Next time someone says this quote to sound smart, you can nod and say: "Yes, because join flattens nested functors, which is the monoid operation."**
 
-Then walk away dramatically.
+Then offer to explain how `[[1,2], [3,4]].flat()` is the same operation at the value level.
 
 ---
 
@@ -1377,7 +1377,7 @@ flowchart LR
 │   Path:  Category Theory → Functors → Monoids → Monads          │
 │   Time:  ~8-12 hours                                             │
 │   Goal:  Understand the abstract structure. Read Haskell        │
-│          without crying. Annoy coworkers with math facts.        │
+│          without crying. Contribute to architecture discussions. │
 │                                                                  │
 ├──────────────────────────────────────────────────────────────────┤
 │                                                                  │
@@ -1489,7 +1489,7 @@ flowchart LR
 ### Slides 20-25: Monads
 - **Time**: 15 minutes
 - **Key Point**: "Composing functions that return wrapped values"
-- **WARNING**: Avoid ALL analogies (burritos, elephants, space suits). The Tutorial Fallacy is real!
+- **WARNING**: Avoid analogies. The "Tutorial Fallacy" (md-007) refers to the tendency to explain monads via analogies (burritos, elephants, space suits) that only make sense AFTER you understand monads. Use concrete code examples instead.
 - **Strategy**: Show the PROBLEM first (types don't match), then the SOLUTION (bind handles unwrapping)
 - **Code Demo**: Maybe monad chaining, show what happens with Nothing (short-circuits)
 - **Modern**: Point out that async/await IS monad syntax sugar for the Promise monad
