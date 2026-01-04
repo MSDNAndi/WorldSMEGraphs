@@ -42,12 +42,14 @@
 | [MIGRATION-QUICKSTART.md](MIGRATION-QUICKSTART.md) | Quick 3-step guide | New users |
 | [MIGRATION-SUMMARY.md](MIGRATION-SUMMARY.md) | Complete migration record | All |
 | [VALIDATION-REPORT.md](VALIDATION-REPORT.md) | Quality assurance results | QA, Management |
+| [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Common issues & solutions | Developers, Users |
 
 ### Project Management
 
 | Document | Purpose | Audience |
 |----------|---------|----------|
 | [../.project/PROJECT-COMPLETION-SUMMARY.md](../.project/PROJECT-COMPLETION-SUMMARY.md) | Executive summary | Management, Stakeholders |
+| [../.project/SESSION-LOG-2026-01-04.md](../.project/SESSION-LOG-2026-01-04.md) | Work session timeline | Team, Management |
 | [../.project/issues.md](../.project/issues.md) | Issue tracking (Issue #3) | Development team |
 | [../.project/structure.md](../.project/structure.md) | Project structure status | All |
 | [../.project/roadmap.md](../.project/roadmap.md) | Phase tracking | Management |
