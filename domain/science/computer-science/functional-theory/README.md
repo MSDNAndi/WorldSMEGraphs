@@ -6,6 +6,11 @@ This domain contains comprehensive, atomic knowledge units (AKUs) covering the m
 
 **Purpose**: Provide a rigorous, language-agnostic knowledge foundation for a technical presentation on functional theory, suitable for rendering to multiple audience levels.
 
+## Placement and cross-domain alignment
+
+- **Why under computer science**: The collection is scoped to functional programming practice and theory, so category theory is housed here to keep the programming-focused learning paths cohesive.
+- **Cross-link to mathematics**: Category theory remains mathematically native; `concept-index.yaml` maintains links to abstract algebra, set theory, and logic to reuse and align with mathematics while serving computing use cases.
+
 ## Domain Structure
 
 ```
