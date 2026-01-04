@@ -198,6 +198,91 @@ class GenerationResult:
     retries_used: int = 0
     metadata: Dict[str, Any] = field(default_factory=dict)
     rate_limited: bool = False  # Track if we hit rate limits
+    content_safety_modified: bool = False  # Track if prompt was modified for safety
+
+
+class ContentSafetyError(Exception):
+    """Exception raised when content safety blocks an image generation."""
+    def __init__(self, message: str, code: str = ""):
+        self.message = message
+        self.code = code
+        super().__init__(f"Content Safety Error: {message}")
+
+
+class ContentSafetyHandler:
+    """
+    Handles content safety errors by modifying prompts.
+    
+    When the image generation API rejects a prompt due to content safety,
+    this handler analyzes the error and modifies the prompt to be compliant.
+    """
+    
+    # Keywords that might trigger content safety
+    SENSITIVE_KEYWORDS = {
+        "death", "kill", "blood", "violence", "weapon", "gun", "knife",
+        "adult", "nude", "explicit", "sexy", "provocative",
+        "drug", "cocaine", "heroin", "marijuana",
+        "hate", "racist", "discrimination",
+        "political", "election", "president", "government",
+    }
+    
+    # Safe replacements for technical concepts
+    SAFE_REPLACEMENTS = {
+        "death": "transition",
+        "kill": "terminate gracefully",
+        "blood": "energy flow",
+        "attack": "challenge",
+        "crash": "unexpected stop",
+        "destroy": "clean up",
+        "explode": "expand rapidly",
+        "injection": "insertion",
+        "execute": "run",
+        "daemon": "background service",
+        "master": "primary",
+        "slave": "replica",
+        "kill signal": "stop signal",
+        "killer feature": "standout feature",
+    }
+    
+    @classmethod
+    def sanitize_prompt(cls, prompt: str) -> str:
+        """Pre-emptively sanitize a prompt before sending to the API."""
+        result = prompt
+        for old, new in cls.SAFE_REPLACEMENTS.items():
+            if old.lower() in result.lower():
+                # Case-insensitive replacement
+                import re
+                pattern = re.compile(re.escape(old), re.IGNORECASE)
+                result = pattern.sub(new, result)
+        return result
+    
+    @classmethod
+    def modify_for_safety(cls, original_prompt: str, error_message: str) -> str:
+        """
+        Modify a prompt that was rejected for content safety.
+        
+        Args:
+            original_prompt: The prompt that was rejected
+            error_message: The error message from the API
+            
+        Returns:
+            Modified prompt that should be safer
+        """
+        # Apply sanitization
+        modified = cls.sanitize_prompt(original_prompt)
+        
+        # Add explicit safety constraints
+        safety_suffix = """
+
+Additional Constraints:
+- Create family-friendly, professional artwork only
+- Use abstract, geometric representations where appropriate
+- Clean, corporate presentation style
+- No controversial, violent, or adult imagery
+- Suitable for business and educational contexts
+"""
+        
+        return modified + safety_suffix
 
 
 # =============================================================================
@@ -537,6 +622,8 @@ class GPTImageClient:
         Uses linear backoff (not exponential) as per requirements for
         a more gradual and predictable retry pattern.
         
+        Also handles content safety errors by modifying prompts automatically.
+        
         Args:
             config: Generation configuration
             
@@ -547,6 +634,8 @@ class GPTImageClient:
         retries = 0
         last_error = None
         rate_limited = False
+        content_safety_modified = False
+        current_prompt = config.prompt
         
         while retries <= self.rate_config.max_retries:
             try:
@@ -554,14 +643,42 @@ class GPTImageClient:
                     self._active_requests += 1
                 
                 try:
-                    result = await self._attempt_generation(config)
+                    # Update config with current prompt (may have been modified for safety)
+                    modified_config = GenerationConfig(
+                        prompt=current_prompt,
+                        aspect_ratio=config.aspect_ratio,
+                        quality=config.quality,
+                        n_variations=config.n_variations,
+                        output_dir=config.output_dir,
+                        output_prefix=config.output_prefix,
+                        output_format=config.output_format,
+                        background=config.background,
+                        max_retries=config.max_retries,
+                        retry_delay_base=config.retry_delay_base,
+                        retry_delay_increment=config.retry_delay_increment,
+                        timeout_seconds=config.timeout_seconds,
+                        poll_interval=config.poll_interval,
+                        add_to_git=config.add_to_git
+                    )
+                    result = await self._attempt_generation(modified_config)
                     result.generation_time_seconds = time.time() - start_time
                     result.retries_used = retries
                     result.rate_limited = rate_limited
+                    result.content_safety_modified = content_safety_modified
                     return result
                 finally:
                     async with self._request_lock:
                         self._active_requests -= 1
+            
+            except ContentSafetyError as e:
+                # Content safety error - try to modify prompt and retry
+                print(f"  ⚠️  Content safety issue: {e.message[:100]}...")
+                retries += 1
+                content_safety_modified = True
+                current_prompt = ContentSafetyHandler.modify_for_safety(current_prompt, str(e))
+                print(f"  🔄 Modified prompt for safety, retrying...")
+                # Short delay before retry
+                await asyncio.sleep(2)
                     
             except Exception as e:
                 last_error = str(e)
@@ -582,10 +699,11 @@ class GPTImageClient:
         return GenerationResult(
             success=False,
             error_message=f"Failed after {self.rate_config.max_retries} retries: {last_error}",
-            prompt_used=config.prompt,
+            prompt_used=current_prompt,
             generation_time_seconds=time.time() - start_time,
             retries_used=retries,
-            rate_limited=rate_limited
+            rate_limited=rate_limited,
+            content_safety_modified=content_safety_modified
         )
     
     def _record_rate_limit_event(self, error_message: str):
@@ -617,7 +735,12 @@ class GPTImageClient:
         response = json.loads(response_data)
         
         if "error" in response:
-            raise Exception(response["error"].get("message", "Unknown API error"))
+            error_msg = response["error"].get("message", "Unknown API error")
+            error_code = response["error"].get("code", "")
+            # Check for content safety issues
+            if any(term in error_msg.lower() for term in ["content", "safety", "policy", "moderation", "rejected"]):
+                raise ContentSafetyError(error_msg, error_code)
+            raise Exception(error_msg)
         
         # Handle async generation with polling if needed
         if "id" in response and "status" in response:
