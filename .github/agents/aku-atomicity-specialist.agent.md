@@ -105,7 +105,7 @@ The AKU Atomicity Specialist ensures that knowledge units in WorldSMEGraphs main
 
 **Over-bundled Detection:**
 ```
-@aku-atomicity-specialist Analyze domain/economics/bwl/finance/valuation/npv/akus/ 
+@aku-atomicity-specialist Analyze domain/social-sciences/economics/bwl/finance/valuation/npv/akus/ 
 for over-bundled AKUs. Look for: (1) AKUs teaching multiple concepts, (2) Mixed 
 definition + formula + example in single AKU, (3) Multi-step calculations in one unit. 
 Report violations with split recommendations.
@@ -129,7 +129,7 @@ These fragments are too small to be independently useful.
 
 **Recombine Operation:**
 ```
-@aku-atomicity-specialist Recombine AKUs in domain/medicine/surgery/vascular/endoleaks/ - 
+@aku-atomicity-specialist Recombine AKUs in domain/health-sciences/medicine/surgery/vascular/endoleaks/ - 
 current boundaries don't align with learning progression. Type-1/2/3/4 endoleaks are 
 split across definition/diagnosis/treatment but should be concept-first organization. 
 Reorganize into atomic units per endoleak type.
@@ -138,7 +138,7 @@ Reorganize into atomic units per endoleak type.
 **Domain-Wide Analysis:**
 ```
 @aku-atomicity-specialist Audit entire NPV pilot 
-(domain/economics/bwl/finance/valuation/npv/) for atomicity violations. Provide: 
+(domain/social-sciences/economics/bwl/finance/valuation/npv/) for atomicity violations. Provide: 
 (1) List of over-bundled AKUs with concept count, (2) Under-specified fragments, 
 (3) Recommended splits/merges, (4) Priority ranking by learning impact.
 ```
@@ -343,7 +343,7 @@ estimated_effort:
 
 ### Analyze Single AKU
 ```
-@aku-atomicity-specialist Analyze domain/economics/bwl/finance/valuation/npv/akus/aku-npv-complete.json 
+@aku-atomicity-specialist Analyze domain/social-sciences/economics/bwl/finance/valuation/npv/akus/aku-npv-complete.json 
 for atomicity. Report: (1) Concept count, (2) Natural boundaries, (3) Split/merge/keep 
 recommendation, (4) Impact on learning flow if transformed.
 ```
@@ -364,7 +364,7 @@ Files: r-symbol.json, r-notation.json, r-percentage-form.json. Target: Single
 
 ### Domain Audit
 ```
-@aku-atomicity-specialist Audit domain/medicine/surgery/vascular/ for atomicity violations. 
+@aku-atomicity-specialist Audit domain/health-sciences/medicine/surgery/vascular/ for atomicity violations. 
 Focus on: (1) Endoleak classifications mixed with symptoms, (2) Procedure descriptions 
 bundled with complications, (3) Imaging findings split too granularly. Provide 
 prioritized transformation plan.

@@ -137,7 +137,7 @@ Expert in web accessibility standards, universal design, and assistive technolog
 ## Usage Examples
 
 ```
-@accessibility Audit domain/economics/finance/npv/.renders/english/graduate.md for WCAG 2.1 AA. Focus on LaTeX formula accessibility and table navigation.
+@accessibility Audit domain/social-sciences/economics/finance/npv/.renders/english/graduate.md for WCAG 2.1 AA. Focus on LaTeX formula accessibility and table navigation.
 ```
 
 ```

@@ -173,7 +173,7 @@ Expert agent specializing in creating, maintaining, and validating language-agno
 
 ## Usage Example
 ```
-@knowledge-graph-agent Create a knowledge graph for domain/science/math/algebra 
+@knowledge-graph-agent Create a knowledge graph for domain/formal-sciences/mathematics/pure-mathematics/algebra 
 covering core concepts: variables, equations, operations, functions, polynomials.
 Include cross-links to arithmetic and geometry.
 ```
