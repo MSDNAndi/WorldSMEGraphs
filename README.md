@@ -297,10 +297,10 @@ A comprehensive collection of interconnected number theory concepts with 16 vali
 - **Amicable Numbers**: Pairs with reciprocal divisor sum relationships
 
 ### Resources
-- **[Number Theory Overview](domain/science/math/number-theory/README.md)**: Complete domain documentation
+- **[Number Theory Overview](domain/formal-sciences/mathematics/pure-mathematics/number-theory/README.md)**: Complete domain documentation
 - **[Quick Reference Guide](docs/NUMBER-THEORY-QUICK-REFERENCE.md)**: Formulas, code snippets, and quick lookup
-- **[Relationship Map](domain/science/math/number-theory/RELATIONSHIPS.md)**: Visual diagrams and cross-connections
-- **[Learning Examples](domain/science/math/number-theory/examples/LEARNING-EXAMPLES.md)**: Worked problems and practice exercises
+- **[Relationship Map](domain/formal-sciences/mathematics/pure-mathematics/number-theory/RELATIONSHIPS.md)**: Visual diagrams and cross-connections
+- **[Learning Examples](domain/formal-sciences/mathematics/pure-mathematics/number-theory/examples/LEARNING-EXAMPLES.md)**: Worked problems and practice exercises
 
 ### Key Features
 - 16 comprehensive, validated AKUs
