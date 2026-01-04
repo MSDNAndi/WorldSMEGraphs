@@ -227,7 +227,53 @@ Agents are invoked using the `@agent-name` syntax followed by specific instructi
 - **Rendering**: rendering, pedagogy, visualization, accessibility
 - **Domain Experts**: math-expert, generic-domain-empathy (with personas)
 - **Quality Assurance**: code-review-agent, contrarian
+- **Image Generation**: image-generation (GPT Image 1.5 via Azure AI Foundry)
 - **And 40+ more specialized agents** - see `.github/agents/` directory
+
+## Image Generation Capabilities
+
+WorldSMEGraphs includes AI image generation for presentations and documentation using GPT Image 1.5.
+
+### Image Generation Tool
+**Location**: `.project/agents/image-generation/tools/gpt_image_generator.py`
+
+```bash
+# Generate single image
+python .project/agents/image-generation/tools/gpt_image_generator.py \
+  --prompt "Your prompt" --aspect landscape --quality high
+
+# Parallel batch generation (recommended)
+python .project/agents/image-generation/tools/gpt_image_generator.py \
+  --prompt-file prompts.txt --parallel 5 --enhance
+
+# Show prompting guidelines
+python .project/agents/image-generation/tools/gpt_image_generator.py --guidelines
+```
+
+### Presentation Generator
+**Location**: `.project/agents/image-generation/tools/presentation_generator.py`
+
+Generates complete PPTX and PDF presentations with AI-generated images for each slide.
+
+### Content Safety Handling
+The image generation system includes automatic content safety handling:
+- Pre-sanitizes prompts for sensitive technical terms
+- Automatically modifies prompts if rejected by API
+- Retries with safer alternatives
+- Logs all modifications for transparency
+
+### Super Explicit Prompts (Critical)
+Always be SUPER EXPLICIT about directions, orientations, and positions in image prompts:
+
+```
+BAD:  "arrows showing data flow"
+GOOD: "arrows flowing LEFT to RIGHT showing data flow direction, 
+       with arrowheads on the RIGHT side of each connection"
+```
+
+### Environment Secrets Required
+- `AI_FOUNDRY_API_KEY`: Azure AI Foundry API key
+- `GPT_IMAGE_1DOT5_ENDPOINT_URL`: GPT Image 1.5 endpoint
 
 ## Build, Test, and Validation
 
