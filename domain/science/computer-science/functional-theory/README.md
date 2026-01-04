@@ -74,13 +74,25 @@ functional-theory/
 
 This domain has been rendered into multiple formats:
 
-| File | Description | Lines |
-|------|-------------|-------|
-| `technical-presentation.md` | 60-minute talk with jokes | 918 |
-| `undergraduate-guide.md` | CS student learning guide | ~600 |
-| `quick-reference.md` | Cheat sheet / reference card | ~350 |
-| `advanced-research.md` | Graduate/researcher guide | ~700 |
-| `powerpoint-visualization.md` | **NEW** Visual diagrams & slides | 1,390 |
+| File | Description | Lines | Audience |
+|------|-------------|-------|----------|
+| `technical-presentation.md` | 60-minute talk with jokes | 918 | General developers |
+| `undergraduate-guide.md` | CS student learning guide | ~600 | Students |
+| `quick-reference.md` | Cheat sheet / reference card | ~350 | Quick lookup |
+| `advanced-research.md` | Graduate/researcher guide | ~700 | Researchers |
+| `powerpoint-visualization.md` | Visual diagrams & slides | 1,500+ | General (multi-language) |
+| `microsoft-dotnet-visualization.md` | **NEW** C#/F# focused slides | 1,200+ | .NET developers |
+
+### Audience-Specific Versions
+
+- **General Developer**: `powerpoint-visualization.md` - Multi-language examples (JS, Python, Rust, Scala)
+- **Microsoft Developer**: `microsoft-dotnet-visualization.md` - C#/F# focused with LINQ parallels
+
+### Image Generation
+
+For image assets, see:
+- **Prompts file**: `.renders/images/microsoft_fp_prompts.txt`
+- **Generation tool**: `.project/agents/image-generation/tools/gpt_image_generator.py`
 
 ## Content Coverage
 
