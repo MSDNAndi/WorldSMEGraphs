@@ -570,7 +570,7 @@ async def main():
             quality=quality_map[args.quality],
             n_variations=args.variations,
             output_dir=args.output_dir,
-            output_prefix=args.output.stem if args.output else "image",
+            output_prefix=Path(args.output).stem if args.output else "image",
             style=args.style,
             max_retries=args.max_retries,
             timeout_seconds=args.timeout,
