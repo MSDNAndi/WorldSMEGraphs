@@ -315,7 +315,6 @@ Additional Constraints:
                 existing_entries = data.get('pending_review', [])
         
         # Create entry for review
-        from datetime import datetime, timezone
         entry = {
             'id': f"safety-{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}",
             'timestamp': datetime.now(timezone.utc).isoformat(),

@@ -61,7 +61,7 @@ except ImportError:
 
 # Image handling (PIL availability check)
 try:
-    __import__("PIL")
+    import PIL
     PIL_AVAILABLE = True
 except ImportError:
     PIL_AVAILABLE = False
