@@ -35,11 +35,19 @@ METADATA_REQUIRED = ["version", "created", "contributors", "confidence", "status
 CLASSIFICATION_REQUIRED = ["domain_path", "type", "difficulty", "importance"]
 
 # Domain-specific required keys
+# Maps both old (medicine, science, economics) and new hierarchy paths
 DOMAIN_REQUIREMENTS = {
+    # Old structure (legacy support)
     "math": ["representations", "variables", "relationships", "provenance"],
     "medicine": ["clinical_features", "relationships", "provenance"],
     "economics": ["economic_concepts", "relationships", "provenance"],
     "science": ["scientific_principles", "relationships", "provenance"],
+    
+    # New hierarchy structure
+    "formal-sciences": ["representations", "variables", "relationships", "provenance"],
+    "natural-sciences": ["scientific_principles", "relationships", "provenance"],
+    "social-sciences": ["economic_concepts", "relationships", "provenance"],
+    "health-sciences": ["clinical_features", "relationships", "provenance"],
 }
 
 # Optional keys that may appear
