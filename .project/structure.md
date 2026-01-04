@@ -7,6 +7,71 @@
 ## Overview
 WorldSMEGraphs is a file-based knowledge representation system for subject matter expert domains. All data is stored in files, enabling version control, portability, and collaborative editing.
 
+## 🚧 Migration Status (2026-01-04)
+
+**Active Migration**: Transitioning from legacy structure to global hierarchy per `domain/_ontology/global-hierarchy.yaml`
+
+### Completed ✅
+- **Category Theory (8 AKUs)**: Migrated from `science/computer-science/functional-theory/category-theory/` → `formal-sciences/mathematics/pure-mathematics/category-theory/`
+- **Functional Programming AKUs (19 AKUs)**: Updated with `isApplicationDomain: true` and `cross_domain_references`
+- **New hierarchy directories created**: formal-sciences, natural-sciences, social-sciences, health-sciences
+
+### In Progress 🔄
+- **Documentation updates**: Updating structure.md, README files
+- **Validation**: Running cross-domain validators on migrated content
+
+### Pending ⏳
+- **Physics (138 AKUs)**: To migrate from `science/physics/` → `natural-sciences/physics/`
+- **Economics (12 AKUs)**: To migrate from `economics/` → `social-sciences/economics/`
+- **Medicine (67 AKUs)**: To migrate from `medicine/` → `health-sciences/medicine/`
+- **Mathematics**: Remaining math content in `science/math/` → `formal-sciences/mathematics/`
+- **Computer Science**: Other CS content → `formal-sciences/computer-science/`
+
+### Migration Tools
+- `domain/_ontology/tools/migrate_category_theory.py` - Category theory migration (completed)
+- `domain/_ontology/tools/update_fp_cross_domain.py` - FP cross-domain refs (completed)
+- Future: General-purpose domain migration script for remaining content
+
+See: Issue #3 in `.project/issues.md` for detailed migration plan
+
+## New Hierarchy Structure (per global-hierarchy.yaml)
+
+```
+domain/
+├── _contexts/                 # JSON-LD semantic vocabularies
+├── _ontology/                 # Global hierarchy and tools
+│
+├── formal-sciences/          # ✓ NEW - Abstract/formal sciences
+│   ├── mathematics/
+│   │   └── pure-mathematics/
+│   │       └── category-theory/     # ✓ MIGRATED (8 AKUs)
+│   │           ├── akus/
+│   │           └── README.md
+│   └── computer-science/
+│       └── programming-paradigms/
+│           └── functional-programming/  # Future FP home
+│
+├── natural-sciences/         # ✓ NEW - Empirical sciences
+│   ├── physics/              # To migrate from science/physics/ (138 AKUs)
+│   ├── chemistry/
+│   └── biology/
+│
+├── social-sciences/          # ✓ NEW - Human society
+│   └── economics/            # To migrate from economics/ (12 AKUs)
+│
+├── health-sciences/          # ✓ NEW - Health and medicine
+│   └── medicine/             # To migrate from medicine/ (67 AKUs)
+│
+├── science/                  # 🔄 LEGACY - Being phased out
+│   ├── math/                 # To migrate to formal-sciences/mathematics/
+│   ├── computer-science/
+│   │   └── functional-theory/   # FP app AKUs (19, updated with cross-refs)
+│   └── physics/              # To migrate to natural-sciences/physics/
+│
+├── economics/                # 🔄 LEGACY - Being phased out
+└── medicine/                 # 🔄 LEGACY - Being phased out
+```
+
 ## Top-Level Structure
 
 ```

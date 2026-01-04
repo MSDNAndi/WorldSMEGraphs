@@ -110,19 +110,37 @@ def update_functional_programming_aku(aku_path):
             aku['metadata'] = {}
         aku['metadata']['modified'] = get_utc_timestamp()
         
-        # Add cross-domain references if not already present
+        # Add or update cross-domain references
         if 'cross_domain_references' not in aku:
-            aku['cross_domain_references'] = {
-                "note": "This programming concept APPLIES mathematical concepts from their native domains",
-                "applies": [
-                    {
-                        "sourceDomain": math_ref['math_path'],
-                        "concept": math_ref['concept'],
-                        "relationship": "applies",
-                        "applicationContext": math_ref['context']
-                    }
-                ]
-            }
+            aku['cross_domain_references'] = {}
+        
+        if 'applies' not in aku['cross_domain_references']:
+            aku['cross_domain_references']['applies'] = []
+        
+        # Add note if not present
+        if 'note' not in aku['cross_domain_references']:
+            aku['cross_domain_references']['note'] = "This programming concept APPLIES mathematical concepts from their native domains"
+        
+        # Check if we already have a reference to this concept, if not add it
+        existing_ref = None
+        for ref in aku['cross_domain_references'].get('applies', []):
+            if ref.get('concept') == math_ref['concept']:
+                existing_ref = ref
+                break
+        
+        if existing_ref:
+            # Update existing reference to include @id if missing
+            if '@id' not in existing_ref:
+                existing_ref['@id'] = f"wsmg:{math_ref['math_path']}/{math_ref['concept']}"
+        else:
+            # Add new reference
+            aku['cross_domain_references']['applies'].append({
+                "@id": f"wsmg:{math_ref['math_path']}/{math_ref['concept']}",
+                "sourceDomain": math_ref['math_path'],
+                "concept": math_ref['concept'],
+                "relationship": "applies",
+                "applicationContext": math_ref['context']
+            })
         
         # Write back to file
         with open(aku_path, 'w', encoding='utf-8') as f:
