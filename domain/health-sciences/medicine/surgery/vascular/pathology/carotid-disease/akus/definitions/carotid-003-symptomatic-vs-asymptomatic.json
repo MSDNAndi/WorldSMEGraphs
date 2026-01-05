@@ -1,0 +1,185 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "carotid-003-symptomatic-vs-asymptomatic",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T03:30:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T03:30:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/carotid-disease",
+    "type": "clinical_distinction",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "003",
+    "keywords": [
+      "symptomatic carotid stenosis",
+      "asymptomatic carotid stenosis",
+      "TIA",
+      "stroke",
+      "intervention threshold"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "clinical_decision"
+  },
+  "content": {
+    "statement": {
+      "text": "Carotid stenosis is classified as symptomatic if the patient has had a TIA, amaurosis fugax, or non-disabling stroke referable to that carotid territory within the past 6 months. The distinction is critical because symptomatic stenosis has a much higher stroke risk (13% at 2 years for 70-99%) and derives greater benefit from intervention than asymptomatic stenosis (2-5%/year risk).",
+      "formal": "Symptomatic: TIA/stroke/amaurosis in past 6 months | Stroke risk: 13% at 2 years (70-99% stenosis) | NNT to prevent stroke: ~6 | Asymptomatic: No symptoms | Stroke risk: 2-5%/year | NNT to prevent stroke: ~17-20"
+    },
+    "explanation": {
+      "intuition": "Think of a carotid plaque as a volcano. An asymptomatic plaque is a dormant volcano - dangerous in theory but sitting quietly. A symptomatic plaque is a volcano that just erupted (TIA or stroke) and is actively throwing off debris. The recently active volcano is much more likely to erupt again, which is why we're more aggressive about treating symptomatic disease.",
+      "key_insight": "The term 'symptomatic' has a very specific meaning - it's not about symptoms from the stenosis itself (there are none), but about recent neurologic events attributable to that carotid. A patient with 80% carotid stenosis who has never had a TIA or stroke is 'asymptomatic' even though they have severe disease. Timing matters too - symptoms >6 months ago are generally considered 'old' and the patient reverts to asymptomatic risk category.",
+      "technical_details": "Symptomatic events must be referable to the carotid territory: (1) TIA - transient focal weakness, numbness, speech difficulty, or vision loss lasting <24 hours; (2) Stroke - persistent focal deficit; (3) Amaurosis fugax - transient monocular vision loss (retinal ischemia). Stroke risk in symptomatic 70-99% stenosis: 13% at 2 years (NASCET). Stroke risk in asymptomatic 60-99% stenosis: 2-3%/year (ACAS, ACST). NNT for symptomatic: ~6 to prevent 1 stroke over 5 years. NNT for asymptomatic: ~17-20 to prevent 1 stroke over 5 years.",
+      "common_misconceptions": [
+        "Any symptom makes it 'symptomatic' - must be focal neurologic event in that carotid territory",
+        "Dizziness is a carotid symptom - dizziness is usually from posterior circulation or non-vascular causes",
+        "Symptoms years ago still count - symptoms >6 months ago = asymptomatic for treatment planning",
+        "Asymptomatic means low risk - still 2-5%/year, just lower than symptomatic"
+      ]
+    },
+    "definitions_glossary": {
+      "tia": "Transient ischemic attack - focal neurologic deficit lasting <24 hours",
+      "amaurosis_fugax": "Transient monocular vision loss from retinal ischemia",
+      "symptomatic_stenosis": "Stenosis with TIA/stroke in past 6 months referable to that carotid",
+      "asymptomatic_stenosis": "Stenosis without recent neurologic events",
+      "number_needed_to_treat": "Number of patients needing treatment to prevent one bad outcome"
+    }
+  },
+  "clinical_features": {
+    "symptomatic_definition": {
+      "timeframe": "Within 6 months",
+      "qualifying_events": [
+        "TIA (transient focal weakness, numbness, speech difficulty)",
+        "Non-disabling stroke (persistent deficit)",
+        "Amaurosis fugax (transient monocular vision loss)"
+      ],
+      "must_be_referable": "Event must be in territory supplied by that carotid artery"
+    },
+    "stroke_risk_comparison": {
+      "symptomatic_70_99_percent": {
+        "risk": "13% at 2 years (NASCET medical arm)",
+        "nnt_with_cea": "~6 to prevent 1 stroke"
+      },
+      "symptomatic_50_69_percent": {
+        "risk": "8% at 2 years",
+        "nnt_with_cea": "~15 to prevent 1 stroke"
+      },
+      "asymptomatic_60_99_percent": {
+        "risk": "2-3%/year (5-11% at 5 years)",
+        "nnt_with_cea": "~17-20 to prevent 1 stroke"
+      }
+    },
+    "treatment_implications": {
+      "symptomatic_greater_than_50": "CEA indicated if perioperative risk <6%",
+      "symptomatic_greater_than_70": "Strong CEA indication, maximum benefit",
+      "asymptomatic_greater_than_60": "CEA reasonable if perioperative risk <3% and life expectancy >5 years",
+      "timing": "Symptomatic: CEA within 2 weeks for maximum benefit"
+    },
+    "events_that_are_not_symptomatic": [
+      "Non-focal dizziness or vertigo",
+      "Syncope",
+      "Confusion without focal signs",
+      "Posterior circulation symptoms (bilateral, cerebellar)",
+      "Events >6 months prior"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Symptomatic vs Asymptomatic Carotid Stenosis"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Clinical distinction between carotid stenosis with recent neurologic events vs without"
+    },
+    "notation": "carotid-003-symptomatic-vs-asymptomatic"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:carotid-disease:001",
+        "title": "Carotid Artery Disease Definition",
+        "strength": 1.0
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:carotid-disease:009",
+        "title": "Surgical Indications",
+        "strength": 1.0
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology:carotid-disease",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Carotid Artery Disease"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "landmark_trial",
+        "citation": "North American Symptomatic Carotid Endarterectomy Trial (NASCET). N Engl J Med. 1991;325:445-453.",
+        "confidence": 1.0
+      },
+      {
+        "type": "landmark_trial",
+        "citation": "Asymptomatic Carotid Atherosclerosis Study (ACAS). JAMA. 1995;273:1421-1428.",
+        "confidence": 1.0
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "neurology_residents",
+      "internal_medicine_residents"
+    ],
+    "estimated_time": "20min",
+    "difficulty_curve": 0.5,
+    "learning_objectives": [
+      "Define symptomatic vs asymptomatic carotid stenosis",
+      "Identify which neurologic events qualify as 'symptomatic'",
+      "Compare stroke risk and intervention benefit between categories",
+      "Understand timing of intervention after symptoms"
+    ],
+    "clinical_pearls": [
+      "Symptomatic = TIA/stroke in past 6 months referable to that carotid",
+      "Dizziness alone is NOT a carotid symptom",
+      "Symptomatic stenosis has 4-5x higher stroke risk than asymptomatic",
+      "Optimal timing: CEA within 2 weeks of symptom for maximum benefit"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "comparison_table",
+    "show_images": false,
+    "visualization": [
+      "risk_comparison_chart",
+      "qualifying_events_checklist"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "140791000119102",
+      "description": "Symptomatic carotid artery stenosis"
+    }
+  ]
+}
