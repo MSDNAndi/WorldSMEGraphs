@@ -1,0 +1,142 @@
+{
+  "@context": "aku-v2",
+  "@type": "concept",
+  "@id": "vascular:foundations:hemodynamics",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:57:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "status": "validated",
+    "confidence": 0.95
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/foundations",
+    "type": "foundational-concept",
+    "difficulty": "intermediate",
+    "importance": "foundational"
+  },
+  "content": {
+    "title": "Vascular Hemodynamics",
+    "definition": "The physics of blood flow through the cardiovascular system, governed by principles of fluid dynamics. Understanding hemodynamics is essential for interpreting vascular pathology, planning interventions, and predicting outcomes.",
+    "clinical_features": {
+      "basic_principles": {
+        "ohms_law_analog": {
+          "formula": "Flow (Q) = Pressure gradient (ΔP) / Resistance (R)",
+          "clinical_application": "Blood flow is driven by pressure differences and opposed by resistance"
+        },
+        "poiseuille_law": {
+          "formula": "R = 8ηL / πr⁴",
+          "variables": {
+            "η": "Viscosity",
+            "L": "Length of vessel",
+            "r": "Radius"
+          },
+          "key_insight": "Radius is raised to 4th power - small changes in diameter have profound effects on resistance"
+        },
+        "continuity_equation": {
+          "principle": "A₁V₁ = A₂V₂",
+          "application": "Velocity increases as cross-sectional area decreases (stenosis)"
+        },
+        "bernoulli_principle": {
+          "principle": "Total energy (potential + kinetic) is conserved",
+          "application": "Pressure drops as velocity increases across stenosis"
+        }
+      },
+      "clinical_applications": {
+        "stenosis_hemodynamics": {
+          "velocity_increase": "Stenosis → decreased area → increased velocity",
+          "pressure_drop": "Energy dissipation across stenosis",
+          "critical_stenosis": {
+            "definition": "Stenosis causing hemodynamically significant flow reduction",
+            "threshold": "Typically 50-70% diameter reduction (70-90% area)",
+            "rest_vs_exercise": "May only be significant during increased demand"
+          }
+        },
+        "collateral_circulation": {
+          "development": "Response to gradual arterial occlusion",
+          "flow_redistribution": "Maintains tissue perfusion despite main vessel disease",
+          "adequacy": "Determines symptoms and tissue viability"
+        },
+        "turbulence": {
+          "reynolds_number": "Re = ρVD/η",
+          "laminar_threshold": "Re < 2000 typically laminar",
+          "turbulent_consequences": "Energy loss, vessel wall injury, bruits"
+        }
+      },
+      "venous_hemodynamics": {
+        "low_pressure_system": "Venous pressure 5-10 mmHg (vs 100 mmHg arterial)",
+        "capacitance": "70% of blood volume in venous system",
+        "valves": {
+          "function": "Prevent retrograde flow, direct blood centrally",
+          "calf_muscle_pump": "Generates flow with muscle contraction"
+        },
+        "hydrostatic_pressure": {
+          "standing": "90-100 mmHg at ankle when standing",
+          "walking": "Drops to 20-30 mmHg with calf pump activation"
+        }
+      },
+      "diagnostic_applications": {
+        "ankle_brachial_index": {
+          "principle": "Ratio of ankle to brachial systolic pressure",
+          "normal": "1.0-1.3",
+          "abnormal": "<0.9 indicates PAD",
+          "incompressible": ">1.4 suggests arterial calcification"
+        },
+        "doppler_velocity": {
+          "pulsed_wave": "Velocity at specific location",
+          "psv_ratio": "Peak systolic velocity ratio across stenosis",
+          "threshold": "PSV >200 cm/s or ratio >2 suggests >50% stenosis"
+        },
+        "waveform_analysis": {
+          "triphasic": "Normal - forward, reverse, forward",
+          "biphasic": "Moderate disease - loss of reverse component",
+          "monophasic": "Severe disease - continuous forward flow"
+        }
+      }
+    },
+    "diagnostic_codes": {
+      "icd10": ["Not applicable - foundational concept"],
+      "snomed_ct": ["2339001"]
+    }
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Apply Poiseuille's law to understand stenosis significance",
+      "Interpret Doppler velocity changes across stenoses",
+      "Understand venous hemodynamics and valve function"
+    ],
+    "clinical_pearls": [
+      "Radius to the 4th power - 50% diameter stenosis = 94% area reduction",
+      "50% diameter stenosis is often 'critical' at rest",
+      "Triphasic → Biphasic → Monophasic indicates progressive disease",
+      "Velocity doubles if area halves (continuity equation)",
+      "Venous pressure at ankle drops from 100 to 30 mmHg when walking - calf pump effect"
+    ],
+    "common_misconceptions": [
+      "Misconception: 50% stenosis means 50% flow reduction - Reality: Flow reduction depends on whether stenosis is 'critical' based on vessel, collaterals, and demand"
+    ]
+  },
+  "semantic_relations": {
+    "skos:broader": ["vascular:foundations:overview"],
+    "skos:narrower": [
+      "vascular:hemodynamics:arterial",
+      "vascular:hemodynamics:venous"
+    ],
+    "skos:related": [
+      "vascular:pad:abi",
+      "vascular:diagnostics:duplex"
+    ]
+  },
+  "cross_domain_references": [
+    {
+      "domain": "physics",
+      "concept": "fluid-dynamics",
+      "relationship": "theoretical-basis"
+    },
+    {
+      "domain": "cardiovascular-physiology",
+      "concept": "blood-flow",
+      "relationship": "application-of"
+    }
+  ]
+}
