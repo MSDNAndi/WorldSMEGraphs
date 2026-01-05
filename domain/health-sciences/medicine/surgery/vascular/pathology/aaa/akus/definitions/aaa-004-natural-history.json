@@ -1,0 +1,215 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aaa-004-natural-history",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T01:00:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.96,
+    "status": "validated",
+    "last_updated": "2026-01-05T01:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa",
+    "type": "natural_history",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "004",
+    "keywords": [
+      "AAA growth rate",
+      "rupture risk",
+      "surveillance",
+      "aneurysm progression",
+      "size threshold"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "disease_progression"
+  },
+  "content": {
+    "statement": {
+      "text": "AAA natural history follows a predictable pattern: average growth rate is 2-3 mm/year for small aneurysms, accelerating with larger diameters. Rupture risk is size-dependent: <1% per year for AAAs <5 cm, increasing exponentially to 20-40% per year for AAAs ≥7 cm. The majority of AAAs are discovered incidentally and remain asymptomatic until rupture.",
+      "formal": "AAA Growth Rate: ~0.2-0.3 cm/year (small), ~0.4-0.5 cm/year (large) | Rupture Risk per Year: <5cm: <1%, 5-6cm: 3-15%, 6-7cm: 10-20%, >7cm: 20-40%"
+    },
+    "explanation": {
+      "intuition": "Imagine an AAA as a slowly inflating balloon. Small balloons need a lot of air to expand noticeably, but as the balloon gets bigger, the same amount of air causes larger expansion. Similarly, small AAAs grow slowly, but larger ones grow faster because of Laplace's law - the wall stress is greater at larger diameters. The rupture risk follows the same pattern: a small balloon can hold pressure, but as it stretches, the wall gets thinner and weaker until eventually it bursts.",
+      "key_insight": "The 5.5 cm threshold for intervention in men (5.0 cm in women) represents the diameter at which the risk of rupture begins to exceed the risk of elective repair. Below this threshold, the natural history favors surveillance. Above it, the natural history favors intervention.",
+      "technical_details": "Growth rate acceleration: AAAs <4 cm grow ~1-2 mm/year, 4-5 cm grow ~2-3 mm/year, >5 cm grow ~4-5 mm/year. Rupture occurs when wall stress exceeds wall strength. Wall stress increases with diameter (Laplace) while wall strength decreases (wall thinning, matrix degradation). Women have smaller aortas, so a 5 cm AAA represents relatively greater dilation. Rupture-free survival without repair: at 5 years, 50% for 5-6 cm AAAs, 20% for >6 cm. Rapid expansion (>1 cm/year) indicates unstable aneurysm requiring intervention regardless of size.",
+      "common_misconceptions": [
+        "All AAAs grow at the same rate - larger ones grow faster",
+        "AAAs under 5 cm never rupture - they can, but risk is low",
+        "AAA growth is linear - it's actually exponential with size",
+        "Once stable, AAAs remain stable - growth can accelerate unpredictably"
+      ]
+    },
+    "definitions_glossary": {
+      "natural_history": "Expected course of disease without intervention",
+      "rupture": "Full-thickness tear of aneurysm wall with hemorrhage",
+      "surveillance": "Regular monitoring with imaging to track changes",
+      "expansion_rate": "Change in diameter over time",
+      "rapid_expansion": "Growth >1.0 cm per year, indication for intervention"
+    }
+  },
+  "clinical_features": {
+    "growth_rates": {
+      "small_aaa_3_4_cm": {
+        "average": "1-2 mm/year",
+        "range": "0-5 mm/year"
+      },
+      "medium_aaa_4_5_cm": {
+        "average": "2-3 mm/year",
+        "range": "1-6 mm/year"
+      },
+      "large_aaa_5_6_cm": {
+        "average": "3-5 mm/year",
+        "range": "2-10 mm/year"
+      }
+    },
+    "rupture_risk_annual": {
+      "less_than_4_cm": "<0.5%",
+      "4_to_5_cm": "0.5-1%",
+      "5_to_6_cm": "3-15%",
+      "6_to_7_cm": "10-20%",
+      "greater_than_7_cm": "20-40%",
+      "greater_than_8_cm": "30-50%"
+    },
+    "presentation_patterns": {
+      "asymptomatic_incidental": "75-80%",
+      "symptomatic_nonruptured": "5-10%",
+      "ruptured": "10-20%"
+    },
+    "prognostic_factors_for_rupture": [
+      "Larger diameter (most important)",
+      "Rapid expansion (>1 cm/year)",
+      "Current smoking",
+      "Female sex (rupture at smaller diameters)",
+      "COPD",
+      "Hypertension",
+      "Family history of rupture",
+      "Eccentric shape or saccular morphology"
+    ],
+    "rupture_mortality": {
+      "prehospital": "50% die before reaching hospital",
+      "overall": "80-90% mortality",
+      "in_hospital_with_surgery": "40-50% mortality"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Abdominal Aortic Aneurysm Natural History"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Expected progression and outcomes of untreated AAA including growth rates and rupture risk"
+    },
+    "notation": "aaa-004-natural-history"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001",
+        "title": "AAA Definition",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:003",
+        "title": "AAA Pathophysiology",
+        "strength": 0.9
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:010",
+        "title": "AAA Surgical Indications",
+        "strength": 1.0,
+        "reason": "Natural history determines when to intervene"
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:014",
+        "title": "AAA Surveillance Protocols",
+        "strength": 1.0
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Abdominal Aortic Aneurysm"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "landmark_trial",
+        "citation": "UK Small Aneurysm Trial Participants. Mortality results for randomised controlled trial of early elective surgery or ultrasonographic surveillance for small abdominal aortic aneurysms. Lancet. 1998;352:1649-1655.",
+        "confidence": 0.99
+      },
+      {
+        "type": "meta_analysis",
+        "citation": "Lederle FA, et al. Rupture rate of large abdominal aortic aneurysms in patients refusing or unfit for elective repair. JAMA. 2002;287:2968-2972.",
+        "confidence": 0.98
+      },
+      {
+        "type": "clinical_guideline",
+        "citation": "SVS AAA Guidelines 2018",
+        "confidence": 1.0
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "surgery_residents",
+      "primary_care_physicians"
+    ],
+    "estimated_time": "20min",
+    "difficulty_curve": 0.5,
+    "learning_objectives": [
+      "Describe the relationship between AAA size and growth rate",
+      "Quantify annual rupture risk by diameter",
+      "Explain why the 5.5 cm threshold is used for intervention",
+      "Identify factors that increase rupture risk",
+      "Understand the lethality of ruptured AAA"
+    ],
+    "common_errors": [
+      "Assuming linear growth rate",
+      "Using male thresholds for female patients",
+      "Not recognizing rapid expansion as indication for repair",
+      "Underestimating mortality of ruptured AAA"
+    ],
+    "clinical_pearls": [
+      "Half of patients with ruptured AAA die before reaching the hospital",
+      "Women rupture at smaller diameters - consider 5.0 cm threshold",
+      "Rapid expansion (>1 cm/year) is an indication for repair regardless of size",
+      "The UK Small Aneurysm Trial proved surveillance is safe for <5.5 cm AAAs"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "chart",
+    "show_images": true,
+    "visualization": [
+      "rupture_risk_graph_by_size",
+      "growth_rate_curve",
+      "surveillance_algorithm"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "233985008",
+      "description": "Abdominal aortic aneurysm (disorder)"
+    }
+  ]
+}
