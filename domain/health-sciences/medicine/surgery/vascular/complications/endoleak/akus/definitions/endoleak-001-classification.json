@@ -1,0 +1,148 @@
+{
+  "@context": "aku-v2",
+  "@type": "concept",
+  "@id": "vascular:complications:endoleak",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:29:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "status": "validated",
+    "confidence": 0.95
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/complications",
+    "type": "concept",
+    "difficulty": "advanced",
+    "importance": "high"
+  },
+  "content": {
+    "title": "Endoleak Classification and Management",
+    "definition": "Persistent blood flow outside the endograft lumen but within the aneurysm sac following endovascular aneurysm repair (EVAR or TEVAR). Endoleaks prevent complete aneurysm exclusion and may lead to continued aneurysm pressurization, growth, and rupture.",
+    "clinical_features": {
+      "classification": {
+        "type_I": {
+          "definition": "Attachment site leak - blood flow at proximal (Ia) or distal (Ib) seal zones",
+          "subtypes": {
+            "Ia": "Proximal landing zone",
+            "Ib": "Distal landing zone",
+            "Ic": "Iliac occluder plug seal failure"
+          },
+          "significance": "High pressure, direct systemic flow - REQUIRES TREATMENT",
+          "natural_history": "Will NOT seal spontaneously, leads to sac expansion"
+        },
+        "type_II": {
+          "definition": "Branch vessel retrograde flow into sac",
+          "sources": {
+            "abdominal": ["Lumbar arteries", "Inferior mesenteric artery", "Accessory renal"],
+            "thoracic": ["Intercostal arteries", "Bronchial arteries"]
+          },
+          "significance": "Low pressure, most common type (15-25%)",
+          "natural_history": "50% seal spontaneously within 6 months"
+        },
+        "type_III": {
+          "definition": "Graft structural failure",
+          "subtypes": {
+            "IIIa": "Junctional separation between modular components",
+            "IIIb": "Fabric tear, graft erosion"
+          },
+          "significance": "High pressure - REQUIRES TREATMENT"
+        },
+        "type_IV": {
+          "definition": "Graft porosity - transgraft seepage",
+          "timing": "Seen at completion angiography, self-limiting",
+          "significance": "Rare with modern grafts, no treatment needed"
+        },
+        "type_V": {
+          "definition": "Endotension - sac expansion without visible endoleak",
+          "mechanism": "Ultrafiltration across graft, occult endoleak",
+          "diagnosis": "Diagnosis of exclusion",
+          "significance": "Controversial entity"
+        }
+      },
+      "incidence": {
+        "type_I": "2-5% primary, more with unfavorable anatomy",
+        "type_II": "15-25%, most common",
+        "type_III": "1-4%, increases over time"
+      },
+      "diagnostic_workup": {
+        "cta": {
+          "timing": "Standard surveillance protocol",
+          "findings": "Contrast enhancement in sac"
+        },
+        "delayed_phase": {
+          "role": "Distinguish Type I/III from Type II",
+          "technique": "90-120 second delayed imaging"
+        },
+        "duplex_ultrasound": {
+          "role": "Alternative surveillance",
+          "advantages": "No radiation, contrast",
+          "limitations": "Operator dependent, body habitus"
+        },
+        "angiography": {
+          "role": "Diagnostic uncertainty, planned intervention",
+          "technique": "Selective catheterization to identify source"
+        }
+      },
+      "treatment": {
+        "type_I": {
+          "urgency": "Prompt intervention required",
+          "options": [
+            "Proximal or distal extension cuffs",
+            "Balloon molding",
+            "Palmaz stent reinforcement",
+            "Surgical conversion if endovascular fails"
+          ]
+        },
+        "type_II": {
+          "approach": "Observation if sac stable",
+          "treatment_indications": "Sac growth >5mm, persistent >6 months with growth",
+          "options": [
+            "Transarterial embolization (SMA → IMA)",
+            "Translumbar embolization (direct sac puncture)",
+            "Transcaval embolization",
+            "Laparoscopic ligation"
+          ]
+        },
+        "type_III": {
+          "urgency": "Urgent intervention",
+          "options": [
+            "Relining with additional stent graft",
+            "Component overlap augmentation"
+          ]
+        }
+      }
+    },
+    "diagnostic_codes": {
+      "icd10": ["T82.330A", "T82.391A"],
+      "snomed_ct": ["783141005"]
+    }
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Classify endoleaks by type and clinical significance",
+      "Apply appropriate surveillance and treatment algorithms",
+      "Recognize when observation vs intervention is appropriate"
+    ],
+    "clinical_pearls": [
+      "Type I and III are HIGH PRESSURE - always treat",
+      "Type II is LOW PRESSURE - observe unless sac growing",
+      "Delayed phase CT distinguishes Type I/III (early fill) from Type II (delayed fill)",
+      "50% of Type II endoleaks seal spontaneously within 6 months",
+      "Sac growth without visible endoleak = Type V (endotension)"
+    ],
+    "evidence_basis": [
+      "Society for Vascular Surgery Practice Guidelines"
+    ]
+  },
+  "semantic_relations": {
+    "skos:broader": ["vascular:evar:overview"],
+    "skos:narrower": [
+      "vascular:complications:type1-endoleak",
+      "vascular:complications:type2-endoleak"
+    ],
+    "skos:related": [
+      "vascular:aaa:evar-vs-open",
+      "vascular:tevar:overview"
+    ]
+  }
+}
