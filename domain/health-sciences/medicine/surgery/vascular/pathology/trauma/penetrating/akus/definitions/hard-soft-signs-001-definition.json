@@ -1,0 +1,128 @@
+{
+  "@context": "aku-v2",
+  "@type": "definition",
+  "@id": "vascular:trauma:extremity:hard-soft-signs",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T17:31:00.000Z",
+    "contributors": ["copilot"],
+    "status": "validated",
+    "confidence": 0.94
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/trauma",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "board_yield": "HIGH"
+  },
+  "content": {
+    "term": "Hard and Soft Signs of Vascular Injury",
+    "synonyms": ["Vascular Injury Signs", "Physical Signs of Arterial Injury"],
+    "definition": "Clinical findings that indicate the presence and severity of vascular injury in extremity trauma. Hard signs have high positive predictive value (>95%) for significant vascular injury requiring intervention, while soft signs suggest possible injury warranting further evaluation.",
+    "hard_signs": {
+      "definition": "Findings with >95% PPV for vascular injury requiring operation",
+      "signs": [
+        {
+          "sign": "Active pulsatile hemorrhage",
+          "significance": "Ongoing arterial bleeding",
+          "management": "Immediate OR"
+        },
+        {
+          "sign": "Expanding or pulsatile hematoma",
+          "significance": "Contained arterial injury",
+          "management": "Immediate OR"
+        },
+        {
+          "sign": "Absent distal pulses",
+          "significance": "Arterial occlusion or transection",
+          "management": "Immediate OR"
+        },
+        {
+          "sign": "Bruit or thrill",
+          "significance": "Arteriovenous fistula or pseudoaneurysm",
+          "management": "Immediate OR or urgent imaging"
+        },
+        {
+          "sign": "Signs of distal ischemia (6 Ps)",
+          "significance": "Limb-threatening ischemia",
+          "management": "Immediate OR"
+        }
+      ],
+      "management_algorithm": "Hard signs = OR (no imaging needed unless stable patient and OR not immediately available)"
+    },
+    "soft_signs": {
+      "definition": "Findings suggesting possible vascular injury, warranting further evaluation",
+      "signs": [
+        {
+          "sign": "History of hemorrhage at scene",
+          "significance": "May have had arterial bleeding now controlled"
+        },
+        {
+          "sign": "Diminished but palpable pulse",
+          "significance": "Possible intimal injury or partial transection"
+        },
+        {
+          "sign": "Proximity of wound to major vessel",
+          "significance": "Anatomic risk without direct evidence"
+        },
+        {
+          "sign": "Peripheral nerve deficit",
+          "significance": "Nerves travel with vessels"
+        },
+        {
+          "sign": "Stable, non-pulsatile hematoma",
+          "significance": "May represent venous injury or contained arterial"
+        },
+        {
+          "sign": "Unexplained hypotension",
+          "significance": "May indicate occult vascular injury"
+        }
+      ],
+      "management_algorithm": "Soft signs = CTA or duplex ultrasound evaluation"
+    },
+    "six_ps_of_ischemia": [
+      "Pain (out of proportion)",
+      "Pallor",
+      "Pulselessness",
+      "Paresthesias",
+      "Paralysis",
+      "Poikilothermia (cold)"
+    ],
+    "ankle_brachial_index": {
+      "role": "Screening tool in patients with soft signs",
+      "normal": "ABI ≥0.9 - injury unlikely",
+      "abnormal": "ABI <0.9 - requires further imaging",
+      "sensitivity": ">95% for significant arterial injury"
+    },
+    "imaging_approach": {
+      "cta": "Preferred for soft signs - rapid, high sensitivity/specificity",
+      "duplex": "Alternative when CT unavailable or contraindicated",
+      "angiography": "Therapeutic or when endovascular repair planned"
+    }
+  },
+  "codes": {
+    "snomed_ct": "262557006",
+    "icd_10": "S45-S95"
+  },
+  "relationships": {
+    "broader": ["vascular:trauma:extremity"],
+    "related": ["vascular:trauma:management", "vascular:ischemia:acute"],
+    "narrower": []
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "List the hard signs of vascular injury",
+      "Distinguish hard from soft signs",
+      "Know appropriate management for each category",
+      "Understand role of ABI in trauma screening"
+    ],
+    "clinical_pearls": [
+      "Hard signs = OR (PPV >95%)",
+      "Soft signs = imaging (CTA preferred)",
+      "ABI ≥0.9 effectively rules out significant injury",
+      "6 Ps: Pain, Pallor, Pulselessness, Paresthesias, Paralysis, Poikilothermia",
+      "Proximity alone (soft sign) has only 10-20% injury rate - image, don't explore"
+    ]
+  }
+}
