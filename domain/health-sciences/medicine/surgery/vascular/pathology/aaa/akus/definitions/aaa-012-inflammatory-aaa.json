@@ -1,0 +1,110 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "aaa-012-inflammatory-aaa",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T01:58:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.96,
+    "status": "validated",
+    "last_updated": "2026-01-05T01:58:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa",
+    "type": "variant",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "012",
+    "keywords": ["inflammatory AAA", "perianeurysmal fibrosis", "IAAA", "ureteral involvement"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "variant_pathology"
+  },
+  "content": {
+    "statement": {
+      "text": "Inflammatory abdominal aortic aneurysm (IAAA) is a distinct variant characterized by marked thickening of the aneurysm wall (≥5mm), perianeurysmal fibrosis, and adhesion to adjacent structures including duodenum, ureters, and vena cava. IAAA represents 3-10% of all AAAs.",
+      "formal": "IAAA: AAA + wall thickening ≥5mm + perianeurysmal fibrosis + adjacent structure involvement (duodenum, ureters, IVC)"
+    },
+    "explanation": {
+      "intuition": "While a typical aneurysm is like a thin-walled balloon, an inflammatory aneurysm is like a balloon wrapped in thick scar tissue that glues it to everything around it. This dense inflammatory reaction makes surgery more difficult because the normal tissue planes are obliterated - the aneurysm becomes 'stuck' to the intestine, the tube carrying urine from kidney to bladder, and major veins.",
+      "key_insight": "The inflammatory process is thought to represent an autoimmune reaction to atherosclerotic debris in the aneurysm wall. Despite its name, IAAA is not primarily an infectious process. The fibrosis typically regresses after successful aneurysm repair.",
+      "technical_details": "Histologically, IAAA shows marked adventitial and periadventitial fibrosis with lymphoplasmacytic infiltration. The inflammation extends into surrounding retroperitoneum. Associated IgG4-related disease should be considered, especially with other manifestations. CT characteristically shows a 'rim sign' - enhancing thickened aortic wall with surrounding soft tissue.",
+      "common_misconceptions": [
+        "IAAA is an infected aneurysm - it is autoimmune/inflammatory, not infectious",
+        "All IAAA need open repair - EVAR may be appropriate if anatomy permits",
+        "Steroids are always required - medical therapy is adjunctive, not definitive",
+        "IAAA has higher rupture risk - rupture risk is similar to standard AAA by size"
+      ]
+    },
+    "clinical_presentation": {
+      "symptoms": ["Chronic abdominal or back pain (60-70%)", "Weight loss (15-30%)", "Elevated ESR/CRP", "Unexplained fever"],
+      "complications": {
+        "ureteral_obstruction": "20-30% have hydronephrosis from ureteral encasement",
+        "duodenal_involvement": "Adherence to third portion of duodenum",
+        "ivc_involvement": "May encase or compress inferior vena cava"
+      }
+    },
+    "definitions_glossary": {
+      "inflammatory_AAA": "AAA variant with wall thickening, fibrosis, and adhesion to adjacent structures",
+      "perianeurysmal_fibrosis": "Dense fibrous tissue surrounding the aneurysm wall",
+      "IgG4_related_disease": "Systemic fibroinflammatory condition that can manifest as IAAA",
+      "rim_sign": "CT finding of enhancing thickened aortic wall in IAAA"
+    }
+  },
+  "clinical_features": {
+    "imaging_findings": {
+      "ct_features": ["Wall thickening ≥5mm", "Rim enhancement on contrast CT", "Perianeurysmal soft tissue cuff", "Ureteral deviation or hydronephrosis"],
+      "mri_features": ["T2 hyperintense periaortic tissue in active inflammation", "Late gadolinium enhancement of wall"]
+    },
+    "laboratory_findings": ["Elevated ESR (>30mm/hr in majority)", "Elevated CRP", "Anemia of chronic disease", "Sometimes elevated IgG4"],
+    "surgical_considerations": {
+      "increased_technical_difficulty": "Dense adhesions, hostile operative field",
+      "ureteral_management": "Preoperative stenting if hydronephrosis present",
+      "approach": "Retroperitoneal approach may be preferred to avoid duodenal injury",
+      "evar_considerations": "Feasible if anatomy permits; may reduce surgical morbidity"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Inflammatory Abdominal Aortic Aneurysm"},
+    "altLabel": [{"@language": "en", "@value": "IAAA"}, {"@language": "en", "@value": "Inflammatory AAA"}],
+    "definition": {"@language": "en", "@value": "AAA variant with wall thickening, perianeurysmal fibrosis, and adhesion to adjacent structures"},
+    "notation": "aaa-012-inflammatory"
+  },
+  "relationships": {
+    "prerequisites": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001", "title": "AAA Definition", "strength": 1.0}],
+    "enables": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:008", "title": "AAA Surgical Planning", "strength": 0.9}],
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa", "@type": "skos:Concept", "skos:prefLabel": "AAA"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:vasculitis:igg4", "@type": "skos:Concept", "skos:prefLabel": "IgG4-Related Aortitis"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:013", "@type": "skos:Concept", "skos:prefLabel": "Mycotic Aneurysm"}
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {"type": "journal_article", "citation": "Hellmann DB, et al. Inflammatory abdominal aortic aneurysm. JAMA. 2007;297(4):395-400", "confidence": 0.95},
+      {"type": "textbook", "citation": "Rutherford's Vascular Surgery, 10th Ed", "confidence": 0.98}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular_surgery_fellows", "general_surgery_residents"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Recognize clinical and imaging features of IAAA",
+      "Understand surgical implications of perianeurysmal inflammation",
+      "Differentiate IAAA from mycotic and standard AAA"
+    ],
+    "clinical_pearls": [
+      "Always check for hydronephrosis on preoperative imaging",
+      "Consider IgG4-related disease workup if systemic features present",
+      "Fibrosis typically regresses after successful AAA repair",
+      "EVAR avoids the hostile retroperitoneum when anatomy permits"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "233988005", "description": "Inflammatory aortic aneurysm"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I71.4", "description": "Abdominal aortic aneurysm, without rupture"}
+  ]
+}

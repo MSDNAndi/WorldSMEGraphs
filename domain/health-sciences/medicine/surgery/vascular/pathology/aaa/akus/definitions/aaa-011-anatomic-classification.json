@@ -1,0 +1,134 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "aaa-011-anatomic-classification",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T01:58:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T01:58:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa",
+    "type": "classification",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "011",
+    "keywords": ["infrarenal AAA", "juxtarenal AAA", "suprarenal AAA", "pararenal", "aortic classification"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "surgical_planning"
+  },
+  "content": {
+    "statement": {
+      "text": "Abdominal aortic aneurysms are classified by their anatomic relationship to the renal arteries: infrarenal (below renal arteries with adequate neck), juxtarenal (involving renal artery origins), pararenal (involving SMA origin), and suprarenal (extending above SMA). This classification determines surgical approach and complexity.",
+      "formal": "AAA Anatomic Types: Infrarenal (95%), Juxtarenal (3-4%), Pararenal, Suprarenal (1-2%); Classification based on relationship to visceral vessels"
+    },
+    "explanation": {
+      "intuition": "Picture the abdominal aorta as a highway with major exits (the renal and mesenteric arteries). Where the aneurysm starts relative to these exits determines how complicated the repair will be. If the balloon starts well below the kidney exits (infrarenal), repair is straightforward. If it starts right at or above those exits, the surgeon must work around or replant those critical blood vessels.",
+      "key_insight": "The term 'neck' refers to the normal segment of aorta between the renal arteries and the aneurysm - a minimum of 10-15mm is typically required for standard EVAR. The absence of an adequate neck defines juxtarenal disease and necessitates more complex repair strategies.",
+      "technical_details": "Infrarenal AAA (95% of cases) has ≥10-15mm of normal aorta below the renal arteries. Juxtarenal AAA has <10mm neck or aneurysm reaching the renal arteries but not involving them. Pararenal involves the renal arteries. Suprarenal extends above the SMA. Type IV thoracoabdominal aneurysm (Crawford) involves the entire abdominal aorta including visceral segment.",
+      "common_misconceptions": [
+        "All AAAs can be treated with standard EVAR - only infrarenal with adequate anatomy qualifies",
+        "Juxtarenal is the same as suprarenal - they require different repair approaches",
+        "The neck length doesn't matter for open repair - it affects clamp position and complexity"
+      ]
+    },
+    "classification_system": {
+      "infrarenal": {
+        "definition": "Aneurysm begins ≥10-15mm below lowest renal artery",
+        "frequency": "~95%",
+        "treatment_options": ["Standard EVAR", "Open infrarenal repair"],
+        "complexity": "Standard"
+      },
+      "juxtarenal": {
+        "definition": "Aneurysm abuts renal arteries with <10mm neck, but does not involve renal ostia",
+        "frequency": "~3-4%",
+        "treatment_options": ["Open suprarenal clamp repair", "Fenestrated EVAR"],
+        "complexity": "Increased"
+      },
+      "pararenal": {
+        "definition": "Aneurysm involves one or both renal artery origins",
+        "frequency": "~1%",
+        "treatment_options": ["Open supraceliac clamp with renal reimplantation", "Fenestrated/branched EVAR"],
+        "complexity": "High"
+      },
+      "suprarenal": {
+        "definition": "Aneurysm extends above SMA origin",
+        "frequency": "~1%",
+        "treatment_options": ["Open thoracoretroperitoneal approach", "Branched EVAR"],
+        "complexity": "Very high"
+      }
+    },
+    "definitions_glossary": {
+      "neck": "Normal aortic segment between lowest renal artery and proximal aneurysm extent",
+      "juxtarenal": "Adjacent to but not involving renal artery origins",
+      "pararenal": "Involving renal artery origins, requiring reimplantation",
+      "suprarenal": "Extending above the superior mesenteric artery",
+      "Crawford_Type_IV": "Thoracoabdominal aneurysm involving abdominal aorta from diaphragm to bifurcation"
+    }
+  },
+  "clinical_features": {
+    "surgical_implications": {
+      "infrarenal": "Infrarenal aortic clamp, standard graft, low visceral ischemia risk",
+      "juxtarenal": "Suprarenal clamp, possible renal cooling, higher AKI risk",
+      "pararenal": "Supraceliac or thoracic clamp, visceral protection strategies",
+      "suprarenal": "Thoracic clamp, left heart bypass or CPB consideration"
+    },
+    "evar_considerations": {
+      "standard_evar": "Requires ≥10-15mm neck, <60° angulation, <28-32mm diameter",
+      "fenestrated_evar": "Custom device with fenestrations for renal/SMA, extends proximal sealing zone",
+      "branched_evar": "Branches or directional fenestrations for visceral vessels"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "AAA Anatomic Classification"},
+    "altLabel": [{"@language": "en", "@value": "Abdominal Aortic Aneurysm Types"}],
+    "definition": {"@language": "en", "@value": "Classification of AAA based on anatomic relationship to visceral vessels, determining surgical approach"},
+    "notation": "aaa-011-anatomic"
+  },
+  "relationships": {
+    "prerequisites": [
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001", "title": "AAA Definition", "strength": 1.0},
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:010", "title": "AAA Imaging", "strength": 0.95}
+    ],
+    "enables": [
+      {"id": "urn:wskg:medicine:surgery:vascular:procedures:evar", "title": "EVAR", "strength": 0.95},
+      {"id": "urn:wskg:medicine:surgery:vascular:procedures:open-aortic-repair", "title": "Open Aortic Repair", "strength": 0.95}
+    ],
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa", "@type": "skos:Concept", "skos:prefLabel": "Abdominal Aortic Aneurysm"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:thoracic-aortic-aneurysm", "@type": "skos:Concept", "skos:prefLabel": "TAA"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:procedures:fenestrated-evar", "@type": "skos:Concept", "skos:prefLabel": "Fenestrated EVAR"}
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {"type": "clinical_guideline", "citation": "SVS Practice Guidelines for AAA. J Vasc Surg. 2018", "confidence": 1.0},
+      {"type": "textbook", "citation": "Rutherford's Vascular Surgery, 10th Ed", "confidence": 0.98}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular_surgery_fellows", "surgical_residents"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Classify AAA by relationship to visceral vessels",
+      "Understand surgical implications of each anatomic type",
+      "Select appropriate treatment strategy based on anatomy"
+    ],
+    "clinical_pearls": [
+      "Always assess for neck angulation and thrombus in addition to length",
+      "Juxtarenal AAA requires higher clamp position and renal protection",
+      "Custom fenestrated/branched devices require 4-8 week manufacturing time",
+      "Type IV thoracoabdominal is functionally similar to suprarenal AAA"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "233985008", "description": "Abdominal aortic aneurysm"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I71.4", "description": "Abdominal aortic aneurysm, without rupture"}
+  ]
+}

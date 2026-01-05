@@ -1,0 +1,95 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "dvt-006-phlegmasia",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:15:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:15:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/deep-vein-thrombosis",
+    "type": "emergency",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "006",
+    "keywords": ["phlegmasia cerulea dolens", "phlegmasia alba dolens", "venous gangrene", "limb-threatening DVT"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Phlegmasia represents the spectrum of limb-threatening venous thrombosis: phlegmasia alba dolens (PAD - massive iliofemoral DVT with painful white swelling) progresses to phlegmasia cerulea dolens (PCD - cyanotic, severely swollen leg with impaired arterial inflow due to compartment pressure) and ultimately venous gangrene if untreated.",
+      "formal": "Phlegmasia Spectrum: Alba Dolens (pale, painful, swollen) → Cerulea Dolens (blue, bullae, arterial compromise) → Venous Gangrene (tissue death)"
+    },
+    "explanation": {
+      "intuition": "Phlegmasia is like a dam completely blocking a river. In phlegmasia alba dolens, the blockage causes severe backup (massive swelling) but some flow continues (pale). In phlegmasia cerulea dolens, the pressure gets so high that even arterial blood can't get in - the leg turns blue and starts dying. It's venous thrombosis so severe it causes arterial ischemia.",
+      "key_insight": "Phlegmasia cerulea dolens is a surgical emergency requiring immediate intervention to save the limb. The progression from alba to cerulea dolens indicates impending venous gangrene with irreversible tissue loss.",
+      "technical_details": "PCD involves near-total venous outflow obstruction causing tissue pressure exceeding capillary perfusion pressure, leading to arterial inflow impairment. Compartment syndrome physiology applies. Risk factors: malignancy (50%), HIT, hypercoagulable states, May-Thurner anatomy. Amputation rates without intervention: 20-50%."
+    },
+    "classification": {
+      "phlegmasia_alba_dolens": {
+        "appearance": "Pale, massively swollen, painful leg",
+        "pathophysiology": "Massive iliofemoral DVT with partial venous obstruction",
+        "arterial_flow": "Preserved (peripheral pulses present but may be hard to palpate)",
+        "urgency": "Urgent - may progress to cerulea dolens"
+      },
+      "phlegmasia_cerulea_dolens": {
+        "appearance": "Cyanotic, tense, bullae formation, severe pain",
+        "pathophysiology": "Near-complete venous obstruction → tissue pressure exceeds capillary perfusion",
+        "arterial_flow": "Impaired (absent pulses, capillary refill impaired)",
+        "urgency": "Emergency - limb-threatening, requires immediate intervention"
+      },
+      "venous_gangrene": {
+        "appearance": "Tissue necrosis, usually starting distally",
+        "pathophysiology": "Irreversible tissue death from prolonged ischemia",
+        "prognosis": "Amputation often required"
+      }
+    }
+  },
+  "clinical_features": {
+    "presentation": {
+      "alba_dolens": ["Massive leg swelling", "Pale or mottled skin", "Severe pain", "Pulses difficult to palpate but present", "Fever, tachycardia"],
+      "cerulea_dolens": ["Cyanotic discoloration", "Bullae/blisters", "Extreme pain", "Absent or diminished pulses", "Paresthesias", "Motor weakness", "Hypotension possible"]
+    },
+    "associated_conditions": ["Malignancy (most common - 50%)", "Heparin-induced thrombocytopenia", "Hypercoagulable states", "May-Thurner syndrome", "IVC filters", "Pregnancy/postpartum"],
+    "treatment": {
+      "immediate": ["Leg elevation", "Systemic anticoagulation (if not HIT)", "Fluid resuscitation"],
+      "definitive": {
+        "catheter_directed_thrombolysis": "First-line in stable patients with no contraindications",
+        "pharmacomechanical_thrombectomy": "Rapid thrombus removal, preferred in many centers",
+        "surgical_thrombectomy": "If endovascular not available or failed",
+        "fasciotomy": "If compartment syndrome present"
+      },
+      "adjuncts": ["IVC filter if anticoagulation contraindicated", "Iliac stenting if underlying compression"]
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Phlegmasia Cerulea Dolens"},
+    "altLabel": [{"@language": "en", "@value": "Phlegmasia Alba Dolens"}, {"@language": "en", "@value": "Venous Gangrene"}],
+    "definition": {"@language": "en", "@value": "Limb-threatening massive venous thrombosis causing venous outflow obstruction severe enough to impair arterial inflow"},
+    "notation": "dvt-006-phlegmasia"
+  },
+  "relationships": {
+    "prerequisites": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:dvt:005", "title": "Iliofemoral DVT", "strength": 1.0}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:trauma:compartment-syndrome", "@type": "skos:Concept", "skos:prefLabel": "Compartment Syndrome"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:procedures:venous-thrombolysis", "@type": "skos:Concept", "skos:prefLabel": "Venous Thrombolysis"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "15min",
+    "clinical_pearls": [
+      "Alba dolens = pale (arterial flow OK); Cerulea dolens = blue (arterial flow impaired)",
+      "50% of patients with phlegmasia have underlying malignancy",
+      "Absent pulses in a massively swollen blue leg = PCD, surgical emergency",
+      "Don't rely on elevated compartment pressures - clinical diagnosis + rapid intervention"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "234042000", "description": "Phlegmasia cerulea dolens"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I80.20", "description": "Phlebitis and thrombophlebitis of unspecified deep vessels of lower extremities"}
+  ]
+}
