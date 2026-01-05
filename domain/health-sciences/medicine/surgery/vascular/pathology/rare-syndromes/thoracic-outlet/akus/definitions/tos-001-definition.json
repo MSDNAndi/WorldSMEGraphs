@@ -1,0 +1,97 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "tos-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:30:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:30:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/rare-syndromes/thoracic-outlet",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": ["thoracic outlet syndrome", "TOS", "neurogenic TOS", "venous TOS", "arterial TOS", "Paget-Schroetter"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Thoracic outlet syndrome (TOS) encompasses compression of the brachial plexus, subclavian artery, or subclavian vein in the thoracic outlet (between clavicle and first rib). It is classified into neurogenic TOS (95%), venous TOS/Paget-Schroetter (3-5%), and arterial TOS (1-2%). Each type has distinct presentation, diagnosis, and treatment approaches.",
+      "formal": "TOS Types: Neurogenic (95% - brachial plexus), Venous (3-5% - Paget-Schroetter, effort thrombosis), Arterial (1-2% - subclavian compression, aneurysm); All from thoracic outlet compression"
+    },
+    "explanation": {
+      "intuition": "The thoracic outlet is like a busy intersection where nerves, arteries, and veins all pass through a narrow space between the collarbone and first rib. If this space narrows (from an extra rib, tight muscles, or abnormal anatomy), structures get squeezed. Nerves are most sensitive to pressure (neurogenic TOS), but veins (Paget-Schroetter) and arteries can also be affected in more severe cases.",
+      "key_insight": "The three types of TOS are distinct clinical entities requiring different approaches. Neurogenic TOS is common but controversial, often treated conservatively with physical therapy. Venous TOS presents acutely as arm DVT requiring thrombolysis and decompression. Arterial TOS is rare but serious, often presenting with distal embolization from subclavian aneurysm.",
+      "technical_details": "Compression occurs in three spaces: interscalene triangle (between anterior and middle scalenes), costoclavicular space (between clavicle and first rib), and pectoralis minor space (under pectoralis minor tendon). Anatomic predispositions include cervical rib (0.5% population), elongated C7 transverse process, anomalous muscles, and previous clavicle fracture."
+    },
+    "types": {
+      "neurogenic_tos": {
+        "frequency": "95%",
+        "structure": "Brachial plexus (lower trunk - C8, T1)",
+        "presentation": ["Upper extremity pain/paresthesias", "Worse with arm elevation", "Ulnar distribution symptoms", "Weakness of intrinsic hand muscles"],
+        "diagnosis": ["Clinical (provocative tests)", "EAST (elevated arm stress test)", "Nerve conduction studies often normal"],
+        "treatment": ["Physical therapy first-line", "Scalenectomy/first rib resection if fails"]
+      },
+      "venous_tos": {
+        "frequency": "3-5%",
+        "structure": "Subclavian/axillary vein",
+        "presentation": ["Acute arm swelling", "Cyanosis", "Pain", "Often after exertion ('effort thrombosis')"],
+        "diagnosis": ["Duplex ultrasound", "Venography"],
+        "treatment": ["Thrombolysis/thrombectomy", "Anticoagulation", "First rib resection (decompression)"]
+      },
+      "arterial_tos": {
+        "frequency": "1-2%",
+        "structure": "Subclavian artery",
+        "presentation": ["Digital ischemia/embolization", "Arm claudication", "Subclavian aneurysm", "Raynaud's-like symptoms"],
+        "diagnosis": ["CTA/MRA", "Arteriography"],
+        "treatment": ["First rib resection", "Aneurysm repair/bypass if needed", "Embolectomy for distal emboli"]
+      }
+    }
+  },
+  "clinical_features": {
+    "provocative_tests": {
+      "adson_test": "Turn head to affected side, extend neck, deep breath - positive if radial pulse diminishes",
+      "east_test": "Elevated arm stress test - arms abducted 90°, repeatedly make fists for 3 min",
+      "roos_test": "Same as EAST",
+      "costoclavicular_test": "Pull shoulders back and down - positive if reproduces symptoms"
+    },
+    "anatomic_predispositions": ["Cervical rib", "Elongated C7 transverse process", "Anomalous scalene muscles", "Previous clavicle fracture malunion", "Repetitive overhead activity"],
+    "surgical_approaches": {
+      "transaxillary": "First rib resection via axilla - good cosmesis, limited access",
+      "supraclavicular": "Scalenectomy ± first rib resection - better for arterial TOS",
+      "infraclavicular": "For venous TOS with residual stenosis - venolysis, patch"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Thoracic Outlet Syndrome"},
+    "altLabel": [{"@language": "en", "@value": "TOS"}, {"@language": "en", "@value": "Paget-Schroetter Syndrome"}],
+    "definition": {"@language": "en", "@value": "Compression of neurovascular structures in the thoracic outlet, classified as neurogenic, venous, or arterial based on affected structure"},
+    "notation": "tos-001-definition"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:rare-syndromes", "@type": "skos:Concept", "skos:prefLabel": "Rare Vascular Syndromes"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:dvt", "@type": "skos:Concept", "skos:prefLabel": "DVT"},
+      {"@id": "urn:wskg:medicine:neurology:brachial-plexopathy", "@type": "skos:Concept", "skos:prefLabel": "Brachial Plexopathy"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "20min",
+    "clinical_pearls": [
+      "Neurogenic TOS = most common but most controversial diagnosis",
+      "Young athlete with sudden arm swelling = venous TOS (Paget-Schroetter) until proven otherwise",
+      "Arterial TOS often presents with emboli - check for subclavian aneurysm",
+      "First rib resection is the definitive decompression for all types"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "54959009", "description": "Thoracic outlet syndrome"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "G54.0", "description": "Brachial plexus disorders (neurogenic TOS)"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I82.B1", "description": "Acute embolism and thrombosis of subclavian vein (venous TOS)"}
+  ]
+}

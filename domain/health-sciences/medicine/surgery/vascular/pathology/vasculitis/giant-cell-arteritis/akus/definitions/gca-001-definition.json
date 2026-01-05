@@ -1,0 +1,96 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "gca-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:20:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:20:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/vasculitis/giant-cell-arteritis",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "001",
+    "keywords": ["giant cell arteritis", "temporal arteritis", "large vessel vasculitis", "vision loss", "aortic aneurysm"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Giant cell arteritis (GCA) is a systemic granulomatous vasculitis affecting medium and large arteries, predominantly in patients over 50 years (peak 70-80). It affects cranial branches (temporal arteritis) and large vessels (aortitis). Vision loss from ophthalmic artery involvement is the most feared complication, requiring emergency high-dose steroids.",
+      "formal": "GCA: Large/medium vessel granulomatous vasculitis; Age >50 (peak 70-80); Manifestations: cranial (headache, jaw claudication, vision loss) + large vessel (aortitis, aneurysm)"
+    },
+    "explanation": {
+      "intuition": "GCA is inflammation attacking the lining of arteries, with a predilection for arteries near the temples and eyes in its cranial form. Think of it as the body mistakenly attacking its own blood vessel walls. When this hits the artery supplying the eye (ophthalmic artery), vision can be lost within hours - making this a true emergency.",
+      "key_insight": "GCA has two overlapping phenotypes: cranial GCA (headache, jaw claudication, visual symptoms) and large-vessel GCA (aortitis, limb claudication). Large-vessel GCA can occur without cranial symptoms and leads to thoracic aortic aneurysm in 10-20% of patients, requiring lifelong aortic surveillance.",
+      "technical_details": "Histology shows granulomatous inflammation with multinucleated giant cells at the internal elastic lamina. The inflammatory infiltrate causes intimal hyperplasia (stenosis/occlusion) and medial destruction (aneurysm). Affects external carotid branches (temporal, occipital) and vertebral, ophthalmic, and posterior ciliary arteries. Large vessel involvement includes thoracic aorta, subclavian, and axillary arteries."
+    },
+    "acr_criteria_1990": {
+      "criteria": [
+        "Age ≥50 years at onset",
+        "New headache",
+        "Temporal artery abnormality (tenderness, decreased pulsation)",
+        "Elevated ESR ≥50 mm/hour",
+        "Abnormal temporal artery biopsy (mononuclear infiltration or granulomatous inflammation)"
+      ],
+      "diagnosis": "3 of 5 criteria = sensitivity 93.5%, specificity 91.2%"
+    }
+  },
+  "clinical_features": {
+    "cranial_manifestations": {
+      "headache": "New-onset, often unilateral, temporal",
+      "scalp_tenderness": "Pain when brushing hair or laying on pillow",
+      "jaw_claudication": "Pain with chewing - highly specific for GCA",
+      "visual_symptoms": ["Amaurosis fugax", "Diplopia", "Permanent vision loss (AION)", "Vision loss in up to 20% if untreated"]
+    },
+    "large_vessel_manifestations": {
+      "aortitis": "Thoracic aorta inflammation, wall thickening",
+      "aneurysm": "Thoracic aortic aneurysm in 10-20% (may present years later)",
+      "stenosis": "Subclavian, axillary artery stenosis causing arm claudication"
+    },
+    "systemic": ["Fever", "Weight loss", "Fatigue", "Polymyalgia rheumatica (PMR) overlap in 40-60%"],
+    "laboratory": ["ESR >50 mm/hr (typically >100)", "Elevated CRP", "Normocytic anemia", "Thrombocytosis"],
+    "diagnosis": {
+      "temporal_artery_biopsy": "Gold standard; >1cm specimen, bilateral if high suspicion",
+      "temporal_artery_ultrasound": "'Halo sign' - hypoechoic halo around vessel",
+      "pet_ct": "Shows FDG uptake in large vessel inflammation",
+      "cta_mra": "For large vessel assessment"
+    },
+    "treatment": {
+      "emergent": "High-dose prednisone (60-80mg daily) or IV methylprednisolone if visual symptoms",
+      "maintenance": "Slow taper over 12-24 months guided by symptoms and ESR/CRP",
+      "steroid_sparing": "Tocilizumab (IL-6 inhibitor) - FDA approved for GCA; reduces relapse, enables faster steroid taper",
+      "aortic_surveillance": "Annual chest X-ray or CT for thoracic aneurysm (10-20% lifetime risk)"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Giant Cell Arteritis"},
+    "altLabel": [{"@language": "en", "@value": "Temporal Arteritis"}, {"@language": "en", "@value": "Cranial Arteritis"}],
+    "definition": {"@language": "en", "@value": "Granulomatous large/medium vessel vasculitis in patients >50 years, with cranial (vision loss risk) and large vessel (aortitis, aneurysm) manifestations"},
+    "notation": "gca-001-definition"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:vasculitis", "@type": "skos:Concept", "skos:prefLabel": "Vasculitis"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:vasculitis:takayasu", "@type": "skos:Concept", "skos:prefLabel": "Takayasu Arteritis"},
+      {"@id": "urn:wskg:medicine:rheumatology:pmr", "@type": "skos:Concept", "skos:prefLabel": "Polymyalgia Rheumatica"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "20min",
+    "clinical_pearls": [
+      "Jaw claudication is highly specific for GCA - ask every patient with new headache >50yo",
+      "START steroids immediately if suspected - don't wait for biopsy (biopsy stays positive for days)",
+      "10-20% develop thoracic aortic aneurysm - need lifelong surveillance",
+      "'Halo sign' on temporal artery ultrasound can diagnose GCA non-invasively"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "400130008", "description": "Giant cell arteritis"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "M31.6", "description": "Other giant cell arteritis"}
+  ]
+}

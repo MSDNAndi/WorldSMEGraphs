@@ -1,0 +1,97 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "carotid-004-plaque-morphology",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:25:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:25:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/carotid-disease",
+    "type": "pathology",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "004",
+    "keywords": ["carotid plaque", "vulnerable plaque", "intraplaque hemorrhage", "lipid-rich necrotic core", "ulceration"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Carotid plaque morphology significantly impacts stroke risk beyond stenosis degree. Vulnerable (high-risk) features include intraplaque hemorrhage, large lipid-rich necrotic core (LRNC), thin or ruptured fibrous cap, and surface ulceration. Advanced imaging (MRI, contrast-enhanced ultrasound) can identify these features and may guide treatment in moderate stenosis.",
+      "formal": "Vulnerable Carotid Plaque: Intraplaque hemorrhage, LRNC >40% volume, thin/ruptured cap, ulceration; Associated with embolic events; May lower intervention threshold in moderate stenosis"
+    },
+    "explanation": {
+      "intuition": "Think of carotid plaque like a volcano. A stable plaque is like a dormant volcano with a thick cap - unlikely to erupt. A vulnerable plaque is like an active volcano with a thin crust over boiling magma (lipid core) and internal bleeding (intraplaque hemorrhage) - at any moment it can rupture, sending debris (emboli) downstream to block brain arteries and cause stroke.",
+      "key_insight": "Stenosis degree alone doesn't capture stroke risk. Two plaques with 70% stenosis can have vastly different stroke risk depending on morphology. Current guidelines focus on stenosis percentage, but plaque characteristics are increasingly recognized as important, especially for moderate stenosis where intervention benefit is less clear.",
+      "technical_details": "Intraplaque hemorrhage (IPH) results from neovascularization of the plaque with subsequent leaky, fragile vessels bleeding into the lipid core. IPH accelerates plaque progression and strongly predicts future stroke (HR 4-7x). The fibrous cap separates the thrombogenic LRNC from flowing blood - a thin (<65 μm) or ruptured cap exposes the core, triggering thrombosis and embolization."
+    },
+    "plaque_features": {
+      "stable_features": {
+        "thick_fibrous_cap": ">200 μm, smooth surface",
+        "calcification": "Heavy calcification associated with stability",
+        "surface": "Smooth, regular"
+      },
+      "vulnerable_features": {
+        "intraplaque_hemorrhage": "Blood within plaque - seen as T1 hyperintense on MRI",
+        "lipid_rich_necrotic_core": "Large necrotic core (>40% volume) increases risk",
+        "thin_fibrous_cap": "<65 μm or ruptured",
+        "ulceration": "Surface irregularity/crater >2mm depth",
+        "neovascularization": "New blood vessels within plaque"
+      }
+    }
+  },
+  "clinical_features": {
+    "imaging_modalities": {
+      "ultrasound": {
+        "grayscale": "Echolucent = lipid-rich; Echogenic = fibrous/calcified",
+        "gsm": "Gray Scale Median - lower values = more lipid",
+        "ceus": "Contrast-enhanced US shows neovascularization"
+      },
+      "mri": {
+        "t1_weighted": "IPH appears hyperintense (bright)",
+        "t2_weighted": "LRNC appears hyperintense",
+        "3d_sequences": "Cap thickness measurement"
+      },
+      "ct": {
+        "hua": "Hounsfield Unit Analysis - lipid vs calcium",
+        "ulceration": "Surface irregularity visible on CTA"
+      }
+    },
+    "clinical_implications": {
+      "symptomatic_stenosis": "Plaque features support intervention decision",
+      "moderate_stenosis_50_69%": "Vulnerable features may lower intervention threshold",
+      "mild_stenosis": "Vulnerable plaque under investigation as intervention indication"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Carotid Plaque Morphology"},
+    "altLabel": [{"@language": "en", "@value": "Vulnerable Carotid Plaque"}],
+    "definition": {"@language": "en", "@value": "Characteristics of carotid atherosclerotic plaque that determine stability and stroke risk, beyond stenosis degree"},
+    "notation": "carotid-004-plaque-morphology"
+  },
+  "relationships": {
+    "prerequisites": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:carotid:001", "title": "Carotid Stenosis Definition", "strength": 1.0}],
+    "enables": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:carotid:009", "title": "Surgical Indications", "strength": 0.9}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:carotid:002", "@type": "skos:Concept", "skos:prefLabel": "Carotid Duplex"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:foundations:atherosclerosis", "@type": "skos:Concept", "skos:prefLabel": "Atherosclerosis"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "15min",
+    "clinical_pearls": [
+      "Echolucent (dark) plaque on ultrasound = lipid-rich = higher risk",
+      "Intraplaque hemorrhage on MRI = T1 bright (hyperintense) = 4-7x stroke risk",
+      "Ulceration depth >2mm is significant for stroke risk",
+      "Consider plaque features when deciding on intervention for 50-69% stenosis"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "441574008", "description": "Atherosclerotic plaque in carotid artery"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I65.2", "description": "Occlusion and stenosis of carotid artery"}
+  ]
+}

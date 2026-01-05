@@ -1,0 +1,103 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "tao-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:20:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:20:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/vasculitis/buerger-disease",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": ["Buerger disease", "thromboangiitis obliterans", "TAO", "smoking", "young smokers", "digital ischemia"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Buerger disease (thromboangiitis obliterans, TAO) is a non-atherosclerotic, segmental inflammatory vasculopathy affecting small and medium arteries and veins of the upper and lower extremities. It occurs almost exclusively in young smokers (typically male, age <45) and is absolutely dependent on tobacco use - the disease arrests with smoking cessation and progresses with continued use.",
+      "formal": "Buerger/TAO: Segmental inflammatory vasculopathy; Small/medium arteries + veins; Demographics: young male smokers <45yo; Pathognomonic: tobacco dependence - cessation → remission"
+    },
+    "explanation": {
+      "intuition": "Buerger disease is like an allergic reaction to tobacco occurring inside your blood vessels. The inflammatory response causes clots to form inside the small arteries of the hands and feet, cutting off blood supply to the fingers and toes. Unlike atherosclerosis which builds up slowly over decades, Buerger's can rapidly progress to gangrene in young patients. The only effective treatment is absolute tobacco cessation.",
+      "key_insight": "Tobacco cessation is the ONLY proven treatment to halt disease progression. Even one cigarette can trigger disease exacerbation. Patients who quit smoking rarely require amputation; those who continue have amputation rates of 40-50%. Nicotine replacement is controversial as it may perpetuate disease.",
+      "technical_details": "Histologically distinct from other vasculitides: highly cellular, inflammatory thrombus with preserved internal elastic lamina (vessel wall architecture maintained). Affects tibial, radial, ulnar, digital arteries and corresponding veins. Angiography shows segmental occlusions with 'corkscrew' collaterals (pathognomonic), no atherosclerosis in larger vessels."
+    },
+    "shionoya_criteria": {
+      "required": [
+        "Smoking history",
+        "Onset before age 50",
+        "Infrapopliteal arterial occlusions",
+        "Either upper limb involvement or phlebitis migrans",
+        "Absence of atherosclerotic risk factors other than smoking"
+      ],
+      "supportive": ["No proximal atherosclerosis on arteriography", "Consistent histology if tissue available"]
+    }
+  },
+  "clinical_features": {
+    "presentation": {
+      "lower_extremity": ["Claudication (foot, calf)", "Rest pain", "Foot ulcers", "Gangrene (usually toes)"],
+      "upper_extremity": ["Raynaud's phenomenon (30-40%)", "Digital ischemia", "Finger ulcers or gangrene"],
+      "superficial_thrombophlebitis": "Phlebitis migrans - recurrent superficial vein inflammation"
+    },
+    "characteristic_features": {
+      "location": "Distal > proximal (hands/feet > arms/legs)",
+      "distribution": "Upper and lower extremities both affected in 60-80%",
+      "age": "<45 years (often 20-40)",
+      "smoking": "Present in virtually 100% - often heavy smoking history"
+    },
+    "diagnosis": {
+      "clinical": "Shionoya criteria in young smoker",
+      "angiography": ["Segmental occlusions", "Corkscrew collaterals", "No proximal atherosclerosis", "Skip lesions"],
+      "exclusions": ["Hypercoagulable workup", "Echocardiogram (embolic sources)", "Autoimmune serologies"]
+    },
+    "treatment": {
+      "essential": {
+        "smoking_cessation": "ABSOLUTE requirement - only intervention proven to alter disease course",
+        "approach": "Multidisciplinary cessation program, varenicline, bupropion"
+      },
+      "medical": {
+        "antiplatelet": "Aspirin",
+        "vasodilators": "Iloprost (prostacyclin) - may improve ulcer healing",
+        "calcium_channel_blockers": "For Raynaud's symptoms"
+      },
+      "surgical": {
+        "bypass": "Rarely feasible - poor distal targets",
+        "sympathectomy": "Lumbar or thoracic - improves symptoms, not proven to save limbs",
+        "amputation": "Required in 25-40% of those who continue smoking"
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Buerger Disease"},
+    "altLabel": [{"@language": "en", "@value": "Thromboangiitis Obliterans"}, {"@language": "en", "@value": "TAO"}],
+    "definition": {"@language": "en", "@value": "Non-atherosclerotic inflammatory vasculopathy of small/medium extremity vessels in young smokers, absolutely tobacco-dependent"},
+    "notation": "tao-001-definition"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:vasculitis", "@type": "skos:Concept", "skos:prefLabel": "Vasculitis"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:pad", "@type": "skos:Concept", "skos:prefLabel": "PAD"},
+      {"@id": "urn:wskg:medicine:rheumatology:raynaud", "@type": "skos:Concept", "skos:prefLabel": "Raynaud Phenomenon"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "15min",
+    "clinical_pearls": [
+      "Young smoker + digital gangrene + corkscrew collaterals = Buerger until proven otherwise",
+      "Both upper AND lower extremity involvement is characteristic - unlike atherosclerosis",
+      "Smoking cessation is the ONLY effective treatment - even one cigarette can reactivate disease",
+      "Amputation rate: 40-50% if continue smoking vs <5% if quit"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "22298006", "description": "Thromboangiitis obliterans"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I73.1", "description": "Thromboangiitis obliterans [Buerger disease]"}
+  ]
+}
