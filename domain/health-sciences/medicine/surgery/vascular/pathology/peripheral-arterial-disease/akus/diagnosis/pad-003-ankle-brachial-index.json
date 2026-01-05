@@ -1,0 +1,221 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "pad-003-ankle-brachial-index",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T01:20:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T01:20:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/peripheral-arterial-disease",
+    "type": "diagnostic_test",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "003",
+    "keywords": [
+      "ankle-brachial index",
+      "ABI",
+      "vascular screening",
+      "noninvasive testing",
+      "peripheral arterial disease diagnosis"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "diagnosis"
+  },
+  "content": {
+    "statement": {
+      "text": "The Ankle-Brachial Index (ABI) is the ratio of the highest ankle systolic pressure to the highest brachial systolic pressure. An ABI ≤0.90 diagnoses PAD with 95% sensitivity and 99% specificity. ABI also stratifies disease severity and predicts cardiovascular events: lower ABI correlates with higher mortality risk.",
+      "formal": "ABI = (Highest ankle systolic pressure) / (Highest brachial systolic pressure) | Normal: 1.00-1.40 | Borderline: 0.91-0.99 | PAD: ≤0.90 | Severe: ≤0.40 | Non-compressible: >1.40"
+    },
+    "explanation": {
+      "intuition": "Blood pressure in your legs should be at least as high as in your arms - actually slightly higher due to the physics of blood flow. If there's a blockage between your heart and your ankles, the pressure at your ankles will drop. By comparing ankle pressure to arm pressure, we can detect and quantify this drop. It's like checking water pressure at different points in a pipe system to find blockages.",
+      "key_insight": "The ABI is the most important screening test for PAD. It's cheap, noninvasive, and highly accurate. But its value goes beyond diagnosing leg disease - an abnormal ABI is one of the strongest predictors of cardiovascular death. A patient with ABI <0.90 has twice the mortality risk of someone with normal ABI, even if they have no leg symptoms.",
+      "technical_details": "Technique: Patient supine for 10 minutes. Measure bilateral brachial pressures with Doppler and appropriate-sized cuff. Measure bilateral dorsalis pedis and posterior tibial pressures at ankle. Use the highest pressure at each ankle and the highest brachial pressure for calculation. Take the higher of the two leg ABIs as the patient's overall ABI. The DP and PT pressures should be within 12 mmHg; larger differences suggest tibial disease. Non-compressible vessels (ABI >1.40) occur in diabetes and CKD due to medial calcinosis and require toe pressures.",
+      "common_misconceptions": [
+        "ABI <1.0 = PAD - normal range extends to 1.40, borderline is 0.91-0.99",
+        "ABI >1.0 means no PAD - non-compressible vessels falsely elevate ABI",
+        "ABI diagnoses the location of disease - it only detects presence, not location",
+        "One normal ABI excludes PAD - exercise ABI may be needed for symptomatic patients"
+      ]
+    },
+    "definitions_glossary": {
+      "ankle_pressure": "Systolic blood pressure measured at the ankle using Doppler",
+      "brachial_pressure": "Systolic blood pressure measured at the upper arm",
+      "non_compressible": "Vessels that cannot be occluded by cuff due to calcification",
+      "medial_calcinosis": "Calcium deposition in arterial media causing vessel stiffness",
+      "exercise_abi": "ABI measured after standardized walking to unmask disease"
+    }
+  },
+  "clinical_features": {
+    "interpretation": {
+      "normal": {
+        "range": "1.00-1.40",
+        "interpretation": "No hemodynamically significant PAD"
+      },
+      "borderline": {
+        "range": "0.91-0.99",
+        "interpretation": "Consider exercise ABI or TBI"
+      },
+      "mild_pad": {
+        "range": "0.71-0.90",
+        "interpretation": "Mild PAD, may be asymptomatic or mild claudication"
+      },
+      "moderate_pad": {
+        "range": "0.41-0.70",
+        "interpretation": "Moderate PAD, typical claudication range"
+      },
+      "severe_pad": {
+        "range": "≤0.40",
+        "interpretation": "Severe PAD, critical limb ischemia likely"
+      },
+      "non_compressible": {
+        "range": ">1.40",
+        "interpretation": "Non-compressible vessels, use TBI instead"
+      }
+    },
+    "test_characteristics": {
+      "sensitivity": "95%",
+      "specificity": "99%",
+      "reference_standard": "Angiography",
+      "time_required": "15-20 minutes",
+      "equipment": "Doppler probe, sphygmomanometer, appropriate cuffs"
+    },
+    "measurement_technique": [
+      "Patient supine, rested 10 minutes",
+      "Measure both brachial pressures",
+      "Measure dorsalis pedis and posterior tibial pressures bilaterally",
+      "Use highest brachial as denominator",
+      "Use highest ankle pressure on each side as numerator",
+      "Calculate ABI for each leg separately"
+    ],
+    "cardiovascular_risk_prediction": [
+      {
+        "abi_range": "0.91-1.00",
+        "relative_cv_risk": "Reference (1.0)"
+      },
+      {
+        "abi_range": "0.71-0.90",
+        "relative_cv_risk": "1.5-2.0x"
+      },
+      {
+        "abi_range": "0.41-0.70",
+        "relative_cv_risk": "2.0-3.0x"
+      },
+      {
+        "abi_range": "≤0.40",
+        "relative_cv_risk": "3.0-4.0x"
+      }
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Ankle-Brachial Index"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "ABI"
+      },
+      {
+        "@language": "en",
+        "@value": "Ankle-Brachial Pressure Index"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Ratio of ankle to brachial systolic blood pressure used to diagnose and quantify peripheral arterial disease"
+    },
+    "notation": "pad-003-ankle-brachial-index"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:pad:001",
+        "title": "PAD Definition",
+        "strength": 1.0
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:pad:002",
+        "title": "Fontaine Classification",
+        "strength": 0.8,
+        "reason": "ABI helps stage severity"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:diagnostics:toe-brachial-index",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Toe-Brachial Index",
+        "skos:note": "Alternative for non-compressible ankle vessels"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "citation": "2016 AHA/ACC Guideline on PAD",
+        "confidence": 1.0
+      },
+      {
+        "type": "meta_analysis",
+        "citation": "Ankle Brachial Index Collaboration. Ankle brachial index combined with Framingham Risk Score to predict cardiovascular events. JAMA. 2008;300(2):197-208.",
+        "doi": "10.1001/jama.300.2.197",
+        "confidence": 0.98
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "primary_care_physicians",
+      "nursing_staff"
+    ],
+    "estimated_time": "20min",
+    "difficulty_curve": 0.4,
+    "learning_objectives": [
+      "Describe the technique for measuring ABI",
+      "Interpret ABI values and classify disease severity",
+      "Identify limitations of ABI (non-compressible vessels)",
+      "Understand the cardiovascular prognostic value of ABI"
+    ],
+    "clinical_pearls": [
+      "ABI <0.90 is diagnostic for PAD with 95% sensitivity",
+      "ABI >1.40 doesn't mean super-healthy - it means calcified, non-compressible vessels",
+      "In diabetics, always check TBI because ABI may be falsely elevated",
+      "An abnormal ABI doubles CV mortality risk - treat it like a failed stress test"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "diagnostic_algorithm",
+    "show_images": true,
+    "visualization": [
+      "measurement_technique_diagram",
+      "interpretation_chart"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "93922",
+      "description": "Limited bilateral noninvasive physiologic studies"
+    }
+  ]
+}

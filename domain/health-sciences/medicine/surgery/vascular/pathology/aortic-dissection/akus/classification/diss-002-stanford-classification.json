@@ -1,0 +1,219 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "diss-002-stanford-classification",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T01:30:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T01:30:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aortic-dissection",
+    "type": "classification",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "002",
+    "keywords": [
+      "Stanford classification",
+      "Type A dissection",
+      "Type B dissection",
+      "ascending aorta",
+      "descending aorta"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "classification"
+  },
+  "content": {
+    "statement": {
+      "text": "The Stanford Classification divides aortic dissection into two types based on involvement of the ascending aorta: Type A involves the ascending aorta (regardless of origin) and requires emergency surgery; Type B involves only the descending aorta and is initially managed with medical therapy. This simple binary classification directly guides treatment decisions.",
+      "formal": "Stanford Type A: Ascending aorta involved → Emergency surgical repair | Stanford Type B: Ascending aorta NOT involved (descending only) → Medical management ± TEVAR for complications"
+    },
+    "explanation": {
+      "intuition": "The Stanford Classification asks one simple question: Is the ascending aorta involved? If yes = Type A = surgery. If no = Type B = medicine. This simplicity is intentional because the ascending aorta is the 'danger zone' - dissection here can tear into the coronary arteries (causing heart attack), the pericardium (causing tamponade), or the aortic valve (causing heart failure). Time is everything in Type A, so a binary classification that immediately dictates treatment is more useful than a detailed anatomic description.",
+      "key_insight": "Stanford Type A requires surgery not because surgery is easy, but because NOT operating is uniformly fatal. With medical management alone, Type A mortality is 1-2% per hour in the first 48 hours. Even with emergency surgery carrying 15-25% mortality, it's still far better than the alternative.",
+      "technical_details": "The classification was proposed by Daily and colleagues at Stanford in 1970 to simplify the DeBakey system for treatment planning. Type A includes DeBakey Types I and II; Type B corresponds to DeBakey Type III. Important nuances: (1) Retrograde dissection - an entry tear in descending aorta that propagates retrograde into ascending = Type A; (2) Arch involvement - isolated arch without ascending = controversial, some treat as Type A; (3) Post-surgical - dissection after prior ascending aortic surgery depends on new dissection location.",
+      "common_misconceptions": [
+        "Type A means the tear is in the ascending aorta - the tear location doesn't matter, only whether ascending is involved",
+        "Type B is benign - mortality is still 10-15% and complications can be lethal",
+        "Arch involvement = Type A - isolated arch is debated; usually treated as Type A",
+        "Stanford has replaced DeBakey - both are still used; Stanford for treatment, DeBakey for anatomic detail"
+      ]
+    },
+    "definitions_glossary": {
+      "ascending_aorta": "Portion of aorta from aortic valve to innominate artery origin",
+      "descending_aorta": "Portion of aorta from left subclavian artery to aortic bifurcation",
+      "aortic_arch": "Curved portion between ascending and descending aorta",
+      "retrograde_dissection": "Dissection propagating backwards against normal blood flow",
+      "complicated_type_b": "Type B with malperfusion, rupture, refractory pain, or rapid expansion"
+    }
+  },
+  "clinical_features": {
+    "classification_comparison": {
+      "type_a": {
+        "definition": "Any involvement of ascending aorta",
+        "entry_tear_location": "Can be anywhere (ascending, arch, or descending with retrograde extension)",
+        "frequency": "60-70% of all dissections",
+        "management": "Emergency surgical repair",
+        "mortality_with_surgery": "15-25%",
+        "mortality_without_surgery": "50% at 48 hours, 90% at 1 month"
+      },
+      "type_b": {
+        "definition": "Dissection confined to descending aorta (distal to left subclavian)",
+        "entry_tear_location": "Typically just distal to left subclavian",
+        "frequency": "30-40% of all dissections",
+        "management": "Medical therapy, TEVAR for complications",
+        "mortality_uncomplicated": "10-15% at 30 days",
+        "mortality_complicated": "20-40% at 30 days"
+      }
+    },
+    "debakey_to_stanford_mapping": {
+      "debakey_i": {
+        "description": "Origin in ascending, extends to descending",
+        "stanford": "Type A"
+      },
+      "debakey_ii": {
+        "description": "Confined to ascending aorta",
+        "stanford": "Type A"
+      },
+      "debakey_iiia": {
+        "description": "Origin in descending, confined to thorax",
+        "stanford": "Type B"
+      },
+      "debakey_iiib": {
+        "description": "Origin in descending, extends to abdomen",
+        "stanford": "Type B"
+      }
+    },
+    "treatment_implications": {
+      "type_a": [
+        "Immediate transfer to cardiac surgery center",
+        "Emergency median sternotomy",
+        "Cardiopulmonary bypass",
+        "Ascending aortic replacement ± root/arch repair",
+        "Goal: Exclude entry tear, prevent rupture/tamponade"
+      ],
+      "type_b_uncomplicated": [
+        "ICU admission for monitoring",
+        "Aggressive blood pressure control (SBP 100-120 mmHg)",
+        "Heart rate control (HR <60)",
+        "Pain management",
+        "Serial imaging to monitor for complications"
+      ],
+      "type_b_complicated": [
+        "TEVAR (Thoracic Endovascular Aortic Repair)",
+        "Coverage of entry tear to promote false lumen thrombosis",
+        "Fenestration/stenting for malperfusion",
+        "Open surgery if endovascular options fail"
+      ]
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Stanford Classification of Aortic Dissection"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Stanford System"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Binary classification of aortic dissection based on ascending aorta involvement"
+    },
+    "notation": "diss-002-stanford-classification"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-dissection:001",
+        "title": "Aortic Dissection Definition",
+        "strength": 1.0
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-dissection:008",
+        "title": "Type A Management",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-dissection:009",
+        "title": "Type B Management",
+        "strength": 1.0
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-dissection:003",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "DeBakey Classification",
+        "skos:note": "Alternative, more detailed classification"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "original_publication",
+        "citation": "Daily PO, et al. Management of acute aortic dissections. Ann Thorac Surg. 1970;10:237-247.",
+        "confidence": 0.98
+      },
+      {
+        "type": "clinical_guideline",
+        "citation": "2010 ACCF/AHA Guidelines for Thoracic Aortic Disease",
+        "confidence": 1.0
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "surgery_residents",
+      "emergency_medicine_residents"
+    ],
+    "estimated_time": "15min",
+    "difficulty_curve": 0.4,
+    "learning_objectives": [
+      "Distinguish Type A from Type B dissection",
+      "Explain why ascending involvement dictates surgical management",
+      "Convert between Stanford and DeBakey classifications",
+      "Identify the treatment approach for each type"
+    ],
+    "clinical_pearls": [
+      "Stanford asks ONE question: Is the ascending aorta involved?",
+      "Type A = Ascending = Surgery (regardless of tear location)",
+      "Type B = Below (left subclavian) = Medical management first",
+      "Retrograde dissection from descending into ascending = Type A"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "classification_diagram",
+    "show_images": true,
+    "visualization": [
+      "type_a_vs_type_b_diagram",
+      "stanford_debakey_comparison_table"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "308546005",
+      "description": "Dissection of aorta (disorder)"
+    }
+  ]
+}
