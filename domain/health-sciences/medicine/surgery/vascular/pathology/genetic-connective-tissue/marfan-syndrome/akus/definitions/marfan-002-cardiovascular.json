@@ -1,0 +1,99 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "marfan-002-cardiovascular",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:52:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:52:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/genetic-connective-tissue/marfan-syndrome",
+    "type": "clinical",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "002",
+    "keywords": ["Marfan aortic disease", "aortic root dilation", "prophylactic surgery", "valve-sparing root replacement"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Cardiovascular manifestations of Marfan syndrome are the primary determinant of life expectancy. Aortic root dilation (affecting 80-90%) leads to aortic regurgitation and risk of dissection. Prophylactic aortic root replacement is indicated when diameter reaches 5.0 cm (4.5 cm with risk factors). Valve-sparing root replacement is preferred when feasible.",
+      "formal": "Marfan CV: Aortic root dilation (80-90%), MVP (75%); Intervention: prophylactic surgery at 5.0cm (or 4.5cm with risk factors); Preferred: valve-sparing root replacement (David)"
+    },
+    "explanation": {
+      "intuition": "In Marfan syndrome, the aorta near the heart is like a balloon made of defective material. It slowly stretches under the constant pressure of each heartbeat. As it stretches, the aortic valve starts to leak (regurgitation), and the risk of the aorta tearing (dissection) increases. We replace the aorta before it tears, ideally preserving the patient's own valve if healthy.",
+      "key_insight": "Prophylactic aortic surgery transformed Marfan syndrome from a disease with average lifespan of 40 years to near-normal life expectancy. The key is surveillance to detect enlargement and timely surgery before dissection occurs. Once dissected, outcomes are much worse.",
+      "technical_details": "The aortic root in Marfan shows cystic medial degeneration from abnormal fibrillin-1. Dilation typically starts at the sinuses of Valsalva, creating 'onion bulb' appearance. Intervention thresholds: 5.0 cm absolute, or 4.5 cm with family history of dissection, rapid growth (>3mm/year), severe AR, or pregnancy desire. Valve-sparing (David procedure) has excellent durability when valve is normal."
+    },
+    "surgical_thresholds": {
+      "standard": "Aortic root ≥5.0 cm",
+      "lower_threshold": {
+        "criteria": ["Family history of aortic dissection", "Rapid growth >3-5 mm/year", "Severe aortic regurgitation", "Pregnancy planned"],
+        "threshold": "4.5 cm"
+      },
+      "considerations": ["BSA-indexed values for small patients", "Rate of growth", "Valve morphology and function"]
+    }
+  },
+  "clinical_features": {
+    "manifestations": {
+      "aortic_root": {
+        "prevalence": "80-90%",
+        "natural_history": "Progressive dilation, ~0.5-1mm/year",
+        "complications": ["Aortic regurgitation", "Type A dissection", "Rupture"]
+      },
+      "mitral_valve": {
+        "prevalence": "75%",
+        "manifestation": "Mitral valve prolapse with variable regurgitation"
+      },
+      "other_aortic": "Descending aortic dilation, dissection can extend beyond root"
+    },
+    "surveillance": {
+      "frequency": "Echocardiography annually (more frequent if enlarging or approaching threshold)",
+      "imaging": ["TTE for root/ascending", "MRA or CTA for entire aorta annually if dilated distal aorta"]
+    },
+    "medical_management": {
+      "beta_blockers": "Standard of care - reduce rate of dilation, reduce aortic wall stress",
+      "losartan": "ARB with TGF-β blocking effect - may have additional benefit (COMPARE trial)",
+      "lifestyle": ["Avoid contact sports", "Avoid isometric exercise", "Avoid stimulants (cocaine, amphetamines)"]
+    },
+    "surgical_options": {
+      "bentall_procedure": {
+        "description": "Composite valve graft (mechanical valve + aortic graft) with coronary reimplantation",
+        "advantages": "Established, durable",
+        "disadvantages": "Lifelong anticoagulation with mechanical valve"
+      },
+      "valve_sparing_root": {
+        "david_procedure": "Root replacement with reimplantation of native valve into graft",
+        "yacoub_procedure": "Root remodeling with replacement of sinuses",
+        "advantages": "No anticoagulation, may be better for young patients",
+        "outcomes": "95% freedom from reoperation at 15 years in experienced centers"
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Marfan Cardiovascular Manifestations"},
+    "definition": {"@language": "en", "@value": "Aortic root dilation and mitral valve disease in Marfan syndrome, requiring surveillance and prophylactic surgery"},
+    "notation": "marfan-002-cardiovascular"
+  },
+  "relationships": {
+    "prerequisites": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:genetic:marfan:001", "title": "Marfan Definition", "strength": 1.0}],
+    "enables": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:genetic:marfan:007", "title": "Marfan Surgical Planning", "strength": 1.0}]
+  },
+  "pedagogical": {
+    "estimated_time": "20min",
+    "clinical_pearls": [
+      "Prophylactic surgery transformed Marfan from 40-year to near-normal lifespan",
+      "Operate at 5.0 cm (4.5 cm with risk factors) - before dissection",
+      "Valve-sparing root replacement preferred in experienced centers when valve healthy",
+      "Beta-blockers are standard of care - reduce aortic wall stress and dilation rate"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "19346006", "description": "Marfan syndrome"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "Q87.40", "description": "Marfan's syndrome, unspecified"}
+  ]
+}

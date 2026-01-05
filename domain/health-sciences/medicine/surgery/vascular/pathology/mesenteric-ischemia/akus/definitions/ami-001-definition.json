@@ -1,0 +1,115 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "ami-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:45:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:45:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "001",
+    "keywords": ["acute mesenteric ischemia", "AMI", "mesenteric embolism", "mesenteric thrombosis", "NOMI", "intestinal ischemia"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Acute mesenteric ischemia (AMI) is sudden reduction in intestinal blood flow leading to bowel ischemia and, if untreated, infarction and death. The four major etiologies are: arterial embolism (40-50%), arterial thrombosis (20-35%), non-occlusive mesenteric ischemia (NOMI) (20%), and mesenteric venous thrombosis (10%). Classic presentation is 'pain out of proportion to exam' - severe abdominal pain with minimal findings.",
+      "formal": "AMI: Sudden bowel ischemia; Etiologies: Embolism (40-50%), Thrombosis (25-30%), NOMI (20%), Venous (10%); Classic: pain >> exam findings; Mortality 50-80% if delayed"
+    },
+    "explanation": {
+      "intuition": "The intestines are like a garden that needs constant water (blood) to survive. AMI is a sudden water shutoff - either from a clot blocking the main supply (embolism/thrombosis), a pump failure (NOMI in shock), or a backup drainage problem (venous thrombosis). Without blood, the intestine starts dying within hours. The garden wilts quickly, and once the plants (intestinal cells) die, they can't be saved.",
+      "key_insight": "AMI is a surgical emergency with mortality of 50-80% when diagnosis or treatment is delayed. The key to survival is early diagnosis (before bowel necrosis) and rapid revascularization. 'Time is bowel' - similar to stroke ('time is brain').",
+      "technical_details": "SMA is most commonly affected (supplies most of small bowel and right colon). Arterial embolus typically lodges just distal to middle colic artery origin. Arterial thrombosis usually occurs at SMA origin with pre-existing stenosis. NOMI results from mesenteric vasoconstriction in low-flow states. MVT presents more insidiously, often with hypercoagulable state."
+    },
+    "etiologies": {
+      "arterial_embolism": {
+        "frequency": "40-50%",
+        "source": "Cardiac (atrial fibrillation, post-MI, valve disease)",
+        "presentation": "Sudden onset, severe pain, 'pain out of proportion'",
+        "treatment": "Embolectomy, revascularization, resection if necrosis"
+      },
+      "arterial_thrombosis": {
+        "frequency": "20-35%",
+        "mechanism": "Thrombosis of pre-existing atherosclerotic stenosis",
+        "presentation": "Often history of food fear, weight loss (chronic mesenteric ischemia prodrome)",
+        "treatment": "Bypass or stenting, resection if necrosis"
+      },
+      "nomi": {
+        "frequency": "~20%",
+        "mechanism": "Vasoconstriction in low cardiac output, vasopressor use, dialysis",
+        "presentation": "ICU patient with abdominal distension, pain, acidosis",
+        "treatment": "Optimize cardiac output, vasodilators, resect necrotic bowel"
+      },
+      "venous_thrombosis": {
+        "frequency": "~10%",
+        "risk_factors": ["Hypercoagulable states", "Portal hypertension", "Malignancy", "Infection"],
+        "presentation": "More insidious onset, vague pain for days",
+        "treatment": "Anticoagulation, resection if necrosis"
+      }
+    }
+  },
+  "clinical_features": {
+    "classic_triad": ["Sudden, severe abdominal pain", "Minimal abdominal findings early", "GI emptying (vomiting/diarrhea)"],
+    "late_findings": ["Peritonitis", "Bloody diarrhea", "Hypotension", "Metabolic acidosis", "Multi-organ failure"],
+    "laboratory": {
+      "lactate": "Elevated - but late finding, insensitive early",
+      "white_count": "Often elevated",
+      "d_dimer": "Elevated but non-specific",
+      "base_deficit": "Metabolic acidosis indicates bowel necrosis"
+    },
+    "imaging": {
+      "ct_angiography": "Modality of choice - shows vessel occlusion, bowel wall changes",
+      "cta_findings": ["Vessel occlusion or stenosis", "Bowel wall thickening or thin paper", "Pneumatosis intestinalis", "Portal venous gas", "Mesenteric fat stranding"]
+    },
+    "treatment": {
+      "initial": {
+        "resuscitation": "IV fluids, correct acidosis",
+        "antibiotics": "Broad spectrum for enteric organisms",
+        "anticoagulation": "Heparin to prevent propagation"
+      },
+      "revascularization": {
+        "open": "Embolectomy, endarterectomy, bypass",
+        "endovascular": "Aspiration thrombectomy, stenting (for thrombosis)",
+        "timing": "Urgent - before bowel necrosis"
+      },
+      "bowel_assessment": {
+        "exploration": "Assess viability, resect necrotic bowel",
+        "second_look": "Consider planned re-exploration in 24-48 hours if marginal bowel"
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Acute Mesenteric Ischemia"},
+    "altLabel": [{"@language": "en", "@value": "AMI"}, {"@language": "en", "@value": "Mesenteric Infarction"}],
+    "definition": {"@language": "en", "@value": "Sudden reduction in intestinal blood flow causing bowel ischemia, from embolism, thrombosis, NOMI, or venous occlusion"},
+    "notation": "ami-001-definition"
+  },
+  "relationships": {
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:mesenteric-ischemia:chronic", "@type": "skos:Concept", "skos:prefLabel": "Chronic Mesenteric Ischemia"},
+      {"@id": "urn:wskg:medicine:cardiology:atrial-fibrillation", "@type": "skos:Concept", "skos:prefLabel": "Atrial Fibrillation"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "20min",
+    "clinical_pearls": [
+      "Pain out of proportion to exam = classic for AMI",
+      "Lactate elevation is LATE - don't wait for it",
+      "Always think AMI in patient with AFib and sudden abdominal pain",
+      "Pneumatosis or portal venous gas on CT = bowel already dead, high mortality",
+      "'Time is bowel' - rapid diagnosis and revascularization saves lives"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "56905009", "description": "Acute mesenteric ischemia"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "K55.059", "description": "Acute (reversible) ischemia of intestine, part unspecified"}
+  ]
+}
