@@ -1,0 +1,213 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aaa-008-surgical-indications",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:50:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:50:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa",
+    "type": "treatment_decision",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "008",
+    "keywords": [
+      "AAA repair indications",
+      "size threshold",
+      "rupture risk",
+      "elective repair",
+      "operative risk"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "treatment_decision"
+  },
+  "content": {
+    "statement": {
+      "text": "Elective AAA repair is indicated for aneurysm diameter ≥5.5 cm in men and ≥5.0 cm in women, rapid expansion ≥0.5 cm in 6 months, or symptoms attributable to the aneurysm. The decision balances rupture risk against operative risk. Repair is recommended when rupture risk exceeds operative mortality - typically 2-3%/year rupture risk threshold compared to 2-4% perioperative mortality for elective EVAR/open repair.",
+      "formal": "Repair Indications: Diameter ≥5.5 cm (men) | ≥5.0 cm (women) | Growth ≥0.5 cm/6 months | Symptomatic aneurysm | Saccular morphology | Decision: Rupture risk > Operative risk"
+    },
+    "explanation": {
+      "intuition": "The decision to repair an AAA is like deciding when to fix a slowly bulging tire. A small bulge can be monitored safely. But at some point, the risk of a blowout (rupture) becomes high enough that it outweighs the risks of repair. That tipping point is around 5.5 cm for men. Below 5 cm, rupture risk is very low (~1%/year), but above 5.5 cm it climbs rapidly (~10%/year at 6 cm, 25%+ at 7 cm).",
+      "key_insight": "There's no magic diameter at which rupture occurs - 5.5 cm is the threshold where rupture risk begins to exceed operative risk for most patients. Individual factors matter: women have higher rupture risk at smaller sizes (hence the 5.0 cm threshold), patients with high operative risk may benefit from a higher threshold, and saccular/rapidly expanding aneurysms warrant earlier repair.",
+      "technical_details": "Rupture risk by size: <4 cm = 0%/year; 4.0-4.9 cm = 0.5-1%/year; 5.0-5.9 cm = 3-15%/year; 6.0-6.9 cm = 10-20%/year; ≥7 cm = 20-32%/year. Key trials: UK Small Aneurysm Trial and ADAM trial showed no survival benefit to early repair of 4.0-5.5 cm AAA vs surveillance. Women have 3-4x higher rupture risk at same diameter - hence lower threshold. Operative mortality: EVAR 1-2%, open 3-5% at high-volume centers. Patient factors affecting threshold: life expectancy (<2-5 years may not benefit), fitness for surgery, anatomy (suitable for EVAR?), patient preference.",
+      "common_misconceptions": [
+        "Every AAA eventually needs repair - many patients die of other causes first",
+        "5.5 cm is a hard cutoff - it's a guideline balancing risks, not a mandate",
+        "Women use the same size threshold - women have higher rupture risk, lower threshold",
+        "Small aneurysms never rupture - rare but possible, especially if symptomatic"
+      ]
+    },
+    "definitions_glossary": {
+      "elective_repair": "Planned surgical repair of intact aneurysm before rupture",
+      "rupture_risk": "Probability of aneurysm rupturing per year",
+      "operative_mortality": "Risk of death within 30 days of surgery",
+      "size_threshold": "Diameter at which repair benefits outweigh risks",
+      "expansion_rate": "Change in diameter over time, typically cm/year"
+    }
+  },
+  "clinical_features": {
+    "standard_indications": [
+      "Aneurysm diameter ≥5.5 cm (men)",
+      "Aneurysm diameter ≥5.0 cm (women)",
+      "Expansion rate ≥0.5 cm over 6 months or ≥1.0 cm/year",
+      "Symptomatic aneurysm (pain, embolization, compression)",
+      "Saccular morphology (higher rupture risk)"
+    ],
+    "rupture_risk_by_size": [
+      {
+        "diameter": "<4.0 cm",
+        "annual_rupture_risk": "0%"
+      },
+      {
+        "diameter": "4.0-4.9 cm",
+        "annual_rupture_risk": "0.5-1%"
+      },
+      {
+        "diameter": "5.0-5.4 cm",
+        "annual_rupture_risk": "3-5%"
+      },
+      {
+        "diameter": "5.5-5.9 cm",
+        "annual_rupture_risk": "5-10%"
+      },
+      {
+        "diameter": "6.0-6.9 cm",
+        "annual_rupture_risk": "10-20%"
+      },
+      {
+        "diameter": "≥7.0 cm",
+        "annual_rupture_risk": "20-32%"
+      }
+    ],
+    "operative_mortality": {
+      "evar_elective": "1-2% (good candidates)",
+      "open_elective_high_volume": "3-5%",
+      "open_elective_low_volume": "5-10%"
+    },
+    "factors_for_earlier_repair": [
+      "Female sex (5.0 cm threshold)",
+      "Rapid expansion",
+      "Saccular morphology",
+      "Family history of rupture",
+      "Connective tissue disease (Marfan, Ehlers-Danlos)",
+      "Symptomatic"
+    ],
+    "factors_for_delayed_repair": [
+      "Limited life expectancy (<2-5 years)",
+      "High operative risk",
+      "Hostile abdomen (prior surgery)",
+      "Patient preference",
+      "Unfavorable anatomy (poor EVAR candidate, no open option)"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "AAA Surgical Indications"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Evidence-based criteria for recommending elective AAA repair based on rupture and operative risk"
+    },
+    "notation": "aaa-008-surgical-indications"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001",
+        "title": "AAA Definition",
+        "strength": 0.9
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:004",
+        "title": "AAA Natural History",
+        "strength": 1.0
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:procedures:evar:001",
+        "title": "EVAR Overview",
+        "strength": 1.0
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Abdominal Aortic Aneurysm"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "citation": "Chaikof EL, et al. SVS practice guidelines for AAA. J Vasc Surg. 2018;67(1):2-77.",
+        "doi": "10.1016/j.jvs.2017.10.044",
+        "confidence": 1.0
+      },
+      {
+        "type": "landmark_trial",
+        "citation": "UK Small Aneurysm Trial. Lancet. 1998;352:1649-1655.",
+        "confidence": 0.99
+      },
+      {
+        "type": "landmark_trial",
+        "citation": "ADAM Trial. N Engl J Med. 2002;346:1437-1444.",
+        "confidence": 0.99
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "internal_medicine_residents",
+      "general_surgery_residents"
+    ],
+    "estimated_time": "20min",
+    "difficulty_curve": 0.6,
+    "learning_objectives": [
+      "State the standard size thresholds for AAA repair",
+      "Explain the relationship between rupture risk and diameter",
+      "Identify factors that modify the repair threshold",
+      "Apply shared decision-making for borderline cases"
+    ],
+    "clinical_pearls": [
+      "Women: lower threshold (5.0 cm) because of higher rupture risk",
+      "Rapid growth matters more than absolute size",
+      "Small aneurysm trials: no benefit to repairing <5.5 cm",
+      "Individual decision based on rupture risk vs operative risk"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "decision_algorithm",
+    "show_images": false,
+    "visualization": [
+      "rupture_risk_graph_by_size",
+      "decision_algorithm_flowchart"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "233985008",
+      "description": "Abdominal aortic aneurysm (disorder)"
+    }
+  ]
+}
