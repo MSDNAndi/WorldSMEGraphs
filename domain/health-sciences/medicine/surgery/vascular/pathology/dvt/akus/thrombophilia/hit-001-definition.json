@@ -1,0 +1,136 @@
+{
+  "@context": "aku-v2",
+  "@type": "definition",
+  "@id": "vascular:thrombophilia:heparin-induced:definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T18:08:00.000Z",
+    "contributors": ["copilot"],
+    "status": "validated",
+    "confidence": 0.95
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/thrombophilia",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "board_yield": "HIGH"
+  },
+  "content": {
+    "term": "Heparin-Induced Thrombocytopenia",
+    "synonyms": ["HIT", "HIT Type II", "Heparin-Induced Thrombocytopenia and Thrombosis (HITT)"],
+    "definition": "An immune-mediated prothrombotic disorder caused by platelet-activating antibodies against platelet factor 4 (PF4) complexed with heparin. Despite causing thrombocytopenia, HIT paradoxically increases thrombosis risk, making it a critical diagnosis in hospitalized patients on heparin.",
+    "classification": {
+      "type_I": {
+        "mechanism": "Non-immune, direct heparin effect",
+        "timing": "Days 1-4",
+        "platelet_drop": "Mild, transient",
+        "thrombosis_risk": "None",
+        "management": "Continue heparin - benign"
+      },
+      "type_II": {
+        "mechanism": "Immune-mediated (anti-PF4/heparin antibodies)",
+        "timing": "Days 5-14 (or earlier if prior exposure)",
+        "platelet_drop": ">50% from baseline or <100,000",
+        "thrombosis_risk": "Very high (30-50%)",
+        "management": "STOP heparin, start alternative anticoagulation"
+      }
+    },
+    "pathophysiology": {
+      "mechanism": [
+        "Heparin binds to platelet factor 4 (PF4) on platelets",
+        "PF4/heparin complex becomes immunogenic",
+        "IgG antibodies form against complex",
+        "Antibodies activate platelets → thrombocytopenia",
+        "Activated platelets release procoagulant microparticles",
+        "Intense thrombin generation → thrombosis"
+      ]
+    },
+    "clinical_features": {
+      "thrombocytopenia": [
+        ">50% fall from baseline (most important)",
+        "Nadir typically 50,000-80,000 (rarely <20,000)",
+        "Severe thrombocytopenia suggests other diagnosis"
+      ],
+      "timing": [
+        "Typical onset: day 5-14 of heparin",
+        "Rapid onset if heparin exposure in past 100 days"
+      ],
+      "thrombosis": [
+        "Venous > arterial (4:1 ratio)",
+        "DVT/PE most common",
+        "Arterial: stroke, MI, limb ischemia",
+        "Adrenal hemorrhage (venous infarction)"
+      ],
+      "skin_manifestations": [
+        "Skin necrosis at injection sites",
+        "May precede thrombocytopenia"
+      ]
+    },
+    "diagnosis": {
+      "4ts_score": {
+        "components": [
+          "Thrombocytopenia severity",
+          "Timing of platelet fall",
+          "Thrombosis present",
+          "oTher causes excluded"
+        ],
+        "interpretation": [
+          "0-3: Low probability - HIT unlikely",
+          "4-5: Intermediate - test and treat",
+          "6-8: High probability - treat immediately"
+        ]
+      },
+      "laboratory": {
+        "screening": "PF4/heparin ELISA (high sensitivity, moderate specificity)",
+        "confirmatory": "Serotonin release assay (SRA) - gold standard",
+        "approach": "Use 4Ts → if intermediate/high → ELISA → if positive → SRA"
+      }
+    },
+    "management": {
+      "stop_heparin": "ALL heparin including flushes, coated catheters",
+      "alternative_anticoagulation": [
+        "Argatroban (hepatic metabolism) - most common in US",
+        "Bivalirudin (for PCI or short-term)",
+        "Fondaparinux (off-label but commonly used)",
+        "DOACs (after acute phase, platelet recovery)"
+      ],
+      "avoid_warfarin": [
+        "DO NOT start until platelets >150,000",
+        "Warfarin depletes protein C → venous limb gangrene",
+        "Overlap with non-heparin anticoagulant first"
+      ],
+      "platelet_transfusion": "Avoid unless life-threatening bleeding"
+    },
+    "outcomes": {
+      "thrombosis_rate": "30-50% if untreated",
+      "mortality": "10-20%",
+      "limb_loss": "10-15%",
+      "with_early_treatment": "Outcomes markedly improved"
+    }
+  },
+  "codes": {
+    "snomed_ct": "73310007",
+    "icd_10": "D75.82"
+  },
+  "relationships": {
+    "broader": ["vascular:thrombophilia:acquired"],
+    "related": ["vascular:anticoagulation:complications", "vascular:dvt:treatment"],
+    "narrower": []
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Recognize clinical features and timing of HIT",
+      "Use the 4Ts score for pretest probability",
+      "Know management: stop heparin, start non-heparin anticoagulant"
+    ],
+    "clinical_pearls": [
+      "HIT is a PROTHROMBOTIC disorder despite low platelets - DO NOT transfuse",
+      "Day 5-14 timing is classic; earlier if prior heparin in 100 days",
+      ">50% platelet drop more important than absolute count",
+      "DO NOT start warfarin until platelets >150K (risk of venous limb gangrene)",
+      "4Ts score: low score rules out HIT; high score = treat empirically",
+      "Argatroban in US; bivalirudin for PCI; fondaparinux off-label but effective"
+    ]
+  }
+}
