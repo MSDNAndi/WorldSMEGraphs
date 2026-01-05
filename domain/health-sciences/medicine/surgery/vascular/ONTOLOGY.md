@@ -500,32 +500,33 @@ graph TD
 
 ## Statistics Summary
 
-> **Last Updated**: 2026-01-05T02:30:00Z
+> **Last Updated**: 2026-01-05T03:15:00Z
 
 | Category | Existing | Created This Session | Remaining | Total |
 |----------|----------|---------------------|-----------|-------|
 | Foundations | 6 | 0 | 4 | 10 |
-| AAA | 0 | **7** | 8 | 15 |
+| AAA | 0 | **8** | 7 | 15 |
 | TAA | 0 | 0 | 10 | 10 |
-| Aortic Dissection | 0 | **3** | 12 | 15 |
+| Aortic Dissection | 0 | **5** | 10 | 15 |
 | PAD | 0 | **5** | 17 | 22 |
-| Carotid Disease | 0 | **1** | 14 | 15 |
-| DVT | 0 | **2** | 13 | 15 |
+| Carotid Disease | 0 | **2** | 13 | 15 |
+| DVT | 0 | **4** | 11 | 15 |
 | Venous Insufficiency | 0 | 0 | 10 | 10 |
 | Mesenteric Ischemia | 55 | 0 | 0 | 55 |
 | EVAR | 0 | **1** | 9 | 10 |
 | Open Aortic Repair | 0 | 0 | 10 | 10 |
 | CEA | 0 | **1** | 9 | 10 |
-| Lower Extremity Bypass | 0 | 0 | 10 | 10 |
+| Lower Extremity Bypass | 0 | **1** | 9 | 10 |
 | Endovascular Interventions | 0 | 0 | 8 | 8 |
 | Dialysis Access | 0 | 0 | 10 | 10 |
 | Diagnostics | 0 | 0 | 14 | 14 |
 | Type 2 Endoleak | 8 | 0 | 0 | 8 |
 | Other Endoleaks | 0 | 0 | 16 | 16 |
 | Graft Complications | 0 | 0 | 6 | 6 |
-| **TOTAL** | **69** | **20** | **170** | **259** |
+| **TOTAL** | **69** | **27** | **163** | **259** |
 
-**Progress**: 89 of 259 AKUs complete (34%)
+**Progress**: 96 of 259 AKUs complete (37%)
+**Total AKU files in domain**: 102
 
 ---
 
@@ -534,12 +535,13 @@ graph TD
 ### Phase 1 (Current Session - 2026-01-05) ✅ COMPLETE
 1. ✅ Create ontology document (23KB comprehensive taxonomy)
 2. ✅ Create directory structure for all sub-domains
-3. ✅ Build AAA sub-domain (7/15 AKUs created)
+3. ✅ Build AAA sub-domain (8/15 AKUs created)
 4. ✅ Build PAD sub-domain (5/22 AKUs created)
-5. ✅ Build Aortic Dissection sub-domain (3/15 AKUs)
-6. ✅ Build Carotid, DVT, EVAR, CEA foundations
-7. ✅ Create concept-index.yaml for all new sub-domains
-8. ✅ Validate all AKUs
+5. ✅ Build Aortic Dissection sub-domain (5/15 AKUs)
+6. ✅ Build DVT sub-domain (4/15 AKUs)
+7. ✅ Build Carotid, EVAR, CEA, Lower Extremity Bypass foundations
+8. ✅ Create concept-index.yaml for all new sub-domains
+9. ✅ Validate all AKUs
 
 ### Phase 2 (Next Session)
 1. Complete AAA sub-domain (8 remaining)

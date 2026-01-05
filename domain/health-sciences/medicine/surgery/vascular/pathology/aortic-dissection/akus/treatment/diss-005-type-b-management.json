@@ -1,0 +1,189 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "diss-005-type-b-management",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T03:10:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T03:10:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aortic-dissection",
+    "type": "treatment",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "005",
+    "keywords": [
+      "Type B dissection",
+      "medical management",
+      "anti-impulse therapy",
+      "complicated dissection",
+      "TEVAR"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "treatment"
+  },
+  "content": {
+    "statement": {
+      "text": "Type B aortic dissection is initially managed medically with anti-impulse therapy (beta-blockers to reduce heart rate and blood pressure) unless complications arise. Complicated Type B dissection (malperfusion, rupture, refractory pain/hypertension, rapid expansion) requires urgent intervention, typically TEVAR. Uncomplicated Type B has 10% in-hospital mortality with medical therapy; complicated cases have 30-50% mortality.",
+      "formal": "Type B Management: Uncomplicated → Medical (anti-impulse: HR <60, SBP <120) | Complicated (malperfusion, rupture, refractory, expansion) → Urgent TEVAR | Mortality: Uncomplicated 10%, Complicated 30-50%"
+    },
+    "explanation": {
+      "intuition": "Type B dissection doesn't involve the ascending aorta, so the immediate threats (tamponade, coronary obstruction) aren't present. The treatment is to reduce the force of blood hitting the dissected wall - slow the heart rate and lower the blood pressure so the false lumen doesn't expand or rupture. If complications develop (organs losing blood supply, impending rupture), then intervention becomes necessary.",
+      "key_insight": "The key decision in Type B dissection is recognizing complications. Uncomplicated Type B does well with medical therapy alone - rushing to intervention may cause harm. But complicated Type B needs urgent action. The 'complicated' criteria are: malperfusion syndrome (organ ischemia), rupture/impending rupture, refractory pain despite analgesia, refractory hypertension despite multiple agents, and rapid expansion.",
+      "technical_details": "Medical therapy: IV esmolol or labetalol to target HR <60 bpm and SBP 100-120 mmHg. Add vasodilators (nitroprusside) only after beta-blockade to avoid reflex tachycardia. ICU monitoring. Pain control with opioids. Transition to oral beta-blockers for long-term management. TEVAR indications: Covers entry tear with endograft, promotes false lumen thrombosis and aortic remodeling. INSTEAD/IRAD trials show TEVAR improves outcomes in complicated cases. ADSORB trial showed improved remodeling with TEVAR even in uncomplicated cases, but survival benefit unclear - current practice reserves TEVAR for complications.",
+      "common_misconceptions": [
+        "All Type B dissections need surgery - uncomplicated cases do better with medical therapy",
+        "Medical therapy just means pain control - aggressive HR/BP control is essential",
+        "Malperfusion always means intervention - some cases resolve with blood pressure control",
+        "TEVAR treats the whole dissected aorta - it covers the entry tear, not the entire dissection"
+      ]
+    },
+    "definitions_glossary": {
+      "anti_impulse_therapy": "HR and BP reduction to decrease wall stress on dissected aorta",
+      "complicated_dissection": "Dissection with malperfusion, rupture, refractory symptoms, or expansion",
+      "tevar": "Thoracic endovascular aortic repair - stent-graft placement",
+      "malperfusion": "Organ ischemia due to branch vessel compromise",
+      "aortic_remodeling": "Favorable shrinkage of false lumen after treatment"
+    }
+  },
+  "clinical_features": {
+    "classification": {
+      "uncomplicated": {
+        "definition": "No malperfusion, no rupture, symptoms controlled",
+        "management": "Medical therapy in ICU",
+        "in_hospital_mortality": "~10%"
+      },
+      "complicated": {
+        "definition": "Malperfusion syndrome, rupture/impending rupture, refractory pain/hypertension, rapid expansion",
+        "management": "Urgent intervention (TEVAR or open)",
+        "in_hospital_mortality": "30-50%"
+      }
+    },
+    "medical_management": {
+      "immediate_goals": [
+        "Heart rate <60 bpm",
+        "Systolic BP 100-120 mmHg",
+        "Pain control"
+      ],
+      "first_line_agents": {
+        "esmolol": "Short-acting IV beta-blocker, easily titrated",
+        "labetalol": "Combined alpha/beta blocker"
+      },
+      "second_line": {
+        "nitroprusside": "If BP not controlled after adequate beta-blockade",
+        "nicardipine": "Alternative vasodilator"
+      },
+      "important_principle": "Always beta-block before vasodilating - vasodilators alone cause reflex tachycardia"
+    },
+    "tevar_indications": [
+      "Malperfusion syndrome (visceral, renal, limb ischemia)",
+      "Rupture or contained rupture",
+      "Rapid aortic expansion (>4 mm in <6 months)",
+      "Refractory pain despite adequate analgesia",
+      "Refractory hypertension despite multiple agents",
+      "Aneurysmal degeneration (diameter >5.5-6 cm)"
+    ],
+    "long_term_management": [
+      "Oral beta-blocker + antihypertensive therapy",
+      "Target SBP <130 mmHg",
+      "Surveillance imaging (CTA or MRA) at 1, 3, 6, 12 months, then annually",
+      "Monitor for late aneurysmal degeneration"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Type B Aortic Dissection Management"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Treatment approach for Type B dissection: medical therapy for uncomplicated, intervention for complicated"
+    },
+    "notation": "diss-005-type-b-management"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-dissection:001",
+        "title": "Aortic Dissection Definition",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-dissection:002",
+        "title": "Stanford Classification",
+        "strength": 1.0
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-dissection:004",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Type A Surgical Management"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "citation": "2010 ACCF/AHA Guidelines for Thoracic Aortic Disease",
+        "confidence": 1.0
+      },
+      {
+        "type": "landmark_trial",
+        "citation": "INSTEAD Trial. Circulation. 2009;120:2519-2528.",
+        "confidence": 0.97
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "cardiology_fellows",
+      "critical_care_residents"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.6,
+    "learning_objectives": [
+      "Distinguish uncomplicated from complicated Type B dissection",
+      "Describe the principles of anti-impulse therapy",
+      "List indications for intervention in Type B dissection",
+      "Explain the role of TEVAR in complicated cases"
+    ],
+    "clinical_pearls": [
+      "Uncomplicated = medical therapy; complicated = intervention",
+      "Beta-block BEFORE vasodilating - reflex tachycardia is dangerous",
+      "Target HR <60, SBP 100-120 in acute setting",
+      "Surveillance is lifelong - late degeneration occurs"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "decision_algorithm",
+    "show_images": true,
+    "visualization": [
+      "type_b_treatment_algorithm",
+      "anti_impulse_therapy_targets"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "308546005",
+      "description": "Dissection of aorta (disorder)"
+    }
+  ]
+}
