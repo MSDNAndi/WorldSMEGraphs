@@ -1,0 +1,173 @@
+{
+  "@context": "aku-v2",
+  "@type": "concept",
+  "@id": "vascular:diagnostics:abi-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T05:55:00.000Z",
+    "modified": "2026-01-05T05:55:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "maturity": "stable",
+    "source_references": [
+      "SVS Clinical Practice Guidelines",
+      "ACC/AHA PAD Guidelines",
+      "Journal of Vascular Surgery"
+    ]
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics/abi",
+    "type": "diagnostic-procedure",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "board_yield": "HIGH"
+  },
+  "content": {
+    "title": "Ankle-Brachial Index (ABI)",
+    "definition": "A non-invasive vascular laboratory test comparing systolic blood pressure at the ankle to that in the arm, used for diagnosis and severity assessment of peripheral arterial disease.",
+    "clinical_features": {
+      "physiologic_basis": {
+        "normal": "Ankle pressure slightly higher than arm due to pulse wave amplification",
+        "pad": "Arterial stenosis causes pressure drop distal to lesion",
+        "incompressibility": "Calcified vessels may have falsely elevated pressures"
+      },
+      "indications": {
+        "screening": [
+          "Adults age ≥65 years",
+          "Adults age 50-64 with risk factors (diabetes, smoking, dyslipidemia, hypertension)",
+          "Adults <50 with diabetes plus one additional risk factor",
+          "Known atherosclerotic disease in other beds"
+        ],
+        "diagnostic": [
+          "Leg symptoms suggestive of PAD",
+          "Non-healing lower extremity wounds",
+          "Gangrene or tissue loss"
+        ],
+        "pre_procedural": [
+          "Before revascularization planning",
+          "Wound care assessment"
+        ]
+      }
+    },
+    "technique": {
+      "equipment": [
+        "Blood pressure cuffs (appropriate size for arm and ankle)",
+        "Continuous wave Doppler probe (5-10 MHz)",
+        "Ultrasound gel"
+      ],
+      "patient_preparation": {
+        "position": "Supine for 10-15 minutes before measurement",
+        "environment": "Warm, comfortable room",
+        "avoid": "Exercise, smoking, caffeine for 2 hours prior"
+      },
+      "measurement_steps": [
+        "Measure brachial pressure in both arms using Doppler",
+        "Use higher brachial pressure as denominator",
+        "Measure ankle pressure at dorsalis pedis and posterior tibial",
+        "Use higher ankle pressure for each leg as numerator",
+        "Calculate ABI = higher ankle pressure / higher brachial pressure"
+      ],
+      "doppler_technique": {
+        "probe_angle": "45-60 degrees to vessel",
+        "inflate_cuff": "Above systolic pressure until signal disappears",
+        "deflate_slowly": "Note pressure when Doppler signal returns"
+      }
+    },
+    "interpretation": {
+      "normal": {
+        "range": "1.00-1.40",
+        "interpretation": "No significant PAD"
+      },
+      "borderline": {
+        "range": "0.91-0.99",
+        "interpretation": "Borderline, may need exercise ABI"
+      },
+      "mild_pad": {
+        "range": "0.70-0.90",
+        "interpretation": "Mild PAD"
+      },
+      "moderate_pad": {
+        "range": "0.40-0.69",
+        "interpretation": "Moderate PAD"
+      },
+      "severe_pad": {
+        "range": "<0.40",
+        "interpretation": "Severe PAD, critical limb ischemia likely"
+      },
+      "incompressible": {
+        "range": ">1.40",
+        "interpretation": "Non-compressible calcified vessels, need toe pressures"
+      }
+    },
+    "special_considerations": {
+      "diabetic_patients": {
+        "issue": "Medial arterial calcification causes falsely elevated ABI",
+        "solution": "Use toe-brachial index (TBI) - digital arteries rarely calcify",
+        "tbi_threshold": "<0.70 indicates PAD"
+      },
+      "exercise_abi": {
+        "indication": "Normal resting ABI with exertional symptoms",
+        "protocol": "Walk on treadmill until symptoms, then immediate ABI",
+        "positive": ">20% decrease in ABI post-exercise"
+      },
+      "segmental_pressures": {
+        "purpose": "Localize level of disease",
+        "gradient": ">20-30 mmHg between adjacent segments suggests stenosis"
+      }
+    },
+    "clinical_applications": {
+      "cardiovascular_risk": {
+        "abi_09": "1.5-2x increased CV mortality",
+        "abi_07": "2-3x increased CV mortality",
+        "abi_04": ">4x increased CV mortality"
+      },
+      "wound_healing": {
+        "abi_05": "Unlikely to heal with conservative measures",
+        "absolute_pressure": "Ankle pressure <50 mmHg predicts poor healing"
+      },
+      "amputation_planning": {
+        "level_selection": "Helps determine amputation level viability"
+      }
+    },
+    "codes": {
+      "snomed_ct": "252444007 | Ankle brachial pressure index",
+      "cpt": "93922 | Limited extremity study"
+    }
+  },
+  "relationships": {
+    "skos:broader": [
+      "vascular:diagnostics:vascular-laboratory"
+    ],
+    "skos:related": [
+      "vascular:diagnostics:tbi",
+      "vascular:diagnostics:segmental-pressures",
+      "vascular:pad:definition",
+      "vascular:pad:classification"
+    ],
+    "skos:narrower": []
+  },
+  "pedagogical_content": {
+    "clinical_pearls": [
+      "ABI <0.9 = PAD; ABI >1.4 = incompressible vessels, use TBI",
+      "Exercise ABI helpful when resting ABI normal but symptoms present",
+      "Diabetics often have calcified vessels - always check TBI",
+      "ABI is also a cardiovascular risk marker (lower = higher mortality)",
+      "Ankle pressure <50 mmHg predicts poor wound healing"
+    ],
+    "learning_objectives": [
+      "Know technique for measuring ABI",
+      "Interpret ABI values for PAD severity",
+      "Recognize limitations in diabetic/calcified patients",
+      "Understand prognostic implications of ABI"
+    ],
+    "board_review_points": [
+      "Normal ABI = 1.0-1.4",
+      "PAD = ABI <0.9",
+      "Severe PAD = ABI <0.4",
+      "Incompressible = ABI >1.4 → use TBI",
+      "Exercise ABI: >20% drop is positive",
+      "ABI is independent CV risk predictor"
+    ]
+  }
+}
