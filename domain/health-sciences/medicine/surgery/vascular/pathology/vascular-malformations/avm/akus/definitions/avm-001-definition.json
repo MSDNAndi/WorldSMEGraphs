@@ -1,0 +1,98 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "avm-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:35:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:35:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/vascular-malformations/avm",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": ["arteriovenous malformation", "AVM", "high-flow malformation", "nidus", "Schobinger staging"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Arteriovenous malformations (AVMs) are congenital high-flow vascular lesions consisting of abnormal direct connections between arteries and veins without an intervening capillary bed. The central 'nidus' is the core of abnormal vessels. AVMs are distinguished from hemangiomas (tumors) by their presence at birth, growth proportional to the body, lack of involution, and absence of cellular proliferation.",
+      "formal": "AVM: Congenital high-flow lesion; Direct artery-vein connection (no capillary bed); Nidus = core; ISSVA classification: High-flow malformation (not tumor)"
+    },
+    "explanation": {
+      "intuition": "Think of the circulatory system as a river system where arteries are fast-flowing rivers, capillaries are irrigation channels that slow down water to nourish fields, and veins are collection channels. An AVM is like a shortcut tunnel directly connecting a fast river to the collection channels - the water rushes through without nourishing the fields, can cause flooding (swelling, bleeding), and may eventually damage both sides from the abnormal pressure.",
+      "key_insight": "AVMs are present at birth but may not become clinically apparent until adolescence or adulthood when they enlarge due to hormonal changes, trauma, or intervention. Unlike hemangiomas, AVMs never involute spontaneously and typically progress through Schobinger stages if untreated.",
+      "technical_details": "The ISSVA (International Society for the Study of Vascular Anomalies) classification distinguishes vascular tumors (hemangiomas) from vascular malformations (AVM, VM, LM, CM). AVMs are high-flow due to arterial inflow directly into veins. The nidus represents the epicenter of abnormal AV connections. Treatment must target the nidus - proximal ligation alone leads to recruitment of collaterals and recurrence."
+    },
+    "issva_classification": {
+      "vascular_tumors": ["Infantile hemangioma", "Congenital hemangioma", "Kaposiform hemangioendothelioma"],
+      "vascular_malformations": {
+        "high_flow": "Arteriovenous malformation (AVM), Arteriovenous fistula (AVF)",
+        "low_flow": "Venous malformation (VM), Lymphatic malformation (LM), Capillary malformation (CM)"
+      }
+    },
+    "schobinger_staging": {
+      "stage_I": {"name": "Quiescence", "features": "Warm, pink, AV shunting on Doppler, no symptoms"},
+      "stage_II": {"name": "Expansion", "features": "Enlargement, pulsation, thrill, bruit, tortuous veins"},
+      "stage_III": {"name": "Destruction", "features": "Pain, ulceration, bleeding, tissue necrosis"},
+      "stage_IV": {"name": "Decompensation", "features": "High-output cardiac failure from large shunt"}
+    }
+  },
+  "clinical_features": {
+    "presentation": {
+      "skin_changes": ["Warmth", "Discoloration (pink/red)", "Pulsation", "Thrill"],
+      "complications": ["Bleeding (spontaneous or traumatic)", "Ulceration", "Pain", "Limb overgrowth", "High-output heart failure"],
+      "location": "Any body part; head/neck (40%), extremities (40%), trunk (20%)"
+    },
+    "diagnosis": {
+      "clinical": "Warm, pulsatile mass, thrill, bruit",
+      "doppler": "High-flow with arterial signal in mass",
+      "mri": "Flow voids on T1/T2, enhancing vessels",
+      "angiography": "Defines nidus, feeding arteries, draining veins"
+    },
+    "treatment": {
+      "observation": "Schobinger I - may observe if asymptomatic",
+      "embolization": {
+        "agents": ["Ethanol", "Onyx (EVOH)", "Coils", "Glue (NBCA)"],
+        "goal": "Obliterate nidus, not just feeding vessels",
+        "sessions": "Often requires multiple sessions"
+      },
+      "surgery": {
+        "indications": "After preoperative embolization to reduce bleeding",
+        "technique": "Complete excision of nidus when feasible"
+      },
+      "combined": "Embolization + surgery often most effective"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Arteriovenous Malformation"},
+    "altLabel": [{"@language": "en", "@value": "AVM"}, {"@language": "en", "@value": "High-Flow Vascular Malformation"}],
+    "definition": {"@language": "en", "@value": "Congenital high-flow vascular lesion with direct artery-vein connections without capillary bed"},
+    "notation": "avm-001-definition"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:vascular-malformations", "@type": "skos:Concept", "skos:prefLabel": "Vascular Malformations"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:vascular-malformations:venous", "@type": "skos:Concept", "skos:prefLabel": "Venous Malformation"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:genetic:hht", "@type": "skos:Concept", "skos:prefLabel": "Hereditary Hemorrhagic Telangiectasia"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "20min",
+    "clinical_pearls": [
+      "AVM = present at birth, grows with body, never involutes; Hemangioma = appears infancy, involutes",
+      "Must treat the NIDUS - proximal ligation alone → recurrence",
+      "Stage IV = high-output heart failure from AV shunting",
+      "Ethanol embolization most effective but highest complication rate"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "234144002", "description": "Arteriovenous malformation"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "Q27.30", "description": "Arteriovenous malformation, site unspecified"}
+  ]
+}

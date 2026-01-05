@@ -1,0 +1,102 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "dvt-008-post-thrombotic-syndrome",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:40:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:40:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/deep-vein-thrombosis",
+    "type": "complication",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "008",
+    "keywords": ["post-thrombotic syndrome", "PTS", "chronic venous insufficiency", "venous ulcer", "DVT complication"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Post-thrombotic syndrome (PTS) is a chronic complication of DVT affecting 20-50% of patients, characterized by leg pain, swelling, heaviness, skin changes, and venous ulceration. It results from venous hypertension due to residual obstruction and/or valvular incompetence from thrombus-induced valve damage.",
+      "formal": "PTS: Chronic DVT complication (20-50%); Pathophysiology: venous HTN from obstruction + valve damage → reflux; Features: pain, edema, skin changes, ulcer; Villalta score for diagnosis/severity"
+    },
+    "explanation": {
+      "intuition": "When a blood clot forms in a vein, even after it dissolves, it often leaves behind scar tissue. This scar tissue can block the vein (like a partially clogged pipe) and destroy the one-way valves that keep blood flowing toward the heart. Without working valves, blood pools in the leg with gravity, causing chronic swelling, skin damage, and eventually ulcers.",
+      "key_insight": "PTS is largely preventable or its severity reducible through adequate anticoagulation (preventing clot extension), compression (reducing venous pressure), and potentially early thrombus removal for iliofemoral DVT. Once established, PTS is chronic and management is symptom-focused.",
+      "technical_details": "Thrombus resolution involves inflammation and fibrosis that damages venous valves. Valve destruction causes reflux; residual obstruction increases venous pressure. Ambulatory venous hypertension leads to capillary leak, inflammation, and tissue hypoxia. The Villalta scale (0-33 points) assesses 5 symptoms + 6 signs, with PTS defined as score ≥5 or presence of ulcer."
+    },
+    "villalta_scale": {
+      "symptoms": ["Pain", "Cramps", "Heaviness", "Pruritus", "Paresthesia"],
+      "signs": ["Edema", "Skin induration", "Hyperpigmentation", "Redness", "Venous ectasia", "Pain on calf compression"],
+      "scoring": "Each item 0-3 (none, mild, moderate, severe); Total 0-33",
+      "interpretation": {
+        "no_PTS": "Score 0-4",
+        "mild_PTS": "Score 5-9",
+        "moderate_PTS": "Score 10-14",
+        "severe_PTS": "Score ≥15 or ulcer present"
+      }
+    }
+  },
+  "clinical_features": {
+    "risk_factors": {
+      "dvt_related": ["Iliofemoral (vs femoropopliteal) location", "Recurrent ipsilateral DVT", "Residual venous obstruction"],
+      "patient_related": ["Obesity", "Older age", "Pre-existing venous insufficiency", "Inadequate anticoagulation"],
+      "modifiable": ["Subtherapeutic anticoagulation", "Lack of compression"]
+    },
+    "presentation": {
+      "symptoms": ["Leg heaviness", "Aching pain", "Swelling worse with standing", "Cramping", "Itching"],
+      "signs": ["Edema", "Hyperpigmentation", "Lipodermatosclerosis (indurated skin)", "Venous ectasia", "Ulceration (most severe)"]
+    },
+    "diagnosis": {
+      "clinical": "Villalta score ≥5 at ≥3-6 months after DVT",
+      "duplex_ultrasound": "Assess for reflux, residual obstruction, recanalization"
+    },
+    "prevention": {
+      "anticoagulation": "Adequate duration and intensity",
+      "compression": "Graduated compression stockings (20-30 or 30-40 mmHg) - controversial benefit per SOX trial",
+      "early_ambulation": "Encouraged; bed rest does NOT prevent PE",
+      "thrombus_removal": "Catheter-directed therapy for iliofemoral DVT may reduce severe PTS"
+    },
+    "treatment": {
+      "conservative": {
+        "compression": "Cornerstone of therapy - stockings or wraps",
+        "leg_elevation": "Multiple times daily",
+        "exercise": "Calf muscle pump exercises, supervised exercise programs",
+        "skin_care": "Moisturizers, treatment of dermatitis"
+      },
+      "interventional": {
+        "venous_stenting": "For chronic iliofemoral obstruction with symptoms refractory to conservative therapy",
+        "ulcer_management": "Compression, wound care, possibly skin grafting",
+        "valvuloplasty": "Rarely performed, limited centers"
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Post-Thrombotic Syndrome"},
+    "altLabel": [{"@language": "en", "@value": "PTS"}, {"@language": "en", "@value": "Post-Phlebitic Syndrome"}],
+    "definition": {"@language": "en", "@value": "Chronic venous insufficiency following DVT, caused by residual obstruction and valve destruction"},
+    "notation": "dvt-008-pts"
+  },
+  "relationships": {
+    "prerequisites": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:dvt:001", "title": "DVT Definition", "strength": 1.0}],
+    "skos:related": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:venous:venous-insufficiency", "@type": "skos:Concept", "skos:prefLabel": "Chronic Venous Insufficiency"}]
+  },
+  "pedagogical": {
+    "estimated_time": "15min",
+    "clinical_pearls": [
+      "20-50% of DVT patients develop PTS - it's common",
+      "Iliofemoral DVT has highest PTS risk - consider thrombus removal",
+      "Villalta score ≥5 diagnoses PTS; ≥15 or ulcer = severe",
+      "Compression is cornerstone of treatment (controversial for prevention)",
+      "Venous stenting for chronic iliac obstruction can dramatically improve symptoms"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "234047006", "description": "Post-thrombotic syndrome"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I87.00", "description": "Postthrombotic syndrome without ulcer"}
+  ]
+}
