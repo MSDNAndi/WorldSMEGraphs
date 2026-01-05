@@ -4,6 +4,25 @@ This document catalogs vascular surgery topics and keywords extracted from autho
 
 ---
 
+## ⚠️ IMPORTANT: Copyright Compliance Notice
+
+**This document identifies TOPICS ONLY - not content to be copied.**
+
+The sources listed below (textbooks, guidelines, etc.) are referenced solely for the purpose of identifying knowledge areas that should be covered by AKUs. 
+
+**When creating AKUs from these topics:**
+1. **DO NOT copy text** from any copyrighted source (Rutherford's, SVS guidelines, etc.)
+2. **DO write original content** based on general medical knowledge
+3. **DO reference publicly available** classification systems and terminology
+4. **DO include standardized codes** (SNOMED-CT, ICD-10, CPT)
+5. **DO cite clinical guidelines** but do not reproduce them verbatim
+
+All AKU content must be written from scratch using our own language, structure, and pedagogical approach. We identify what topics need coverage; we create original educational content to cover them.
+
+---
+
+---
+
 ## Source 1: Society for Vascular Surgery (SVS) Practice Guidelines
 
 ### Aortic Disease Guidelines
