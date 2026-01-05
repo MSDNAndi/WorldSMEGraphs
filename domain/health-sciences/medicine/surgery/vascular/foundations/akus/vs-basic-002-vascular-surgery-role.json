@@ -3,10 +3,10 @@
   "@type": "concept",
   "@id": "wsmg:health-sciences/medicine/surgery/vascular/foundations/vs-basic-002",
   "metadata": {
-    "version": "2.0.0",
+    "version": "2.1.0",
     "created": "2026-01-04T20:08:00.000Z",
-    "modified": "2026-01-04T20:08:00.000Z",
-    "contributors": ["copilot-agent"],
+    "modified": "2026-01-05T18:30:00.000Z",
+    "contributors": ["copilot-agent", "quality-agent"],
     "confidence": 0.98,
     "status": "validated",
     "language": "en",
@@ -18,10 +18,84 @@
     "type": "definition",
     "difficulty": "foundational",
     "importance": "critical",
-    "isNativeDomain": true
+    "isNativeDomain": true,
+    "board_yield": "MEDIUM"
   },
   "content": {
-    "title": "Vascular Surgery: Clinical Definition",
-    "summary": "Vascular surgery is the surgical specialty treating diseases of the vascular system"
+    "title": "Vascular Surgery: Specialty Definition and Scope",
+    "summary": "Vascular surgery is the surgical specialty dedicated to the diagnosis and treatment of diseases affecting the arterial, venous, and lymphatic systems, excluding the coronary and intracranial vessels.",
+    "scope": {
+      "included": [
+        "Peripheral arterial disease (PAD)",
+        "Aortic aneurysms and dissections",
+        "Carotid artery disease",
+        "Visceral arterial disease (mesenteric, renal)",
+        "Venous thromboembolism",
+        "Chronic venous insufficiency",
+        "Lymphatic disorders",
+        "Vascular trauma",
+        "Dialysis access creation and maintenance",
+        "Vascular malformations"
+      ],
+      "excluded": [
+        "Coronary artery disease (cardiac surgery/interventional cardiology)",
+        "Intracranial vessels (neurosurgery)",
+        "Pulmonary circulation (cardiothoracic surgery)"
+      ]
+    },
+    "treatment_modalities": {
+      "open_surgery": ["Bypass grafting", "Endarterectomy", "Aneurysm repair", "Thrombectomy"],
+      "endovascular": ["Angioplasty", "Stenting", "Stent-grafts (EVAR/TEVAR)", "Thrombolysis"],
+      "hybrid": ["Combined open and endovascular approaches"]
+    },
+    "training_pathway": {
+      "traditional": "General surgery residency (5 years) + Vascular fellowship (2 years)",
+      "integrated": "Integrated vascular surgery residency (5 years, 0+5 or 4+2)",
+      "certification": "American Board of Surgery (ABS) - Vascular Surgery Certificate"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Vascular Surgery"},
+    "altLabel": [
+      {"@language": "en", "@value": "Vascular and endovascular surgery"},
+      {"@language": "en", "@value": "Peripheral vascular surgery"}
+    ],
+    "definition": {"@language": "en", "@value": "Surgical specialty treating diseases of the arterial, venous, and lymphatic systems, excluding coronary and intracranial vessels"},
+    "notation": "vs-basic-002"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "wsmg:health-sciences/medicine/surgery", "skos:prefLabel": "Surgery"}],
+    "skos:related": [
+      {"@id": "wsmg:health-sciences/medicine/surgery/cardiac", "skos:prefLabel": "Cardiac Surgery"},
+      {"@id": "wsmg:health-sciences/medicine/interventional-radiology", "skos:prefLabel": "Interventional Radiology"}
+    ],
+    "enables": [
+      {"@id": "wsmg:health-sciences/medicine/surgery/vascular/procedures", "reason": "Defines specialty scope for procedures"}
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "394611003",
+      "uri": "http://snomed.info/id/394611003",
+      "description": "Vascular surgery - specialty (qualifier value)"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Define the scope of vascular surgery as a specialty",
+      "Differentiate vascular surgery from cardiac surgery and neurosurgery",
+      "List the major disease categories treated by vascular surgeons",
+      "Describe open, endovascular, and hybrid treatment modalities"
+    ],
+    "clinical_pearls": [
+      "Vascular surgery has evolved from predominantly open surgery to >50% endovascular procedures",
+      "Integrated vascular residency programs produce more fellowship-trained vascular surgeons",
+      "Dialysis access is a high-volume, critical service provided by vascular surgeons",
+      "Trauma coverage remains an essential component of vascular surgery practice"
+    ],
+    "estimated_time": "15min",
+    "target_audience": ["medical_students", "surgery_residents", "healthcare_administrators"]
   }
 }
