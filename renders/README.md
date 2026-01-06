@@ -88,12 +88,29 @@ When creating new rendered content:
 
 ## See Also
 
+### Project Documentation
 - `.project/rendering-spec.md` - Rendering system specification
 - `.project/proposals/rendering-architecture-v2.md` - Architecture proposal
 - `domain/_ontology/global-hierarchy.yaml` - Domain taxonomy
 
+### Renders Documentation  
+- `_metadata/QUICK_START.md` - 5-minute getting started guide
+- `_metadata/DEVELOPER_GUIDE.md` - Comprehensive developer reference (14KB)
+- `_metadata/WORKFLOW_GUIDE.md` - Step-by-step procedures (9KB)
+- `_metadata/INDEX.md` - Master navigation to all documentation
+- `_metadata/audience-profiles.yaml` - Audience definitions and guidelines
+- `_metadata/RECOMMENDATIONS.md` - Future enhancements roadmap (12KB)
+- `_metadata/tools/README.md` - Tools documentation
+
+### Tools
+- `_metadata/tools/create_render.sh` - Interactive render creation
+- `_metadata/tools/generate_render_index.py` - Catalog generator
+- `_metadata/tools/generate_aku_usage_matrix.py` - AKU tracking
+- `_metadata/tools/render_quality_linter.py` - Quality checker
+
 ---
 
-**Created**: 2026-01-06
-**Migration Date**: 2026-01-06
-**Status**: Active
+**Created**: 2026-01-06  
+**Migration Date**: 2026-01-06  
+**Status**: Active, Production Ready  
+**Documentation**: 103KB+ comprehensive guides
