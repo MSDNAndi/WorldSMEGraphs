@@ -1,0 +1,119 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "MedicalTest",
+  "@id": "aku:vascular:diagnostics:transcutaneous-oxygen",
+  "name": "Transcutaneous Oxygen Measurement",
+  "alternateName": ["TcPO2", "TCOM", "Transcutaneous Oximetry"],
+  "description": "Non-invasive measurement of tissue oxygen tension at the skin surface using heated electrochemical sensors. Reflects local microcirculatory perfusion and tissue viability. Critical for wound healing prediction and amputation level selection.",
+  "code": [
+    {
+      "@type": "MedicalCode",
+      "codeValue": "94761",
+      "codingSystem": "CPT"
+    },
+    {
+      "@type": "MedicalCode",
+      "codeValue": "252428002",
+      "codingSystem": "SNOMED-CT",
+      "name": "Transcutaneous oxygen tension measurement"
+    }
+  ],
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "definition",
+    "subtype": "tissue_perfusion",
+    "difficulty": "intermediate",
+    "board_yield": "MODERATE"
+  },
+  "physiology": {
+    "principle": "Heated sensor (44°C) causes local hyperemia, arterializes capillary blood",
+    "measurement": "Oxygen diffuses through skin to electrode, generates current",
+    "reflects": "Oxygen delivery to tissue, microcirculatory function"
+  },
+  "technique": {
+    "equipment": "TcPO2 monitor with heated electrodes",
+    "preparation": [
+      "Clean skin with alcohol",
+      "Avoid hair, scars, edematous areas",
+      "Apply electrode with adhesive ring"
+    ],
+    "stabilization": "Wait 10-15 minutes for reading to stabilize",
+    "positions": [
+      "Supine baseline",
+      "Leg elevated (oxygen challenge)",
+      "Leg dependent"
+    ]
+  },
+  "interpretation": {
+    "values_mmhg": {
+      "greater_than_40": "Adequate perfusion, wound healing likely",
+      "30_to_40": "Borderline, may heal with optimal wound care",
+      "20_to_30": "Impaired healing, revascularization may help",
+      "less_than_20": "Critical ischemia, unlikely to heal without revasc"
+    },
+    "amputation_healing": {
+      "greater_than_40": "High probability of primary healing",
+      "30_to_40": "Moderate probability",
+      "less_than_30": "Low probability, consider more proximal level"
+    }
+  },
+  "oxygen_challenge": {
+    "purpose": "Assess tissue response to increased O2 delivery",
+    "technique": "Measure baseline, then with 100% O2 inhalation",
+    "interpretation": {
+      "increase_greater_than_10": "Responsive, revascularization may benefit",
+      "no_increase": "Fixed disease, poor reserve"
+    }
+  },
+  "applications": {
+    "wound_healing_prediction": "Guide wound care intensity, referral for revasc",
+    "amputation_level_selection": {
+      "toe": "TcPO2 at metatarsal level",
+      "tma": "TcPO2 at midfoot",
+      "bka": "TcPO2 at planned flap level",
+      "aka": "TcPO2 at thigh"
+    },
+    "hyperbaric_oxygen": "Predicts response to HBO therapy",
+    "free_flap": "Assess recipient site perfusion"
+  },
+  "limitations": [
+    "Affected by edema, cellulitis, skin thickness",
+    "Operator-dependent electrode placement",
+    "Not reliable in acute ischemia",
+    "Peripheral vasoconstriction affects readings",
+    "Skin temperature affects diffusion"
+  ],
+  "comparison_with_abi": {
+    "abi": "Measures macrovascular inflow",
+    "tcpo2": "Measures microvascular delivery to tissue",
+    "complementary": "ABI may be normal despite poor tissue perfusion"
+  },
+  "clinical_pearls": [
+    "TcPO2 >40 mmHg predicts wound healing; <20 mmHg = critical ischemia",
+    "TcPO2 measures actual TISSUE oxygenation, not just arterial pressure",
+    "Useful when ABI is non-compressible (diabetes, ESRD)",
+    "Oxygen challenge can predict response to revascularization"
+  ],
+  "semantic_relations": {
+    "broader": ["aku:vascular:diagnostics:tissue-perfusion"],
+    "narrower": [],
+    "related": [
+      "aku:vascular:pad:critical-limb-ischemia",
+      "aku:vascular:amputation:level-selection",
+      "aku:vascular:wounds:healing-prediction"
+    ]
+  },
+  "learning_objectives": [
+    "Explain the physiologic basis of transcutaneous oxygen measurement",
+    "Interpret TcPO2 values for wound healing and amputation planning",
+    "Describe the oxygen challenge test and its clinical utility"
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T02:19:00.000Z",
+    "updated": "2026-01-06T02:19:00.000Z",
+    "contributors": ["copilot"],
+    "status": "validated",
+    "confidence": 0.95
+  }
+}

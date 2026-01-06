@@ -1,0 +1,116 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "MedicalTest",
+  "@id": "aku:vascular:diagnostics:ankle-brachial-index",
+  "name": "Ankle-Brachial Index",
+  "alternateName": ["ABI", "Ankle-Brachial Pressure Index", "ABPI"],
+  "description": "Non-invasive diagnostic test comparing systolic blood pressure at the ankle to the arm. Primary screening tool for peripheral arterial disease. Values <0.9 indicate PAD; falsely elevated in calcified vessels (diabetes, ESRD).",
+  "code": [
+    {
+      "@type": "MedicalCode",
+      "codeValue": "93922",
+      "codingSystem": "CPT"
+    },
+    {
+      "@type": "MedicalCode",
+      "codeValue": "413099001",
+      "codingSystem": "SNOMED-CT",
+      "name": "Ankle brachial pressure index"
+    }
+  ],
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "definition",
+    "subtype": "hemodynamic_testing",
+    "difficulty": "basic",
+    "board_yield": "HIGH"
+  },
+  "physiology": {
+    "normal_state": "Ankle pressure slightly higher than arm due to amplification",
+    "pad": "Occlusive disease reduces ankle pressure",
+    "principle": "Ratio reflects degree of arterial obstruction"
+  },
+  "technique": {
+    "equipment": [
+      "Sphygmomanometer cuffs",
+      "Continuous-wave Doppler (5-10 MHz)",
+      "Examination table"
+    ],
+    "patient_position": "Supine, rested for 10-15 minutes",
+    "measurements": {
+      "arm": "Highest of bilateral brachial pressures",
+      "ankle": "Dorsalis pedis AND posterior tibial pressures",
+      "calculation": "ABI = highest ankle pressure / highest arm pressure"
+    },
+    "bilateral": "Perform on both legs; report separately"
+  },
+  "interpretation": {
+    "values": {
+      "greater_than_1_4": "Non-compressible (calcified vessels)",
+      "1_0_to_1_4": "Normal",
+      "0_9_to_1_0": "Borderline (acceptable)",
+      "0_5_to_0_9": "Mild-moderate PAD",
+      "less_than_0_5": "Severe PAD/CLI"
+    },
+    "clinical_correlation": {
+      "normal": ">0.9 - unlikely significant PAD",
+      "claudication": "0.5-0.9 typical",
+      "rest_pain": "0.3-0.5 typical",
+      "tissue_loss": "<0.4 typical"
+    }
+  },
+  "limitations": {
+    "non_compressible": {
+      "causes": "Diabetes, ESRD, advanced age, medial calcification",
+      "result": "Falsely elevated ABI (>1.4)",
+      "alternative": "Toe-brachial index (TBI)"
+    },
+    "aortoiliac_disease": "May underestimate proximal disease",
+    "acute_occlusion": "May not be reliable in acute setting"
+  },
+  "exercise_abi": {
+    "indication": "Symptoms but normal resting ABI",
+    "technique": "Measure ABI after treadmill walking",
+    "interpretation": "Drop >20% post-exercise suggests PAD"
+  },
+  "toe_brachial_index": {
+    "indication": "Non-compressible ankle vessels (ABI >1.4)",
+    "normal": ">0.7",
+    "abnormal": "<0.7 suggests PAD",
+    "advantage": "Toe vessels less affected by calcification"
+  },
+  "clinical_applications": {
+    "screening": "All patients at risk for PAD",
+    "wound_assessment": "Predict healing potential",
+    "compression_therapy": "Must verify adequate arterial flow before compression",
+    "cardiovascular_risk": "Abnormal ABI = increased CV morbidity/mortality"
+  },
+  "clinical_pearls": [
+    "ABI <0.9 = 95% sensitive for angiographic PAD",
+    "ABI >1.4 = non-compressible, use TBI instead (diabetes, ESRD)",
+    "Always check ABI BEFORE applying compression for venous ulcers",
+    "Abnormal ABI is independent predictor of cardiovascular mortality"
+  ],
+  "semantic_relations": {
+    "broader": ["aku:vascular:diagnostics:hemodynamic-testing"],
+    "narrower": ["aku:vascular:diagnostics:toe-brachial-index"],
+    "related": [
+      "aku:vascular:pad:diagnosis",
+      "aku:vascular:wounds:venous-ulcer",
+      "aku:vascular:claudication:evaluation"
+    ]
+  },
+  "learning_objectives": [
+    "Describe proper technique for measuring ankle-brachial index",
+    "Interpret ABI values in the context of PAD severity",
+    "Identify limitations of ABI and alternative testing methods"
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T02:15:00.000Z",
+    "updated": "2026-01-06T02:15:00.000Z",
+    "contributors": ["copilot"],
+    "status": "validated",
+    "confidence": 0.95
+  }
+}
