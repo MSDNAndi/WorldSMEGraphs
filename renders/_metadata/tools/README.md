@@ -86,6 +86,97 @@ AKUs with renders: 18 (2.7%)
 
 ---
 
+### 3. render_quality_linter.py
+
+**Purpose**: Checks rendered content for quality issues
+
+**What it checks**:
+- **Readability**: Sentence length, word count
+- **Filename**: Naming conventions (kebab-case)
+- **Metadata**: YAML frontmatter validation
+- **Headings**: Proper hierarchy, no skipped levels
+- **Images**: Alt text presence, file existence
+- **Links**: Descriptive link text (not "click here")
+- **Length**: Very short or very long content
+- **Structure**: Overall content organization
+
+**Usage**:
+```bash
+# Check single file
+python renders/_metadata/tools/render_quality_linter.py renders/by-domain/path/to/file.md
+
+# Check entire directory
+python renders/_metadata/tools/render_quality_linter.py renders/by-domain/natural-sciences/physics/
+```
+
+**Output**: Issues and warnings report with actionable suggestions
+
+**Example Output**:
+```
+======================================================================
+Render Quality Linter Report
+======================================================================
+Files checked: 12
+Issues: 2
+Warnings: 5
+
+ISSUES (must fix)
+======================================================================
+renders/by-domain/physics/planck-units/english/elementary.md:
+  ❌ Image missing alt text: diagram.png
+
+WARNINGS (should fix)
+======================================================================
+renders/by-domain/physics/planck-units/english/graduate.md:
+  ⚠️  Average sentence length 35.2 words (consider shorter sentences)
+  ⚠️  Poor link text: 'click here' (use descriptive text)
+```
+
+---
+
+### 4. create_render.sh
+
+**Purpose**: Interactive helper to create new renders with proper structure
+
+**What it does**:
+- Creates directory structure
+- Generates render template with metadata
+- Auto-runs index generators
+- Provides next-step guidance
+
+**Usage**:
+```bash
+bash renders/_metadata/tools/create_render.sh [domain-path] [language] [audience]
+```
+
+**Example**:
+```bash
+# Create undergraduate English render for Planck units
+bash renders/_metadata/tools/create_render.sh \
+  natural-sciences/physics/quantum-mechanics/planck-units \
+  english \
+  undergraduate
+
+# Output:
+# ✓ Created directory
+# ✓ Created render file with template
+# ✓ Regenerated render index
+# ✓ Regenerated AKU usage matrix
+# Next steps: Edit file, check quality, commit
+```
+
+**Available Audiences**:
+- preschool, elementary-school, middle-school, high-school
+- undergraduate, graduate, adult-limited-reading, professional
+
+**Template Generated**:
+- Proper heading structure
+- Metadata placeholders
+- Section guidelines for audience
+- Source attribution
+
+---
+
 ## Tool Development Guidelines
 
 ### Creating New Tools
