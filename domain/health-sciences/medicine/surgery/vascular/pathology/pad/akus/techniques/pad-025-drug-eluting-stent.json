@@ -1,0 +1,192 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:pad:pad-025-drug-eluting-stent",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T06:00:00.000Z",
+    "last_updated": "2026-01-06T06:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "copyright_compliance": "Original content based on general medical knowledge"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/pad",
+    "type": "endovascular-technique",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "PAD-025",
+    "keywords": ["drug-eluting stent", "DES", "paclitaxel", "femoropopliteal", "Zilver PTX"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "lower_extremity_arterial_disease",
+    "board_yield": "HIGH"
+  },
+  "content": {
+    "title": "Drug-Eluting Stents in Peripheral Arterial Disease",
+    "statement": {
+      "text": "Drug-eluting stents (DES) combine mechanical scaffolding with sustained antiproliferative drug release, providing improved patency compared to bare metal stents in femoropopliteal disease, particularly for longer lesions and bailout situations.",
+      "formal": "Primary patency: 80-85% at 1 year, 70-75% at 2 years; Indications: Dissection, recoil, residual stenosis after balloon; Drug: Paclitaxel-coated polymer"
+    },
+    "explanation": {
+      "intuition": "Sometimes balloon angioplasty isn't enough and a stent is needed to hold the artery open. Drug-eluting stents add an anti-scarring drug that slowly releases over weeks to months, reducing the body's tendency to form scar tissue inside the stent.",
+      "key_insight": "DES represents a bailout strategy when primary balloon-only therapy fails - the goal is to avoid stenting when possible but use DES when necessary.",
+      "technical_details": "Peripheral drug-eluting stents use paclitaxel in a polymer coating that provides sustained drug release over weeks. The Zilver PTX was the first FDA-approved peripheral DES and remains the primary device in this category. Self-expanding nitinol construction provides chronic outward force. Paclitaxel inhibits neointimal hyperplasia at the stent site. Long-term dual antiplatelet therapy is required to prevent stent thrombosis.",
+      "common_misconceptions": [
+        "DES should be first-line therapy - FALSE, DCB-first strategy preferred when possible",
+        "DES have same performance in all locations - FALSE, worse at flexion points (across knee)",
+        "Drug coating prevents all restenosis - FALSE, reduces but doesn't eliminate in-stent restenosis",
+        "Peripheral DES are same as coronary DES - FALSE, different design, drugs, and deployment"
+      ]
+    },
+    "stent_technology": {
+      "platform": {
+        "material": "Nitinol (nickel-titanium alloy)",
+        "design": "Self-expanding, laser-cut",
+        "sizing": "Oversized 1-2 mm to reference vessel"
+      },
+      "drug_component": {
+        "agent": "Paclitaxel",
+        "delivery": "Polymer-based sustained release",
+        "duration": "Drug release over weeks to months"
+      },
+      "deployment": {
+        "technique": "Unsheathing, no balloon inflation required",
+        "post_dilation": "Balloon to ensure full apposition"
+      }
+    },
+    "clinical_indications": {
+      "primary_indications": [
+        "Bailout for flow-limiting dissection",
+        "Significant elastic recoil (>30% residual stenosis)",
+        "Suboptimal result after DCB/POBA"
+      ],
+      "lesion_characteristics": [
+        "Femoropopliteal lesions up to 14-15 cm",
+        "TASC C/D lesions when endovascular chosen",
+        "Moderate to heavy calcification"
+      ],
+      "relative_contraindications": [
+        "Across-knee deployment (high fracture risk)",
+        "Severe calcification without preparation",
+        "In-stent restenosis (consider DCB instead)"
+      ]
+    },
+    "clinical_evidence": {
+      "zilver_ptx": {
+        "design": "RCT of DES vs PTA with provisional BMS",
+        "primary_patency_1yr": "83.1% vs 32.8% for BMS",
+        "primary_patency_5yr": "66.4%",
+        "significance": "First FDA-approved peripheral DES"
+      },
+      "comparison_dcb": {
+        "general_approach": "DCB-first strategy, DES for bailout",
+        "evidence": "Non-inferior outcomes with less permanent implant"
+      }
+    },
+    "outcomes": {
+      "primary_patency": {
+        "one_year": "80-85%",
+        "two_year": "70-75%",
+        "five_year": "65-70%"
+      },
+      "complications": {
+        "stent_fracture": "2-5% depending on location",
+        "in_stent_restenosis": "15-25% at 2 years",
+        "thrombosis": "Rare with appropriate antiplatelet therapy"
+      }
+    },
+    "antiplatelet_therapy": {
+      "dapt_duration": "At least 3-6 months",
+      "regimen": "Aspirin + clopidogrel",
+      "long_term": "Single antiplatelet indefinitely"
+    },
+    "terminology": {
+      "snomed_ct": "360046005",
+      "icd_10": "Z95.828"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Drug-Eluting Stent in PAD"},
+    "altLabel": ["Peripheral DES", "Paclitaxel-Eluting Stent", "Zilver PTX"],
+    "definition": {"@language": "en", "@value": "Self-expanding nitinol stent with polymer-based drug coating for sustained antiproliferative drug release in peripheral arterial disease."},
+    "notation": "PAD-025"
+  },
+  "clinical_features": {
+    "presentation": [
+      "Failed primary angioplasty (dissection, recoil)",
+      "Long femoropopliteal lesions",
+      "TASC C/D lesions selected for endovascular"
+    ],
+    "diagnosis": [
+      "Completion angiography showing suboptimal result",
+      "Flow-limiting dissection",
+      ">30% residual stenosis"
+    ],
+    "treatment": [
+      "Appropriate vessel sizing",
+      "DES deployment with post-dilation",
+      "Dual antiplatelet therapy",
+      "Duplex surveillance"
+    ]
+  },
+  "relationships": {
+    "prerequisites": ["vascular:pad:pad-024-dcb", "vascular:endovascular:stent-basics"],
+    "enables": ["vascular:pad:patency-restoration", "vascular:pad:limb-salvage"],
+    "skos:broader": ["vascular:pad:endovascular-techniques"],
+    "skos:related": ["vascular:pad:pad-024-dcb", "vascular:pad:in-stent-restenosis"],
+    "skos:narrower": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_trial",
+        "reference": "Zilver PTX Randomized Trial",
+        "evidence_level": "Ia"
+      },
+      {
+        "type": "clinical_guideline",
+        "reference": "ESC/ESVS PAD Guidelines 2024",
+        "evidence_level": "A"
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "interventional radiology fellows"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Identify appropriate indications for peripheral drug-eluting stents",
+      "Compare DES vs DCB strategies in femoropopliteal disease",
+      "Describe optimal deployment technique for self-expanding DES",
+      "Prescribe appropriate antiplatelet therapy after DES"
+    ],
+    "clinical_pearls": [
+      "DCB-first, DES for bailout is the modern strategy",
+      "Avoid stenting across the knee - high fracture rates",
+      "Size 1-2 mm larger than reference vessel for self-expanding stents",
+      "Post-dilate to ensure full stent apposition",
+      "DAPT for at least 3-6 months after DES"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codeValue": "360046005",
+      "codingSystem": "SNOMED-CT",
+      "name": "Drug-eluting stent insertion"
+    },
+    {
+      "@type": "MedicalCode",
+      "codeValue": "37226",
+      "codingSystem": "CPT",
+      "name": "Transluminal peripheral stent placement, femoral/popliteal"
+    },
+    {
+      "@type": "MedicalCode",
+      "codeValue": "C1874",
+      "codingSystem": "HCPCS",
+      "name": "Drug-eluting stent, peripheral"
+    }
+  ]
+}

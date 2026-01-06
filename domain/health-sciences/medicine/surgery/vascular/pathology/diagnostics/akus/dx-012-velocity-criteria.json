@@ -1,0 +1,136 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:dx:dx-012-velocity-criteria",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T06:00:00.000Z",
+    "last_updated": "2026-01-06T06:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "copyright_compliance": "Original content based on general medical knowledge"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/diagnostics",
+    "type": "diagnostic-criteria",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "DX-012",
+    "keywords": ["velocity criteria", "duplex ultrasound", "PSV", "stenosis grading", "carotid duplex"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "vascular_diagnostics",
+    "board_yield": "HIGH"
+  },
+  "content": {
+    "title": "Duplex Ultrasound Velocity Criteria for Stenosis",
+    "statement": {
+      "text": "Duplex ultrasound velocity criteria use peak systolic velocity (PSV), end-diastolic velocity (EDV), and velocity ratios to grade arterial stenosis, with specific thresholds validated for carotid, renal, and peripheral arteries.",
+      "formal": "Key metrics: PSV, EDV, ICA/CCA ratio; Carotid 50-69%: PSV 125-230 cm/s; Carotid ≥70%: PSV >230 cm/s, EDV >100 cm/s; Velocity increases with stenosis severity"
+    },
+    "explanation": {
+      "intuition": "Blood flows faster through a narrowed artery, like water through a pinched garden hose. By measuring how fast blood moves at different points, we can estimate how severe the narrowing is.",
+      "key_insight": "Peak systolic velocity is the primary metric - higher velocity = more severe stenosis. Ratios help correct for cardiac output variations.",
+      "technical_details": "Duplex ultrasound combines B-mode imaging with pulsed Doppler to measure blood flow velocities at stenotic sites. The continuity equation predicts that velocity increases proportionally to the reduction in cross-sectional area. Peak systolic velocity (PSV) is the most reliable parameter for stenosis grading. End-diastolic velocity (EDV) adds specificity for severe stenosis. Velocity ratios (ICA/CCA for carotid) normalize for cardiac output variations."
+    },
+    "carotid_criteria": {
+      "normal": {
+        "psv": "<125 cm/s",
+        "edv": "<40 cm/s",
+        "ica_cca_ratio": "<2.0"
+      },
+      "stenosis_50_69": {
+        "psv": "125-230 cm/s",
+        "edv": "40-100 cm/s",
+        "ica_cca_ratio": "2.0-4.0"
+      },
+      "stenosis_70_99": {
+        "psv": ">230 cm/s",
+        "edv": ">100 cm/s",
+        "ica_cca_ratio": ">4.0"
+      },
+      "near_occlusion": {
+        "findings": "Narrow lumen, low velocity 'trickle flow'",
+        "caution": "PSV may be falsely low"
+      }
+    },
+    "renal_artery_criteria": {
+      "normal": {
+        "psv": "<180-200 cm/s",
+        "rar": "<3.5 (renal/aortic ratio)"
+      },
+      "stenosis_60": {
+        "psv": ">180-200 cm/s",
+        "rar": ">3.5"
+      }
+    },
+    "terminology": {
+      "snomed_ct": "77477000",
+      "icd_10": "Z13.6"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Duplex Velocity Criteria"},
+    "altLabel": ["PSV Criteria", "Stenosis Grading", "Velocity-Based Stenosis Assessment"],
+    "definition": {"@language": "en", "@value": "Standardized duplex ultrasound velocity thresholds for grading arterial stenosis severity."},
+    "notation": "DX-012"
+  },
+  "clinical_features": {
+    "presentation": [
+      "Patient with carotid stenosis evaluation",
+      "Renal artery stenosis screening"
+    ],
+    "diagnosis": [
+      "Duplex ultrasound with Doppler",
+      "PSV, EDV, and ratio measurements"
+    ],
+    "treatment": [
+      "Based on stenosis severity",
+      "Intervention thresholds depend on vessel and symptoms"
+    ]
+  },
+  "relationships": {
+    "prerequisites": ["vascular:dx:duplex-basics"],
+    "enables": ["vascular:carotid:cea-indications"],
+    "skos:broader": ["vascular:dx:duplex-ultrasound"],
+    "skos:related": ["vascular:dx:dx-011-carotid-duplex"],
+    "skos:narrower": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "consensus_statement",
+        "reference": "Society for Vascular Surgery Consensus Document on Carotid Duplex Criteria",
+        "evidence_level": "B"
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular ultrasound technologists"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Apply velocity criteria to grade carotid stenosis",
+      "Explain the physiologic basis for velocity-stenosis relationship"
+    ],
+    "clinical_pearls": [
+      "Carotid ≥70%: PSV >230 cm/s AND EDV >100 cm/s",
+      "ICA/CCA ratio >4.0 supports ≥70% stenosis",
+      "Near-occlusion paradox: very severe stenosis may have LOW velocity"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codeValue": "77477000",
+      "codingSystem": "SNOMED-CT",
+      "name": "Doppler ultrasound"
+    },
+    {
+      "@type": "MedicalCode",
+      "codeValue": "93880",
+      "codingSystem": "CPT",
+      "name": "Duplex scan of extracranial arteries"
+    }
+  ]
+}
