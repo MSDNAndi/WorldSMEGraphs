@@ -28,7 +28,7 @@ BWL is organized into the following subdomains:
 
 ### Functional Area Subdomains
 
-Each subdomain has its own `knowledge.graph`, `schema.json`, and `.renders/` directory:
+Each subdomain has its own `knowledge.graph` and `schema.json`:
 
 1. **[accounting/](accounting/)** - Rechnungswesen (4 nodes)
    - Financial Accounting, Management Accounting, Cost Accounting
@@ -124,7 +124,7 @@ Each node contains:
 
 ### German Language - Overview
 
-Located in `.renders/german/`:
+Located in `renders/by-domain/social-sciences/economics/bwl/german/`:
 
 1. **overview-gymnasium-abitur-snarky.md**
    - **Audience**: High school educated (Gymnasium/Abitur level)
@@ -272,53 +272,45 @@ domain/social-sciences/economics/bwl/
 ├── knowledge.graph              # Core cross-functional concepts (18 nodes)
 ├── schema.json                  # Core schema
 ├── README.md                    # This file
-├── .renders/                    # Overview renderings
-│   └── german/
-│       └── overview-gymnasium-abitur-snarky.md
 │
 ├── accounting/                  # Rechnungswesen
 │   ├── knowledge.graph
-│   ├── schema.json
-│   └── .renders/
+│   └── schema.json
 │
 ├── finance/                     # Finanzwirtschaft
 │   ├── knowledge.graph
-│   ├── schema.json
-│   └── .renders/
+│   └── schema.json
 │
 ├── marketing/                   # Marketing
 │   ├── knowledge.graph
-│   ├── schema.json
-│   └── .renders/
+│   └── schema.json
 │
 ├── human-resources/             # Personalwesen
 │   ├── knowledge.graph
-│   ├── schema.json
-│   └── .renders/
+│   └── schema.json
 │
 ├── operations/                  # Produktion & Logistik
 │   ├── knowledge.graph
-│   ├── schema.json
-│   └── .renders/
+│   └── schema.json
 │
 ├── strategy/                    # Strategisches Management
 │   ├── knowledge.graph
-│   ├── schema.json
-│   └── .renders/
+│   └── schema.json
 │
 ├── organization/                # Organisationslehre
 │   ├── knowledge.graph
-│   ├── schema.json
-│   └── .renders/
+│   └── schema.json
 │
 ├── entrepreneurship/            # Unternehmensgründung
 │   ├── knowledge.graph
-│   ├── schema.json
-│   └── .renders/
+│   └── schema.json
 │
 └── controlling/                 # Controlling
     ├── knowledge.graph
-    ├── schema.json
-    └── .renders/
+    └── schema.json
+
+renders/by-domain/social-sciences/economics/bwl/
+└── german/                      # Rendered content
+    └── overview-gymnasium-abitur-snarky.md
 ```
 

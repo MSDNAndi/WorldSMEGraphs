@@ -56,7 +56,7 @@ Maintains clean, logical project structure, eliminates redundancies, and ensures
 
 ## Organization Rules
 1. **Domain Structure**: `domain/[category]/[subcategory]/`
-2. **Renders**: Always in `.renders/[language]/[audience]`
+2. **Renders**: Centralized in `renders/by-domain/[domain-path]/[language]/[audience]`
 3. **Documentation**: Top-level docs in `/docs`, agent-specific in `.github/copilot/agents/`
 4. **Project Metadata**: In `.project/` directory
 5. **Build Artifacts**: Listed in .gitignore, never committed

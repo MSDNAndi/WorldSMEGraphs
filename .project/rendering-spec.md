@@ -38,7 +38,7 @@ Rendering Engine
         ↓
    Formatters
         ↓
-Output Files (.renders/)
+Output Files (renders/)
 ```
 
 ### Data Flow
@@ -49,15 +49,16 @@ Output Files (.renders/)
 4. **Generate** human-readable text
 5. **Format** for output medium
 6. **Validate** against quality criteria
-7. **Output** to `.renders/[language]/[audience].[format]`
+7. **Output** to `renders/by-domain/[domain-path]/[language]/[audience].[format]`
 
 ## Directory Structure
 
 ```
-[topic]/
+domain/[topic]/
 ├── knowledge.graph           # Source
-├── schema.json              # Schema
-└── .renders/               # Outputs
+└── schema.json              # Schema
+
+renders/by-domain/[topic]/   # Outputs
     ├── english/
     │   ├── 4-year-old.md
     │   ├── elementary-school.md
@@ -249,7 +250,7 @@ Why does this happen?
 ### Content Mapping File
 Each language has a mapping file:
 
-`.renders/[language]/mappings.json`:
+`renders/by-domain/[domain-path]/[language]/mappings.json`:
 ```json
 {
   "algebra:variable": {
@@ -441,7 +442,7 @@ render --graph domain/formal-sciences/mathematics/pure-mathematics/algebra/knowl
        --language english \
        --audience elementary-school \
        --format markdown \
-       --output domain/formal-sciences/mathematics/pure-mathematics/algebra/.renders/english/
+       --output renders/by-domain/formal-sciences/mathematics/pure-mathematics/algebra/english/
 ```
 
 ### CI/CD Integration
