@@ -2,7 +2,7 @@
 
 > **Domain**: health-sciences/medicine/surgery/vascular/pathology/venous  
 > **Last Updated**: 2026-01-06  
-> **Total AKUs in Domain**: 30 (15 in akus/ directory, 15 in subdomain directories)
+> **AKUs in this akus/ directory**: 15 (see categories below; additional venous AKUs are defined in other subdomains)
 
 ## Directory Structure
 
