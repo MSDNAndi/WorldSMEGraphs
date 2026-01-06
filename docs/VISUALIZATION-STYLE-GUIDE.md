@@ -484,7 +484,7 @@ CONNECTOR:     ● (Circle)
 - [ ] Add alt text descriptions
 
 **Step 5: Integrate**
-- [ ] Place in appropriate `.renders/` directory
+- [ ] Place in appropriate renders/by-domain/[domain-path]/images/ directory
 - [ ] Reference in AKU or documentation
 - [ ] Update visual index
 - [ ] Document in commit message

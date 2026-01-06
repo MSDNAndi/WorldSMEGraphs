@@ -266,7 +266,7 @@ Unified connection visualization showing diverse elements coming together, conve
 # PARALLEL generation (recommended for multiple prompts)
 python .project/agents/image-generation/tools/gpt_image_generator.py \
   --prompt-file prompts_microsoft_fp.txt \
-  --output-dir domain/science/computer-science/functional-theory/.renders/images/ \
+  --output-dir renders/by-domain/formal-sciences/computer-science/functional-programming/images/ \
   --aspect landscape \
   --quality high \
   --parallel 5 \
@@ -275,7 +275,7 @@ python .project/agents/image-generation/tools/gpt_image_generator.py \
 # Sequential generation (if needed)
 python .project/agents/image-generation/tools/gpt_image_generator.py \
   --prompt-file prompts_microsoft_fp.txt \
-  --output-dir domain/science/computer-science/functional-theory/.renders/images/ \
+  --output-dir renders/by-domain/formal-sciences/computer-science/functional-programming/images/ \
   --aspect landscape \
   --quality high \
   --sequential

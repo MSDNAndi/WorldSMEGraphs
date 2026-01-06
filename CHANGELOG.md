@@ -8,16 +8,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Centralized Renders Infrastructure** (2026-01-06)
+  - New `renders/` directory at repository root
+  - `renders/by-domain/` organization (255 files)
+  - `renders/_metadata/` with comprehensive documentation (75KB+)
+  - Automation tools:
+    - `generate_render_index.py` - Renders cataloging
+    - `generate_aku_usage_matrix.py` - AKU-render tracking (658 AKUs)
+    - `render_quality_linter.py` - Quality validation (8 checks)
+    - `create_render.sh` - Interactive render creation
+  - CI/CD validation workflow (`.github/workflows/validate-renders.yml`)
+  - Audience profiles (8 definitions with guidelines)
+  - Developer guide (13KB comprehensive reference)
+  - Migration log and validation reports
+  - Project completion summary
 - Comprehensive domain migration guide (`.project/docs/domain-migration-guide.md`)
 - Ontology tools README documentation (`domain/_ontology/tools/README.md`)
 - Post-migration validation report (`.project/tracking/post-migration-validation-report.md`)
 - Session work summary template (`.project/tracking/session-work-summary-2026-01-04.md`)
 
 ### Changed
+- **Renders Migration** - Extracted all `.renders/` content to centralized `renders/`
+  - Updated 23 documentation files with new render paths
+  - Updated 4 agent configurations
+  - Updated rendering specification workflows
+  - Updated examples in all guides
 - Updated all path references from old to new hierarchy across codebase
 - Enhanced `validate_aku_v2.py` to recognize new domain paths
 - Updated agent file examples to use new hierarchy paths
 - Updated CONTRIBUTING.md examples with new paths
+
+### Removed
+- All `.renders/` subdirectories from domain hierarchy (6 directories)
+- Legacy render path references in documentation
 
 ### Fixed
 - Completed incomplete PR #30 migration
