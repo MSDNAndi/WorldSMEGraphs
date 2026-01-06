@@ -16,7 +16,6 @@ import os
 import json
 import yaml
 import re
-from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
 
@@ -84,10 +83,10 @@ def extract_aku_references(render_file):
                                     if isinstance(refs, list):
                                         references.update(refs)
                     except yaml.YAMLError:
-                        pass
+                        pass  # Ignore invalid YAML in frontmatter
     
     except IOError:
-        pass
+        pass  # Skip files that cannot be read
     
     return list(references)
 
