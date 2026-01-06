@@ -276,38 +276,46 @@ domain/
 ├── science/
 │   ├── math/
 │   │   ├── algebra/
-│   │   │   ├── knowledge.graph        # Language-agnostic compressed representation
-│   │   │   └── .renders/
-│   │   │       ├── english/
-│   │   │       │   ├── elementary-school.md
-│   │   │       │   ├── graduate.md
-│   │   │       │   └── 4-year-old.md
-│   │   │       └── german/
-│   │   │           ├── grundschule.md
-│   │   │           └── hochschule.md
+│   │   │   └── knowledge.graph        # Language-agnostic compressed representation
 │   ├── physics/
 │   └── chemistry/
 ├── economics/
 │   ├── macroeconomics/
-│   │   ├── knowledge.graph
-│   │   └── .renders/
-│   │       └── english/
-│   │           ├── adult-limited-reading.md
-│   │           └── graduate.md
+│   │   └── knowledge.graph
 │   └── microeconomics/
 └── [other domains]/
+
+renders/                                    # Centralized rendered content (moved from domain/**/.renders/)
+├── by-domain/
+│   ├── science/
+│   │   └── math/
+│   │       └── algebra/
+│   │           ├── english/
+│   │           │   ├── elementary-school.md
+│   │           │   ├── graduate.md
+│   │           │   └── 4-year-old.md
+│   │           └── german/
+│   │               ├── grundschule.md
+│   │               └── hochschule.md
+│   └── economics/
+│       └── macroeconomics/
+│           └── english/
+│               ├── adult-limited-reading.md
+│               └── graduate.md
+├── by-language/
+└── by-audience/
 ```
 
 ### Knowledge Representation Guidelines
 1. **Language-Agnostic Format**: Core knowledge graphs use a compressed, language-neutral format
 2. **Cross-Linking**: Implement at least unidirectional, preferably bidirectional linking between concepts
 3. **Hierarchical Organization**: Use domain/subdomain folder structure
-4. **Rendering System**: Human-readable representations in `.renders/[language]/[audience-level]`
+4. **Rendering System**: Human-readable representations in centralized `renders/` directory
 5. **Output Formats**: Prepare for markdown, PDF, LaTeX, TeX, DOCX, and visualizations
 
 ### File Organization
 - All data is file-based, including databases
-- Use `.renders/` subdirectories for human-readable outputs
+- Rendered content is centralized in `renders/` directory (organized by-domain, by-language, by-audience)
 - Keep knowledge graphs separate from their renderings
 - Maintain clear separation between domains
 
@@ -641,7 +649,7 @@ When you encounter poor quality content (unfunny storytelling, unprofessional ma
 - ✅ Understand the need:
   - Children ARE a rendering audience
   - Create adult-level rigorous AKUs
-  - Then render those AKUs for child audiences in `.renders/`
+  - Then render those AKUs for child audiences in `renders/by-audience/children/`
   - Maintain scientific rigor in AKUs, accessibility in renderings
 
 ### Workflow for Quality Content Creation
@@ -735,11 +743,16 @@ domain/
       algebra/
         knowledge.graph
         schema.json
-        .renders/
+
+renders/
+  by-domain/
+    science/
+      math/
+        algebra/
           english/
             elementary-school.md
 ```
-*Follows standard structure, clear hierarchy, proper naming*
+*Follows standard structure, clear hierarchy, proper naming with centralized renders*
 
 ### Commit Messages
 

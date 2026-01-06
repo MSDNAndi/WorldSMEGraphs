@@ -165,6 +165,14 @@ WorldSMEGraphs/
 │   └── health-sciences/    # Health sciences (medicine, nursing, pharmacy)
 │       └── (see "Current Hierarchy Structure" section above for details)
 │
+├── renders/                 # Centralized rendered content (NEW - 2026-01-06)
+│   ├── _metadata/          # Metadata and tracking
+│   │   ├── README.md      # Renders documentation
+│   │   └── migration-log.md # Migration history
+│   ├── by-domain/          # Organized by source domain (primary organization)
+│   ├── by-language/        # Organized by language
+│   └── by-audience/        # Organized by target audience
+│
 ├── docs/                   # General project documentation
 │   ├── README.md          # Main documentation
 │   ├── CONTRIBUTING.md    # Contribution guidelines
@@ -208,9 +216,15 @@ Knowledge domain hierarchies organized by subject matter:
 - **Required Files**:
   - `knowledge.graph`: Language-agnostic knowledge representation
   - `schema.json`: Schema definition for the graph
-  - `.renders/`: Directory for human-readable renderings
   - `COMPLETENESS_METADATA.yaml`: Domain maturity tracking metadata (OPTIONAL but recommended)
-- **Rendering Structure**: `.renders/[language]/[audience-level].[format]`
+- **Note**: Rendered content is stored in the centralized `renders/` directory
+
+### `renders/`
+Centralized repository for all rendered, human-readable content:
+- **Structure**: Multiple organizational views (by-domain, by-language, by-audience)
+- **Primary Organization**: `renders/by-domain/[domain-path]/[language]/[content-file]`
+- **See**: `renders/README.md` for complete documentation
+- **Migration**: All content migrated from domain `.renders/` subdirectories on 2026-01-06
 
 ### `docs/`
 General documentation accessible to all users:
@@ -232,7 +246,7 @@ General documentation accessible to all users:
   - `graduate.pdf`
   - `adult-limited-reading.md`
   - `4-year-old.md`
-- **Location**: `.renders/[language]/`
+- **Location**: `renders/by-domain/[domain-path]/[language]/`
 
 ### Documentation
 - **Use kebab-case**: `getting-started.md`, `knowledge-format.md`
@@ -275,20 +289,21 @@ Organize domains hierarchically from broad to specific:
 - See `domain/_contexts/cross-domain.jsonld` for vocabulary
 
 ### 4. Separation of Concerns
-- **Knowledge**: Language-agnostic in `.graph` files
-- **Renderings**: Language and audience-specific in `.renders/`
+- **Knowledge**: Language-agnostic in `.graph` files within `domain/`
+- **Renderings**: Language and audience-specific in centralized `renders/` directory
 - **Metadata**: Schemas and configuration separate from content
 - **Infrastructure**: GitHub and project config in dotfiles
 
 ### 5. Consistent Structure
 Each domain topic follows the same pattern:
 ```
-[topic]/
+domain/[topic]/
 ├── knowledge.graph
-├── schema.json
-└── .renders/
-    └── [language]/
-        └── [audience].[format]
+└── schema.json
+
+renders/by-domain/[topic]/
+└── [language]/
+    └── [audience].[format]
 ```
 
 ### 6. File-Based Everything
@@ -313,10 +328,9 @@ Listed in `.gitignore`:
 1. Create directory structure: `domain/[category]/[subcategory]/[topic]/`
 2. Add `knowledge.graph` file with content
 3. Add `schema.json` with graph schema
-4. Create `.renders/` directory
-5. Add initial renderings for at least one language/audience
-6. Update this structure document
-7. Create domain-specific README if needed
+4. Add renderings to `renders/by-domain/[category]/[subcategory]/[topic]/[language]/`
+5. Update this structure document
+6. Create domain-specific README if needed
 
 ## Adding New Agents
 
