@@ -1,0 +1,197 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:cvd-002-vcss-scoring",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T17:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-06T17:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "concept",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "CVD-002",
+    "keywords": ["VCSS", "venous clinical severity score", "outcome measurement", "chronic venous disease"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
+  },
+  "content": {
+    "statement": {
+      "text": "The Venous Clinical Severity Score (VCSS) is a validated, dynamic instrument for measuring chronic venous disease severity that tracks treatment response through 10 clinical descriptors scored 0-3, generating a total score of 0-30.",
+      "formal": "VCSS_Total = Σ(Pain + Varicose_Veins + Edema + Pigmentation + Inflammation + Induration + Active_Ulcer_Number + Active_Ulcer_Duration + Active_Ulcer_Size + Compression_Therapy)"
+    },
+    "explanation": {
+      "intuition": "Unlike CEAP which categorizes disease at a point in time, VCSS quantifies severity on a continuous scale and can track improvement or worsening, making it ideal for monitoring treatment outcomes.",
+      "key_insight": "VCSS is designed for outcome measurement and quality improvement, with each component scored 0 (absent) to 3 (severe), allowing detection of clinically meaningful changes. A change of ≥4 points is considered clinically significant.",
+      "technical_details": "The revised VCSS (rVCSS) improved upon the original by clarifying definitions and adding photographic standards. Pain is scored by impact on activities. Varicose veins by extent and size. Edema by location and severity. Skin changes (pigmentation, inflammation, induration) by extent. Ulcer characteristics by number, duration, and size. Compression use penalizes non-compliance.",
+      "common_misconceptions": [
+        "Misconception: VCSS and CEAP are interchangeable. Reality: CEAP is static classification, VCSS is dynamic severity measurement.",
+        "Misconception: Lower VCSS always means better quality of life. Reality: VCSS doesn't directly measure QOL; use CIVIQ-20 for that.",
+        "Misconception: Ulcer size dominates VCSS. Reality: Multiple factors contribute; a patient with pain, edema, and skin changes but no ulcer can have a high score."
+      ]
+    }
+  },
+  "clinical_features": {
+    "scoring_components": {
+      "pain": {
+        "0": "None",
+        "1": "Occasional, not restricting activity",
+        "2": "Daily, limiting some activities",
+        "3": "Daily, limiting most activities or requiring analgesics"
+      },
+      "varicose_veins": {
+        "0": "None",
+        "1": "Few, scattered branch varicosities",
+        "2": "Multiple GSV varicosities confined to calf or thigh",
+        "3": "Extensive, involving calf and thigh or GSV and SSV"
+      },
+      "edema": {
+        "0": "None",
+        "1": "Limited to foot and ankle",
+        "2": "Extends above ankle but below knee",
+        "3": "Extends to knee or above"
+      },
+      "pigmentation": {
+        "0": "None",
+        "1": "Limited to perimalleolar area",
+        "2": "Diffuse over lower third of calf",
+        "3": "Wider distribution above lower third of calf"
+      },
+      "inflammation": {
+        "0": "None",
+        "1": "Limited to perimalleolar area",
+        "2": "Diffuse over lower third of calf",
+        "3": "Wider distribution above lower third of calf"
+      },
+      "induration": {
+        "0": "None",
+        "1": "Limited to perimalleolar area",
+        "2": "Diffuse over lower third of calf",
+        "3": "Wider distribution above lower third of calf"
+      },
+      "active_ulcer_number": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "≥3"
+      },
+      "active_ulcer_duration": {
+        "0": "N/A (no ulcer)",
+        "1": "<3 months",
+        "2": "3-12 months",
+        "3": ">12 months"
+      },
+      "active_ulcer_size": {
+        "0": "N/A (no ulcer)",
+        "1": "<2 cm diameter",
+        "2": "2-6 cm diameter",
+        "3": ">6 cm diameter"
+      },
+      "compression_therapy": {
+        "0": "Not used and not indicated",
+        "1": "Intermittent use of stockings",
+        "2": "Consistent stocking use",
+        "3": "Full compliance with compression"
+      }
+    },
+    "presentation": [
+      "Pain ranging from occasional to severe limiting activities",
+      "Varicose veins of varying extent",
+      "Edema from ankle to above knee",
+      "Skin changes including pigmentation, inflammation, induration",
+      "Active ulcers of varying number, duration, and size"
+    ],
+    "diagnosis": [
+      "Clinical examination by trained assessor",
+      "Photographic documentation recommended",
+      "Serial measurements for outcome tracking",
+      "Combine with CEAP for complete documentation"
+    ],
+    "treatment": [
+      "Track VCSS before and after intervention",
+      "Target ≥4 point improvement as clinically significant",
+      "Use for quality benchmarking and outcome reporting",
+      "Combine with QOL measures for comprehensive assessment"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Venous Clinical Severity Score"
+    },
+    "altLabel": [
+      "VCSS",
+      "Revised VCSS",
+      "rVCSS",
+      "Venous severity score"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A validated clinical instrument for quantifying the severity of chronic venous disease across 10 clinical domains, each scored 0-3, enabling outcome measurement and treatment monitoring."
+    },
+    "notation": "CVD-002"
+  },
+  "relationships": {
+    "prerequisites": [
+      "vascular:venous:cvd-001-ceap-classification"
+    ],
+    "enables": [
+      "vascular:venous:outcome-measurement",
+      "vascular:venous:quality-improvement"
+    ],
+    "skos:broader": ["vascular:venous:chronic-venous-disease"],
+    "skos:related": ["vascular:venous:ceap", "vascular:venous:civiq-20"],
+    "skos:narrower": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "journal",
+        "title": "Revision of the venous clinical severity score",
+        "journal": "Journal of Vascular Surgery: Venous and Lymphatic Disorders",
+        "year": 2010,
+        "authors": "Vasquez MA, Rabe E, McLafferty RB, et al."
+      },
+      {
+        "type": "guideline",
+        "title": "SVS Clinical Practice Guidelines for Management of CVD",
+        "year": 2022
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular medicine fellows", "clinical researchers"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Apply VCSS scoring to patients with chronic venous disease",
+      "Interpret VCSS changes after intervention",
+      "Distinguish VCSS from CEAP in clinical use",
+      "Identify clinically significant changes (≥4 points)"
+    ],
+    "clinical_pearls": [
+      "VCSS is for outcome measurement; CEAP is for classification",
+      "A change of ≥4 points is clinically significant",
+      "Compression therapy score penalizes non-compliance",
+      "Ulcer components (3 items) can contribute 9 points maximum",
+      "Maximum possible score is 30; typical severe CVD scores 15-20"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "404223003",
+      "description": "Chronic venous insufficiency"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I87.2",
+      "description": "Venous insufficiency (chronic) (peripheral)"
+    }
+  ]
+}

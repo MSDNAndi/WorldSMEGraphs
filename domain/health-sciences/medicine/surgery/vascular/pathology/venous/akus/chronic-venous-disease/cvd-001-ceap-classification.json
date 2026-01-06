@@ -1,0 +1,179 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:cvd-001-ceap-classification",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T17:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-06T17:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "concept",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "CVD-001",
+    "keywords": ["CEAP classification", "chronic venous disease", "clinical classification", "venous severity"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
+  },
+  "content": {
+    "statement": {
+      "text": "The CEAP classification is the internationally accepted standard for describing chronic venous disease, comprising Clinical (C0-C6), Etiologic (Ec, Ep, Es, En), Anatomic (As, Ap, Ad), and Pathophysiologic (Pr, Po, Pr,o, Pn) components.",
+      "formal": "CEAP = C[0-6,s/a] + E[c,p,s,n] + A[s,p,d] + P[r,o,r+o,n]"
+    },
+    "explanation": {
+      "intuition": "CEAP provides a comprehensive, reproducible language for describing venous disease severity, cause, location, and mechanism, enabling standardized communication between clinicians and comparison across studies.",
+      "key_insight": "The 'C' clinical component is most commonly used in practice, ranging from C0 (no visible signs) to C6 (active ulcer), with each level representing progressive disease severity that guides treatment decisions.",
+      "technical_details": "The revised CEAP classification (2020) added modifiers for recurrent disease (r) and includes 18 anatomic segments. The basic CEAP uses highest C class plus descriptor, while advanced CEAP includes all components. Corona phlebectatica (ankle flare) was added as C4c. Each limb is classified independently.",
+      "common_misconceptions": [
+        "Misconception: Higher C class always indicates more severe disease. Reality: C class describes the highest manifestation present, but a C3 (edema) patient may have worse symptoms than a C4 patient.",
+        "Misconception: CEAP measures symptoms. Reality: CEAP is purely objective; VCSS measures symptoms and severity.",
+        "Misconception: C6 is permanent. Reality: Healed ulcers become C5, and can recur to C6 (C6,r)."
+      ]
+    }
+  },
+  "clinical_features": {
+    "clinical_classes": {
+      "C0": "No visible or palpable signs of venous disease",
+      "C1": "Telangiectasias (<1mm) or reticular veins (1-3mm)",
+      "C2": "Varicose veins (>3mm)",
+      "C2r": "Recurrent varicose veins",
+      "C3": "Edema without skin changes",
+      "C4a": "Pigmentation or eczema",
+      "C4b": "Lipodermatosclerosis or atrophie blanche",
+      "C4c": "Corona phlebectatica (ankle flare)",
+      "C5": "Healed venous ulcer",
+      "C6": "Active venous ulcer",
+      "C6r": "Recurrent active venous ulcer"
+    },
+    "etiologic_component": {
+      "Ec": "Congenital",
+      "Ep": "Primary (degenerative)",
+      "Es": "Secondary (post-thrombotic)",
+      "En": "No cause identified"
+    },
+    "anatomic_component": {
+      "As": "Superficial veins (GSV, SSV, tributaries)",
+      "Ap": "Perforator veins",
+      "Ad": "Deep veins",
+      "An": "No venous location identified"
+    },
+    "pathophysiologic_component": {
+      "Pr": "Reflux",
+      "Po": "Obstruction",
+      "Pr,o": "Reflux and obstruction",
+      "Pn": "No pathophysiology identified"
+    },
+    "presentation": [
+      "Telangiectasias and spider veins (C1)",
+      "Prominent tortuous varicose veins (C2)",
+      "Lower extremity edema (C3)",
+      "Skin discoloration and eczema (C4a)",
+      "Woody induration or white scarring (C4b)",
+      "Evidence of healed ulceration (C5)",
+      "Open wound in gaiter area (C6)"
+    ],
+    "diagnosis": [
+      "Visual inspection and palpation for clinical class",
+      "Duplex ultrasound for anatomic and pathophysiologic components",
+      "History for etiology (prior DVT, family history, congenital)",
+      "Each limb classified independently"
+    ],
+    "treatment": [
+      "C1: Cosmetic treatment if desired (sclerotherapy)",
+      "C2: Conservative or intervention based on symptoms",
+      "C3-C4: Compression therapy, consider intervention",
+      "C5-C6: Active treatment of underlying disease essential"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "CEAP Classification System"
+    },
+    "altLabel": [
+      "Clinical-Etiology-Anatomy-Pathophysiology classification",
+      "Chronic venous disease classification",
+      "Venous severity classification"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A standardized classification system for chronic venous disorders that describes the Clinical manifestation, Etiologic factors, Anatomic distribution, and Pathophysiologic mechanisms of venous disease."
+    },
+    "notation": "CVD-001"
+  },
+  "relationships": {
+    "prerequisites": [
+      "vascular:venous:ven-001-hemodynamics",
+      "vascular:venous:ven-004-venous-hypertension"
+    ],
+    "enables": [
+      "vascular:venous:cvd-002-vcss-scoring",
+      "vascular:venous:treatment-planning"
+    ],
+    "skos:broader": ["vascular:venous:chronic-venous-disease"],
+    "skos:related": ["vascular:venous:vcss", "vascular:venous:duplex-ultrasound"],
+    "skos:narrower": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "consensus",
+        "title": "Revision of the CEAP classification for chronic venous disorders",
+        "journal": "Journal of Vascular Surgery: Venous and Lymphatic Disorders",
+        "year": 2020,
+        "authors": "Lurie F, Passman M, Meisner M, et al."
+      },
+      {
+        "type": "textbook",
+        "title": "Handbook of Venous and Lymphatic Disorders",
+        "edition": "4th",
+        "year": 2017
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular medicine fellows", "phlebology practitioners"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Apply CEAP classification to describe chronic venous disease",
+      "Distinguish between clinical classes C0-C6",
+      "Identify etiology, anatomy, and pathophysiology components",
+      "Use basic and advanced CEAP appropriately"
+    ],
+    "clinical_pearls": [
+      "Always specify 's' (symptomatic) or 'a' (asymptomatic) after C class",
+      "C4 is divided into a (pigmentation/eczema), b (lipodermatosclerosis/atrophie blanche), c (corona phlebectatica)",
+      "Post-thrombotic patients are 'Es' - secondary etiology",
+      "C5 patients need surveillance - 50% recurrence rate for ulcers",
+      "Document CEAP for each limb independently"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "404223003",
+      "description": "Chronic venous insufficiency"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I87.2",
+      "description": "Venous insufficiency (chronic) (peripheral)"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I83.009",
+      "description": "Varicose veins of unspecified lower extremity with ulcer of unspecified site"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I83.10",
+      "description": "Varicose veins of unspecified lower extremity with inflammation"
+    }
+  ]
+}

@@ -1,80 +1,164 @@
 {
-  "@context": "aku-v2",
-  "@type": "concept",
-  "@id": "vascular:venous:gsv-anatomy",
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:svd-001-gsv-anatomy-overview",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-05T12:56:56.000Z",
-    "contributors": ["copilot"],
+    "contributors": ["copilot", "copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
     "status": "validated",
-    "reviewedBy": [],
-    "confidence": 0.92
+    "last_updated": "2026-01-06T17:30:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
-    "type": "anatomy",
-    "difficulty": "intermediate",
+    "type": "concept",
+    "difficulty": "advanced",
     "importance": "critical",
+    "aku_id": "SVD-001A",
+    "keywords": ["great saphenous vein", "GSV", "saphenous compartment", "saphenous eye", "venous anatomy"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease",
     "isNativeDomain": true
   },
   "content": {
-    "title": "Great Saphenous Vein Anatomy",
-    "description": "Detailed anatomy of the great saphenous vein, the longest superficial vein of the lower extremity and the most common site of varicose vein disease.",
-    "definition": "The great saphenous vein (GSV) originates at the medial marginal vein of the foot, passes anterior to the medial malleolus, ascends along the medial leg and thigh in the saphenous compartment, and terminates at the saphenofemoral junction (SFJ) by joining the common femoral vein.",
-    "clinical_features": {
-      "course": [
-        "Origin: Medial marginal vein of foot dorsum",
-        "Passes anterior to medial malleolus",
-        "Ascends medial calf in saphenous compartment",
-        "Crosses from posterior to anterior at knee",
-        "Ascends medial thigh",
-        "Terminates at saphenofemoral junction (SFJ)"
-      ],
-      "saphenofemoral_junction": [
-        "Located 2-3 cm below inguinal ligament",
-        "Located 2-4 cm lateral to pubic tubercle",
-        "Receives 5-6 named tributaries",
-        "Superficial epigastric, circumflex iliac, external pudendal veins",
-        "Terminal valve at CFV junction"
-      ],
-      "saphenous_compartment": [
-        "Fascial compartment between muscular and saphenous fascia",
-        "GSV and saphenous nerve travel together",
-        "'Saphenous eye' on ultrasound",
-        "Protects vein from external compression"
-      ],
-      "important_relations": [
-        "Saphenous nerve: Close association below knee",
-        "Medial femoral cutaneous nerve: Thigh",
-        "Femoral vessels: At SFJ",
-        "Perforating veins: Multiple connections to deep system"
+    "statement": {
+      "text": "The great saphenous vein (GSV) is the longest vein in the body, originating from the medial marginal vein, ascending in the saphenous compartment along the medial leg and thigh, and terminating at the saphenofemoral junction. Its consistent anatomic course makes it ideal for endovenous treatment and bypass conduit harvesting.",
+      "formal": "GSV: Medial_Malleolus → Saphenous_Compartment (medial_calf → medial_thigh) → SFJ at CFV"
+    },
+    "explanation": {
+      "intuition": "The GSV is like a main highway running up the inside of your leg within a protective tunnel (saphenous compartment). Understanding this highway's route, exits (tributaries and perforators), and the protective tunnel it travels in is essential for treating varicose veins.",
+      "key_insight": "The 'saphenous eye' on ultrasound is the key to identifying the true GSV - a hyperechoic saphenous fascia above the vein and deep fascia below creates an eye-shaped pattern. This confirms you're in the GSV and not a tributary, which is critical for treatment success.",
+      "technical_details": "The GSV originates from the dorsal venous arch, anterior to the medial malleolus. It ascends in the superficial tissue in the lower leg, then enters the saphenous compartment bounded by the saphenous fascia superficially and muscular fascia deeply. In the thigh, it lies posteromedially, curving anteriorly at the SFJ. Major tributaries include the anterior and posterior arch veins of the leg, and the accessory saphenous veins (anterior and posterior) in the thigh. The saphenous nerve accompanies the GSV below the knee, making stripping in this region risky.",
+      "common_misconceptions": [
+        "Misconception: The GSV lies directly under the skin throughout. Reality: The GSV is in the saphenous compartment, separated from skin by the saphenous fascia.",
+        "Misconception: The GSV follows a straight course. Reality: The GSV curves at the knee and can have duplications or anatomic variants.",
+        "Misconception: All visible varicose veins are GSV. Reality: Visible veins are often tributaries; the true GSV is deeper in the saphenous compartment."
       ]
-    },
-    "codes": {
-      "snomed_ct": ["83748009"],
-      "icd_10": []
-    },
-    "relationships": {
-      "skos:broader": ["vascular:venous:anatomy"],
-      "skos:related": ["vascular:venous:sfj", "vascular:venous:ssv"],
-      "skos:narrower": []
-    },
-    "cross_domain_references": [],
-    "pedagogy": {
-      "learning_objectives": [
-        "Trace GSV course from foot to SFJ",
-        "Identify SFJ anatomic landmarks",
-        "Understand saphenous compartment concept",
-        "Recognize neural relationships for injury prevention"
-      ],
-      "clinical_pearls": [
-        "GSV is most commonly harvested conduit for bypass surgery",
-        "Saphenous nerve injury causes medial leg numbness - avoid stripping below knee",
-        "'Saphenous eye' sign on ultrasound confirms GSV in compartment",
-        "SFJ is 'crosse' (French for crook/shepherd's staff)",
-        "Accessory saphenous veins may be present and cause recurrence"
-      ],
-      "board_yield": "HIGH"
     }
-  }
+  },
+  "clinical_features": {
+    "anatomic_course": {
+      "origin": "Medial marginal vein of dorsal foot, anterior to medial malleolus",
+      "lower_leg": "Ascends medial calf in saphenous compartment",
+      "knee_region": "Crosses from posterior to anterior around medial tibial condyle",
+      "thigh": "Lies posteromedially, curves anteriorly approaching SFJ",
+      "termination": "Saphenofemoral junction (2-4cm below inguinal ligament)"
+    },
+    "saphenous_compartment": {
+      "boundaries": {
+        "superficial": "Saphenous fascia (extension of deep fascia)",
+        "deep": "Muscular fascia",
+        "contents": "GSV, saphenous nerve, small arteries"
+      },
+      "ultrasound_appearance": "Saphenous eye - hyperechoic fascia above and below creates eye shape",
+      "clinical_significance": "Protects GSV from external compression; confirms GSV identity"
+    },
+    "neural_relationships": {
+      "saphenous_nerve": {
+        "course": "Travels with GSV below knee",
+        "injury_risk": "Stripping or thermal ablation below knee",
+        "consequence": "Medial leg and ankle numbness"
+      },
+      "medial_femoral_cutaneous": "Runs near GSV in thigh",
+      "prevention": "Limit treatment to above-knee segment when possible"
+    },
+    "presentation": [
+      "Visible medial leg and thigh varicosities",
+      "Heaviness, aching, fatigue in affected leg",
+      "Symptoms worse with standing, better with elevation",
+      "Skin changes in gaiter area with advanced disease"
+    ],
+    "diagnosis": [
+      "Duplex ultrasound mapping",
+      "Identify 'saphenous eye' to confirm GSV",
+      "Measure diameter at multiple levels",
+      "Assess reflux with Valsalva (SFJ) and compression maneuvers",
+      "Map tributaries, perforators, and accessory veins"
+    ],
+    "treatment": [
+      "Endovenous ablation (thermal or non-thermal)",
+      "High ligation and stripping (traditional)",
+      "Foam sclerotherapy (adjunct or primary)",
+      "Phlebectomy for tributaries",
+      "Preserve GSV if suitable bypass conduit needed"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Great Saphenous Vein Anatomy Overview"
+    },
+    "altLabel": [
+      "GSV anatomy",
+      "Long saphenous vein",
+      "Greater saphenous vein",
+      "Saphenous compartment"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The anatomy and course of the great saphenous vein from its origin at the medial foot to its termination at the saphenofemoral junction, including its relationship to the saphenous compartment and neural structures."
+    },
+    "notation": "SVD-001A"
+  },
+  "relationships": {
+    "prerequisites": [
+      "vascular:venous:ven-001-hemodynamics",
+      "vascular:venous:ven-002-valve-function"
+    ],
+    "enables": [
+      "vascular:venous:sfj-001-anatomy",
+      "vascular:venous:vproc-001-gsv-ablation"
+    ],
+    "skos:broader": ["vascular:venous:superficial-venous-anatomy"],
+    "skos:related": ["vascular:venous:svd-002-ssv-anatomy", "vascular:venous:sfj-001-anatomy"],
+    "skos:narrower": ["vascular:venous:gsv-tributaries", "vascular:venous:accessory-saphenous"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery and Endovascular Therapy",
+        "edition": "10th",
+        "chapter": "Anatomy of the Venous System",
+        "year": 2023
+      },
+      {
+        "type": "atlas",
+        "title": "Atlas of Endovascular Venous Surgery",
+        "edition": "2nd",
+        "year": 2019
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular technologists", "phlebology practitioners"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Trace GSV course from foot to SFJ",
+      "Describe the saphenous compartment and 'saphenous eye'",
+      "Identify neural relationships for injury prevention",
+      "Apply GSV anatomy to procedure planning"
+    ],
+    "clinical_pearls": [
+      "The 'saphenous eye' on ultrasound confirms you're looking at the true GSV, not a tributary",
+      "Saphenous nerve runs with GSV below knee - limit stripping/ablation to above-knee when possible",
+      "The GSV is the most commonly harvested bypass conduit - always assess before ablation",
+      "Accessory saphenous veins are common and can be independent sources of reflux/recurrence",
+      "The GSV curves anteriorly at the SFJ - follow the vein, don't assume location"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "60734001",
+      "description": "Great saphenous vein structure"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I83.90",
+      "description": "Asymptomatic varicose veins of unspecified lower extremity"
+    }
+  ]
 }

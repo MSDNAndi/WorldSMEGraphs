@@ -1,141 +1,199 @@
 {
-  "@context": "aku-v2",
-  "@type": "anatomy",
-  "@id": "vascular:venous:perforators:anatomy",
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:perforators-001-anatomy",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-05T17:25:00.000Z",
-    "contributors": ["copilot"],
+    "contributors": ["copilot", "copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
     "status": "validated",
-    "confidence": 0.94
+    "last_updated": "2026-01-06T17:30:00.000Z"
   },
   "classification": {
-    "domain_path": "health-sciences/medicine/surgery/vascular/venous/superficial",
-    "type": "anatomy",
-    "difficulty": "intermediate",
-    "importance": "foundational",
-    "board_yield": "HIGH"
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "concept",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "PERF-001",
+    "keywords": ["perforator veins", "Cockett perforators", "Boyd perforator", "Dodd perforator", "incompetent perforators"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
   },
   "content": {
-    "term": "Perforator Vein Anatomy",
-    "synonyms": ["Perforating Veins", "Communicating Veins"],
-    "definition": "Perforator veins are vessels that connect the superficial venous system to the deep venous system by traversing (perforating) the deep fascia. They contain valves that normally direct blood from superficial to deep systems. Incompetent perforators are a significant cause of chronic venous insufficiency and venous ulceration.",
+    "statement": {
+      "text": "Perforator veins are vessels connecting the superficial to deep venous systems by traversing the deep fascia, containing valves directing flow deep. Incompetent perforators (>3.5mm diameter with outward flow >0.5 seconds) transmit deep venous pressure to the skin, causing localized venous hypertension, skin changes, and ulceration.",
+      "formal": "Pathologic_Perforator: Diameter > 3.5mm + Outward_Reflux > 0.5 seconds + Subulcer_Location"
+    },
+    "explanation": {
+      "intuition": "Perforator veins are like controlled pressure valves connecting a high-pressure underground pipe (deep veins) to a low-pressure surface system (superficial veins). When the valve fails, high pressure blasts through to the surface, damaging everything in its path - the skin.",
+      "key_insight": "The Cockett perforators (medial lower leg) are the most clinically important because they underlie the 'gaiter zone' where venous ulcers typically occur. A patient with a non-healing medial ankle ulcer likely has incompetent Cockett perforators that must be addressed for healing.",
+      "technical_details": "Perforators are classified as direct (connecting superficial directly to deep axial veins) or indirect (passing through muscle before reaching deep veins). They contain 1-3 bicuspid valves normally directing flow from superficial to deep. Named perforators are located in predictable positions: Cockett I, II, III in the medial lower leg (6-7cm, 13-14cm, 18-20cm from sole); Boyd at below-knee level; Sherman at mid-calf; Dodd in the distal thigh; and Hunterian at mid-thigh. The medial leg has the most clinically significant perforators.",
+      "common_misconceptions": [
+        "Misconception: All perforators need treatment. Reality: Only 'pathologic' perforators (>3.5mm, >0.5sec outward flow, symptomatic location) warrant intervention.",
+        "Misconception: Perforator treatment alone heals ulcers. Reality: Superficial and deep disease must be addressed first; perforators are adjunctive.",
+        "Misconception: Perforators always connect GSV to deep veins. Reality: Many perforators connect tributaries or independent varicose veins to deep veins."
+      ]
+    }
+  },
+  "clinical_features": {
     "named_perforators": {
-      "medial_leg_perforators": [
-        {
-          "name": "Cockett Perforators",
-          "location": "Posterior tibial perforators in medial lower leg",
-          "levels": "Cockett I (6-7 cm), II (13-14 cm), III (18-20 cm from sole)",
-          "significance": "Most clinically important - associate with medial ulcers"
+      "medial_leg": {
+        "cockett_perforators": {
+          "location": "Posterior tibial perforators, medial lower leg",
+          "levels": {
+            "cockett_i": "6-7 cm from sole (lower third)",
+            "cockett_ii": "13-14 cm from sole (middle third)",
+            "cockett_iii": "18-20 cm from sole (upper third)"
+          },
+          "clinical_significance": "Most important - associated with medial ankle ulcers",
+          "also_known_as": "Posterior tibial perforators"
         },
-        {
-          "name": "Boyd Perforator",
-          "location": "Below-knee, connects GSV to posterior tibial veins",
+        "boyd_perforator": {
+          "location": "Below-knee, medial calf",
           "level": "Approximately 10 cm below knee",
-          "significance": "Important in GSV reflux patterns"
+          "significance": "Connects GSV to posterior tibial veins"
         },
-        {
-          "name": "Sherman Perforator",
+        "sherman_perforator": {
           "location": "Mid-calf medial",
           "significance": "Less commonly pathologic"
         }
-      ],
-      "thigh_perforators": [
-        {
-          "name": "Dodd Perforator",
+      },
+      "thigh": {
+        "dodd_perforator": {
           "location": "Distal medial thigh",
           "level": "Adductor canal region",
           "significance": "Connects GSV to femoral vein"
         },
-        {
-          "name": "Hunterian Perforator",
+        "hunterian_perforator": {
           "location": "Mid-medial thigh",
-          "level": "Mid-thigh Hunter's canal",
+          "level": "Hunter's canal",
           "significance": "High thigh reflux source"
         }
-      ],
-      "other_perforators": [
-        {
-          "name": "Posterior Leg Perforators",
-          "location": "Posterior calf",
-          "significance": "Connect SSV to deep veins"
-        },
-        {
-          "name": "Lateral Leg Perforators",
-          "location": "Lateral lower leg",
-          "significance": "Less common but can cause lateral ulcers"
-        }
-      ]
+      },
+      "posterior_lateral": {
+        "posterior_leg": "Connect SSV to deep calf veins",
+        "lateral_leg": "Less common; associated with lateral ulcers"
+      }
     },
     "anatomy_and_function": {
-      "structure": [
-        "Direct perforators: connect superficial directly to deep system",
-        "Indirect perforators: pass through muscle before reaching deep veins",
-        "Contain 1-3 bicuspid valves directing flow deep"
-      ],
+      "structure": {
+        "direct_perforators": "Connect superficial directly to deep axial veins",
+        "indirect_perforators": "Pass through muscle before reaching deep veins",
+        "valves": "1-3 bicuspid valves directing flow superficial → deep"
+      },
       "normal_function": [
-        "Direct blood from superficial to deep system",
+        "Direct blood from superficial to deep system during muscle contraction",
         "Valves prevent reflux from deep to superficial",
-        "Flow increases with muscle contraction"
+        "Assist in emptying superficial veins with muscle pump"
       ],
       "pathology": [
-        "Incompetent valves allow reflux to superficial system",
-        "Create areas of high ambulatory venous pressure",
-        "Contribute to skin changes and ulceration"
+        "Valve failure allows reflux from deep to superficial",
+        "Creates localized high ambulatory venous pressure",
+        "Results in skin changes and ulceration over perforator"
       ]
     },
-    "clinical_significance": {
-      "incompetent_perforators": [
-        "Major contributor to chronic venous insufficiency",
-        "Source of recurrence after superficial vein treatment",
-        "Associated with CEAP C4-C6 disease"
-      ],
-      "ulcer_association": [
-        "Cockett perforators: medial ankle ulcers (gaiter zone)",
-        "Lateral perforators: lateral ankle ulcers",
-        "Multiple incompetent perforators: worse prognosis"
-      ]
-    },
-    "diagnosis": {
-      "duplex_ultrasound": [
-        "Identify perforators >3.5 mm diameter",
-        "Bidirectional flow or outward reflux >500 ms",
-        "Map location relative to skin marks"
-      ],
-      "clinical_examination": [
-        "Palpable fascial defects",
-        "Varicose tributaries emanating from fascial level",
-        "Ulcer location suggests relevant perforator"
-      ]
-    },
-    "treatment_options": {
-      "seps": "Subfascial Endoscopic Perforator Surgery - historical",
-      "paps": "Percutaneous Ablation of Perforator Veins",
-      "foam_sclerotherapy": "Ultrasound-guided foam injection",
-      "thermal_ablation": "RFA or laser of perforator"
-    }
+    "presentation": [
+      "Venous ulcer directly over perforator location",
+      "Localized skin changes (pigmentation, lipodermatosclerosis) over perforator",
+      "Palpable fascial defect with varicose cluster",
+      "Blow-out or 'ankle flare' varicosities"
+    ],
+    "diagnosis": [
+      "Duplex ultrasound with augmentation maneuvers",
+      "Identify perforators >3.5 mm diameter",
+      "Document outward (superficial-directed) flow >0.5 seconds",
+      "Map location relative to ulcer or skin changes",
+      "Mark on skin with patient standing"
+    ],
+    "treatment": [
+      "First address superficial and deep venous disease",
+      "Percutaneous ablation (PAPS) - RFA or laser",
+      "Ultrasound-guided foam sclerotherapy",
+      "SEPS (subfascial endoscopic perforator surgery) - historical/rare",
+      "See VPROC-003 for detailed treatment approach"
+    ]
   },
-  "codes": {
-    "snomed_ct": "18511007",
-    "icd_10": "I87.2"
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Perforator Vein Anatomy"
+    },
+    "altLabel": [
+      "Perforating veins",
+      "Communicating veins",
+      "Cockett perforators",
+      "Named perforators"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Vessels connecting the superficial venous system to the deep venous system by traversing the deep fascia, containing valves that normally direct blood from superficial to deep, with incompetence causing localized venous hypertension."
+    },
+    "notation": "PERF-001"
   },
   "relationships": {
-    "broader": ["vascular:anatomy:venous-lower-extremity"],
-    "related": ["vascular:anatomy:gsv", "vascular:anatomy:ssv", "vascular:cvi:pathophysiology"],
-    "narrower": []
+    "prerequisites": [
+      "vascular:venous:ven-001-hemodynamics",
+      "vascular:venous:ven-002-valve-function"
+    ],
+    "enables": [
+      "vascular:venous:vproc-003-perforator-treatment",
+      "vascular:venous:ulcer-management"
+    ],
+    "skos:broader": ["vascular:venous:superficial-venous-anatomy"],
+    "skos:related": ["vascular:venous:svd-001-gsv-anatomy", "vascular:venous:cvi-pathophysiology"],
+    "skos:narrower": ["vascular:venous:cockett-perforators", "vascular:venous:thigh-perforators"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery and Endovascular Therapy",
+        "edition": "10th",
+        "chapter": "Anatomy of the Venous System",
+        "year": 2023
+      },
+      {
+        "type": "journal",
+        "title": "Journal of Vascular Surgery: Venous and Lymphatic Disorders",
+        "article": "Perforator vein nomenclature and anatomy",
+        "year": 2019
+      }
+    ]
   },
   "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular technologists", "wound care specialists"],
+    "estimated_time": "15min",
     "learning_objectives": [
       "Name and locate major perforator groups (Cockett, Boyd, Dodd, Hunterian)",
+      "Define pathologic perforator by duplex criteria",
       "Understand perforator physiology and pathology",
-      "Know association between perforator location and ulcer location"
+      "Correlate perforator location with ulcer location"
     ],
     "clinical_pearls": [
-      "Cockett I, II, III are the 'surgical' perforators - most clinically important",
+      "Cockett I, II, III are the 'surgical' perforators - most clinically important for ulcers",
       "Cockett perforators → medial ankle (gaiter zone) ulcers",
-      "Perforator incompetence = major cause of ulcer recurrence",
-      ">3.5 mm diameter + >500 ms outward reflux = pathologic perforator",
-      "Boyd perforator: below knee; Dodd perforator: distal thigh; Hunterian: mid-thigh"
-    ]
-  }
+      "Pathologic perforator: >3.5mm diameter + >0.5 sec outward reflux",
+      "Always treat superficial reflux before isolated perforator intervention",
+      "Boyd = below knee; Dodd = distal thigh; Hunterian = mid-thigh"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "18511007",
+      "description": "Perforating vein structure"
+    },
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "234044001",
+      "description": "Venous reflux"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I87.2",
+      "description": "Venous insufficiency (chronic) (peripheral)"
+    }
+  ]
 }

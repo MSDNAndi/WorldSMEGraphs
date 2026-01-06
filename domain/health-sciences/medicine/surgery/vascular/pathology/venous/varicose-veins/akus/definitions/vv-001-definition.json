@@ -1,108 +1,196 @@
 {
-  "@context": "aku-v2",
-  "@type": "concept",
-  "@id": "vascular:varicose-veins:definition",
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:vv-001-definition",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-05T02:58:00.000Z",
-    "updated": "2026-01-05T02:58:00.000Z",
-    "contributors": ["copilot-agent"],
-    "status": "active",
-    "confidence": 0.95
+    "contributors": ["copilot-agent", "copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-06T17:30:00.000Z"
   },
   "classification": {
-    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous/varicose-veins",
-    "type": "definition",
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "concept",
     "difficulty": "intermediate",
-    "importance": "essential"
+    "importance": "critical",
+    "aku_id": "VV-001",
+    "keywords": ["varicose veins", "venous reflux", "GSV", "SSV", "endovenous ablation"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
   },
   "content": {
-    "title": "Varicose Veins",
-    "definition": "Varicose veins are dilated, tortuous superficial veins >3mm in diameter, resulting from venous valvular incompetence and venous hypertension, most commonly affecting the great and small saphenous systems.",
-    "clinical_features": {
-      "epidemiology": {
-        "prevalence": "20-25% of women, 10-15% of men",
-        "risk_factors": ["Age", "Female sex", "Pregnancy", "Obesity", "Prolonged standing", "Family history", "Prior DVT"],
-        "age_of_onset": "Most common in 4th-5th decades"
+    "statement": {
+      "text": "Varicose veins are dilated, tortuous superficial veins >3mm in diameter resulting from venous valvular incompetence and venous hypertension, affecting 20-25% of women and 10-15% of men, most commonly involving the great and small saphenous systems. Treatment has shifted from surgical stripping to endovenous ablation techniques.",
+      "formal": "Varicose_Veins: Diameter > 3mm + Reflux > 0.5 seconds; Prevalence: 20-25% women, 10-15% men; Treatment: Endovenous_Ablation (first-line)"
+    },
+    "explanation": {
+      "intuition": "Varicose veins are like pipes that have stretched and lost their one-way check valves. Without functioning valves, blood that should only flow toward the heart sloshes backward with every heartbeat, making the pipes bulge even more. It's a vicious cycle of more dilation leading to more valve failure.",
+      "key_insight": "The key to treating varicose veins is understanding that the visible varicosities are usually tributaries - the underlying problem is reflux in the axial vein (GSV or SSV). Treating only the visible varicosities without addressing the source of reflux leads to recurrence. Always map with duplex ultrasound before treatment.",
+      "technical_details": "Varicose veins result from primary valve failure (degenerative, genetic, hormonal) or secondary valve destruction (post-thrombotic). The terminal valve at the SFJ is often the first to fail, allowing reflux that propagates distally. Valve failure leads to sustained ambulatory venous hypertension, which dilates veins further, causing more valve failure. CEAP C2 disease (varicose veins) has prevalence of 25-30% in Western populations. Treatment has evolved from stripping to endovenous thermal ablation (laser, RFA) with >95% occlusion rates and lower recurrence than surgery.",
+      "common_misconceptions": [
+        "Misconception: Varicose veins are purely cosmetic. Reality: Untreated varicose veins can progress to skin changes and ulceration (C4-C6).",
+        "Misconception: Visible varicosities are the problem. Reality: They are tributaries; the axial reflux (GSV/SSV) is the root cause.",
+        "Misconception: Surgery is the best treatment. Reality: Endovenous ablation is now first-line with better outcomes than stripping."
+      ]
+    }
+  },
+  "clinical_features": {
+    "epidemiology": {
+      "prevalence": "20-25% of women, 10-15% of men",
+      "age_of_onset": "Most common in 4th-5th decades, increases with age",
+      "risk_factors": [
+        "Age",
+        "Female sex",
+        "Pregnancy (especially multiple)",
+        "Obesity",
+        "Prolonged standing occupation",
+        "Family history (strongest risk factor)",
+        "Prior DVT"
+      ]
+    },
+    "vein_classification": {
+      "telangiectasias": "<1mm diameter (spider veins)",
+      "reticular_veins": "1-3mm diameter (blue-green feeding veins)",
+      "varicose_veins": ">3mm diameter (trunk varices)",
+      "great_saphenous": "Most common - medial thigh and leg",
+      "small_saphenous": "Posterior calf to popliteal fossa"
+    },
+    "pathophysiology": {
+      "primary_incompetence": "Degenerative valve changes, genetic predisposition, hormonal effects",
+      "secondary_incompetence": "Post-thrombotic valve destruction",
+      "reflux_patterns": {
+        "axial": "GSV, SSV, or accessory saphenous veins",
+        "perforator": "Incompetent connecting veins",
+        "segmental": "Isolated tributary reflux without axial involvement"
       },
-      "pathophysiology": {
-        "primary_valvular_incompetence": "Most common - valve cusp damage or annular dilation",
-        "secondary_incompetence": "Post-thrombotic valve destruction",
-        "reflux_patterns": {
-          "superficial": "GSV, SSV, accessory saphenous veins",
-          "perforator": "Incompetent connecting veins",
-          "deep": "May coexist, important to identify"
-        },
-        "venous_hypertension": "Sustained ambulatory venous pressure leads to progression"
+      "progression": "Reflux → venous hypertension → vein dilation → more valve failure"
+    },
+    "presentation": [
+      "Visible dilated, tortuous veins",
+      "Heavy, aching legs worse with standing",
+      "Fatigue, itching, burning in legs",
+      "Night cramps, restless legs",
+      "Symptoms improve with elevation and walking"
+    ],
+    "diagnosis": [
+      "Clinical examination (inspection standing, palpation)",
+      "Duplex ultrasound (gold standard) - map reflux, exclude DVT",
+      "Reflux criteria: >0.5 seconds for superficial, >1 second for deep",
+      "Identify axial vs tributary vs perforator reflux",
+      "Assess for deep venous disease"
+    ],
+    "treatment": {
+      "conservative": [
+        "Compression stockings (20-30 mmHg for symptoms)",
+        "Leg elevation",
+        "Exercise and walking",
+        "Weight loss"
+      ],
+      "endovenous_ablation": {
+        "thermal": "Endovenous laser (EVLA), radiofrequency (RFA) - first-line for GSV/SSV",
+        "non_thermal": "Cyanoacrylate glue (VenaSeal), mechanochemical (ClariVein)",
+        "advantages": "Office-based, local anesthesia, rapid recovery"
       },
-      "classification": {
-        "telangiectasias": "<1mm (spider veins)",
-        "reticular_veins": "1-3mm (blue-green veins)",
-        "varicose_veins": ">3mm (trunk varices)",
-        "great_saphenous": "Most common - medial thigh/leg",
-        "small_saphenous": "Posterior calf to popliteal"
+      "sclerotherapy": {
+        "foam": "For varicose tributaries, perforators",
+        "liquid": "For reticular veins and telangiectasias"
       },
-      "clinical_presentation": {
-        "symptoms": ["Heavy legs", "Aching", "Fatigue", "Itching", "Burning", "Night cramps", "Restless legs"],
-        "signs": ["Visible dilated veins", "Edema", "Skin changes (if advanced)", "Corona phlebectatica", "Lipodermatosclerosis", "Ulceration"],
-        "symptom_pattern": "Worse with standing, end of day; better with elevation, walking"
-      },
-      "diagnosis": {
-        "clinical_examination": "Inspection standing, palpation of varicosities",
-        "handheld_doppler": "Screen for reflux",
-        "duplex_ultrasound": "Gold standard - maps reflux, excludes DVT",
-        "reflux_criteria": ">0.5 seconds for superficial, >1 second for deep"
-      },
-      "ceap_classification": {
-        "C0": "No visible or palpable venous disease",
-        "C1": "Telangiectasias or reticular veins",
-        "C2": "Varicose veins",
-        "C3": "Edema",
-        "C4a": "Pigmentation or eczema",
-        "C4b": "Lipodermatosclerosis or atrophie blanche",
-        "C5": "Healed venous ulcer",
-        "C6": "Active venous ulcer"
-      },
-      "treatment": {
-        "conservative": "Compression stockings, leg elevation, exercise, weight loss",
-        "thermal_ablation": "Endovenous laser (EVLA) or radiofrequency (RFA) - first-line for GSV/SSV",
-        "chemical_ablation": "Foam sclerotherapy, cyanoacrylate glue (VenaSeal)",
-        "mechanical_ablation": "Clarivein, MOCA",
-        "surgery": "High ligation and stripping (less common now), phlebectomy",
-        "sclerotherapy": "For reticular veins and telangiectasias"
-      },
-      "complications": {
-        "superficial_thrombophlebitis": "Painful, tender, cord-like vein",
-        "bleeding": "Spontaneous hemorrhage from thin-walled varices",
-        "progression": "To CVI, skin changes, ulceration",
-        "extension_to_dvt": "Thrombus extending into deep system"
+      "surgery": {
+        "indications": "Large aneurysmal segments, failed prior treatment",
+        "procedures": "High ligation, stripping, phlebectomy (less common now)"
       }
     },
-    "codes": {
-      "snomed_ct": ["128060009"],
-      "icd_10": ["I83.90", "I83.10", "I83.2"]
+    "ceap_classification": {
+      "C0": "No visible or palpable venous disease",
+      "C1": "Telangiectasias or reticular veins",
+      "C2": "Varicose veins",
+      "C3": "Edema without skin changes",
+      "C4a": "Pigmentation or eczema",
+      "C4b": "Lipodermatosclerosis or atrophie blanche",
+      "C5": "Healed venous ulcer",
+      "C6": "Active venous ulcer",
+      "reference": "See CVD-001 for detailed CEAP breakdown"
     }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Varicose Veins"
+    },
+    "altLabel": [
+      "Varicosities",
+      "Venous insufficiency",
+      "Saphenous reflux"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Dilated, tortuous superficial veins greater than 3mm in diameter resulting from venous valvular incompetence and venous hypertension, most commonly affecting the great and small saphenous systems."
+    },
+    "notation": "VV-001"
   },
   "relationships": {
-    "skos": {
-      "broader": ["vascular:venous-diseases", "vascular:chronic-venous-insufficiency"],
-      "related": ["vascular:svt", "vascular:dvt", "vascular:venous-ulcer"],
-      "narrower": ["vascular:gsv-reflux", "vascular:ssv-reflux", "vascular:perforator-incompetence"]
-    }
+    "prerequisites": [
+      "vascular:venous:ven-001-hemodynamics",
+      "vascular:venous:ven-002-valve-function"
+    ],
+    "enables": [
+      "vascular:venous:cvd-001-ceap-classification",
+      "vascular:venous:vproc-001-gsv-ablation"
+    ],
+    "skos:broader": ["vascular:venous:chronic-venous-disease"],
+    "skos:related": ["vascular:venous:svt", "vascular:venous:cvi", "vascular:venous:venous-ulcer"],
+    "skos:narrower": ["vascular:venous:gsv-reflux", "vascular:venous:ssv-reflux"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "title": "SVS/AVF Clinical Practice Guidelines for Varicose Veins",
+        "year": 2022
+      },
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery and Endovascular Therapy",
+        "edition": "10th",
+        "year": 2023
+      }
+    ]
   },
   "pedagogical": {
+    "target_audience": ["vascular surgery residents", "phlebology practitioners", "vascular technologists"],
+    "estimated_time": "15min",
     "learning_objectives": [
       "Define varicose veins and distinguish from other venous abnormalities",
-      "Describe CEAP classification for chronic venous disease",
+      "Describe the pathophysiology of varicose vein development",
       "Outline diagnostic approach including duplex ultrasound findings",
       "Compare modern treatment options for varicose veins"
     ],
     "clinical_pearls": [
       "Always perform duplex before treatment to map reflux patterns and exclude DVT",
-      "Endovenous ablation has largely replaced surgical stripping",
+      "Visible varicosities are tributaries - the axial vein (GSV/SSV) is the problem",
+      "Endovenous ablation has largely replaced surgical stripping as first-line treatment",
       "Reflux >0.5 seconds is abnormal for superficial veins",
-      "Compression therapy is cornerstone of conservative management"
+      "Untreated varicose veins can progress to skin changes and ulceration"
     ],
-    "board_yield": "HIGH - extremely common topic on vascular boards"
-  }
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "128060009",
+      "description": "Varicose veins of lower extremity"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I83.90",
+      "description": "Asymptomatic varicose veins of unspecified lower extremity"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I83.10",
+      "description": "Varicose veins of unspecified lower extremity with inflammation"
+    }
+  ]
 }

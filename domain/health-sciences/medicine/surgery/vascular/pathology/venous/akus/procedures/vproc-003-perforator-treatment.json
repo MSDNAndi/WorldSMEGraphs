@@ -1,0 +1,178 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:vproc-003-perforator-treatment",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T17:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-06T17:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "procedure",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "VPROC-003",
+    "keywords": ["perforator vein", "SEPS", "PAPS", "perforator ablation", "incompetent perforators"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
+  },
+  "content": {
+    "statement": {
+      "text": "Incompetent perforating veins (IPVs) contribute to venous hypertension and may require treatment when symptomatic or associated with skin changes/ulcers. Treatment options include percutaneous ablation (thermal, sclerotherapy) and surgical ligation (SEPS), with patient selection guided by location, size, and clinical context.",
+      "formal": "Pathologic_IPV: Diameter >3.5mm + Outward_Flow_Duration >0.5sec + Subulcer/Symptomatic_Location"
+    },
+    "explanation": {
+      "intuition": "Perforating veins are like doors connecting the superficial and deep venous systems. When the door's valve fails, pressure from the deep system 'blows back' into the superficial system during calf muscle contraction, causing localized venous hypertension, skin damage, and ulceration.",
+      "key_insight": "Not all incompetent perforators require treatment. The SVS/AVF guidelines identify 'pathologic' perforators as those with diameter >3.5mm, outward flow >0.5 seconds, and located beneath healed or active ulcers (CEAP C5/C6) or in patients with primary reflux failing conservative therapy.",
+      "technical_details": "Perforator veins occur in predictable locations: paratibial (Cockett I, II, III), posterior tibial, medial and lateral calf, and thigh (mid-thigh, Hunterian/Dodd). Duplex identifies IPVs by demonstrating outward flow >0.5 seconds with augmentation. PAPS (percutaneous ablation of perforator system) using RFA or laser is the most common treatment. SEPS (subfascial endoscopic perforator surgery) is reserved for extensive disease but has declined with percutaneous options. Ultrasound-guided foam sclerotherapy is an alternative for smaller perforators.",
+      "common_misconceptions": [
+        "Misconception: All incompetent perforators must be treated. Reality: Only 'pathologic' perforators (>3.5mm, >0.5sec outward flow, symptomatic location) warrant treatment.",
+        "Misconception: Perforator treatment alone heals ulcers. Reality: Superficial and deep disease must be addressed; perforator treatment is adjunctive.",
+        "Misconception: SEPS is the gold standard. Reality: Percutaneous ablation has equivalent efficacy with less morbidity."
+      ]
+    }
+  },
+  "clinical_features": {
+    "perforator_anatomy": {
+      "medial_calf": {
+        "paratibial": ["Cockett I (lower third)", "Cockett II (middle third)", "Cockett III (upper third)"],
+        "posterior_tibial": "Behind medial malleolus"
+      },
+      "lateral_calf": "Peroneal perforators",
+      "thigh": ["Hunterian (mid-thigh)", "Dodd (above-knee)"],
+      "clinical_significance": "Paratibial perforators most commonly associated with ulceration"
+    },
+    "diagnosis": {
+      "duplex_criteria": [
+        "Diameter >3.5mm",
+        "Outward (superficial-directed) flow >0.5 seconds",
+        "Location beneath or near skin changes/ulcers"
+      ],
+      "technique": "Augmentation by distal compression or proximal release",
+      "mapping": "Mark location with skin marker prior to procedure"
+    },
+    "treatment_options": {
+      "percutaneous_ablation": {
+        "techniques": ["RFA (ClosureRFS stylet)", "Laser ablation", "Microwave"],
+        "approach": "Ultrasound-guided percutaneous puncture",
+        "advantages": ["Minimally invasive", "Office-based", "Local anesthesia"],
+        "success_rate": "85-95% closure"
+      },
+      "foam_sclerotherapy": {
+        "technique": "Ultrasound-guided injection",
+        "agents": ["Polidocanol", "Sodium tetradecyl sulfate"],
+        "advantages": ["Low cost", "No incisions"],
+        "limitations": "Less effective for large perforators"
+      },
+      "surgical_seps": {
+        "technique": "Subfascial endoscopic perforator surgery",
+        "approach": "Endoscopic camera and instruments in subfascial plane",
+        "advantages": ["Treats multiple perforators", "Avoids diseased skin"],
+        "disadvantages": ["Operating room", "General anesthesia", "Longer recovery"],
+        "indication": "Extensive perforator disease, failed percutaneous"
+      }
+    },
+    "presentation": [
+      "Venous ulceration over perforator location",
+      "Skin changes (pigmentation, lipodermatosclerosis) over perforator",
+      "Palpable fascial defect with varicose cluster",
+      "Blow-out or 'ankle flare' varicosities"
+    ],
+    "treatment": [
+      "First address superficial and deep reflux",
+      "Identify pathologic perforators on duplex",
+      "Select treatment based on size, location, and expertise",
+      "Compression therapy post-procedure",
+      "Follow-up duplex to confirm closure"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Perforator Vein Treatment"
+    },
+    "altLabel": [
+      "PAPS",
+      "SEPS",
+      "Perforator ablation",
+      "Incompetent perforator treatment"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Therapeutic interventions to eliminate incompetent perforating veins contributing to venous hypertension, including percutaneous ablation techniques and subfascial endoscopic surgery, with patient selection based on perforator characteristics and clinical severity."
+    },
+    "notation": "VPROC-003"
+  },
+  "relationships": {
+    "prerequisites": [
+      "vascular:venous:ven-001-hemodynamics",
+      "vascular:venous:svd-001-gsv-anatomy"
+    ],
+    "enables": [
+      "vascular:venous:ulcer-healing",
+      "vascular:venous:recurrence-prevention"
+    ],
+    "skos:broader": ["vascular:venous:endovenous-procedures"],
+    "skos:related": ["vascular:venous:gsv-ablation", "vascular:venous:ulcer-management"],
+    "skos:narrower": ["vascular:venous:paps-technique", "vascular:venous:seps-technique"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "title": "SVS/AVF Clinical Practice Guidelines on Management of Venous Leg Ulcers",
+        "year": 2022
+      },
+      {
+        "type": "journal",
+        "title": "Journal of Vascular Surgery: Venous and Lymphatic Disorders",
+        "article": "Perforator vein treatment outcomes: systematic review",
+        "year": 2020
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "interventional radiologists", "wound care specialists"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Define pathologic perforating veins by duplex criteria",
+      "Identify common perforator locations and their clinical significance",
+      "Compare percutaneous ablation and SEPS for perforator treatment",
+      "Apply treatment algorithms for incompetent perforators"
+    ],
+    "clinical_pearls": [
+      "Pathologic perforator: >3.5mm, >0.5sec outward flow, symptomatic location",
+      "Always treat superficial reflux before isolated perforator intervention",
+      "Paratibial (Cockett) perforators are most commonly associated with ulcers",
+      "PAPS has largely replaced SEPS due to equivalent efficacy and less morbidity",
+      "Mark perforator location on skin before procedure - they're hard to find from inside!"
+    ],
+    "board_yield": "MODERATE"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "441499002",
+      "description": "Endovenous ablation of perforating vein"
+    },
+    {
+      "codingSystem": "CPT",
+      "codeValue": "37500",
+      "description": "Vascular endoscopy, surgical, with ligation of perforator veins"
+    },
+    {
+      "codingSystem": "CPT",
+      "codeValue": "36475",
+      "description": "Endovenous ablation therapy using radiofrequency"
+    },
+    {
+      "codingSystem": "ICD-10-PCS",
+      "codeValue": "06LP3ZZ",
+      "description": "Occlusion of perforating vein, percutaneous approach"
+    }
+  ]
+}

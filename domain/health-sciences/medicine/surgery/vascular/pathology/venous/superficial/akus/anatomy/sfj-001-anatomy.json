@@ -1,76 +1,180 @@
 {
-  "@context": "aku-v2",
-  "@type": "clinical-concept",
-  "@id": "vascular:venous:sfj-anatomy",
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:sfj-001-anatomy",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-05T15:10:00.000Z",
-    "contributors": ["vascular-surgery-agent"],
+    "contributors": ["vascular-surgery-agent", "copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
     "status": "validated",
-    "copyright_compliance": "Original content based on general medical knowledge"
+    "last_updated": "2026-01-06T17:30:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
-    "type": "anatomy",
-    "difficulty": "intermediate",
-    "importance": "high",
-    "board_yield": "HIGH"
+    "type": "concept",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "SFJ-001",
+    "keywords": ["saphenofemoral junction", "SFJ", "terminal valve", "GSV tributaries", "crosse"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
   },
   "content": {
-    "title": "Saphenofemoral Junction (SFJ) Anatomy",
-    "definition": "The anatomic confluence where the great saphenous vein enters the common femoral vein, including its tributaries, and the surgical landmark for GSV procedures.",
-    "anatomy": {
-      "location": "Approximately 3-4 cm inferior and lateral to pubic tubercle",
-      "depth": "2-4 cm deep to skin",
-      "relationship": "CFV lies lateral to CFA at this level"
+    "statement": {
+      "text": "The saphenofemoral junction (SFJ) is the anatomic confluence where the great saphenous vein terminates in the common femoral vein, characterized by the terminal valve, multiple named tributaries ('crosse'), and consistent relationships to the femoral artery and inguinal ligament essential for surgical and endovenous procedures.",
+      "formal": "SFJ_Location: 2-4cm inferior to inguinal ligament, 3-4cm inferolateral to pubic tubercle, medial to femoral artery"
     },
-    "gsv_tributaries": {
-      "common_pattern": "6 major tributaries in proximity",
-      "tributaries": [
-        "Superficial inferior epigastric vein",
-        "Superficial circumflex iliac vein",
-        "External pudendal veins (superficial and deep)",
-        "Lateral accessory saphenous vein",
-        "Anterior accessory saphenous vein"
-      ],
-      "variability": "Significant anatomic variation in tributary pattern"
-    },
-    "terminal_valve": {
-      "location": "Within 1-2 cm of SFJ",
-      "function": "Prevents reflux from CFV into GSV",
-      "significance": "First valve to fail in primary varicose veins"
-    },
-    "surgical_anatomy": {
-      "cribriform_fascia": "Covers SFJ, contains hiatus for GSV",
-      "femoral_sheath": "Lies deep to junction",
-      "inguinal_ligament": "Superior landmark"
-    },
-    "clinical_significance": {
-      "reflux": "SFJ incompetence drives most primary varicose veins",
-      "ablation": "Target for thermal or non-thermal ablation",
-      "surgery": "High ligation requires tributary control",
-      "duplex_assessment": "Mandatory pre-procedure"
-    },
-    "terminology": {
-      "snomed_ct": "285356003",
-      "icd_10": "I83.0"
+    "explanation": {
+      "intuition": "The SFJ is like a major highway interchange where the main surface road (GSV) joins the deep underground highway (CFV). At this junction, there's a critical one-way gate (terminal valve) and several smaller roads (tributaries) that all converge, making it a complex surgical landmark.",
+      "key_insight": "The terminal valve at the SFJ is the 'first line of defense' against reflux. When it fails, blood regurgitates into the GSV with each heartbeat, driving the development of varicose veins. Understanding SFJ anatomy is essential because inadequate surgical treatment of tributaries leads to recurrence.",
+      "technical_details": "The SFJ lies in the femoral triangle, covered by the cribriform fascia which contains the saphenous hiatus. The GSV courses anteromedially in the thigh and curves laterally at the SFJ to enter the anteriomedial aspect of the CFV. The terminal valve lies within 1-2cm of the junction. The preterminal valve lies 2-4cm distally. Major tributaries form the 'crosse': superficial inferior epigastric (superiorly), superficial circumflex iliac (laterally), external pudendal veins (medially), plus anterolateral and posterolateral thigh veins.",
+      "common_misconceptions": [
+        "Misconception: The SFJ is at the groin crease. Reality: The SFJ is 2-4cm below the inguinal ligament; the groin crease is unreliable.",
+        "Misconception: All SFJ tributaries are similar. Reality: Significant anatomic variation exists; always map with ultrasound.",
+        "Misconception: Treating the GSV trunk alone is sufficient. Reality: Incompetent tributaries (especially anterior accessory) can be independent reflux sources."
+      ]
     }
   },
-  "pedagogical": {
-    "learning_objectives": [
-      "Describe SFJ anatomic relationships",
-      "Identify major GSV tributaries",
-      "Understand terminal valve significance"
+  "clinical_features": {
+    "anatomic_landmarks": {
+      "surface_location": "3-4cm inferolateral to pubic tubercle",
+      "depth": "2-4cm deep to skin (varies with body habitus)",
+      "relation_to_inguinal_ligament": "2-4cm inferior",
+      "relation_to_femoral_artery": "CFV and SFJ lie medial to CFA",
+      "saphenous_hiatus": "Opening in cribriform fascia for GSV passage"
+    },
+    "valve_anatomy": {
+      "terminal_valve": {
+        "location": "Within 1-2cm of SFJ",
+        "function": "Prevents reflux from CFV into GSV",
+        "significance": "First valve to fail in primary varicose veins"
+      },
+      "preterminal_valve": {
+        "location": "2-4cm distal to terminal valve",
+        "significance": "Backup protection, may prevent extensive reflux if terminal fails"
+      }
+    },
+    "tributary_anatomy": {
+      "crosse_definition": "The constellation of tributaries at the SFJ",
+      "major_tributaries": [
+        "Superficial inferior epigastric vein - drains lower abdomen",
+        "Superficial circumflex iliac vein - drains lateral hip",
+        "External pudendal veins (superficial and deep) - drain perineum",
+        "Anterolateral thigh vein (anterior accessory saphenous)",
+        "Posteromedial thigh vein (posterior accessory saphenous)"
+      ],
+      "variation": "Significant individual variation in tributary pattern",
+      "clinical_significance": "Incomplete ligation of tributaries is major cause of recurrence"
+    },
+    "ultrasound_identification": {
+      "technique": "High-frequency linear transducer, transverse and longitudinal views",
+      "key_findings": [
+        "GSV entering CFV from anteromedial direction",
+        "Femoral artery lateral to femoral vein",
+        "Terminal valve motion with Valsalva or compression",
+        "Tributary origins around junction"
+      ],
+      "measurement": "Junction diameter, GSV diameter at multiple levels"
+    },
+    "presentation": [
+      "Palpable impulse at SFJ with cough or Valsalva (Brodie-Trendelenburg test)",
+      "Visible varicosities originating from SFJ distribution",
+      "Groin discomfort or fullness",
+      "Positive tourniquet test indicating SFJ reflux"
     ],
-    "clinical_pearls": [
-      "SFJ is 3-4 cm below and lateral to pubic tubercle",
-      "Terminal valve failure = primary GSV reflux",
-      "Always identify tributaries before high ligation"
+    "diagnosis": [
+      "Duplex ultrasound with reflux assessment",
+      "Measure reflux duration at SFJ (>0.5 sec pathologic)",
+      "Map tributary pattern and accessory veins",
+      "Assess for common femoral vein reflux"
+    ],
+    "treatment": [
+      "Endovenous ablation (position catheter 2-5cm from SFJ)",
+      "High ligation and stripping (traditional surgery)",
+      "Foam sclerotherapy (adjunct or primary for tributaries)",
+      "Ambulatory phlebectomy for tributaries"
     ]
   },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Saphenofemoral Junction Anatomy"
+    },
+    "altLabel": [
+      "SFJ",
+      "Crosse of GSV",
+      "Terminal valve anatomy",
+      "GSV-CFV junction"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The anatomic region where the great saphenous vein terminates in the common femoral vein, characterized by the terminal valve, named tributaries forming the 'crosse', and consistent relationships to surrounding structures essential for surgical and endovenous procedures."
+    },
+    "notation": "SFJ-001"
+  },
   "relationships": {
-    "broader": ["vascular:venous:gsv"],
-    "related": ["vascular:venous:spj", "vascular:venous:reflux"],
-    "narrower": []
-  }
+    "prerequisites": [
+      "vascular:venous:ven-002-valve-function"
+    ],
+    "enables": [
+      "vascular:venous:vproc-001-gsv-ablation",
+      "vascular:venous:high-ligation"
+    ],
+    "skos:broader": ["vascular:venous:superficial-venous-anatomy", "vascular:venous:gsv"],
+    "skos:related": ["vascular:venous:spj-anatomy", "vascular:venous:svd-001-gsv-anatomy"],
+    "skos:narrower": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery and Endovascular Therapy",
+        "edition": "10th",
+        "chapter": "Anatomy of the Venous System",
+        "year": 2023
+      },
+      {
+        "type": "atlas",
+        "title": "Atlas of Endovascular Venous Surgery",
+        "edition": "2nd",
+        "year": 2019
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular technologists", "phlebology practitioners"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Describe SFJ anatomic relationships and landmarks",
+      "Identify major tributaries of the crosse",
+      "Locate the terminal and preterminal valves",
+      "Apply SFJ knowledge to ultrasound mapping and procedure planning"
+    ],
+    "clinical_pearls": [
+      "SFJ is 2-4cm below inguinal ligament, 3-4cm inferolateral to pubic tubercle",
+      "Terminal valve failure = primary GSV reflux - 'first line of defense'",
+      "Always map tributaries - incompletely treated anterior accessory vein is common recurrence source",
+      "Position ablation catheter 2-5cm from SFJ to protect CFV",
+      "The 'crosse' = constellation of SFJ tributaries (superficial epigastric, circumflex iliac, external pudendal)"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "285356003",
+      "description": "Saphenofemoral junction structure"
+    },
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "60734001",
+      "description": "Great saphenous vein structure"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I83.90",
+      "description": "Asymptomatic varicose veins of unspecified lower extremity"
+    }
+  ]
 }
