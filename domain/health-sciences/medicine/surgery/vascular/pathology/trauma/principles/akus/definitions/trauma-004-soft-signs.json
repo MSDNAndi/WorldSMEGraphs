@@ -1,0 +1,177 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "trauma-004-soft-signs",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T05:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.96,
+    "status": "validated",
+    "last_updated": "2026-01-06T05:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/trauma/principles/definitions",
+    "type": "clinical-assessment",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "004",
+    "keywords": [
+      "soft signs",
+      "vascular injury",
+      "proximity injury",
+      "ABI",
+      "trauma imaging",
+      "CTA"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "trauma_evaluation"
+  },
+  "content": {
+    "statement": {
+      "text": "Soft signs of vascular injury are clinical findings that suggest possible vascular injury but have a lower predictive value (20-30%) than hard signs. These include history of hemorrhage at the scene (now controlled), proximity of wound to major vessels, diminished but present pulses, small stable hematoma, peripheral nerve deficit, and unexplained hypotension. Soft signs warrant further imaging (CT angiography, conventional angiography, or duplex ultrasound) to clarify the diagnosis before determining the need for operative intervention.",
+      "formal": "Soft Signs: Proximity injury, history of bleeding, diminished pulses, stable hematoma, nerve deficit, or ABI <0.9 → 20-30% probability of vascular injury → Imaging required to clarify diagnosis."
+    },
+    "explanation": {
+      "intuition": "If hard signs are obvious warning lights, soft signs are subtle dashboard indicators that something might be wrong - they warrant investigation but don't necessarily mean immediate surgery. Just as a slightly low tire pressure light prompts you to check, but not to stop immediately, soft signs prompt imaging to determine if there's a real problem that needs surgical attention.",
+      "key_insight": "The clinical value of soft signs lies in their ability to identify patients who need further workup. The 20-30% probability of injury is too high to ignore (unlike patients with no findings at all), but too low to justify taking every patient to the OR. Modern imaging, particularly CT angiography, has become the gold standard for evaluating soft signs, with sensitivity and specificity exceeding 95%.",
+      "technical_details": "Soft signs are evaluated using a combination of physical examination and objective testing. The ankle-brachial index (ABI) is particularly useful: an ABI >0.9 essentially rules out significant arterial injury, while ABI <0.9 indicates need for further imaging. CTA has largely replaced conventional angiography for evaluation, offering rapid acquisition, excellent spatial resolution, and the ability to assess surrounding structures. Duplex ultrasound is useful for accessible vessels but limited in zones of injury with overlying hematoma."
+    }
+  },
+  "clinical_features": {
+    "soft_signs": {
+      "historical": [
+        "History of arterial bleeding at scene (now controlled)",
+        "Reported pulsatile bleeding (not witnessed)"
+      ],
+      "anatomic": [
+        "Injury in proximity to major vessel (within 1cm)",
+        "Trajectory concerning for vascular involvement"
+      ],
+      "physical_findings": [
+        "Small, non-expanding, stable hematoma",
+        "Diminished but present distal pulses",
+        "Associated peripheral nerve deficit",
+        "Unexplained hypotension (out of proportion to apparent injury)"
+      ],
+      "objective_testing": [
+        "Ankle-brachial index (ABI) <0.9 (>0.9 essentially excludes injury)",
+        "Abnormal pulse examination compared to contralateral"
+      ]
+    },
+    "workup_algorithm": {
+      "step_1": "Physical examination with pulse palpation",
+      "step_2": "Measure ABI on affected extremity",
+      "step_3_if_ABI_above_0.9": "Low probability of injury, observe",
+      "step_3_if_ABI_below_0.9_or_soft_signs": "Imaging indicated",
+      "imaging_modality": {
+        "CTA": "First-line, rapid, widely available",
+        "conventional_angiography": "If CTA unavailable or therapeutic intervention planned",
+        "duplex_ultrasound": "Accessible vessels, operator-dependent"
+      }
+    },
+    "imaging_findings_requiring_intervention": [
+      "Complete arterial occlusion",
+      "Arterial transection",
+      "Significant intimal flap",
+      "Pseudoaneurysm",
+      "Arteriovenous fistula",
+      "Active extravasation"
+    ],
+    "imaging_findings_permitting_observation": [
+      "Minor intimal irregularity (<5mm)",
+      "Small, contained hematoma",
+      "Vasospasm (resolves spontaneously)"
+    ],
+    "proximity_injury": {
+      "definition": "Wound within 1cm of known major vessel course",
+      "historical_approach": "Mandatory angiography (abandoned)",
+      "current_approach": "Physical exam + ABI. Image only if soft signs present",
+      "rationale": "Only 10-15% of proximity injuries have vascular involvement"
+    }
+  },
+  "management_options": {
+    "observation": {
+      "indication": "Soft signs only, ABI >0.9, normal imaging",
+      "protocol": "Serial examinations, repeat ABI at 6-12 hours",
+      "duration": "24-48 hours minimum"
+    },
+    "operative_repair": {
+      "indication": "Imaging confirms significant injury (occlusion, pseudoaneurysm, AVF)",
+      "timing": "Urgent but not emergent (unlike hard signs)"
+    },
+    "endovascular": {
+      "indication": "Selected pseudoaneurysms, AVF, covered stent candidates",
+      "advantage": "May avoid open surgery in stable patients"
+    }
+  },
+  "comparison_hard_signs": {
+    "hard_signs": [
+      "Pulsatile hemorrhage",
+      "Expanding hematoma",
+      "Absent distal pulses",
+      "Bruit/thrill over wound",
+      "Signs of limb ischemia (6 Ps)"
+    ],
+    "hard_sign_management": "Immediate OR, no imaging needed",
+    "hard_sign_PPV": ">90% for major vascular injury"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Soft Signs of Vascular Injury"},
+    "altLabel": [
+      {"@language": "en", "@value": "Soft Signs"},
+      {"@language": "en", "@value": "Minor Vascular Injury Signs"}
+    ],
+    "definition": {"@language": "en", "@value": "Clinical findings suggesting possible vascular injury with 20-30% predictive value, warranting imaging to clarify diagnosis before determining need for intervention"},
+    "notation": "trauma-004-soft-signs"
+  },
+  "relationships": {
+    "prerequisites": [
+      {"id": "urn:wskg:medicine:surgery:vascular:trauma:003", "title": "Hard Signs", "strength": 0.95}
+    ],
+    "enables": [
+      {"id": "urn:wskg:medicine:surgery:vascular:diagnostics:cta:001", "title": "CT Angiography", "strength": 0.9},
+      {"id": "urn:wskg:medicine:surgery:vascular:diagnostics:abi:001", "title": "Ankle-Brachial Index", "strength": 0.85}
+    ],
+    "skos:broader": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:trauma", "@type": "skos:Concept", "skos:prefLabel": "Vascular Trauma"}
+    ],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:trauma:003", "@type": "skos:Concept", "skos:prefLabel": "Hard Signs"}
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {"type": "clinical_guideline", "citation": "Feliciano DV, Moore EE, West MA. Trauma, 9th Edition. McGraw-Hill Education, 2020.", "confidence": 0.98},
+      {"type": "review", "citation": "Seamon MJ, et al. Selective versus routine imaging in patients with penetrating extremity trauma: A systematic review. J Trauma Acute Care Surg. 2019;87(5):1163-1172.", "confidence": 0.95},
+      {"type": "textbook", "citation": "Rutherford's Vascular Surgery and Endovascular Therapy, 10th Edition, Chapter 88", "confidence": 0.98}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular_surgery_fellows", "general_surgery_residents", "emergency_medicine_physicians", "trauma_surgeons"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Define and list the soft signs of vascular injury",
+      "Distinguish soft signs from hard signs and their management implications",
+      "Apply ABI as a screening tool for vascular injury",
+      "Understand the role of CT angiography in soft sign evaluation",
+      "Determine appropriate disposition based on imaging findings"
+    ],
+    "clinical_pearls": [
+      "Soft signs = imaging; Hard signs = OR",
+      "ABI >0.9 essentially rules out significant arterial injury",
+      "Proximity alone (without soft signs and normal ABI) does not require imaging",
+      "CTA has replaced mandatory angiography for proximity injuries",
+      "Some minor injuries (small intimal flaps) can be observed",
+      "History of arterial bleeding at scene is a soft sign if now controlled"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "262528003", "description": "Vascular injury (disorder)"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10", "codeValue": "S45.0", "description": "Injury of axillary artery"}
+  ]
+}

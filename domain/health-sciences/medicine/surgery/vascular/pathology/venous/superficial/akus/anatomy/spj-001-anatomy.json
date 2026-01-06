@@ -1,111 +1,185 @@
 {
-  "@context": "aku-v2",
-  "@type": "anatomy",
-  "@id": "vascular:venous:spj:anatomy",
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:spj-001-anatomy",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-05T17:24:00.000Z",
-    "contributors": ["copilot"],
+    "contributors": ["copilot", "copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
     "status": "validated",
-    "confidence": 0.93
+    "last_updated": "2026-01-06T17:30:00.000Z"
   },
   "classification": {
-    "domain_path": "health-sciences/medicine/surgery/vascular/venous/superficial",
-    "type": "anatomy",
-    "difficulty": "intermediate",
-    "importance": "foundational",
-    "board_yield": "HIGH"
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "concept",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "SPJ-001",
+    "keywords": ["saphenopopliteal junction", "SPJ", "small saphenous vein", "Giacomini vein", "popliteal fossa"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
   },
   "content": {
-    "term": "Saphenopopliteal Junction Anatomy",
-    "synonyms": ["SPJ", "Small Saphenous Vein Termination", "SSV Junction"],
-    "definition": "The saphenopopliteal junction (SPJ) is the anatomic termination point of the small saphenous vein (SSV) into the popliteal vein, typically located in the popliteal fossa. Understanding SPJ anatomy and its variations is essential for treating small saphenous vein insufficiency.",
-    "anatomic_relationships": {
-      "location": [
-        "Popliteal fossa",
-        "Variable height: typically 3-7 cm above knee crease",
-        "Deep to popliteal fascia"
-      ],
-      "termination_patterns": [
-        "Popliteal vein (70-80% classic pattern)",
-        "Great saphenous vein via Giacomini vein (10-15%)",
-        "Gastrocnemius veins",
-        "Femoral vein (high termination)",
-        "Multiple termination points"
-      ],
-      "tributaries": [
-        "Gastrocnemius veins (sural veins)",
-        "Posterior thigh perforators",
-        "Giacomini vein (thigh extension)"
-      ]
+    "statement": {
+      "text": "The saphenopopliteal junction (SPJ) is the highly variable termination point of the small saphenous vein (SSV), classically into the popliteal vein but absent in 20-30% of limbs where the SSV drains via the Giacomini vein to the GSV instead. Preoperative ultrasound mapping of SPJ location is mandatory.",
+      "formal": "SPJ_Location: Popliteal_Fossa, 3-7cm above knee crease (variable); Present in 70-80%, Absent in 20-30% (Giacomini drainage)"
     },
-    "giacomini_vein": {
-      "definition": "Intersaphenous vein connecting SSV to GSV",
-      "course": "Posterior-medial thigh from SPJ to GSV",
-      "clinical_significance": [
-        "Alternative drainage when SPJ is absent",
-        "Route for reflux propagation between systems",
-        "Must be identified during SSV treatment"
-      ]
-    },
-    "anatomic_variations": {
-      "termination_height": [
-        "Low: at or below popliteal crease",
-        "Normal: 3-7 cm above crease (most common)",
-        "High: >7 cm above, into distal femoral vein"
-      ],
-      "termination_vessel": [
-        "Classic: popliteal vein",
-        "Gastrocnemius vein termination",
-        "Femoral vein termination",
-        "GSV via Giacomini (no true SPJ)",
-        "Profunda femoris vein"
-      ],
-      "absence": "True SPJ absent in 20-30% of limbs"
-    },
-    "preoperative_assessment": {
-      "duplex_mapping": [
-        "Identify SPJ location (height from crease)",
-        "Confirm termination vessel",
-        "Document Giacomini vein if present",
-        "Identify sural nerve proximity"
-      ],
-      "marking": "Mark SPJ location on skin preoperatively in standing position"
-    },
-    "surgical_considerations": {
-      "nerve_proximity": [
-        "Sural nerve runs adjacent to SSV",
-        "Tibial nerve and popliteal vessels deep",
-        "Risk of nerve injury during SPJ surgery"
-      ],
-      "treatment_approaches": [
-        "Endovenous ablation (RFA/laser)",
-        "Ultrasound-guided foam sclerotherapy",
-        "Open SPJ ligation (rarely performed now)"
+    "explanation": {
+      "intuition": "If the GSV termination (SFJ) is like a predictable highway interchange, the SPJ is more like a country road junction that might be in a different place in every county. You cannot assume where it is - you must map it with ultrasound before any procedure.",
+      "key_insight": "The key clinical implication of SPJ variability is that preoperative ultrasound mapping is MANDATORY. Unlike the SFJ which is consistently 2-4cm below the inguinal ligament, the SPJ can be at knee level, mid-thigh, or completely absent (Giacomini drainage). Treating the SSV without knowing where it terminates risks incomplete treatment or injury to popliteal structures.",
+      "technical_details": "The SPJ classically forms where the SSV enters the posterolateral aspect of the popliteal vein in the popliteal fossa. The terminal valve lies within 1-2cm of the junction. The Giacomini vein, when present, is a cranial extension of the SSV that courses posteromedially in the thigh to join the GSV. In 20-30% of limbs, this is the primary SSV drainage (no true SPJ). Variations include termination into gastrocnemius veins, femoral vein, or profunda femoris vein.",
+      "common_misconceptions": [
+        "Misconception: The SPJ is always at the popliteal crease. Reality: SPJ height varies from the crease to mid-thigh; it may be absent entirely.",
+        "Misconception: SSV treatment is similar to GSV. Reality: SPJ variability and sural nerve proximity make SSV treatment more complex.",
+        "Misconception: If no SPJ is found, the SSV doesn't need treatment. Reality: Giacomini drainage is an alternative; treat the Giacomini if refluxing."
       ]
     }
   },
-  "codes": {
-    "snomed_ct": "71895004",
-    "icd_10": "Z96.89"
+  "clinical_features": {
+    "anatomic_location": {
+      "typical_height": "3-7 cm above popliteal crease",
+      "range": "Popliteal crease to mid-thigh",
+      "depth": "Deep to popliteal fascia in popliteal fossa",
+      "relation_to_vessels": "SSV enters posterolateral popliteal vein"
+    },
+    "termination_patterns": {
+      "classic": {
+        "description": "SSV enters popliteal vein",
+        "frequency": "70-80%",
+        "ultrasound": "Identify terminal valve at junction"
+      },
+      "giacomini_drainage": {
+        "description": "SSV continues cranially as Giacomini vein to GSV",
+        "frequency": "10-15% as primary drainage",
+        "significance": "No true SPJ exists; treat Giacomini if refluxing"
+      },
+      "gastrocnemius": {
+        "description": "Terminates in gastrocnemius veins",
+        "frequency": "5-10%",
+        "significance": "May be associated with gastrocnemius vein reflux"
+      },
+      "high_termination": {
+        "description": "Enters femoral vein in distal thigh",
+        "frequency": "Rare",
+        "significance": "Requires thigh-level ablation"
+      }
+    },
+    "giacomini_vein": {
+      "definition": "Intersaphenous vein connecting SSV to GSV",
+      "course": "Posterior-medial thigh from SSV to posteriomedial GSV",
+      "clinical_significance": [
+        "Alternative SSV drainage when no true SPJ",
+        "Route for reflux propagation between SSV and GSV",
+        "Must be identified and treated if incompetent"
+      ]
+    },
+    "neural_relationships": {
+      "sural_nerve": "Runs with SSV below mid-calf; converges at SPJ level",
+      "tibial_nerve": "Deep to popliteal vessels in fossa",
+      "common_peroneal": "Lateral to popliteal fossa",
+      "injury_risk": "Sural nerve injury is major complication of SPJ surgery"
+    },
+    "presentation": [
+      "Posterior calf or popliteal fossa varicosities",
+      "Symptoms suggestive of SSV reflux",
+      "Duplex-confirmed SPJ incompetence",
+      "May present with SSV thrombosis"
+    ],
+    "diagnosis": [
+      "Duplex ultrasound with patient standing",
+      "Measure SPJ height from popliteal crease",
+      "Confirm termination vessel (popliteal, Giacomini, other)",
+      "Identify Giacomini vein if present",
+      "Mark SPJ location on skin preoperatively"
+    ],
+    "treatment": [
+      "Endovenous ablation (thermal or non-thermal)",
+      "Position catheter 2-3cm from SPJ",
+      "Prone or lateral positioning for access",
+      "Tumescent anesthesia for thermal ablation (nerve protection)",
+      "Foam sclerotherapy alternative for smaller veins"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Saphenopopliteal Junction Anatomy"
+    },
+    "altLabel": [
+      "SPJ",
+      "SSV termination",
+      "Small saphenous junction",
+      "Popliteal junction"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The anatomic termination point of the small saphenous vein, typically into the popliteal vein but highly variable in location and occasionally absent when drainage occurs via the Giacomini vein instead."
+    },
+    "notation": "SPJ-001"
   },
   "relationships": {
-    "broader": ["vascular:anatomy:venous-lower-extremity"],
-    "related": ["vascular:anatomy:ssv", "vascular:anatomy:giacomini", "vascular:anatomy:gsv"],
-    "narrower": []
+    "prerequisites": [
+      "vascular:venous:svd-002-ssv-anatomy"
+    ],
+    "enables": [
+      "vascular:venous:ssv-ablation",
+      "vascular:venous:ssv-treatment-planning"
+    ],
+    "skos:broader": ["vascular:venous:superficial-venous-anatomy"],
+    "skos:related": ["vascular:venous:svd-002-ssv-anatomy", "vascular:venous:sfj-001-anatomy", "vascular:venous:giacomini-vein"],
+    "skos:narrower": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery and Endovascular Therapy",
+        "edition": "10th",
+        "chapter": "Anatomy of the Venous System",
+        "year": 2023
+      },
+      {
+        "type": "journal",
+        "title": "Journal of Vascular Surgery: Venous and Lymphatic Disorders",
+        "article": "Saphenopopliteal junction anatomy: Systematic review and meta-analysis",
+        "year": 2018
+      }
+    ]
   },
   "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular technologists", "phlebology practitioners"],
+    "estimated_time": "15min",
     "learning_objectives": [
-      "Describe SPJ anatomic location and variations",
-      "Identify Giacomini vein and its significance",
-      "Know preoperative duplex mapping requirements"
+      "Describe SPJ anatomic location and common variations",
+      "Identify Giacomini vein and its clinical significance",
+      "Apply preoperative duplex mapping requirements for SSV treatment",
+      "Recognize neural structures at risk during SPJ procedures"
     ],
     "clinical_pearls": [
       "True SPJ into popliteal vein exists in only 70-80% of limbs",
-      "Giacomini vein connects SSV to GSV - alternative drainage pathway",
-      "ALWAYS ultrasound map SPJ before treatment - highly variable",
-      "Sural nerve injury is major complication risk of SSV surgery",
-      "Height of SPJ varies significantly - cannot assume location"
-    ]
-  }
+      "Giacomini vein connects SSV to GSV - treat if incompetent",
+      "ALWAYS ultrasound map SPJ before treatment - location is HIGHLY variable",
+      "SPJ height ranges from popliteal crease to mid-thigh",
+      "Sural nerve injury is major complication - use tumescent for thermal ablation"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "181405003",
+      "description": "Saphenopopliteal junction structure"
+    },
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "181399002",
+      "description": "Small saphenous vein structure"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I83.90",
+      "description": "Asymptomatic varicose veins of unspecified lower extremity"
+    }
+  ]
 }

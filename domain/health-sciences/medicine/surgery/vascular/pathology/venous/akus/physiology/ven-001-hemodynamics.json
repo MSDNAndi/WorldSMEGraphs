@@ -1,78 +1,160 @@
 {
-  "@context": "aku-v2",
-  "@type": "concept",
-  "@id": "vascular:venous:hemodynamics",
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:ven-001-hemodynamics",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-05T12:56:56.000Z",
-    "contributors": ["copilot"],
+    "contributors": ["copilot", "copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
     "status": "validated",
-    "reviewedBy": [],
-    "confidence": 0.92
+    "last_updated": "2026-01-06T17:00:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
-    "type": "physiology",
-    "difficulty": "intermediate",
-    "importance": "high",
+    "type": "concept",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "VEN-001",
+    "keywords": ["venous hemodynamics", "venous pressure", "venous return", "capacitance vessels", "venous physiology"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease",
     "isNativeDomain": true
   },
   "content": {
-    "title": "Venous Hemodynamics",
-    "description": "The physiologic principles governing venous blood flow, pressure dynamics, and the factors that promote venous return in health and disease.",
-    "definition": "Venous hemodynamics describes the low-pressure, high-capacitance system that returns blood to the heart. Key determinants include venous pressure gradients, respiratory variation, muscle pump function, venous valves, and the effects of gravity. Understanding these principles is essential for diagnosing and treating venous disease.",
-    "clinical_features": {
-      "pressure_dynamics": [
-        "Resting venous pressure in foot: 80-90 mmHg (standing)",
-        "Ambulatory venous pressure: Falls to 20-30 mmHg with walking",
-        "Central venous pressure: 0-8 mmHg",
-        "Venous pressure gradient drives return to heart"
-      ],
-      "venous_return_mechanisms": [
-        "Respiratory pump: Diaphragm descent creates negative intrathoracic pressure",
-        "Muscle pump: Calf and thigh muscle contraction compresses veins",
-        "Arterial pulsation: Adjacent arteries compress veins",
-        "Cardiac suction: Atrial relaxation creates negative pressure",
-        "Gravity: Above heart level, gravity aids return"
-      ],
-      "valve_function": [
-        "Prevent retrograde flow during muscle relaxation",
-        "Segment venous column to reduce hydrostatic pressure",
-        "Most numerous in calf (gastrocnemius, soleus)",
-        "Valve failure leads to venous hypertension"
-      ],
-      "pathophysiologic_consequences": [
-        "Reflux: Valve incompetence causes retrograde flow",
-        "Obstruction: Thrombus or compression impedes antegrade flow",
-        "Muscle pump failure: Immobility, obesity, weakness",
-        "All lead to ambulatory venous hypertension"
+    "statement": {
+      "text": "Venous hemodynamics describes the low-pressure, high-capacitance system responsible for returning blood to the heart, governed by pressure gradients, respiratory variation, muscle pump function, competent valves, and the effects of gravity.",
+      "formal": "Venous_Return = f(Pressure_Gradient, Respiratory_Pump, Muscle_Pump, Valve_Competence, Gravity_Position)"
+    },
+    "explanation": {
+      "intuition": "Think of the venous system as a large reservoir with many one-way doors (valves) that holds 70% of your blood. Getting this blood back uphill to the heart requires coordinated pumping (breathing and walking) and properly functioning doors that only open in one direction.",
+      "key_insight": "The venous system is fundamentally different from arteries: it operates at 1/10th the pressure but holds 7x more blood. Standing still, ankle venous pressure reaches 90 mmHg - walking with competent valves drops it to 20-30 mmHg. This pressure drop is the key marker of venous health.",
+      "technical_details": "The venous system operates at 5-10 mmHg central pressure versus 80-100 mmHg arterial. Capacitance (70% blood volume) provides reserve for cardiac preload adjustment. Transmural pressure in the leg depends on hydrostatic column height, which valves segment into shorter columns. Return mechanisms include respiratory pump (inspiration creates negative intrathoracic pressure pulling blood centrally), calf muscle pump (generates 200-300 mmHg propelling blood against gravity), arterial pulsation vis-a-tergo, and cardiac suction (atrial relaxation). Venous flow is phasic with respiration in proximal veins.",
+      "common_misconceptions": [
+        "Misconception: The heart pushes blood through veins. Reality: The heart provides minimal vis-a-tergo pressure in veins; respiratory and muscle pumps are the primary drivers.",
+        "Misconception: Venous pressure is constant. Reality: Venous pressure varies dramatically with position and activity - 90 mmHg standing, 20 mmHg walking.",
+        "Misconception: Veins are passive conduits. Reality: Veins actively regulate capacitance through smooth muscle tone and valvular function."
       ]
-    },
-    "codes": {
-      "snomed_ct": ["75761003"],
-      "icd_10": ["I87.2"]
-    },
-    "relationships": {
-      "skos:broader": ["vascular:venous:physiology"],
-      "skos:related": ["vascular:venous:valve", "vascular:venous:muscle-pump", "vascular:cvi"],
-      "skos:narrower": []
-    },
-    "cross_domain_references": [],
-    "pedagogy": {
-      "learning_objectives": [
-        "Describe venous pressure dynamics in standing and walking",
-        "Explain mechanisms of venous return",
-        "Understand valve function in venous hemodynamics",
-        "Connect hemodynamic failure to clinical venous disease"
-      ],
-      "clinical_pearls": [
-        "Normal ambulatory venous pressure drops 50-60% with walking",
-        "Failure to drop indicates reflux, obstruction, or pump failure",
-        "Air plethysmography quantifies venous hemodynamics non-invasively",
-        "Venous filling time <20 seconds indicates significant reflux",
-        "The calf muscle pump is often called the 'peripheral heart'"
-      ],
-      "board_yield": "HIGH"
     }
-  }
+  },
+  "clinical_features": {
+    "pressure_dynamics": {
+      "standing_foot_pressure": "80-90 mmHg (hydrostatic column from heart)",
+      "ambulatory_pressure": "Falls to 20-30 mmHg with walking (normal)",
+      "central_venous_pressure": "0-8 mmHg (right atrium reference)",
+      "supine_pressure": "5-10 mmHg (eliminates hydrostatic column)",
+      "clinical_significance": "Failure to reduce ambulatory pressure indicates pathology"
+    },
+    "venous_return_mechanisms": {
+      "respiratory_pump": "Diaphragm descent creates negative intrathoracic pressure, drawing blood centrally",
+      "muscle_pump": "Calf and thigh muscle contraction compresses deep veins, ejecting blood proximally",
+      "vis_a_tergo": "Residual arterial pressure transmitted through capillary bed",
+      "vis_a_fronte": "Cardiac suction from atrial relaxation",
+      "gravity_effects": "Aids return above heart, opposes below - valves compensate"
+    },
+    "pathophysiologic_states": [
+      "Reflux: Valve incompetence causes retrograde flow during diastole",
+      "Obstruction: Thrombus or compression impedes antegrade flow",
+      "Muscle pump failure: Immobility, obesity, neuropathy",
+      "Combined pathophysiology: Reflux + obstruction is most severe"
+    ],
+    "presentation": [
+      "Leg heaviness and aching worse with standing",
+      "Improvement with elevation or walking",
+      "Evening edema that resolves overnight",
+      "Visible varicose veins or spider veins"
+    ],
+    "diagnosis": [
+      "Duplex ultrasound for reflux and obstruction",
+      "Air plethysmography for global venous function",
+      "Photoplethysmography for venous refill time",
+      "Ambulatory venous pressure measurement (invasive gold standard)"
+    ],
+    "treatment": [
+      "Compression therapy to augment muscle pump",
+      "Exercise to enhance calf pump function",
+      "Treatment of reflux (ablation, sclerotherapy)",
+      "Treatment of obstruction (stenting, bypass)",
+      "Elevation and lifestyle modification"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Venous Hemodynamics"
+    },
+    "altLabel": [
+      "Venous blood flow dynamics",
+      "Venous pressure physiology",
+      "Venous return mechanisms"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The physiological principles governing blood flow, pressure dynamics, and return mechanisms in the venous system, characterized by low pressure, high capacitance, and dependence on muscle pumps and valves for efficient venous return."
+    },
+    "notation": "VEN-001"
+  },
+  "relationships": {
+    "prerequisites": [],
+    "enables": [
+      "vascular:venous:ven-002-valve-function",
+      "vascular:venous:ven-003-muscle-pump",
+      "vascular:venous:ven-004-venous-hypertension"
+    ],
+    "skos:broader": ["vascular:venous:physiology"],
+    "skos:related": ["vascular:venous:valve-function", "vascular:venous:muscle-pump", "vascular:cvi"],
+    "skos:narrower": ["vascular:venous:pressure-dynamics", "vascular:venous:capacitance"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery and Endovascular Therapy",
+        "edition": "10th",
+        "chapter": "Venous Hemodynamics and Pathophysiology",
+        "year": 2023
+      },
+      {
+        "type": "textbook",
+        "title": "Handbook of Venous and Lymphatic Disorders",
+        "edition": "4th",
+        "year": 2017
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular medicine fellows", "phlebology practitioners"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Describe venous pressure dynamics in standing and walking",
+      "Explain the mechanisms of venous return",
+      "Understand valve function in maintaining low ambulatory pressure",
+      "Connect hemodynamic failure to clinical venous disease"
+    ],
+    "clinical_pearls": [
+      "Normal ambulatory venous pressure drops 50-60% with walking (90 to 20-30 mmHg)",
+      "Failure of pressure to drop indicates reflux, obstruction, or pump failure",
+      "The venous system holds 70% of blood volume - it's the body's capacitance reservoir",
+      "Venous filling time <20 seconds indicates significant reflux",
+      "The calf muscle pump is the 'peripheral heart' - generates 200-300 mmHg with contraction"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "75761003",
+      "description": "Venous blood flow"
+    },
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "364090009",
+      "description": "Venous pressure"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I87.2",
+      "description": "Venous insufficiency (chronic) (peripheral)"
+    }
+  ]
 }

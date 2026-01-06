@@ -52,13 +52,13 @@ grep -A 10 "formal-sciences" domain/_ontology/global-hierarchy.yaml
 - [ ] Create domain root if needed (e.g., `formal-sciences/`)
 - [ ] Create subdomain directories
 - [ ] Create `akus/` subdirectory for AKUs
-- [ ] Create `.renders/` subdirectory for human content
+- [ ] Note: Rendered content goes to renders/by-domain/ (centralized) for human content
 - [ ] Preserve any existing subdirectory structure
 
 **Command**:
 ```bash
 mkdir -p formal-sciences/mathematics/pure-mathematics/category-theory/akus
-mkdir -p formal-sciences/mathematics/pure-mathematics/category-theory/.renders
+# No longer needed - renders are centralized in renders/by-domain/
 ```
 
 ### 5. Backup Current State

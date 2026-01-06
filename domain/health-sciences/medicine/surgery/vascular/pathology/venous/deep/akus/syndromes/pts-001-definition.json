@@ -1,125 +1,208 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
-  "@id": "vascular:venous:post-thrombotic-syndrome:definition",
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:pts-001-definition",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-05T17:37:00.000Z",
-    "contributors": ["copilot"],
+    "contributors": ["copilot", "copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
     "status": "validated",
-    "confidence": 0.94
+    "last_updated": "2026-01-06T17:30:00.000Z"
   },
   "classification": {
-    "domain_path": "health-sciences/medicine/surgery/vascular/venous",
-    "type": "definition",
-    "difficulty": "intermediate",
-    "importance": "foundational",
-    "board_yield": "HIGH"
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "concept",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "PTS-001",
+    "keywords": ["post-thrombotic syndrome", "PTS", "Villalta score", "DVT complication", "venous ulcer"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
   },
   "content": {
-    "term": "Post-Thrombotic Syndrome",
-    "synonyms": ["PTS", "Postphlebitic Syndrome", "Venous Stasis Syndrome"],
-    "definition": "A chronic condition that develops after deep venous thrombosis (DVT), characterized by persistent symptoms and signs of venous hypertension including leg pain, swelling, skin changes, and ulceration. PTS results from venous valve damage, persistent obstruction, or both, leading to ambulatory venous hypertension.",
+    "statement": {
+      "text": "Post-thrombotic syndrome (PTS) is a chronic complication of deep venous thrombosis occurring in 20-50% of patients, characterized by persistent symptoms and signs of venous hypertension (pain, swelling, skin changes, ulceration) due to valve destruction, persistent obstruction, or both. Villalta score ≥5 diagnoses PTS; ≥15 or ulcer indicates severe PTS.",
+      "formal": "PTS: Villalta_Score ≥5 = Diagnosis; ≥15 or Ulcer = Severe; Develops in 20-50% of proximal DVT"
+    },
+    "explanation": {
+      "intuition": "When a blood clot forms in a deep vein and then dissolves, it often damages the one-way valves in that vein and may leave scarring that narrows the vein. This is like a flood that damages both the drainage pipes and the check valves - even after the floodwaters recede, the plumbing never works quite right again.",
+      "key_insight": "PTS is not just 'swelling after DVT' - it's a specific syndrome diagnosed by the Villalta score that includes both symptoms (pain, heaviness, cramping) and signs (edema, skin changes). Iliofemoral DVT has the highest PTS risk because it involves the largest veins with the most critical valves.",
+      "technical_details": "PTS pathophysiology involves two components: reflux from valve destruction and obstruction from incomplete thrombus recanalization. The DVT triggers an inflammatory response that damages valve leaflets, while organized thrombus may leave residual stenosis. Either mechanism leads to ambulatory venous hypertension - venous pressure fails to drop with walking. The Villalta scale quantifies 5 symptoms (pain, cramps, heaviness, pruritus, paresthesia) and 6 signs (edema, skin induration, hyperpigmentation, venous ectasia, redness, pain with calf compression), each scored 0-3.",
+      "common_misconceptions": [
+        "Misconception: All leg swelling after DVT is PTS. Reality: Wait 3-6 months for acute changes to resolve before diagnosing PTS.",
+        "Misconception: Compression stockings prevent PTS. Reality: The SOX trial showed compression stockings do NOT prevent PTS, though they help manage symptoms.",
+        "Misconception: PTS is untreatable. Reality: Iliac stenting for obstruction is highly effective; valve surgery has limited role."
+      ]
+    }
+  },
+  "clinical_features": {
     "epidemiology": {
       "incidence": "20-50% of patients after proximal DVT",
       "severe_pts": "5-10% develop severe PTS with ulceration",
-      "timing": "Usually develops within 2 years of DVT",
+      "timing": "Usually develops within 2 years of DVT; assess at 3-6 months",
       "risk_factors": [
-        "Proximal DVT (especially iliofemoral)",
+        "Proximal DVT (especially iliofemoral) - HIGHEST risk",
         "Recurrent ipsilateral DVT",
         "Obesity",
         "Older age",
-        "Poor anticoagulation control",
+        "Inadequate anticoagulation",
         "Residual venous obstruction"
       ]
     },
     "pathophysiology": {
-      "mechanisms": [
-        "Venous valve destruction from thrombus-induced inflammation",
-        "Persistent venous obstruction from incomplete recanalization",
-        "Chronic venous reflux",
-        "Combined reflux and obstruction"
-      ],
-      "consequence": "Ambulatory venous hypertension - venous pressure fails to drop with calf muscle contraction"
+      "valve_destruction": "Thrombus-induced inflammation destroys valve leaflets",
+      "persistent_obstruction": "Incomplete recanalization leaves residual stenosis",
+      "combined_pathology": "Reflux + obstruction = worst outcomes",
+      "consequence": "Ambulatory venous hypertension - pressure fails to drop with walking"
     },
-    "clinical_features": {
-      "symptoms": [
-        "Leg pain (aching, heaviness, tiredness)",
-        "Swelling (edema)",
-        "Pain worse with standing, better with elevation",
-        "Cramping"
-      ],
-      "signs": [
-        "Edema (pitting or brawny)",
-        "Hyperpigmentation (hemosiderin deposition)",
-        "Eczema/dermatitis",
-        "Lipodermatosclerosis (indurated, fibrotic skin)",
-        "Corona phlebectatica (dilated venules at ankle)",
-        "Venous ulceration (most severe)"
-      ]
-    },
-    "diagnosis": {
-      "clinical_scoring": {
-        "villalta_scale": {
-          "description": "Most widely used scoring system",
-          "symptoms": "Pain, cramps, heaviness, pruritus, paresthesia (0-3 each)",
-          "signs": "Edema, skin induration, hyperpigmentation, new venous ectasia, redness, calf tenderness (0-3 each)",
-          "interpretation": [
-            "0-4: No PTS",
-            "5-9: Mild PTS",
-            "10-14: Moderate PTS",
-            "≥15 or ulcer present: Severe PTS"
-          ]
-        }
+    "villalta_scale": {
+      "description": "Validated scoring system for PTS diagnosis and severity",
+      "symptoms": {
+        "items": "Pain, cramps, heaviness, pruritus, paresthesia",
+        "scoring": "Each 0-3 (absent to severe)",
+        "subtotal": "0-15 points"
       },
-      "imaging": "Duplex ultrasound to assess valve function and obstruction",
-      "timing": "Assess ≥3 months after DVT (allow acute changes to resolve)"
-    },
-    "prevention": {
-      "anticoagulation": "Adequate intensity and duration - reduces PTS",
-      "early_mobilization": "Encouraged during acute DVT treatment",
-      "compression_stockings": {
-        "current_evidence": "SOX trial showed no benefit for PTS prevention",
-        "practice": "Still used for symptom management"
+      "signs": {
+        "items": "Edema, skin induration, hyperpigmentation, venous ectasia, redness, pain on calf compression",
+        "scoring": "Each 0-3 (absent to severe)",
+        "subtotal": "0-18 points"
       },
-      "thrombolysis": "May reduce PTS in iliofemoral DVT (CaVenT, ATTRACT trials)"
+      "interpretation": {
+        "no_pts": "0-4 points",
+        "mild_pts": "5-9 points",
+        "moderate_pts": "10-14 points",
+        "severe_pts": "≥15 points OR active venous ulcer"
+      }
     },
+    "presentation": [
+      "Leg pain (aching, heaviness, tiredness) worse with standing",
+      "Swelling that worsens throughout day",
+      "Skin changes (pigmentation, eczema, induration)",
+      "Venous claudication (severe cases)",
+      "Venous ulceration (most severe)"
+    ],
+    "diagnosis": [
+      "Clinical history of prior DVT",
+      "Villalta score ≥5 (at least 3-6 months after DVT)",
+      "Duplex ultrasound for reflux and obstruction assessment",
+      "CT/MR venography for iliofemoral disease",
+      "IVUS for accurate stenosis quantification"
+    ],
     "treatment": {
       "conservative": [
-        "Compression therapy (30-40 mmHg stockings)",
+        "Compression therapy (30-40 mmHg graduated stockings)",
         "Leg elevation",
-        "Exercise/walking",
-        "Skin care"
+        "Exercise and walking program",
+        "Skin care and moisturization"
       ],
       "interventional": {
-        "iliac_stenting": "For iliofemoral obstruction with severe symptoms",
-        "valve_repair_reconstruction": "Limited role, technically challenging",
-        "ulcer_management": "Compression, wound care, skin grafting"
-      }
+        "iliac_stenting": {
+          "indication": "Iliofemoral obstruction with Villalta ≥10 or ulcer",
+          "outcomes": "Significant symptom relief in 70-80%",
+          "reference": "See DVD-004 for detailed approach"
+        },
+        "valve_surgery": {
+          "indication": "Isolated deep reflux without obstruction (rare)",
+          "options": "Valvuloplasty, valve transplant",
+          "outcomes": "Limited durability",
+          "reference": "See DVD-001 for valve procedures"
+        }
+      },
+      "ulcer_management": [
+        "Compression (most important)",
+        "Wound care",
+        "Address underlying reflux and obstruction",
+        "Skin grafting for refractory ulcers"
+      ]
+    },
+    "prevention": {
+      "anticoagulation": "Adequate intensity and duration is most important",
+      "early_mobilization": "Encouraged during acute DVT treatment",
+      "compression_stockings": "SOX trial showed NO prevention benefit",
+      "thrombolysis": "May reduce PTS in iliofemoral DVT (CaVenT, ATTRACT trials)"
     }
   },
-  "codes": {
-    "snomed_ct": "132281000119108",
-    "icd_10": "I87.01"
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Post-Thrombotic Syndrome"
+    },
+    "altLabel": [
+      "PTS",
+      "Postphlebitic syndrome",
+      "Venous stasis syndrome",
+      "Chronic post-DVT syndrome"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A chronic complication of deep venous thrombosis characterized by persistent symptoms and signs of venous hypertension due to valve destruction, persistent obstruction, or both, diagnosed by Villalta score ≥5."
+    },
+    "notation": "PTS-001"
   },
   "relationships": {
-    "broader": ["vascular:venous:dvt-complications"],
-    "related": ["vascular:venous:dvt", "vascular:venous:cvi", "vascular:venous:ulcer"],
-    "narrower": []
+    "prerequisites": [
+      "vascular:venous:ven-001-hemodynamics",
+      "vascular:venous:ven-002-valve-function"
+    ],
+    "enables": [
+      "vascular:venous:dvd-001-deep-reconstruction",
+      "vascular:venous:dvd-004-iliac-stenting"
+    ],
+    "skos:broader": ["vascular:venous:dvt-complications"],
+    "skos:related": ["vascular:venous:dvt", "vascular:venous:cvi", "vascular:venous:venous-ulcer"],
+    "skos:narrower": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery and Endovascular Therapy",
+        "edition": "10th",
+        "chapter": "Post-Thrombotic Syndrome",
+        "year": 2023
+      },
+      {
+        "type": "journal",
+        "title": "Lancet",
+        "article": "SOX Trial: Compression Stockings for PTS Prevention",
+        "year": 2014
+      }
+    ]
   },
   "pedagogical": {
+    "target_audience": ["vascular surgery residents", "internal medicine residents", "hematology fellows"],
+    "estimated_time": "15min",
     "learning_objectives": [
-      "Understand pathophysiology of PTS",
-      "Use Villalta scale for diagnosis and grading",
+      "Understand pathophysiology of PTS (valve damage + obstruction)",
+      "Apply Villalta scale for diagnosis and severity grading",
+      "Identify risk factors for PTS development",
       "Know prevention and treatment strategies"
     ],
     "clinical_pearls": [
-      "PTS develops in 20-50% of proximal DVT patients",
+      "PTS develops in 20-50% of proximal DVT patients; iliofemoral DVT = HIGHEST risk",
       "Villalta score ≥5 = PTS diagnosis; ≥15 or ulcer = severe PTS",
-      "Iliofemoral DVT has HIGHEST PTS risk",
-      "SOX trial: compression stockings do NOT prevent PTS",
-      "Assess ≥3 months after DVT to diagnose PTS",
-      "Iliac stenting is effective for obstructive component"
-    ]
-  }
+      "SOX trial: compression stockings do NOT prevent PTS (use for symptom management only)",
+      "Assess at least 3 months after DVT to diagnose PTS (allow acute changes to resolve)",
+      "Iliac stenting is highly effective for obstructive component"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "132281000119108",
+      "description": "Post-thrombotic syndrome"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I87.001",
+      "description": "Postthrombotic syndrome without ulcer of right lower extremity"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I87.011",
+      "description": "Postthrombotic syndrome with ulcer of right lower extremity"
+    }
+  ]
 }

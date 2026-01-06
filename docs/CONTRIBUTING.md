@@ -226,9 +226,9 @@ Create `schema.json`:
 
 3. **Create Rendering File**
 
-Path: `domain/[...]/[topic]/.renders/[language]/[audience].[format]`
+Path: `renders/by-domain/[domain-path]/[language]/[audience].[format]`
 
-Example: `domain/formal-sciences/mathematics/pure-mathematics/algebra/.renders/english/elementary-school.md`
+Example: `renders/by-domain/formal-sciences/mathematics/pure-mathematics/algebra/english/elementary-school.md`
 
 4. **Write Content**
 

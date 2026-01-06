@@ -32,28 +32,28 @@ This document tracks all identified topics that still need to be developed into 
 
 | Category | Total Identified | AKUs Created | Remaining |
 |----------|-----------------|--------------|-----------|
-| Aortic Disease | 45 | 22 | 23 |
-| PAD/Lower Extremity | 60 | 18 | 42 |
-| Carotid/Cerebrovascular | 25 | 10 | 15 |
+| Aortic Disease | 45 | 35 | 10 |
+| PAD/Lower Extremity | 60 | 34 | 26 |
+| Carotid/Cerebrovascular | 25 | 13 | 12 |
 | Venous Disease | 45 | 15 | 30 |
 | Mesenteric/Visceral | 20 | 5 | 15 |
 | Renal Artery | 12 | 2 | 10 |
 | Upper Extremity | 20 | 6 | 14 |
 | Lymphatic | 20 | 3 | 17 |
-| Trauma | 20 | 4 | 16 |
+| Trauma | 20 | 11 | 9 |
 | Genetic/Connective Tissue | 40 | 8 | 32 |
 | Vasculitis | 25 | 6 | 19 |
 | Vascular Malformations | 25 | 6 | 19 |
 | Congenital | 15 | 4 | 11 |
 | Rare Syndromes | 25 | 5 | 20 |
-| Procedures | 60 | 25 | 35 |
-| Diagnostics | 25 | 8 | 17 |
-| Pharmacology | 15 | 5 | 10 |
-| Complications | 20 | 8 | 12 |
+| Procedures | 60 | 45 | 15 |
+| Diagnostics | 25 | 9 | 16 |
+| Pharmacology | 15 | 7 | 8 |
+| Complications | 20 | 10 | 10 |
 | Anatomy | 20 | 2 | 18 |
-| Dialysis Access | 15 | 2 | 13 |
-| Wound Care | 12 | 1 | 11 |
-| **TOTAL** | **~564** | **~165** | **~399** |
+| Dialysis Access | 15 | 4 | 11 |
+| Wound Care | 12 | 3 | 9 |
+| **TOTAL** | **~564** | **~233** | **~331** |
 
 ---
 
@@ -62,10 +62,10 @@ This document tracks all identified topics that still need to be developed into 
 ### Abdominal Aortic Aneurysm
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| AAA-016 | Juxtarenal AAA | HIGH | ❌ |
-| AAA-017 | Pararenal AAA | HIGH | ❌ |
-| AAA-018 | Suprarenal AAA | HIGH | ❌ |
-| AAA-019 | Ruptured AAA Management Algorithm | HIGH | ❌ |
+| AAA-016 | Juxtarenal AAA | HIGH | ✅ |
+| AAA-017 | Pararenal AAA | HIGH | ✅ |
+| AAA-018 | Suprarenal AAA | HIGH | ✅ |
+| AAA-019 | Ruptured AAA Management Algorithm | HIGH | ✅ |
 | AAA-020 | Endograft Migration | MEDIUM | ❌ |
 | AAA-021 | Endograft Kinking | MEDIUM | ❌ |
 | AAA-022 | Aortic Neck Angulation | MEDIUM | ❌ |
@@ -76,27 +76,27 @@ This document tracks all identified topics that still need to be developed into 
 ### Thoracoabdominal Aortic Aneurysm
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| TAAA-001 | Crawford Classification Details | HIGH | ❌ |
+| TAAA-001 | Crawford Classification Details | HIGH | ✅ |
 | TAAA-002 | Extent IV TAAA | HIGH | ❌ |
-| TAAA-003 | Elephant Trunk Technique | HIGH | ❌ |
-| TAAA-004 | Cerebrospinal Fluid Drainage | HIGH | ❌ |
+| TAAA-003 | Elephant Trunk Technique | HIGH | ✅ |
+| TAAA-004 | Cerebrospinal Fluid Drainage | HIGH | ✅ |
 | TAAA-005 | Motor Evoked Potentials | MEDIUM | ❌ |
-| TAAA-006 | Hypothermic Circulatory Arrest | HIGH | ❌ |
+| TAAA-006 | Hypothermic Circulatory Arrest | HIGH | ✅ |
 
 ### Aortic Arch Disease
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| ARCH-002 | Hybrid Arch Repair | HIGH | ❌ |
-| ARCH-003 | Zone 0-4 Classification | HIGH | ❌ |
-| ARCH-004 | Ascending Aortic Disease | MEDIUM | ❌ |
+| ARCH-002 | Hybrid Arch Repair | HIGH | ✅ |
+| ARCH-003 | Zone 0-4 Classification | HIGH | ✅ |
+| ARCH-004 | Ascending Aortic Disease | MEDIUM | ✅ |
 | ARCH-005 | Innominate Artery Reimplantation | MEDIUM | ❌ |
 
 ### Aortic Emergency
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| AORTEMERG-001 | Contained Rupture | HIGH | ❌ |
+| AORTEMERG-001 | Contained Rupture | HIGH | ✅ |
 | AORTEMERG-002 | Free Rupture | HIGH | ❌ |
-| AORTEMERG-003 | Permissive Hypotension | HIGH | ❌ |
+| AORTEMERG-003 | Permissive Hypotension | HIGH | ✅ |
 
 ---
 
@@ -105,66 +105,66 @@ This document tracks all identified topics that still need to be developed into 
 ### Natural History and Evaluation
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PAD-012 | Natural History Untreated | HIGH | ❌ |
-| PAD-013 | Risk Factor Modification | HIGH | ❌ |
-| PAD-014 | Supervised Exercise Details | HIGH | ❌ |
-| PAD-015 | Statin Therapy in PAD | HIGH | ❌ |
+| PAD-012 | Natural History Untreated | HIGH | ✅ |
+| PAD-013 | Risk Factor Modification | HIGH | ✅ |
+| PAD-014 | Supervised Exercise Details | HIGH | ✅ |
+| PAD-015 | Statin Therapy in PAD | HIGH | ✅ |
 | PAD-016 | Cilostazol Indications | MEDIUM | ❌ |
 | PAD-017 | Pentoxifylline | LOW | ❌ |
 
 ### Anatomic Disease Patterns
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PAD-018 | Inflow Disease Patterns | HIGH | ❌ |
-| PAD-019 | Common Femoral Artery Disease | HIGH | ❌ |
-| PAD-020 | Profunda Femoris Disease | HIGH | ❌ |
-| PAD-021 | Popliteal Artery Disease Patterns | HIGH | ❌ |
-| PAD-022 | Tibial Disease Patterns | HIGH | ❌ |
-| PAD-023 | Pedal Arch Assessment | HIGH | ❌ |
+| PAD-018 | Inflow Disease Patterns | HIGH | ✅ |
+| PAD-019 | Common Femoral Artery Disease | HIGH | ✅ |
+| PAD-020 | Profunda Femoris Disease | HIGH | ✅ |
+| PAD-021 | Popliteal Artery Disease Patterns | HIGH | ✅ |
+| PAD-022 | Tibial Disease Patterns | HIGH | ✅ |
+| PAD-023 | Pedal Arch Assessment | HIGH | ✅ |
 
 ### Endovascular Techniques (Detailed)
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PAD-024 | Drug-Coated Balloon Clinical | HIGH | ❌ |
-| PAD-025 | Drug-Eluting Stent Peripheral | HIGH | ❌ |
+| PAD-024 | Drug-Coated Balloon Clinical | HIGH | ✅ |
+| PAD-025 | Drug-Eluting Stent Peripheral | HIGH | ✅ |
 | PAD-026 | Interwoven Nitinol Stents | MEDIUM | ❌ |
 | PAD-027 | Bioresorbable Scaffolds | LOW | ❌ |
-| PAD-028 | Intravascular Lithotripsy | HIGH | ❌ |
+| PAD-028 | Intravascular Lithotripsy | HIGH | ✅ |
 | PAD-029 | Orbital Atherectomy | MEDIUM | ❌ |
 | PAD-030 | Excimer Laser | MEDIUM | ❌ |
-| PAD-031 | Chronic Total Occlusion Crossing | HIGH | ❌ |
+| PAD-031 | Chronic Total Occlusion Crossing | HIGH | ✅ |
 | PAD-032 | Subintimal Angioplasty | MEDIUM | ❌ |
 | PAD-033 | Retrograde Access | MEDIUM | ❌ |
 
 ### Surgical Techniques
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PAD-034 | Conduit Selection Algorithm | HIGH | ❌ |
+| PAD-034 | Conduit Selection Algorithm | HIGH | ✅ |
 | PAD-035 | Arm Vein Bypass | MEDIUM | ❌ |
 | PAD-036 | Composite Sequential Bypass | MEDIUM | ❌ |
-| PAD-037 | Popliteal-Tibial Bypass | HIGH | ❌ |
-| PAD-038 | Tibial-Pedal Bypass | HIGH | ❌ |
+| PAD-037 | Popliteal-Tibial Bypass | HIGH | ✅ |
+| PAD-038 | Tibial-Pedal Bypass | HIGH | ✅ |
 | PAD-039 | Distal Origin Bypass | MEDIUM | ❌ |
 
 ### Limb Salvage
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PAD-040 | Angiosome Concept Detail | HIGH | ❌ |
-| PAD-041 | Direct vs Indirect Revascularization | HIGH | ❌ |
+| PAD-040 | Angiosome Concept Detail | HIGH | ✅ |
+| PAD-041 | Direct vs Indirect Revascularization | HIGH | ✅ |
 | PAD-042 | Wound Healing Prediction | MEDIUM | ❌ |
 | PAD-043 | Multidisciplinary Limb Team | MEDIUM | ❌ |
-| PAD-044 | Tissue Loss Classification Systems | HIGH | ❌ |
+| PAD-044 | Tissue Loss Classification Systems | HIGH | ✅ |
 
 ### Amputation
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| AMP-002 | Toe Amputation | HIGH | ❌ |
-| AMP-003 | Transmetatarsal Amputation | HIGH | ❌ |
+| AMP-002 | Toe Amputation | HIGH | ✅ |
+| AMP-003 | Transmetatarsal Amputation | HIGH | ✅ |
 | AMP-004 | Chopart and Lisfranc | MEDIUM | ❌ |
 | AMP-005 | Syme Amputation | MEDIUM | ❌ |
-| AMP-006 | Below Knee Amputation Details | HIGH | ❌ |
+| AMP-006 | Below Knee Amputation Details | HIGH | ✅ |
 | AMP-007 | Through Knee Amputation | LOW | ❌ |
-| AMP-008 | Above Knee Amputation Details | HIGH | ❌ |
+| AMP-008 | Above Knee Amputation Details | HIGH | ✅ |
 | AMP-009 | Hip Disarticulation | LOW | ❌ |
 | AMP-010 | Prosthetic Rehabilitation | MEDIUM | ❌ |
 
@@ -193,11 +193,11 @@ This document tracks all identified topics that still need to be developed into 
 ### CEA Technical Details
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| CEA-002 | Eversion Endarterectomy | HIGH | ❌ |
+| CEA-002 | Eversion Endarterectomy | HIGH | ✅ |
 | CEA-003 | Patch Selection | HIGH | ❌ |
-| CEA-004 | Shunt Indications | HIGH | ❌ |
+| CEA-004 | Shunt Indications | HIGH | ✅ |
 | CEA-005 | Cranial Nerve Preservation | HIGH | ❌ |
-| CEA-006 | Hyperperfusion Syndrome Detail | HIGH | ❌ |
+| CEA-006 | Hyperperfusion Syndrome Detail | HIGH | ✅ |
 
 ---
 
@@ -347,10 +347,10 @@ This document tracks all identified topics that still need to be developed into 
 
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| TRAUMA-003 | Hard Signs of Vascular Injury | HIGH | ❌ |
-| TRAUMA-004 | Soft Signs of Vascular Injury | HIGH | ❌ |
-| TRAUMA-005 | MESS Score Detail | HIGH | ❌ |
-| TRAUMA-006 | Damage Control Resuscitation | HIGH | ❌ |
+| TRAUMA-003 | Hard Signs of Vascular Injury | HIGH | ✅ |
+| TRAUMA-004 | Soft Signs of Vascular Injury | HIGH | ✅ |
+| TRAUMA-005 | MESS Score Detail | HIGH | ✅ |
+| TRAUMA-006 | Damage Control Resuscitation | HIGH | ✅ |
 | TRAUMA-007 | Zone-Based Neck Injury | HIGH | ❌ |
 | TRAUMA-008 | Subclavian Vascular Injury | HIGH | ❌ |
 | TRAUMA-009 | Axillary Vascular Injury | MEDIUM | ❌ |
@@ -362,7 +362,7 @@ This document tracks all identified topics that still need to be developed into 
 | TRAUMA-015 | Venous Injury Repair | HIGH | ❌ |
 | TRAUMA-016 | Endovascular Trauma Management | HIGH | ❌ |
 | TRAUMA-017 | Arterial Ligation Indications | MEDIUM | ❌ |
-| TRAUMA-018 | Fasciotomy Indications | HIGH | ❌ |
+| TRAUMA-018 | Fasciotomy Indications | HIGH | ✅ |
 
 ---
 
@@ -524,22 +524,22 @@ This document tracks all identified topics that still need to be developed into 
 ### Open Surgical Techniques
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PROC-001 | Femoral Artery Exposure | HIGH | ❌ |
-| PROC-002 | Popliteal Artery Exposure | HIGH | ❌ |
-| PROC-003 | Tibial Artery Exposure | HIGH | ❌ |
-| PROC-004 | Carotid Artery Exposure | HIGH | ❌ |
-| PROC-005 | Subclavian Artery Exposure | HIGH | ❌ |
+| PROC-001 | Femoral Artery Exposure | HIGH | ✅ |
+| PROC-002 | Popliteal Artery Exposure | HIGH | ✅ |
+| PROC-003 | Tibial Artery Exposure | HIGH | ✅ |
+| PROC-004 | Carotid Artery Exposure | HIGH | ✅ |
+| PROC-005 | Subclavian Artery Exposure | HIGH | ✅ |
 | PROC-006 | Axillary Artery Exposure | MEDIUM | ❌ |
 | PROC-007 | Brachial Artery Exposure | MEDIUM | ❌ |
-| PROC-008 | Retroperitoneal Aortic Exposure | HIGH | ❌ |
-| PROC-009 | Transperitoneal Aortic Exposure | HIGH | ❌ |
-| PROC-010 | Medial Visceral Rotation | HIGH | ❌ |
+| PROC-008 | Retroperitoneal Aortic Exposure | HIGH | ✅ |
+| PROC-009 | Transperitoneal Aortic Exposure | HIGH | ✅ |
+| PROC-010 | Medial Visceral Rotation | HIGH | ✅ |
 
 ### Anastomotic Techniques
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PROC-011 | End-to-End Anastomosis | HIGH | ❌ |
-| PROC-012 | End-to-Side Anastomosis | HIGH | ❌ |
+| PROC-011 | End-to-End Anastomosis | HIGH | ✅ |
+| PROC-012 | End-to-Side Anastomosis | HIGH | ✅ |
 | PROC-013 | Patch Angioplasty Technique | HIGH | ❌ |
 | PROC-014 | Interposition Graft | MEDIUM | ❌ |
 
@@ -553,22 +553,22 @@ This document tracks all identified topics that still need to be developed into 
 ### Extra-Anatomic Bypasses
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PROC-018 | Axillobifemoral Bypass | HIGH | ❌ |
-| PROC-019 | Femorofemoral Bypass | HIGH | ❌ |
+| PROC-018 | Axillobifemoral Bypass | HIGH | ✅ |
+| PROC-019 | Femorofemoral Bypass | HIGH | ✅ |
 | PROC-020 | Iliofemoral Bypass | MEDIUM | ❌ |
 
 ### Intraoperative Assessment
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PROC-021 | Completion Angiography | HIGH | ❌ |
-| PROC-022 | Completion Duplex | HIGH | ❌ |
+| PROC-021 | Completion Angiography | HIGH | ✅ |
+| PROC-022 | Completion Duplex | HIGH | ✅ |
 | PROC-023 | Flow Measurement | MEDIUM | ❌ |
 | PROC-024 | Continuous Wave Doppler | MEDIUM | ❌ |
 
 ### Wound Coverage
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PROC-025 | Sartorius Muscle Flap | HIGH | ❌ |
+| PROC-025 | Sartorius Muscle Flap | HIGH | ✅ |
 | PROC-026 | Gracilis Muscle Flap | MEDIUM | ❌ |
 | PROC-027 | Omental Flap Coverage | MEDIUM | ❌ |
 | PROC-028 | Rectus Femoris Flap | LOW | ❌ |
@@ -576,13 +576,13 @@ This document tracks all identified topics that still need to be developed into 
 ### Endovascular Access
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PROC-029 | Ultrasound-Guided Access | HIGH | ❌ |
-| PROC-030 | Micropuncture Technique | HIGH | ❌ |
-| PROC-031 | Radial Access | HIGH | ❌ |
+| PROC-029 | Ultrasound-Guided Access | HIGH | ✅ |
+| PROC-030 | Micropuncture Technique | HIGH | ✅ |
+| PROC-031 | Radial Access | HIGH | ✅ |
 | PROC-032 | Brachial Access | MEDIUM | ❌ |
-| PROC-033 | Closure Device Selection | HIGH | ❌ |
+| PROC-033 | Closure Device Selection | HIGH | ✅ |
 | PROC-034 | Manual Compression | MEDIUM | ❌ |
-| PROC-035 | Large Bore Access | HIGH | ❌ |
+| PROC-035 | Large Bore Access | HIGH | ✅ |
 
 ---
 
@@ -601,7 +601,7 @@ This document tracks all identified topics that still need to be developed into 
 | DX-009 | Venous Duplex Protocol | HIGH | ❌ |
 | DX-010 | Arterial Duplex Protocol | HIGH | ❌ |
 | DX-011 | Carotid Duplex Protocol | HIGH | ❌ |
-| DX-012 | Velocity Criteria Tables | HIGH | ❌ |
+| DX-012 | Velocity Criteria Tables | HIGH | ✅ |
 | DX-013 | CO2 Angiography | MEDIUM | ❌ |
 | DX-014 | Rotational Angiography | LOW | ❌ |
 | DX-015 | Waveform Analysis | HIGH | ❌ |
@@ -614,12 +614,12 @@ This document tracks all identified topics that still need to be developed into 
 
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| PHARM-001 | Heparin Pharmacology Detail | HIGH | ❌ |
+| PHARM-001 | Heparin Pharmacology Detail | HIGH | ✅ |
 | PHARM-002 | LMWH Dosing | HIGH | ❌ |
 | PHARM-003 | Direct Thrombin Inhibitors | HIGH | ❌ |
 | PHARM-004 | Factor Xa Inhibitors | HIGH | ❌ |
 | PHARM-005 | Warfarin Management Detail | HIGH | ❌ |
-| PHARM-006 | Reversal Agents | HIGH | ❌ |
+| PHARM-006 | Reversal Agents | HIGH | ✅ |
 | PHARM-007 | Bridge Anticoagulation | HIGH | ❌ |
 | PHARM-008 | Antiplatelet Resistance | MEDIUM | ❌ |
 | PHARM-009 | DAPT Duration | HIGH | ❌ |
@@ -635,13 +635,13 @@ This document tracks all identified topics that still need to be developed into 
 | COMP-002 | Early Graft Thrombosis | HIGH | ❌ |
 | COMP-003 | Intermediate Graft Failure | HIGH | ❌ |
 | COMP-004 | Late Graft Failure | HIGH | ❌ |
-| COMP-005 | Graft Infection Algorithm | HIGH | ❌ |
+| COMP-005 | Graft Infection Algorithm | HIGH | ✅ |
 | COMP-006 | In Situ Reconstruction | HIGH | ❌ |
 | COMP-007 | Aortic Stump Blowout | HIGH | ❌ |
 | COMP-008 | Lymphocele | MEDIUM | ❌ |
 | COMP-009 | Lymphatic Leak | MEDIUM | ❌ |
 | COMP-010 | Groin Wound Complications | HIGH | ❌ |
-| COMP-011 | Trash Foot Prevention | HIGH | ❌ |
+| COMP-011 | Trash Foot Prevention | HIGH | ✅ |
 | COMP-012 | Post-Revascularization Edema | MEDIUM | ❌ |
 
 ---
@@ -680,7 +680,7 @@ This document tracks all identified topics that still need to be developed into 
 
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| DIAL-002 | Radiocephalic Fistula | HIGH | ❌ |
+| DIAL-002 | Radiocephalic Fistula | HIGH | ✅ |
 | DIAL-003 | Brachiocephalic Fistula | HIGH | ❌ |
 | DIAL-004 | Brachiobasilic Fistula | HIGH | ❌ |
 | DIAL-005 | Transposition Technique | MEDIUM | ❌ |
@@ -688,7 +688,7 @@ This document tracks all identified topics that still need to be developed into 
 | DIAL-007 | Fistula Maturation | HIGH | ❌ |
 | DIAL-008 | Rule of 6s | HIGH | ❌ |
 | DIAL-009 | Central Venous Stenosis | HIGH | ❌ |
-| DIAL-010 | Steal Syndrome Types | HIGH | ❌ |
+| DIAL-010 | Steal Syndrome Types | HIGH | ✅ |
 | DIAL-011 | DRIL Procedure | MEDIUM | ❌ |
 | DIAL-012 | Banding/Plication | MEDIUM | ❌ |
 | DIAL-013 | HERO Graft | MEDIUM | ❌ |
@@ -700,12 +700,12 @@ This document tracks all identified topics that still need to be developed into 
 
 | Topic ID | Topic Name | Priority | Status |
 |----------|------------|----------|--------|
-| WOUND-001 | Arterial Ulcer Characteristics | HIGH | ❌ |
+| WOUND-001 | Arterial Ulcer Characteristics | HIGH | ✅ |
 | WOUND-002 | Venous Ulcer Management | HIGH | ❌ |
 | WOUND-003 | Mixed Ulcer Approach | HIGH | ❌ |
 | WOUND-004 | Pressure Injury Prevention | MEDIUM | ❌ |
 | WOUND-005 | Charcot Neuroarthropathy | MEDIUM | ❌ |
-| WOUND-006 | TIME Framework | HIGH | ❌ |
+| WOUND-006 | TIME Framework | HIGH | ✅ |
 | WOUND-007 | Debridement Techniques | HIGH | ❌ |
 | WOUND-008 | NPWT Indications | HIGH | ❌ |
 | WOUND-009 | Hyperbaric Oxygen | MEDIUM | ❌ |
@@ -717,13 +717,14 @@ This document tracks all identified topics that still need to be developed into 
 ## Document Maintenance
 
 ### Last Updated
-- **Date**: 2026-01-05
-- **Total Backlog Items**: ~399
-- **Items Completed Since Last Update**: 12 (this session)
+- **Date**: 2026-01-06
+- **Total Backlog Items**: ~331
+- **Items Completed This Session**: 48 (PAD, CEA, Dialysis, Wound Care, Pharmacology, Complications, Diagnostics, Procedures)
 
 ### Update History
 | Date | Items Added | Items Completed | Net Change |
 |------|-------------|-----------------|------------|
+| 2026-01-06 | 0 | 68 | -68 backlog |
 | 2026-01-05 | 564 | 165 | +399 backlog |
 
 ---

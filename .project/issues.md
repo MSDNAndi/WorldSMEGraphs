@@ -1,6 +1,6 @@
 # Open Issues and Blockers
 
-> **Last Updated**: 2026-01-04  
+> **Last Updated**: 2026-01-06  
 > **Purpose**: Track open issues, blockers, and problems needing resolution  
 > **Archives**: Resolved issues are archived in `.project/tracking/archived/`
 
@@ -23,6 +23,60 @@
 
 ### 🟡 Important Issues  
 *Should be addressed in current phase*
+
+#### Issue #4: Renders Infrastructure Refactoring
+**Status**: ✅ COMPLETE  
+**Created**: 2026-01-06  
+**Completed**: 2026-01-06T19:06:00.000Z  
+**Priority**: High  
+**Area**: Infrastructure  
+**Assignee**: GitHub Copilot
+
+**Description**:
+Extract all .render/.renders content from domain/ hierarchy and centralize in renders/ directory at repository root. Update all path references throughout documentation and code.
+
+**Impact**:
+- ✅ Centralized render management (255 files migrated)
+- ✅ Flexible organization (by-domain, by-language, by-audience)
+- ✅ Better tracking and automation
+- ✅ Multi-domain content support enabled
+- ✅ 21 documentation files updated
+- ✅ CI/CD validation added
+- ✅ Developer tools created
+
+**Completed Work**:
+- [x] Migrate 255 files from 6 .renders directories to renders/by-domain/
+- [x] Remove empty .renders directories
+- [x] Update 21 documentation files (instructions, structure, agents, specs)
+- [x] Create renders/README.md (comprehensive overview)
+- [x] Create migration-log.md (complete migration history)
+- [x] Create RECOMMENDATIONS.md (11KB future enhancements)
+- [x] Create VALIDATION_REPORT.md (7KB verification details)
+- [x] Create DEVELOPER_GUIDE.md (13KB comprehensive guide)
+- [x] Create audience-profiles.yaml (8 audience definitions)
+- [x] Create generate_render_index.py tool
+- [x] Create generate_aku_usage_matrix.py tool
+- [x] Create validate-renders.yml CI/CD workflow
+- [x] Generate initial render-index.yaml (1816 lines, 255 files)
+- [x] Generate initial aku-usage-matrix.yaml (658 AKUs tracked)
+
+**Metrics**:
+- Files migrated: 255
+- Docs updated: 21
+- Tools created: 3 (2 Python scripts + 1 CI/CD workflow)
+- Documentation created: 6 files (50KB+ total)
+- AKUs tracked: 658
+- Current render coverage: 2.7% (18 AKUs with renders)
+
+**See Also**:
+- `renders/README.md` - Overview of new structure
+- `renders/_metadata/RECOMMENDATIONS.md` - Next steps
+- `renders/_metadata/VALIDATION_REPORT.md` - Verification details
+- `renders/_metadata/DEVELOPER_GUIDE.md` - Developer reference
+
+**Target Date**: 2026-01-06 ✅ COMPLETED ON TIME
+
+---
 
 #### Issue #3: Domain Hierarchy Migration - Ontology Compliance
 **Status**: ✅ COMPLETE  
@@ -470,7 +524,7 @@ Contrarian agent critical analysis identified significant content gaps in the me
 **Documentation**:
 - Critical Analysis: `domain/health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia/.project/critical-analysis-contrarian-review.md`
 - Improvement Plan: `domain/health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia/.project/improvement-plan.md`
-- Book Chapter: `domain/health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia/.renders/english/comprehensive-book-chapter.md`
+- Book Chapter: `renders/by-domain/health-sciences/medicine/surgery/vascular/pathology/mesenteric-ischemia/english/comprehensive-book-chapter.md`
 
 **Assigned To**: Medical content team  
 **Target Date**: 2026-01-15  

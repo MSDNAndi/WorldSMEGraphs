@@ -62,7 +62,7 @@ Converts language-agnostic knowledge graphs into human-readable formats tailored
 - Cultural adaptation preferences
 
 ## Output Deliverables
-- Rendered content file in `.renders/[language]/[audience-level].[format]`
+- Rendered content file in `renders/by-domain/[domain-path]/[language]/[audience-level].[format]`
 - Rendering metadata (source graph, version, date)
 - Quality validation report
 - Readability scores

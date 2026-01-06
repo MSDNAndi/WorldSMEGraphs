@@ -1,0 +1,170 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:cvd-006-venous-claudication",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T17:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-06T17:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "concept",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "CVD-006",
+    "keywords": ["venous claudication", "iliofemoral obstruction", "post-thrombotic syndrome", "ambulatory venous hypertension"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
+  },
+  "content": {
+    "statement": {
+      "text": "Venous claudication is exercise-induced lower extremity pain caused by severe venous outflow obstruction (typically iliofemoral), where increased arterial inflow during exercise cannot be accommodated by venous drainage, causing bursting leg pain and cyanosis.",
+      "formal": "Venous_Claudication = Exercise_Arterial_Inflow > Obstructed_Venous_Outflow → Compartment_Hypertension + Venous_Engorgement"
+    },
+    "explanation": {
+      "intuition": "Imagine a highway with an entrance ramp wide open but the exit blocked. During rest, traffic (blood) flows slowly and can trickle through. During exercise, traffic surges but cannot exit, causing a backup (engorgement) and pressure buildup (compartment hypertension), resulting in a bursting, aching leg pain.",
+      "key_insight": "Venous claudication differs fundamentally from arterial claudication: it develops with continued walking (not relieved by stopping), causes bursting (not cramping) pain, and requires elevation (not just rest) for relief. Recognition prevents inappropriate arterial workup and guides venous intervention.",
+      "technical_details": "Venous claudication occurs with severe iliofemoral occlusion, typically from extensive post-thrombotic syndrome or May-Thurner compression with chronic thrombosis. During exercise, arterial inflow increases 10-20 fold, but obstructed venous outflow cannot accommodate this volume. Venous pressure rises dramatically (to 100-150 mmHg), muscle compartments become engorged, and ischemic metabolites accumulate. The calf pump, rather than helping, worsens symptoms by pushing blood into an obstructed outflow tract.",
+      "common_misconceptions": [
+        "Misconception: Venous claudication improves with rest like arterial claudication. Reality: Venous claudication requires elevation; standing rest may not relieve symptoms.",
+        "Misconception: Venous claudication is cramping pain. Reality: It is described as bursting, aching, or heaviness, not cramping.",
+        "Misconception: Normal arterial studies rule out claudication. Reality: Venous claudication causes exercise-induced leg pain with normal arterial studies."
+      ]
+    }
+  },
+  "clinical_features": {
+    "presentation": [
+      "Bursting, aching pain developing with exercise",
+      "Continues or worsens with continued walking",
+      "Leg becomes swollen and cyanotic with exercise",
+      "Requires elevation (not just rest) for relief",
+      "Relief takes 15-20 minutes with elevation",
+      "Often associated with limb edema at rest",
+      "History of extensive DVT common"
+    ],
+    "comparison_to_arterial_claudication": {
+      "pain_character": {
+        "arterial": "Cramping",
+        "venous": "Bursting, aching, heaviness"
+      },
+      "response_to_stopping": {
+        "arterial": "Relieved within 2-5 minutes",
+        "venous": "May persist, requires elevation"
+      },
+      "leg_appearance": {
+        "arterial": "Pale, cool during symptoms",
+        "venous": "Cyanotic, swollen during symptoms"
+      },
+      "rest_position": {
+        "arterial": "Standing or sitting fine",
+        "venous": "Needs elevation above heart"
+      }
+    },
+    "diagnosis": [
+      "Clinical history distinguishing from arterial claudication",
+      "Duplex ultrasound showing iliofemoral obstruction",
+      "CT or MR venography for anatomic detail",
+      "Intravascular ultrasound (IVUS) for stenosis quantification",
+      "Ambulatory venous pressure measurement (invasive gold standard)",
+      "Air plethysmography showing impaired outflow"
+    ],
+    "treatment": [
+      "Iliofemoral venous stenting (mainstay of treatment)",
+      "May-Thurner syndrome treatment if present",
+      "Anticoagulation if acute or recurrent thrombosis",
+      "Compression therapy (supportive but limited efficacy for obstruction)",
+      "Exercise rehabilitation after stenting",
+      "Surgical bypass for extensive disease (rare, last resort)"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Venous Claudication"
+    },
+    "altLabel": [
+      "Iliofemoral obstruction syndrome",
+      "Post-thrombotic claudication",
+      "Venous outflow obstruction"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Exercise-induced lower extremity pain caused by severe venous outflow obstruction, where arterial inflow during activity exceeds the capacity of the obstructed venous system, causing venous engorgement, compartment hypertension, and bursting leg pain relieved by elevation."
+    },
+    "notation": "CVD-006"
+  },
+  "relationships": {
+    "prerequisites": [
+      "vascular:venous:ven-001-hemodynamics",
+      "vascular:venous:ven-003-muscle-pump"
+    ],
+    "enables": [
+      "vascular:venous:dvd-004-iliac-stenting",
+      "vascular:venous:iliac-intervention"
+    ],
+    "skos:broader": ["vascular:venous:chronic-venous-disease", "vascular:venous:obstruction"],
+    "skos:related": ["vascular:venous:may-thurner", "vascular:venous:post-thrombotic-syndrome"],
+    "skos:narrower": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery and Endovascular Therapy",
+        "edition": "10th",
+        "chapter": "Iliofemoral Venous Obstruction",
+        "year": 2023
+      },
+      {
+        "type": "journal",
+        "title": "Journal of Vascular Surgery: Venous and Lymphatic Disorders",
+        "article": "Diagnosis and management of venous claudication",
+        "year": 2021
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular medicine fellows", "interventional radiologists"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Distinguish venous claudication from arterial claudication",
+      "Identify clinical features suggesting iliofemoral obstruction",
+      "Apply appropriate diagnostic testing for venous claudication",
+      "Describe treatment options for iliofemoral obstruction"
+    ],
+    "clinical_pearls": [
+      "Venous claudication: bursting pain, cyanosis, needs elevation vs. arterial: cramping, pallor, rest works",
+      "History of extensive DVT is a key clue",
+      "Normal ABI does not exclude claudication - it may be venous!",
+      "IVUS is critical for assessing iliofemoral stenosis - more accurate than venography",
+      "Iliac stenting has excellent outcomes for venous claudication"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "195499009",
+      "description": "Venous insufficiency of leg"
+    },
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "234049006",
+      "description": "Venous obstruction"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I87.1",
+      "description": "Compression of vein"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I87.2",
+      "description": "Venous insufficiency (chronic) (peripheral)"
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "proc-033-closure-devices",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T19:00:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "knowledge-graph-agent"
+    ],
+    "confidence": 0.96,
+    "status": "validated",
+    "last_updated": "2026-01-06T19:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures",
+    "type": "procedure",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "PROC-033",
+    "keywords": [
+      "vascular closure device",
+      "VCD",
+      "arteriotomy closure",
+      "collagen plug",
+      "suture-mediated closure",
+      "hemostasis"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "operative_techniques"
+  },
+  "content": {
+    "statement": {
+      "text": "Vascular closure devices (VCDs) are mechanical systems designed to achieve hemostasis at arterial access sites, allowing faster patient ambulation and reduced compression time compared to manual compression. Major device categories include collagen-based (AngioSeal), suture-mediated (Perclose, ProGlide), and staple/clip-based (StarClose). Device selection depends on arteriotomy size, patient anatomy, anticoagulation status, and planned use (diagnostic vs interventional). Understanding device mechanisms, proper deployment, and complication management is essential.",
+      "formal": "VCD Categories: Collagen-based (AngioSeal) - intravascular anchor + collagen plug | Suture-mediated (Perclose/ProGlide) - percutaneous suture deployment | Clip-based (StarClose) - extravascular clip | Selection: Device rated for sheath size, assess CFA suitability, consider anticoagulation | Benefit: Faster ambulation, reduced compression time"
+    },
+    "explanation": {
+      "intuition": "Vascular closure devices are like different types of patches or stitches for the hole left after removing a catheter from an artery. Some devices plug the hole with a sealant (collagen), some sew it closed from the inside (suture devices), and some clip it from the outside (staple devices). The goal is the same - stop the bleeding faster than just pressing on it - but each device has its own way of doing it.",
+      "key_insight": "Device selection should match the clinical scenario. Suture-mediated devices (Perclose/ProGlide) are the most versatile - they work with anticoagulation and can close large arteriotomies (up to 21F using 'preclose' technique). Collagen-based devices (AngioSeal) are reliable for standard 5-8F access. Understanding which device to use when is as important as knowing how to deploy it.",
+      "technical_details": "Device Types and Mechanisms: (1) Collagen-based (AngioSeal): Intravascular biodegradable anchor positioned inside artery, collagen plug deposited on top, suture connects them and compresses vessel wall. Dissolves in 60-90 days. Sizes: 6F and 8F. (2) Suture-mediated (Perclose ProGlide): Deploys monofilament sutures percutaneously. Device enters artery, footplate deploys, needles pass suture through arterial wall, suture retrieved and tied extravascularly. Can be used for 'preclose' technique for large-bore access. Size: Up to 8F (single device), up to 21F+ (preclose with multiple devices). (3) Clip-based (StarClose SE): Extravascular nitinol clip crimps arteriotomy edges closed. Does not enter vessel lumen. Size: Up to 6F. Deployment Technique (Perclose example): (1) Maintain wire access; (2) Remove sheath; (3) Insert device over wire; (4) Advance until blood return from side port; (5) Deploy footplate; (6) Engage needles; (7) Retrieve suture tails; (8) Remove device; (9) Advance knot with pusher while applying traction.",
+      "common_misconceptions": [
+        "All closure devices are the same - each has different mechanisms, indications, and limitations",
+        "VCDs can close any arteriotomy - each device is rated for specific sheath sizes",
+        "VCDs are safer than manual compression - similar complication rates, but different types",
+        "You can use VCDs in any CFA - disease, calcification, and prior closures affect success"
+      ]
+    },
+    "definitions_glossary": {
+      "vascular_closure_device": "Mechanical device for achieving arterial access site hemostasis",
+      "preclose_technique": "Deploying sutures before sheath insertion for closing large-bore access",
+      "collagen_plug": "Biodegradable material that promotes hemostasis",
+      "suture_mediated": "Device deploying sutures percutaneously to close arteriotomy",
+      "footplate": "Component of suture device that positions inside artery"
+    }
+  },
+  "clinical_features": {
+    "indications": [
+      "Diagnostic catheterization (5-6F access)",
+      "Interventional procedures (6-8F access)",
+      "Large-bore access closure (TAVR, EVAR using preclose)",
+      "Patients requiring early ambulation",
+      "Outpatient procedures requiring rapid discharge"
+    ],
+    "contraindications": [
+      "Severe CFA disease/calcification at access site",
+      "Prior closure device at same site (relative - depends on device)",
+      "Small CFA diameter (<5mm relative)",
+      "Access site infection",
+      "Puncture through bypass graft (most devices)",
+      "Access significantly above or below CFA"
+    ],
+    "device_selection": {
+      "angioseal_6f_8f": {
+        "mechanism": "Collagen plug + intravascular anchor",
+        "sizes": "6F and 8F sheaths",
+        "advantages": "Reliable, established track record",
+        "limitations": "Intravascular component, can't use at same site for 90 days"
+      },
+      "perclose_proglide": {
+        "mechanism": "Suture-mediated closure",
+        "sizes": "Up to 8F (single), up to 21F+ (preclose)",
+        "advantages": "Works with anticoagulation, no intravascular foreign body remains",
+        "limitations": "Learning curve, higher failure rate in calcified arteries"
+      },
+      "starclose": {
+        "mechanism": "Extravascular nitinol clip",
+        "sizes": "Up to 6F",
+        "advantages": "No intravascular component",
+        "limitations": "Smaller size range, permanent metallic implant"
+      },
+      "mynx": {
+        "mechanism": "Extravascular sealant (water-soluble PEG)",
+        "sizes": "5F-7F",
+        "advantages": "Completely biodegradable, extravascular",
+        "limitations": "Requires intact tissue tract"
+      }
+    },
+    "technique": {
+      "preclose": {
+        "indication": "Large-bore access (>8F)",
+        "steps": [
+          "Obtain initial access with small sheath",
+          "Deploy 1-2 Perclose ProGlide devices",
+          "Leave sutures untied, secured outside skin",
+          "Exchange for large-bore sheath",
+          "Perform procedure",
+          "Remove large sheath",
+          "Tie pre-placed sutures to close arteriotomy"
+        ]
+      },
+      "general_principles": [
+        "Confirm CFA puncture (not SFA, profunda, or above ligament)",
+        "Assess for disease/calcification at access site",
+        "Maintain wire access until hemostasis confirmed",
+        "Follow device-specific instructions for deployment",
+        "Hold pressure for 5 minutes after device deployment",
+        "Assess for hematoma, pseudoaneurysm before discharge"
+      ]
+    },
+    "complications": [
+      {
+        "complication": "Device failure (no hemostasis)",
+        "incidence": "3-8%",
+        "prevention": "Proper patient selection, correct technique",
+        "management": "Manual compression, adjunctive device, surgical repair if needed"
+      },
+      {
+        "complication": "Limb ischemia/embolization",
+        "incidence": "<1%",
+        "prevention": "Don't deploy into diseased vessel, confirm position",
+        "management": "Thrombectomy, surgical repair"
+      },
+      {
+        "complication": "Infection",
+        "incidence": "<1%",
+        "prevention": "Sterile technique",
+        "management": "Antibiotics, may need device removal and surgical repair"
+      },
+      {
+        "complication": "Pseudoaneurysm",
+        "incidence": "1-3%",
+        "prevention": "Confirm complete closure, hold pressure after deployment",
+        "management": "Ultrasound-guided compression, thrombin injection, surgical repair"
+      }
+    ],
+    "outcomes": {
+      "success_rate": "90-95% immediate hemostasis",
+      "time_to_ambulation": "2-4 hours (vs 6 hours for manual compression)",
+      "complication_rate": "Similar to manual compression in most studies",
+      "patient_satisfaction": "Higher with VCDs vs manual compression"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Vascular Closure Device Selection"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "VCD Selection"
+      },
+      {
+        "@language": "en",
+        "@value": "Arteriotomy Closure Devices"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Principles and criteria for selecting appropriate vascular closure devices for arterial access site hemostasis"
+    },
+    "notation": "PROC-033"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:procedures:femoral-access",
+        "title": "Femoral Arterial Access",
+        "strength": 0.9
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:procedures:same-day-discharge",
+        "title": "Same-Day Discharge After Intervention",
+        "strength": 0.8
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:access-techniques",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Vascular Access Techniques"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:procedures:large-bore-access",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Large Bore Arterial Access"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "journal",
+        "citation": "Biancari F, et al. Meta-analysis of randomized trials comparing vascular closure devices with manual compression. Heart. 2010.",
+        "confidence": 0.96
+      },
+      {
+        "type": "textbook",
+        "citation": "Rutherford's Vascular Surgery, 9th Edition. Vascular Access and Closure.",
+        "confidence": 0.97
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "interventional_radiology_fellows",
+      "interventional_cardiology_fellows"
+    ],
+    "estimated_time": "25min",
+    "learning_objectives": [
+      "Describe the mechanisms of major vascular closure device categories",
+      "Select appropriate closure device based on clinical scenario",
+      "Perform VCD deployment with proper technique",
+      "Manage closure device complications"
+    ],
+    "clinical_pearls": [
+      "Perclose/ProGlide is the most versatile - works with anticoagulation and large-bore access",
+      "AngioSeal leaves an intravascular component - can't use same site for 90 days",
+      "Preclose technique = deploy sutures BEFORE the big sheath, tie AFTER",
+      "Device failure isn't rare (3-8%) - always be ready to convert to manual compression",
+      "Proper patient selection is as important as proper technique"
+    ],
+    "board_yield": "MEDIUM"
+  },
+  "rendering_hints": {
+    "primary_representation": "device_comparison_table",
+    "show_images": true,
+    "visualization": [
+      "device_mechanisms",
+      "deployment_technique",
+      "preclose_steps"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "232646005",
+      "uri": "http://snomed.info/id/232646005",
+      "description": "Closure of arteriotomy (procedure)"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "36592",
+      "description": "Collection of blood specimen from a completely implantable venous access device"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-PCS",
+      "codeValue": "04HK33Z",
+      "description": "Insertion of infusion device into femoral artery, percutaneous approach"
+    }
+  ]
+}

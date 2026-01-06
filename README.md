@@ -4,18 +4,24 @@
 
 > A file-based, language-agnostic knowledge representation system for subject matter expert domains
 
-## 🎉 What's New (v0.2.0 - January 2026)
+## 🎉 What's New (v0.3.0 - January 2026)
 
-**Major Update**: Complete migration to global domain hierarchy!
+**Latest Update**: Centralized renders infrastructure!
+
+- ✅ **255 renders migrated** from distributed `.renders/` to centralized `renders/` directory
+- ✅ **21 documentation files** updated with new paths
+- ✅ **3 automation tools** created (index generator, AKU usage tracker, CI/CD validation)
+- ✅ **6 comprehensive guides** (50KB+ documentation)
+- ✅ **658 AKUs tracked** with render coverage metrics (currently 2.7%)
+- ✅ **CI/CD validation** for renders integrity
+- ✅ **Developer guide** with best practices and workflows
+
+**Previous Update (v0.2.0)**: Complete migration to global domain hierarchy!
 
 - ✅ **266 AKUs** successfully migrated to ontologically rigorous structure
 - ✅ **Zero data loss** - 100% migration success rate
 - ✅ **Legacy cleanup** - Removed 293 duplicate files (90K+ lines)
 - ✅ **New hierarchy** - 4 top-level domains based on UNESCO/LOC/DDC standards
-- ✅ **Enhanced tools** - Validators, migration scripts, comprehensive docs
-- ✅ **Complete documentation** - Migration guides, tool READMEs, CHANGELOG
-
-**Breaking Change**: Old domain paths (`domain/science/`, `domain/economics/`, `domain/medicine/`) have been removed. Use new hierarchy (`formal-sciences/`, `natural-sciences/`, `social-sciences/`, `health-sciences/`).
 
 See [CHANGELOG.md](CHANGELOG.md) for complete details.
 

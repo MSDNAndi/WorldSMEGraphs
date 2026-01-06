@@ -37,7 +37,7 @@ Core AKU (language-agnostic)
     ├── structure (relationships, prerequisites)
     └── semantic_links (ontology references)
         │
-        └── .renders/
+        # Rendered content in renders/by-domain/ directory
             ├── english/
             │   ├── toddler.md
             │   ├── child.md
@@ -122,7 +122,7 @@ Core AKU (language-agnostic)
 ```
 domain/formal-sciences/mathematics/geometry/
 ├── pythagorean-theorem.json          # Core AKU (language-agnostic)
-└── .renders/
+# Rendered content in renders/by-domain/ directory
     ├── english/
     │   ├── toddler.md                 # Ages 2-4
     │   ├── child.md                   # Ages 5-8
@@ -241,7 +241,7 @@ Use native language terms for audience levels, not English translations.
 - [ ] Format/layout check
 
 **Step 5: Publish**
-- [ ] Add to .renders/ directory
+- [ ] Add to renders/by-domain/[domain-path]/[language]/ directory
 - [ ] Update language index
 - [ ] Document contributors
 - [ ] Mark review status

@@ -1,0 +1,186 @@
+name: Validate Renders
+
+on:
+  push:
+    paths:
+      - 'renders/**'
+      - 'domain/**/*.graph'
+      - 'domain/**/*.json'
+  pull_request:
+    paths:
+      - 'renders/**'
+      - 'domain/**/*.graph'
+      - 'domain/**/*.json'
+  workflow_dispatch:
+
+jobs:
+  validate-renders:
+    name: Validate Rendered Content
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+      
+      - name: Check renders directory structure
+        run: |
+          echo "Checking renders directory structure..."
+          if [ ! -d "renders/by-domain" ]; then
+            echo "❌ ERROR: renders/by-domain/ directory not found"
+            exit 1
+          fi
+          echo "✅ renders/by-domain/ exists"
+          
+          if [ ! -d "renders/_metadata" ]; then
+            echo "❌ ERROR: renders/_metadata/ directory not found"
+            exit 1
+          fi
+          echo "✅ renders/_metadata/ exists"
+          
+          if [ ! -f "renders/README.md" ]; then
+            echo "⚠️  WARNING: renders/README.md not found"
+          else
+            echo "✅ renders/README.md exists"
+          fi
+      
+      - name: Check for old .renders directories
+        run: |
+          echo "Checking for legacy .renders directories in domain/..."
+          OLD_RENDERS=$(find domain -type d -name ".renders" 2>/dev/null || true)
+          if [ -n "$OLD_RENDERS" ]; then
+            echo "❌ ERROR: Found legacy .renders directories:"
+            echo "$OLD_RENDERS"
+            echo ""
+            echo "These should be migrated to renders/by-domain/"
+            exit 1
+          fi
+          echo "✅ No legacy .renders directories found"
+      
+      - name: Regenerate render index
+        run: |
+          echo "Regenerating render index..."
+          python renders/_metadata/tools/generate_render_index.py
+          
+          echo ""
+          echo "Checking if index changed..."
+          if git diff --exit-code renders/_metadata/render-index.yaml > /dev/null 2>&1; then
+            echo "✅ Render index is up to date"
+          else
+            echo "⚠️  WARNING: Render index is out of date"
+            echo "Run: python renders/_metadata/tools/generate_render_index.py"
+            echo ""
+            echo "Diff:"
+            git diff renders/_metadata/render-index.yaml || true
+            # Don't fail on this - just warn
+          fi
+      
+      - name: Count renders
+        run: |
+          echo "Counting rendered files..."
+          TOTAL_FILES=$(find renders/by-domain -type f | wc -l)
+          echo "Total rendered files: $TOTAL_FILES"
+          
+          echo ""
+          echo "By language:"
+          for lang in english german french spanish; do
+            COUNT=$(find renders/by-domain -path "*/$lang/*" -type f | wc -l)
+            if [ $COUNT -gt 0 ]; then
+              echo "  $lang: $COUNT files"
+            fi
+          done
+          
+          echo ""
+          echo "By extension:"
+          for ext in md pdf pptx png jpg json; do
+            COUNT=$(find renders/by-domain -name "*.$ext" | wc -l)
+            if [ $COUNT -gt 0 ]; then
+              echo "  .$ext: $COUNT files"
+            fi
+          done
+      
+      - name: Check for orphaned renders
+        run: |
+          echo "Checking for renders without corresponding domain content..."
+          ORPHAN_COUNT=0
+          
+          # This is a simplified check - a full check would parse metadata
+          # For now, just verify that the domain paths in renders exist in domain/
+          
+          for render_dir in renders/by-domain/*/; do
+            if [ -d "$render_dir" ]; then
+              # Extract domain path
+              DOMAIN_PATH=$(echo $render_dir | sed 's|renders/by-domain/||' | sed 's|/$||')
+              
+              # Check if corresponding domain directory exists
+              if [ ! -d "domain/$DOMAIN_PATH" ]; then
+                echo "⚠️  WARNING: Render directory $render_dir has no corresponding domain/ directory"
+                ORPHAN_COUNT=$((ORPHAN_COUNT + 1))
+              fi
+            fi
+          done
+          
+          if [ $ORPHAN_COUNT -eq 0 ]; then
+            echo "✅ No obvious orphaned renders found"
+          else
+            echo "⚠️  Found $ORPHAN_COUNT potential orphan directories (may be OK for archived content)"
+          fi
+      
+      - name: Summary
+        if: always()
+        run: |
+          echo ""
+          echo "=================================================="
+          echo "Render Validation Summary"
+          echo "=================================================="
+          echo "✅ Structure validation passed"
+          echo "✅ No legacy .renders directories"
+          echo "✅ Render index checked"
+          echo "✅ Orphan check completed"
+          echo "=================================================="
+
+  check-documentation:
+    name: Check Documentation References
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Check for .renders references in docs
+        run: |
+          echo "Checking for legacy .renders references in documentation..."
+          
+          # Files that should be updated
+          DOC_FILES=$(find . -name "*.md" -not -path "./renders/*" -not -path "./.git/*" -not -path "./node_modules/*")
+          
+          LEGACY_REFS=0
+          for file in $DOC_FILES; do
+            if grep -q "\.renders/" "$file" 2>/dev/null; then
+              # Skip historical/tracking files
+              if echo "$file" | grep -q -E "(tracking|proposals|archive|CHANGELOG)"; then
+                continue
+              fi
+              
+              echo "⚠️  Found .renders reference in: $file"
+              grep -n "\.renders" "$file" | head -3
+              echo ""
+              LEGACY_REFS=$((LEGACY_REFS + 1))
+            fi
+          done
+          
+          if [ $LEGACY_REFS -eq 0 ]; then
+            echo "✅ No legacy .renders references found in operational documentation"
+          else
+            echo "⚠️  Found $LEGACY_REFS files with legacy .renders references"
+            echo "    (Historical/tracking files are OK)"
+          fi

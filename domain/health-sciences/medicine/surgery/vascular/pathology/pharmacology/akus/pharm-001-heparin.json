@@ -1,0 +1,186 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:pharm:pharm-001-heparin",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T06:00:00.000Z",
+    "last_updated": "2026-01-06T06:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "copyright_compliance": "Original content based on general medical knowledge"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/pharmacology",
+    "type": "pharmacology",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "PHARM-001",
+    "keywords": ["heparin", "anticoagulation", "UFH", "PTT", "protamine"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "anticoagulation",
+    "board_yield": "HIGH"
+  },
+  "content": {
+    "title": "Unfractionated Heparin Pharmacology for Vascular Surgery",
+    "statement": {
+      "text": "Unfractionated heparin (UFH) is the cornerstone anticoagulant for vascular procedures, providing rapidly titratable anticoagulation via antithrombin III activation, monitored by PTT and reversible with protamine.",
+      "formal": "Mechanism: Potentiates antithrombin III; Monitoring: PTT or ACT; Reversal: Protamine (1 mg per 100 units heparin); Half-life: 60-90 minutes IV"
+    },
+    "explanation": {
+      "intuition": "Heparin is like a turbocharger for the body's natural anticoagulant (antithrombin III), making it work 1000 times faster. It works immediately when given IV and can be quickly reversed with protamine.",
+      "key_insight": "Heparin's short half-life and protamine reversibility make it ideal for intraoperative use - full anticoagulation for the procedure, rapid offset when done.",
+      "technical_details": "Unfractionated heparin binds to antithrombin III, causing a conformational change that accelerates its inhibition of thrombin (factor IIa) and factor Xa by 1000-fold. UFH is a heterogeneous mixture of molecules (MW 3000-30,000) extracted from porcine intestinal mucosa. Intravenous administration provides immediate anticoagulation. PTT is used for therapeutic monitoring (goal 60-80 seconds or 1.5-2.5x baseline). Activated clotting time (ACT) is used intraoperatively (goal >250-300 seconds). Protamine reverses heparin by ionic binding.",
+      "common_misconceptions": [
+        "PTT always reflects heparin effect - FALSE, many factors affect PTT",
+        "Fixed heparin doses are adequate - FALSE, wide variability in response",
+        "Heparin-induced thrombocytopenia is always severe - FALSE, Type I is benign",
+        "Protamine has no risks - FALSE, can cause hypotension, anaphylaxis"
+      ]
+    },
+    "pharmacology": {
+      "mechanism": {
+        "primary": "Potentiates antithrombin III (AT-III)",
+        "targets": ["Factor IIa (thrombin)", "Factor Xa"],
+        "potentiation": "1000-fold increase in AT-III activity"
+      },
+      "pharmacokinetics": {
+        "administration": "IV bolus and/or infusion",
+        "onset": "Immediate (IV)",
+        "half_life": "60-90 minutes (dose-dependent)",
+        "elimination": "Hepatic, reticuloendothelial system"
+      }
+    },
+    "intraoperative_use": {
+      "dosing": {
+        "standard": "80-100 units/kg IV bolus",
+        "goal_act": "250-350 seconds (procedure dependent)",
+        "redosing": "Every 45-60 minutes as needed"
+      },
+      "monitoring": {
+        "act": "Point-of-care testing in OR",
+        "goal": "Usually >250 seconds for vascular procedures"
+      }
+    },
+    "therapeutic_anticoagulation": {
+      "indications": ["DVT/PE treatment", "Postoperative anticoagulation", "Bridge therapy"],
+      "dosing": {
+        "bolus": "80 units/kg",
+        "infusion": "18 units/kg/hour",
+        "adjustment": "Based on PTT every 6 hours until stable"
+      },
+      "monitoring": {
+        "ptt": "Goal 60-80 seconds (or 1.5-2.5x baseline)",
+        "anti_xa": "Alternative for heparin monitoring"
+      }
+    },
+    "reversal": {
+      "agent": "Protamine sulfate",
+      "dose": "1 mg protamine per 100 units heparin given",
+      "timing": "Account for heparin decay (half-life 60-90 min)",
+      "administration": "Slow IV infusion (over 10 minutes)",
+      "cautions": [
+        "Hypotension (especially if given rapidly)",
+        "Anaphylaxis (NPH insulin, fish allergy)",
+        "Pulmonary vasoconstriction",
+        "Paradoxical anticoagulation if excess given"
+      ]
+    },
+    "complications": {
+      "bleeding": {
+        "risk": "Main complication",
+        "management": "Hold heparin, protamine if severe"
+      },
+      "hit": {
+        "type_1": {
+          "onset": "Days 1-4",
+          "mechanism": "Non-immune platelet aggregation",
+          "severity": "Mild, transient, benign"
+        },
+        "type_2": {
+          "onset": "Days 5-10 (or earlier if prior exposure)",
+          "mechanism": "Immune-mediated, anti-PF4 antibodies",
+          "severity": "Severe, thrombotic risk",
+          "management": "Stop heparin, alternative anticoagulation (argatroban, bivalirudin)"
+        }
+      },
+      "osteoporosis": "With long-term use"
+    },
+    "terminology": {
+      "snomed_ct": "372877000",
+      "icd_10": "Z79.01"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Unfractionated Heparin"},
+    "altLabel": ["UFH", "Heparin Sodium", "IV Heparin"],
+    "definition": {"@language": "en", "@value": "Anticoagulant that potentiates antithrombin III to inhibit thrombin and factor Xa, used for intraoperative and therapeutic anticoagulation."},
+    "notation": "PHARM-001"
+  },
+  "clinical_features": {
+    "presentation": [
+      "Patient requiring anticoagulation for vascular procedure",
+      "Patient with acute thrombosis (DVT, PE)",
+      "Need for rapidly titratable anticoagulation"
+    ],
+    "diagnosis": [
+      "Monitor PTT for therapeutic use",
+      "Monitor ACT for intraoperative use",
+      "HIT screening if platelet drop"
+    ],
+    "treatment": [
+      "Weight-based dosing",
+      "Monitoring and adjustment",
+      "Protamine reversal as needed"
+    ]
+  },
+  "relationships": {
+    "prerequisites": ["vascular:coagulation:coagulation-cascade"],
+    "enables": ["vascular:procedures:vascular-surgery", "vascular:pharm:pharm-002-lmwh"],
+    "skos:broader": ["vascular:pharm:anticoagulation"],
+    "skos:related": ["vascular:pharm:pharm-006-reversal", "vascular:complications:hit"],
+    "skos:narrower": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "reference": "ACCP Guidelines on Antithrombotic Therapy",
+        "evidence_level": "A"
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "anesthesiology residents", "pharmacy students"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Explain the mechanism of heparin anticoagulation",
+      "Calculate appropriate heparin dosing for vascular surgery",
+      "Apply protamine reversal principles",
+      "Recognize and manage heparin-induced thrombocytopenia"
+    ],
+    "clinical_pearls": [
+      "Heparin dose: 80-100 units/kg for vascular procedures, goal ACT >250",
+      "Protamine: 1 mg per 100 units heparin (give slowly to avoid hypotension)",
+      "HIT Type II: Days 5-10, immune-mediated, thrombotic - STOP heparin",
+      "Half-life 60-90 min - useful for short procedures without reversal",
+      "Check PTT or ACT before redosing intraoperatively"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codeValue": "372877000",
+      "codingSystem": "SNOMED-CT",
+      "name": "Heparin"
+    },
+    {
+      "@type": "MedicalCode",
+      "codeValue": "Z79.01",
+      "codingSystem": "ICD-10-CM",
+      "name": "Long term use of anticoagulants"
+    }
+  ]
+}

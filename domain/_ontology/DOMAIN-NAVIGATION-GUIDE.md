@@ -103,7 +103,7 @@
      - Diagnosis (1 AKU): CTA imaging findings
      - Management (2 AKUs): Embolization technique, treatment algorithm
      - Clinical (1 AKU): Clinical significance
-   - **Visual Guide**: `.renders/type2-endoleak-visual-guide.md`
+   - **Visual Guide**: `renders/by-domain/[domain-path]/type2-endoleak-visual-guide.md`
 
 2. **Mesenteric Ischemia** (55 AKUs)
    - **Path**: `pathology/mesenteric-ischemia/`
@@ -157,7 +157,7 @@ formal-sciences/
 - **Naming**: Descriptive kebab-case (e.g., `ct-001-historical-origins.json`)
 
 #### Renders (Human-Readable Content)
-- **Location**: `[domain]/[subdomain]/.renders/`
+- **Location**: `renders/by-domain/[domain-path]/[language]/`
 - **Formats**: Markdown, PDF, PowerPoint
 - **Audiences**: Multiple levels (4-year-old to graduate)
 - **Languages**: English, German, etc.
@@ -183,13 +183,13 @@ formal-sciences/
 1. **Application Domain**: `science/computer-science/functional-theory/`
 2. **Topics**: Functors, monoids, monads
 3. **Cross-Refs**: Links to native math definitions
-4. **Visual Guide**: `.renders/functional-programming-visual-guide.md`
+4. **Visual Guide**: `renders/by-domain/[domain-path]/functional-programming-visual-guide.md`
 
 #### Want Medical Information on Endoleaks?
 1. **Domain**: `health-sciences/medicine/surgery/vascular/`
 2. **Specific**: `complications/endoleaks/type-2/`
 3. **AKUs**: 9 comprehensive files
-4. **Visual Guide**: `.renders/type2-endoleak-visual-guide.md`
+4. **Visual Guide**: `renders/by-domain/[domain-path]/type2-endoleak-visual-guide.md`
 
 #### Want Physics at Planck Scale?
 1. **Domain**: `natural-sciences/physics/quantum-mechanics/`
@@ -372,7 +372,7 @@ python domain/_ontology/tools/migrate_domain.py \
 ### Researchers
 1. Navigate to your discipline's domain
 2. Browse AKUs for atomic knowledge
-3. Check `.renders/` for visual guides
+3. Check `renders/by-domain/[domain-path]/` for visual guides
 4. Use cross-domain references to find related content
 
 ### Developers

@@ -1,90 +1,223 @@
 {
-  "@context": "aku-v2",
-  "@type": "clinical-concept",
-  "@id": "vascular:venous:dvd-001-deep-venous-reconstruction",
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:dvd-001-deep-reconstruction",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-05T14:45:00.000Z",
-    "contributors": ["vascular-surgery-agent"],
+    "contributors": ["vascular-surgery-agent", "copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
     "status": "validated",
-    "copyright_compliance": "Original content based on general medical knowledge"
+    "last_updated": "2026-01-06T17:30:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
-    "type": "surgical-procedure",
+    "type": "procedure",
     "difficulty": "advanced",
-    "importance": "medium",
-    "board_yield": "MEDIUM"
+    "importance": "high",
+    "aku_id": "DVD-001",
+    "keywords": ["deep venous reconstruction", "post-thrombotic syndrome", "venous bypass", "valve surgery", "Palma procedure"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
   },
   "content": {
-    "title": "Deep Venous Reconstruction",
-    "definition": "Surgical procedures aimed at restoring venous outflow and/or competence in the deep venous system for patients with severe post-thrombotic syndrome or primary deep venous insufficiency.",
-    "indications": {
-      "primary": [
-        "Severe post-thrombotic syndrome refractory to conservative therapy",
-        "Iliofemoral venous occlusion with chronic symptoms",
-        "Primary deep venous reflux with ulceration"
-      ],
-      "patient_selection": [
-        "Failed compression therapy",
-        "Venous claudication limiting quality of life",
-        "Non-healing venous ulcer despite superficial ablation"
+    "statement": {
+      "text": "Deep venous reconstruction encompasses endovascular and open surgical procedures to restore venous outflow (stenting, bypass) or valve competence (valvuloplasty, transplant) for severe post-thrombotic syndrome or primary deep venous insufficiency refractory to conservative therapy.",
+      "formal": "Deep_Venous_Reconstruction = Outflow_Restoration (Stenting ∪ Bypass) ∪ Valve_Reconstruction (Valvuloplasty ∪ Transplant ∪ Neovalve)"
+    },
+    "explanation": {
+      "intuition": "When the deep venous highway is blocked or its one-way doors (valves) are destroyed, blood cannot efficiently return from the leg. Deep reconstruction either clears the blockage (stenting, bypass) or rebuilds the doors (valve surgery) to restore normal circulation.",
+      "key_insight": "Endovascular stenting has revolutionized iliofemoral obstruction treatment, but valve reconstruction remains challenging with limited durability. The key is proper patient selection: stenting for obstruction, valve surgery only for isolated reflux without obstruction in select patients.",
+      "technical_details": "Outflow reconstruction addresses chronic iliofemoral obstruction through dedicated venous stenting (14-24mm) or open bypass (Palma cross-femoral, May-Husni femoropopliteal). Valve reconstruction addresses isolated deep reflux through internal valvuloplasty (tightening redundant cusps), external valvuloplasty (cuff or sling), valve segment transplantation (brachial or axillary), or neovalve creation. Combined procedures address obstruction plus reflux.",
+      "common_misconceptions": [
+        "Misconception: Deep venous reconstruction is routinely performed. Reality: Most patients are managed with compression and superficial intervention; deep reconstruction is reserved for severe, refractory disease.",
+        "Misconception: Valve transplant restores normal function. Reality: Transplanted valves have limited durability; 5-year competence is 50-60%.",
+        "Misconception: Open bypass is obsolete. Reality: Palma procedure remains valuable for unilateral iliofemoral occlusion when stenting fails."
       ]
-    },
-    "reconstruction_types": {
-      "endovascular": {
-        "iliofemoral_stenting": {
-          "indication": "Chronic iliofemoral DVT, May-Thurner syndrome",
-          "technique": "Large-bore dedicated venous stents",
-          "patency": "85-90% at 1 year with anticoagulation"
-        },
-        "recanalization": "CTO crossing of chronic occlusions"
-      },
-      "open_bypass": {
-        "palma_procedure": {
-          "indication": "Unilateral iliofemoral occlusion",
-          "technique": "Contralateral saphenous vein crossover graft",
-          "av_fistula": "Often added to enhance patency"
-        },
-        "saphenopopliteal_bypass": "Femoropopliteal bypass using saphenous"
-      },
-      "valve_procedures": {
-        "valvuloplasty": "Repair of native valve",
-        "valve_transplant": "Brachial or axillary valve segment",
-        "neovalve": "Creation of neo-valve from vein wall"
-      }
-    },
-    "outcomes": {
-      "iliac_stenting": "High patency, excellent symptom relief",
-      "bypass": "Variable, requires anticoagulation",
-      "valve_surgery": "Limited durability, technically demanding"
-    },
-    "complications": [
-      "Thrombosis of reconstruction",
-      "Wound complications",
-      "Recurrent symptoms"
-    ],
-    "terminology": {
-      "snomed_ct": "76189005",
-      "icd_10": "I87.09",
-      "cpt": "35501"
     }
   },
-  "pedagogical": {
-    "learning_objectives": [
-      "Identify candidates for deep venous reconstruction",
-      "Describe major reconstruction options",
-      "Understand outcomes of iliofemoral stenting"
+  "clinical_features": {
+    "indications": {
+      "outflow_obstruction": [
+        "Chronic iliofemoral DVT with symptoms",
+        "May-Thurner syndrome with obstruction",
+        "Post-thrombotic syndrome with venous claudication",
+        "Failed conservative therapy (compression >6 months)"
+      ],
+      "valve_incompetence": [
+        "Primary deep venous reflux with ulceration",
+        "Isolated deep reflux after superficial ablation",
+        "Severe reflux in axial deep veins",
+        "Failed comprehensive conservative therapy"
+      ],
+      "contraindications": [
+        "Active infection",
+        "Hypercoagulable state without anticoagulation",
+        "Short life expectancy",
+        "Non-compliance with postoperative requirements"
+      ]
+    },
+    "outflow_procedures": {
+      "iliofemoral_stenting": {
+        "indication": "Chronic iliofemoral obstruction, May-Thurner syndrome",
+        "technique": "IVUS-guided deployment of dedicated venous stents (14-24mm)",
+        "access": "Popliteal or mid-femoral vein approach",
+        "outcomes": "85-95% patency at 5 years for non-thrombotic; 70-80% for post-thrombotic",
+        "details": "See DVD-004 for comprehensive stenting details"
+      },
+      "palma_procedure": {
+        "indication": "Unilateral iliofemoral occlusion with healthy contralateral limb",
+        "technique": "Cross-femoral bypass using contralateral GSV",
+        "av_fistula": "Often added distally to enhance patency",
+        "outcomes": "70-80% patency at 5 years with AV fistula"
+      },
+      "may_husni_bypass": {
+        "indication": "Chronic femoropopliteal occlusion",
+        "technique": "Femoropopliteal bypass with saphenous vein",
+        "outcomes": "Limited data, reserved for select cases"
+      }
+    },
+    "valve_procedures": {
+      "internal_valvuloplasty": {
+        "indication": "Redundant, stretched but intact valve cusps",
+        "technique": "Venotomy, direct suture plication of cusps",
+        "outcomes": "70% competence at 5 years in primary disease"
+      },
+      "external_valvuloplasty": {
+        "indication": "Valve dilation without cusp destruction",
+        "technique": "External cuff or sling to reduce annular diameter",
+        "advantages": "No venotomy, less technical"
+      },
+      "valve_transplant": {
+        "indication": "Destroyed valve cusps requiring replacement",
+        "donor_sites": "Brachial vein (preferred), axillary vein",
+        "technique": "Segmental transplant with interposition",
+        "outcomes": "50-60% competence at 5 years",
+        "limitations": "Technical complexity, limited durability"
+      },
+      "neovalve_creation": {
+        "indication": "No suitable transplant donor",
+        "technique": "Intussusception of vein wall to create valve-like structure",
+        "outcomes": "Variable, limited experience"
+      }
+    },
+    "postoperative_care": [
+      "Anticoagulation (warfarin or DOAC) for 6-12 months minimum",
+      "Compression therapy",
+      "Early ambulation",
+      "Duplex surveillance at 1, 3, 6, 12 months"
     ],
-    "clinical_pearls": [
-      "Iliofemoral stenting is first-line for chronic obstruction",
-      "Palma procedure requires contralateral healthy vein",
-      "Valve surgery has limited durability"
+    "presentation": [
+      "Severe post-thrombotic syndrome (Villalta >14)",
+      "Venous claudication limiting activity",
+      "Non-healing venous ulcer despite superficial treatment",
+      "Significant quality of life impairment"
+    ],
+    "diagnosis": [
+      "Comprehensive duplex ultrasound",
+      "CT or MR venography for anatomy",
+      "IVUS for stenosis quantification",
+      "Air plethysmography for function",
+      "Villalta score for PTS severity"
+    ],
+    "treatment": [
+      "Optimize conservative therapy first (compression, exercise)",
+      "Address superficial reflux before deep intervention",
+      "Iliofemoral stenting for obstruction",
+      "Consider bypass if stenting fails or not feasible",
+      "Valve surgery for isolated reflux in select patients"
     ]
   },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Deep Venous Reconstruction"
+    },
+    "altLabel": [
+      "Venous bypass surgery",
+      "Valve reconstruction",
+      "Palma procedure",
+      "Deep venous surgery"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Surgical and endovascular procedures to restore deep venous outflow or valve competence in patients with severe post-thrombotic syndrome or primary deep venous insufficiency refractory to conservative management."
+    },
+    "notation": "DVD-001"
+  },
   "relationships": {
-    "broader": ["vascular:venous:pts"],
-    "related": ["vascular:venous:may-thurner", "vascular:venous:cvi"],
-    "narrower": []
-  }
+    "prerequisites": [
+      "vascular:venous:ven-001-hemodynamics",
+      "vascular:venous:ven-002-valve-function",
+      "vascular:venous:pts-pathophysiology"
+    ],
+    "enables": [
+      "vascular:venous:ulcer-healing",
+      "vascular:venous:symptom-relief"
+    ],
+    "skos:broader": ["vascular:venous:deep-venous-procedures"],
+    "skos:related": ["vascular:venous:dvd-004-iliac-stenting", "vascular:venous:may-thurner", "vascular:venous:pts"],
+    "skos:narrower": ["vascular:venous:palma-procedure", "vascular:venous:valvuloplasty", "vascular:venous:valve-transplant"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery and Endovascular Therapy",
+        "edition": "10th",
+        "chapter": "Deep Venous Reconstruction",
+        "year": 2023
+      },
+      {
+        "type": "guideline",
+        "title": "SVS/AVF Guidelines on Management of Chronic Venous Disease",
+        "year": 2022
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery fellows", "academic vascular surgeons", "interventional radiologists"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Identify candidates for deep venous reconstruction",
+      "Compare endovascular and open reconstruction options",
+      "Describe valve surgery techniques and outcomes",
+      "Apply appropriate patient selection criteria"
+    ],
+    "clinical_pearls": [
+      "Iliofemoral stenting is first-line for chronic obstruction - see DVD-004",
+      "Palma procedure requires healthy contralateral saphenous vein and patent iliocaval segment",
+      "Valve surgery has limited durability: 50-60% competence at 5 years",
+      "Always optimize superficial and perforator treatment before deep intervention",
+      "Combined obstruction + reflux is treated with stenting first, then reassess for valve surgery"
+    ],
+    "board_yield": "MODERATE"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "76189005",
+      "description": "Venous bypass"
+    },
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "232735006",
+      "description": "Repair of venous valve"
+    },
+    {
+      "codingSystem": "CPT",
+      "codeValue": "35501",
+      "description": "Bypass graft, with vein; common femoral-ipsilateral popliteal"
+    },
+    {
+      "codingSystem": "CPT",
+      "codeValue": "34501",
+      "description": "Valvuloplasty, femoral vein"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I87.09",
+      "description": "Post-thrombotic syndrome with other complications"
+    }
+  ]
 }

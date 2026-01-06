@@ -505,7 +505,7 @@ python domain/_ontology/tools/validate_cross_domain.py path/to/aku.json
 
 ### Creating Visual Guides
 
-See example in `domain/science/computer-science/functional-theory/.renders/functional-programming-visual-guide.md`
+See example in `renders/by-domain/formal-sciences/computer-science/programming-paradigms/functional-programming/functional-programming-visual-guide.md`
 
 **Structure**:
 1. Overview diagram

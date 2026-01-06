@@ -1,95 +1,194 @@
 {
-  "@context": "aku-v2",
-  "@type": "clinical-concept",
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
   "@id": "vascular:venous:ven-002-valve-function",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-05T14:35:00.000Z",
-    "contributors": ["vascular-surgery-agent"],
+    "contributors": ["vascular-surgery-agent", "copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
     "status": "validated",
-    "copyright_compliance": "Original content based on general medical knowledge"
+    "last_updated": "2026-01-06T17:00:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
-    "type": "physiology",
-    "difficulty": "intermediate",
-    "importance": "high",
-    "board_yield": "HIGH"
+    "type": "concept",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "VEN-002",
+    "keywords": ["venous valve", "valve function", "reflux", "valve incompetence", "bicuspid valve"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
   },
   "content": {
-    "title": "Venous Valve Function",
-    "definition": "Venous valves are bicuspid intimal folds that maintain unidirectional blood flow toward the heart, preventing reflux and enabling efficient venous return despite gravitational forces.",
+    "statement": {
+      "text": "Venous valves are bicuspid intimal folds that ensure unidirectional blood flow toward the heart, segment the hydrostatic column to reduce pressure, and enable efficient muscle pump function. Valve incompetence causing reflux >0.5 seconds (superficial) or >1 second (deep) is pathologic.",
+      "formal": "Pathologic_Reflux: Superficial_Veins > 0.5 seconds; Deep_Veins > 1.0 seconds; Perforators > 0.35-0.5 seconds"
+    },
+    "explanation": {
+      "intuition": "Venous valves work like one-way swing doors - they open easily when blood is pushed toward the heart, but slam shut when blood tries to flow backward. When these doors become damaged or don't close properly, blood repeatedly falls back down the leg with each heartbeat, causing pressure buildup.",
+      "key_insight": "Valve closure is passive, driven by pressure gradient reversal. When you stand up, the blood column above the valve falls back, but the cusps catch it and close within milliseconds. Prolonged closure time (>0.5 seconds) indicates the cusps are damaged, dilated, or destroyed - defining pathologic reflux.",
+      "technical_details": "Venous valves are bicuspid structures with leaflets composed of endothelium overlying a connective tissue core. They arise from intimal folds at slight venous dilations called valve sinuses. The sinuses create eddy currents during flow that begin valve closure before flow reversal. Valve distribution varies: calf deep veins have the most valves, decreasing proximally. The external iliac and IVC are typically valveless. Valve failure can be primary (degenerative) or secondary (post-thrombotic damage, dilation from volume overload).",
+      "common_misconceptions": [
+        "Misconception: All reflux indicates valve destruction. Reality: Mild reflux can occur from venous dilation stretching the valve annulus without cusp damage.",
+        "Misconception: Valves actively close. Reality: Valve closure is passive, driven by pressure gradient reversal creating retrograde flow that catches the cusps.",
+        "Misconception: Valve function can be restored. Reality: Once valves are destroyed (especially post-thrombotic), they cannot regenerate; only surgical valve reconstruction can restore function."
+      ]
+    }
+  },
+  "clinical_features": {
     "anatomy": {
       "structure": {
         "type": "Bicuspid (two leaflets)",
-        "composition": "Endothelium over connective tissue core",
-        "attachment": "At valve sinuses (slight venous dilation)"
+        "composition": "Endothelium overlying connective tissue core",
+        "attachment": "Valve sinuses (slight venous dilation)",
+        "function": "Passive closure driven by pressure gradient reversal"
       },
       "distribution": {
         "lower_extremity": "Most numerous in calf, decreasing proximally",
-        "superficial_system": "5-10 valves in GSV, 7-10 in SSV",
-        "deep_system": "Multiple valves in calf, 1-3 in femoral",
-        "perforators": "Direct flow from superficial to deep"
+        "superficial_system": "5-10 valves in GSV, 7-10 valves in SSV",
+        "deep_system": "Multiple in calf veins, 1-3 in femoral vein",
+        "perforators": "Single valve directing flow superficial to deep",
+        "absent_in": "External iliac vein, IVC typically valveless"
       },
       "notable_locations": [
-        "Saphenofemoral junction (terminal valve)",
-        "Saphenopopliteal junction",
-        "Femoral vein",
-        "Perforating veins"
+        "Terminal valve: SFJ (critical - first line of defense)",
+        "Preterminal valve: 2-3 cm below terminal valve",
+        "Saphenopopliteal junction valve",
+        "Perforator valves"
       ]
     },
     "physiology": {
       "normal_function": [
-        "Divide blood column into segments",
-        "Reduce hydrostatic pressure on distal veins",
-        "Allow muscle pump to propel blood proximally",
+        "Segment hydrostatic column into shorter segments",
+        "Reduce transmitted pressure on distal veins",
+        "Enable muscle pump to propel blood proximally",
         "Close with increased distal pressure (reflux prevention)"
       ],
-      "valve_cycle": [
-        "Open: Flow toward heart during muscle contraction",
-        "Close: Prevent backflow during muscle relaxation",
-        "Closure time: <0.5 seconds normally"
-      ]
-    },
-    "pathology": {
-      "reflux": {
-        "definition": "Retrograde flow through incompetent valve",
-        "causes": ["Primary valve failure", "Post-thrombotic damage", "Dilation"],
-        "duplex_criteria": "Reflux duration >0.5 sec (superficial) or >1 sec (deep)"
-      },
-      "consequences": [
-        "Venous hypertension",
-        "Skin changes",
-        "Ulceration"
-      ]
-    },
-    "assessment": {
-      "duplex_ultrasound": {
-        "technique": "Valsalva or distal augmentation",
-        "measurement": "Reflux duration in seconds",
-        "pathologic": ">0.5 sec superficial, >1 sec deep"
+      "valve_cycle": {
+        "opening": "Flow toward heart during muscle contraction or proximal suction",
+        "closure": "Retrograde pressure catches leaflets, sealing lumen",
+        "closure_time": "Normal <0.5 seconds"
       }
     },
-    "terminology": {
-      "snomed_ct": "11405007",
-      "icd_10": "I87.1"
-    }
-  },
-  "pedagogical": {
-    "learning_objectives": [
-      "Describe venous valve structure and distribution",
-      "Explain valve function in venous return",
-      "Define pathologic reflux duration on duplex"
+    "pathology": {
+      "reflux_definition": "Retrograde flow through incompetent valve",
+      "causes": [
+        "Primary: Degenerative changes, genetic predisposition",
+        "Secondary: Post-thrombotic destruction",
+        "Dilation: Venous ectasia stretching annulus",
+        "Agenesis: Congenital absence (rare)"
+      ],
+      "duplex_criteria": {
+        "superficial": ">0.5 seconds reflux is pathologic",
+        "deep": ">1.0 seconds reflux is pathologic",
+        "perforators": ">0.35-0.5 seconds with outward flow"
+      }
+    },
+    "presentation": [
+      "Varicose veins from superficial valve failure",
+      "Leg heaviness and aching worse with standing",
+      "Edema from sustained venous pressure",
+      "Skin changes in advanced disease"
     ],
-    "clinical_pearls": [
-      "Reflux >0.5 sec in superficial veins is pathologic",
-      "Terminal valve at SFJ is first line of defense",
-      "Post-thrombotic valves are permanently damaged"
+    "diagnosis": [
+      "Duplex ultrasound with Valsalva or augmentation maneuvers",
+      "Measure reflux duration at each valve station",
+      "Assess valve morphology (cusp thickening, destruction)",
+      "Map reflux from proximal to distal to identify escape points"
+    ],
+    "treatment": [
+      "Compression therapy to support valve function",
+      "Ablation of incompetent superficial veins",
+      "Sclerotherapy for smaller veins",
+      "Deep venous valve reconstruction (valvuloplasty, valve transplant) for deep disease",
+      "Perforator interruption for incompetent perforators"
     ]
   },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Venous Valve Function"
+    },
+    "altLabel": [
+      "Venous valve competence",
+      "Valve reflux",
+      "Bicuspid venous valve",
+      "Valve incompetence"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The physiological mechanism whereby bicuspid intimal folds in veins ensure unidirectional blood flow toward the heart, segment the hydrostatic column, and enable efficient venous return through passive closure driven by pressure gradient reversal."
+    },
+    "notation": "VEN-002"
+  },
   "relationships": {
-    "broader": ["vascular:venous:hemodynamics"],
-    "related": ["vascular:venous:cvi", "vascular:venous:reflux"],
-    "narrower": []
-  }
+    "prerequisites": [
+      "vascular:venous:ven-001-hemodynamics"
+    ],
+    "enables": [
+      "vascular:venous:ven-003-muscle-pump",
+      "vascular:venous:cvd-001-ceap-classification",
+      "vascular:venous:reflux-evaluation"
+    ],
+    "skos:broader": ["vascular:venous:physiology"],
+    "skos:related": ["vascular:venous:hemodynamics", "vascular:venous:cvi", "vascular:venous:reflux"],
+    "skos:narrower": ["vascular:venous:terminal-valve", "vascular:venous:perforator-valve"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery and Endovascular Therapy",
+        "edition": "10th",
+        "chapter": "Venous Anatomy and Physiology",
+        "year": 2023
+      },
+      {
+        "type": "guideline",
+        "title": "AVF/SVS Guidelines on Duplex Ultrasound for Venous Disease",
+        "year": 2020
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular technologists", "phlebology practitioners"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Describe venous valve structure and distribution",
+      "Explain the passive mechanism of valve closure",
+      "Define pathologic reflux duration on duplex ultrasound",
+      "Identify causes of primary and secondary valve failure"
+    ],
+    "clinical_pearls": [
+      "Reflux >0.5 sec in superficial veins and >1.0 sec in deep veins is pathologic",
+      "The terminal valve at SFJ is the first line of defense against reflux",
+      "Post-thrombotic valves are permanently destroyed - they cannot regenerate",
+      "Valve sinuses create eddy currents that begin closure before flow reversal",
+      "Always map reflux from proximal to distal to identify the highest point of escape"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "11405007",
+      "description": "Venous valve structure"
+    },
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "234044001",
+      "description": "Venous reflux"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I87.1",
+      "description": "Compression of vein"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I87.2",
+      "description": "Venous insufficiency (chronic) (peripheral)"
+    }
+  ]
 }

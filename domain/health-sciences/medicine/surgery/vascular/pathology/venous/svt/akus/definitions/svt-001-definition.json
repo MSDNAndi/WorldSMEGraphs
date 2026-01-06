@@ -1,106 +1,202 @@
 {
-  "@context": "aku-v2",
-  "@type": "concept",
-  "@id": "vascular:svt:definition",
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:svt-001-definition",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-05T02:58:00.000Z",
-    "updated": "2026-01-05T02:58:00.000Z",
-    "contributors": ["copilot-agent"],
-    "status": "active",
-    "confidence": 0.95
+    "contributors": ["copilot-agent", "copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-06T17:30:00.000Z"
   },
   "classification": {
-    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous/svt",
-    "type": "definition",
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "concept",
     "difficulty": "intermediate",
-    "importance": "essential"
+    "importance": "critical",
+    "aku_id": "SVT-001",
+    "keywords": ["superficial thrombophlebitis", "SVT", "venous thrombosis", "SFJ proximity", "anticoagulation"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
   },
   "content": {
-    "title": "Superficial Venous Thrombophlebitis (SVT)",
-    "definition": "Superficial venous thrombophlebitis is thrombosis and inflammation of a superficial vein, characterized by a painful, erythematous, palpable cord along the course of the affected vein.",
-    "clinical_features": {
-      "epidemiology": {
-        "incidence": "3-11% of population",
-        "associations": ["Varicose veins (60-80%)", "IV catheter use", "Malignancy", "Pregnancy", "Hypercoagulable states"],
-        "dvt_association": "6-40% have concurrent DVT at presentation"
+    "statement": {
+      "text": "Superficial venous thrombophlebitis (SVT) is thrombosis and inflammation of a superficial vein, characterized by a painful erythematous palpable cord. Critical management decisions depend on proximity to the deep system: thrombus within 3-5cm of the SFJ or SPJ requires anticoagulation due to high DVT/PE risk, and 6-40% of SVT patients have concurrent DVT at presentation.",
+      "formal": "SVT_Management: Proximity_to_SFJ < 3-5cm → Anticoagulation; DVT_Coexistence: 6-40%; PE_Risk if untreated near junction: 3-4%"
+    },
+    "explanation": {
+      "intuition": "SVT is like a small fire in a peripheral building - it's usually contained and self-limited. But if it's spreading toward the main building (deep venous system), you need to act aggressively to prevent it from becoming a much bigger problem. The closer to the SFJ, the greater the risk.",
+      "key_insight": "The old teaching that 'superficial phlebitis is just phlebitis' is dangerous. SVT is a marker of hypercoagulability and often occurs with concurrent DVT. ALWAYS ultrasound to check for DVT and assess proximity to deep system. Treatment escalates dramatically based on location.",
+      "technical_details": "SVT affects 3-11% of the population, usually in association with varicose veins (60-80%). The CALISTO trial showed fondaparinux 2.5mg daily for 45 days reduces DVT/PE risk by 85% in SVT patients. Anticoagulation is indicated when thrombus is within 3-5cm of the SFJ or SPJ, when thrombus is >5cm long, or when there's no obvious provocation (suggesting hypercoagulability). The SURPRISE trial confirmed that rivaroxaban 10mg is also effective for high-risk SVT.",
+      "common_misconceptions": [
+        "Misconception: SVT is a benign condition needing only local care. Reality: 6-40% have concurrent DVT; 3-4% progress to PE if near junction.",
+        "Misconception: Clinical exam is sufficient for SVT diagnosis. Reality: Ultrasound is mandatory to assess extent and exclude DVT.",
+        "Misconception: Antibiotics are needed for SVT. Reality: Unless septic, SVT is inflammatory not infectious - use NSAIDs, not antibiotics."
+      ]
+    }
+  },
+  "clinical_features": {
+    "epidemiology": {
+      "incidence": "3-11% of population",
+      "peak_age": "4th-6th decades",
+      "associations": [
+        "Varicose veins (60-80%)",
+        "IV catheter use",
+        "Malignancy (Trousseau syndrome)",
+        "Pregnancy/postpartum",
+        "Hypercoagulable states",
+        "Hormone therapy"
+      ],
+      "dvt_association": "6-40% have concurrent DVT at presentation"
+    },
+    "pathophysiology": {
+      "mechanism": "Virchow's triad: endothelial injury, stasis, hypercoagulability",
+      "locations": {
+        "gsv_system": "Most common - GSV and tributaries (70%)",
+        "ssv_system": "Small saphenous vein (15%)",
+        "upper_extremity": "Often catheter-related (15%)"
       },
-      "pathophysiology": {
-        "mechanism": "Endothelial injury, stasis, hypercoagulability (Virchow's triad)",
-        "locations": {
-          "gsv_system": "Most common - GSV and tributaries",
-          "ssv_system": "Small saphenous vein",
-          "upper_extremity": "Often catheter-related"
-        },
-        "extension_risk": "Thrombus may propagate to deep system through SFJ or SPJ"
-      },
-      "classification": {
-        "spontaneous": "Associated with varicose veins, hypercoagulability",
-        "iatrogenic": "IV catheter, PICC line, infusion-related",
-        "migratory": "Thrombophlebitis migrans - changing locations (malignancy marker)",
-        "septic": "Infected thrombus, often catheter-related"
-      },
-      "clinical_presentation": {
-        "local_signs": "Erythema, warmth, tenderness along vein course",
-        "palpable_cord": "Firm, linear mass following vein",
-        "pain": "Localized, worse with palpation and movement",
-        "systemic": "Usually absent unless septic (then fever, chills)"
-      },
-      "diagnosis": {
-        "clinical": "Often clinical diagnosis based on examination",
-        "duplex_ultrasound": "Required to rule out DVT and assess proximal extent",
-        "sfj_proximity": "Critical - thrombus within 3-5cm of SFJ = high DVT risk",
-        "deep_vein_assessment": "Always evaluate deep system"
-      },
+      "extension_risk": "Thrombus may propagate to deep system through SFJ or SPJ"
+    },
+    "classification": {
+      "spontaneous": "Associated with varicose veins, hypercoagulability",
+      "iatrogenic": "IV catheter, PICC line, infusion-related",
+      "migratory": "Thrombophlebitis migrans - changing locations (malignancy marker)",
+      "septic": "Infected thrombus, fever, purulence - usually catheter-related"
+    },
+    "presentation": [
+      "Erythema, warmth, tenderness along superficial vein",
+      "Palpable cord (firm linear mass following vein)",
+      "Localized pain worse with palpation",
+      "Usually no systemic symptoms (unless septic)"
+    ],
+    "diagnosis": [
+      "Clinical examination (palpable tender cord)",
+      "Duplex ultrasound (REQUIRED) - assess extent, exclude DVT",
+      "Measure proximity to SFJ/SPJ (critical for treatment)",
+      "Evaluate deep system for concurrent DVT",
+      "Consider malignancy workup if unprovoked or migratory"
+    ],
+    "treatment": {
       "risk_stratification": {
         "low_risk": "Isolated, <5cm, distal location, catheter-related",
-        "high_risk": "Within 3-5cm of SFJ/SPJ, >5cm length, no varicose veins, bilateral, recurrent"
+        "high_risk": "Within 3-5cm of SFJ/SPJ, >5cm length, unprovoked, bilateral, recurrent"
       },
-      "treatment": {
-        "all_patients": "Duplex to evaluate extent and exclude DVT",
-        "local_measures": "Warm compresses, NSAIDs, compression, ambulation",
-        "distal_isolated": "NSAIDs, compression, follow-up duplex",
-        "near_sfj_spj": "Anticoagulation (fondaparinux or LMWH) for 4-6 weeks",
-        "extensive": "May require therapeutic anticoagulation as for DVT",
-        "surgical": "Consider SFJ ligation if thrombus at junction despite anticoagulation",
-        "septic": "IV antibiotics, remove source, possible surgical drainage"
-      },
-      "prognosis": {
-        "resolution": "Usually resolves in 2-4 weeks",
-        "recurrence": "Common in patients with varicose veins until treated",
-        "vte_risk": "3-4% progress to DVT/PE if untreated near junction"
-      },
-      "special_situations": {
-        "malignancy_workup": "Consider if unprovoked, recurrent, migratory (Trousseau syndrome)",
-        "thrombophilia_testing": "Recurrent, young age, no obvious cause",
-        "upper_extremity": "Remove catheter, may need anticoagulation if extensive"
-      }
+      "low_risk_svt": [
+        "NSAIDs for pain and inflammation",
+        "Warm compresses",
+        "Compression therapy",
+        "Ambulation encouraged",
+        "Follow-up duplex in 1-2 weeks"
+      ],
+      "high_risk_svt": [
+        "Anticoagulation for 4-6 weeks",
+        "Fondaparinux 2.5mg daily (CALISTO trial) OR",
+        "Rivaroxaban 10mg daily (SURPRISE trial) OR",
+        "LMWH prophylactic dose",
+        "Compression and ambulation"
+      ],
+      "thrombus_at_junction": [
+        "Therapeutic anticoagulation as for DVT",
+        "Consider SFJ/SPJ ligation if progressing despite anticoagulation"
+      ],
+      "septic_svt": [
+        "IV antibiotics",
+        "Remove catheter or infected source",
+        "Possible surgical drainage",
+        "Consider anticoagulation"
+      ]
     },
-    "codes": {
-      "snomed_ct": ["64156001"],
-      "icd_10": ["I80.00", "I80.01", "I80.02", "I80.03"]
+    "key_trials": {
+      "calisto": "Fondaparinux 2.5mg daily x 45 days reduces DVT/PE by 85%",
+      "surprise": "Rivaroxaban 10mg effective for high-risk SVT"
     }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Superficial Venous Thrombophlebitis"
+    },
+    "altLabel": [
+      "SVT",
+      "Superficial phlebitis",
+      "Superficial thrombophlebitis",
+      "Phlebitis"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Thrombosis and inflammation of a superficial vein characterized by a painful erythematous palpable cord, requiring ultrasound evaluation and anticoagulation when proximal to the deep venous system."
+    },
+    "notation": "SVT-001"
   },
   "relationships": {
-    "skos": {
-      "broader": ["vascular:venous-diseases", "vascular:thrombosis"],
-      "related": ["vascular:dvt", "vascular:varicose-veins", "vascular:pe"],
-      "narrower": ["vascular:gsv-thrombophlebitis", "vascular:catheter-thrombophlebitis", "vascular:septic-thrombophlebitis"]
-    }
+    "prerequisites": [
+      "vascular:venous:ven-001-hemodynamics"
+    ],
+    "enables": [
+      "vascular:venous:dvt-diagnosis",
+      "vascular:venous:anticoagulation-decision"
+    ],
+    "skos:broader": ["vascular:venous:thrombosis"],
+    "skos:related": ["vascular:venous:dvt", "vascular:venous:varicose-veins", "vascular:venous:pe"],
+    "skos:narrower": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "journal",
+        "title": "NEJM",
+        "article": "CALISTO Trial: Fondaparinux for SVT",
+        "year": 2010
+      },
+      {
+        "type": "journal",
+        "title": "Lancet Haematology",
+        "article": "SURPRISE Trial: Rivaroxaban for SVT",
+        "year": 2017
+      },
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery",
+        "edition": "10th",
+        "year": 2023
+      }
+    ]
   },
   "pedagogical": {
+    "target_audience": ["vascular surgery residents", "emergency physicians", "internal medicine residents"],
+    "estimated_time": "15min",
     "learning_objectives": [
       "Distinguish SVT from DVT clinically",
       "Identify high-risk features requiring anticoagulation",
-      "Describe role of duplex ultrasound in SVT evaluation",
-      "Outline treatment algorithm based on thrombus location and extent"
+      "Describe the essential role of duplex ultrasound in SVT evaluation",
+      "Apply treatment algorithm based on thrombus location and extent"
     ],
     "clinical_pearls": [
-      "Always perform duplex to exclude concurrent DVT (present in 6-40%)",
-      "Thrombus within 3-5cm of SFJ requires anticoagulation",
-      "Migratory thrombophlebitis is a marker of occult malignancy",
-      "Remove IV catheters but don't forget to image for thrombus extent"
+      "ALWAYS perform duplex ultrasound - 6-40% have concurrent DVT",
+      "Thrombus within 3-5cm of SFJ/SPJ requires anticoagulation",
+      "Migratory thrombophlebitis (Trousseau syndrome) is a marker of occult malignancy",
+      "CALISTO: Fondaparinux 2.5mg daily x 45 days reduces DVT/PE by 85%",
+      "Remove IV catheters but always ultrasound to assess thrombus extent"
     ],
-    "board_yield": "HIGH - common presentation, key management decisions"
-  }
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "64156001",
+      "description": "Thrombophlebitis of superficial vein"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I80.00",
+      "description": "Phlebitis and thrombophlebitis of superficial vessels of unspecified lower extremity"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I80.10",
+      "description": "Phlebitis and thrombophlebitis of femoral vein"
+    }
+  ]
 }

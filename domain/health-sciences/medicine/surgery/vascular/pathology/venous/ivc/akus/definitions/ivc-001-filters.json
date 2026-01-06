@@ -1,110 +1,222 @@
 {
-  "@context": "aku-v2",
-  "@type": "concept",
-  "@id": "vascular:ivc-filters:definition",
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:venous:ivc-001-filters",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-05T02:58:00.000Z",
-    "updated": "2026-01-05T02:58:00.000Z",
-    "contributors": ["copilot-agent"],
-    "status": "active",
-    "confidence": 0.95
+    "contributors": ["copilot-agent", "copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-06T17:30:00.000Z"
   },
   "classification": {
-    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous/ivc",
-    "type": "definition",
-    "difficulty": "intermediate",
-    "importance": "essential"
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "procedure",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "IVC-001",
+    "keywords": ["IVC filter", "inferior vena cava", "pulmonary embolism prevention", "retrievable filter", "VTE"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "venous_disease"
   },
   "content": {
-    "title": "Inferior Vena Cava (IVC) Filters",
-    "definition": "IVC filters are intravascular devices placed in the infrarenal inferior vena cava to prevent pulmonary embolism by trapping emboli migrating from the lower extremity or pelvic deep veins.",
-    "clinical_features": {
-      "types": {
-        "permanent": "Designed for lifelong placement",
-        "retrievable": {
-          "description": "Designed for removal after temporary indication resolves",
-          "note": "Can become permanent if left in place"
-        }
-      },
-      "indications": {
-        "absolute": [
-          "DVT/PE with contraindication to anticoagulation",
-          "Recurrent PE despite adequate anticoagulation",
-          "DVT/PE with complications of anticoagulation"
-        ],
-        "relative": [
-          "Large free-floating iliofemoral thrombus",
-          "Massive PE with residual DVT (when anticoagulation risky)",
-          "Prophylaxis in high-risk trauma patients unable to anticoagulate"
-        ],
-        "not_indicated": [
-          "Primary prevention without proven DVT/PE",
-          "Alternative to anticoagulation when anticoagulation possible"
-        ]
-      },
-      "placement": {
-        "access": "Femoral vein (most common), internal jugular vein, arm veins",
-        "position": "Infrarenal IVC (below lowest renal vein)",
-        "imaging": "Fluoroscopy, IVUS, or bedside ultrasound guidance",
-        "suprarenal_placement": {
-          "indications": "IVC thrombus extending to renal veins, pregnancy, renal vein DVT",
-          "risks": "Renal vein thrombosis if filter occludes"
-        }
-      },
-      "retrieval": {
-        "timing": "As soon as temporary indication resolves (ideally within 3-6 months)",
-        "technique": "Snare capture through jugular or femoral access",
-        "success_rate": "80-95% with experienced operators",
-        "complications_of_leaving": "Thrombosis, migration, perforation, fracture"
-      },
-      "complications": {
-        "insertion_related": ["Access site thrombosis", "Hematoma", "Air embolism", "Malposition"],
-        "filter_related": {
-          "ivc_thrombosis": "3-30% (higher with permanent filters)",
-          "filter_migration": "1-5%",
-          "ivc_penetration": "Up to 95% asymptomatic, rarely symptomatic",
-          "fracture_embolization": "Strut fracture with embolization",
-          "recurrent_pe": "2-5% despite filter"
-        }
-      },
-      "surveillance": {
-        "retrievable_filters": "Plan retrieval within defined window",
-        "permanent_filters": "Consider anticoagulation if possible to prevent thrombosis",
-        "imaging": "Abdominal radiograph, CT, or ultrasound to assess position"
-      },
-      "special_situations": {
-        "pregnancy": "Suprarenal placement if needed (IVC compressed by uterus)",
-        "pediatric": "Limited data, generally avoid if possible",
-        "duplicated_ivc": "May need bilateral filter placement"
-      }
+    "statement": {
+      "text": "IVC filters are intravascular devices placed in the infrarenal inferior vena cava to prevent pulmonary embolism by trapping emboli from lower extremity or pelvic veins. The primary absolute indication is DVT/PE with contraindication to anticoagulation. Retrievable filters should be removed when the temporary indication resolves (ideally within 3-6 months).",
+      "formal": "IVC_Filter_Indication: DVT/PE + Anticoagulation_Contraindicated (Absolute); Retrieval: Within 3-6 months when indication resolves"
     },
-    "codes": {
-      "snomed_ct": ["399215003"],
-      "icd_10": ["Z95.828"]
-    },
-    "cpt_codes": ["37191", "37192", "37193"]
-  },
-  "relationships": {
-    "skos": {
-      "broader": ["vascular:venous-interventions", "vascular:pe-prevention"],
-      "related": ["vascular:dvt", "vascular:pe", "vascular:anticoagulation"],
-      "narrower": ["vascular:permanent-ivc-filter", "vascular:retrievable-ivc-filter"]
+    "explanation": {
+      "intuition": "An IVC filter is like a tiny metal fishing net placed in the main highway vein leading to the heart. It catches dangerous blood clots traveling from the legs before they can reach the lungs and cause a pulmonary embolism. But like a fishing net, it can get clogged or cause problems if left too long.",
+      "key_insight": "IVC filters are NOT a substitute for anticoagulation - they only prevent emboli from reaching the lungs while doing nothing about the underlying thrombosis. When placed as 'retrievable,' they must actually be retrieved when the indication resolves, or they become permanent with increasing complication risk.",
+      "technical_details": "Modern IVC filters are deployed via percutaneous access (femoral or jugular vein) using fluoroscopic guidance. The filter is positioned in the infrarenal IVC, below the lowest renal vein, to avoid renal vein thrombosis. Filter designs include conical (Greenfield-type), basket, or tulip configurations. Retrievable filters have hooks or caps that allow snare capture. The FDA recommends retrieval as soon as protection from PE is no longer needed, ideally within 29-54 days depending on filter type.",
+      "common_misconceptions": [
+        "Misconception: IVC filters prevent DVT. Reality: Filters only prevent PE; they do not prevent DVT formation or propagation.",
+        "Misconception: Retrievable filters can safely stay forever. Reality: Prolonged dwell time increases complications (thrombosis, penetration, fracture).",
+        "Misconception: All PE patients need a filter. Reality: Anticoagulation is preferred; filters are for patients who cannot anticoagulate."
+      ]
     }
   },
+  "clinical_features": {
+    "types": {
+      "permanent": {
+        "description": "Designed for lifelong placement",
+        "examples": "Stainless steel Greenfield, titanium Greenfield",
+        "use": "When anticoagulation will never be possible"
+      },
+      "retrievable": {
+        "description": "Designed for removal when indication resolves",
+        "examples": "ALN, Cook Celect, Günther Tulip, Option, Denali",
+        "retrieval_window": "Ideally within 3-6 months; FDA recommends as soon as protection no longer needed",
+        "note": "Can become permanent if left in place"
+      }
+    },
+    "indications": {
+      "absolute": [
+        "Acute DVT/PE with absolute contraindication to anticoagulation",
+        "Recurrent PE despite adequate anticoagulation",
+        "DVT/PE with life-threatening complications of anticoagulation"
+      ],
+      "relative": [
+        "Large free-floating iliofemoral thrombus",
+        "Massive PE with residual DVT (when anticoagulation risky)",
+        "High-risk trauma patients unable to anticoagulate",
+        "Planned pharmacomechanical thrombectomy (to catch dislodged emboli)"
+      ],
+      "not_indicated": [
+        "Primary VTE prophylaxis without proven DVT/PE",
+        "Alternative to anticoagulation when anticoagulation is possible",
+        "Routine bariatric surgery prophylaxis"
+      ]
+    },
+    "placement_technique": {
+      "access": {
+        "primary": "Femoral vein (right preferred)",
+        "alternative": "Internal jugular vein, brachial vein",
+        "jugular_advantage": "Easier retrieval if needed"
+      },
+      "positioning": {
+        "standard": "Infrarenal IVC (below lowest renal vein)",
+        "suprarenal": "Above renal veins if thrombus extends to renal level, pregnancy (IVC compressed)",
+        "suprarenal_risks": "Renal vein thrombosis if filter occludes"
+      },
+      "imaging": {
+        "standard": "Fluoroscopy with contrast venography",
+        "alternatives": "IVUS guidance, bedside ultrasound (ICU/OR)"
+      }
+    },
+    "retrieval": {
+      "timing": "As soon as temporary indication resolves",
+      "fda_recommendation": "Within 29-54 days depending on filter type",
+      "technique": "Snare capture through jugular or femoral access",
+      "success_rate": "80-95% with experienced operators",
+      "difficult_retrieval": {
+        "causes": "Tilt, embedding in wall, strut fracture",
+        "advanced_techniques": "Excimer laser, endobronchial forceps, covered stent"
+      }
+    },
+    "complications": {
+      "insertion_related": [
+        "Access site thrombosis",
+        "Hematoma",
+        "Air embolism",
+        "Malposition",
+        "IVC injury"
+      ],
+      "filter_related": {
+        "ivc_thrombosis": "3-30% (higher with permanent filters, prolonged dwell)",
+        "filter_migration": "1-5%",
+        "ivc_penetration": "Up to 95% asymptomatic on CT; rarely symptomatic",
+        "strut_fracture": "Can embolize to heart or lungs",
+        "recurrent_pe": "2-5% despite filter (small emboli pass through)"
+      }
+    },
+    "presentation": [
+      "Patient with DVT/PE who cannot anticoagulate",
+      "Major bleeding complication during anticoagulation",
+      "Recurrent PE on therapeutic anticoagulation",
+      "High-risk trauma patient"
+    ],
+    "diagnosis": [
+      "Confirm DVT/PE with imaging",
+      "Document anticoagulation contraindication",
+      "Assess IVC anatomy (cavogram, CT venography)",
+      "Rule out duplicated IVC or IVC thrombus"
+    ],
+    "treatment": [
+      "Place infrarenal IVC filter under image guidance",
+      "Document filter type, position, and planned retrieval date",
+      "Restart anticoagulation when contraindication resolves",
+      "Retrieve filter when no longer needed",
+      "Track all placed filters for retrieval follow-up"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "IVC Filters"
+    },
+    "altLabel": [
+      "Inferior vena cava filter",
+      "Vena cava filter",
+      "Caval filter",
+      "PE prevention filter"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Intravascular devices placed in the inferior vena cava to prevent pulmonary embolism by trapping venous emboli migrating from the lower extremities or pelvis."
+    },
+    "notation": "IVC-001"
+  },
+  "relationships": {
+    "prerequisites": [
+      "vascular:venous:dvt-pathophysiology",
+      "vascular:venous:pe-pathophysiology"
+    ],
+    "enables": [
+      "vascular:venous:pe-prevention"
+    ],
+    "skos:broader": ["vascular:venous:venous-interventions"],
+    "skos:related": ["vascular:venous:dvt", "vascular:venous:pe", "vascular:venous:anticoagulation"],
+    "skos:narrower": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "title": "ACCP Guidelines on Antithrombotic Therapy",
+        "year": 2021
+      },
+      {
+        "type": "fda",
+        "title": "FDA IVC Filter Safety Communication",
+        "year": 2014
+      },
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery and Endovascular Therapy",
+        "edition": "10th",
+        "year": 2023
+      }
+    ]
+  },
   "pedagogical": {
+    "target_audience": ["vascular surgery residents", "interventional radiologists", "internal medicine residents"],
+    "estimated_time": "15min",
     "learning_objectives": [
       "List absolute and relative indications for IVC filter placement",
-      "Describe placement technique and positioning",
+      "Describe placement technique and proper positioning",
       "Identify complications of IVC filters",
       "Explain importance of timely filter retrieval"
     ],
     "clinical_pearls": [
       "Absolute indication: DVT/PE with contraindication to anticoagulation",
-      "Retrievable filters should be removed when indication resolves",
-      "IVC penetration occurs in up to 95% but usually asymptomatic",
-      "Position filter infrarenal below lowest renal vein"
+      "Filters do NOT prevent DVT - only prevent PE from reaching lungs",
+      "Retrievable filters should be retrieved when indication resolves (FDA: 29-54 days)",
+      "IVC penetration occurs in up to 95% but is usually asymptomatic",
+      "Position filter infrarenal (below lowest renal vein) unless specific indication for suprarenal"
     ],
-    "board_yield": "HIGH - common vascular procedure"
-  }
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "399215003",
+      "description": "Inferior vena cava filter in situ"
+    },
+    {
+      "codingSystem": "CPT",
+      "codeValue": "37191",
+      "description": "Insertion of intravascular vena cava filter"
+    },
+    {
+      "codingSystem": "CPT",
+      "codeValue": "37193",
+      "description": "Retrieval of intravascular vena cava filter"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "Z95.828",
+      "description": "Presence of other vascular implants and grafts"
+    }
+  ]
 }

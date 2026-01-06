@@ -46,8 +46,7 @@ domain/
 │   │   ├── [topic]/      # Specific topic within discipline
 │   │   │   ├── knowledge.graph      # Core knowledge representation
 │   │   │   ├── schema.json          # Schema definition
-│   │   │   ├── README.md            # Topic documentation
-│   │   │   └── .renders/            # Human-readable renderings
+│   │   │   └── README.md            # Topic documentation
 │   │   │       └── [language]/[audience].[format]
 │   │   └── README.md     # Discipline documentation
 │   └── README.md         # Category documentation
@@ -94,7 +93,6 @@ Identify where the domain fits:
 ### 2. Create Directory Structure
 ```bash
 mkdir -p domain/[category]/[discipline]/[topic]
-mkdir -p domain/[category]/[discipline]/[topic]/.renders
 ```
 
 ### 3. Create Core Files
@@ -112,8 +110,8 @@ Domain-specific documentation, guidelines, or notes.
 Create at least one rendering to validate the knowledge graph.
 
 ```bash
-mkdir -p domain/[category]/[discipline]/[topic]/.renders/english
-# Create rendering file
+mkdir -p renders/by-domain/[category]/[discipline]/[topic]/english
+# Create rendering file in renders/by-domain/
 ```
 
 ### 5. Update Documentation
