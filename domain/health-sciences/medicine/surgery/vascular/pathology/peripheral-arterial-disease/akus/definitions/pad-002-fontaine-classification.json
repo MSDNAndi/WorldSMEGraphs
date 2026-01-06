@@ -1,0 +1,206 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "pad-002-fontaine-classification",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T01:15:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T01:15:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/peripheral-arterial-disease",
+    "type": "classification",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "002",
+    "keywords": [
+      "Fontaine classification",
+      "claudication staging",
+      "critical limb ischemia",
+      "rest pain",
+      "gangrene"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "disease_staging"
+  },
+  "content": {
+    "statement": {
+      "text": "The Fontaine Classification is a four-stage clinical staging system for peripheral arterial disease based on symptom severity: Stage I (asymptomatic), Stage II (intermittent claudication, subdivided into IIa >200m and IIb <200m walking distance), Stage III (rest pain), and Stage IV (tissue loss/gangrene). It guides treatment decisions and prognosis.",
+      "formal": "Fontaine Stages: I = Asymptomatic | IIa = Mild claudication (>200m) | IIb = Moderate-severe claudication (<200m) | III = Rest pain | IV = Tissue loss/gangrene"
+    },
+    "explanation": {
+      "intuition": "The Fontaine Classification is like a 'severity ladder' for PAD. At the bottom (Stage I), patients have blockages but don't notice them yet. As the disease progresses, they start getting leg cramps when walking (Stage II). Eventually, the blood supply becomes so poor that the legs hurt even when resting (Stage III). At the worst stage (Stage IV), the tissues start dying because they're not getting enough blood.",
+      "key_insight": "The critical transition is from Stage II to Stage III. Claudication (Stage II) is a chronic, often stable condition that can be managed conservatively. Rest pain (Stage III) means the blood supply is critically insufficient even at baseline - this requires revascularization to prevent limb loss.",
+      "technical_details": "The classification was developed by René Fontaine in 1954 and remains widely used in Europe. Walking distance is measured on a standardized treadmill (typically 3.2 km/hr, 12% grade). Stage II subdivision (a/b) at 200m reflects the functional significance of claudication on daily activities. Stages III and IV together constitute 'critical limb ischemia' (CLI) or the newer term 'chronic limb-threatening ischemia' (CLTI). Stage III is typically associated with ABI <0.4 and absolute ankle pressure <50 mmHg. Stage IV includes both ulceration (IVa) and gangrene (IVb) in some modifications.",
+      "common_misconceptions": [
+        "Stage I means no disease - they still have arterial blockages, just no symptoms",
+        "Claudication always progresses to rest pain - most claudicants remain stable",
+        "Stage IV always means amputation - revascularization can salvage many limbs",
+        "The stages are strictly linear - patients can skip stages or present de novo with CLTI"
+      ]
+    },
+    "definitions_glossary": {
+      "claudication_distance": "Maximum walking distance before claudication pain forces patient to stop",
+      "rest_pain": "Ischemic pain occurring at rest, typically in forefoot, worse at night, relieved by dependency",
+      "tissue_loss": "Ulceration or gangrene due to arterial insufficiency",
+      "critical_limb_ischemia": "Fontaine Stage III or IV, characterized by rest pain or tissue loss"
+    }
+  },
+  "clinical_features": {
+    "classification_table": [
+      {
+        "stage": "I",
+        "description": "Asymptomatic",
+        "abi_range": "0.70-0.90",
+        "prognosis": "Stable, low limb risk",
+        "treatment": "Risk factor modification, exercise"
+      },
+      {
+        "stage": "IIa",
+        "description": "Mild claudication (>200m)",
+        "abi_range": "0.50-0.80",
+        "prognosis": "Stable, good functional capacity",
+        "treatment": "Exercise therapy, pharmacotherapy"
+      },
+      {
+        "stage": "IIb",
+        "description": "Moderate-severe claudication (<200m)",
+        "abi_range": "0.40-0.60",
+        "prognosis": "Lifestyle limiting",
+        "treatment": "Consider revascularization"
+      },
+      {
+        "stage": "III",
+        "description": "Ischemic rest pain",
+        "abi_range": "<0.40 or ankle pressure <50mmHg",
+        "prognosis": "High amputation risk without intervention",
+        "treatment": "Revascularization required"
+      },
+      {
+        "stage": "IV",
+        "description": "Ulceration or gangrene",
+        "abi_range": "<0.40 or ankle pressure <50mmHg",
+        "prognosis": "Limb threatening",
+        "treatment": "Urgent revascularization + wound care"
+      }
+    ],
+    "clinical_features_by_stage": {
+      "rest_pain_characteristics": [
+        "Occurs in forefoot/toes",
+        "Worse at night (elevation reduces perfusion pressure)",
+        "Relieved by dependency (hanging leg over bed)",
+        "Patients often sleep in chair or with legs down"
+      ],
+      "tissue_loss_patterns": [
+        "Typically starts distally (toes)",
+        "Dry gangrene: mummified, demarcated",
+        "Wet gangrene: infected, spreading",
+        "Arterial ulcers: punched-out, painful, on pressure points"
+      ]
+    },
+    "natural_history": {
+      "claudication_progression": "Only 15-20% progress to CLI over 5 years",
+      "cli_limb_loss": "25% major amputation at 1 year without revascularization",
+      "cli_mortality": "20-25% die within 1 year"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Fontaine Classification of PAD"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Fontaine Stages"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Four-stage clinical classification of peripheral arterial disease severity based on symptoms"
+    },
+    "notation": "pad-002-fontaine-classification"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:pad:001",
+        "title": "PAD Definition",
+        "strength": 1.0
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:pad:020",
+        "title": "Critical Limb-Threatening Ischemia",
+        "strength": 0.9
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology:pad:004",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Rutherford Classification",
+        "skos:note": "Alternative classification system commonly used in North America"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "original_publication",
+        "citation": "Fontaine R, et al. Surgical treatment of peripheral circulation disorders. Helv Chir Acta. 1954;21(5-6):499-533.",
+        "confidence": 0.95
+      },
+      {
+        "type": "clinical_guideline",
+        "citation": "2016 AHA/ACC Guideline on PAD",
+        "confidence": 1.0
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "surgery_residents"
+    ],
+    "estimated_time": "15min",
+    "difficulty_curve": 0.4,
+    "learning_objectives": [
+      "Enumerate the four Fontaine stages and their criteria",
+      "Distinguish between claudication and critical limb ischemia",
+      "Understand treatment implications of each stage",
+      "Recognize clinical features of rest pain"
+    ],
+    "clinical_pearls": [
+      "Most claudicants (Stage II) stay stable - they don't all progress to CLI",
+      "Rest pain is ominous - requires urgent vascular evaluation",
+      "Night pain relieved by hanging leg down = classic rest pain",
+      "Fontaine is used more in Europe; Rutherford more in North America"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "classification_table",
+    "show_images": true
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "399957001",
+      "description": "Peripheral arterial occlusive disease"
+    }
+  ]
+}

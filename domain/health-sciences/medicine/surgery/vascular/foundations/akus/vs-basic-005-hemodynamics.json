@@ -62,9 +62,21 @@
       "Graft sizing and configuration decisions"
     ]
   },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Hemodynamics"},
+    "altLabel": [
+      {"@language": "en", "@value": "Blood flow dynamics"},
+      {"@language": "en", "@value": "Vascular hemodynamics"}
+    ],
+    "definition": {"@language": "en", "@value": "The physical principles governing blood flow through the vascular system, including Poiseuille's Law, Bernoulli's principle, and Reynolds number"},
+    "notation": "vs-basic-005"
+  },
   "relationships": {
-    "skos:broader": ["wsmg:formal-sciences/mathematics/applied"],
-    "skos:related": ["wsmg:health-sciences/medicine/surgery/vascular/foundations/vs-basic-003"]
+    "skos:broader": [{"@id": "wsmg:formal-sciences/mathematics/applied", "skos:prefLabel": "Applied Mathematics"}],
+    "skos:related": [
+      {"@id": "wsmg:health-sciences/medicine/surgery/vascular/foundations/vs-basic-003", "skos:prefLabel": "Arterial System"},
+      {"@id": "wsmg:health-sciences/medicine/surgery/vascular/diagnostics/abi", "skos:prefLabel": "Ankle-Brachial Index"}
+    ]
   },
   "cross_domain_references": [
     {
@@ -72,5 +84,36 @@
       "concept": "Navier-Stokes equations",
       "relationship": "theoretical_foundation"
     }
-  ]
+  ],
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D006439",
+      "uri": "http://id.nlm.nih.gov/mesh/D006439",
+      "description": "Hemodynamics"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Apply Poiseuille's Law to explain effects of stenosis on blood flow",
+      "Use the continuity equation to predict velocity changes at stenoses",
+      "Calculate Reynolds number and predict laminar vs turbulent flow",
+      "Relate hemodynamic principles to clinical vascular testing"
+    ],
+    "clinical_pearls": [
+      "50% diameter stenosis = 94% flow reduction (Poiseuille: radius^4)",
+      "Velocity doubles when lumen diameter is halved (continuity equation)",
+      "Bruits indicate turbulent flow - Reynolds number > 2000",
+      "MAP = DBP + 1/3 pulse pressure - target for BP management",
+      "Pulse wave velocity increases with arterial stiffness - marker of vascular age"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "20min",
+    "common_mistakes": [
+      "Confusing diameter stenosis with area stenosis (50% diameter = 75% area)",
+      "Forgetting that Poiseuille's Law assumes laminar flow only",
+      "Not accounting for vessel compliance in pressure calculations"
+    ]
+  }
 }

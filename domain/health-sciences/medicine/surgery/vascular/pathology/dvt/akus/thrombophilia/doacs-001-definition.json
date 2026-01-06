@@ -1,0 +1,125 @@
+{
+  "@context": "aku-v2",
+  "@type": "definition",
+  "@id": "vascular:anticoagulation:doacs:definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T18:10:00.000Z",
+    "contributors": ["copilot"],
+    "status": "validated",
+    "confidence": 0.94
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pharmacology",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "foundational",
+    "board_yield": "HIGH"
+  },
+  "content": {
+    "term": "Direct Oral Anticoagulants",
+    "synonyms": ["DOACs", "NOACs", "Novel Oral Anticoagulants", "Direct-Acting Oral Anticoagulants"],
+    "definition": "A class of oral anticoagulants that directly inhibit specific clotting factors (thrombin or Factor Xa) without requiring antithrombin as a cofactor. DOACs have largely replaced warfarin for many indications due to predictable pharmacokinetics, no routine monitoring, and fewer drug/food interactions.",
+    "classification": {
+      "factor_xa_inhibitors": [
+        {
+          "name": "Rivaroxaban (Xarelto)",
+          "dosing": "Once daily",
+          "take_with_food": "Yes (improves absorption)",
+          "clearance": "33% renal, 67% hepatic"
+        },
+        {
+          "name": "Apixaban (Eliquis)",
+          "dosing": "Twice daily",
+          "take_with_food": "Not required",
+          "clearance": "27% renal, 73% hepatic"
+        },
+        {
+          "name": "Edoxaban (Savaysa)",
+          "dosing": "Once daily",
+          "clearance": "50% renal"
+        }
+      ],
+      "direct_thrombin_inhibitor": [
+        {
+          "name": "Dabigatran (Pradaxa)",
+          "dosing": "Twice daily",
+          "clearance": "80% renal (avoid in CKD)",
+          "storage": "Sensitive to humidity - keep in original container"
+        }
+      ]
+    },
+    "indications": {
+      "approved": [
+        "VTE treatment and prevention",
+        "Atrial fibrillation (non-valvular)",
+        "Post-orthopedic surgery prophylaxis"
+      ],
+      "off_label_use": [
+        "Cancer-associated VTE (edoxaban, rivaroxaban)",
+        "Post-EVAR (limited data)"
+      ],
+      "contraindications": [
+        "Mechanical heart valves",
+        "Antiphospholipid syndrome (inferior to warfarin)",
+        "Severe renal impairment (especially dabigatran)",
+        "Active bleeding"
+      ]
+    },
+    "advantages_over_warfarin": [
+      "Predictable pharmacokinetics",
+      "No routine INR monitoring",
+      "Fewer food interactions",
+      "Fewer drug interactions",
+      "Rapid onset of action",
+      "Lower intracranial hemorrhage risk"
+    ],
+    "disadvantages": [
+      "Higher cost",
+      "No reliable monitoring test (for most)",
+      "Renal function dependent",
+      "Specific reversal agents needed"
+    ],
+    "reversal_agents": {
+      "dabigatran": "Idarucizumab (Praxbind) - monoclonal antibody",
+      "factor_xa_inhibitors": "Andexanet alfa (Andexxa) - recombinant Factor Xa decoy",
+      "general": "4-factor PCC (off-label, partially effective)"
+    },
+    "perioperative_management": {
+      "minor_procedure": "Usually hold 24-48 hours based on renal function",
+      "major_procedure": "Hold 48-72 hours or longer",
+      "high_bleeding_risk": "Consider longer hold, reversal agent available",
+      "bridging": "Generally NOT needed (short half-life)"
+    },
+    "renal_dosing": {
+      "apixaban": "Safest in CKD; reduce dose if 2 of: age ≥80, weight ≤60 kg, Cr ≥1.5",
+      "rivaroxaban": "Reduce dose for CrCl 15-50",
+      "dabigatran": "Avoid if CrCl <30; reduce dose CrCl 30-50",
+      "edoxaban": "Reduce dose for CrCl 15-50"
+    }
+  },
+  "codes": {
+    "snomed_ct": "372733002",
+    "icd_10": "Z79.01"
+  },
+  "relationships": {
+    "broader": ["vascular:pharmacology:anticoagulation"],
+    "related": ["vascular:dvt:treatment", "vascular:pe:treatment", "vascular:afib:management"],
+    "narrower": []
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Know the DOAC classes and individual agents",
+      "Understand advantages over warfarin",
+      "Know reversal agents for DOACs"
+    ],
+    "clinical_pearls": [
+      "Apixaban is SAFEST in renal impairment (only 27% renal clearance)",
+      "Dabigatran is most renally cleared - AVOID in CrCl <30",
+      "Rivaroxaban MUST be taken with food (improves absorption)",
+      "DOACs are INFERIOR to warfarin in APS - don't use",
+      "Reversal: idarucizumab for dabigatran; andexanet for Xa inhibitors",
+      "DOACs don't need bridging - short half-life"
+    ]
+  }
+}

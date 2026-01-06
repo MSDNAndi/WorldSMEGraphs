@@ -1,0 +1,218 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "carotid-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T01:35:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T01:35:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/carotid-disease",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "001",
+    "keywords": [
+      "carotid stenosis",
+      "carotid artery disease",
+      "atherosclerosis",
+      "stroke prevention",
+      "transient ischemic attack"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "cerebrovascular_disease"
+  },
+  "content": {
+    "statement": {
+      "text": "Carotid artery disease is atherosclerotic narrowing of the extracranial carotid arteries, predominantly at the carotid bifurcation. It is responsible for 10-20% of ischemic strokes and is classified as symptomatic (causing TIA or stroke within 6 months) or asymptomatic. Intervention thresholds differ: ≥50% stenosis for symptomatic, ≥60-70% for asymptomatic patients.",
+      "formal": "Carotid Stenosis: Atherosclerotic plaque at carotid bifurcation → Luminal narrowing → Embolic or hemodynamic stroke | Symptomatic: TIA/stroke within 6 months, intervene at ≥50% | Asymptomatic: No recent symptoms, intervene at ≥60-70%"
+    },
+    "explanation": {
+      "intuition": "The carotid arteries are the 'highways' carrying blood to your brain. Where they split (bifurcation), turbulent blood flow promotes cholesterol plaque formation. This plaque can cause stroke in two ways: (1) pieces break off and travel to the brain (embolic), or (2) severe narrowing reduces blood flow (hemodynamic, less common). The key clinical question is whether the plaque has recently caused symptoms - symptomatic plaques are 'unstable' and pose much higher stroke risk than asymptomatic ones.",
+      "key_insight": "The distinction between symptomatic and asymptomatic is critical because it determines benefit from intervention. Symptomatic 70-99% stenosis has ~20% annual stroke risk - intervention dramatically reduces this. Asymptomatic stenosis has only 1-2% annual stroke risk even without intervention, so the benefit of surgery must outweigh the 2-3% procedural risk.",
+      "technical_details": "Stenosis is measured using NASCET criteria: (1 - [narrowest diameter / normal distal ICA diameter]) × 100. ECST criteria use the estimated original bulb diameter, giving higher percentages for the same lesion. NASCET is the North American standard. Plaque characteristics matter: echolucent, irregular, ulcerated plaques are higher risk than calcified, smooth plaques. Tandem lesions (additional intracranial stenosis) reduce intervention benefit. Contralateral occlusion increases both stroke risk and procedural risk.",
+      "common_misconceptions": [
+        "All carotid stenosis needs surgery - asymptomatic stenosis benefit is marginal with modern medical therapy",
+        "Percentage stenosis is everything - plaque morphology and symptoms matter equally",
+        "TIA is minor - it's a warning stroke, and urgent intervention reduces subsequent stroke risk by 80%",
+        "Carotid disease only causes stroke - it can also cause retinal ischemia (amaurosis fugax)"
+      ]
+    },
+    "definitions_glossary": {
+      "carotid_bifurcation": "Point where common carotid artery divides into internal and external carotid",
+      "internal_carotid_artery": "Vessel supplying anterior and middle cerebral circulation",
+      "symptomatic_stenosis": "Stenosis ipsilateral to TIA or stroke within past 6 months",
+      "asymptomatic_stenosis": "Stenosis without recent ipsilateral neurologic symptoms",
+      "transient_ischemic_attack": "Brief episode of neurologic dysfunction without permanent injury",
+      "amaurosis_fugax": "Transient monocular vision loss from retinal ischemia"
+    }
+  },
+  "clinical_features": {
+    "epidemiology": {
+      "prevalence_over_65": "5-10% have ≥50% stenosis",
+      "stroke_attribution": "10-20% of ischemic strokes",
+      "annual_stroke_risk_symptomatic_70_99": "13-26%",
+      "annual_stroke_risk_asymptomatic": "1-2% with modern medical therapy"
+    },
+    "clinical_presentations": {
+      "hemispheric_symptoms": [
+        "Contralateral weakness or numbness",
+        "Speech difficulty (aphasia if dominant hemisphere)",
+        "Facial droop"
+      ],
+      "retinal_symptoms": [
+        "Amaurosis fugax (transient monocular blindness)",
+        "Often described as 'curtain coming down over vision'"
+      ],
+      "asymptomatic": "Detected on imaging for other indications or screening bruit"
+    },
+    "stenosis_grading": {
+      "nascet_criteria": {
+        "mild": "<50%",
+        "moderate": "50-69%",
+        "severe": "70-99%",
+        "occlusion": "100%"
+      },
+      "intervention_thresholds": {
+        "symptomatic": "≥50% (NNT ~6 for 70-99%, ~15 for 50-69%)",
+        "asymptomatic": "≥60-70% (NNT ~17-20)"
+      }
+    },
+    "risk_factors": [
+      "Same as generalized atherosclerosis",
+      "Hypertension",
+      "Smoking",
+      "Diabetes mellitus",
+      "Hyperlipidemia",
+      "Age >65",
+      "Coronary/peripheral arterial disease"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Carotid Artery Disease"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Carotid Stenosis"
+      },
+      {
+        "@language": "en",
+        "@value": "Extracranial Carotid Disease"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Atherosclerotic narrowing of extracranial carotid arteries, major cause of ischemic stroke"
+    },
+    "notation": "carotid-001-definition"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:foundations:vs-basic-006",
+        "title": "Atherosclerosis",
+        "strength": 1.0
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:procedures:carotid-endarterectomy:001",
+        "title": "Carotid Endarterectomy Overview",
+        "strength": 1.0
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Vascular Pathology"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:neurology:stroke",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Ischemic Stroke",
+        "skos:note": "Major consequence of untreated carotid stenosis"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/64586002"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "landmark_trial",
+        "citation": "North American Symptomatic Carotid Endarterectomy Trial (NASCET) Collaborators. Beneficial effect of carotid endarterectomy in symptomatic patients with high-grade carotid stenosis. N Engl J Med. 1991;325:445-453.",
+        "confidence": 1.0
+      },
+      {
+        "type": "clinical_guideline",
+        "citation": "Brott TG, et al. 2011 ASA/ACCF/AHA Guideline on the Management of Patients With Extracranial Carotid and Vertebral Artery Disease. Stroke. 2011;42:e464-e540.",
+        "confidence": 1.0
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "neurology_residents",
+      "vascular_surgery_residents"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.5,
+    "learning_objectives": [
+      "Define carotid artery disease and its role in stroke",
+      "Distinguish symptomatic from asymptomatic stenosis",
+      "Understand intervention thresholds and their basis",
+      "Recognize clinical presentations of carotid disease"
+    ],
+    "clinical_pearls": [
+      "Symptomatic stenosis = recent TIA/stroke on SAME side as the stenosis",
+      "TIA is a stroke warning - intervene urgently (within 2 weeks ideally)",
+      "Amaurosis fugax = carotid until proven otherwise",
+      "Asymptomatic stenosis benefit is marginal - carefully consider medical therapy"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "anatomic_diagram",
+    "show_images": true,
+    "visualization": [
+      "carotid_bifurcation_anatomy",
+      "stenosis_measurement_diagram",
+      "nascet_ecst_comparison"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "64586002",
+      "uri": "http://snomed.info/id/64586002",
+      "description": "Carotid artery stenosis (disorder)"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I65.2",
+      "description": "Occlusion and stenosis of carotid artery"
+    }
+  ]
+}

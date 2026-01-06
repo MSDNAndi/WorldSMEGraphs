@@ -1,0 +1,78 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "pad-008-medical-management",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:05:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:05:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/peripheral-arterial-disease",
+    "type": "treatment",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "008",
+    "keywords": ["PAD medical therapy", "antiplatelet", "statin", "cilostazol", "risk factor modification"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Medical management of PAD includes three pillars: (1) cardiovascular risk factor modification (smoking cessation, statin therapy, blood pressure control, diabetes management), (2) antiplatelet therapy (aspirin or clopidogrel), and (3) symptom-directed therapy (supervised exercise, cilostazol for claudication). This reduces both limb events and cardiovascular mortality.",
+      "formal": "PAD Medical Therapy: Risk modification (statins, smoking cessation, BP, DM) + Antiplatelet (ASA/clopidogrel) + Symptom therapy (exercise, cilostazol)"
+    },
+    "explanation": {
+      "intuition": "PAD is not just a leg problem - it's a marker of systemic atherosclerosis. Patients with PAD have the same heart attack and stroke risk as those who've already had one. Medical therapy addresses this by treating the whole cardiovascular system, not just the leg arteries.",
+      "key_insight": "Supervised exercise therapy is as effective as revascularization for claudication in many patients, with fewer complications. It should be offered to all patients with claudication before invasive treatment.",
+      "technical_details": "Statins reduce MACE by 20-30% regardless of baseline LDL. Target LDL <70 mg/dL for PAD patients. Cilostazol (PDE3 inhibitor) improves walking distance by 50% but is contraindicated in heart failure. Supervised exercise programs (30-45 minutes, 3x/week, for ≥12 weeks) improve walking distance by 50-200%."
+    },
+    "treatment_components": {
+      "risk_factor_modification": {
+        "smoking_cessation": {"impact": "Single most important intervention", "support": "Varenicline, bupropion, nicotine replacement, counseling"},
+        "statin_therapy": {"target": "LDL <70 mg/dL", "preferred": "High-intensity (atorvastatin 40-80mg, rosuvastatin 20-40mg)"},
+        "blood_pressure": {"target": "<130/80 mmHg", "preferred_agents": "ACE inhibitors, ARBs"},
+        "diabetes": {"target": "HbA1c <7-8%", "approach": "Individualized, metformin first-line"}
+      },
+      "antiplatelet_therapy": {
+        "aspirin": {"dose": "75-325 mg daily", "evidence": "Reduces MACE in symptomatic PAD"},
+        "clopidogrel": {"dose": "75 mg daily", "evidence": "Alternative to aspirin, may be superior in PAD (CAPRIE)"},
+        "dual_antiplatelet": {"role": "Post-revascularization, not routine for PAD alone"},
+        "rivaroxaban_low_dose": {"dose": "2.5mg BID + aspirin", "evidence": "COMPASS trial - reduces MACE and limb events"}
+      },
+      "symptom_therapy": {
+        "supervised_exercise": {"frequency": "3x/week, 30-45 min", "duration": "≥12 weeks", "efficacy": "50-200% improvement in walking distance"},
+        "cilostazol": {"dose": "100 mg BID", "efficacy": "~50% improvement in walking distance", "contraindication": "Heart failure"}
+      }
+    }
+  },
+  "clinical_features": {
+    "monitoring": ["Annual lipid panel", "HbA1c q3-6 months if diabetic", "Blood pressure at each visit", "ABI annually"],
+    "expected_outcomes": ["25-30% reduction in MACE with optimal medical therapy", "50% improvement in walking distance with exercise or cilostazol"]
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "PAD Medical Management"},
+    "definition": {"@language": "en", "@value": "Non-interventional treatment of PAD including risk modification, antiplatelet therapy, and symptom relief"},
+    "notation": "pad-008-medical"
+  },
+  "relationships": {
+    "prerequisites": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:pad:001", "title": "PAD Definition", "strength": 1.0}],
+    "enables": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:pad:009", "title": "Exercise Therapy", "strength": 0.9}],
+    "skos:related": [{"@id": "urn:wskg:medicine:cardiology:antiplatelet", "@type": "skos:Concept", "skos:prefLabel": "Antiplatelet Therapy"}]
+  },
+  "pedagogical": {
+    "estimated_time": "15min",
+    "clinical_pearls": [
+      "All PAD patients need statin therapy regardless of baseline LDL",
+      "Supervised exercise is first-line for claudication - as effective as revascularization",
+      "Cilostazol is contraindicated in heart failure",
+      "COMPASS regimen (rivaroxaban 2.5mg BID + aspirin) reduces both cardiac and limb events"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "413839001", "description": "Chronic limb ischemia"},
+    {"@type": "MedicalCode", "codingSystem": "CPT", "codeValue": "93668", "description": "Peripheral arterial disease rehabilitation"}
+  ]
+}

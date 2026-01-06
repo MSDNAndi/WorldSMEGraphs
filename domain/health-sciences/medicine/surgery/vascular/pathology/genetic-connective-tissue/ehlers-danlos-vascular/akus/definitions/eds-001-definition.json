@@ -1,0 +1,98 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "eds-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:10:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:10:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/genetic-connective-tissue/ehlers-danlos-vascular",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "001",
+    "keywords": ["vascular Ehlers-Danlos", "EDS type IV", "COL3A1", "arterial rupture", "tissue fragility"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Vascular Ehlers-Danlos syndrome (vEDS, formerly EDS Type IV) is an autosomal dominant disorder caused by COL3A1 mutations affecting type III collagen synthesis. It is the most severe form of EDS, characterized by arterial, intestinal, and uterine fragility with high risk of spontaneous rupture. Median survival is 50 years, with major complications occurring by age 40 in most patients.",
+      "formal": "vEDS: AD, COL3A1 mutation; Arterial/visceral/uterine rupture; Thin translucent skin, acrogeria; Most lethal EDS type, median survival ~50 years"
+    },
+    "explanation": {
+      "intuition": "Type III collagen is the main structural protein in blood vessel walls and hollow organs. In vEDS, this collagen is defective - imagine building a pressurized pipe with substandard materials. The vessels look normal but can rupture spontaneously without warning, even at normal blood pressures. Unlike Marfan where vessels dilate before rupture, vEDS vessels can rupture without prior aneurysm formation.",
+      "key_insight": "Surgery in vEDS is extremely hazardous due to tissue fragility - tissues tear during handling, sutures pull through, and healing is impaired. Conservative management is preferred whenever possible. When surgery is unavoidable, meticulous technique with pledgets and buttressing is essential.",
+      "technical_details": "COL3A1 mutations result in abnormal type III procollagen that interferes with normal collagen fibril formation (dominant negative effect). Diagnosis requires genetic testing (COL3A1 mutation) or characteristic biochemical abnormalities (abnormal type III collagen ratio on skin biopsy fibroblast culture). Major arterial complications affect medium-sized arteries: iliac, splenic, renal arteries more than aorta."
+    },
+    "diagnostic_criteria": {
+      "major_criteria": [
+        "Family history of vEDS with documented COL3A1 mutation",
+        "Arterial rupture at young age",
+        "Spontaneous sigmoid colon perforation without diverticular disease",
+        "Uterine rupture during pregnancy",
+        "Carotid-cavernous fistula without trauma"
+      ],
+      "minor_criteria": [
+        "Characteristic facial features (thin nose and lips, sunken cheeks, small chin, prominent eyes)",
+        "Thin, translucent skin with visible veins",
+        "Easy bruising",
+        "Acrogeria (aged appearance of hands)",
+        "Hypermobility of small joints",
+        "Clubfoot",
+        "Varicose veins at young age"
+      ]
+    }
+  },
+  "clinical_features": {
+    "vascular_complications": {
+      "arterial_rupture": "Spontaneous, without prior aneurysm; iliac, splenic, renal arteries common",
+      "arterial_dissection": "Carotid, vertebral, coronary dissection",
+      "aneurysm": "Less common than Marfan; when present, medium-sized vessels",
+      "carotid_cavernous_fistula": "Spontaneous, pathognomonic"
+    },
+    "non_vascular_complications": {
+      "bowel": "Spontaneous sigmoid colon perforation (15-25%)",
+      "uterine": "Rupture during pregnancy/delivery (high maternal mortality)",
+      "lung": "Pneumothorax, hemoptysis"
+    },
+    "surgical_considerations": {
+      "tissue_quality": "Extremely fragile - sutures pull through, tissues tear",
+      "surgical_approach": "Conservative when possible; damage control if surgery required",
+      "technique": "Pledgeted sutures, avoid tension, buttress anastomoses",
+      "endovascular": "May be preferred for arterial emergencies, though vessel fragility remains concern"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Vascular Ehlers-Danlos Syndrome"},
+    "altLabel": [{"@language": "en", "@value": "EDS Type IV"}, {"@language": "en", "@value": "vEDS"}],
+    "definition": {"@language": "en", "@value": "Autosomal dominant disorder due to COL3A1 mutations causing type III collagen deficiency with arterial, intestinal, and uterine fragility"},
+    "notation": "eds-001-definition"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:genetic-connective-tissue", "@type": "skos:Concept", "skos:prefLabel": "Genetic Connective Tissue Disorders"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:genetic:marfan", "@type": "skos:Concept", "skos:prefLabel": "Marfan Syndrome"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:genetic:loeys-dietz", "@type": "skos:Concept", "skos:prefLabel": "Loeys-Dietz Syndrome"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "20min",
+    "clinical_pearls": [
+      "vEDS vessels rupture WITHOUT prior aneurysm formation - unlike Marfan/LDS",
+      "Surgery is extremely hazardous - conservative management preferred",
+      "Celiprolol may reduce arterial events (one RCT)",
+      "Spontaneous sigmoid perforation in young person = think vEDS",
+      "Pregnancy carries very high maternal mortality risk"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "83470009", "description": "Ehlers-Danlos syndrome, type IV"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "Q79.62", "description": "Ehlers-Danlos syndrome, vascular type"},
+    {"@type": "MedicalCode", "codingSystem": "OMIM", "codeValue": "130050", "description": "Ehlers-Danlos Syndrome, Vascular Type"}
+  ]
+}

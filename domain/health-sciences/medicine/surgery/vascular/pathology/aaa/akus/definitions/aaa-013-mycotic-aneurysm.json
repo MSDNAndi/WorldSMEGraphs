@@ -1,0 +1,127 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "aaa-013-mycotic-aneurysm",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:00:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.96,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa",
+    "type": "variant",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "013",
+    "keywords": ["mycotic aneurysm", "infected aneurysm", "Salmonella", "septic aortitis"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "emergency_vascular"
+  },
+  "content": {
+    "statement": {
+      "text": "A mycotic (infected) aortic aneurysm is a localized, infected outpouching of the aortic wall resulting from bacterial seeding of atherosclerotic plaque, adjacent infected tissue, septic emboli, or direct trauma. Despite the name, most are bacterial (not fungal) in origin, with Salmonella and Staphylococcus being most common.",
+      "formal": "Mycotic Aneurysm: Infected arterial dilation from bacterial seeding. Common organisms: Salmonella spp. (especially elderly), Staphylococcus aureus, Streptococcus spp."
+    },
+    "explanation": {
+      "intuition": "Think of a mycotic aneurysm as an abscess that forms in the wall of a major blood vessel. Bacteria land on a vulnerable area (usually a diseased plaque) and start to digest the arterial wall, causing it to weaken and balloon outward rapidly. This is a surgical emergency because the infected, weakened wall has a very high risk of rupture.",
+      "key_insight": "The term 'mycotic' is a misnomer coined by Osler in 1885 because the aneurysms resembled fungal vegetations. The vast majority are actually caused by bacteria, not fungi. Salmonella has a particular tropism for atherosclerotic aorta in elderly patients.",
+      "technical_details": "Mycotic aneurysms are saccular, eccentric, and rapidly enlarging. They occur in atypical locations for degenerative aneurysms (e.g., suprarenal, pararenal aorta). Blood cultures are positive in 50-75%. CT findings include periaortic gas, fluid, soft tissue stranding, and saccular morphology. Treatment requires both surgical repair and prolonged (often lifelong) antibiotic therapy.",
+      "common_misconceptions": [
+        "Mycotic means fungal - most are bacterial",
+        "All infected aneurysms are mycotic - graft infection is a distinct entity",
+        "EVAR is contraindicated - may be used as bridge in unstable patients",
+        "Rupture can be prevented with antibiotics alone - surgical repair is essential"
+      ]
+    },
+    "clinical_presentation": {
+      "symptoms": ["Fever (80-90%)", "Abdominal or back pain (60-70%)", "Pulsatile mass (30%)", "Malaise, weight loss"],
+      "laboratory_findings": ["Leukocytosis", "Elevated CRP/ESR", "Positive blood cultures (50-75%)"],
+      "imaging_features": ["Saccular morphology", "Eccentric dilation", "Periaortic gas", "Periaortic fluid/stranding", "Rapid enlargement on serial imaging", "Atypical location (suprarenal, visceral)"]
+    },
+    "microbiology": {
+      "common_organisms": {
+        "salmonella": "Most common in elderly, especially Salmonella enteritidis, typhimurium",
+        "staphylococcus_aureus": "Common with IV drug use, endocarditis",
+        "streptococcus": "Including S. pneumoniae, enterococcus",
+        "gram_negative": "E. coli, Pseudomonas, Klebsiella"
+      },
+      "rare_organisms": ["Mycobacterium tuberculosis", "Treponema pallidum (syphilis)", "Brucella", "Candida spp. (true mycotic)"]
+    },
+    "definitions_glossary": {
+      "mycotic_aneurysm": "Infected arterial aneurysm caused by bacterial seeding (despite the fungal-sounding name)",
+      "saccular_aneurysm": "Asymmetric, focal outpouching affecting only part of the arterial circumference",
+      "septic_embolus": "Infected clot that travels through bloodstream and lodges in arterial wall"
+    }
+  },
+  "clinical_features": {
+    "treatment_approach": {
+      "antibiotics": {
+        "empiric": "Broad-spectrum initially (vancomycin + ceftriaxone or piperacillin-tazobactam)",
+        "targeted": "Tailored to culture results",
+        "duration": "Minimum 6 weeks IV, often lifelong oral suppression"
+      },
+      "surgical_options": {
+        "open_repair": {
+          "debridement": "Wide excision of infected tissue",
+          "in_situ_reconstruction": "With rifampin-soaked Dacron or cryopreserved allograft",
+          "extra_anatomic_bypass": "Axillobifemoral with aortic ligation if severe contamination"
+        },
+        "endovascular": {
+          "role": "Bridge therapy in hemodynamically unstable patients",
+          "concerns": "Placing graft in infected field, requires prolonged antibiotics",
+          "outcomes": "Acceptable short-term, higher late infection rate"
+        }
+      }
+    },
+    "prognosis": {
+      "untreated_mortality": ">90% due to rupture or sepsis",
+      "operative_mortality": "10-20%",
+      "late_infection": "Risk of graft infection, especially with in situ prosthetic repair"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Mycotic Aortic Aneurysm"},
+    "altLabel": [{"@language": "en", "@value": "Infected Aortic Aneurysm"}, {"@language": "en", "@value": "Septic Aneurysm"}],
+    "definition": {"@language": "en", "@value": "Infected arterial aneurysm caused by bacterial seeding of the arterial wall"},
+    "notation": "aaa-013-mycotic"
+  },
+  "relationships": {
+    "prerequisites": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001", "title": "AAA Definition", "strength": 1.0}],
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa", "@type": "skos:Concept", "skos:prefLabel": "AAA"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:012", "@type": "skos:Concept", "skos:prefLabel": "Inflammatory AAA"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:complications:graft-infection", "@type": "skos:Concept", "skos:prefLabel": "Graft Infection"}
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {"type": "journal_article", "citation": "Sörelius K, et al. Infected aneurysms. Eur J Vasc Endovasc Surg. 2019;57(5):656-664", "confidence": 0.95},
+      {"type": "textbook", "citation": "Rutherford's Vascular Surgery, 10th Ed", "confidence": 0.98}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular_surgery_fellows", "infectious_disease_fellows"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Recognize clinical and imaging features of mycotic aneurysm",
+      "Understand microbiologic etiology despite 'mycotic' misnomer",
+      "Plan surgical approach for infected aneurysm"
+    ],
+    "clinical_pearls": [
+      "Salmonella + elderly patient + GI symptoms = high suspicion for mycotic aneurysm",
+      "Blood cultures are positive in only 50-75% - negative cultures do not exclude diagnosis",
+      "Saccular, rapidly enlarging, atypical location = think infected",
+      "Cryopreserved allograft may have lower reinfection rate than prosthetic"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "233987000", "description": "Mycotic aneurysm of aorta"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I72.9", "description": "Aneurysm of unspecified site (mycotic)"}
+  ]
+}

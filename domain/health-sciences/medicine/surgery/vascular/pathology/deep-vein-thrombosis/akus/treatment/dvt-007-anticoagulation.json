@@ -1,0 +1,94 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "dvt-007-anticoagulation",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:40:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:40:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/deep-vein-thrombosis",
+    "type": "treatment",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "007",
+    "keywords": ["DVT anticoagulation", "DOAC", "warfarin", "LMWH", "VTE treatment"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Anticoagulation is the cornerstone of DVT treatment, preventing thrombus extension, embolization, recurrence, and death. Direct oral anticoagulants (DOACs: rivaroxaban, apixaban, edoxaban, dabigatran) are first-line for most patients due to similar efficacy, better safety profile (less bleeding), and convenience compared to warfarin or LMWH.",
+      "formal": "DVT Anticoagulation: DOACs preferred (rivaroxaban, apixaban) for most; LMWH for cancer, pregnancy; Warfarin if renal failure, antiphospholipid; Duration: 3-6mo (provoked), extended (unprovoked, recurrent)"
+    },
+    "explanation": {
+      "intuition": "Anticoagulation doesn't dissolve the clot - your body does that naturally over weeks to months. What anticoagulation does is prevent the clot from growing larger and prevent new clots from forming while your body's clot-busting system works. It's like a ceasefire that lets the cleanup crew do their job without new messes being made.",
+      "key_insight": "DOACs have revolutionized VTE treatment - they're as effective as traditional warfarin/heparin but with less major bleeding, no monitoring requirement, and fewer drug interactions. However, they're not appropriate for everyone - cancer patients, pregnant women, and those with antiphospholipid syndrome still need alternative approaches.",
+      "technical_details": "DOACs work by directly inhibiting factor Xa (rivaroxaban, apixaban, edoxaban) or thrombin (dabigatran). They have predictable pharmacokinetics allowing fixed dosing without monitoring. AMPLIFY and EINSTEIN trials established apixaban and rivaroxaban as standard of care. Duration based on whether DVT is provoked (3 months) or unprovoked (extended, reassess annually)."
+    },
+    "anticoagulant_options": {
+      "doacs": {
+        "rivaroxaban": {"dose": "15mg BID x 21 days, then 20mg daily", "advantages": "No lead-in required", "renal": "Avoid if CrCl <30"},
+        "apixaban": {"dose": "10mg BID x 7 days, then 5mg BID", "advantages": "Safest bleeding profile", "renal": "Avoid if CrCl <25"},
+        "edoxaban": {"dose": "60mg daily after 5-10 days LMWH lead-in", "renal": "30mg if CrCl 30-50"},
+        "dabigatran": {"dose": "150mg BID after 5-10 days parenteral lead-in", "advantages": "Idarucizumab reversal available"}
+      },
+      "lmwh": {
+        "enoxaparin": {"dose": "1mg/kg BID or 1.5mg/kg daily", "monitoring": "Anti-Xa levels if renal impairment, obesity, pregnancy"},
+        "indications": "Cancer-associated VTE (preferred), pregnancy, severe renal failure with close monitoring"
+      },
+      "warfarin": {
+        "dose": "Target INR 2-3",
+        "indications": "Antiphospholipid syndrome, severe renal failure, patient preference",
+        "bridging": "Requires parenteral anticoagulation until INR therapeutic for ≥2 days"
+      }
+    }
+  },
+  "clinical_features": {
+    "duration": {
+      "provoked_transient_risk": {"examples": "Surgery, immobilization, hospitalization", "duration": "3 months"},
+      "unprovoked": {"examples": "No identifiable risk factor", "duration": "Extended (indefinite), reassess annually"},
+      "recurrent_vte": {"duration": "Extended (indefinite)"},
+      "cancer_associated": {"duration": "As long as cancer active, reassess periodically"}
+    },
+    "special_populations": {
+      "cancer": "LMWH or DOACs (edoxaban, rivaroxaban) preferred over warfarin",
+      "pregnancy": "LMWH only - DOACs and warfarin contraindicated",
+      "antiphospholipid": "Warfarin preferred - DOACs have higher thrombosis risk",
+      "renal_failure": "Warfarin or dose-adjusted LMWH; avoid DOACs if severe CKD",
+      "obesity": "Consider anti-Xa levels for LMWH; DOAC efficacy uncertain if >120kg or BMI >40"
+    },
+    "reversal_agents": {
+      "warfarin": ["Vitamin K (slow)", "4-factor PCC (immediate)", "FFP"],
+      "dabigatran": ["Idarucizumab (Praxbind)"],
+      "xa_inhibitors": ["Andexanet alfa (Andexxa)", "4-factor PCC (off-label)"]
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "DVT Anticoagulation"},
+    "altLabel": [{"@language": "en", "@value": "VTE Treatment"}],
+    "definition": {"@language": "en", "@value": "Anticoagulant therapy to prevent thrombus extension, embolization, and recurrence in deep vein thrombosis"},
+    "notation": "dvt-007-anticoagulation"
+  },
+  "relationships": {
+    "prerequisites": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:dvt:001", "title": "DVT Definition", "strength": 1.0}],
+    "skos:related": [{"@id": "urn:wskg:medicine:hematology:anticoagulation", "@type": "skos:Concept", "skos:prefLabel": "Anticoagulation Therapy"}]
+  },
+  "pedagogical": {
+    "estimated_time": "15min",
+    "clinical_pearls": [
+      "DOACs are first-line for most DVT - simpler, safer than warfarin",
+      "Apixaban has the best bleeding safety profile among DOACs",
+      "Cancer = LMWH or DOAC (NOT warfarin)",
+      "Antiphospholipid syndrome = warfarin (NOT DOACs)",
+      "Unprovoked DVT = extended anticoagulation, reassess risk/benefit annually"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "429221004", "description": "Anticoagulant therapy"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "Z79.01", "description": "Long term (current) use of anticoagulants"}
+  ]
+}

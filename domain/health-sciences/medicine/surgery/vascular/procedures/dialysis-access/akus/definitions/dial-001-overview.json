@@ -1,0 +1,99 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "dial-001-overview",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:35:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:35:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures/dialysis-access",
+    "type": "procedure",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": ["dialysis access", "arteriovenous fistula", "AVF", "AV graft", "hemodialysis"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Dialysis access for hemodialysis includes arteriovenous fistula (AVF), arteriovenous graft (AVG), and central venous catheters. The 'fistula first' approach prioritizes native AVF creation due to superior patency, lower infection rates, and reduced morbidity compared to grafts and catheters. Optimal access planning begins when GFR <30 mL/min/1.73m².",
+      "formal": "Dialysis Access Hierarchy: AVF (native, preferred) > AVG (prosthetic) > Catheter (temporary/bridge); 'Fistula First': plan AVF when GFR <30"
+    },
+    "explanation": {
+      "intuition": "Hemodialysis requires accessing the blood at high flow rates (300-500 mL/min) three times weekly. Normal veins can't handle this - they're too small and fragile. A fistula surgically connects an artery to a vein, causing the vein to enlarge and thicken over several weeks ('maturation'), creating a durable access point. It's like upgrading a residential water line to an industrial one.",
+      "key_insight": "AVF is superior to all other access types but requires 6-12 weeks to mature before use. This means planning ahead - referral for access creation when GFR drops below 30. The most distal, non-dominant arm fistula should be attempted first to preserve proximal sites for future access.",
+      "technical_details": "AVF creation involves anastomosis of an artery to superficial vein. Common configurations: radiocephalic (Brescia-Cimino, most distal, preferred), brachiocephalic, brachiobasilic (two-stage with transposition). Maturation requires flow increase and wall thickening - 'Rule of 6s': 6mm diameter, 6mm depth, 600 mL/min flow, usable by 6 weeks."
+    },
+    "access_types": {
+      "avf": {
+        "description": "Native arteriovenous fistula - artery-to-vein anastomosis",
+        "advantages": ["Lowest infection rate", "Best long-term patency", "Lower cost over time", "Lowest mortality"],
+        "disadvantages": ["Requires maturation (6-12 weeks)", "Primary failure rate 20-60%", "May require vein mapping/preparation"]
+      },
+      "avg": {
+        "description": "Prosthetic graft (PTFE) connecting artery to vein",
+        "advantages": ["No maturation needed (2 weeks)", "Easier cannulation", "Option when veins inadequate"],
+        "disadvantages": ["Higher infection rate", "Lower patency than AVF", "Requires more interventions"]
+      },
+      "cvc": {
+        "description": "Central venous catheter (tunneled or non-tunneled)",
+        "advantages": ["Immediate use", "No surgery for non-tunneled"],
+        "disadvantages": ["Highest infection rate", "Central venous stenosis risk", "Lower dialysis adequacy", "Highest mortality"]
+      }
+    }
+  },
+  "clinical_features": {
+    "preoperative_planning": {
+      "referral_timing": "When GFR <30 or expected dialysis within 6-12 months",
+      "vein_preservation": "Avoid venipuncture and IV placement in non-dominant arm",
+      "vein_mapping": "Duplex ultrasound to assess vein diameter (>2.5mm), depth, continuity"
+    },
+    "site_selection": {
+      "order_preference": "Non-dominant arm first; most distal site first",
+      "radiocephalic": "Wrist-level, preserves proximal sites, lowest flow (less steal)",
+      "brachiocephalic": "Antecubital, higher success rate, higher flow",
+      "brachiobasilic": "Requires transposition (basilic vein deep), good secondary option",
+      "leg": "Thigh AVF/AVG - when upper extremity exhausted"
+    },
+    "maturation": {
+      "timeline": "6-12 weeks for AVF; 2-3 weeks for AVG",
+      "rule_of_6s": ["6mm diameter", "6mm from skin surface", "600 mL/min flow", "6 cm cannulation length"],
+      "failure_to_mature": "Evaluated at 4-6 weeks; fistulogram, intervention if needed"
+    },
+    "complications": {
+      "early": ["Thrombosis", "Hematoma", "Infection"],
+      "late": ["Stenosis", "Thrombosis", "Steal syndrome (hand ischemia)", "Aneurysm/pseudoaneurysm", "High-output heart failure"]
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Dialysis Access"},
+    "altLabel": [{"@language": "en", "@value": "Hemodialysis Access"}, {"@language": "en", "@value": "AVF/AVG Creation"}],
+    "definition": {"@language": "en", "@value": "Surgical creation of vascular access for hemodialysis, preferentially native arteriovenous fistula"},
+    "notation": "dial-001-overview"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:procedures", "@type": "skos:Concept", "skos:prefLabel": "Vascular Procedures"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:nephrology:hemodialysis", "@type": "skos:Concept", "skos:prefLabel": "Hemodialysis"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:procedures:dialysis:steal", "@type": "skos:Concept", "skos:prefLabel": "Steal Syndrome"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "20min",
+    "clinical_pearls": [
+      "Fistula First: AVF has lowest infection, best patency, lowest mortality",
+      "Plan access when GFR <30 - AVF needs 6-12 weeks to mature",
+      "Protect veins early - no IVs or blood draws in non-dominant arm in CKD patients",
+      "Rule of 6s: mature fistula = 6mm diameter, <6mm depth, >600mL/min flow, 6cm length"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "CPT", "codeValue": "36821", "description": "Arteriovenous anastomosis, direct, forearm vein transposition"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-PCS", "codeValue": "031F0JD", "description": "Bypass left radial artery to left cephalic vein with autologous tissue substitute, open approach"}
+  ]
+}

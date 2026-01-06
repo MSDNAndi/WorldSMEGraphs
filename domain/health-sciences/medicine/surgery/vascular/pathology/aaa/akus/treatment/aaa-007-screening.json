@@ -1,0 +1,197 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aaa-007-screening",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:15:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:15:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa",
+    "type": "screening",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "007",
+    "keywords": [
+      "AAA screening",
+      "USPSTF guidelines",
+      "ultrasound screening",
+      "smoking history",
+      "population screening"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "prevention"
+  },
+  "content": {
+    "statement": {
+      "text": "The US Preventive Services Task Force recommends one-time screening ultrasound for AAA in men ages 65-75 who have ever smoked. Screening has been shown to reduce AAA-related mortality by 42% in invited populations. Screening of women is not routinely recommended due to lower prevalence, though selective screening may be considered in women 65-75 with smoking history or family history.",
+      "formal": "USPSTF AAA Screening: Men 65-75 + Ever smoked → Grade B recommendation (one-time ultrasound) | Men 65-75 + Never smoked → Grade C (selective) | Women 65-75 + Ever smoked → Grade I (insufficient evidence) | Women 65-75 + Never smoked → Grade D (do not screen)"
+    },
+    "explanation": {
+      "intuition": "AAA is a 'silent killer' - most patients have no symptoms until rupture, which is usually fatal. Screening catches aneurysms while they're small enough to safely monitor or electively repair, rather than waiting for catastrophic rupture. A simple 10-minute ultrasound can identify a potentially fatal condition years before it becomes an emergency.",
+      "key_insight": "Screening only works if the condition is common enough in the screened population to justify the cost and follow-up. AAA is common in older male smokers (~7%) but rare in never-smoking women (<0.5%). This is why screening recommendations are targeted, not universal.",
+      "technical_details": "Major trials proving screening benefit: (1) MASS trial (UK) - 42% reduction in AAA mortality at 10 years; (2) Viborg (Denmark) - 67% reduction in AAA mortality; (3) Western Australia - 41% reduction in rupture. The number needed to screen (NNS) to prevent one AAA-related death is ~300-400 men over 10 years. Screening is cost-effective at ~$10,000-15,000 per life-year gained. Ultrasound is 95-100% sensitive and 99% specific for AAA detection. Medicare covers one-time screening for eligible patients.",
+      "common_misconceptions": [
+        "All elderly patients should be screened - only certain high-risk populations benefit",
+        "Women don't get AAA - they do, but it's much less common",
+        "Screening should be repeated - one-time screening is sufficient if normal",
+        "Finding a small AAA requires immediate surgery - most are monitored"
+      ]
+    },
+    "definitions_glossary": {
+      "screening": "Testing asymptomatic individuals to detect disease early",
+      "uspstf": "US Preventive Services Task Force - independent panel making prevention recommendations",
+      "grade_b": "High certainty of moderate benefit or moderate certainty of high benefit",
+      "grade_c": "Moderate benefit for selected patients, individual decision-making",
+      "grade_i": "Insufficient evidence to assess benefits and harms",
+      "grade_d": "Evidence of no benefit or harms outweigh benefits"
+    }
+  },
+  "clinical_features": {
+    "uspstf_recommendations": {
+      "men_65_75_ever_smoked": {
+        "recommendation": "Screen with one-time ultrasound",
+        "grade": "B",
+        "rationale": "Moderate benefit, high prevalence (5-7%)"
+      },
+      "men_65_75_never_smoked": {
+        "recommendation": "Selective screening based on risk factors",
+        "grade": "C",
+        "rationale": "Lower prevalence (~2%), individual decision"
+      },
+      "women_65_75_ever_smoked": {
+        "recommendation": "Insufficient evidence for or against",
+        "grade": "I",
+        "rationale": "Lower prevalence, unclear benefit"
+      },
+      "women_65_75_never_smoked": {
+        "recommendation": "Do not screen",
+        "grade": "D",
+        "rationale": "Very low prevalence (<0.5%), harms may outweigh benefits"
+      }
+    },
+    "other_guidelines": {
+      "svs": "One-time screening for: All men 65+ with smoking history, Men 55+ with family history, Women 65+ with smoking history",
+      "aha": "Reasonable to screen men ≥65 with smoking history",
+      "uk_nhs": "National screening program for all men at age 65"
+    },
+    "screening_test": {
+      "modality": "Abdominal ultrasound",
+      "sensitivity": "95-100%",
+      "specificity": "99%",
+      "duration": "~10 minutes",
+      "cost": "$50-200",
+      "coverage": "Medicare covers one-time screening for eligible patients"
+    },
+    "follow_up_by_size": {
+      "less_than_3_cm": "Normal, no follow-up needed",
+      "3_to_4_cm": "Repeat ultrasound in 2-3 years",
+      "4_to_5_cm": "Repeat ultrasound every 6-12 months",
+      "greater_than_5_cm": "Refer for surgical evaluation"
+    },
+    "trial_evidence": {
+      "mass_trial": {
+        "population": "67,770 UK men",
+        "result": "42% reduction in AAA mortality at 10 years",
+        "nnt_per_year": "~3,000 to prevent 1 AAA death"
+      },
+      "viborg_trial": {
+        "population": "12,639 Danish men",
+        "result": "67% reduction in AAA mortality"
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "AAA Screening Guidelines"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Evidence-based recommendations for population screening for abdominal aortic aneurysm"
+    },
+    "notation": "aaa-007-screening"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001",
+        "title": "AAA Definition",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:002",
+        "title": "AAA Epidemiology",
+        "strength": 0.9
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Abdominal Aortic Aneurysm"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "citation": "US Preventive Services Task Force. Screening for Abdominal Aortic Aneurysm: US Preventive Services Task Force Recommendation Statement. JAMA. 2019;322(22):2211-2218.",
+        "doi": "10.1001/jama.2019.18928",
+        "confidence": 1.0
+      },
+      {
+        "type": "landmark_trial",
+        "citation": "MASS Trial. Lancet. 2002;360:1531-1539.",
+        "confidence": 0.99
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "primary_care_physicians",
+      "medical_students",
+      "preventive_medicine_residents"
+    ],
+    "estimated_time": "15min",
+    "difficulty_curve": 0.4,
+    "learning_objectives": [
+      "Identify patients who should be screened for AAA",
+      "Explain the USPSTF grading system",
+      "Describe the evidence supporting AAA screening",
+      "Determine appropriate follow-up based on ultrasound results"
+    ],
+    "clinical_pearls": [
+      "One-time screening is sufficient if normal",
+      "Medicare covers screening for eligible patients",
+      "Ever smoked = even one cigarette in a lifetime",
+      "Family history of AAA is an indication for earlier screening"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "recommendation_table",
+    "show_images": false
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "76706",
+      "description": "Ultrasound, abdominal aorta, real-time with image documentation, for screening for AAA"
+    }
+  ]
+}

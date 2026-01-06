@@ -1,0 +1,100 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "dvt-005-iliofemoral-dvt",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:15:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:15:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/deep-vein-thrombosis",
+    "type": "clinical",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "005",
+    "keywords": ["iliofemoral DVT", "proximal DVT", "May-Thurner", "PTS", "thrombolysis"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Iliofemoral deep vein thrombosis (DVT) involves thrombus extending to the iliac veins and/or common femoral vein. It carries higher risk of post-thrombotic syndrome (PTS) than more distal DVT and may benefit from early thrombus removal strategies (catheter-directed thrombolysis or mechanical thrombectomy) in select patients.",
+      "formal": "Iliofemoral DVT: Thrombus in iliac/common femoral veins; Higher PTS risk (50-70%); Consider early intervention in low-bleeding-risk patients with symptoms <14 days"
+    },
+    "explanation": {
+      "intuition": "Think of the venous system like a drainage network. Iliofemoral DVT is like a blockage at the main junction where all the small drains connect - it backs up the entire leg. When this blockage remains, the chronic pressure damages the smaller veins and valves, causing permanent swelling, skin changes, and ulcers (post-thrombotic syndrome).",
+      "key_insight": "The ATTRACT trial showed that catheter-directed thrombolysis doesn't reduce overall PTS rates, but may reduce severe PTS in iliofemoral DVT specifically. Patient selection is crucial - the ideal candidate is young, has low bleeding risk, symptoms <14 days, and extensive iliofemoral clot.",
+      "technical_details": "Iliofemoral DVT involves the common femoral vein ± iliac veins. It represents 25-30% of all lower extremity DVT. The high PTS rate (50-70% without intervention) is due to residual obstruction and valve destruction in major venous outflow. May-Thurner anatomy (left iliac vein compression) underlies 50-60% of left-sided iliofemoral DVT."
+    },
+    "classification": {
+      "by_location": {
+        "iliocaval": "Extends to IVC - highest severity",
+        "iliac": "Common and/or external iliac veins",
+        "iliofemoral": "Iliac veins AND common femoral vein",
+        "femoropopliteal": "Femoral and/or popliteal veins - moderate risk"
+      },
+      "by_timing": {
+        "acute": "<14 days - best window for thrombus removal",
+        "subacute": "14-28 days - may still benefit from intervention",
+        "chronic": ">28 days - organized thrombus, intervention less effective"
+      }
+    }
+  },
+  "clinical_features": {
+    "presentation": {
+      "symptoms": ["Severe leg swelling (entire leg)", "Thigh and calf pain", "Leg heaviness", "Cyanosis if severe (phlegmasia)"],
+      "signs": ["Entire leg edema (distinguishes from femoropopliteal)", "Tender groin", "Dilated superficial veins as collaterals"]
+    },
+    "imaging": {
+      "duplex_ultrasound": "First-line; may have limited iliac visualization",
+      "ct_venography": "Excellent for iliocaval extent",
+      "mr_venography": "Alternative to CTV, no contrast option",
+      "invasive_venography": "During planned intervention"
+    },
+    "treatment_options": {
+      "anticoagulation_alone": {
+        "indication": "Standard treatment, all patients",
+        "agents": ["DOAC preferred (rivaroxaban, apixaban)", "LMWH", "Warfarin"],
+        "duration": "3-6 months minimum; extended if unprovoked"
+      },
+      "early_thrombus_removal": {
+        "indication": "Young, low bleeding risk, symptoms <14 days, severe symptoms",
+        "options": ["Catheter-directed thrombolysis (CDT)", "Pharmacomechanical thrombectomy", "Aspiration thrombectomy"],
+        "goal": "Reduce PTS severity, improve quality of life"
+      },
+      "iliac_stenting": {
+        "indication": "May-Thurner anatomy, residual iliac stenosis after thrombus removal",
+        "timing": "After thrombus clearance, if underlying lesion present"
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Iliofemoral DVT"},
+    "definition": {"@language": "en", "@value": "DVT involving iliac and/or common femoral veins with higher PTS risk and potential benefit from early thrombus removal"},
+    "notation": "dvt-005-iliofemoral"
+  },
+  "relationships": {
+    "prerequisites": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:dvt:001", "title": "DVT Definition", "strength": 1.0}],
+    "enables": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:dvt:015", "title": "Post-Thrombotic Syndrome", "strength": 0.95}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:venous:may-thurner", "@type": "skos:Concept", "skos:prefLabel": "May-Thurner Syndrome"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:dvt:010", "@type": "skos:Concept", "skos:prefLabel": "Phlegmasia"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "15min",
+    "clinical_pearls": [
+      "Entire leg swelling = think iliofemoral level; calf only = more distal",
+      "50-60% of left-sided iliofemoral DVT have underlying May-Thurner anatomy",
+      "ATTRACT trial: CDT doesn't reduce overall PTS but may reduce SEVERE PTS",
+      "Best candidates for intervention: young, low bleed risk, symptoms <14 days, severe symptoms"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "132281000119108", "description": "Acute thrombosis of iliac vein"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I82.42", "description": "Acute embolism and thrombosis of iliac vein"}
+  ]
+}

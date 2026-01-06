@@ -1,0 +1,206 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aaa-009-evar-vs-open",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T03:25:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T03:25:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa",
+    "type": "treatment_decision",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "009",
+    "keywords": [
+      "EVAR vs open repair",
+      "AAA treatment choice",
+      "anatomic eligibility",
+      "long-term outcomes",
+      "treatment selection"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "treatment_decision"
+  },
+  "content": {
+    "statement": {
+      "text": "Both EVAR and open repair are effective treatments for AAA. EVAR has lower perioperative mortality (1-2% vs 4-5%) but requires lifelong surveillance and has higher reintervention rates. Open repair has higher upfront risk but better durability. Choice depends on anatomy (EVAR requires suitable neck/iliac), patient fitness, and life expectancy.",
+      "formal": "EVAR: 30-day mortality 1-2% | Reintervention 20-30% at 5 years | Requires surveillance | Open: 30-day mortality 4-5% | Reintervention 5-10% at 5 years | No surveillance | Selection: Anatomy + Fitness + Life expectancy"
+    },
+    "explanation": {
+      "intuition": "Think of it as fixing a leaky pipe. EVAR is like inserting a sleeve from inside - less invasive, faster recovery, but you need the right pipe shape and must check it regularly. Open repair is like cutting the wall, replacing the pipe, and patching it up - bigger operation, longer recovery, but the fix is more permanent. Young, fit patients may be better served by getting open repair done once, while older or sicker patients benefit from the easier recovery of EVAR even if they need follow-up.",
+      "key_insight": "The early survival advantage of EVAR disappears over time. By 8-10 years, survival curves converge because EVAR patients have ongoing aneurysm-related deaths (rupture from endoleak, reintervention complications). For patients with >10-year life expectancy, open repair may be the better choice if they can tolerate it.",
+      "technical_details": "Key trials: EVAR-1 and DREAM showed lower 30-day mortality for EVAR but no long-term survival benefit. OVER trial showed equivalent 9-year survival. EVAR requires: (1) Adequate proximal neck (≥10-15 mm length, ≤30-32 mm diameter, <60° angulation); (2) Suitable iliac access (≥7 mm diameter, <90° tortuosity); (3) Adequate distal landing zones. Open repair indications: Young/fit patients, EVAR-ineligible anatomy, connective tissue disease, mycotic/inflammatory aneurysm, need for concomitant renal/mesenteric revascularization.",
+      "common_misconceptions": [
+        "EVAR is always better because it's less invasive - long-term outcomes are similar",
+        "Open repair is outdated - it remains the gold standard for durability",
+        "All AAAs are suitable for EVAR - 30-40% have unfavorable anatomy",
+        "Surveillance after EVAR is optional - it's mandatory and lifelong"
+      ]
+    },
+    "definitions_glossary": {
+      "evar": "Endovascular Aortic Repair - stent-graft placement via femoral access",
+      "open_repair": "Traditional surgery with aortic clamping and graft interposition",
+      "proximal_neck": "Normal aorta between renal arteries and aneurysm",
+      "reintervention": "Additional procedures to address complications or failures",
+      "surveillance": "Regular imaging follow-up to detect complications"
+    }
+  },
+  "clinical_features": {
+    "comparison_table": {
+      "perioperative_mortality": {
+        "evar": "1-2%",
+        "open": "4-5%"
+      },
+      "hospital_stay": {
+        "evar": "2-3 days",
+        "open": "7-10 days"
+      },
+      "recovery_time": {
+        "evar": "1-2 weeks",
+        "open": "4-6 weeks"
+      },
+      "five_year_reintervention": {
+        "evar": "20-30%",
+        "open": "5-10%"
+      },
+      "aneurysm_related_mortality_5y": {
+        "evar": "3-5%",
+        "open": "2-3%"
+      },
+      "all_cause_mortality_5y": {
+        "evar": "25-30%",
+        "open": "25-30%"
+      },
+      "surveillance_required": {
+        "evar": "Yes, lifelong",
+        "open": "No (unless indication)"
+      }
+    },
+    "evar_anatomic_requirements": [
+      "Proximal neck length ≥10-15 mm",
+      "Proximal neck diameter ≤30-32 mm",
+      "Proximal neck angulation <60°",
+      "Iliac diameter ≥7 mm for access",
+      "Iliac tortuosity <90°",
+      "Adequate distal landing zones"
+    ],
+    "open_repair_preferred": [
+      "Young/fit patients with long life expectancy",
+      "EVAR-ineligible anatomy",
+      "Connective tissue disease (Marfan, Ehlers-Danlos)",
+      "Mycotic or inflammatory aneurysm",
+      "Need for renal/mesenteric revascularization",
+      "Concern about compliance with surveillance"
+    ],
+    "evar_preferred": [
+      "Older patients (>70-80 years)",
+      "High operative risk (cardiac, pulmonary)",
+      "Hostile abdomen (prior surgery, radiation)",
+      "Favorable anatomy",
+      "Patient preference for minimally invasive"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "EVAR vs Open Repair Decision"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Comparison of endovascular and open surgical approaches for AAA repair"
+    },
+    "notation": "aaa-009-evar-vs-open"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001",
+        "title": "AAA Definition",
+        "strength": 0.9
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:008",
+        "title": "Surgical Indications",
+        "strength": 1.0
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:procedures:evar:001",
+        "title": "EVAR Overview",
+        "strength": 1.0
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Abdominal Aortic Aneurysm"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "landmark_trial",
+        "citation": "EVAR-1 Trial. Lancet. 2005;365:2179-2186.",
+        "confidence": 0.99
+      },
+      {
+        "type": "landmark_trial",
+        "citation": "OVER Trial. N Engl J Med. 2019;380:2126-2135.",
+        "confidence": 0.99
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "vascular_surgery_residents",
+      "general_surgery_residents"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.6,
+    "learning_objectives": [
+      "Compare perioperative and long-term outcomes of EVAR vs open repair",
+      "List anatomic requirements for EVAR",
+      "Identify patient factors favoring each approach",
+      "Understand the importance of shared decision-making"
+    ],
+    "clinical_pearls": [
+      "EVAR wins early (less perioperative mortality), open wins late (fewer reinterventions)",
+      "Long-term survival is similar - choose based on patient factors",
+      "~30-40% of patients are not anatomic candidates for EVAR",
+      "EVAR without lifelong surveillance is dangerous"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "comparison_table",
+    "show_images": true,
+    "visualization": [
+      "evar_vs_open_outcomes_chart",
+      "anatomic_requirements_diagram"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "233985008",
+      "description": "Abdominal aortic aneurysm (disorder)"
+    }
+  ]
+}

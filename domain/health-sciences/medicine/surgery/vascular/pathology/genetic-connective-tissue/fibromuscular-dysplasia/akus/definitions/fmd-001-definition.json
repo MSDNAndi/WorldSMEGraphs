@@ -1,0 +1,89 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "fmd-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:10:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:10:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/genetic-connective-tissue/fibromuscular-dysplasia",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": ["fibromuscular dysplasia", "FMD", "string of beads", "renal artery", "carotid artery"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Fibromuscular dysplasia (FMD) is a non-atherosclerotic, non-inflammatory arteriopathy causing stenosis, aneurysm, and dissection, primarily affecting young to middle-aged women. It most commonly involves renal arteries (60-75%) and cervicocephalic arteries (carotid, vertebral) with characteristic 'string of beads' angiographic appearance in medial FMD.",
+      "formal": "FMD: Non-atherosclerotic, non-inflammatory; Demographics: F>M (9:1), age 30-50; Distribution: renal (60-75%), carotid/vertebral (25-30%); Classic finding: 'string of beads' on angiography"
+    },
+    "explanation": {
+      "intuition": "FMD is like a manufacturing defect in the arterial wall that causes it to form in an irregular, beaded pattern rather than as a smooth tube. Unlike atherosclerosis (caused by plaque buildup) or vasculitis (caused by inflammation), FMD is an intrinsic abnormality of the arterial wall structure itself, typically developing before middle age.",
+      "key_insight": "FMD is a systemic arteriopathy - finding it in one vascular bed should prompt screening of other beds. 50-70% of patients have multifocal disease. Associated intracranial aneurysms occur in 7-15% of patients with cervicocephalic FMD.",
+      "technical_details": "Three histologic types exist: medial FMD (most common, 'string of beads'), intimal FMD (focal stenosis, younger patients), and adventitial FMD (rare). The 'string of beads' appearance results from alternating stenotic (fibroplasia) and dilated (weakened media) segments. The beads are typically larger than normal vessel diameter. FMD typically involves mid and distal arterial segments, sparing origins - opposite of atherosclerosis."
+    },
+    "classification": {
+      "by_histology": {
+        "medial": {"frequency": "80-90%", "appearance": "'String of beads' - beads larger than vessel", "prognosis": "Most favorable"},
+        "intimal": {"frequency": "~10%", "appearance": "Focal, concentric stenosis", "prognosis": "More progressive"},
+        "adventitial": {"frequency": "<1%", "appearance": "Focal tubular stenosis", "prognosis": "Variable"}
+      },
+      "by_location": {
+        "renal": {"frequency": "60-75%", "presentation": "Hypertension, renal insufficiency"},
+        "cervicocephalic": {"frequency": "25-30%", "presentation": "TIA, stroke, dissection, headache, pulsatile tinnitus"},
+        "other": {"vessels": ["Mesenteric", "Iliac", "Brachial"], "frequency": "<10%"}
+      }
+    }
+  },
+  "clinical_features": {
+    "renal_fmd": {
+      "presentation": ["Hypertension (often before age 35)", "Resistant hypertension", "Renal insufficiency (rare)"],
+      "diagnosis": ["CTA or MRA", "Classic 'string of beads'", "Mid/distal renal artery location"],
+      "treatment": ["Balloon angioplasty (not stenting)", "BP control"]
+    },
+    "cervicocephalic_fmd": {
+      "presentation": ["TIA or stroke", "Carotid/vertebral dissection", "Headache", "Pulsatile tinnitus", "Horner syndrome"],
+      "associated_findings": ["Intracranial aneurysm (7-15%)", "Tortuous vessels"],
+      "treatment": ["Antiplatelet therapy", "BP control", "Dissection: anticoagulation/antiplatelet"]
+    },
+    "screening_recommendations": {
+      "renal_fmd": "Screen brain for intracranial aneurysm with MRA",
+      "carotid_fmd": "Screen brain for aneurysm; consider renal duplex"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Fibromuscular Dysplasia"},
+    "altLabel": [{"@language": "en", "@value": "FMD"}],
+    "definition": {"@language": "en", "@value": "Non-atherosclerotic, non-inflammatory arteriopathy causing stenosis, aneurysm, and dissection, with characteristic 'string of beads' appearance"},
+    "notation": "fmd-001-definition"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:genetic-connective-tissue", "@type": "skos:Concept", "skos:prefLabel": "Genetic Connective Tissue Disorders"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:renal-artery-disease", "@type": "skos:Concept", "skos:prefLabel": "Renal Artery Disease"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:carotid-disease", "@type": "skos:Concept", "skos:prefLabel": "Carotid Disease"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "15min",
+    "clinical_pearls": [
+      "'String of beads' with beads LARGER than vessel diameter = medial FMD (most common)",
+      "FMD is MULTIFOCAL - screen other vascular beds when found",
+      "Treat renal FMD with balloon angioplasty ALONE - no stent needed",
+      "Check for intracranial aneurysms in all cervicocephalic FMD patients",
+      "Unlike atherosclerosis, FMD involves MID/DISTAL vessels, not origins"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "54965003", "description": "Fibromuscular dysplasia"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I77.3", "description": "Arterial fibromuscular dysplasia"},
+    {"@type": "MedicalCode", "codingSystem": "OMIM", "codeValue": "135580", "description": "Fibromuscular Dysplasia of Arteries"}
+  ]
+}

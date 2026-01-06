@@ -1,0 +1,90 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "taa-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:45:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:45:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/thoracic-aortic-aneurysm",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "001",
+    "keywords": ["thoracic aortic aneurysm", "TAA", "aortic root", "ascending aorta", "descending thoracic aneurysm"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Thoracic aortic aneurysm (TAA) is a permanent, localized dilation of the thoracic aorta to ≥150% of normal diameter or absolute diameter ≥4.5-5.0 cm, depending on location. Unlike AAA which is predominantly atherosclerotic, TAA etiology varies by location: ascending aorta (genetic/degenerative), arch (atherosclerotic), and descending (atherosclerotic/traumatic).",
+      "formal": "TAA: Thoracic aorta dilation ≥1.5x normal; By location: Aortic root/ascending (60%), Arch (10%), Descending (30%); Etiology varies by location (genetic, atherosclerotic, inflammatory)"
+    },
+    "explanation": {
+      "intuition": "The thoracic aorta is like a high-pressure pipe running from the heart through the chest. Different sections of this pipe are susceptible to different problems. Near the heart (ascending), genetic weaknesses in the wall structure are the main issue. Further down (descending), plaque buildup and high blood pressure cause damage similar to what happens in abdominal aneurysms.",
+      "key_insight": "Ascending aortic aneurysms have different pathophysiology, natural history, and treatment than descending thoracic aneurysms. Ascending aneurysms are more commonly associated with connective tissue disorders and require open surgery. Descending aneurysms are more atherosclerotic and are increasingly treated with TEVAR.",
+      "technical_details": "Normal thoracic aortic diameters vary by location: aortic root 3.0-3.5 cm, ascending 2.8-3.2 cm, arch 2.5-3.0 cm, descending 2.4-2.8 cm. Body surface area-indexed values more accurate. Ascending aneurysms associated with bicuspid aortic valve (50%), Marfan syndrome, Loeys-Dietz. Descending more atherosclerotic. Crawford classification for thoracoabdominal extent."
+    },
+    "anatomic_classification": {
+      "aortic_root": {"location": "Sinuses of Valsalva to sinotubular junction", "normal": "3.0-3.5 cm", "associations": "Marfan, LDS, BAV"},
+      "ascending": {"location": "STJ to innominate artery", "normal": "2.8-3.2 cm", "associations": "Degenerative, BAV, genetic"},
+      "arch": {"location": "Innominate to left subclavian", "normal": "2.5-3.0 cm", "associations": "Atherosclerotic"},
+      "descending": {"location": "Left subclavian to diaphragm", "normal": "2.4-2.8 cm", "associations": "Atherosclerotic, post-dissection, trauma"}
+    }
+  },
+  "clinical_features": {
+    "epidemiology": {
+      "incidence": "5-10 per 100,000 person-years",
+      "prevalence": "Increasing with aging population",
+      "age": "6th-7th decade (degenerative), younger in genetic syndromes",
+      "male_to_female": "~1.5:1"
+    },
+    "etiology": {
+      "degenerative": "Cystic medial degeneration - aging, hypertension",
+      "genetic": ["Marfan syndrome (FBN1)", "Loeys-Dietz syndrome (TGFBR)", "Vascular EDS (COL3A1)", "Bicuspid aortic valve", "Familial TAAD (ACTA2, MYH11)"],
+      "atherosclerotic": "More common in descending/arch",
+      "inflammatory": ["Giant cell arteritis", "Takayasu arteritis", "IgG4-related disease"],
+      "infectious": "Mycotic aneurysm (rare)"
+    },
+    "presentation": {
+      "asymptomatic": "Most common - incidental on imaging",
+      "symptomatic": ["Chest/back pain", "Hoarseness (recurrent laryngeal nerve)", "Dysphagia", "Dyspnea", "Heart failure (aortic regurgitation)"],
+      "emergency": ["Rupture", "Acute aortic regurgitation", "Dissection"]
+    },
+    "imaging": {
+      "ct_angiography": "Modality of choice for diagnosis and planning",
+      "echocardiography": "Transthoracic for root/ascending; TEE for arch/descending",
+      "mra": "Alternative to CTA, no contrast, excellent for surveillance"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Thoracic Aortic Aneurysm"},
+    "altLabel": [{"@language": "en", "@value": "TAA"}],
+    "definition": {"@language": "en", "@value": "Permanent dilation of thoracic aorta to ≥150% normal diameter, with etiology varying by location"},
+    "notation": "taa-001-definition"
+  },
+  "relationships": {
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa", "@type": "skos:Concept", "skos:prefLabel": "AAA"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-dissection", "@type": "skos:Concept", "skos:prefLabel": "Aortic Dissection"}
+    ],
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:aortic", "@type": "skos:Concept", "skos:prefLabel": "Aortic Diseases"}]
+  },
+  "pedagogical": {
+    "estimated_time": "20min",
+    "clinical_pearls": [
+      "Ascending TAA = think genetic; Descending TAA = think atherosclerotic",
+      "Always measure aortic root in patients with bicuspid aortic valve",
+      "Family history of TAA, dissection, or sudden death = screen first-degree relatives",
+      "Use body surface area-indexed values in smaller patients"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "233986009", "description": "Thoracic aortic aneurysm"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I71.2", "description": "Thoracic aortic aneurysm, without rupture"}
+  ]
+}

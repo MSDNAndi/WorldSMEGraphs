@@ -1,0 +1,92 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "mts-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:15:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:15:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous/compression-syndromes/may-thurner",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": ["May-Thurner syndrome", "iliac vein compression", "left leg DVT", "venous stent"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "May-Thurner syndrome (MTS) is compression of the left common iliac vein by the overlying right common iliac artery against the lumbar vertebrae, causing intimal changes (venous spur), stenosis, and predisposition to left iliofemoral DVT. MTS underlies 50-60% of left-sided iliofemoral DVT cases.",
+      "formal": "May-Thurner: Left CIV compression by right CIA → venous spur → stenosis/DVT; 50-60% of left iliofemoral DVT; F>M, age 20-40"
+    },
+    "explanation": {
+      "intuition": "Imagine a garden hose (the left iliac vein) trapped between a rock (the spine) and a pulsating pump tube (the right iliac artery). Over time, this constant pressure damages the hose wall and narrows its opening. Blood flow slows in this narrowed section, which is the perfect setup for a clot to form.",
+      "key_insight": "MTS is underdiagnosed because it's only symptomatic when complicated by DVT or in severe stenosis. When a young person (especially a woman) presents with left leg DVT, always suspect underlying May-Thurner anatomy and image the iliac veins.",
+      "technical_details": "The anatomic compression occurs where the left common iliac vein crosses posterior to the right common iliac artery at the L5 vertebral body level. Chronic pulsatile compression causes intimal proliferation and formation of intraluminal webs or 'spurs' (Cockett's syndrome). IVUS shows >50% stenosis in symptomatic patients."
+    },
+    "anatomic_variants": {
+      "classic": "Left CIV compression by right CIA - most common (>95%)",
+      "right_sided": "Right CIV compression by left CIA - rare",
+      "bilateral": "Compression of both iliac veins - rare",
+      "external_iliac": "Compression at external iliac level - less common"
+    }
+  },
+  "clinical_features": {
+    "epidemiology": {
+      "prevalence": "Anatomic compression in 20-30% of population; symptomatic in 2-5%",
+      "demographics": "F:M ratio 3:1, typically age 20-40",
+      "dvt_association": "50-60% of left iliofemoral DVT have MTS anatomy"
+    },
+    "presentation": {
+      "asymptomatic": "Many have anatomic compression without symptoms",
+      "chronic_symptoms": ["Left leg swelling", "Leg heaviness worse with standing", "Venous claudication"],
+      "acute_presentation": "Left iliofemoral DVT (most common presenting scenario)"
+    },
+    "diagnosis": {
+      "duplex_ultrasound": "May show iliac vein stenosis; limited by bowel gas",
+      "ct_venography": "Shows compression at cross-over; may underestimate stenosis",
+      "mr_venography": "Good visualization without radiation",
+      "ivus": "Gold standard for stenosis assessment; >50% compression diagnostic",
+      "venography": "Performed during intervention; shows collaterals, stenosis"
+    },
+    "treatment": {
+      "asymptomatic": "No treatment required for incidental finding without symptoms",
+      "symptomatic_without_dvt": ["Conservative (compression)", "Stenting if significant stenosis and symptoms"],
+      "with_dvt": {
+        "acute": ["Anticoagulation", "Thrombolysis/thrombectomy if appropriate", "Stenting of underlying stenosis after thrombus clearance"],
+        "chronic": ["Anticoagulation", "Consider stenting if residual stenosis and symptoms"]
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "May-Thurner Syndrome"},
+    "altLabel": [{"@language": "en", "@value": "Iliac Vein Compression Syndrome"}, {"@language": "en", "@value": "Cockett Syndrome"}],
+    "definition": {"@language": "en", "@value": "Compression of left common iliac vein by right common iliac artery, predisposing to venous stenosis and left iliofemoral DVT"},
+    "notation": "mts-001-definition"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:venous:compression-syndromes", "@type": "skos:Concept", "skos:prefLabel": "Venous Compression Syndromes"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:dvt:005", "@type": "skos:Concept", "skos:prefLabel": "Iliofemoral DVT"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:venous:nutcracker", "@type": "skos:Concept", "skos:prefLabel": "Nutcracker Syndrome"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "15min",
+    "clinical_pearls": [
+      "Left leg DVT in young woman = always think May-Thurner",
+      "50-60% of left iliofemoral DVT have underlying MTS",
+      "IVUS is gold standard for assessing compression severity",
+      "Stent the underlying stenosis AFTER clearing the thrombus, not before"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "234044004", "description": "May-Thurner syndrome"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I87.1", "description": "Compression of vein"}
+  ]
+}

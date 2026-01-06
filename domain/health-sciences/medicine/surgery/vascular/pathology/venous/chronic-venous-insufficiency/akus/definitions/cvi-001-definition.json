@@ -1,0 +1,124 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "cvi-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:45:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:45:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous/chronic-venous-insufficiency",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": ["chronic venous insufficiency", "CVI", "varicose veins", "venous reflux", "venous ulcer", "CEAP"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Chronic venous insufficiency (CVI) is a syndrome of ambulatory venous hypertension from impaired venous return, caused by valvular incompetence (reflux) and/or venous obstruction. It manifests as varicose veins, edema, skin changes (hyperpigmentation, lipodermatosclerosis), and venous ulceration. The CEAP classification provides standardized description.",
+      "formal": "CVI: Ambulatory venous hypertension from reflux ± obstruction; Spectrum: varicose veins → edema → skin changes → ulcer; CEAP classification: Clinical-Etiologic-Anatomic-Pathophysiologic"
+    },
+    "explanation": {
+      "intuition": "Veins have one-way valves that keep blood flowing toward the heart, against gravity when standing. When these valves fail (from genetics, prior clot, or just wear and tear), blood falls back down and pools in the legs. Over time, this backward flow and pooling damages the smallest blood vessels, causing fluid to leak into tissues and chronic inflammation that leads to skin damage and eventually ulcers.",
+      "key_insight": "CVI is extremely common, affecting up to 50% of adults to some degree. While often considered cosmetic (varicose veins), advanced CVI causes significant morbidity and affects quality of life. Venous ulcers heal slowly and frequently recur without addressing the underlying venous hypertension.",
+      "technical_details": "Venous hypertension in CVI typically >80 mmHg (normal ambulatory venous pressure 20-30 mmHg with calf muscle pump). Superficial reflux (saphenous) is most common and most treatable. Deep vein reflux and obstruction (post-thrombotic) are harder to treat. Perforator vein incompetence transmits high deep system pressures to superficial system."
+    },
+    "ceap_classification": {
+      "clinical_C": {
+        "C0": "No visible or palpable signs of venous disease",
+        "C1": "Telangiectasias or reticular veins",
+        "C2": "Varicose veins",
+        "C3": "Edema",
+        "C4a": "Pigmentation or eczema",
+        "C4b": "Lipodermatosclerosis or atrophie blanche",
+        "C4c": "Corona phlebectatica",
+        "C5": "Healed venous ulcer",
+        "C6": "Active venous ulcer"
+      },
+      "etiologic_E": {
+        "Ec": "Congenital",
+        "Ep": "Primary",
+        "Es": "Secondary (post-thrombotic)",
+        "En": "No venous cause identified"
+      },
+      "anatomic_A": {
+        "As": "Superficial veins",
+        "Ap": "Perforator veins",
+        "Ad": "Deep veins",
+        "An": "No venous location identified"
+      },
+      "pathophysiologic_P": {
+        "Pr": "Reflux",
+        "Po": "Obstruction",
+        "Pr,o": "Reflux and obstruction",
+        "Pn": "No venous pathophysiology identified"
+      }
+    }
+  },
+  "clinical_features": {
+    "risk_factors": ["Age", "Female sex", "Pregnancy", "Obesity", "Prolonged standing occupation", "Family history", "Prior DVT"],
+    "symptoms": ["Leg heaviness", "Aching", "Swelling worse with standing", "Night cramps", "Itching", "Restless legs"],
+    "signs_by_stage": {
+      "early": ["Spider veins (telangiectasias)", "Varicose veins", "Ankle edema"],
+      "intermediate": ["Hyperpigmentation", "Eczema", "Lipodermatosclerosis"],
+      "advanced": ["Atrophie blanche", "Venous ulcer (typically medial malleolus)"]
+    },
+    "diagnosis": {
+      "duplex_ultrasound": "Gold standard - assess reflux (>0.5 sec reversed flow) and obstruction",
+      "clinical": "CEAP classification",
+      "vcss": "Venous Clinical Severity Score for outcomes tracking"
+    },
+    "treatment": {
+      "conservative": {
+        "compression": "Cornerstone - graduated compression stockings 20-40 mmHg",
+        "leg_elevation": "Multiple times daily",
+        "exercise": "Walking, calf exercises"
+      },
+      "interventional_superficial": {
+        "endovenous_ablation": "Laser (EVLA), radiofrequency (RFA) - first-line for saphenous reflux",
+        "sclerotherapy": "Chemical ablation - for reticular veins, varicosities",
+        "phlebectomy": "Ambulatory stab avulsion of varicosities"
+      },
+      "deep_venous": {
+        "iliac_stenting": "For post-thrombotic obstruction",
+        "valvuloplasty": "Rarely performed for deep reflux"
+      },
+      "ulcer_management": {
+        "compression": "Essential for healing",
+        "wound_care": "Dressings, debridement",
+        "intervention": "Correct superficial reflux to promote healing and prevent recurrence"
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Chronic Venous Insufficiency"},
+    "altLabel": [{"@language": "en", "@value": "CVI"}, {"@language": "en", "@value": "Venous Reflux Disease"}],
+    "definition": {"@language": "en", "@value": "Syndrome of ambulatory venous hypertension from valvular incompetence causing varicose veins, skin changes, and ulceration"},
+    "notation": "cvi-001-definition"
+  },
+  "relationships": {
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:dvt:008", "@type": "skos:Concept", "skos:prefLabel": "Post-Thrombotic Syndrome"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:procedures:venous-ablation", "@type": "skos:Concept", "skos:prefLabel": "Endovenous Ablation"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "20min",
+    "clinical_pearls": [
+      "CEAP C6 = active ulcer; C5 = healed ulcer",
+      "Compression is cornerstone of ALL CVI treatment - even with intervention",
+      "Endovenous ablation (laser/RF) has replaced surgery for most saphenous reflux",
+      "Venous ulcers are typically at medial malleolus (arterial ulcers are more distal)"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "128060009", "description": "Chronic venous insufficiency"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I87.2", "description": "Venous insufficiency (chronic)(peripheral)"}
+  ]
+}

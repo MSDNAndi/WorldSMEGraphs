@@ -1,0 +1,103 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "tak-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:20:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:20:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/vasculitis/takayasu-arteritis",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "001",
+    "keywords": ["Takayasu arteritis", "large vessel vasculitis", "pulseless disease", "aortic arch syndrome"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Takayasu arteritis (TA) is a chronic granulomatous large-vessel vasculitis primarily affecting the aorta and its major branches. It predominantly affects young women (F:M 9:1), with onset typically before age 40. The disease progresses from an active inflammatory phase to a chronic fibrotic phase with arterial stenosis, occlusion, and aneurysm formation.",
+      "formal": "Takayasu: Large vessel granulomatous vasculitis; Aorta + branches; F:M 9:1, age <40; Phases: inflammatory → fibrotic/occlusive"
+    },
+    "explanation": {
+      "intuition": "Takayasu arteritis is like having chronic inflammation attack the walls of your major highways (large arteries). Over time, this inflammation scars the walls, causing them to thicken and narrow - like a highway slowly being closed down. Some sections may weaken and balloon (aneurysms), while others become completely blocked, rerouting traffic through smaller roads (collaterals).",
+      "key_insight": "TA has two phases requiring different management strategies. In the active inflammatory phase, medical therapy (steroids, immunosuppression) is primary. In the quiescent fibrotic phase, revascularization may be needed for hemodynamically significant stenoses. Surgery during active inflammation has high failure rates due to anastomotic complications.",
+      "technical_details": "Histology shows granulomatous inflammation with giant cells affecting the media and adventitia. The inflammatory process leads to intimal proliferation (stenosis) and medial destruction (aneurysm). Most commonly affects aortic arch and its branches (brachiocephalic, subclavian, carotid), but can involve any segment including abdominal aorta, renal, and pulmonary arteries."
+    },
+    "numano_classification": {
+      "type_I": "Branches of aortic arch only",
+      "type_IIa": "Ascending aorta, aortic arch, and its branches",
+      "type_IIb": "Type IIa + descending thoracic aorta",
+      "type_III": "Descending aorta, abdominal aorta, and/or renal arteries",
+      "type_IV": "Abdominal aorta and/or renal arteries only",
+      "type_V": "Combined features of IIb and IV (entire aorta)"
+    }
+  },
+  "clinical_features": {
+    "phases": {
+      "pre_pulseless": {
+        "symptoms": ["Constitutional symptoms", "Fever", "Malaise", "Weight loss", "Arthralgia", "Night sweats"],
+        "duration": "Weeks to months",
+        "findings": "Elevated ESR/CRP, may have no vascular symptoms"
+      },
+      "pulseless": {
+        "symptoms": ["Arm claudication", "Syncope", "Visual disturbances", "Stroke/TIA", "Angina", "Renovascular hypertension"],
+        "findings": ["Absent or diminished pulses", "Blood pressure discrepancy between arms", "Arterial bruits", "Aortic regurgitation"]
+      }
+    },
+    "acr_criteria_1990": {
+      "criteria": [
+        "Age at disease onset ≤40 years",
+        "Claudication of extremities",
+        "Decreased brachial artery pulse",
+        "BP difference >10 mmHg between arms",
+        "Bruit over subclavian arteries or aorta",
+        "Arteriographic abnormality"
+      ],
+      "diagnosis": "3 of 6 criteria = sensitivity 90.5%, specificity 97.8%"
+    },
+    "treatment": {
+      "medical": {
+        "first_line": "Corticosteroids (prednisone 1 mg/kg/day, taper over 6-12 months)",
+        "steroid_sparing": ["Methotrexate", "Azathioprine", "Mycophenolate"],
+        "biologics": ["Tocilizumab (anti-IL-6)", "Infliximab (anti-TNF)"]
+      },
+      "surgical": {
+        "timing": "Quiescent phase preferred (ESR normal, no symptoms of active inflammation)",
+        "options": ["Bypass grafting", "Endarterectomy (rarely)", "Aortic reconstruction"],
+        "endovascular": "Angioplasty ± stenting - higher restenosis than in atherosclerosis"
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Takayasu Arteritis"},
+    "altLabel": [{"@language": "en", "@value": "Pulseless Disease"}, {"@language": "en", "@value": "Aortic Arch Syndrome"}],
+    "definition": {"@language": "en", "@value": "Chronic granulomatous large-vessel vasculitis affecting aorta and major branches, primarily in young women"},
+    "notation": "tak-001-definition"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:vasculitis", "@type": "skos:Concept", "skos:prefLabel": "Vasculitis"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:vasculitis:giant-cell-arteritis", "@type": "skos:Concept", "skos:prefLabel": "Giant Cell Arteritis"},
+      {"@id": "urn:wskg:medicine:rheumatology:vasculitis", "@type": "skos:Concept", "skos:prefLabel": "Systemic Vasculitis"}
+    ]
+  },
+  "pedagogical": {
+    "estimated_time": "20min",
+    "clinical_pearls": [
+      "Young woman + absent pulses + constitutional symptoms = think Takayasu",
+      "Blood pressure difference >10 mmHg between arms is a diagnostic criterion",
+      "Operate in quiescent phase only - active inflammation → high anastomotic failure",
+      "PET-CT can detect active inflammation even when ESR/CRP normal"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "66185002", "description": "Takayasu arteritis"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "M31.4", "description": "Aortic arch syndrome [Takayasu]"}
+  ]
+}

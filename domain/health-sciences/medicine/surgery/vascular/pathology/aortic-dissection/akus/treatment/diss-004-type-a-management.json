@@ -1,0 +1,199 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "diss-004-type-a-management",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:35:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:35:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aortic-dissection",
+    "type": "treatment",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "004",
+    "keywords": [
+      "Type A dissection",
+      "emergency surgery",
+      "ascending aortic replacement",
+      "cardiopulmonary bypass",
+      "aortic root"
+    ],
+    "medical_specialty": "cardiac_surgery",
+    "clinical_context": "emergency_treatment"
+  },
+  "content": {
+    "statement": {
+      "text": "Type A aortic dissection requires emergency surgical repair. Without surgery, mortality is 1-2% per hour in the first 48 hours, approaching 50% at 48 hours and 90% at one month. Surgical repair involves median sternotomy, cardiopulmonary bypass with deep hypothermic circulatory arrest, replacement of the ascending aorta, and management of associated pathology (aortic valve, root, arch).",
+      "formal": "Type A Management: Emergency OR within hours | Procedure: Median sternotomy → CPB + DHCA → Ascending aortic replacement ± root/arch | Goal: Exclude entry tear, prevent tamponade/rupture | Mortality: 15-25% surgical vs 50%+ non-operative"
+    },
+    "explanation": {
+      "intuition": "Type A dissection is one of the true surgical emergencies in medicine. The ascending aorta is like a time bomb - the false lumen can rupture into the pericardium (causing tamponade), tear into the coronary arteries (causing heart attack), or extend into the arch vessels (causing stroke). The only way to defuse this bomb is to cut out the diseased ascending aorta and replace it with a synthetic graft. Even with 15-25% surgical mortality, it's far better than the alternative.",
+      "key_insight": "The phrase 'time is muscle' applies to MI - for Type A dissection, 'time is survival.' Every hour of delay increases mortality by 1-2%. Don't wait for extensive workup or consultation - once CT confirms Type A, go to OR. The surgical goal is simple: exclude the entry tear and prevent the most lethal complications.",
+      "technical_details": "Operative approach: (1) Median sternotomy; (2) Femoral or axillary artery cannulation (avoid dissected aorta); (3) Cardiopulmonary bypass with cooling to 18-22°C; (4) Deep hypothermic circulatory arrest with cerebral protection (antegrade or retrograde); (5) Open distal anastomosis under arrest; (6) Proximal anastomosis to sinotubular junction or aortic root (if valve/root involved); (7) Rewarm and wean from bypass. Root management depends on valve/root involvement: valve resuspension, valve-sparing root replacement, or Bentall procedure (composite valve-conduit). Arch extent determines whether hemiarch or total arch replacement needed.",
+      "common_misconceptions": [
+        "Wait for cardiology/vascular consult - every hour delay = increased mortality",
+        "Stabilize the patient first - OR is the stabilization",
+        "Young patients tolerate delay better - they need faster intervention to maximize life-years saved",
+        "Excellent surgical results are achievable everywhere - volume and experience matter enormously"
+      ]
+    },
+    "definitions_glossary": {
+      "cardiopulmonary_bypass": "Machine that takes over heart and lung function during surgery",
+      "deep_hypothermic_circulatory_arrest": "Cooling body to allow brief complete cessation of circulation for arch work",
+      "bentall_procedure": "Composite replacement of aortic valve, root, and ascending aorta",
+      "antegrade_cerebral_perfusion": "Selective brain perfusion during circulatory arrest",
+      "hemiarch_replacement": "Replacement of underside of arch without full arch replacement"
+    }
+  },
+  "clinical_features": {
+    "mortality_comparison": {
+      "non_operative": {
+        "24_hours": "20-30%",
+        "48_hours": "40-50%",
+        "1_week": "60-70%",
+        "1_month": "80-90%"
+      },
+      "operative": {
+        "in_hospital": "15-25%",
+        "high_volume_centers": "10-15%",
+        "1_year": "20-30%"
+      }
+    },
+    "surgical_goals": [
+      "Exclude intimal entry tear",
+      "Prevent rupture into pericardium (tamponade)",
+      "Prevent coronary malperfusion",
+      "Address aortic regurgitation if present",
+      "Prevent stroke from arch vessel involvement"
+    ],
+    "operative_extent": {
+      "ascending_only": {
+        "indication": "Entry tear in ascending, competent valve, no arch involvement",
+        "procedure": "Supracoronary ascending replacement"
+      },
+      "root_involvement": {
+        "indication": "Root dilation, valve regurgitation, coronary involvement",
+        "options": ["Valve resuspension", "Valve-sparing root replacement", "Bentall procedure"]
+      },
+      "arch_involvement": {
+        "indication": "Tear in arch, arch vessel dissection",
+        "options": ["Hemiarch replacement", "Total arch with frozen elephant trunk"]
+      }
+    },
+    "prognostic_factors": {
+      "worse_prognosis": [
+        "Age >70",
+        "Hypotension/shock",
+        "Tamponade",
+        "Malperfusion syndrome",
+        "Preoperative stroke",
+        "Renal failure",
+        "Mesenteric ischemia"
+      ],
+      "better_prognosis": [
+        "Young age",
+        "Hemodynamic stability",
+        "Limited dissection extent",
+        "High-volume center",
+        "Experienced surgical team"
+      ]
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Type A Aortic Dissection Surgical Management"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Emergency surgical repair of Type A aortic dissection involving ascending aortic replacement"
+    },
+    "notation": "diss-004-type-a-management"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-dissection:001",
+        "title": "Aortic Dissection Definition",
+        "strength": 1.0
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-dissection:002",
+        "title": "Stanford Classification",
+        "strength": 1.0
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-dissection",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Aortic Dissection"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "citation": "2010 ACCF/AHA Guidelines for Thoracic Aortic Disease",
+        "confidence": 1.0
+      },
+      {
+        "type": "registry_study",
+        "citation": "IRAD Investigators. Circulation. 2018.",
+        "confidence": 0.98
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "cardiac_surgery_residents",
+      "emergency_medicine_residents",
+      "surgery_residents"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.7,
+    "learning_objectives": [
+      "Explain why Type A requires emergency surgery",
+      "Describe the basic surgical approach",
+      "Identify factors affecting operative extent",
+      "Understand prognostic factors"
+    ],
+    "clinical_pearls": [
+      "Don't delay surgery waiting for optimization - OR is the resuscitation",
+      "Hourly mortality 1-2% in first 48 hours - time = survival",
+      "Axillary artery preferred cannulation site - avoids dissected aorta",
+      "Volume and experience matter enormously for outcomes"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "surgical_diagram",
+    "show_images": true,
+    "visualization": [
+      "operative_approach",
+      "mortality_comparison_chart"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "232981002",
+      "description": "Replacement of ascending aorta (procedure)"
+    }
+  ]
+}

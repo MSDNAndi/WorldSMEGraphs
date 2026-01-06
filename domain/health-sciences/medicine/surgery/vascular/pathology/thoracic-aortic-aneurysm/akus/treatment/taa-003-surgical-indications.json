@@ -1,0 +1,105 @@
+{
+  "@context": "aku-v2",
+  "@type": "concept",
+  "@id": "vascular:taa:surgical-indications",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:12:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "status": "validated",
+    "confidence": 0.95
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/thoracic-aortic-aneurysm",
+    "type": "treatment-guideline",
+    "difficulty": "advanced",
+    "importance": "high"
+  },
+  "content": {
+    "title": "Thoracic Aortic Aneurysm Surgical Indications",
+    "definition": "Evidence-based criteria for operative intervention in thoracic aortic aneurysms, incorporating size thresholds, growth rates, genetic conditions, and patient-specific factors.",
+    "clinical_features": {
+      "size_thresholds": {
+        "ascending_aorta": {
+          "general_population": "≥5.5 cm",
+          "genetic_syndromes": "≥4.5-5.0 cm depending on syndrome",
+          "bicuspid_aortic_valve": "≥5.0-5.5 cm"
+        },
+        "aortic_arch": "≥5.5 cm",
+        "descending_thoracic": {
+          "open_repair": "≥6.0-6.5 cm",
+          "tevar": "≥5.5 cm"
+        }
+      },
+      "genetic_syndrome_thresholds": {
+        "marfan_syndrome": {
+          "threshold": "≥5.0 cm",
+          "lower_if": ["Family history of dissection", "Rapid growth >0.3 cm/year", "Severe aortic regurgitation"]
+        },
+        "loeys_dietz_syndrome": {
+          "threshold": "≥4.2-4.5 cm",
+          "rationale": "More aggressive aortic behavior"
+        },
+        "vascular_eds": {
+          "threshold": "Avoid elective surgery when possible",
+          "rationale": "Extreme tissue fragility, high operative mortality"
+        },
+        "bicuspid_aortic_valve": {
+          "threshold": "≥5.5 cm",
+          "with_valve_surgery": "≥4.5 cm"
+        },
+        "turner_syndrome": {
+          "indexed_threshold": "Aortic size index >2.5 cm/m²",
+          "rationale": "Small body habitus - must index to BSA"
+        }
+      },
+      "growth_rate_indications": {
+        "rapid_growth": ">0.5 cm/year",
+        "concerning_growth": ">0.3 cm/year in genetic syndromes",
+        "action": "Consider earlier intervention"
+      },
+      "symptomatic_indications": {
+        "acute": ["Rupture", "Acute dissection", "Malperfusion"],
+        "chronic": ["Pain (suggests impending rupture)", "Compression symptoms", "Hoarseness (recurrent laryngeal nerve)"]
+      },
+      "combined_surgery_thresholds": {
+        "with_aortic_valve_replacement": "≥4.5 cm ascending",
+        "with_cabg": "≥5.0 cm ascending",
+        "rationale": "Lower threshold when already operating"
+      }
+    },
+    "diagnostic_codes": {
+      "icd10": ["I71.1", "I71.2", "Z80.0"],
+      "snomed_ct": ["233985008"]
+    }
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Apply size thresholds for TAA repair in different patient populations",
+      "Recognize genetic syndromes requiring lower intervention thresholds",
+      "Identify non-size indications for surgical repair"
+    ],
+    "clinical_pearls": [
+      "Loeys-Dietz patients should be operated on at 4.2-4.5 cm - more aggressive than Marfan",
+      "Always index aortic size to BSA in small patients (Turner syndrome, children)",
+      "When already doing cardiac surgery, lower the threshold for aortic repair",
+      "Rapid growth (>0.5 cm/year) is as important as absolute size"
+    ],
+    "evidence_basis": [
+      "2022 ACC/AHA Guidelines for Aortic Disease",
+      "2014 ESC Guidelines on Aortic Diseases"
+    ]
+  },
+  "semantic_relations": {
+    "skos:broader": ["vascular:taa:definition"],
+    "skos:narrower": [
+      "vascular:taa:ascending-repair",
+      "vascular:tevar:indications"
+    ],
+    "skos:related": [
+      "vascular:marfan:cardiovascular",
+      "vascular:lds:definition",
+      "vascular:eds:definition"
+    ]
+  }
+}

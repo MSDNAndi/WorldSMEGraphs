@@ -3,10 +3,10 @@
   "@type": "concept",
   "@id": "wsmg:health-sciences/medicine/surgery/vascular/foundations/vs-basic-001",
   "metadata": {
-    "version": "2.0.0",
+    "version": "2.1.0",
     "created": "2026-01-04T20:08:00.000Z",
-    "modified": "2026-01-04T20:08:00.000Z",
-    "contributors": ["copilot-agent"],
+    "modified": "2026-01-05T18:30:00.000Z",
+    "contributors": ["copilot-agent", "quality-agent"],
     "confidence": 0.98,
     "status": "validated",
     "language": "en",
@@ -18,11 +18,88 @@
     "type": "definition",
     "difficulty": "foundational",
     "importance": "critical",
-    "isNativeDomain": true
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
     "title": "Blood Vessels: Fundamental Anatomy",
-    "summary": "Blood vessels are tubular structures forming the circulatory system",
-    "types": ["Arteries", "Veins", "Capillaries"]
+    "summary": "Blood vessels are tubular structures forming the circulatory system, transporting blood throughout the body. The three main types—arteries, veins, and capillaries—differ in structure and function.",
+    "types": [
+      {
+        "name": "Arteries",
+        "function": "Carry oxygenated blood away from the heart to tissues",
+        "characteristics": "Thick walls, elastic, high pressure"
+      },
+      {
+        "name": "Veins", 
+        "function": "Return deoxygenated blood from tissues to the heart",
+        "characteristics": "Thinner walls, contain valves, low pressure"
+      },
+      {
+        "name": "Capillaries",
+        "function": "Enable gas and nutrient exchange between blood and tissues",
+        "characteristics": "Single endothelial cell layer, microscopic diameter"
+      }
+    ],
+    "basic_physiology": {
+      "circulation_path": "Heart → Arteries → Arterioles → Capillaries → Venules → Veins → Heart",
+      "blood_volume_distribution": {
+        "veins": "60-70%",
+        "arteries": "15-20%",
+        "capillaries": "5%",
+        "pulmonary": "10-12%"
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Blood Vessels"},
+    "altLabel": [
+      {"@language": "en", "@value": "Vascular system"},
+      {"@language": "en", "@value": "Blood vessel anatomy"}
+    ],
+    "definition": {"@language": "en", "@value": "Tubular structures that form the circulatory system, including arteries, veins, and capillaries"},
+    "notation": "vs-basic-001"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "wsmg:health-sciences/medicine/anatomy/cardiovascular", "skos:prefLabel": "Cardiovascular Anatomy"}],
+    "skos:narrower": [
+      {"@id": "wsmg:health-sciences/medicine/surgery/vascular/foundations/vs-basic-003", "skos:prefLabel": "Arterial System"},
+      {"@id": "wsmg:health-sciences/medicine/surgery/vascular/foundations/vs-basic-004", "skos:prefLabel": "Venous System"}
+    ],
+    "enables": [
+      {"@id": "wsmg:health-sciences/medicine/surgery/vascular/pathology", "reason": "Foundation for understanding vascular disease"}
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "361097006",
+      "uri": "http://snomed.info/id/361097006",
+      "description": "Blood vessel structure (body structure)"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D001808",
+      "uri": "http://id.nlm.nih.gov/mesh/D001808",
+      "description": "Blood Vessels"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Name the three main types of blood vessels",
+      "Describe the primary function of each vessel type",
+      "Explain how vessel structure relates to function",
+      "Understand blood volume distribution in the vascular system"
+    ],
+    "clinical_pearls": [
+      "Veins serve as the body's main blood reservoir (60-70% of blood volume)",
+      "Capillary exchange is the purpose of the entire circulatory system",
+      "Understanding normal anatomy is essential for recognizing pathology",
+      "Vascular surgery focuses primarily on arteries and veins, not capillaries"
+    ],
+    "estimated_time": "10min",
+    "target_audience": ["medical_students", "nursing_students", "pre-clinical"]
   }
 }

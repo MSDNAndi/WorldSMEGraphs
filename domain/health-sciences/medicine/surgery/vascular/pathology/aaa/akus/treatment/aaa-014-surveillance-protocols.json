@@ -1,0 +1,116 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "aaa-014-surveillance-protocols",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:00:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa",
+    "type": "management",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "014",
+    "keywords": ["AAA surveillance", "aneurysm monitoring", "imaging intervals", "growth rate"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "outpatient_management"
+  },
+  "content": {
+    "statement": {
+      "text": "AAA surveillance involves periodic imaging to monitor aneurysm growth and determine optimal timing for intervention. Guidelines recommend imaging intervals based on diameter: 3.0-3.9 cm every 3 years, 4.0-4.9 cm annually, and 5.0-5.4 cm every 6 months. Rapid growth (≥0.5 cm/6 months or ≥1 cm/year) warrants expedited intervention regardless of diameter.",
+      "formal": "AAA Surveillance: <4cm q3yr, 4-4.9cm q12mo, 5-5.4cm q6mo; Rapid growth (≥0.5cm/6mo) = intervention threshold"
+    },
+    "explanation": {
+      "intuition": "Managing a small AAA is like watching a slow-growing tumor - the goal is to act before it becomes dangerous while avoiding unnecessary surgery. Since small aneurysms rarely rupture but larger ones have increasing risk, we increase monitoring frequency as the aneurysm grows. We want to catch the 'inflection point' where benefits of repair outweigh risks.",
+      "key_insight": "The threshold for intervention (5.5 cm in men, 5.0 cm in women) is chosen because the annual rupture risk at these sizes begins to exceed the operative mortality. Surveillance allows personalization - a fast-growing 4.5 cm AAA may warrant earlier repair than a stable 5.0 cm AAA.",
+      "technical_details": "Ultrasound is the preferred modality for surveillance of small AAAs due to low cost, no radiation, and reproducibility. CT is indicated when nearing intervention threshold or if ultrasound is limited. Measurements should be consistent (same modality, same measurement technique) across time. Growth rate calculation requires at least 6-12 months between measurements to minimize measurement error impact.",
+      "common_misconceptions": [
+        "All AAAs require CT surveillance - ultrasound is sufficient for most small aneurysms",
+        "Diameter is the only factor - growth rate and symptoms also guide timing",
+        "Male and female thresholds are the same - women have 5.0 cm threshold due to higher rupture risk",
+        "Once stable, surveillance can stop - lifelong monitoring is recommended"
+      ]
+    },
+    "surveillance_schedule": {
+      "by_diameter": {
+        "3.0-3.9_cm": {"interval": "Every 3 years", "modality": "Ultrasound preferred"},
+        "4.0-4.9_cm": {"interval": "Every 12 months", "modality": "Ultrasound preferred"},
+        "5.0-5.4_cm": {"interval": "Every 6 months", "modality": "Ultrasound or CT"},
+        ">=5.5_cm_male": {"interval": "Intervention indicated", "modality": "CT for planning"},
+        ">=5.0_cm_female": {"interval": "Intervention indicated", "modality": "CT for planning"}
+      },
+      "accelerated_surveillance_triggers": [
+        "Rapid growth ≥0.5 cm in 6 months",
+        "Growth ≥1.0 cm in 12 months",
+        "Development of symptoms",
+        "Saccular morphology or eccentric expansion"
+      ]
+    },
+    "definitions_glossary": {
+      "surveillance": "Regular monitoring with imaging to track aneurysm behavior over time",
+      "growth_rate": "Change in maximal diameter over time, usually expressed as cm/year",
+      "intervention_threshold": "Size or growth rate at which repair benefits outweigh risks"
+    }
+  },
+  "clinical_features": {
+    "risk_factor_modification": {
+      "smoking_cessation": "May slow growth rate; essential for all patients",
+      "blood_pressure_control": "Target BP <130/80, may reduce wall stress",
+      "statin_therapy": "May slow progression; recommended for cardiovascular risk",
+      "beta_blockers": "No proven benefit for AAA growth specifically"
+    },
+    "special_populations": {
+      "women": "Earlier intervention threshold (5.0 cm) due to 3-4x higher rupture risk at any given size",
+      "connective_tissue_disorders": "Earlier intervention (4.5-5.0 cm) for Marfan, Loeys-Dietz, EDS Type IV",
+      "family_history": "May warrant earlier intervention in first-degree relative with AAA rupture"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "AAA Surveillance Protocols"},
+    "altLabel": [{"@language": "en", "@value": "Aneurysm Monitoring"}, {"@language": "en", "@value": "AAA Follow-up"}],
+    "definition": {"@language": "en", "@value": "Standardized imaging intervals for monitoring AAA growth and determining intervention timing"},
+    "notation": "aaa-014-surveillance"
+  },
+  "relationships": {
+    "prerequisites": [
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001", "title": "AAA Definition", "strength": 1.0},
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:010", "title": "AAA Imaging", "strength": 0.95}
+    ],
+    "enables": [{"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:008", "title": "AAA Surgical Indications", "strength": 0.9}],
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa", "@type": "skos:Concept", "skos:prefLabel": "AAA"}],
+    "skos:related": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:007", "@type": "skos:Concept", "skos:prefLabel": "AAA Screening"}]
+  },
+  "provenance": {
+    "sources": [
+      {"type": "clinical_guideline", "citation": "Chaikof EL, et al. SVS practice guidelines for AAA. J Vasc Surg. 2018", "confidence": 1.0},
+      {"type": "clinical_guideline", "citation": "Wanhainen A, et al. ESVS Clinical Practice Guidelines for AAA. Eur J Vasc Endovasc Surg. 2019", "confidence": 1.0}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["primary_care_physicians", "internal_medicine_residents", "vascular_surgery_fellows"],
+    "estimated_time": "10min",
+    "learning_objectives": [
+      "Apply appropriate surveillance intervals based on AAA diameter",
+      "Recognize triggers for accelerated surveillance or intervention",
+      "Understand sex-specific intervention thresholds"
+    ],
+    "clinical_pearls": [
+      "Use the same imaging modality for serial measurements to minimize variability",
+      "Women have ~4x higher rupture risk at any given diameter - earlier threshold",
+      "Rapid growth is as important as absolute size",
+      "Smoking cessation is the only lifestyle intervention proven to slow AAA growth"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "CPT", "codeValue": "76706", "description": "Ultrasound, abdominal aorta, screening"},
+    {"@type": "MedicalCode", "codingSystem": "HCPCS", "codeValue": "G0389", "description": "Ultrasound, B-scan and/or real time for abdominal aortic aneurysm (AAA) screening"}
+  ]
+}

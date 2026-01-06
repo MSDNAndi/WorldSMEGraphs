@@ -1,0 +1,85 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "cad-001-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:55:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.96,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:55:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/rare-syndromes",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "medium",
+    "aku_id": "003",
+    "keywords": ["cystic adventitial disease", "CAD", "popliteal artery", "young claudication"],
+    "medical_specialty": "vascular_surgery"
+  },
+  "content": {
+    "statement": {
+      "text": "Cystic adventitial disease (CAD) is a rare non-atherosclerotic condition where mucin-containing cysts form in the adventitia of arteries, most commonly the popliteal artery. It typically affects young to middle-aged men without atherosclerotic risk factors, causing claudication that may have an acute or intermittent pattern depending on cyst volume.",
+      "formal": "CAD: Adventitial mucinous cyst, 85% popliteal artery; Demographics: M>F (5:1), age 40-50; Presentation: claudication in young patient without risk factors; 'Scimitar sign' on angiography"
+    },
+    "explanation": {
+      "intuition": "CAD is like a blister forming on the outside of an artery. This fluid-filled sac can compress the artery from outside, blocking blood flow. Unlike atherosclerosis (deposits inside the artery), the problem is external compression. The claudication can be intermittent because the cyst can expand or decompress, causing symptoms to wax and wane.",
+      "key_insight": "CAD should be suspected in any young patient with claudication and no atherosclerotic risk factors. MRI is the best imaging modality - it shows the characteristic cyst as a T2-hyperintense mass adjacent to the artery. Treatment should remove or drain the cyst rather than simply bypassing around it.",
+      "technical_details": "Cysts contain mucoid gelatinous material. Theories of origin: (1) ganglionic - connection to adjacent joint synovium, (2) developmental - misplaced mucin-secreting cells, (3) repeated trauma. The popliteal artery is affected in 85% of cases, likely due to proximity to knee joint. May see 'scimitar sign' (curvilinear lucency) on angiography from extrinsic compression."
+    }
+  },
+  "clinical_features": {
+    "epidemiology": {
+      "age": "Typically 40-50 years (range 20-70)",
+      "gender": "Male predominance (5:1)",
+      "risk_factors": "None - that's the key distinguishing feature"
+    },
+    "presentation": {
+      "typical": "Claudication (often calf) in young patient without risk factors",
+      "variable": "Symptoms may be intermittent, depending on cyst filling/drainage",
+      "examination": ["Possible palpable mass", "Reduced pulse with knee flexion (in some cases)"]
+    },
+    "diagnosis": {
+      "mri": "Best modality - T2-hyperintense cystic mass in adventitia adjacent to artery",
+      "duplex_ultrasound": "Hypoechoic mass adjacent to artery with extrinsic compression",
+      "ct_angiography": "Cystic adventitial lesion, arterial narrowing",
+      "angiography": "Scimitar sign - smooth, curvilinear stenosis from extrinsic compression"
+    },
+    "treatment": {
+      "cyst_excision": "Surgical excision of cyst with preservation of artery - preferred if technically feasible",
+      "cyst_aspiration": "Ultrasound-guided aspiration - high recurrence rate (40-60%)",
+      "arterial_resection_interposition": "If arterial wall damaged or cyst recurrence - vein graft preferred",
+      "bypass": "Avoid if possible - doesn't address underlying cyst, may recur"
+    },
+    "outcomes": {
+      "cyst_excision": "Low recurrence, excellent symptom relief",
+      "aspiration": "High recurrence (40-60%)",
+      "bypass": "Good if performed but doesn't address etiology"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Cystic Adventitial Disease"},
+    "altLabel": [{"@language": "en", "@value": "CAD"}, {"@language": "en", "@value": "Cystic Adventitial Degeneration"}],
+    "definition": {"@language": "en", "@value": "Non-atherosclerotic condition with adventitial mucinous cysts causing arterial compression, typically in popliteal artery"},
+    "notation": "cad-001-definition"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:rare-syndromes", "@type": "skos:Concept", "skos:prefLabel": "Rare Vascular Syndromes"}],
+    "skos:related": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:rare:paes", "@type": "skos:Concept", "skos:prefLabel": "PAES"}]
+  },
+  "pedagogical": {
+    "estimated_time": "15min",
+    "clinical_pearls": [
+      "Young patient + claudication + no risk factors = think CAD or PAES",
+      "MRI is best imaging - shows T2-hyperintense cyst",
+      "Scimitar sign on angiography is classic",
+      "Treat the CYST (excision), not just the stenosis - aspiration has high recurrence"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "441576005", "description": "Cystic adventitial disease of artery"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "I77.89", "description": "Other specified disorders of arteries and arterioles"}
+  ]
+}

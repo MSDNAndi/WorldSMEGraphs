@@ -1,0 +1,222 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalEntity"
+  ],
+  "@id": "aaa-005-clinical-presentation",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T01:05:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-knowledge-base"
+    ],
+    "confidence": 0.96,
+    "status": "validated",
+    "last_updated": "2026-01-05T01:05:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa",
+    "type": "clinical",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "005",
+    "keywords": [
+      "AAA presentation",
+      "asymptomatic",
+      "pulsatile mass",
+      "back pain",
+      "rupture symptoms"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "diagnosis"
+  },
+  "content": {
+    "statement": {
+      "text": "Most AAAs (75-80%) are asymptomatic and discovered incidentally on imaging. When symptomatic, presentation ranges from vague abdominal or back discomfort to the classic ruptured AAA triad: abdominal pain, pulsatile abdominal mass, and hypotension. Physical examination sensitivity is limited by obesity and aneurysm size.",
+      "formal": "AAA Presentations: Asymptomatic (75-80%) | Symptomatic Intact (5-10%): back/abdominal pain, embolic phenomena | Ruptured (15-20%): Classic triad (pain + pulsatile mass + hypotension) in ~50%"
+    },
+    "explanation": {
+      "intuition": "Most people with AAA have no idea they have it - the aneurysm sits silently in the back of the abdomen, protected by intestines and growing slowly. It's only when the aneurysm stretches the surrounding tissues, erodes into adjacent structures, or ruptures that symptoms appear. Unfortunately, the first symptom is often rupture, which is frequently fatal.",
+      "key_insight": "The challenge of AAA is that symptoms often mean it's already an emergency. By the time a patient has the 'classic triad' of ruptured AAA, they're in a life-threatening situation with 50% mortality even if they reach the hospital. This is why screening and surveillance programs are so important.",
+      "technical_details": "Physical examination for AAA has limited sensitivity: 29% for AAAs 3.0-3.9 cm, 50% for 4.0-4.9 cm, and 76% for >5.0 cm. Sensitivity is further reduced by obesity (BMI >30 reduces sensitivity by ~50%). The classic 'expansile' pulsatile mass (as opposed to transmitted pulsation from a non-aneurysmal aorta) has an estimated positive predictive value of 40-60% for AAA >3 cm. Symptomatic intact AAAs may present with: (1) Local symptoms from expansion (early satiety, nausea, urinary symptoms from compression); (2) Back pain from vertebral erosion; (3) Embolic phenomena (blue toe syndrome, trash foot); (4) Aortoenteric erosion (rare, GI bleeding).",
+      "common_misconceptions": [
+        "Patients will feel an AAA - most are completely asymptomatic",
+        "Physical exam can reliably detect AAA - sensitivity is low, especially in obese patients",
+        "Back pain in an elderly patient is just degenerative - consider AAA",
+        "The classic triad is always present in rupture - only ~50% have all three components"
+      ]
+    },
+    "definitions_glossary": {
+      "incidental_finding": "Discovery of condition during evaluation for unrelated problem",
+      "pulsatile_mass": "Mass that expands with each heartbeat, as opposed to transmitted pulsation",
+      "expansile_pulsation": "Mass that pushes examiner's hands apart with each beat (aneurysm)",
+      "transmitted_pulsation": "Pulsation felt on one side only, transmitted through tissue",
+      "blue_toe_syndrome": "Ischemic toes from atheroemboli despite intact pulses"
+    }
+  },
+  "clinical_features": {
+    "presentation_types": {
+      "asymptomatic": {
+        "frequency": "75-80%",
+        "discovery": "Incidental finding on CT, ultrasound, or X-ray performed for other reasons",
+        "common_contexts": ["Renal ultrasound", "CT for kidney stones", "CT for abdominal pain", "Spine imaging"]
+      },
+      "symptomatic_intact": {
+        "frequency": "5-10%",
+        "symptoms": [
+          "Vague abdominal discomfort or fullness",
+          "Back pain (may be constant or gnawing)",
+          "Groin or flank pain",
+          "Early satiety from gastric compression",
+          "Urinary symptoms from ureteral compression",
+          "Blue toe syndrome (atheroemboli)"
+        ]
+      },
+      "ruptured": {
+        "frequency": "15-20% of presentations",
+        "classic_triad": {
+          "components": ["Abdominal or back pain", "Pulsatile abdominal mass", "Hypotension/shock"],
+          "complete_triad_frequency": "~50% of ruptured AAAs"
+        },
+        "other_presentations": [
+          "Syncope",
+          "Flank ecchymosis (Grey Turner sign - delayed)",
+          "Periumbilical ecchymosis (Cullen sign - delayed)",
+          "Lower extremity paralysis (spinal ischemia)"
+        ]
+      }
+    },
+    "physical_examination": {
+      "technique": "Deep palpation in epigastrium/periumbilical region with patient supine and knees flexed",
+      "sensitivity_by_size": {
+        "3_to_4_cm": "29%",
+        "4_to_5_cm": "50%",
+        "greater_than_5_cm": "76%"
+      },
+      "obesity_impact": "Sensitivity reduced by ~50% when BMI >30",
+      "findings": [
+        "Expansile pulsatile mass (pathognomonic but not always present)",
+        "Widened aortic pulse",
+        "Tenderness suggests impending rupture or contained rupture"
+      ]
+    },
+    "differential_diagnosis": [
+      "Renal colic",
+      "Musculoskeletal back pain",
+      "Diverticulitis",
+      "Pancreatitis",
+      "Myocardial infarction",
+      "Mesenteric ischemia",
+      "Peptic ulcer disease"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Abdominal Aortic Aneurysm Clinical Presentation"
+    },
+    "definition": {
+      "@language": "en",
+      "@value": "Signs, symptoms, and examination findings of intact and ruptured AAA"
+    },
+    "notation": "aaa-005-clinical-presentation"
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001",
+        "title": "AAA Definition",
+        "strength": 1.0
+      }
+    ],
+    "enables": [
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:008",
+        "title": "AAA Imaging Diagnosis",
+        "strength": 0.9
+      },
+      {
+        "id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:006",
+        "title": "Rupture Triad",
+        "strength": 1.0
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Abdominal Aortic Aneurysm"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:emergency-medicine:acute-abdomen",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Acute Abdomen"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_guideline",
+        "citation": "SVS AAA Guidelines 2018",
+        "confidence": 1.0
+      },
+      {
+        "type": "systematic_review",
+        "citation": "Lederle FA, Simel DL. Does this patient have abdominal aortic aneurysm? JAMA. 1999;281(1):77-82.",
+        "confidence": 0.97
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "emergency_medicine_residents",
+      "primary_care_physicians"
+    ],
+    "estimated_time": "20min",
+    "difficulty_curve": 0.5,
+    "learning_objectives": [
+      "Describe the spectrum of AAA presentations",
+      "Perform physical examination for AAA",
+      "Recognize the classic ruptured AAA triad",
+      "Understand limitations of physical examination",
+      "Identify high-risk presentations requiring emergent evaluation"
+    ],
+    "common_errors": [
+      "Assuming AAA will cause symptoms",
+      "Missing AAA in obese patients",
+      "Attributing back pain to degenerative disease in elderly",
+      "Waiting for complete triad before suspecting rupture"
+    ],
+    "clinical_pearls": [
+      "Any elderly patient with unexplained hypotension should have AAA ruled out",
+      "Blue toe syndrome with palpable pulses = consider proximal source (AAA, popliteal)",
+      "Tenderness over a known AAA is ominous - may indicate contained rupture",
+      "CT is the definitive test - don't delay for ultrasound in unstable patient"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "clinical_scenario",
+    "show_images": true,
+    "visualization": [
+      "physical_exam_technique",
+      "presentation_spectrum_diagram"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "233985008",
+      "description": "Abdominal aortic aneurysm (disorder)"
+    }
+  ]
+}

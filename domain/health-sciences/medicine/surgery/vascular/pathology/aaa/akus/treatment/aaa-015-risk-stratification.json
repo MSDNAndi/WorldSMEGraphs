@@ -1,0 +1,126 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "aaa-015-risk-stratification",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:00:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T02:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa",
+    "type": "assessment",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "015",
+    "keywords": ["operative risk", "preoperative assessment", "cardiac risk", "frailty", "risk scores"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "preoperative_evaluation"
+  },
+  "content": {
+    "statement": {
+      "text": "Preoperative risk stratification for AAA repair involves assessment of cardiac risk (most common cause of perioperative mortality), pulmonary function, renal function, and overall physiologic reserve. Tools include cardiac stress testing, VQI risk calculator, Glasgow Aneurysm Score, and frailty assessment. This guides the choice between EVAR and open repair.",
+      "formal": "AAA Risk Stratification: Cardiac risk (stress test if indicated), Pulmonary (FEV1, DLCO), Renal (eGFR), Frailty assessment; Informs EVAR vs Open selection"
+    },
+    "explanation": {
+      "intuition": "Before recommending major surgery, we need to know if the patient can survive the operation. Think of it like checking if a bridge can support a truck before driving across. For AAA, the heart is the most common weak point - many patients have silent coronary disease. We also assess lungs, kidneys, and overall 'physiologic reserve' to choose the safest approach.",
+      "key_insight": "The goal is to select patients where operative mortality is lower than the aneurysm's annual rupture risk. For a 5.5 cm AAA with ~5% annual rupture risk, repair is only beneficial if operative mortality is expected to be substantially lower than 5%. For very high-risk patients, conservative management or EVAR (if anatomically suitable) may be preferred.",
+      "technical_details": "Cardiac evaluation follows ACC/AHA guidelines: functional capacity ≥4 METs without symptoms usually precludes further testing. Pharmacologic stress testing or coronary angiography for those with active cardiac conditions or poor functional status. The VQI AAA risk calculator provides procedure-specific mortality estimates. Frailty (assessed by 5-meter walk time, grip strength, albumin) independently predicts outcomes.",
+      "common_misconceptions": [
+        "All AAA patients need cardiac catheterization - only those with significant risk factors or symptoms",
+        "EVAR eliminates operative risk - it reduces but does not eliminate perioperative mortality",
+        "Age alone determines risk - physiologic age and comorbidities matter more than chronologic age",
+        "Risk assessment delays necessary surgery - it guides optimal treatment selection"
+      ]
+    },
+    "risk_assessment_domains": {
+      "cardiac": {
+        "assessment": ["Functional capacity (METs)", "ECG", "Echocardiogram if murmur or heart failure", "Stress testing if poor functional capacity"],
+        "high_risk_features": ["Unstable angina", "Decompensated heart failure", "Severe valvular disease", "Recent MI (<60 days)"],
+        "management": "Optimize before elective repair; consider EVAR for high cardiac risk"
+      },
+      "pulmonary": {
+        "assessment": ["Spirometry (FEV1, FVC)", "DLCO if symptomatic", "Room air oxygen saturation"],
+        "high_risk_features": ["FEV1 <50% predicted", "Home oxygen requirement", "Severe COPD"],
+        "management": "Bronchodilators, smoking cessation, pulmonary rehabilitation; EVAR preferred"
+      },
+      "renal": {
+        "assessment": ["eGFR calculation", "Baseline creatinine"],
+        "high_risk_features": ["eGFR <30", "Dialysis dependence"],
+        "management": "Hydration protocols, minimize contrast, avoid nephrotoxins; consider staged EVAR"
+      },
+      "frailty": {
+        "assessment": ["5-meter walk time", "Grip strength", "Serum albumin", "Cognitive assessment"],
+        "high_risk_features": ["Slow gait speed", "Unintentional weight loss", "Low albumin (<3.5)"],
+        "management": "Prehabilitation, nutrition optimization, consider conservative management if severe"
+      }
+    },
+    "definitions_glossary": {
+      "MET": "Metabolic Equivalent of Task - 4 METs = climbing one flight of stairs without stopping",
+      "VQI": "Vascular Quality Initiative - national registry with risk calculators",
+      "frailty": "Syndrome of decreased physiologic reserve predicting poor surgical outcomes",
+      "physiologic_reserve": "Body's ability to respond to surgical stress"
+    }
+  },
+  "clinical_features": {
+    "risk_calculators": {
+      "vqi_aaa": {"description": "Procedure-specific mortality prediction", "variables": ["Age", "Gender", "Diabetes", "COPD", "Renal function", "Procedure type"]},
+      "glasgow_aneurysm_score": {"description": "Simple scoring system", "variables": ["Age", "Shock", "MI history", "CVD", "Renal impairment"]},
+      "american_college_of_surgeons_nsqip": {"description": "General surgical risk", "variables": ["Multiple comorbidities and demographics"]}
+    },
+    "treatment_selection": {
+      "low_risk": "Open or EVAR based on anatomy and patient preference",
+      "intermediate_risk": "EVAR preferred if anatomy suitable",
+      "high_risk": "EVAR strongly preferred; consider conservative if extreme risk",
+      "prohibitive_risk": "Conservative management unless symptomatic or rapidly expanding"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "AAA Operative Risk Stratification"},
+    "altLabel": [{"@language": "en", "@value": "Preoperative Assessment for AAA"}, {"@language": "en", "@value": "AAA Risk Scores"}],
+    "definition": {"@language": "en", "@value": "Systematic assessment of operative risk to guide treatment selection for AAA repair"},
+    "notation": "aaa-015-risk-stratification"
+  },
+  "relationships": {
+    "prerequisites": [
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:008", "title": "AAA Surgical Indications", "strength": 0.95},
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:009", "title": "EVAR vs Open", "strength": 0.9}
+    ],
+    "enables": [
+      {"id": "urn:wskg:medicine:surgery:vascular:procedures:evar", "title": "EVAR", "strength": 0.95},
+      {"id": "urn:wskg:medicine:surgery:vascular:procedures:open-aortic-repair", "title": "Open Aortic Repair", "strength": 0.95}
+    ],
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa", "@type": "skos:Concept", "skos:prefLabel": "AAA"}]
+  },
+  "provenance": {
+    "sources": [
+      {"type": "clinical_guideline", "citation": "ACC/AHA Perioperative Cardiovascular Evaluation Guidelines", "confidence": 1.0},
+      {"type": "clinical_guideline", "citation": "SVS practice guidelines for AAA. J Vasc Surg. 2018", "confidence": 1.0}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular_surgery_fellows", "anesthesiology_residents", "internal_medicine_residents"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Perform comprehensive preoperative risk assessment for AAA repair",
+      "Apply risk calculators to guide treatment selection",
+      "Recognize high-risk features in cardiac, pulmonary, renal, and frailty domains"
+    ],
+    "clinical_pearls": [
+      "Functional capacity ≥4 METs without symptoms = low cardiac risk, no further testing needed",
+      "Frailty predicts outcomes better than chronologic age",
+      "VQI calculator provides patient-specific mortality estimates",
+      "EVAR reduces but does not eliminate perioperative mortality risk"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "CPT", "codeValue": "93015", "description": "Cardiovascular stress test"},
+    {"@type": "MedicalCode", "codingSystem": "CPT", "codeValue": "94010", "description": "Spirometry"}
+  ]
+}

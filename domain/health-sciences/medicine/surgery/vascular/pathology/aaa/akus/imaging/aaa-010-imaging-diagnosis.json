@@ -1,0 +1,132 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "aaa-010-imaging-diagnosis",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T01:58:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-knowledge-base"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-05T01:58:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa",
+    "type": "diagnosis",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "010",
+    "keywords": ["AAA imaging", "CT angiography", "ultrasound", "aortic imaging", "CTA", "MRA"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "diagnostic_imaging"
+  },
+  "content": {
+    "statement": {
+      "text": "Imaging of abdominal aortic aneurysm (AAA) utilizes multiple modalities: ultrasound (US) for screening and surveillance, CT angiography (CTA) for preoperative planning and anatomic characterization, and MR angiography (MRA) as an alternative when contrast nephrotoxicity is a concern.",
+      "formal": "AAA Imaging Modalities: US (screening, surveillance), CTA (gold standard for planning), MRA (alternative for contrast-sensitive patients)"
+    },
+    "explanation": {
+      "intuition": "Think of imaging AAA like photographing a bulging balloon from different angles. Ultrasound gives a quick, real-time view without radiation - perfect for regular checkups. CT with contrast provides detailed 3D images showing exactly how the aneurysm relates to other blood vessels - essential for surgical planning. MRI offers similar detail but without iodinated contrast, useful when kidney function is impaired.",
+      "key_insight": "The choice of imaging modality depends on clinical context: ultrasound for screening and surveillance of small AAAs, CTA for symptomatic or large AAAs requiring intervention planning. Accurate sizing requires outer-wall-to-outer-wall measurement perpendicular to the flow lumen.",
+      "technical_details": "Ultrasound sensitivity for AAA detection is >95% with specificity approaching 100%. CTA provides sub-millimeter resolution with multiplanar reconstructions and centerline measurements. Key anatomic features to assess include: neck length (distance from lowest renal artery to aneurysm), neck diameter, neck angle, iliac artery diameter and tortuosity, presence of thrombus, and accessory renal arteries.",
+      "common_misconceptions": [
+        "All AAAs need CT - small aneurysms can be monitored with ultrasound alone",
+        "Any size measurement technique is acceptable - standardized protocols are essential",
+        "Contrast is always needed - non-contrast CT can detect AAA but misses branch vessel detail",
+        "MRA is inferior to CTA - MRA provides comparable accuracy for most planning purposes"
+      ]
+    },
+    "imaging_modalities": {
+      "ultrasound": {
+        "indications": ["Screening", "Surveillance of small AAA (<5.0 cm)", "Initial detection"],
+        "advantages": ["No radiation", "No contrast", "Low cost", "Widely available", "Repeatable"],
+        "limitations": ["Operator dependent", "Limited by body habitus", "Cannot assess branch vessels", "Cannot define neck anatomy precisely"],
+        "measurement": "Anteroposterior (AP) diameter outer-wall-to-outer-wall, perpendicular to flow"
+      },
+      "ct_angiography": {
+        "indications": ["Symptomatic AAA", "Large AAA (≥5.0 cm)", "Preoperative planning", "Post-EVAR surveillance"],
+        "advantages": ["High spatial resolution", "3D reconstruction", "Branch vessel visualization", "Rapid acquisition"],
+        "limitations": ["Radiation exposure", "Contrast nephrotoxicity", "Contrast allergy risk"],
+        "protocol": "Thin-slice acquisition (≤1mm), arterial phase timing, multiplanar reformats, centerline analysis"
+      },
+      "mr_angiography": {
+        "indications": ["Contrast allergy", "Renal insufficiency", "Young patients (radiation concern)"],
+        "advantages": ["No ionizing radiation", "No iodinated contrast", "Excellent soft tissue contrast"],
+        "limitations": ["Longer acquisition time", "Motion artifact", "Pacemaker contraindication", "Gadolinium caution in severe CKD"]
+      }
+    },
+    "definitions_glossary": {
+      "neck": "Segment of normal aorta between lowest renal artery and proximal extent of aneurysm",
+      "centerline": "Path following the center of the aortic lumen, used for accurate length measurements",
+      "mural_thrombus": "Clot lining the inner wall of aneurysm, not included in diameter measurement",
+      "multiplanar_reconstruction": "3D CT data reformatted into different viewing planes"
+    }
+  },
+  "clinical_features": {
+    "key_measurements": {
+      "maximum_diameter": "Outer-wall-to-outer-wall, perpendicular to centerline",
+      "neck_length": "Lowest renal artery to proximal aneurysm extent (minimum 10-15mm for standard EVAR)",
+      "neck_diameter": "At lowest renal artery level",
+      "neck_angle": "Angle between suprarenal and infrarenal aorta (>60° complicates EVAR)",
+      "iliac_access": "External iliac diameter and tortuosity for device delivery"
+    },
+    "anatomic_variants": ["Accessory renal arteries", "Horseshoe kidney", "Retroaortic left renal vein", "IVC anomalies"],
+    "surveillance_intervals": {
+      "3.0-3.9_cm": "Every 3 years",
+      "4.0-4.9_cm": "Every 12 months",
+      "5.0-5.4_cm": "Every 6 months"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "AAA Imaging Diagnosis"},
+    "altLabel": [
+      {"@language": "en", "@value": "Abdominal Aortic Aneurysm Imaging"},
+      {"@language": "en", "@value": "AAA CT Angiography"}
+    ],
+    "definition": {"@language": "en", "@value": "Diagnostic imaging modalities used to detect, measure, and plan treatment for abdominal aortic aneurysm"},
+    "notation": "aaa-010-imaging"
+  },
+  "relationships": {
+    "prerequisites": [
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001", "title": "AAA Definition", "strength": 1.0},
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:005", "title": "AAA Clinical Presentation", "strength": 0.9}
+    ],
+    "enables": [
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:008", "title": "AAA Surgical Indications", "strength": 0.95},
+      {"id": "urn:wskg:medicine:surgery:vascular:procedures:evar:002", "title": "EVAR Anatomic Eligibility", "strength": 1.0}
+    ],
+    "skos:broader": [{"@id": "urn:wskg:medicine:surgery:vascular:diagnostics", "@type": "skos:Concept", "skos:prefLabel": "Vascular Diagnostics"}],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:007", "@type": "skos:Concept", "skos:prefLabel": "AAA Screening"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:diagnostics:cta", "@type": "skos:Concept", "skos:prefLabel": "CT Angiography"}
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {"type": "clinical_guideline", "citation": "Chaikof EL, et al. SVS practice guidelines for AAA. J Vasc Surg. 2018;67(1):2-77.e2.", "doi": "10.1016/j.jvs.2017.10.044", "confidence": 1.0},
+      {"type": "textbook", "citation": "Rutherford's Vascular Surgery, 10th Ed, Chapter: AAA Imaging", "confidence": 0.98}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular_surgery_fellows", "radiology_residents", "surgical_residents"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Select appropriate imaging modality for AAA evaluation",
+      "Identify key anatomic measurements for EVAR planning",
+      "Understand surveillance intervals based on AAA size"
+    ],
+    "clinical_pearls": [
+      "Ultrasound and CTA may measure differently - use same modality for longitudinal comparison",
+      "Mural thrombus should NOT be subtracted from diameter - measure outer wall",
+      "Neck angle >60° and neck length <10mm are relative contraindications to standard EVAR",
+      "Always check for iliac aneurysms and accessory renal arteries"
+    ]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "418272005", "description": "CT angiography of abdominal aorta"},
+    {"@type": "MedicalCode", "codingSystem": "CPT", "codeValue": "74175", "description": "CT angiography, abdomen, with contrast"}
+  ]
+}

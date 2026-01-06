@@ -1,0 +1,113 @@
+{
+  "@context": "aku-v2",
+  "@type": "concept",
+  "@id": "vascular:duplex-ultrasound:definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:58:00.000Z",
+    "updated": "2026-01-05T02:58:00.000Z",
+    "contributors": ["copilot-agent"],
+    "status": "active",
+    "confidence": 0.95
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics/duplex-ultrasound",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "essential"
+  },
+  "content": {
+    "title": "Duplex Ultrasound",
+    "definition": "Duplex ultrasound combines B-mode (2D grayscale) imaging with Doppler flow assessment (spectral and color) to provide both anatomic and hemodynamic information about blood vessels, serving as the primary non-invasive diagnostic tool in vascular surgery.",
+    "clinical_features": {
+      "components": {
+        "b_mode": "Two-dimensional grayscale imaging of vessel anatomy",
+        "color_doppler": "Color-coded representation of flow direction and velocity",
+        "spectral_doppler": "Pulsed-wave Doppler waveform analysis",
+        "power_doppler": "Amplitude-based flow detection (sensitive for slow flow)"
+      },
+      "doppler_physics": {
+        "doppler_equation": "Δf = 2f₀v·cos(θ)/c",
+        "frequency_shift": "Proportional to blood velocity",
+        "angle_correction": "Must be <60° for accurate velocity measurement",
+        "aliasing": "Occurs when velocity exceeds Nyquist limit"
+      },
+      "waveform_patterns": {
+        "triphasic": "Normal peripheral artery - forward, reverse, forward diastolic",
+        "biphasic": "Mild disease - loss of reverse component",
+        "monophasic": "Significant disease - continuous forward flow",
+        "tardus_parvus": "Proximal stenosis - delayed upstroke, low amplitude"
+      },
+      "applications": {
+        "carotid": {
+          "indication": "Stroke prevention, stenosis assessment",
+          "criteria": ["ICA PSV >125 = 50-69%", "ICA PSV >230 = ≥70%", "ICA/CCA ratio >4 = ≥70%"],
+          "additional": "Plaque characterization, vertebral assessment"
+        },
+        "arterial_lower_extremity": {
+          "indication": "PAD evaluation, bypass surveillance",
+          "criteria": "PSV ratio >2 = 50% stenosis, >4 = 75%",
+          "additional": "Ankle and toe waveforms"
+        },
+        "venous": {
+          "dvt": "Compression, augmentation, spontaneity",
+          "reflux": ">0.5s superficial, >1s deep = reflux",
+          "mapping": "Pre-operative saphenous vein assessment"
+        },
+        "dialysis_access": {
+          "indication": "Maturation, stenosis, thrombosis detection",
+          "criteria": "Volume flow (<600 mL/min AVG, <400 mL/min AVF concerning)"
+        },
+        "aortic": {
+          "aaa_screening": "Diameter measurement",
+          "post_evar": "Endoleak detection"
+        }
+      },
+      "advantages": {
+        "non_invasive": "No radiation, no contrast",
+        "portable": "Bedside evaluation possible",
+        "real_time": "Dynamic assessment",
+        "cost_effective": "Less expensive than CTA/MRA",
+        "repeatable": "Ideal for surveillance"
+      },
+      "limitations": {
+        "operator_dependent": "Requires skilled technologist",
+        "body_habitus": "Limited by obesity, bowel gas",
+        "calcification": "Acoustic shadowing may limit assessment",
+        "depth": "Poor resolution for deep structures",
+        "angle_requirement": "<60° for accurate velocities"
+      },
+      "quality_metrics": {
+        "accreditation": "ICAVL (Intersocietal Commission for Accreditation of Vascular Laboratories)",
+        "physician_interpretation": "Required for all studies"
+      }
+    },
+    "codes": {
+      "snomed_ct": ["16310003"],
+      "icd_10": ["Z13.6"]
+    },
+    "cpt_codes": ["93880", "93925", "93970", "93975"]
+  },
+  "relationships": {
+    "skos": {
+      "broader": ["vascular:vascular-diagnostics", "vascular:non-invasive-testing"],
+      "related": ["vascular:cta", "vascular:abi", "vascular:plethysmography"],
+      "narrower": ["vascular:carotid-duplex", "vascular:venous-duplex", "vascular:arterial-duplex"]
+    }
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Describe components of duplex ultrasound examination",
+      "Interpret waveform patterns and their clinical significance",
+      "Apply velocity criteria for stenosis grading",
+      "Identify limitations of duplex ultrasound"
+    ],
+    "clinical_pearls": [
+      "Angle of insonation must be <60° for accurate velocity measurement",
+      "Triphasic waveform is normal in peripheral arteries",
+      "ICA PSV >230 cm/s indicates ≥70% carotid stenosis",
+      "Compression non-compressibility is diagnostic for DVT"
+    ],
+    "board_yield": "HIGH - fundamental vascular lab study"
+  }
+}

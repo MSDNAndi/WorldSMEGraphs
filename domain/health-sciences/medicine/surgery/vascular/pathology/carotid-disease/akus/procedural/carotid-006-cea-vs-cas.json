@@ -1,0 +1,162 @@
+{
+  "@context": "aku-v2",
+  "@type": "concept",
+  "@id": "vascular:carotid:cas-vs-cea",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-05T02:46:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "status": "validated",
+    "confidence": 0.95
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/carotid-disease",
+    "type": "treatment-comparison",
+    "difficulty": "advanced",
+    "importance": "high"
+  },
+  "content": {
+    "title": "CEA vs CAS: Choosing Between Carotid Endarterectomy and Carotid Artery Stenting",
+    "definition": "Evidence-based comparison of carotid endarterectomy (CEA) and carotid artery stenting (CAS) for treatment of carotid stenosis, incorporating patient-specific factors, anatomic considerations, and trial data to guide treatment selection.",
+    "clinical_features": {
+      "procedure_overview": {
+        "cea": {
+          "technique": "Open surgical removal of atherosclerotic plaque",
+          "history": "Gold standard since 1954",
+          "advantages": ["Durable results", "Lower periprocedural stroke", "Well-established"],
+          "disadvantages": ["General anesthesia usually", "Neck incision", "Cranial nerve injury risk"]
+        },
+        "cas": {
+          "technique": "Endovascular stent placement with embolic protection",
+          "development": "FDA approved 2004 for high surgical risk",
+          "advantages": ["Minimally invasive", "No neck incision", "Avoids cranial nerves"],
+          "disadvantages": ["Higher periprocedural stroke (especially in elderly)", "Need for dual antiplatelet"]
+        }
+      },
+      "major_trials": {
+        "symptomatic": {
+          "crest_1": {
+            "design": "RCT, 2502 patients, CEA vs CAS",
+            "results": {
+              "primary_endpoint": "No significant difference in stroke/MI/death at 30 days + ipsilateral stroke at 4 years",
+              "stroke": "CEA 2.3% vs CAS 4.1% (30-day)",
+              "mi": "CAS 1.1% vs CEA 2.3%",
+              "age_effect": "CAS better <70, CEA better >70"
+            }
+          },
+          "icss": {
+            "results": "CEA superior to CAS for 30-day outcomes"
+          }
+        },
+        "asymptomatic": {
+          "acst_2": {
+            "design": "RCT comparing CEA vs CAS in asymptomatic",
+            "results": "Non-inferior outcomes (ongoing analysis)"
+          },
+          "crest_2": {
+            "design": "RCT comparing revascularization vs medical therapy",
+            "status": "Closed early due to low event rate"
+          }
+        }
+      },
+      "patient_selection": {
+        "favor_cea": {
+          "age": ">70 years (CREST finding)",
+          "anatomy": {
+            "hostile": "Heavily calcified, thrombotic plaque",
+            "arch": "Type II/III arch (difficult CAS access)"
+          },
+          "renal_function": "Contrast allergy, CKD",
+          "other": "Prior neck radiation (relative)"
+        },
+        "favor_cas": {
+          "surgical_risk": {
+            "hostile_neck": "Prior neck surgery, radiation",
+            "contralateral_occlusion": "with contralateral CEA",
+            "high_bifurcation": "Above C2 level",
+            "recurrent_stenosis": "Post-CEA restenosis"
+          },
+          "medical_risk": {
+            "cardiac": "Recent MI, unstable angina",
+            "pulmonary": "Severe COPD (GA risk)"
+          },
+          "age": "<70 years"
+        },
+        "cas_contraindicated": {
+          "absolute": [
+            "Fresh thrombus in carotid",
+            "Severely tortuous anatomy"
+          ],
+          "relative": [
+            "Age >80",
+            "Heavy circumferential calcification",
+            "Long lesion length"
+          ]
+        }
+      },
+      "anatomic_considerations": {
+        "plaque_morphology": {
+          "echolucent": "Higher CAS risk",
+          "ulcerated": "Higher embolic risk",
+          "heavily_calcified": "Both challenging"
+        },
+        "arch_anatomy": {
+          "type_I": "Favorable for CAS",
+          "type_II": "Intermediate",
+          "type_III": "Challenging, favor CEA",
+          "bovine": "Consider radial access"
+        },
+        "lesion_location": {
+          "bulb": "Standard for both",
+          "cca": "May favor CAS",
+          "high_ica": "May favor CAS"
+        }
+      },
+      "outcomes_summary": {
+        "30_day_outcomes": {
+          "stroke": "CEA generally lower",
+          "mi": "CAS generally lower",
+          "cranial_nerve": "CEA risk, CAS avoids"
+        },
+        "long_term": {
+          "durability": "Equivalent at 10 years",
+          "restenosis": "Higher with CAS (more commonly asymptomatic)"
+        }
+      }
+    },
+    "diagnostic_codes": {
+      "icd10": ["I65.2"],
+      "cpt": ["35301", "37215"]
+    }
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Apply CREST trial findings to patient selection",
+      "Identify anatomic and patient factors favoring CEA vs CAS",
+      "Recognize contraindications to CAS"
+    ],
+    "clinical_pearls": [
+      "Age >70 favors CEA; age <70 may favor CAS (CREST)",
+      "CEA has higher MI risk; CAS has higher stroke risk",
+      "Type III aortic arch makes CAS technically challenging",
+      "Hostile neck (prior radiation, surgery) favors CAS",
+      "Always weigh stroke risk vs MI risk based on patient's comorbidities"
+    ],
+    "evidence_basis": [
+      "CREST Trial (NEJM 2010, JAMA 2016)",
+      "ICSS Trial (Lancet 2010)",
+      "ACT-1 Trial (NEJM 2016)"
+    ]
+  },
+  "semantic_relations": {
+    "skos:broader": ["vascular:carotid:treatment-overview"],
+    "skos:narrower": [
+      "vascular:carotid:cea-technique",
+      "vascular:carotid:cas-technique"
+    ],
+    "skos:related": [
+      "vascular:carotid:surgical-indications",
+      "vascular:carotid:symptomatic-vs-asymptomatic"
+    ]
+  }
+}
