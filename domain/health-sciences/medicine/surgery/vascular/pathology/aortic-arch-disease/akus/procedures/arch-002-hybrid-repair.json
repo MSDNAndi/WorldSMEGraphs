@@ -1,0 +1,206 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "arch-002-hybrid-repair",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T05:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.96,
+    "status": "validated",
+    "last_updated": "2026-01-06T05:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aortic-arch-disease/procedures",
+    "type": "surgical-procedure",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "002",
+    "keywords": [
+      "hybrid arch repair",
+      "arch debranching",
+      "TEVAR",
+      "aortic arch aneurysm",
+      "zone 0",
+      "supra-aortic bypass"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "aortic_arch_intervention"
+  },
+  "content": {
+    "statement": {
+      "text": "Hybrid aortic arch repair is a combined surgical and endovascular approach to treating arch pathology, designed to minimize the morbidity of full open arch replacement in high-risk patients. The procedure involves surgical extra-anatomic bypass (debranching) of the supra-aortic vessels (innominate, left carotid, left subclavian arteries) followed by thoracic endovascular aortic repair (TEVAR) with stent-graft landing in the arch or ascending aorta. The extent of debranching determines the proximal landing zone achievable, with Zone 0 repair requiring complete arch debranching.",
+      "formal": "Hybrid Arch Repair: Stage 1 = surgical supra-aortic vessel bypass from ascending aorta (via sternotomy or cervical incisions). Stage 2 = TEVAR with proximal landing in Zone 0-2 depending on debranching extent. May be performed as single-stage or staged procedures."
+    },
+    "explanation": {
+      "intuition": "Imagine needing to repair a highway overpass while keeping traffic flowing. One approach is to shut everything down and rebuild (open surgery with circulatory arrest). The hybrid approach is like building bypass roads first (debranching), then repairing the overpass section by section (TEVAR). It's less disruptive overall, though it requires two types of work: road construction and bridge repair.",
+      "key_insight": "The fundamental trade-off is between the morbidity of circulatory arrest (avoided in hybrid repair) versus the complexity of creating surgical bypasses plus the risks of endovascular repair (endoleak, retrograde dissection). Patient selection is critical: hybrid repair is most valuable in high-risk patients who would not tolerate full open arch replacement.",
+      "technical_details": "Debranching configurations vary based on extent of arch coverage needed. Zone 0 landing (ascending aorta) requires complete debranching of all arch vessels via median sternotomy, typically with a branched graft from the ascending aorta to the innominate, left carotid, and left subclavian arteries. Zone 1 landing requires innominate artery revascularization. Zone 2 landing requires left carotid revascularization. Less extensive debranching can sometimes be performed via cervical incisions (carotid-carotid-subclavian bypasses). TEVAR can be performed simultaneously or staged (days to weeks later)."
+    }
+  },
+  "clinical_features": {
+    "indications": {
+      "primary": [
+        "Aortic arch aneurysm in high surgical risk patients",
+        "Type B dissection extending into arch",
+        "Penetrating aortic ulcer in arch",
+        "Trauma to aortic arch"
+      ],
+      "patient_factors_favoring_hybrid": [
+        "Advanced age (>70-75 years)",
+        "Significant comorbidities (COPD, CAD, renal dysfunction)",
+        "Prior cardiac or aortic surgery",
+        "Hostile mediastinum",
+        "Poor cardiac function (EF <40%)"
+      ]
+    },
+    "zone_classification": {
+      "zone_0": {
+        "location": "Ascending aorta (proximal to innominate artery)",
+        "debranching_required": "Complete - innominate, left carotid, left subclavian",
+        "approach": "Median sternotomy",
+        "stent_graft": "Requires ascending aorta-compatible device"
+      },
+      "zone_1": {
+        "location": "Between innominate and left carotid",
+        "debranching_required": "Innominate artery bypass",
+        "approach": "Sternotomy or right cervical + sternotomy",
+        "notes": "Must preserve left carotid and subclavian"
+      },
+      "zone_2": {
+        "location": "Between left carotid and left subclavian",
+        "debranching_required": "Left carotid revascularization",
+        "approach": "Left cervical incision or sternotomy",
+        "options": "Carotid-carotid bypass, carotid transposition"
+      },
+      "zone_3": {
+        "location": "Proximal descending thoracic (beyond left subclavian)",
+        "debranching_required": "Left subclavian revascularization if covered",
+        "approach": "Left cervical or supraclavicular",
+        "options": "Carotid-subclavian bypass, subclavian transposition"
+      },
+      "zone_4": {
+        "location": "Mid-descending thoracic (beyond left subclavian origin)",
+        "debranching_required": "None typically",
+        "notes": "Standard TEVAR landing zone"
+      }
+    },
+    "debranching_techniques": {
+      "complete_debranching_zone_0": {
+        "approach": "Median sternotomy",
+        "graft": "Branched Dacron graft from ascending aorta",
+        "anastomoses": [
+          "Proximal: ascending aorta",
+          "Branch 1: innominate (or brachiocephalic)",
+          "Branch 2: left carotid",
+          "Branch 3: left subclavian (or left carotid-subclavian)"
+        ]
+      },
+      "cervical_debranching": {
+        "approach": "Bilateral cervical incisions",
+        "technique": "Carotid-carotid bypass + left carotid-subclavian bypass",
+        "advantage": "Avoids sternotomy",
+        "limitation": "Cannot achieve Zone 0 landing"
+      }
+    },
+    "TEVAR_stage": {
+      "timing": "Immediate (same procedure) or staged (days to weeks)",
+      "access": "Typically femoral, may require iliac conduit",
+      "device_requirements": "Proximal diameter, length, conformability to arch curvature",
+      "challenges": "Arch angulation, delivery around arch, retrograde dissection risk"
+    },
+    "outcomes": {
+      "mortality_30_day": "5-15% (varies by patient risk and extent)",
+      "stroke": "5-15%",
+      "retrograde_dissection": "2-5% (serious complication)",
+      "endoleak": {
+        "type_I": "5-15%",
+        "management": "Extension, reintervention, or observation"
+      },
+      "durability": "Long-term data still accumulating"
+    },
+    "complications": [
+      "Stroke (most feared, 5-15%)",
+      "Retrograde Type A dissection",
+      "Endoleak (Type I, II)",
+      "Access site complications",
+      "Spinal cord ischemia (less common than descending TEVAR)",
+      "Recurrent laryngeal nerve injury",
+      "Graft infection"
+    ]
+  },
+  "patient_selection": {
+    "good_candidates": [
+      "High surgical risk for open arch replacement",
+      "Favorable anatomy for TEVAR",
+      "Adequate ascending aorta for inflow",
+      "Limited arch angulation"
+    ],
+    "poor_candidates": [
+      "Ascending aortic pathology (aneurysm, dissection involving ascending)",
+      "Connective tissue disorder",
+      "Inadequate landing zones",
+      "Previous ascending aortic surgery with limited inflow options"
+    ]
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Hybrid Aortic Arch Repair"},
+    "altLabel": [
+      {"@language": "en", "@value": "Arch Debranching with TEVAR"},
+      {"@language": "en", "@value": "Combined Open-Endovascular Arch Repair"}
+    ],
+    "definition": {"@language": "en", "@value": "Combined surgical bypass of supra-aortic vessels followed by endovascular stent-graft repair of the aortic arch, offering an alternative to full open arch replacement in high-risk patients"},
+    "notation": "arch-002-hybrid-repair"
+  },
+  "relationships": {
+    "prerequisites": [
+      {"id": "urn:wskg:medicine:surgery:vascular:arch:001", "title": "Aortic Arch Disease", "strength": 0.95},
+      {"id": "urn:wskg:medicine:surgery:vascular:procedures:tevar:001", "title": "TEVAR", "strength": 0.9}
+    ],
+    "enables": [
+      {"id": "urn:wskg:medicine:surgery:vascular:arch:zone0-repair", "title": "Zone 0 Repair", "strength": 0.85}
+    ],
+    "skos:broader": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:aortic-arch-disease", "@type": "skos:Concept", "skos:prefLabel": "Aortic Arch Disease"}
+    ],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:arch:003", "@type": "skos:Concept", "skos:prefLabel": "Zone Classification"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:taaa:003", "@type": "skos:Concept", "skos:prefLabel": "Elephant Trunk Technique"}
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {"type": "clinical_guideline", "citation": "Erbel R, et al. 2014 ESC Guidelines on the diagnosis and treatment of aortic diseases. Eur Heart J. 2014;35(41):2873-926.", "confidence": 0.98},
+      {"type": "review", "citation": "Moulakakis KG, et al. Hybrid open-endovascular technique for aortic arch pathologies. Ann Cardiothorac Surg. 2013;2(3):284-91.", "confidence": 0.95},
+      {"type": "textbook", "citation": "Rutherford's Vascular Surgery and Endovascular Therapy, 10th Edition, Chapter 78", "confidence": 0.98}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular_surgery_fellows", "cardiothoracic_surgery_fellows", "interventional_radiologists"],
+    "estimated_time": "25min",
+    "learning_objectives": [
+      "Describe the rationale for hybrid arch repair in high-risk patients",
+      "Explain the zone classification system for arch landing zones",
+      "Correlate debranching extent with achievable landing zone",
+      "Compare surgical approaches for complete vs partial debranching",
+      "Understand the risks of hybrid repair including retrograde dissection",
+      "Select appropriate candidates for hybrid vs open arch repair"
+    ],
+    "clinical_pearls": [
+      "Zone 0 landing requires complete debranching via sternotomy",
+      "Retrograde Type A dissection is a feared complication of TEVAR in the arch",
+      "Stroke risk increases with more proximal landing zones",
+      "Cervical debranching avoids sternotomy but limits landing to Zone 2+",
+      "Connective tissue disorders are relative contraindications due to dissection risk"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "450673001", "description": "Endovascular repair of thoracic aorta (procedure)"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10", "codeValue": "I71.2", "description": "Thoracic aortic aneurysm, without rupture"},
+    {"@type": "MedicalCode", "codingSystem": "CPT", "codeValue": "33880", "description": "Endovascular repair of descending thoracic aorta"}
+  ]
+}

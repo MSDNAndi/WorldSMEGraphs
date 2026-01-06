@@ -1,0 +1,205 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "aaa-019-ruptured-management",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T05:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-06T05:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aaa/treatment",
+    "type": "clinical-algorithm",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "019",
+    "keywords": [
+      "ruptured AAA",
+      "aortic emergency",
+      "permissive hypotension",
+      "REBOA",
+      "massive transfusion",
+      "rEVAR"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "emergency_vascular"
+  },
+  "content": {
+    "statement": {
+      "text": "Ruptured abdominal aortic aneurysm (rAAA) is a surgical emergency with mortality exceeding 80% without intervention. Management requires a systematic approach integrating rapid diagnosis, permissive hypotension resuscitation, activation of massive transfusion protocol, and expedited repair via either open surgery or endovascular approach (rEVAR). The choice between repair modalities depends on hemodynamic stability, anatomic suitability, and institutional expertise, with contemporary evidence supporting an EVAR-first strategy when feasible.",
+      "formal": "rAAA Management Algorithm: Recognition → Permissive hypotension (SBP 70-90) → Minimal crystalloid/MTP activation → Repair decision (rEVAR if suitable) → Damage control principles → ICU resuscitation."
+    },
+    "explanation": {
+      "intuition": "A ruptured AAA is like a pressurized pipe with a hole - the higher the pressure, the faster the leak. The body's natural response to bleeding (forming a clot) can be disrupted by aggressive fluid resuscitation, which dilutes clotting factors and raises blood pressure. The counterintuitive approach of allowing blood pressure to remain low ('permissive hypotension') buys time by reducing the driving force pushing blood out of the hole while preserving the body's natural clot.",
+      "key_insight": "The paradigm shift in rAAA management centers on two concepts: (1) permissive hypotension preserves the retroperitoneal tamponade by preventing 'popping the clot,' and (2) endovascular repair (rEVAR) offers faster aortic control without laparotomy-induced loss of retroperitoneal tamponade, potentially improving survival in suitable patients.",
+      "technical_details": "The decision algorithm branches based on hemodynamic status: Stable patients (SBP >90, responsive) may undergo CT angiography for EVAR planning. Unstable patients (SBP 70-90, altered mentation) require expedited repair with intraoperative imaging or immediate open surgery. Moribund patients (SBP <70, obtunded) may benefit from REBOA as a bridge to definitive repair. The IMPROVE trial demonstrated non-inferiority of rEVAR vs open repair, with subsequent analyses suggesting benefit in women and those with suitable anatomy. Massive transfusion protocols (MTP) should be activated immediately, targeting 1:1:1 ratio of PRBCs:FFP:platelets. Damage control surgery principles apply: expedited repair, temporary abdominal closure if coagulopathic, planned second-look for bowel viability.",
+      "common_misconceptions": [
+        "All rAAA patients need emergent open surgery - rEVAR is equally effective and potentially better in suitable anatomy",
+        "Normal blood pressure should be restored before surgery - this may disrupt retroperitoneal tamponade",
+        "CT imaging is contraindicated in unstable patients - stable enough to walk patients can often get rapid CTA",
+        "REBOA is definitive treatment - it is only a bridge to surgical repair",
+        "All patients with rAAA are unsalvageable - contemporary in-hospital mortality is 30-40% with optimal care"
+      ]
+    }
+  },
+  "clinical_features": {
+    "presentation": {
+      "classic_triad": {
+        "components": ["Severe abdominal/back pain", "Hypotension", "Pulsatile abdominal mass"],
+        "prevalence": "Present in only 30-50% of cases"
+      },
+      "atypical_presentations": [
+        "Syncope with subsequent recovery (contained rupture)",
+        "Isolated back pain mimicking renal colic",
+        "Flank ecchymosis (Grey Turner sign) - late finding",
+        "Scrotal hematoma - from tracking blood",
+        "Leg ischemia from thromboembolism or shock"
+      ]
+    },
+    "hemodynamic_stratification": {
+      "stable": {
+        "definition": "SBP >90, GCS 15, urine output maintained",
+        "management": "May proceed to CTA, consider rEVAR"
+      },
+      "unstable": {
+        "definition": "SBP 70-90, or altered mentation",
+        "management": "Permissive hypotension, expedited repair, limited imaging"
+      },
+      "moribund": {
+        "definition": "SBP <70, obtunded, or cardiac arrest",
+        "management": "REBOA bridge, immediate OR, damage control"
+      }
+    },
+    "diagnosis": [
+      "Bedside ultrasound (FAST) - identifies AAA, may see free fluid",
+      "CT angiography - gold standard if patient stable enough",
+      "Clinical diagnosis sufficient in classic presentation with known AAA"
+    ],
+    "treatment": {
+      "resuscitation_principles": {
+        "permissive_hypotension": {
+          "target": "SBP 70-90 mmHg in awake patient",
+          "rationale": "Preserves retroperitoneal tamponade, minimizes ongoing hemorrhage"
+        },
+        "massive_transfusion": {
+          "activation": "Immediate upon diagnosis",
+          "ratio": "1:1:1 (PRBC:FFP:Platelets)",
+          "adjuncts": "TXA 1g bolus, calcium replacement, avoid hypothermia"
+        },
+        "avoid": [
+          "Aggressive crystalloid resuscitation",
+          "Normotensive targets before aortic control",
+          "Vasopressors before aortic control (increases afterload)"
+        ]
+      },
+      "REBOA": {
+        "indication": "Bridge to definitive repair in moribund patients",
+        "zone": "Zone 1 (descending thoracic/upper abdominal aorta)",
+        "limitations": "Ischemia to viscera and spine, must proceed rapidly to repair"
+      },
+      "repair_options": {
+        "rEVAR": {
+          "indication": "Suitable anatomy and hemodynamic stability",
+          "advantages": "Faster aortic control, preserves retroperitoneal tamponade, lower blood loss",
+          "anatomy_requirements": "Similar to elective EVAR, but more aggressive on-table IFU"
+        },
+        "open_repair": {
+          "indication": "Unsuitable anatomy, failed EVAR, hemodynamic collapse",
+          "approach": "Midline laparotomy, suprarenal or infrarenal clamp",
+          "key_step": "Rapid proximal control before evisceration/exploration"
+        }
+      }
+    }
+  },
+  "decision_algorithm": {
+    "step_1": "Recognize rAAA: pain + hypotension + known/palpable AAA",
+    "step_2": "Activate MTP and vascular surgery team simultaneously",
+    "step_3": "Initiate permissive hypotension (SBP 70-90)",
+    "step_4": "Stratify hemodynamic status",
+    "step_5a": "If stable: CTA → rEVAR if suitable anatomy",
+    "step_5b": "If unstable: OR for open repair or intraoperative imaging for rEVAR",
+    "step_5c": "If moribund: REBOA → immediate OR",
+    "step_6": "Damage control principles: temporary closure if coagulopathic",
+    "step_7": "ICU resuscitation, correct coagulopathy",
+    "step_8": "Planned second-look at 24-48h if concern for bowel ischemia"
+  },
+  "outcomes": {
+    "overall_mortality": {
+      "pre_hospital_death": "50%",
+      "in_hospital_mortality": "30-40% with modern care",
+      "30_day_mortality_open": "40-50%",
+      "30_day_mortality_rEVAR": "30-40%"
+    },
+    "complications": [
+      "Acute kidney injury (25-40%)",
+      "Bowel ischemia (10-20%)",
+      "Compartment syndrome (15-25%)",
+      "Coagulopathy/DIC",
+      "Multi-organ failure"
+    ]
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Ruptured AAA Management Algorithm"},
+    "altLabel": [
+      {"@language": "en", "@value": "rAAA Protocol"},
+      {"@language": "en", "@value": "Ruptured Aortic Aneurysm Treatment"}
+    ],
+    "definition": {"@language": "en", "@value": "Systematic approach to diagnosis and treatment of ruptured abdominal aortic aneurysm, emphasizing permissive hypotension, massive transfusion, and expedited repair via EVAR or open surgery"},
+    "notation": "aaa-019-ruptured-management"
+  },
+  "relationships": {
+    "prerequisites": [
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:001", "title": "AAA Definition", "strength": 1.0},
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:aaa:006", "title": "AAA Rupture", "strength": 1.0}
+    ],
+    "enables": [
+      {"id": "urn:wskg:medicine:surgery:vascular:procedures:reboa:001", "title": "REBOA", "strength": 0.85},
+      {"id": "urn:wskg:medicine:surgery:vascular:procedures:evar:001", "title": "EVAR", "strength": 0.9}
+    ],
+    "skos:broader": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:aaa", "@type": "skos:Concept", "skos:prefLabel": "Abdominal Aortic Aneurysm"}
+    ],
+    "skos:related": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:aortemerg:001", "@type": "skos:Concept", "skos:prefLabel": "Contained Rupture"},
+      {"@id": "urn:wskg:medicine:surgery:vascular:aortemerg:003", "@type": "skos:Concept", "skos:prefLabel": "Permissive Hypotension"}
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {"type": "clinical_trial", "citation": "IMPROVE Trial Investigators. Endovascular strategy or open repair for ruptured abdominal aortic aneurysm: one-year outcomes from the IMPROVE randomized trial. Eur Heart J. 2015;36(31):2061-9.", "confidence": 1.0},
+      {"type": "clinical_guideline", "citation": "Chaikof EL, et al. SVS practice guidelines for the care of patients with an abdominal aortic aneurysm. J Vasc Surg. 2018;67(1):2-77.e2.", "confidence": 1.0},
+      {"type": "textbook", "citation": "Rutherford's Vascular Surgery and Endovascular Therapy, 10th Edition, Chapter 74: Ruptured Abdominal Aortic Aneurysm", "confidence": 0.98}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular_surgery_fellows", "general_surgery_residents", "emergency_medicine_physicians", "trauma_surgeons"],
+    "estimated_time": "25min",
+    "learning_objectives": [
+      "Recognize classic and atypical presentations of ruptured AAA",
+      "Apply hemodynamic stratification to guide management intensity",
+      "Explain the physiologic rationale for permissive hypotension",
+      "Determine EVAR vs open repair candidacy in ruptured AAA",
+      "Describe the role of REBOA as a bridge to definitive repair",
+      "Apply damage control surgery principles in the coagulopathic patient"
+    ],
+    "clinical_pearls": [
+      "50% of rAAA patients die before reaching hospital - those who arrive represent survivors",
+      "A talking, oriented patient with SBP 80 is safer than one aggressively resuscitated to SBP 120",
+      "Loss of retroperitoneal tamponade at laparotomy can cause precipitous hemodynamic collapse",
+      "REBOA buys time but causes distal ischemia - proceed immediately to definitive repair",
+      "Crystalloid is the enemy in rAAA - use blood products from the start",
+      "Consider temporary abdominal closure if >10 units PRBCs or coagulopathy persists"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "59871007", "description": "Ruptured abdominal aortic aneurysm (disorder)"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10", "codeValue": "I71.3", "description": "Abdominal aortic aneurysm, ruptured"}
+  ]
+}

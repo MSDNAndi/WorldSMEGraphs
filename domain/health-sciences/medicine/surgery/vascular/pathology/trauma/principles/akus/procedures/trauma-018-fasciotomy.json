@@ -1,0 +1,200 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "trauma-018-fasciotomy",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T05:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-06T05:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/trauma/principles/procedures",
+    "type": "surgical-procedure",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "018",
+    "keywords": [
+      "fasciotomy",
+      "compartment syndrome",
+      "reperfusion injury",
+      "ischemia-reperfusion",
+      "four-compartment fasciotomy",
+      "prophylactic fasciotomy"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "trauma_and_ischemia"
+  },
+  "content": {
+    "statement": {
+      "text": "Fasciotomy is a surgical procedure involving incision of the fascia to release elevated pressure within muscle compartments, preventing or treating compartment syndrome. In vascular surgery and trauma, fasciotomy is indicated prophylactically when prolonged ischemia (>4-6 hours) precedes revascularization, and therapeutically when compartment syndrome develops after reperfusion. The lower leg requires four-compartment release through two incisions (medial and lateral), while the forearm requires release of volar and dorsal compartments.",
+      "formal": "Fasciotomy: Surgical release of fascial compartments to treat or prevent compartment syndrome. Indicated prophylactically with ischemia >4-6 hours, therapeutically with compartment pressures >30 mmHg or Δ <30 mmHg from diastolic pressure."
+    },
+    "explanation": {
+      "intuition": "Muscle compartments are like sealed containers - the fascia doesn't stretch. When blood flow is restored after prolonged ischemia, the muscles swell dramatically (reperfusion injury). If the container can't expand, pressure builds inside, crushing the muscles, nerves, and eventually cutting off blood flow again. Fasciotomy is like cutting open the container to allow the swelling tissue room to expand without self-destruction.",
+      "key_insight": "The decision for prophylactic fasciotomy is time-based: if ischemia duration exceeds 4-6 hours of warm ischemia before revascularization, reperfusion edema is expected and prophylactic fasciotomy should be performed. Waiting for signs of compartment syndrome after revascularization risks irreversible muscle and nerve damage. The mantra is: 'When in doubt, cut it out.'",
+      "technical_details": "Compartment pressure can be measured directly using a needle manometer or Stryker device. Absolute pressure >30 mmHg or delta pressure (diastolic BP minus compartment pressure) <30 mmHg indicates compartment syndrome. Lower leg has four compartments: anterior, lateral, superficial posterior, and deep posterior. The two-incision technique uses a lateral incision over the fibula (anterior and lateral compartments) and a medial incision 2cm posterior to the tibial border (superficial and deep posterior compartments). All four compartments must be released completely. Fasciotomy wounds are left open and managed with negative pressure wound therapy or wet dressings, with delayed primary closure or skin grafting at 3-7 days."
+    }
+  },
+  "clinical_features": {
+    "indications": {
+      "prophylactic": [
+        "Ischemia duration >4-6 hours before revascularization",
+        "Combined arterial and venous injury",
+        "Crush injury with anticipated reperfusion",
+        "Massive soft tissue injury",
+        "Delayed revascularization"
+      ],
+      "therapeutic": [
+        "Clinical signs of compartment syndrome (6 Ps)",
+        "Compartment pressure >30 mmHg",
+        "Delta pressure <30 mmHg",
+        "Pain out of proportion to injury with passive stretch"
+      ]
+    },
+    "clinical_signs_compartment_syndrome": {
+      "early": [
+        "Pain out of proportion to visible injury",
+        "Pain with passive stretch of compartment muscles",
+        "Tense, swollen compartment",
+        "Paresthesias"
+      ],
+      "late": [
+        "Paralysis",
+        "Pulselessness (very late, indicates severe compromise)",
+        "Pallor (late sign)"
+      ],
+      "important_note": "Pulses may be present even with compartment syndrome - do not rely on pulses alone"
+    },
+    "lower_leg_anatomy": {
+      "compartments": {
+        "anterior": {
+          "contents": "Tibialis anterior, extensor hallucis longus, extensor digitorum longus, deep peroneal nerve",
+          "function": "Ankle/toe dorsiflexion",
+          "access": "Lateral incision"
+        },
+        "lateral": {
+          "contents": "Peroneus longus and brevis, superficial peroneal nerve",
+          "function": "Foot eversion",
+          "access": "Lateral incision"
+        },
+        "superficial_posterior": {
+          "contents": "Gastrocnemius, soleus, plantaris",
+          "function": "Ankle plantarflexion",
+          "access": "Medial incision"
+        },
+        "deep_posterior": {
+          "contents": "Tibialis posterior, flexor digitorum longus, flexor hallucis longus, posterior tibial artery/nerve",
+          "function": "Toe flexion, foot inversion",
+          "access": "Medial incision, release soleus off tibia"
+        }
+      }
+    },
+    "technique": {
+      "two_incision_technique": {
+        "lateral_incision": {
+          "location": "Midway between tibial crest and fibula",
+          "length": "Full length of leg (knee to ankle)",
+          "releases": "Anterior and lateral compartments",
+          "landmarks": "Avoid superficial peroneal nerve"
+        },
+        "medial_incision": {
+          "location": "2cm posterior to posteromedial tibial border",
+          "length": "Full length of leg",
+          "releases": "Superficial and deep posterior compartments",
+          "key_step": "Must detach soleus from tibia to access deep posterior"
+        }
+      },
+      "key_principles": [
+        "Incisions must be full length of compartment",
+        "All four compartments must be released",
+        "Fascia must be incised, not just skin",
+        "Leave wounds open",
+        "Apply negative pressure wound therapy or wet-to-dry dressings"
+      ]
+    },
+    "wound_management": {
+      "initial": "Leave fasciotomy wounds open, wet dressings or NPWT",
+      "reassessment": "Serial examinations for muscle viability",
+      "debridement": "Return to OR at 24-48 hours for second look if concern",
+      "closure": {
+        "delayed_primary_closure": "3-7 days if swelling resolved",
+        "skin_grafting": "If delayed primary closure not possible",
+        "vessel_loop_technique": "Gradual approximation of skin edges"
+      }
+    }
+  },
+  "outcomes": {
+    "timely_fasciotomy": {
+      "success": ">90% limb salvage",
+      "complications": "Wound healing, infection, need for skin grafting"
+    },
+    "delayed_or_missed_fasciotomy": {
+      "consequences": [
+        "Myonecrosis (muscle death)",
+        "Volkmann's contracture (upper extremity)",
+        "Rhabdomyolysis and acute kidney injury",
+        "Nerve injury (permanent)",
+        "Amputation"
+      ]
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Fasciotomy for Compartment Syndrome"},
+    "altLabel": [
+      {"@language": "en", "@value": "Fasciotomy"},
+      {"@language": "en", "@value": "Four-Compartment Fasciotomy"},
+      {"@language": "en", "@value": "Prophylactic Fasciotomy"}
+    ],
+    "definition": {"@language": "en", "@value": "Surgical release of fascial compartments to prevent or treat compartment syndrome, indicated prophylactically after prolonged ischemia or therapeutically with elevated compartment pressures"},
+    "notation": "trauma-018-fasciotomy"
+  },
+  "relationships": {
+    "prerequisites": [
+      {"id": "urn:wskg:medicine:surgery:vascular:trauma:003", "title": "Hard Signs", "strength": 0.9},
+      {"id": "urn:wskg:medicine:surgery:orthopedics:compartment-syndrome:001", "title": "Compartment Syndrome", "strength": 0.95}
+    ],
+    "enables": [
+      {"id": "urn:wskg:medicine:surgery:vascular:trauma:wound-management:001", "title": "Wound Management", "strength": 0.85}
+    ],
+    "skos:broader": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:trauma", "@type": "skos:Concept", "skos:prefLabel": "Vascular Trauma"}
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {"type": "textbook", "citation": "Feliciano DV, Moore EE, West MA. Trauma, 9th Edition. McGraw-Hill Education, 2020.", "confidence": 0.98},
+      {"type": "textbook", "citation": "Rutherford's Vascular Surgery and Endovascular Therapy, 10th Edition, Chapter 88", "confidence": 0.98}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular_surgery_fellows", "general_surgery_residents", "orthopedic_surgery_residents", "trauma_surgeons"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Identify indications for prophylactic vs therapeutic fasciotomy",
+      "Recognize clinical signs of compartment syndrome",
+      "Describe the four compartments of the lower leg and their contents",
+      "Perform a two-incision four-compartment fasciotomy technique",
+      "Manage fasciotomy wounds and plan for closure"
+    ],
+    "clinical_pearls": [
+      "Ischemia >4-6 hours = prophylactic fasciotomy at time of revascularization",
+      "Pain with passive stretch is the earliest and most reliable sign of compartment syndrome",
+      "Pulses may be present with compartment syndrome - do not rely on pulses",
+      "'When in doubt, cut it out' - err on side of fasciotomy",
+      "All FOUR compartments must be released in the lower leg",
+      "Must release soleus off tibia to access deep posterior compartment"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "68674005", "description": "Fasciotomy (procedure)"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-PCS", "codeValue": "0J8N0ZZ", "description": "Division of right lower leg subcutaneous tissue and fascia, open approach"},
+    {"@type": "MedicalCode", "codingSystem": "CPT", "codeValue": "27600", "description": "Decompression fasciotomy, leg; anterior and/or lateral compartments only"}
+  ]
+}

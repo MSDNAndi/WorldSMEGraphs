@@ -1,0 +1,188 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "taaa-001-crawford-classification",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-06T05:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.98,
+    "status": "validated",
+    "last_updated": "2026-01-06T05:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/taaa/definitions",
+    "type": "classification-system",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "001",
+    "keywords": [
+      "Crawford classification",
+      "thoracoabdominal aortic aneurysm",
+      "TAAA",
+      "extent classification",
+      "spinal cord ischemia",
+      "aortic surgery"
+    ],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "aortic_aneurysm_classification"
+  },
+  "content": {
+    "statement": {
+      "text": "The Crawford classification system categorizes thoracoabdominal aortic aneurysms (TAAAs) into five extents based on the proximal and distal boundaries of aortic involvement. This classification is fundamental to surgical planning because it predicts the complexity of repair, the requirement for visceral vessel reconstruction, and critically, the risk of spinal cord ischemia. Extents I and II carry the highest spinal cord injury risk (15-30%) due to involvement of the critical T8-L2 arterial zone where the artery of Adamkiewicz typically originates.",
+      "formal": "Crawford Classification: Extent I (LSA→above renals), Extent II (LSA→bifurcation), Extent III (T6→bifurcation), Extent IV (diaphragm→bifurcation), Extent V (T6→above renals). Spinal cord risk correlates with extent of T8-L2 involvement."
+    },
+    "explanation": {
+      "intuition": "Think of the aorta as a long highway with different 'sections' that need repair. The Crawford classification describes which sections are diseased. If you need to work on the portion where the spinal cord gets its blood supply (like closing a highway section that feeds a critical road), the risk of spinal cord damage is higher. Extents I and II involve the longest stretches and include this critical zone, making them the highest-risk repairs.",
+      "key_insight": "The classification directly maps to surgical decision-making: more proximal involvement means longer cross-clamp times and more critical arterial sacrifice, while visceral segment involvement determines the complexity of visceral reconstruction. The T8-L2 segment is critical because it most commonly contains the artery of Adamkiewicz, the dominant blood supply to the anterior spinal cord.",
+      "technical_details": "The original Crawford classification described four extents, with the Safi modification adding Extent V. Proximal boundary landmarks include the left subclavian artery (LSA), T6 vertebral level, and diaphragm. Distal boundaries include the suprarenal aorta, infrarenal aorta, and aortic bifurcation. The critical zone for spinal cord perfusion lies between T8-L2, where 75% of arteries of Adamkiewicz originate. Intercostal and lumbar arteries in this zone should be reimplanted when possible. Modern adjuncts (CSF drainage, distal perfusion, hypothermia, staged repair) have reduced but not eliminated spinal cord ischemia risk."
+    }
+  },
+  "clinical_features": {
+    "extent_I": {
+      "proximal_boundary": "Left subclavian artery (or distal arch)",
+      "distal_boundary": "Suprarenal abdominal aorta (above renal arteries)",
+      "includes": "Entire descending thoracic aorta",
+      "visceral_involvement": "No visceral vessel reconstruction required",
+      "spinal_cord_risk": "15-30% (highest, along with Extent II)",
+      "clamp_location": "Proximal: distal arch or proximal descending. Distal: suprarenal",
+      "surgical_approach": "Left thoracoabdominal incision, 6th-7th intercostal space",
+      "key_considerations": [
+        "Longest thoracic aortic clamp segment",
+        "Maximum intercostal artery sacrifice",
+        "Distal perfusion strongly recommended",
+        "CSF drainage mandatory"
+      ]
+    },
+    "extent_II": {
+      "proximal_boundary": "Left subclavian artery (or distal arch)",
+      "distal_boundary": "Aortic bifurcation (or common iliac arteries)",
+      "includes": "Entire descending thoracic AND abdominal aorta",
+      "visceral_involvement": "All visceral vessels require reconstruction (celiac, SMA, renal arteries)",
+      "spinal_cord_risk": "15-30% (highest)",
+      "clamp_location": "Proximal: distal arch. Distal: iliac arteries",
+      "surgical_approach": "Extended thoracoabdominal incision",
+      "key_considerations": [
+        "Most extensive repair, highest complexity",
+        "Longest clamp time and visceral ischemia",
+        "Consider staged (Elephant Trunk) approach",
+        "All adjuncts mandatory: CSF drain, LHB, cooling"
+      ]
+    },
+    "extent_III": {
+      "proximal_boundary": "Mid-descending thoracic aorta (approximately T6)",
+      "distal_boundary": "Aortic bifurcation",
+      "includes": "Distal half of descending thoracic + all abdominal aorta",
+      "visceral_involvement": "All visceral vessels require reconstruction",
+      "spinal_cord_risk": "5-15% (moderate-high)",
+      "clamp_location": "Proximal: mid-descending thoracic. Distal: iliac arteries",
+      "surgical_approach": "Thoracoabdominal incision",
+      "key_considerations": [
+        "Visceral reconstruction mandatory",
+        "Less thoracic aorta than Extent II",
+        "CSF drainage recommended"
+      ]
+    },
+    "extent_IV": {
+      "proximal_boundary": "Diaphragm (T12 level)",
+      "distal_boundary": "Aortic bifurcation",
+      "includes": "Entire abdominal aorta from diaphragm to bifurcation",
+      "visceral_involvement": "All visceral vessels require reconstruction",
+      "spinal_cord_risk": "2-5% (lowest)",
+      "clamp_location": "Proximal: supraceliac. Distal: iliac arteries",
+      "surgical_approach": "Transperitoneal or retroperitoneal",
+      "key_considerations": [
+        "Essentially a suprarenal AAA with celiac involvement",
+        "Lowest spinal cord risk due to minimal thoracic involvement",
+        "May be amenable to fenestrated/branched EVAR"
+      ]
+    },
+    "extent_V": {
+      "name": "Safi Modification",
+      "proximal_boundary": "Mid-descending thoracic aorta (approximately T6)",
+      "distal_boundary": "Suprarenal abdominal aorta (above renal arteries)",
+      "includes": "Distal thoracic aorta, stops above visceral segment",
+      "visceral_involvement": "None or minimal (does not extend to visceral vessels)",
+      "spinal_cord_risk": "5-10% (moderate)",
+      "surgical_approach": "Thoracoabdominal incision, limited abdominal exposure",
+      "key_considerations": [
+        "Added by Safi et al. to capture short-segment thoracoabdominal aneurysms",
+        "Lower morbidity than Extent II/III due to limited visceral involvement"
+      ]
+    },
+    "surgical_planning_by_extent": {
+      "extent_I_II": "Mandatory adjuncts: CSF drainage, left heart bypass, reattach critical intercostals (T8-L2), staged repair (Elephant Trunk) consideration",
+      "extent_III": "CSF drainage, visceral reconstruction, consider distal perfusion",
+      "extent_IV": "Similar to juxtarenal/pararenal AAA, may use F/B-EVAR if favorable",
+      "extent_V": "CSF drainage, limited visceral exposure"
+    }
+  },
+  "spinal_cord_protection": {
+    "critical_zone": "T8-L2 (location of artery of Adamkiewicz in 75% of patients)",
+    "strategies": [
+      "Cerebrospinal fluid drainage (target 10 mmHg)",
+      "Left heart bypass for distal perfusion",
+      "Selective reimplantation of intercostal/lumbar arteries",
+      "Moderate hypothermia (32-34°C)",
+      "Staged repair (Elephant Trunk technique)",
+      "Motor evoked potential monitoring",
+      "Mean arterial pressure augmentation post-operatively"
+    ]
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Crawford Classification of Thoracoabdominal Aortic Aneurysms"},
+    "altLabel": [
+      {"@language": "en", "@value": "TAAA Classification"},
+      {"@language": "en", "@value": "Crawford Extent Classification"}
+    ],
+    "definition": {"@language": "en", "@value": "Classification system dividing thoracoabdominal aortic aneurysms into five extents based on proximal and distal boundaries, used to predict surgical complexity and spinal cord ischemia risk"},
+    "notation": "taaa-001-crawford"
+  },
+  "relationships": {
+    "prerequisites": [
+      {"id": "urn:wskg:medicine:surgery:vascular:pathology:taa:001", "title": "Thoracic Aortic Aneurysm Definition", "strength": 0.95},
+      {"id": "urn:wskg:medicine:surgery:vascular:foundations:vs-basic-001", "title": "Blood Vessel Anatomy", "strength": 0.9}
+    ],
+    "enables": [
+      {"id": "urn:wskg:medicine:surgery:vascular:taaa:003", "title": "Elephant Trunk Technique", "strength": 0.95},
+      {"id": "urn:wskg:medicine:surgery:vascular:taaa:004", "title": "CSF Drainage Protocol", "strength": 0.9}
+    ],
+    "skos:broader": [
+      {"@id": "urn:wskg:medicine:surgery:vascular:pathology:taaa", "@type": "skos:Concept", "skos:prefLabel": "Thoracoabdominal Aortic Aneurysm"}
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {"type": "seminal_paper", "citation": "Crawford ES, DeNatale RW. Thoracoabdominal aortic aneurysm: observations regarding the natural course of the disease. J Vasc Surg. 1986;3(4):578-82.", "confidence": 1.0},
+      {"type": "modification", "citation": "Safi HJ, Miller CC. Spinal cord protection in descending thoracic and thoracoabdominal aortic repair. Ann Thorac Surg. 1999;67(6):1937-9.", "confidence": 0.98},
+      {"type": "textbook", "citation": "Rutherford's Vascular Surgery and Endovascular Therapy, 10th Edition, Chapter 76", "confidence": 0.98}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular_surgery_fellows", "cardiothoracic_surgery_fellows", "general_surgery_residents"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Classify TAAAs by Crawford extent using anatomic boundaries",
+      "Correlate Crawford extent with spinal cord ischemia risk",
+      "Understand visceral reconstruction requirements by extent",
+      "Apply the Safi modification (Extent V) appropriately",
+      "Describe spinal cord protection strategies for high-risk extents"
+    ],
+    "clinical_pearls": [
+      "Extent II has the highest morbidity/mortality due to complete aortic replacement",
+      "T8-L2 is the critical zone - this is where the artery of Adamkiewicz originates in 75%",
+      "Staged Elephant Trunk repair reduces spinal cord ischemia in Extent II by allowing collateralization",
+      "CSF drainage reduces paraplegia risk by approximately 50%",
+      "Extent IV is essentially a suprarenal AAA - may be treatable with fenestrated EVAR"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "233985008", "description": "Aortic aneurysm (disorder)"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10", "codeValue": "I71.2", "description": "Thoracic aortic aneurysm, without rupture"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10", "codeValue": "I71.6", "description": "Thoracoabdominal aortic aneurysm, without rupture"}
+  ]
+}
