@@ -3,6 +3,7 @@
 - Generated with `.project/agents/image-generation/tools/gpt_image_generator.py` using `../gpt-prompts.txt`
 - Environment: `AI_FOUNDRY_API_KEY`, `AI_FOUNDRY_ENDPOINT`, `GPT_IMAGE_1DOT5_ENDPOINT_URL`
 - Layout PDF built via `../build_gpt_pdf.py` → `../type2-endoleak-comic-gpt.pdf`
+- `../panel-map.json` maps prompts to generated files (ordered).
 
 ## Panel → File map
 1. image_001_20260107_013733_e1ae2fc8.png
