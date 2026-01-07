@@ -18,11 +18,22 @@ Each subdirectory represents a generation batch:
 - **Date**: Original from PR #36 (generated ~2026-01-06)
 - **Prompt Style**: Short-form, STYLE BASE reference pattern
 - **Issue**: Prompts were too brief, used placeholder references, lacked hyper-detailed specifications
-- **Images**: 32 panels (image_001 through image_032)
+- **Contents**: 
+  - 32 GPT-generated images (image_001-032, 032xxx timestamps) in root
+  - 32 placeholder images (panel-01 through panel-32) in panels-placeholder/
+  - Associated metadata JSON files
+  - Alt-text documentation
+- **Total**: 64 images + metadata
 - **Characteristics**: 
-  - Prompts ~200-400 words each
-  - Style consistency enforced via "Apply STYLE BASE" shorthand
-  - Character descriptions compressed
+  - GPT images: Prompts ~200-400 words each, used "Apply STYLE BASE" shorthand
+  - Placeholder images: Python-generated simple colored backgrounds with text
+
+## Current Working Images (Not Archived)
+
+The parent `comic/` directory contains active/current versions:
+- **panels-gpt-v2/** - Latest generation (051xxx timestamps) using hyper-detailed prompts (8-20K chars each)
+- **type2-endoleak-comic-gpt.pdf** - Compiled PDF from v2 images
+- **type2-endoleak-comic-gpt-featured.pdf** - Featured version
 
 ## Next Iterations
 
@@ -34,4 +45,4 @@ Future archives should include:
 
 ---
 
-**Last Updated**: 2026-01-07
+**Last Updated**: 2026-01-07 (removed duplicate 03-56-panels-gpt archive, consolidated to original-pr36)
