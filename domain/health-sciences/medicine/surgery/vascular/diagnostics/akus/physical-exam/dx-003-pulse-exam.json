@@ -1,0 +1,151 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:diagnostics:dx-003-pulse-exam",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "diagnostic_technique",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "DX-003",
+    "keywords": ["pulse examination", "peripheral pulse", "vascular examination", "arterial assessment"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "physical_examination",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Systematic pulse examination is the cornerstone of vascular assessment, evaluating arterial flow at standardized anatomic locations using palpation graded 0-4, with comparison to contralateral pulses and integration with Doppler assessment to characterize peripheral arterial disease severity and localize occlusions.",
+      "formal": "Pulse_Exam = Palpation(Bilateral_Comparison) + Grading(0-4) + Doppler_Confirmation"
+    },
+    "explanation": {
+      "intuition": "Checking pulses is like testing water pressure at different points along a plumbing system. If the pulse is weak or absent at a certain point, there's likely a blockage upstream. By checking pulses at multiple levels and comparing sides, you can map where the blockages are.",
+      "key_insight": "Pulse examination has limitations - 25-30% interobserver variability and difficulty in edematous or obese patients. Always confirm with handheld Doppler and ankle-brachial index. A 'palpable pulse' does not exclude significant stenosis; Doppler waveform quality provides additional information.",
+      "technical_details": "Standard pulse locations: radial (lateral wrist), ulnar (medial wrist), brachial (antecubital fossa), carotid (sternocleidomastoid border), femoral (below inguinal ligament at mid-point), popliteal (popliteal fossa with knee flexed), dorsalis pedis (lateral to EHL tendon), posterior tibial (posterior to medial malleolus). Grading: 0 = absent, 1+ = diminished (barely palpable), 2+ = normal, 3+ = increased, 4+ = bounding (aneurysmal). Absent dorsalis pedis is normal variant in 5-10%. Temperature and capillary refill supplement assessment. Handheld Doppler signals: triphasic (normal), biphasic (mild-moderate disease), monophasic (severe disease), absent (occlusion)."
+    }
+  },
+  "clinical_features": {
+    "pulse_locations": {
+      "upper_extremity": {
+        "radial": "Lateral volar wrist, between radial styloid and FCR",
+        "ulnar": "Medial volar wrist, lateral to FCU",
+        "brachial": "Medial antecubital fossa, between biceps tendon and medial epicondyle",
+        "axillary": "Lateral chest wall, behind pectoralis major",
+        "subclavian": "Behind clavicle, above first rib"
+      },
+      "lower_extremity": {
+        "femoral": "Below inguinal ligament, midpoint between ASIS and pubic symphysis",
+        "popliteal": "Popliteal fossa, knee flexed 30 degrees, fingers curl around tibia",
+        "dorsalis_pedis": "Dorsum of foot, lateral to extensor hallucis longus",
+        "posterior_tibial": "Behind and below medial malleolus"
+      },
+      "neck": {
+        "carotid": "Anterior border of sternocleidomastoid at cricoid level",
+        "superficial_temporal": "Anterior to tragus"
+      },
+      "abdomen": {
+        "aorta": "Midline above umbilicus"
+      }
+    },
+    "grading_system": {
+      "0": "Absent - no pulse felt",
+      "1+": "Diminished - barely palpable, weak",
+      "2+": "Normal",
+      "3+": "Increased - easily palpable, full",
+      "4+": "Bounding - may indicate aneurysm or hyperdynamic state"
+    },
+    "technique": {
+      "position": "Patient supine, relaxed",
+      "palpation": "Use fingertips (not thumb - has own pulse)",
+      "comparison": "Always compare bilateral",
+      "documentation": "Record grading for each location"
+    },
+    "adjuncts": {
+      "handheld_doppler": {
+        "technique": "Apply gel, hold probe at 45-60 degrees to vessel",
+        "triphasic": "Normal - sharp upstroke, brief reversal, forward flow",
+        "biphasic": "Mild-moderate disease - loss of reversal",
+        "monophasic": "Severe disease - flat continuous flow",
+        "absent": "Occlusion"
+      },
+      "temperature": "Cool extremity suggests poor perfusion",
+      "capillary_refill": ">3 seconds is abnormal",
+      "pallor_elevation": "Buerger test - pallor with elevation, rubor with dependency"
+    },
+    "normal_variants": {
+      "absent_DP": "5-10% of population - check PT pulse",
+      "prominent_peroneal": "May be dominant in some individuals"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Peripheral Pulse Examination"
+    },
+    "altLabel": [
+      "Vascular examination",
+      "Arterial pulse assessment"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Systematic palpation and grading of peripheral arterial pulses at standardized anatomic locations to assess vascular perfusion and localize arterial occlusive disease."
+    },
+    "notation": "DX-003"
+  },
+  "relationships": {
+    "prerequisites": [],
+    "enables": ["vascular:diagnostics:ABI"],
+    "skos:broader": ["vascular:diagnostics:physical-exam"],
+    "skos:related": ["vascular:diagnostics:doppler", "vascular:diagnostics:capillary-refill"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery",
+        "edition": "10th",
+        "chapter": "Vascular Examination",
+        "year": 2023
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["medical students", "vascular surgery residents", "primary care physicians"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Locate and palpate all major peripheral pulses",
+      "Apply the 0-4 pulse grading system",
+      "Interpret handheld Doppler signals",
+      "Integrate findings to localize arterial disease"
+    ],
+    "clinical_pearls": [
+      "Absent dorsalis pedis is normal variant in 5-10% - always check posterior tibial",
+      "Use fingertips, NOT thumb (thumb has its own pulse)",
+      "Popliteal pulse is deep - flex knee, curl fingers around tibia",
+      "Triphasic Doppler = normal; monophasic = severe disease",
+      "Palpable pulse does NOT exclude significant stenosis - check Doppler waveform",
+      "Compare bilaterally - asymmetry is more informative than absolute findings"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "252097001",
+      "description": "Peripheral pulse examination"
+    },
+    {
+      "codingSystem": "CPT",
+      "codeValue": "93922",
+      "description": "Non-invasive physiologic studies of upper or lower extremity arteries"
+    }
+  ]
+}

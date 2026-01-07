@@ -1,0 +1,150 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:diagnostics:dx-005-pvr",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:05:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:05:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "diagnostic_technique",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "DX-005",
+    "keywords": ["pulse volume recording", "PVR", "plethysmography", "arterial waveform", "noninvasive testing"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "vascular_lab",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Pulse volume recording (PVR) is a noninvasive plethysmographic technique that measures volume changes in the limb with each cardiac cycle using air-filled cuffs, generating waveforms that assess arterial perfusion quality and localize disease levels independent of vessel calcification.",
+      "formal": "PVR = Air_Plethysmography + Volume_Changes + Waveform_Analysis + Calcification_Independent"
+    },
+    "explanation": {
+      "intuition": "PVR is like taking the blood pressure cuff principle and using it to measure how much the leg swells with each heartbeat. A healthy artery makes a nice sharp wave; a blocked artery makes a flat, rounded wave. Unlike ABI, it works even when arteries are heavily calcified.",
+      "key_insight": "PVR is invaluable in diabetic and dialysis patients with calcified arteries where ABI is falsely elevated. The waveform morphology (rather than just the amplitude) provides qualitative assessment of proximal inflow. PVR at multiple levels (thigh, calf, ankle, digit) localizes disease to specific segments.",
+      "technical_details": "Air-filled cuffs are placed at standardized levels (high thigh, above knee, below knee, ankle, metatarsal, digit). Cuffs are inflated to 65 mmHg to sense limb volume changes. Normal waveform: rapid upslope, sharp peak (dicrotic notch on downslope), amplitude >15mm at chart speed 25mm/sec. Abnormal patterns: loss of dicrotic notch (mild), flattened peak (moderate), flattened and delayed (severe), flat (critical/occluded). Amplitude <5mm indicates severe disease. Advantages: not affected by calcification (measures volume, not pressure), qualitative assessment of waveform, localizes disease level. Limitations: qualitative, operator-dependent, affected by cardiac output."
+    }
+  },
+  "clinical_features": {
+    "technique": {
+      "equipment": "Pneumatic cuffs connected to plethysmograph",
+      "cuff_pressure": "Typically 65 mmHg",
+      "cuff_placement": ["High thigh", "Above knee", "Below knee", "Ankle", "Metatarsal", "Digit"],
+      "chart_speed": "25 mm/sec standard"
+    },
+    "waveform_interpretation": {
+      "normal": {
+        "characteristics": "Rapid upstroke, sharp peak, dicrotic notch, rapid downslope",
+        "amplitude": ">15-20 mm"
+      },
+      "mild_disease": {
+        "characteristics": "Loss of dicrotic notch, peak slightly rounded",
+        "amplitude": "10-15 mm"
+      },
+      "moderate_disease": {
+        "characteristics": "Flattened peak, prolonged upslope",
+        "amplitude": "5-10 mm"
+      },
+      "severe_disease": {
+        "characteristics": "Flat waveform, delayed and prolonged",
+        "amplitude": "<5 mm"
+      },
+      "critical": {
+        "characteristics": "Flat line or barely detectable",
+        "amplitude": "<2 mm"
+      }
+    },
+    "localization": {
+      "principle": "Waveform changes at level of or below significant stenosis/occlusion",
+      "example": "Normal thigh, abnormal calf = SFA disease"
+    },
+    "advantages": [
+      "Works despite arterial calcification (volume-based, not pressure-based)",
+      "Qualitative waveform assessment adds information beyond ABI",
+      "Localizes disease to specific vascular segments",
+      "Useful in diabetic and dialysis patients"
+    ],
+    "limitations": [
+      "Qualitative interpretation has subjectivity",
+      "Affected by cardiac output and arrhythmias",
+      "Does not provide anatomic detail like duplex",
+      "Proximal aortoiliac disease may not be well characterized"
+    ],
+    "clinical_applications": [
+      "PAD assessment when ABI unreliable (diabetes, dialysis)",
+      "Baseline before intervention",
+      "Post-intervention surveillance",
+      "Amputation level determination"
+    ]
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Pulse Volume Recording (PVR)"
+    },
+    "altLabel": [
+      "Air plethysmography",
+      "Segmental limb pressures",
+      "Arterial waveform analysis"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Noninvasive plethysmographic technique using air-filled cuffs to measure limb volume changes with each cardiac cycle, generating waveforms that assess arterial perfusion independent of vessel calcification."
+    },
+    "notation": "DX-005"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:diagnostics:dx-003-pulse-exam"],
+    "enables": [],
+    "skos:broader": ["vascular:diagnostics:noninvasive"],
+    "skos:related": ["vascular:diagnostics:ABI", "vascular:diagnostics:duplex"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Strandness's Duplex Scanning in Vascular Disorders",
+        "edition": "5th",
+        "year": 2016
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular lab technologists"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Describe the technique and equipment for PVR",
+      "Interpret PVR waveform patterns",
+      "Recognize advantages over ABI in calcified arteries",
+      "Localize disease based on segmental waveform changes"
+    ],
+    "clinical_pearls": [
+      "PVR works when ABI is falsely elevated due to CALCIFICATION",
+      "Loss of dicrotic notch is the FIRST sign of disease",
+      "Amplitude <5mm indicates severe disease",
+      "Waveform changes localize to or below the diseased segment",
+      "PVR is QUALITATIVE - adds to ABI, doesn't replace it",
+      "Essential for diabetic and dialysis patients"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "CPT",
+      "codeValue": "93922",
+      "description": "Limited bilateral noninvasive physiologic studies of upper or lower extremity arteries"
+    },
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "252093007",
+      "description": "Pulse volume recording"
+    }
+  ]
+}

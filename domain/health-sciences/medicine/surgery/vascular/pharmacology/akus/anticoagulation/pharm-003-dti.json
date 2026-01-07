@@ -1,0 +1,149 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:pharmacology:pharm-003-dti",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pharmacology",
+    "type": "pharmacology",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "PHARM-003",
+    "keywords": ["direct thrombin inhibitor", "DTI", "argatroban", "bivalirudin", "dabigatran", "HIT"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "anticoagulation",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Direct thrombin inhibitors (DTIs) bind directly to thrombin (factor IIa) independent of antithrombin, providing anticoagulation in heparin-induced thrombocytopenia (HIT) and procedural anticoagulation, with argatroban being hepatically cleared (preferred in renal failure) and bivalirudin being renally/enzymatically cleared with a shorter half-life.",
+      "formal": "DTIs = Direct_Thrombin_Binding + Antithrombin_Independent + HIT_Safe + (Argatroban_Hepatic | Bivalirudin_Renal)"
+    },
+    "explanation": {
+      "intuition": "DTIs attack thrombin directly rather than working through an intermediary like heparin does. This makes them safe when heparin causes the dangerous allergy called HIT. Different DTIs are cleared by different organs - argatroban by the liver, bivalirudin by the kidneys - so you pick based on the patient's organ function.",
+      "key_insight": "DTIs are the anticoagulants of choice for HIT because they do not cross-react with HIT antibodies. The key clinical distinction is argatroban (hepatic metabolism, CI in liver failure, use in renal failure) vs bivalirudin (short half-life, renal/enzymatic clearance, good for procedures). Dabigatran is the only oral DTI.",
+      "technical_details": "DTIs bind thrombin at the active site (catalytic site) and/or exosite 1 (fibrin-binding site). Bivalent agents (bivalirudin, hirudin) bind both sites; univalent agents (argatroban, dabigatran) bind only the active site. Argatroban: half-life 39-51 min, hepatic metabolism, monitored by aPTT (goal 1.5-3x baseline), dose-dependent PT/INR elevation complicates warfarin transition. Bivalirudin: half-life 25 min, 20% renal/80% enzymatic, monitored by ACT for procedures, used in PCI and cardiac surgery. Dabigatran: oral, half-life 12-17 hours, 80% renal, reversed by idarucizumab (Praxbind)."
+    }
+  },
+  "clinical_features": {
+    "mechanism": {
+      "target": "Factor IIa (thrombin) - direct binding",
+      "independence": "Does not require antithrombin (unlike heparin)",
+      "HIT_safety": "Does not cross-react with HIT antibodies"
+    },
+    "agents": {
+      "argatroban": {
+        "route": "IV infusion",
+        "half_life": "39-51 minutes",
+        "metabolism": "Hepatic (CYP3A4)",
+        "monitoring": "aPTT (goal 1.5-3x baseline)",
+        "HIT_dosing": "2 mcg/kg/min (reduce to 0.5 mcg/kg/min in hepatic impairment)",
+        "PCI_dosing": "350 mcg/kg bolus then 25 mcg/kg/min",
+        "caution": "Falsely elevates INR - complicates warfarin bridging"
+      },
+      "bivalirudin": {
+        "route": "IV infusion",
+        "half_life": "25 minutes",
+        "metabolism": "20% renal, 80% enzymatic (plasma proteases)",
+        "monitoring": "ACT for procedures",
+        "PCI_dosing": "0.75 mg/kg bolus then 1.75 mg/kg/hr",
+        "advantages": "Short half-life, predictable offset, good for procedures"
+      },
+      "dabigatran": {
+        "route": "Oral",
+        "half_life": "12-17 hours",
+        "metabolism": "80% renal",
+        "dosing": "150 mg BID (110 mg BID if CrCl 30-50 or age >75)",
+        "reversal": "Idarucizumab (Praxbind) - specific reversal agent",
+        "indications": "Non-valvular AFib, VTE treatment/prevention"
+      }
+    },
+    "indications": {
+      "HIT": "Argatroban first-line (or bivalirudin)",
+      "PCI": "Bivalirudin (especially if HIT history)",
+      "cardiac_surgery": "Bivalirudin for CPB in HIT",
+      "VTE": "Dabigatran for treatment and prevention"
+    },
+    "monitoring": {
+      "argatroban": "aPTT q4h until stable; goal 1.5-3x baseline",
+      "bivalirudin": "ACT for procedures; no routine monitoring otherwise",
+      "dabigatran": "No routine monitoring; dilute thrombin time or ecarin clotting time if needed"
+    },
+    "reversal": {
+      "argatroban": "No specific antidote; short half-life allows offset; consider PCC",
+      "bivalirudin": "Very short half-life (25 min) - stop infusion; consider PCC",
+      "dabigatran": "Idarucizumab (Praxbind) 5g IV - complete reversal within minutes"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Direct Thrombin Inhibitors"
+    },
+    "altLabel": [
+      "DTI",
+      "Argatroban",
+      "Bivalirudin",
+      "Dabigatran"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Anticoagulants that bind directly to thrombin independent of antithrombin, used for HIT and procedural anticoagulation, with varying metabolic pathways determining agent selection."
+    },
+    "notation": "PHARM-003"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:pharmacology:pharm-001-heparin"],
+    "enables": [],
+    "skos:broader": ["vascular:pharmacology:anticoagulation"],
+    "skos:related": ["vascular:pharmacology:HIT", "vascular:pharmacology:DOACs"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "title": "ASH Guidelines for Management of VTE: HIT",
+        "organization": "American Society of Hematology",
+        "year": 2018
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "hematology fellows", "interventional cardiologists"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Compare parenteral DTIs (argatroban, bivalirudin)",
+      "Select appropriate DTI based on hepatic/renal function",
+      "Apply DTIs in HIT management",
+      "Understand dabigatran reversal with idarucizumab"
+    ],
+    "clinical_pearls": [
+      "Argatroban = HEPATIC metabolism - use in renal failure, avoid in liver failure",
+      "Bivalirudin = SHORT half-life (25 min) - ideal for procedures",
+      "Argatroban falsely elevates INR - complicates warfarin transition",
+      "Idarucizumab (Praxbind) completely reverses dabigatran - available for emergencies",
+      "DTIs do NOT cross-react with HIT antibodies - safe in HIT",
+      "Dabigatran 80% renal - adjust or avoid in CrCl <30"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "416587008",
+      "description": "Direct thrombin inhibitor"
+    },
+    {
+      "codingSystem": "RxNorm",
+      "codeValue": "114934",
+      "description": "Argatroban"
+    }
+  ]
+}

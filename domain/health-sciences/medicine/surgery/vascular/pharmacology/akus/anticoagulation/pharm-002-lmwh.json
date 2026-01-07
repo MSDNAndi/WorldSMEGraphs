@@ -1,0 +1,162 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:pharmacology:pharm-002-lmwh",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pharmacology",
+    "type": "pharmacology",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "PHARM-002",
+    "keywords": ["LMWH", "low molecular weight heparin", "enoxaparin", "dalteparin", "anticoagulation"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "anticoagulation",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Low molecular weight heparins (LMWH) are depolymerized heparin fragments with predictable pharmacokinetics enabling fixed-dose or weight-based dosing without routine monitoring, primarily inhibiting factor Xa with reduced anti-thrombin activity compared to unfractionated heparin.",
+      "formal": "LMWH = Depolymerized_Heparin + Anti_Xa >> Anti_IIa + Predictable_PK + Weight_Based_Dosing"
+    },
+    "explanation": {
+      "intuition": "LMWH is a refined version of regular heparin with more consistent effects. Because it's predictable, you can give a dose based on the patient's weight without constantly checking blood tests. It works mainly by blocking one clotting factor (Xa) rather than several.",
+      "key_insight": "LMWH advantages over UFH include: predictable dose-response (no routine aPTT monitoring), once or twice daily subcutaneous dosing, outpatient treatment feasibility, lower HIT risk, and reduced osteoporosis risk with long-term use. The trade-off is longer half-life making reversal more difficult and need for dose adjustment in renal impairment.",
+      "technical_details": "LMWHs are derived from UFH depolymerization (MW 4000-6000 Da vs 12000-15000 Da for UFH). The anti-Xa:anti-IIa ratio varies: enoxaparin 3.8:1, dalteparin 2.7:1, tinzaparin 1.9:1. Bioavailability >90% SC (vs 30% for UFH). Half-life 3-6 hours (longer than UFH), renally cleared. Dosing: enoxaparin 1 mg/kg q12h treatment, 30-40 mg q12-24h prophylaxis; dalteparin 200 IU/kg daily treatment. Monitoring anti-Xa levels in: renal impairment, extremes of weight, pregnancy, prolonged treatment. Renal adjustment: reduce dose or switch to UFH if CrCl <30. Partial reversal with protamine (60% of anti-Xa activity neutralized)."
+    }
+  },
+  "clinical_features": {
+    "mechanism": {
+      "primary": "Anti-factor Xa activity (via antithrombin activation)",
+      "secondary": "Anti-factor IIa (thrombin) activity - less than UFH",
+      "ratio": "Anti-Xa:Anti-IIa = 2:1 to 4:1 (varies by agent)"
+    },
+    "pharmacokinetics": {
+      "bioavailability": ">90% subcutaneous",
+      "half_life": "3-6 hours",
+      "elimination": "Renal",
+      "peak_anti_Xa": "3-5 hours post-dose"
+    },
+    "agents": {
+      "enoxaparin": {
+        "trade_name": "Lovenox",
+        "treatment_dose": "1 mg/kg SC q12h or 1.5 mg/kg SC daily",
+        "prophylaxis_dose": "30 mg SC q12h or 40 mg SC daily",
+        "anti_Xa_IIa": "3.8:1"
+      },
+      "dalteparin": {
+        "trade_name": "Fragmin",
+        "treatment_dose": "200 IU/kg SC daily or 100 IU/kg SC q12h",
+        "prophylaxis_dose": "2500-5000 IU SC daily",
+        "anti_Xa_IIa": "2.7:1"
+      },
+      "tinzaparin": {
+        "trade_name": "Innohep",
+        "treatment_dose": "175 IU/kg SC daily",
+        "anti_Xa_IIa": "1.9:1"
+      }
+    },
+    "monitoring": {
+      "routine": "Not required due to predictable pharmacokinetics",
+      "special_populations": {
+        "renal_impairment": "Anti-Xa levels if CrCl 30-50; consider UFH if CrCl <30",
+        "obesity": "Anti-Xa levels if BMI >40 or weight >150kg",
+        "pregnancy": "Anti-Xa levels due to volume changes",
+        "prolonged_treatment": "Periodic anti-Xa levels"
+      },
+      "anti_Xa_targets": {
+        "treatment_q12h": "0.6-1.0 IU/mL (4h post-dose)",
+        "treatment_daily": "1.0-2.0 IU/mL (4h post-dose)",
+        "prophylaxis": "0.2-0.4 IU/mL"
+      }
+    },
+    "advantages_over_UFH": [
+      "Predictable dose-response without routine monitoring",
+      "Subcutaneous administration (outpatient feasible)",
+      "Lower risk of HIT (~0.1% vs 1-3%)",
+      "Reduced osteoporosis with long-term use",
+      "Once or twice daily dosing"
+    ],
+    "disadvantages": [
+      "Longer half-life complicates urgent surgery",
+      "Incomplete reversal with protamine (~60%)",
+      "Renal clearance requires adjustment",
+      "Higher cost than UFH"
+    ],
+    "reversal": {
+      "agent": "Protamine sulfate",
+      "efficacy": "Neutralizes ~60% of anti-Xa activity (complete anti-IIa reversal)",
+      "dosing": "1 mg protamine per 1 mg enoxaparin (or 100 IU dalteparin) if <8 hours; 0.5 mg if 8-12 hours"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Low Molecular Weight Heparin (LMWH)"
+    },
+    "altLabel": [
+      "LMWH",
+      "Enoxaparin",
+      "Dalteparin"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Depolymerized heparin fragments with predictable pharmacokinetics and predominantly anti-Xa activity, enabling weight-based dosing without routine monitoring for treatment and prophylaxis of thromboembolism."
+    },
+    "notation": "PHARM-002"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:pharmacology:pharm-001-heparin"],
+    "enables": [],
+    "skos:broader": ["vascular:pharmacology:anticoagulation"],
+    "skos:related": ["vascular:pharmacology:UFH", "vascular:pharmacology:fondaparinux"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "title": "CHEST Guidelines on Antithrombotic Therapy",
+        "organization": "American College of Chest Physicians",
+        "year": 2021
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "internal medicine residents", "pharmacists"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Describe the mechanism and pharmacokinetics of LMWH",
+      "Compare LMWH to unfractionated heparin",
+      "Identify situations requiring anti-Xa monitoring",
+      "Apply dosing adjustments for renal impairment"
+    ],
+    "clinical_pearls": [
+      "LMWH does NOT require routine monitoring - predictable PK",
+      "Check anti-Xa levels in: renal failure, obesity, pregnancy, prolonged use",
+      "CrCl <30: consider UFH instead of LMWH (renal clearance)",
+      "Protamine only reverses ~60% of anti-Xa activity",
+      "HIT risk is LOWER with LMWH (~0.1%) vs UFH (1-3%)",
+      "Wait 24 hours after therapeutic LMWH for neuraxial anesthesia"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "372877000",
+      "description": "Low molecular weight heparin"
+    },
+    {
+      "codingSystem": "RxNorm",
+      "codeValue": "67108",
+      "description": "Enoxaparin"
+    }
+  ]
+}
