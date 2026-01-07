@@ -13,7 +13,7 @@ FEATURED_PANEL = 15
 def load_prompts():
     records = []
     for line in PROMPTS.read_text().splitlines():
-        m = re.match(r"Panel\s+(\d+)[^:]*:\s*(.*)", line)
+        m = re.match(r"Panel\s+(\d+).*?:\s*(.*)", line)
         if not m:
             continue
         num = int(m.group(1))

@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 from PIL import Image
 
@@ -5,7 +6,8 @@ BASE = Path(__file__).parent
 SRC = BASE / "panels-gpt"
 PDF = BASE / "type2-endoleak-comic-gpt.pdf"
 PDF_FEATURED = BASE / "type2-endoleak-comic-gpt-featured.pdf"
-FEATURED_INDEX = 14  # 0-based, panel 15 (microbubble research highlight)
+PANEL_MAP = BASE / "panel-map.json"
+DEFAULT_FEATURED_PANEL = 15  # panel number (1-based)
 
 
 def collect_images():
@@ -13,6 +15,17 @@ def collect_images():
     if len(files) != 32:
         print(f"Warning: expected 32 images, found {len(files)}")
     return files
+
+
+def get_featured_index():
+    try:
+        data = json.loads(PANEL_MAP.read_text())
+        for entry in data:
+            if entry.get("featured"):
+                return max(entry["panel"] - 1, 0)
+    except Exception as e:
+        print(f"Warning: unable to read featured panel from panel-map.json ({e})")
+    return DEFAULT_FEATURED_PANEL - 1
 
 
 def build_pdf(images):
@@ -48,12 +61,13 @@ def build_featured_pdf(images):
     if not images:
         print("No images to build featured PDF")
         return
-    if FEATURED_INDEX >= len(images):
+    featured_idx = get_featured_index()
+    if featured_idx >= len(images):
         print("Featured index out of range; skipping featured PDF")
         return
     imgs = [Image.open(p).convert("RGB") for p in images]
-    featured = imgs[FEATURED_INDEX]
-    remaining = imgs[:FEATURED_INDEX] + imgs[FEATURED_INDEX + 1:]
+    featured = imgs[featured_idx]
+    remaining = imgs[:featured_idx] + imgs[featured_idx + 1:]
 
     slot_w, slot_h = 720, 480
     featured_h = int(slot_h * 1.5)

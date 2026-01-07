@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import re
 
 BASE = Path(__file__).parent
 PROMPTS = BASE / "gpt-prompts.txt"
@@ -18,8 +19,10 @@ def main():
         print("❌ missing prompts file")
     else:
         prompts = [ln for ln in PROMPTS.read_text().splitlines() if ln.strip()]
-        print(f"Prompts: {len(prompts)}")
-        ok &= len(prompts) >= 32
+        prompt_pattern = re.compile(r"^Panel\s+\d+")
+        valid_prompts = [ln for ln in prompts if prompt_pattern.match(ln)]
+        print(f"Prompts: {len(prompts)} (valid format: {len(valid_prompts)})")
+        ok &= len(prompts) >= 32 and len(valid_prompts) == len(prompts)
 
     if not IMAGES:
         ok = False
@@ -49,7 +52,7 @@ def main():
         print("❌ missing panel-map.json")
 
     if ALT.exists():
-        alt_lines = [ln for ln in ALT.read_text().splitlines() if ln and ln[0].isdigit()]
+        alt_lines = [ln for ln in ALT.read_text().splitlines() if re.match(r"^\d+\.", ln.strip())]
         print(f"Alt text entries: {len(alt_lines)}")
         ok &= len(alt_lines) >= 32
     else:
