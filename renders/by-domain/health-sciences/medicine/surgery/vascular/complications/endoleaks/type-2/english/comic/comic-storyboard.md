@@ -65,8 +65,30 @@ style: dora-inspired, explorer tone, speech-bubble only
 - Characters: Camilo (Colombia), Diego (Colombia), Camila (Ecuador), plus Dr. Young Erben cameo.
 - Science anchors: retrograde collateral inflow, delayed blush, sac growth ≥5 mm trigger, embolization options, follow-up cadence.
 
+## Narration Tone (compelling + scientific)
+- Explorer energy (“¡Vamos!”) paired with precise thresholds and imaging phase names.
+- Each research insight voiced in-character (no omniscient narrator).
+- Humor via map arrows, stickers, and lightbulb “aha” beats; rigor via sac diameter numbers and CTA phase callouts.
+- Bilingual touches (English/Spanish) to keep voice authentic to the characters.
+
 ## Files
 - `storyboard.json` — authoritative panel data (titles, prompts, dialogue).
-- `generate_comic.py` — builds 32 PNG panels and `type2-endoleak-comic.pdf` (6 panels/page).
-- `panels/` — generated PNGs.
-- `comic-fluid.md` — fluid reading format with embedded panels.
+- `gpt-prompts.txt` — explicit prompts for GPT Image 1.5 (one per panel).
+- `panels-gpt/` — GPT-generated panels from `.project/agents/image-generation/tools/gpt_image_generator.py`.
+- `build_gpt_pdf.py` — assembles GPT panels into `type2-endoleak-comic-gpt.pdf` (6 panels/page).
+- `comic-fluid.md` — fluid reading format embedding GPT panels.
+- `generate_comic.py` / `panels/` — prior placeholder render path retained for fallback.
+
+## Generation Notes
+- Secrets available: `AI_FOUNDRY_API_KEY`, `AI_FOUNDRY_ENDPOINT`, `GPT_IMAGE_1DOT5_ENDPOINT_URL` (verified via environment).
+- Generation command used:
+  ```
+  python .project/agents/image-generation/tools/gpt_image_generator.py \
+    --prompt-file gpt-prompts.txt \
+    --output-dir panels-gpt \
+    --aspect landscape --quality high --parallel 4 --enhance
+  ```
+- PDF assembly:
+  ```
+  python build_gpt_pdf.py
+  ```
