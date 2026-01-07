@@ -1,0 +1,153 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:lymphatic:lymph-007-secondary-causes",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:35:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T00:35:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/lymphatic",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "LYMPH-007",
+    "keywords": ["secondary lymphedema", "acquired lymphedema", "post-surgical lymphedema", "filariasis", "cancer-related lymphedema"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "lymphatic_disease",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Secondary lymphedema results from damage or obstruction of previously normal lymphatics, most commonly caused by cancer treatment (surgery, radiation, lymph node dissection), infection (filariasis worldwide, cellulitis in developed countries), or trauma, representing the vast majority of lymphedema cases globally.",
+      "formal": "Secondary_Lymphedema = Acquired_Lymphatic_Damage + (Surgery | Radiation | Infection | Trauma | Malignancy)"
+    },
+    "explanation": {
+      "intuition": "Unlike primary lymphedema where lymphatics form abnormally, secondary lymphedema starts with normal lymphatics that become damaged or blocked. The most common scenario in developed countries is after cancer treatment - removing lymph nodes or irradiating them destroys critical drainage pathways.",
+      "key_insight": "Secondary lymphedema is far more common than primary lymphedema and is largely iatrogenic in developed countries. Breast cancer-related lymphedema affects 20-40% of patients after axillary lymph node dissection. Globally, filariasis causes over 120 million cases, making it the most common cause of lymphedema worldwide.",
+      "technical_details": "Mechanisms of secondary lymphedema: (1) Surgical disruption - lymph node dissection removes drainage stations and severs collecting vessels; (2) Radiation fibrosis - damages lymphatic vessels and nodes, effects may be delayed years; (3) Tumor obstruction - direct invasion or compression of lymphatics; (4) Infection - filariasis causes lymphangitis and progressive fibrosis, recurrent cellulitis scars lymphatics; (5) Trauma - crush injuries, burns, or severe inflammation. Risk factors include extent of nodal dissection, radiation therapy, obesity, wound complications, and recurrent infections. Latency period can be months to decades after inciting event."
+    }
+  },
+  "clinical_features": {
+    "etiology": {
+      "cancer_treatment": {
+        "lymph_node_dissection": "Axillary (breast), inguinal (melanoma, gynecologic), retroperitoneal",
+        "radiation": "Direct lymphatic injury and delayed fibrosis",
+        "tumor_invasion": "Direct obstruction of lymphatic channels or nodes",
+        "incidence": "20-40% after axillary dissection, 30% after groin dissection"
+      },
+      "infection": {
+        "filariasis": "Wuchereria bancrofti, Brugia species - >120 million affected worldwide",
+        "cellulitis": "Recurrent episodes scar lymphatics; each episode worsens lymphedema",
+        "tuberculosis": "Lymph node involvement can obstruct drainage"
+      },
+      "other": {
+        "trauma": "Crush injuries, burns, extensive surgery",
+        "CVI": "Chronic venous insufficiency with secondary lymphatic overload",
+        "lipedema": "Lipedema can progress to lipo-lymphedema"
+      }
+    },
+    "risk_factors": [
+      "Extent of lymph node dissection (more nodes = higher risk)",
+      "Concurrent radiation therapy to regional nodes",
+      "Obesity (BMI >30 doubles risk)",
+      "Post-operative wound complications or seroma",
+      "Recurrent cellulitis or wound infections",
+      "Taxane chemotherapy (possibly)",
+      "Air travel (unproven but commonly cited)"
+    ],
+    "presentation": {
+      "timing": "Days to decades after inciting event (median 1-3 years post-surgery)",
+      "location": "Territory drained by damaged lymphatics",
+      "progression": "Usually progressive without treatment",
+      "complications": "Cellulitis, lymphangitis, skin changes, rarely lymphangiosarcoma"
+    },
+    "staging_ISL": {
+      "Stage_0": "Latent - at risk but no visible edema",
+      "Stage_I": "Reversible - pitting, resolves with elevation",
+      "Stage_II": "Spontaneously irreversible - does not resolve with elevation, fibrosis",
+      "Stage_III": "Lymphostatic elephantiasis - severe fibrosis, skin changes"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Secondary Lymphedema"
+    },
+    "altLabel": [
+      "Acquired lymphedema",
+      "Cancer-related lymphedema",
+      "Post-surgical lymphedema"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Lymphedema resulting from damage or obstruction of previously normal lymphatic vessels, most commonly from cancer treatment, infection, or trauma."
+    },
+    "notation": "LYMPH-007"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:lymphatic:lymph-002-anatomy", "vascular:lymphatic:lymph-003-physiology"],
+    "enables": [
+      "vascular:lymphatic:lymph-009-complete-decongestive-therapy",
+      "vascular:lymphatic:lva-001-lymphovenous-anastomosis"
+    ],
+    "skos:broader": ["vascular:lymphatic:lymphedema"],
+    "skos:related": ["vascular:oncology:lymph-node-dissection", "vascular:lymphatic:cellulitis"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "title": "Best Practice for the Management of Lymphoedema",
+        "organization": "International Lymphoedema Framework",
+        "year": 2006
+      },
+      {
+        "type": "review",
+        "title": "Lymphedema: Epidemiology, Classification and Management",
+        "journal": "Clinics in Plastic Surgery",
+        "year": 2020
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "oncology surgeons", "breast surgeons", "lymphedema therapists"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Identify the major causes of secondary lymphedema",
+      "Understand risk factors for cancer treatment-related lymphedema",
+      "Apply ISL staging to lymphedema patients",
+      "Recognize the global burden of filariasis-related lymphedema"
+    ],
+    "clinical_pearls": [
+      "20-40% of patients develop lymphedema after axillary lymph node dissection",
+      "Sentinel node biopsy reduces but does not eliminate risk (5-7%)",
+      "Latency can be DECADES - counsel patients about lifelong risk",
+      "Each cellulitis episode worsens lymphedema - prevention is critical",
+      "Obesity doubles the risk - weight management is therapeutic",
+      "Filariasis causes 120+ million cases globally - most common cause worldwide"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "234097001",
+      "description": "Secondary lymphedema"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I89.0",
+      "description": "Lymphedema, not elsewhere classified"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I97.2",
+      "description": "Postmastectomy lymphedema syndrome"
+    }
+  ]
+}

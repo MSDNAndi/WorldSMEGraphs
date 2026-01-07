@@ -1,0 +1,125 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:anatomy:anat-001-bovine-arch",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:45:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T00:45:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/anatomy",
+    "type": "anatomic_variant",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "ANAT-001",
+    "keywords": ["bovine arch", "aortic arch variant", "common origin", "great vessel variant"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "surgical_anatomy",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "The 'bovine arch' is the most common aortic arch variant (15-25% of population), characterized by a common origin of the innominate (brachiocephalic) and left common carotid arteries from the aortic arch, affecting catheter navigation and surgical planning for arch procedures.",
+      "formal": "Bovine_Arch = Common_Origin(Innominate + Left_CCA) | Origin_of_Left_CCA_from_Innominate"
+    },
+    "explanation": {
+      "intuition": "Normally, three separate arteries come off the aortic arch. In a 'bovine arch,' the left carotid artery shares its takeoff with the innominate artery, or actually arises from the innominate. This changes the angles and approach for any catheter or surgery involving these vessels.",
+      "key_insight": "The term 'bovine arch' is actually a misnomer - true bovine anatomy has a single trunk giving rise to all four great vessels. In humans, 'bovine arch' refers to two patterns: (1) common origin of innominate and left CCA from the arch, or (2) left CCA arising from the innominate artery itself. Both affect endovascular access and surgical planning.",
+      "technical_details": "Normal arch anatomy (70-75%): innominate, left CCA, and left subclavian arise separately. Bovine variants: Type A (~15%) - common origin of innominate and left CCA from arch; Type B (~7%) - left CCA arises from innominate artery itself. Clinical implications: catheterization of left CCA may be more difficult (acute angle), increased stroke risk during TAVR due to manipulation in arch, affects TEVAR planning for proximal landing zones, surgical exposure may need modification. Identified on CTA, MRA, or arch aortography."
+    }
+  },
+  "clinical_features": {
+    "normal_arch": {
+      "vessels": "Three separate origins: innominate, left CCA, left subclavian",
+      "prevalence": "70-75% of population"
+    },
+    "bovine_variants": {
+      "type_A": {
+        "description": "Common origin of innominate and left CCA from arch",
+        "prevalence": "~15% of population"
+      },
+      "type_B": {
+        "description": "Left CCA arises directly from innominate artery",
+        "prevalence": "~7% of population"
+      }
+    },
+    "clinical_implications": {
+      "catheterization": "Acute angle to access left CCA - may need shaped catheters",
+      "TAVR": "Higher manipulation in arch, theoretical stroke risk",
+      "TEVAR": "Affects proximal landing zone selection - may need debranching",
+      "carotid_surgery": "Common origin can complicate carotid endarterectomy approach",
+      "arch_surgery": "Affects reimplantation strategy for debranching"
+    },
+    "identification": {
+      "CTA": "Reconstructions clearly show vessel origins",
+      "MRA": "Non-contrast alternative",
+      "aortography": "Visualized during catheterization",
+      "preoperative_planning": "Always assess arch anatomy before arch procedures"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Bovine Aortic Arch"
+    },
+    "altLabel": [
+      "Common origin brachiocephalic-left carotid",
+      "Aortic arch variant"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "An aortic arch variant in which the innominate and left common carotid arteries share a common origin from the arch or the left CCA arises from the innominate artery."
+    },
+    "notation": "ANAT-001"
+  },
+  "relationships": {
+    "prerequisites": [],
+    "enables": [],
+    "skos:broader": ["vascular:anatomy:aortic-arch"],
+    "skos:related": ["vascular:anatomy:aberrant-subclavian", "vascular:arch:tevar"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "anatomic_study",
+        "title": "Aortic arch anatomy",
+        "journal": "Journal of Vascular Surgery",
+        "year": 2012
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "interventional cardiologists", "radiologists"],
+    "estimated_time": "12min",
+    "learning_objectives": [
+      "Define bovine arch and its variants",
+      "Recognize the clinical implications for endovascular procedures",
+      "Understand impact on surgical planning for arch procedures"
+    ],
+    "clinical_pearls": [
+      "Bovine arch is MISNAMED - actual bovine anatomy is different",
+      "15-25% of population has some form of bovine variant",
+      "Type A: common origin from arch; Type B: left CCA from innominate",
+      "Affects catheter approach to left CCA - more acute angle",
+      "ALWAYS assess arch anatomy on CTA before TEVAR or arch procedures",
+      "May affect Zone 2 landing zone planning in TEVAR"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "253716003",
+      "description": "Congenital anomaly of aortic arch"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "Q25.49",
+      "description": "Other congenital malformations of aorta"
+    }
+  ]
+}

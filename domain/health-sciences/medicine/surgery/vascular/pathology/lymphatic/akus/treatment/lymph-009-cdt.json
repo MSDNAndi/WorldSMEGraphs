@@ -1,0 +1,154 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:lymphatic:lymph-009-cdt",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:40:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T00:40:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/lymphatic",
+    "type": "treatment",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "LYMPH-009",
+    "keywords": ["complete decongestive therapy", "CDT", "lymphedema treatment", "manual lymph drainage", "compression bandaging"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "lymphatic_disease",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Complete Decongestive Therapy (CDT) is the gold standard treatment for lymphedema, consisting of two phases: an intensive reduction phase with manual lymphatic drainage (MLD), multilayer short-stretch bandaging, exercise, and skin care, followed by a maintenance phase with compression garments and self-management.",
+      "formal": "CDT = Phase_1(MLD + Bandaging + Exercise + Skincare) → Phase_2(Compression_Garments + Self_MLD + Maintenance)"
+    },
+    "explanation": {
+      "intuition": "CDT works by manually pushing fluid out of the swollen limb toward working lymphatics, then preventing refill with compression. Phase 1 is intensive treatment by therapists to achieve maximum reduction; Phase 2 is lifelong maintenance by the patient to preserve gains.",
+      "key_insight": "CDT achieves 40-60% volume reduction in compliant patients but requires lifelong maintenance. Success depends critically on patient adherence to Phase 2 - without maintenance compression, all gains are lost within months.",
+      "technical_details": "Phase 1 (Intensive Reduction): Duration 2-4 weeks with daily sessions. MLD uses light pressure (30-40 mmHg) in specific sequences to redirect lymph through collateral pathways. Multilayer bandaging with short-stretch bandages provides high working pressure, low resting pressure. Exercises performed in bandages to enhance muscle pump. Meticulous skin care prevents cellulitis. Phase 2 (Maintenance): Fitted compression garments (Class II-III, 20-40 mmHg), self-MLD, continued exercise, skin hygiene. Night compression for severe cases. Contraindications include active cellulitis, DVT, decompensated CHF, and arterial insufficiency."
+    }
+  },
+  "clinical_features": {
+    "components": {
+      "manual_lymph_drainage": {
+        "technique": "Light pressure (<40 mmHg) skin stretching in specific sequences",
+        "mechanism": "Stimulates lymphangion contractions, opens collateral pathways",
+        "sequence": "Proximal to distal clearing - treat trunk first, then proximal limb, then distal",
+        "frequency": "Daily in Phase 1, 2-3x weekly in maintenance"
+      },
+      "compression_bandaging": {
+        "materials": "Short-stretch bandages (extensibility <100%)",
+        "principle": "High working pressure (with muscle activity), low resting pressure",
+        "layers": "Skin protection, foam padding, multiple bandage layers",
+        "duration": "23+ hours/day during Phase 1"
+      },
+      "exercise": {
+        "type": "Remedial exercises performed in bandages/garments",
+        "mechanism": "Muscle pump enhances lymph propulsion",
+        "intensity": "Low to moderate - avoid vigorous activity initially"
+      },
+      "skin_care": {
+        "purpose": "Prevent cellulitis (each infection worsens lymphedema)",
+        "components": "Daily washing, pH-balanced moisturizers, prompt wound care",
+        "education": "Recognition of cellulitis signs, early antibiotic initiation"
+      }
+    },
+    "phases": {
+      "phase_1": {
+        "duration": "2-4 weeks",
+        "frequency": "Daily treatment sessions",
+        "setting": "Outpatient lymphedema clinic or specialized facility",
+        "goal": "Maximum volume reduction (typically 40-60%)"
+      },
+      "phase_2": {
+        "duration": "Lifelong",
+        "components": "Fitted garments, self-MLD, exercise, skin care",
+        "garments": "Custom-fit Class II-III (20-40 mmHg), replaced every 4-6 months",
+        "monitoring": "Regular measurements, annual professional evaluation"
+      }
+    },
+    "outcomes": {
+      "volume_reduction": "40-60% with good compliance",
+      "quality_of_life": "Significant improvement in symptoms and function",
+      "cellulitis_reduction": "Marked decrease in infection episodes",
+      "maintenance": "Gains preserved with Phase 2 adherence"
+    },
+    "contraindications": {
+      "absolute": ["Active cellulitis or lymphangitis", "Acute DVT", "Decompensated heart failure"],
+      "relative": ["Arterial insufficiency (ABI <0.5)", "Active malignancy in treatment field", "Renal failure"]
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Complete Decongestive Therapy (CDT)"
+    },
+    "altLabel": [
+      "Complex decongestive physiotherapy",
+      "Combined physical therapy",
+      "Lymphedema therapy"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The gold standard multicomponent treatment for lymphedema consisting of manual lymphatic drainage, compression therapy, exercise, and skin care in an intensive reduction phase followed by lifelong maintenance."
+    },
+    "notation": "LYMPH-009"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:lymphatic:lymph-003-physiology", "vascular:lymphatic:lymph-008-staging-ISL"],
+    "enables": ["vascular:lymphatic:lymph-010-compression-bandaging"],
+    "skos:broader": ["vascular:lymphatic:treatment"],
+    "skos:related": ["vascular:lymphatic:mld", "vascular:compression-therapy"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "consensus",
+        "title": "ISL Consensus Document on Lymphedema",
+        "organization": "International Society of Lymphology",
+        "year": 2020
+      },
+      {
+        "type": "guideline",
+        "title": "Best Practice for Lymphoedema Management",
+        "organization": "International Lymphoedema Framework",
+        "year": 2006
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["lymphedema therapists", "vascular surgery residents", "physical therapists"],
+    "estimated_time": "25min",
+    "learning_objectives": [
+      "Describe the components of Complete Decongestive Therapy",
+      "Differentiate Phase 1 (reduction) from Phase 2 (maintenance)",
+      "Understand the rationale for each CDT component",
+      "Identify contraindications to CDT"
+    ],
+    "clinical_pearls": [
+      "CDT achieves 40-60% volume reduction - it works if patients comply",
+      "Phase 2 maintenance is LIFELONG - gains lost without adherence",
+      "Short-stretch bandages provide HIGH working pressure, LOW resting pressure",
+      "Always treat PROXIMAL first (clear the way for distal drainage)",
+      "Each cellulitis episode worsens lymphedema - skin care is therapeutic",
+      "Contraindicated in active cellulitis - treat infection first"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "CPT",
+      "codeValue": "97140",
+      "description": "Manual therapy techniques"
+    },
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "426738001",
+      "description": "Lymphedema management"
+    }
+  ]
+}

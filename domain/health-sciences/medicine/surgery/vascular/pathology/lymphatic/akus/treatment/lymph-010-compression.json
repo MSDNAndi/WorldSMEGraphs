@@ -1,0 +1,137 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:lymphatic:lymph-010-compression",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:40:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T00:40:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/lymphatic",
+    "type": "treatment",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "LYMPH-010",
+    "keywords": ["compression therapy", "compression bandaging", "compression garments", "lymphedema compression"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "lymphatic_disease",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Compression therapy is the cornerstone of lymphedema management, utilizing short-stretch bandages during reduction phase and fitted compression garments for maintenance, applying external pressure to reduce edema, enhance lymphatic flow, and prevent refilling.",
+      "formal": "Compression_Effect = External_Pressure + Enhanced_Muscle_Pump + Reduced_Capillary_Filtration + Lymph_Propulsion"
+    },
+    "explanation": {
+      "intuition": "Compression works like squeezing a sponge during activity - when muscles contract against the external bandage, pressure rises dramatically to push fluid out. At rest, pressure drops to allow comfort. This on-off pumping enhances lymphatic and venous return.",
+      "key_insight": "Short-stretch bandages are preferred over long-stretch elastic bandages because they provide high 'working pressure' during muscle activity (when you want to push fluid) but low 'resting pressure' at rest (for comfort and to avoid arterial compromise).",
+      "technical_details": "Short-stretch bandages have extensibility <100% (typically 40-70%) providing a semi-rigid shell. With muscle contraction, intra-compartmental pressure rises substantially against this inelastic material. Laplace's Law governs pressure: P = nT/CW (n=layers, T=tension, C=circumference, W=width). Graduated compression higher distally creates pressure gradient driving proximal flow. Working pressure with short-stretch: 60-80 mmHg during activity; resting pressure: 20-30 mmHg. Compression garments (Class II: 20-30 mmHg; Class III: 30-40 mmHg; Class IV: 40-50 mmHg) maintain reduction. Custom flat-knit garments for irregular shapes; circular-knit for regular contours."
+    }
+  },
+  "clinical_features": {
+    "mechanisms": {
+      "interstitial_pressure": "External pressure reduces capillary filtration",
+      "lymphatic_pump": "Compression enhances intrinsic lymphangion contractions",
+      "muscle_pump": "Semi-rigid shell amplifies muscle pump effect",
+      "tissue_stiffness": "Limits further swelling, reduces protein extravasation"
+    },
+    "bandaging": {
+      "materials": "Short-stretch bandages (40-70% extensibility)",
+      "padding": "Cotton stockinette + foam padding for even pressure distribution",
+      "technique": "Spiral or figure-8 from digits to proximal limb",
+      "pressure_gradient": "Higher distally, graduated decrease proximally",
+      "duration": "23+ hours/day during intensive phase"
+    },
+    "garments": {
+      "classification": {
+        "Class_I": "15-20 mmHg (mild edema)",
+        "Class_II": "20-30 mmHg (moderate lymphedema, most common)",
+        "Class_III": "30-40 mmHg (severe lymphedema)",
+        "Class_IV": "40-50+ mmHg (elephantiasis, custom)"
+      },
+      "construction": {
+        "circular_knit": "Seamless, more comfortable, for regular limb shapes",
+        "flat_knit": "Custom seamed, stiffer, for irregular shapes, severe cases"
+      },
+      "replacement": "Every 4-6 months as elasticity diminishes"
+    },
+    "special_considerations": {
+      "night_compression": "Lower pressure wraps or specialized night garments for severe cases",
+      "adjustable_wraps": "Velcro systems for patients unable to don garments",
+      "pneumatic_compression": "Intermittent pneumatic devices as adjunct therapy"
+    },
+    "contraindications": {
+      "arterial_insufficiency": "ABI <0.5-0.8 depending on compression level",
+      "active_cellulitis": "Treat infection before compression",
+      "DVT": "Acute DVT is contraindication",
+      "CHF": "Decompensated heart failure (rapid fluid mobilization risk)"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Compression Therapy for Lymphedema"
+    },
+    "altLabel": [
+      "Lymphedema compression",
+      "Compression bandaging",
+      "Compression garments"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The application of external pressure through bandages or garments to reduce lymphedema, enhance lymphatic flow, and maintain treatment gains through graduated compression."
+    },
+    "notation": "LYMPH-010"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:lymphatic:lymph-009-cdt"],
+    "enables": [],
+    "skos:broader": ["vascular:lymphatic:treatment"],
+    "skos:related": ["vascular:venous:compression-therapy"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Handbook of Venous and Lymphatic Disorders",
+        "edition": "4th",
+        "year": 2017
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["lymphedema therapists", "vascular nurses", "physical therapists"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Explain the mechanisms of compression therapy",
+      "Differentiate short-stretch from long-stretch bandages",
+      "Select appropriate compression class for patient needs",
+      "Identify contraindications to compression"
+    ],
+    "clinical_pearls": [
+      "SHORT-stretch bandages = HIGH working pressure, LOW resting pressure",
+      "Long-stretch elastic bandages are WRONG for lymphedema (sustained high pressure)",
+      "Garments must be replaced every 4-6 months as they lose elasticity",
+      "Flat-knit custom garments for irregular limb shapes or severe cases",
+      "Always check ABI before compression - arterial disease is a contraindication",
+      "Night compression (low pressure) helps severe cases maintain gains"
+    ],
+    "board_yield": "MEDIUM"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "CPT",
+      "codeValue": "29581",
+      "description": "Application of multilayer compression system, leg"
+    },
+    {
+      "codingSystem": "HCPCS",
+      "codeValue": "A6531",
+      "description": "Gradient compression stocking"
+    }
+  ]
+}

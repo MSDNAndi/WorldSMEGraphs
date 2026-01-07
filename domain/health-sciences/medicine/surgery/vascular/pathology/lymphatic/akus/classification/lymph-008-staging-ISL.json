@@ -1,0 +1,141 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:lymphatic:lymph-008-staging-ISL",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:35:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T00:35:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/lymphatic",
+    "type": "classification",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "LYMPH-008",
+    "keywords": ["lymphedema staging", "ISL staging", "lymphedema classification", "lymphedema severity"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "lymphatic_disease",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "The International Society of Lymphology (ISL) staging system classifies lymphedema into stages 0-III based on reversibility, tissue consistency, and skin changes, providing a standardized framework for treatment planning and outcome assessment.",
+      "formal": "ISL_Staging: Stage_0 (latent) → Stage_I (reversible) → Stage_II (irreversible) → Stage_III (elephantiasis)"
+    },
+    "explanation": {
+      "intuition": "Think of lymphedema progressing from a hidden problem (Stage 0) to soft reversible swelling (Stage I) to permanent swelling with tissue changes (Stage II) to severe disfiguring swelling with skin overgrowth (Stage III). Early intervention at Stage I can prevent progression.",
+      "key_insight": "Stage 0 (subclinical/latent) lymphedema is increasingly recognized as the critical intervention window. Patients are at risk but have no visible swelling - bioimpedance spectroscopy can detect subclinical changes allowing early intervention before progression.",
+      "technical_details": "ISL staging is based on clinical assessment: Stage 0 - impaired lymph transport but no clinical edema, often unrecognized; Stage I - early accumulation of protein-rich fluid that subsides with limb elevation, may be pitting; Stage II - elevation alone rarely reduces swelling, tissue fibrosis develops, initially pitting then non-pitting as fibrosis progresses (IIa pitting, IIb non-pitting); Stage III - lymphostatic elephantiasis with trophic skin changes including papillomatosis, hyperkeratosis, and massive swelling. Treatment intensity escalates with stage."
+    }
+  },
+  "clinical_features": {
+    "staging_system": {
+      "Stage_0": {
+        "name": "Latent/Subclinical",
+        "description": "Impaired lymphatic transport without clinical edema",
+        "clinical_features": "No visible swelling, may have subjective heaviness",
+        "diagnosis": "Lymphoscintigraphy abnormal, bioimpedance spectroscopy detects early changes",
+        "reversibility": "Not applicable - no visible edema",
+        "treatment": "Surveillance, risk reduction counseling, consider prophylactic compression"
+      },
+      "Stage_I": {
+        "name": "Reversible/Mild",
+        "description": "Accumulation of protein-rich fluid that reduces with elevation",
+        "clinical_features": "Soft pitting edema, resolves overnight or with elevation",
+        "diagnosis": "Clinical examination, limb volume measurement",
+        "reversibility": "Reversible with elevation",
+        "treatment": "Complete decongestive therapy (CDT), compression garments, exercise"
+      },
+      "Stage_II": {
+        "name": "Spontaneously Irreversible/Moderate",
+        "description": "Limb elevation alone rarely reduces swelling",
+        "clinical_features": "Tissue fibrosis developing, may be pitting (IIa) or non-pitting (IIb)",
+        "substages": "IIa - pitting present; IIb - non-pitting, brawny texture",
+        "diagnosis": "Clinical examination, circumference/volume increase 20-40%",
+        "reversibility": "Does not reverse with elevation alone",
+        "treatment": "Intensive CDT phase 1, then maintenance phase 2, consider surgery"
+      },
+      "Stage_III": {
+        "name": "Lymphostatic Elephantiasis/Severe",
+        "description": "Massive swelling with trophic skin changes",
+        "clinical_features": "Papillomatosis, hyperkeratosis, folds, lymphorrhea",
+        "skin_changes": "Warty projections, thickened leathery skin, deep folds",
+        "diagnosis": "Clinical, may have >40% volume increase",
+        "reversibility": "Significant reduction possible but residual deformity",
+        "treatment": "Intensive CDT, debulking surgery, skin care, wound management"
+      }
+    },
+    "additional_classification": {
+      "severity_by_volume": {
+        "mild": "<20% excess limb volume",
+        "moderate": "20-40% excess limb volume",
+        "severe": ">40% excess limb volume"
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "ISL Lymphedema Staging"
+    },
+    "altLabel": [
+      "International Society of Lymphology staging",
+      "Lymphedema severity classification"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A standardized clinical staging system for lymphedema from Stage 0 (latent) through Stage III (lymphostatic elephantiasis) based on reversibility, tissue consistency, and skin changes."
+    },
+    "notation": "LYMPH-008"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:lymphatic:lymph-001-definition"],
+    "enables": ["vascular:lymphatic:lymph-009-complete-decongestive-therapy"],
+    "skos:broader": ["vascular:staging-systems"],
+    "skos:related": ["vascular:venous:ceap-classification"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "consensus",
+        "title": "The diagnosis and treatment of peripheral lymphedema: 2020 Consensus Document of the International Society of Lymphology",
+        "journal": "Lymphology",
+        "year": 2020
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "lymphedema therapists", "physical therapists"],
+    "estimated_time": "15min",
+    "learning_objectives": [
+      "Describe the ISL staging system for lymphedema",
+      "Differentiate clinical features of each stage",
+      "Understand the concept of Stage 0 (latent) lymphedema",
+      "Match treatment intensity to disease stage"
+    ],
+    "clinical_pearls": [
+      "Stage 0 represents the WINDOW OF OPPORTUNITY - early detection allows early intervention",
+      "Bioimpedance spectroscopy can detect Stage 0 before visible swelling",
+      "Pitting vs non-pitting distinguishes Stage IIa from IIb",
+      "Stage III elephantiasis includes trophic skin changes (papillomatosis, hyperkeratosis)",
+      "Treatment intensity escalates with stage - early treatment prevents progression"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "234097001",
+      "description": "Secondary lymphedema"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I89.0",
+      "description": "Lymphedema, not elsewhere classified"
+    }
+  ]
+}
