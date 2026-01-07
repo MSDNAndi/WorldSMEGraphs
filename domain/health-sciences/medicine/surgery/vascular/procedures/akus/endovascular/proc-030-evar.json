@@ -1,0 +1,96 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-procedure",
+  "@id": "vascular:procedure:endovascular:evar",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:03:00.000Z",
+    "updated": "2026-01-07T01:03:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures/endovascular",
+    "type": "clinical-procedure",
+    "difficulty": "advanced",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "PROC-030",
+    "title": "Endovascular Aneurysm Repair (EVAR)",
+    "definition": "Minimally invasive endovascular repair of abdominal aortic aneurysm using a stent-graft deployed via femoral access.",
+    "concepts": [
+      {
+        "concept_id": "anatomic-criteria",
+        "term": "Anatomic Criteria for EVAR",
+        "definition": "Anatomic requirements for standard EVAR eligibility based on instructions for use (IFU).",
+        "clinical_features": {
+          "proximal_neck": {
+            "length": "≥15mm (10mm for some devices)",
+            "diameter": "18-32mm typically",
+            "angulation": "<60 degrees suprarenal, <75 degrees infrarenal",
+            "thrombus": "<2mm circumferential"
+          },
+          "iliac_arteries": {
+            "diameter": ">7mm for delivery system",
+            "calcification": "Minimal circumferential calcification",
+            "tortuosity": "Adequate for device passage"
+          },
+          "distal_landing": "Common iliac >20mm length, EIA if hypogastric coiling"
+        }
+      },
+      {
+        "concept_id": "device-selection",
+        "term": "Device Selection",
+        "definition": "Considerations for stent-graft device selection.",
+        "clinical_features": {
+          "device_types": ["Gore Excluder", "Medtronic Endurant", "Cook Zenith", "Endologix AFX"],
+          "oversizing": "10-20% proximal oversizing standard",
+          "fixation": ["Suprarenal", "Infrarenal only"],
+          "low_profile": "14-16 Fr main body devices available"
+        }
+      },
+      {
+        "concept_id": "technique",
+        "term": "EVAR Technique",
+        "definition": "Key procedural steps for standard EVAR.",
+        "clinical_features": {
+          "access": ["Percutaneous vs surgical cutdown", "Bilateral femoral access"],
+          "deployment": ["Main body from larger iliac", "Contralateral limb", "Completion angiography"],
+          "adjuncts": ["Balloon molding", "Extension cuffs if needed", "Embolization of hypogastric if landing in EIA"]
+        }
+      },
+      {
+        "concept_id": "surveillance",
+        "term": "Post-EVAR Surveillance",
+        "definition": "Lifelong surveillance protocol following EVAR.",
+        "clinical_features": {
+          "imaging": ["CT at 1 month, 12 months, then annually", "Ultrasound as alternative if stable"],
+          "endoleak_monitoring": ["Type I and III require reintervention", "Type II observed if sac stable"],
+          "sac_behavior": "Shrinkage expected, enlargement concerning"
+        }
+      }
+    ],
+    "clinical_features": {
+      "anesthesia": "General, regional, or local with sedation",
+      "perioperative_mortality": "1-2% (lower than open repair)",
+      "reintervention_rate": "20-25% at 5 years"
+    },
+    "diagnostic_criteria": {
+      "technical_success": "Stent-graft deployment without type I/III endoleak"
+    }
+  },
+  "relationships": [
+    {"type": "alternative_to", "target": "vascular:procedure:open-aaa-repair"},
+    {"type": "informed_by", "target": "vascular:pathology:aortic:aaa-surveillance"},
+    {"type": "complication", "target": "vascular:complication:endoleak"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Chaikof EL et al. J Vasc Surg. 2018;67:2-77", "type": "guideline"},
+      {"reference": "EVAR-1 Trial. Lancet. 2005;365:2179-2186", "type": "primary"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

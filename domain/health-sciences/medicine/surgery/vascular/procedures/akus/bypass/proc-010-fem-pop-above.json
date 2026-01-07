@@ -1,0 +1,94 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-procedure",
+  "@id": "vascular:procedure:bypass:fem-pop-above",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:00:00.000Z",
+    "updated": "2026-01-07T01:00:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures/bypass",
+    "type": "clinical-procedure",
+    "difficulty": "advanced",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "PROC-010",
+    "title": "Femoropopliteal Bypass (Above-Knee)",
+    "definition": "Surgical bypass from common femoral artery to above-knee popliteal artery for superficial femoral artery occlusive disease.",
+    "concepts": [
+      {
+        "concept_id": "indications",
+        "term": "Indications",
+        "definition": "Clinical scenarios warranting above-knee femoropopliteal bypass.",
+        "clinical_features": {
+          "primary": ["Lifestyle-limiting claudication refractory to exercise therapy and medical management", "Critical limb ischemia (rest pain, tissue loss)"],
+          "lesion_characteristics": ["TASC C/D lesions", "Long-segment SFA occlusion", "Failed endovascular intervention"],
+          "anatomy": "Patent above-knee popliteal artery with good runoff"
+        }
+      },
+      {
+        "concept_id": "conduit-selection",
+        "term": "Conduit Selection",
+        "definition": "Choice of bypass conduit for femoropopliteal reconstruction.",
+        "clinical_features": {
+          "great_saphenous_vein": {
+            "patency": "5-year primary patency 70-80%",
+            "preparation": ["Reversed", "Non-reversed with valve lysis", "In-situ"],
+            "diameter": "Minimum 3mm, ideally 4-5mm"
+          },
+          "prosthetic": {
+            "materials": ["PTFE", "Dacron", "Heparin-bonded PTFE"],
+            "patency": "5-year primary patency 40-50% above-knee",
+            "indications": "Inadequate vein, need for rapid revascularization"
+          }
+        }
+      },
+      {
+        "concept_id": "technique",
+        "term": "Surgical Technique",
+        "definition": "Key technical aspects of femoropopliteal bypass construction.",
+        "clinical_features": {
+          "inflow": "Common femoral artery via groin incision, endarterectomy if needed",
+          "outflow": "Above-knee popliteal via medial thigh incision",
+          "anastomosis": "End-to-side, 6-0 or 7-0 polypropylene",
+          "tunnel": "Anatomic subsartorial vs superficial route"
+        }
+      },
+      {
+        "concept_id": "outcomes",
+        "term": "Outcomes",
+        "definition": "Expected outcomes following above-knee femoropopliteal bypass.",
+        "clinical_features": {
+          "patency_vein": "5-year primary patency 75-80%, secondary 85%",
+          "patency_prosthetic": "5-year primary patency 50-60%, secondary 65-70%",
+          "limb_salvage": "85-90% at 5 years for CLI",
+          "mortality": "1-3% perioperative"
+        }
+      }
+    ],
+    "clinical_features": {
+      "surveillance": "Duplex at 1, 3, 6, 12 months then annually",
+      "anticoagulation": "Controversial - aspirin minimum, some add anticoagulation for prosthetic"
+    },
+    "diagnostic_criteria": {
+      "graft_stenosis": "PSV ratio >3.5 or absolute PSV >300 cm/s"
+    }
+  },
+  "relationships": [
+    {"type": "alternative_to", "target": "vascular:procedure:endovascular:sfa-intervention"},
+    {"type": "requires", "target": "vascular:anatomy:sfa"},
+    {"type": "conduit_from", "target": "vascular:anatomy:gsv"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Conte MS et al. J Vasc Surg. 2019;69:3S-125S", "type": "guideline"},
+      {"reference": "BASIL Study. Lancet. 2005;366:1925-1934", "type": "primary"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

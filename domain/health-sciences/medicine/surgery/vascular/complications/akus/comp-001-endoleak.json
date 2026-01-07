@@ -1,0 +1,89 @@
+{
+  "@context": "aku-v2",
+  "@type": "complication",
+  "@id": "vascular:complication:endoleak",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:04:00.000Z",
+    "updated": "2026-01-07T01:04:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.96,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/complications",
+    "type": "complication",
+    "difficulty": "intermediate",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "COMP-001",
+    "title": "Endoleak Classification and Management",
+    "definition": "Persistent blood flow outside the stent-graft lumen but within the aneurysm sac following endovascular aneurysm repair.",
+    "concepts": [
+      {
+        "concept_id": "type-I",
+        "term": "Type I Endoleak",
+        "definition": "Attachment site leak at proximal (Ia) or distal (Ib) seal zones.",
+        "clinical_features": {
+          "mechanism": "Inadequate seal between graft and native aorta",
+          "significance": "High pressure, high rupture risk",
+          "management": ["Balloon angioplasty", "Extension cuff placement", "Aortic cuff/relining", "Open conversion"],
+          "requires_intervention": true
+        }
+      },
+      {
+        "concept_id": "type-II",
+        "term": "Type II Endoleak",
+        "definition": "Branch vessel retrograde flow into aneurysm sac from lumbar or IMA.",
+        "clinical_features": {
+          "mechanism": "Retrograde flow from patent branch vessels",
+          "sources": ["Lumbar arteries", "Inferior mesenteric artery", "Accessory renal arteries"],
+          "significance": "Low pressure, generally benign if sac stable",
+          "management": ["Observation if sac stable", "Embolization if sac growing >5mm"],
+          "prevalence": "10-25% of EVAR patients"
+        }
+      },
+      {
+        "concept_id": "type-III",
+        "term": "Type III Endoleak",
+        "definition": "Graft defect or modular disconnection.",
+        "clinical_features": {
+          "subtypes": ["IIIa - Component separation", "IIIb - Fabric tear"],
+          "significance": "High pressure, high rupture risk (similar to Type I)",
+          "management": ["Relining with covered stent", "Component addition", "Open conversion"],
+          "requires_intervention": true
+        }
+      },
+      {
+        "concept_id": "type-IV-V",
+        "term": "Type IV and V Endoleak",
+        "definition": "Graft porosity (IV) and endotension (V).",
+        "clinical_features": {
+          "type_iv": "Fabric porosity - usually self-limiting, seen early",
+          "type_v": "Sac expansion without visible endoleak (endotension)",
+          "type_v_management": "Relining, explantation if persistent growth"
+        }
+      }
+    ],
+    "clinical_features": {
+      "detection": ["CT angiography gold standard", "Duplex ultrasound for surveillance", "Contrast-enhanced ultrasound"],
+      "timing": "May be immediate, early (<30 days), or late"
+    },
+    "diagnostic_criteria": {
+      "imaging": "Contrast outside stent-graft but within aneurysm sac"
+    }
+  },
+  "relationships": [
+    {"type": "complication_of", "target": "vascular:procedure:endovascular:evar"},
+    {"type": "related_to", "target": "vascular:pathology:aortic:aaa"},
+    {"type": "treated_by", "target": "vascular:procedure:endovascular:embolization"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "White GH et al. J Endovasc Surg. 1997;4:152-168", "type": "primary"},
+      {"reference": "Chaikof EL et al. J Vasc Surg. 2018;67:2-77", "type": "guideline"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}
