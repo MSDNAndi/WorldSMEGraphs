@@ -1,4 +1,5 @@
 # Alt Text for GPT Panels (Type 2 Endoleak Comic)
+# Featured layout highlights panel 15 (microbubble tracker) at larger size.
 
 1. Courtyard: three Latino research interns in explorer gear near Mayo Clinic, aorta diagram on easel, speech bubbles launching the mission.
 2. Whiteboard treasure map showing aneurysm sac and branch arrows, interns pointing with markers.
