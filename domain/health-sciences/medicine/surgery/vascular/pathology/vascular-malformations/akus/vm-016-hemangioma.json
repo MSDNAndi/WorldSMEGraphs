@@ -1,0 +1,142 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:malformations:vm-016-hemangioma",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:10:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:10:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/vascular-malformations",
+    "type": "clinical_entity",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "VM-016",
+    "keywords": ["infantile hemangioma", "GLUT-1", "propranolol", "vascular tumor"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "vascular_malformations",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Infantile hemangioma is the most common vascular tumor of infancy, characterized by GLUT-1 positivity, a predictable growth phase (0-12 months) followed by spontaneous involution (1-10 years), and excellent response to oral propranolol when treatment is indicated for functional impairment or cosmetic disfigurement.",
+      "formal": "Infantile_Hemangioma = GLUT1_Positive + Proliferation(0-12mo) + Involution(1-10yr) + Propranolol_Responsive"
+    },
+    "explanation": {
+      "intuition": "Infantile hemangiomas are like temporary tumors - they grow rapidly in the first year as blood vessels multiply, then slowly shrink over years as those vessels die off. Most resolve with just a minor mark left behind. Before propranolol, we watched and waited; now we can accelerate shrinkage when needed.",
+      "key_insight": "The accidental discovery that propranolol shrinks hemangiomas transformed management. Previously, steroids or surgery were used for problematic lesions. Now, propranolol is first-line for high-risk hemangiomas (periocular, airway, facial, ulcerated). It works by multiple mechanisms including vasoconstriction, apoptosis, and anti-angiogenesis.",
+      "technical_details": "Infantile hemangioma affects 4-5% of infants, higher in premature and females (3:1). Pathogenesis involves placental theory - hemangioma cells express placental markers. GLUT-1 (glucose transporter-1) positivity is diagnostic, distinguishing from congenital hemangiomas and vascular malformations. Phases: precursor lesion (pale spot, telangiectasias) → proliferation (0-9 months, rapid growth) → plateau → involution (1-10 years). High-risk features: periocular (amblyopia), nasal tip (cartilage damage), lip (feeding difficulty), airway (PHACE), large facial (PHACE evaluation), ulceration. Propranolol: 1-3 mg/kg/day divided BID-TID, start at 1 mg/kg and increase, monitor HR/BP/glucose, treat 6-12 months minimum."
+    }
+  },
+  "clinical_features": {
+    "epidemiology": {
+      "incidence": "4-5% of infants",
+      "risk_factors": ["Female (3:1)", "Premature", "Low birth weight", "Caucasian", "Multiple gestations"],
+      "location": "Head/neck 60%, trunk 25%, extremity 15%"
+    },
+    "natural_history": {
+      "precursor": "Pale or telangiectatic patch at birth (30%)",
+      "proliferation": "Rapid growth first 0-9 months",
+      "involution": "Gradual over 1-10 years (10% per year rule)",
+      "residua": "Fibrofatty tissue, telangiectasias, redundant skin"
+    },
+    "diagnosis": {
+      "clinical": "Classic appearance and growth pattern",
+      "GLUT1": "Immunohistochemistry positive (distinguishes from malformations)",
+      "imaging": "Ultrasound or MRI if deep or atypical"
+    },
+    "high_risk_features": {
+      "periocular": "Amblyopia, astigmatism, ptosis",
+      "nasal_tip": "Cyrano nose deformity",
+      "lip": "Feeding difficulties, cosmetic",
+      "beard_distribution": "Screen for airway hemangioma",
+      "large_facial": "Evaluate for PHACE syndrome",
+      "ulcerated": "Pain, scarring, infection risk"
+    },
+    "PHACE_syndrome": {
+      "P": "Posterior fossa malformations",
+      "H": "Hemangioma (large facial, segmental)",
+      "A": "Arterial anomalies (cerebrovascular)",
+      "C": "Cardiac defects/coarctation",
+      "E": "Eye abnormalities"
+    },
+    "treatment": {
+      "observation": "Most involute spontaneously; appropriate for low-risk lesions",
+      "propranolol": {
+        "indication": "High-risk features or parent preference",
+        "dosing": "1-3 mg/kg/day divided BID-TID",
+        "initiation": "Start low, titrate up; monitor HR, BP, glucose",
+        "duration": "6-12+ months, until involution established",
+        "contraindications": "Heart block, reactive airway disease, hypoglycemia risk"
+      },
+      "surgery": "For residual deformity after involution; rarely primary treatment",
+      "laser": "For residual telangiectasias"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Infantile Hemangioma"
+    },
+    "altLabel": [
+      "Strawberry hemangioma",
+      "Capillary hemangioma"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The most common vascular tumor of infancy, GLUT-1 positive, with a characteristic proliferative phase followed by spontaneous involution, treatable with propranolol when indicated."
+    },
+    "notation": "VM-016"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:malformations:vm-002-issva"],
+    "enables": ["vascular:malformations:vm-017-propranolol"],
+    "skos:broader": ["vascular:tumors"],
+    "skos:related": ["vascular:syndromes:PHACE"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "title": "Clinical Practice Guideline for the Management of Infantile Hemangiomas",
+        "organization": "AAP",
+        "year": 2019
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["pediatric surgeons", "dermatologists", "vascular surgeons"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Describe the natural history of infantile hemangioma",
+      "Identify high-risk features requiring intervention",
+      "Apply propranolol therapy appropriately",
+      "Recognize PHACE syndrome"
+    ],
+    "clinical_pearls": [
+      "GLUT-1 positive = infantile hemangioma (distinguishes from malformations)",
+      "Propranolol is first-line for high-risk hemangiomas",
+      "10% per year rule: hemangiomas involute ~10% per year",
+      "BEARD distribution = screen for AIRWAY hemangioma",
+      "PHACE: large facial hemangioma needs brain/heart/eye workup",
+      "Most hemangiomas need only observation - 90% involute by age 9"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "400210000",
+      "description": "Infantile hemangioma"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "D18.00",
+      "description": "Hemangioma unspecified site"
+    }
+  ]
+}

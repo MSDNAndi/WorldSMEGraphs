@@ -1,0 +1,154 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:genetic:eds-vascular",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:15:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:15:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/genetic-disorders",
+    "type": "clinical_entity",
+    "difficulty": "expert",
+    "importance": "critical",
+    "aku_id": "GEN-005",
+    "keywords": ["vascular Ehlers-Danlos", "vEDS", "COL3A1", "arterial rupture", "type IV EDS"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "genetic_disorders",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Vascular Ehlers-Danlos syndrome (vEDS/type IV EDS) is a life-threatening connective tissue disorder caused by COL3A1 mutations affecting type III collagen, characterized by thin translucent skin, arterial fragility leading to spontaneous rupture, and high surgical mortality due to tissue friability.",
+      "formal": "vEDS = COL3A1_Mutation + Type_III_Collagen_Defect + Arterial_Fragility + High_Surgical_Risk"
+    },
+    "explanation": {
+      "intuition": "Type III collagen is the main structural protein in blood vessel walls. When it's defective, arteries become like tissue paper - they can tear or rupture without warning. Surgery is extremely dangerous because sutures tear through the fragile tissue, and even touching vessels can cause them to fall apart.",
+      "key_insight": "The median survival in vEDS is only 48 years due to arterial and organ rupture. The key clinical dilemma: these patients present with vascular emergencies requiring urgent surgery, but surgery itself has extremely high mortality (50% in some series). Conservative management and endovascular approaches when possible are preferred.",
+      "technical_details": "vEDS results from heterozygous pathogenic variants in COL3A1 encoding type III procollagen. Diagnostic features: thin translucent skin with visible veins, easy bruising, characteristic facial features (thin nose and lips, small chin, large eyes), arterial/intestinal/uterine fragility. Villanueva criteria guide diagnosis. Arterial events: spontaneous dissection or rupture (carotid, vertebral, iliac, renal most common); may occur with minimal or no trauma. Surgical principles: avoid open surgery when possible; if unavoidable, use pledgeted sutures, avoid tension, be prepared for tissue disintegration. Celiprolol 200-400mg BID reduces arterial events (BBEST trial). Pregnancy is extremely high risk (12% maternal mortality)."
+    }
+  },
+  "clinical_features": {
+    "genetics": {
+      "gene": "COL3A1 on chromosome 2q31",
+      "protein": "Type III procollagen",
+      "inheritance": "Autosomal dominant (25% de novo)",
+      "prevalence": "1:50,000 to 1:200,000"
+    },
+    "clinical_features": {
+      "skin": "Thin, translucent (veins visible), easy bruising, poor wound healing",
+      "facial": "Thin nose and lips, small chin, large eyes, aged appearance of hands",
+      "vascular": "Arterial dissection, aneurysm, spontaneous rupture",
+      "GI": "Spontaneous bowel perforation (especially sigmoid)",
+      "obstetric": "Uterine rupture, postpartum hemorrhage (12% maternal mortality)"
+    },
+    "vascular_manifestations": {
+      "locations": ["Carotid and vertebral (most common)", "Iliac", "Renal", "Splenic", "Aorta"],
+      "events": ["Spontaneous dissection", "Rupture", "Arteriovenous fistula", "Aneurysm"],
+      "triggers": "May occur with minimal or no precipitant"
+    },
+    "diagnosis": {
+      "clinical_criteria": "Villanueva major and minor criteria",
+      "genetic_testing": "COL3A1 sequencing - gold standard",
+      "skin_biopsy": "Reduced or abnormal type III collagen"
+    },
+    "prognosis": {
+      "median_survival": "48-51 years",
+      "arterial_complication": "Occurs in 80% by age 40",
+      "pregnancy_mortality": "12%"
+    },
+    "management": {
+      "medical": {
+        "celiprolol": "200-400mg BID - shown to reduce arterial events in BBEST trial",
+        "activity": "Avoid contact sports, heavy lifting, extreme exertion",
+        "blood_pressure": "Strict control"
+      },
+      "surgical_principles": {
+        "avoid_if_possible": "Endovascular or conservative when feasible",
+        "if_required": "Pledgeted sutures, minimal tissue handling, expect friability",
+        "mortality": "Surgical mortality 30-50% in some series"
+      },
+      "surveillance": "Regular imaging controversial (may not change management)",
+      "pregnancy": "High-risk, consider against it or with specialized management"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Vascular Ehlers-Danlos Syndrome"
+    },
+    "altLabel": [
+      "vEDS",
+      "EDS type IV",
+      "COL3A1-related arterial disease"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Life-threatening connective tissue disorder caused by COL3A1 mutations affecting type III collagen, characterized by arterial fragility, spontaneous rupture, and extreme surgical risk."
+    },
+    "notation": "GEN-005"
+  },
+  "relationships": {
+    "prerequisites": [],
+    "enables": [],
+    "skos:broader": ["vascular:genetic:connective-tissue-disorders"],
+    "skos:related": ["vascular:genetic:marfan", "vascular:genetic:loeys-dietz"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "clinical_trial",
+        "title": "BBEST trial",
+        "journal": "Lancet",
+        "year": 2010
+      },
+      {
+        "type": "review",
+        "title": "Vascular Ehlers-Danlos Syndrome",
+        "journal": "Genetics in Medicine",
+        "year": 2019
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "medical geneticists", "emergency physicians"],
+    "estimated_time": "22min",
+    "learning_objectives": [
+      "Recognize clinical features of vascular EDS",
+      "Understand the extreme surgical risk",
+      "Apply conservative management principles",
+      "Counsel regarding prognosis and pregnancy risk"
+    ],
+    "clinical_pearls": [
+      "vEDS = type III collagen defect - blood vessels like tissue paper",
+      "Median survival only 48 years - high mortality from arterial rupture",
+      "Surgery has 30-50% mortality - avoid open surgery when possible",
+      "Celiprolol (beta-blocker) reduces arterial events - BBEST trial",
+      "Pregnancy mortality 12% - high-risk discussion essential",
+      "Look for thin translucent skin, visible veins, easy bruising, aged hands",
+      "Carotid and vertebral dissections most common arterial events"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "398114001",
+      "description": "Ehlers-Danlos syndrome, vascular type"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "Q79.62",
+      "description": "Ehlers-Danlos syndrome, vascular type"
+    },
+    {
+      "codingSystem": "OMIM",
+      "codeValue": "130050",
+      "description": "Ehlers-Danlos syndrome, vascular type"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "@context": ["file://domain/_contexts/base.jsonld", "file://domain/_contexts/medicine.jsonld"],
+  "@type": ["EducationalResource", "MedicalEntity"],
+  "@id": "vascular:genetic:marfan-003-root-replacement",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:10:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:10:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/genetic-disorders",
+    "type": "procedure",
+    "difficulty": "expert",
+    "importance": "critical",
+    "aku_id": "MARFAN-003",
+    "keywords": ["aortic root replacement", "Bentall procedure", "Marfan syndrome", "annuloaortic ectasia"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "genetic_disorders",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Aortic root replacement (Bentall procedure) is the definitive treatment for aortic root aneurysm in Marfan syndrome, involving replacement of the aortic valve, sinuses of Valsalva, and ascending aorta as a composite graft, with reimplantation of the coronary arteries, typically indicated when the root reaches 5.0 cm or at smaller sizes with risk factors.",
+      "formal": "Bentall_Procedure = Composite_Valve_Graft + Sinus_Replacement + Coronary_Reimplantation"
+    },
+    "explanation": {
+      "intuition": "In Marfan syndrome, the weakest part of the aorta is the root - where the aorta starts and the coronary arteries come off. Instead of patching, we replace this entire section with a prefabricated tube that includes a new valve, then sew the coronary arteries into new holes in the tube.",
+      "key_insight": "The Bentall procedure has been the gold standard for decades but requires lifelong anticoagulation for mechanical valves. Valve-sparing root replacement (David procedure) preserves the native valve when possible, avoiding anticoagulation - increasingly preferred in young patients with good valve quality.",
+      "technical_details": "Indications for elective root replacement: Marfan with root ≥5.0 cm (ACC/AHA), some advocate 4.5 cm with risk factors (family history dissection, rapid growth >0.5 cm/year, pregnancy planned, severe regurgitation). Bentall technique: excise root, sew composite valve-graft proximally, create coronary buttons, reimplant coronaries to graft. Button technique (preferred) vs Cabrol technique (tube graft to coronary ostia). Valve options: mechanical (Bentall, requires anticoagulation) or bioprosthetic (for women desiring pregnancy, anticoagulation contraindication). Operative mortality: 1-3% in experienced centers. Long-term concerns: pseudoaneurysm at coronary buttons, need for reoperation if tissue extends."
+    }
+  },
+  "clinical_features": {
+    "indications": {
+      "size_thresholds": {
+        "guideline": "Aortic root ≥5.0 cm (ACC/AHA 2010)",
+        "aggressive": "≥4.5 cm with risk factors",
+        "very_aggressive": "≥4.0 cm if: family history of dissection, growth >0.5 cm/year, severe AR, pregnancy planned"
+      },
+      "other_indications": ["Type A dissection", "Severe aortic regurgitation", "Rapid aneurysm growth"]
+    },
+    "techniques": {
+      "bentall": {
+        "description": "Composite mechanical valve-graft with coronary reimplantation",
+        "anticoagulation": "Lifelong warfarin required",
+        "durability": "Excellent - valve rarely fails"
+      },
+      "valve_sparing": {
+        "david_reimplantation": "Native valve reimplanted inside tube graft",
+        "yacoub_remodeling": "Sinuses replaced, valve reimplanted",
+        "advantages": "Avoids anticoagulation, preserves native valve",
+        "limitations": "Requires good valve quality; technically demanding"
+      },
+      "bioprosthetic_root": {
+        "indication": "Women planning pregnancy, anticoagulation contraindication",
+        "limitation": "Valve degeneration requiring reoperation"
+      }
+    },
+    "coronary_reimplantation": {
+      "button_technique": "Coronary ostia excised as buttons, reimplanted to graft",
+      "cabrol_technique": "Interposition tube graft from coronaries to main graft (rarely used)",
+      "complications": "Pseudoaneurysm, coronary kinking, stenosis"
+    },
+    "outcomes": {
+      "operative_mortality": "1-3% in experienced centers",
+      "long_term_survival": "85-90% at 10 years",
+      "reoperation_rate": "5-10% at 10 years for distal aortic disease"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Aortic Root Replacement (Bentall Procedure)"
+    },
+    "altLabel": [
+      "Composite valve graft",
+      "Bentall operation"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Surgical replacement of the aortic root including valve, sinuses, and proximal ascending aorta with a composite graft and coronary reimplantation, typically indicated for root aneurysm in Marfan syndrome."
+    },
+    "notation": "MARFAN-003"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:genetic:marfan-001-definition"],
+    "enables": [],
+    "skos:broader": ["vascular:aortic:surgery"],
+    "skos:related": ["vascular:genetic:marfan-004-valve-sparing", "vascular:aortic:dissection"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "title": "ACC/AHA Guidelines for Thoracic Aortic Disease",
+        "organization": "ACC/AHA",
+        "year": 2010
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["cardiac surgery residents", "vascular surgery residents"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Apply size criteria for elective root replacement in Marfan",
+      "Compare Bentall vs valve-sparing approaches",
+      "Understand coronary reimplantation techniques"
+    ],
+    "clinical_pearls": [
+      "Marfan root ≥5.0 cm = indication for surgery (some say 4.5 cm)",
+      "Button technique for coronary reimplantation is standard",
+      "Valve-sparing (David) avoids lifelong anticoagulation - preferred in young patients",
+      "Family history of dissection = operate at smaller size",
+      "Growth >0.5 cm/year = accelerated progression, consider surgery",
+      "Experienced center matters: mortality 1-3% vs 5-10% at low-volume centers"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "CPT",
+      "codeValue": "33863",
+      "description": "Ascending aorta graft with aortic root replacement, valve and coronary reconstruction"
+    },
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "174804008",
+      "description": "Replacement of aortic root"
+    }
+  ]
+}
