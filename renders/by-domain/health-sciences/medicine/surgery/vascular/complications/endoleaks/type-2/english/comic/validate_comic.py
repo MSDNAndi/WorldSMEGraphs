@@ -13,6 +13,7 @@ PDF_FEATURED = BASE / "type2-endoleak-comic-gpt-featured.pdf"
 
 def main():
     ok = True
+    prompts = []
 
     if not PROMPTS.exists():
         ok = False
@@ -57,7 +58,10 @@ def main():
     if ALT.exists():
         alt_lines = [ln for ln in ALT.read_text().splitlines() if re.match(r"^\d+\.", ln.strip())]
         print(f"Alt text entries: {len(alt_lines)}")
-        ok &= len(alt_lines) >= 32
+        ok &= len(alt_lines) >= 32 and len(alt_lines) == len(prompts)
+        if len(alt_lines) != len(prompts):
+            ok = False
+            print(f"❌ alt-text count {len(alt_lines)} != prompts {len(prompts)}")
     else:
         ok = False
         print("❌ missing alt-text.md")
