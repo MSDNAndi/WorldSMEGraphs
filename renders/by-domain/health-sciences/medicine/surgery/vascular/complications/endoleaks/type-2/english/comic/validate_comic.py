@@ -31,6 +31,7 @@ def main():
         print(f"Images: {len(IMAGES)}")
         ok &= len(IMAGES) >= 32
 
+    featured_found = False
     if MAP.exists():
         mp = json.loads(MAP.read_text())
         print(f"Map entries: {len(mp)}")
@@ -47,6 +48,8 @@ def main():
             if not entry.get("alt_text"):
                 ok = False
                 print(f"❌ missing alt_text for panel {entry.get('panel')}")
+            if entry.get("featured"):
+                featured_found = True
     else:
         ok = False
         print("❌ missing panel-map.json")
@@ -69,6 +72,10 @@ def main():
     else:
         ok = False
         print("❌ missing featured PDF")
+
+    if MAP.exists() and not featured_found:
+        ok = False
+        print("❌ no featured panel flagged in panel-map.json")
 
     print("✅ OK" if ok else "⚠️ Issues detected")
     return 0 if ok else 1

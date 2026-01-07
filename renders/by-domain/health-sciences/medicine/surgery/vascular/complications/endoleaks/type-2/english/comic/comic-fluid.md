@@ -8,7 +8,7 @@ note: Speech bubbles contain all necessary context; no external narration requir
 
 # Type 2 Endoleak Research Comic
 
-Below are the 32 GPT-generated panels in order. A PDF with 6 panels per page is available at `type2-endoleak-comic-gpt.pdf`. Each panel reflects the storyboard and embeds the necessary dialogue for self-contained understanding. See `panel-map.json` for prompt ↔ file mapping.
+Below are the 32 GPT-generated panels in order. A PDF with 6 panels per page is available at `type2-endoleak-comic-gpt.pdf`. A featured layout (panel 15 enlarged) is available at `type2-endoleak-comic-gpt-featured.pdf`. Each panel reflects the storyboard and embeds the necessary dialogue for self-contained understanding. See `panel-map.json` for prompt ↔ file mapping.
 
 ## Panels
 
