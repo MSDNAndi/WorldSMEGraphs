@@ -3,43 +3,115 @@
   "@type": "clinical-syndrome",
   "@id": "vasc:vasculitis:buerger-amputation",
   "metadata": {
-    "version": "2.0.0",
+    "version": "2.1.0",
     "created": "2026-01-07T03:19:00.000Z",
-    "updated": "2026-01-07T03:19:00.000Z",
-    "contributors": ["knowledge-graph-agent"],
-    "confidence": 0.92,
-    "status": "pending-quality-check"
+    "updated": "2026-01-07T18:45:00.000Z",
+    "contributors": ["knowledge-graph-agent", "fact-checking-agent"],
+    "confidence": 0.94,
+    "status": "validated"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/surgery/vascular/pathology/vasculitis",
     "type": "surgical-outcome",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "aku_id": "VASC-010",
+    "keywords": ["Buerger disease", "thromboangiitis obliterans", "amputation", "smoking cessation", "TAO"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
   },
   "content": {
-    "title": "Amputation in Buerger Disease",
-    "description": "Outcomes and prevention of amputation in thromboangiitis obliterans",
-    "key_concepts": [
-      {
-        "concept": "Amputation Rate",
-        "details": "Major amputation rate 10-25% at 5 years in continued smokers"
-      },
-      {
-        "concept": "Smoking Cessation",
-        "details": "Complete abstinence from all tobacco products is the only proven intervention to prevent amputation"
-      },
-      {
-        "concept": "Amputation Level",
-        "details": "Often requires multiple minor amputations; attempt tissue-sparing levels"
-      },
-      {
-        "concept": "Revascularization Limitations",
-        "details": "Distal small vessel involvement often precludes bypass; limited revascularization options"
-      }
-    ],
-    "clinical_significance": "Smoking cessation can reduce amputation rate to near zero"
+    "statement": {
+      "text": "Amputation in Buerger disease (thromboangiitis obliterans) is primarily determined by continued tobacco use, with major amputation rates of 10-25% at 5 years in active smokers reduced to near zero with complete smoking cessation.",
+      "formal": "Amputation_Risk = f(Smoking_Status) | Active_Smoker → 10-25%_at_5y | Complete_Cessation → ~0%"
+    },
+    "explanation": {
+      "intuition": "Buerger disease is unique among vascular diseases because the pathology is directly caused by tobacco exposure. Unlike atherosclerosis where risk factors accelerate disease, in Buerger disease tobacco IS the disease. Remove the tobacco, and the disease stops progressing.",
+      "key_insight": "Complete abstinence from ALL tobacco products (including smokeless tobacco, marijuana, and nicotine replacement) is essential. Even a single cigarette can reactivate disease and precipitate amputation. The vascular surgeon's most important intervention is smoking cessation counseling.",
+      "technical_details": "Buerger disease affects small and medium vessels of extremities. Revascularization options are severely limited due to distal vessel involvement - no suitable target for bypass in most cases. When amputation is required: (1) Delay amputation as long as possible to allow collateral development; (2) Attempt tissue-sparing levels; (3) Multiple minor amputations (toe, ray) common before major amputation; (4) Healing may be delayed due to poor distal perfusion; (5) Sympathectomy may improve healing and pain. Adjunctive therapies: Iloprost (prostacyclin analog), spinal cord stimulation, hyperbaric oxygen - limited evidence."
+    }
+  },
+  "clinical_features": {
+    "amputation_rates": {
+      "continued_smoking": "Major amputation 10-25% at 5 years, up to 43% at 10 years",
+      "smoking_cessation": "Near 0% major amputation rate",
+      "minor_amputation": "Often precedes major - multiple toe/ray amputations common"
+    },
+    "factors_affecting_outcome": {
+      "tobacco_use": "Single most important determinant - any tobacco exposure worsens prognosis",
+      "disease_extent": "Upper and lower extremity involvement = worse prognosis",
+      "age_at_onset": "Earlier onset associated with more aggressive course",
+      "delay_to_cessation": "Earlier cessation = better limb salvage"
+    },
+    "surgical_principles": {
+      "timing": "Delay amputation to allow collateral development if possible",
+      "level_selection": "Most distal viable level; may require staged amputations",
+      "revascularization": "Usually not possible due to distal vessel involvement",
+      "sympathectomy": "May reduce pain and improve healing potential"
+    },
+    "adjunctive_therapies": {
+      "prostacyclin": "Iloprost - improves ulcer healing, reduces rest pain",
+      "spinal_cord_stimulation": "May reduce pain and improve limb salvage in selected patients",
+      "hyperbaric_oxygen": "Limited evidence, used in some centers for wound healing"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Amputation in Buerger Disease"},
+    "altLabel": ["TAO amputation outcomes", "Thromboangiitis obliterans limb loss"],
+    "notation": "VASC-010"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:vasculitis:buerger-disease-definition"],
+    "enables": [],
+    "skos:broader": ["vascular:vasculitis:buerger-disease"],
+    "skos:related": ["vascular:complications:amputation", "vascular:treatment:smoking-cessation"]
   },
   "provenance": {
-    "primary_sources": ["Olin JW. N Engl J Med 2000"]
-  }
+    "sources": [
+      {
+        "type": "journal",
+        "title": "Thromboangiitis Obliterans (Buerger's Disease)",
+        "journal": "N Engl J Med",
+        "year": 2000,
+        "authors": "Olin JW"
+      },
+      {
+        "type": "journal",
+        "title": "Long-term prognosis of Buerger's disease",
+        "journal": "J Vasc Surg",
+        "year": 2004,
+        "authors": "Cooper LT et al."
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "internal medicine residents"],
+    "estimated_time": "10min",
+    "learning_objectives": [
+      "Understand the relationship between tobacco use and amputation risk",
+      "Apply amputation-sparing strategies in Buerger disease",
+      "Counsel patients on the critical importance of complete smoking cessation"
+    ],
+    "clinical_pearls": [
+      "Smoking cessation is THE treatment - can reduce amputation rate to near zero",
+      "ALL tobacco products must be stopped - including smokeless tobacco and marijuana",
+      "Revascularization usually not possible due to distal small vessel involvement",
+      "Multiple minor amputations often precede major amputation",
+      "A single cigarette can reactivate disease and precipitate limb loss",
+      "Delay amputation when safe to allow collateral development"
+    ],
+    "board_yield": "MEDIUM"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "195261000",
+      "description": "Thromboangiitis obliterans"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I73.1",
+      "description": "Thromboangiitis obliterans [Buerger's disease]"
+    }
+  ]
 }
