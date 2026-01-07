@@ -47,3 +47,4 @@ PY
 - Alt text: `.../panels-gpt/alt-text.md`
 - Dialogue script: `.../dialogue.md`
 - Validation: `python renders/.../comic/validate_comic.py`
+  - Expected: `Prompts: 32 (valid format: 32)`, `Images: 32`, `Map entries: 32`, `Alt text entries: 32`, PDFs present, ✅ OK.
