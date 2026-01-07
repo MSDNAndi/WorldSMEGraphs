@@ -1,0 +1,70 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:diagnostics:dx-007-apg",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:26:00.000Z",
+    "updated": "2026-01-07T02:26:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.85,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "diagnostic-test",
+    "difficulty": "advanced",
+    "importance": "medium",
+    "aku_id": "DX-007",
+    "keywords": ["air plethysmography", "APG", "venous function", "calf pump"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Air plethysmography (APG) quantifies venous function by measuring calf volume changes in response to postural changes and exercise, providing objective assessment of reflux, obstruction, and calf muscle pump function.",
+      "formal": "APG: Calf_Volume_Changes → Venous_Filling_Index + Ejection_Fraction + Residual_Volume"
+    },
+    "explanation": {
+      "intuition": "APG wraps an air-filled cuff around your calf to measure how much it swells and shrinks with different positions and exercise. This tells us how well blood drains from the leg and how effectively the muscle pump works.",
+      "key_insight": "APG provides functional venous assessment that duplex cannot: it measures the net effect of reflux AND obstruction AND muscle pump on venous hemodynamics. The venous filling index (VFI) is the key reflux parameter.",
+      "technical_details": "Technique: calibrated air cuff on calf, measure volume changes. Parameters: (1) Venous Volume (VV) - total venous capacity, (2) Venous Filling Index (VFI) - reflux severity (normal <2mL/sec, severe >7mL/sec), (3) Ejection Fraction (EF) - calf pump function (normal >60%), (4) Residual Volume Fraction (RVF) - ambulatory venous pressure (normal <35%). Indications: quantifying severity, assessing treatment outcomes, evaluating mixed disease."
+    }
+  },
+  "clinical_features": {
+    "technique": "Calibrated air cuff measures calf volume changes with position/exercise",
+    "parameters": {
+      "VV": "Venous Volume (total capacity)",
+      "VFI": "Venous Filling Index (reflux - normal <2mL/sec)",
+      "EF": "Ejection Fraction (calf pump - normal >60%)",
+      "RVF": "Residual Volume Fraction (ambulatory pressure - normal <35%)"
+    },
+    "severity_thresholds": {"VFI_mild": "2-4mL/sec", "VFI_moderate": "4-7mL/sec", "VFI_severe": ">7mL/sec"},
+    "advantages": "Quantifies functional impact of combined reflux/obstruction/pump failure"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Air Plethysmography"},
+    "altLabel": ["APG", "Venous plethysmography", "Quantitative venous function test"],
+    "notation": "DX-007"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:venous:cvi-pathophysiology"],
+    "enables": ["vascular:venous:severity-assessment"],
+    "skos:broader": ["vascular:diagnostics:venous-testing"],
+    "skos:related": ["vascular:venous:duplex", "vascular:venous:ambulatory-venous-pressure"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Phlebology", "topic": "APG in venous disease", "year": 2018}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular lab technologists"],
+    "board_yield": "LOW",
+    "clinical_pearls": [
+      "VFI >7mL/sec indicates severe reflux",
+      "EF <60% indicates impaired calf pump function",
+      "APG quantifies net venous function - useful for treatment planning"
+    ]
+  }
+}

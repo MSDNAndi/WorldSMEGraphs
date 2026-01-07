@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:diagnostics:dx-006-ppg",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:26:00.000Z",
+    "updated": "2026-01-07T02:26:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.88,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "diagnostic-test",
+    "difficulty": "intermediate",
+    "importance": "medium",
+    "aku_id": "DX-006",
+    "keywords": ["photoplethysmography", "PPG", "digital pressure", "toe pressure"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Photoplethysmography (PPG) uses infrared light to detect blood volume changes in the cutaneous microcirculation, providing waveform analysis and enabling toe pressure measurement when standard ABI is unreliable due to calcification.",
+      "formal": "PPG: Infrared_Light → Blood_Volume_Changes → Waveform + Toe_Pressure"
+    },
+    "explanation": {
+      "intuition": "PPG shines a light into your skin and measures how much bounces back. When blood pulses through, the amount of light absorbed changes. This creates a wave pattern that tells us about blood flow to the digits.",
+      "key_insight": "PPG-derived toe pressures are invaluable when ankle pressures are falsely elevated due to medial arterial calcification (common in diabetics). Toe pressure >30mmHg suggests adequate perfusion for healing.",
+      "technical_details": "Mechanism: LED emits infrared light (940nm), photodetector measures reflected light which varies with blood volume. Applications: (1) Waveform analysis - normal vs blunted vs flat, (2) Toe systolic pressure with cuff occlusion, (3) Venous reflux evaluation. Toe pressure: place cuff on proximal phalanx, inflate until PPG signal lost, deflate until signal returns. Normal toe pressure >70% of brachial. Healing threshold: >30mmHg."
+    }
+  },
+  "clinical_features": {
+    "mechanism": "Infrared light absorption varies with cutaneous blood volume",
+    "applications": ["Toe pressure measurement", "Digital waveform analysis", "Venous reflux assessment"],
+    "toe_pressure_technique": "Cuff on proximal phalanx, inflate until signal lost, deflate to return",
+    "normal_values": {"toe_pressure": ">70% of brachial", "healing_threshold": ">30mmHg"},
+    "advantage": "Reliable when ABI falsely elevated (calcified vessels)"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Photoplethysmography"},
+    "altLabel": ["PPG", "Optical plethysmography", "Toe pressure measurement"],
+    "notation": "DX-006"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:diagnostics:abi"],
+    "enables": ["vascular:diagnostics:digital-perfusion-assessment"],
+    "skos:broader": ["vascular:diagnostics:noninvasive-testing"],
+    "skos:related": ["vascular:diagnostics:tcpo2", "vascular:diagnostics:pvr"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Journal of Vascular Surgery", "topic": "Noninvasive vascular testing", "year": 2019}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "vascular lab technologists"],
+    "board_yield": "MEDIUM",
+    "clinical_pearls": [
+      "Use toe pressure when ABI unreliable (diabetics, calcified vessels)",
+      "Toe pressure >30mmHg suggests adequate perfusion for healing",
+      "Flat PPG waveform indicates severe digital ischemia"
+    ]
+  }
+}

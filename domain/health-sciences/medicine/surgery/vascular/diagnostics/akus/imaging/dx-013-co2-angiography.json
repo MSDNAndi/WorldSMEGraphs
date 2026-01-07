@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:diagnostics:dx-013-co2-angiography",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:26:00.000Z",
+    "updated": "2026-01-07T02:26:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.88,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "imaging",
+    "difficulty": "advanced",
+    "importance": "medium",
+    "aku_id": "DX-013",
+    "keywords": ["CO2 angiography", "carbon dioxide", "contrast alternative", "renal protection"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "CO2 angiography uses carbon dioxide as an alternative contrast agent, providing adequate vascular imaging while avoiding iodinated contrast nephrotoxicity in patients with chronic kidney disease or contrast allergy.",
+      "formal": "CO2_Angiography: Non-Nephrotoxic → Renal_Protection + Diagnostic_Imaging"
+    },
+    "explanation": {
+      "intuition": "Instead of using iodine-based dye that can damage kidneys, CO2 angiography uses carbon dioxide gas bubbles to outline blood vessels. The CO2 is simply breathed out through the lungs, causing no kidney harm.",
+      "key_insight": "CO2 provides adequate imaging for most infradiaphragmatic procedures while completely avoiding contrast-induced nephropathy. It requires specialized delivery systems and imaging technique but is invaluable for high-risk patients.",
+      "technical_details": "Properties: negative contrast (darker than blood), buoyant (rises in supine patient), completely non-nephrotoxic, rapidly eliminated via lungs. Technique: dedicated delivery system, patient supine with slight tilt, digital subtraction imaging, table tilting to fill dependent vessels. Limitations: inferior to iodinated contrast for fine detail, contraindicated above diaphragm (cerebral air embolism risk), can cause discomfort/pain, vapor lock possible. Use: aortoiliac, femoral, renal imaging."
+    }
+  },
+  "clinical_features": {
+    "mechanism": "Carbon dioxide gas provides negative contrast, eliminated via lungs",
+    "indications": ["CKD (eGFR <30)", "Contrast allergy", "Minimizing contrast load"],
+    "limitations": ["Inferior resolution vs iodinated", "Requires specialized system", "May cause discomfort"],
+    "contraindications": ["Use above diaphragm (cerebral embolism risk)", "Known right-to-left shunt"],
+    "applications": ["Aortoiliac imaging", "Femoral procedures", "Renal artery assessment"]
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "CO2 Angiography"},
+    "altLabel": ["Carbon dioxide angiography", "Non-iodinated contrast", "Renal-protective imaging"],
+    "notation": "DX-013"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:diagnostics:angiography-basics"],
+    "enables": ["vascular:endovascular:renal-protection"],
+    "skos:broader": ["vascular:diagnostics:angiographic-techniques"],
+    "skos:related": ["vascular:diagnostics:cta", "vascular:complications:contrast-nephropathy"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Journal of Vascular and Interventional Radiology", "topic": "CO2 angiography review", "year": 2019}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "interventional radiologists"],
+    "board_yield": "MEDIUM",
+    "clinical_pearls": [
+      "Completely non-nephrotoxic - invaluable for CKD patients",
+      "NEVER use above the diaphragm (risk of cerebral air embolism)",
+      "CO2 is buoyant - tilt table to fill dependent vessels"
+    ]
+  }
+}
