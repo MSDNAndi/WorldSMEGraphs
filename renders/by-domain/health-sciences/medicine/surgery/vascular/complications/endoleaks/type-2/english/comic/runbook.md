@@ -3,6 +3,7 @@
 ## Prereqs
 - Env vars: `AI_FOUNDRY_API_KEY`, `AI_FOUNDRY_ENDPOINT`, `GPT_IMAGE_1DOT5_ENDPOINT_URL` (verify with `env | grep AI_FOUNDRY`).
 - Python 3.10+, Pillow installed (`pip install pillow`).
+- Quick check: `python renders/.../comic/check_env.py`
 
 ## Generate Images
 ```bash
