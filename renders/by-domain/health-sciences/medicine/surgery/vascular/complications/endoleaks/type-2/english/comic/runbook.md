@@ -40,7 +40,9 @@ PY
 
 ## Outputs
 - Images: `.../panels-gpt/image_*.png`
-- PDF: `.../type2-endoleak-comic-gpt.pdf`
+- PDF (6/page): `.../type2-endoleak-comic-gpt.pdf`
+- PDF (5/page with featured panel 15 large): `.../type2-endoleak-comic-gpt-featured.pdf`
 - Panel map: `.../panel-map.json` (includes alt text)
 - Alt text: `.../panels-gpt/alt-text.md`
 - Dialogue script: `.../dialogue.md`
+- Validation: `python renders/.../comic/validate_comic.py`

@@ -3,6 +3,7 @@
 - Generated with `.project/agents/image-generation/tools/gpt_image_generator.py` using `../gpt-prompts.txt`
 - Environment: `AI_FOUNDRY_API_KEY`, `AI_FOUNDRY_ENDPOINT`, `GPT_IMAGE_1DOT5_ENDPOINT_URL`
 - Layout PDF built via `../build_gpt_pdf.py` → `../type2-endoleak-comic-gpt.pdf`
+- Featured layout (panel 15 large) → `../type2-endoleak-comic-gpt-featured.pdf`
 - `../panel-map.json` maps prompts to generated files (ordered).
 - Tip: run generator with `--no-git` if you prefer to stage files manually to avoid git warnings.
 - `alt-text.md` provides accessibility descriptions; `panel-map.json` also includes `alt_text`.

@@ -7,6 +7,7 @@ PROMPTS = BASE / "gpt-prompts.txt"
 IMAGES = sorted((BASE / "panels-gpt").glob("image_*.png"))
 ALT_TEXT = BASE / "panels-gpt" / "alt-text.md"
 OUT = BASE / "panel-map.json"
+FEATURED_PANEL = 15
 
 
 def load_prompts():
@@ -40,7 +41,13 @@ def build_map():
     data = []
     for idx, (num, prompt_line) in enumerate(prompts):
         file = str(IMAGES[idx].relative_to(BASE)) if idx < len(IMAGES) else None
-        data.append({"panel": num, "prompt": prompt_line, "file": file, "alt_text": alt.get(num)})
+        data.append({
+            "panel": num,
+            "prompt": prompt_line,
+            "file": file,
+            "alt_text": alt.get(num),
+            "featured": num == FEATURED_PANEL
+        })
     OUT.write_text(json.dumps(data, indent=2))
     print(f"Wrote {OUT} with {len(data)} entries")
 

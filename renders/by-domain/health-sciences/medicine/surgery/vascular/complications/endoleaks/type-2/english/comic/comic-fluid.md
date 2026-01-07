@@ -2,6 +2,7 @@
 title: Type 2 Endoleak Research Comic (Fluid Format)
 panels: 32
 pdf: ./type2-endoleak-comic-gpt.pdf
+pdf_featured: ./type2-endoleak-comic-gpt-featured.pdf
 note: Speech bubbles contain all necessary context; no external narration required. Images generated with .project/agents/image-generation/tools/gpt_image_generator.py using GPT Image 1.5.
 ---
 
