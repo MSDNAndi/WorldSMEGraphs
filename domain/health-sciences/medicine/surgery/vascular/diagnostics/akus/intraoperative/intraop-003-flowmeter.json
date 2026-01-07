@@ -1,0 +1,56 @@
+{
+  "@context": "aku-v2",
+  "@type": "diagnostic",
+  "@id": "vasc:diagnostics:intraop-003-flowmeter",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-07T02:50:00.000Z",
+    "updated": "2026-01-07T02:50:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.92,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics/intraoperative",
+    "type": "diagnostic",
+    "difficulty": "intermediate",
+    "importance": "supportive"
+  },
+  "content": {
+    "title": "Intraoperative Transit-Time Flow Measurement",
+    "description": "Quantitative measurement of blood flow through vessels or bypass grafts using ultrasound transit-time technology.",
+    "mechanism": "Measures difference in ultrasound transit time upstream vs downstream through flowing blood to calculate volumetric flow",
+    "device": "MediStim VeriQ or similar flow meter with appropriately sized probe",
+    "applications": {
+      "bypass_grafts": "Assess graft flow after construction",
+      "dialysis_access": "Measure AVF/AVG flow intraoperatively",
+      "organ_transplant": "Verify arterial and venous flow",
+      "coronary_bypass": "Standard of care in CABG"
+    },
+    "interpretation": {
+      "bypass_graft": {
+        "fem_pop": ">100-150 ml/min suggested adequate",
+        "fem_distal": ">50-100 ml/min",
+        "factors": "Outflow, competitive flow, vasodilation status"
+      },
+      "dialysis_access": {
+        "target": "Usually >400-600 ml/min for AVF",
+        "low_flow": "May indicate technical problem"
+      }
+    },
+    "pulsatility_index": {
+      "definition": "(Peak - trough velocity) / mean velocity",
+      "high_PI": "Indicates high resistance (outflow problem)",
+      "low_PI": "Indicates low resistance (adequate outflow)"
+    },
+    "limitations": ["Requires direct vessel contact", "Probe size must match vessel", "Flow varies with hemodynamic state"]
+  },
+  "relationships": {
+    "related_to": ["vasc:diagnostics:intraop-001-completion", "vasc:procedures:bypass"],
+    "used_in": ["vasc:procedures:cabg", "vasc:dialysis:avf-creation"]
+  },
+  "provenance": {
+    "primary_sources": ["Transit-Time Flow Measurement Literature"],
+    "extraction_date": "2026-01-07"
+  }
+}
