@@ -1,0 +1,98 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:wound:venous-ulcer-management",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:24:00.000Z",
+    "updated": "2026-01-07T01:24:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.94,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/wound-care",
+    "type": "clinical-management",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "WOUND-002",
+    "title": "Venous Ulcer Management",
+    "definition": "A comprehensive approach to treating chronic venous leg ulcers, the most common type of leg ulcer, caused by sustained venous hypertension and chronic venous insufficiency.",
+    "concepts": [
+      {
+        "concept_id": "assessment",
+        "term": "Initial Assessment",
+        "definition": "Evaluation of venous ulcer patient.",
+        "clinical_features": {
+          "history": "Duration, recurrence, previous treatments, risk factors",
+          "location": "Medial gaiter area (medial malleolus typical)",
+          "appearance": "Shallow, irregular borders, granulation base",
+          "surrounding_skin": "Lipodermatosclerosis, hemosiderin, eczema"
+        }
+      },
+      {
+        "concept_id": "abi",
+        "term": "Ankle-Brachial Index",
+        "definition": "Essential before compression therapy.",
+        "clinical_features": {
+          "purpose": "Rule out significant arterial disease",
+          "safe_compression": "ABI ≥0.8 allows full compression",
+          "modified_compression": "ABI 0.5-0.8 requires reduced compression",
+          "contraindicated": "ABI <0.5, compression contraindicated"
+        }
+      },
+      {
+        "concept_id": "compression",
+        "term": "Compression Therapy",
+        "definition": "Cornerstone of venous ulcer treatment.",
+        "clinical_features": {
+          "mechanism": "Reduces venous hypertension, improves calf pump",
+          "pressure": "30-40 mmHg at ankle for therapeutic effect",
+          "multi_layer": "Four-layer bandaging or two-layer systems",
+          "stockings": "Compression stockings after ulcer heals",
+          "evidence": "Most effective single intervention for healing"
+        }
+      },
+      {
+        "concept_id": "wound-care",
+        "term": "Local Wound Care",
+        "definition": "Wound bed preparation and dressings.",
+        "clinical_features": {
+          "debridement": "Remove slough and devitalized tissue",
+          "infection": "Treat clinical infection with systemic antibiotics",
+          "dressings": "Absorptive dressings for exudate, maintain moist environment",
+          "npwt": "Negative pressure for selected non-healing ulcers"
+        }
+      },
+      {
+        "concept_id": "intervention",
+        "term": "Venous Intervention",
+        "definition": "Treatment of underlying venous pathology.",
+        "clinical_features": {
+          "superficial_reflux": "Ablation of incompetent GSV/SSV",
+          "perforator": "Perforator ablation in selected cases",
+          "deep": "Iliac vein stenting for obstruction",
+          "timing": "Early intervention may accelerate healing"
+        }
+      }
+    ],
+    "clinical_features": {
+      "healing_rates": "40-70% healing at 24 weeks with compression",
+      "recurrence": "Up to 70% recurrence without ongoing compression"
+    }
+  },
+  "relationships": [
+    {"type": "treats", "target": "vascular:venous:venous-ulcer"},
+    {"type": "uses", "target": "vascular:treatment:compression-therapy"},
+    {"type": "may_include", "target": "vascular:procedure:gsv-ablation"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Defined Defined Defined Defined Defined Defined Defined Defined Defined Defined J Vasc Surg Venous Lymphat Disord. 2014;2:523-530", "type": "guideline"},
+      {"reference": "Defined Defined Defined Defined Defined Defined Defined Defined Cochrane Database Syst Rev. 2018;2:CD001177", "type": "systematic-review"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

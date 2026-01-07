@@ -1,0 +1,88 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:complication:graft-thrombosis",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:24:00.000Z",
+    "updated": "2026-01-07T01:24:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.94,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/complications",
+    "type": "clinical-condition",
+    "difficulty": "advanced",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "COMP-002",
+    "title": "Early Graft Thrombosis",
+    "definition": "Occlusion of a vascular bypass graft within the first 30 days after surgery, typically caused by technical issues or inadequate inflow/outflow.",
+    "concepts": [
+      {
+        "concept_id": "causes",
+        "term": "Causes of Early Graft Failure",
+        "definition": "Etiologies of thrombosis in the early period.",
+        "clinical_features": {
+          "technical": "Anastomotic stenosis, kinking, twisting of graft",
+          "inflow": "Inadequate inflow from proximal disease",
+          "outflow": "Poor runoff, inadequate distal target",
+          "conduit": "Vein graft issues - retained valve, small caliber",
+          "hypercoagulable": "Unrecognized hypercoagulable state"
+        }
+      },
+      {
+        "concept_id": "presentation",
+        "term": "Clinical Presentation",
+        "definition": "Signs and symptoms of acute graft thrombosis.",
+        "clinical_features": {
+          "acute": "Sudden worsening of symptoms",
+          "pulses": "Loss of previously palpable graft pulse",
+          "limb_threat": "May cause acute limb ischemia",
+          "comparison": "Symptoms may be worse than pre-operative if collaterals compromised"
+        }
+      },
+      {
+        "concept_id": "evaluation",
+        "term": "Diagnostic Evaluation",
+        "definition": "Workup for suspected graft thrombosis.",
+        "clinical_features": {
+          "clinical": "Pulse examination, Doppler signals",
+          "duplex": "Confirm occlusion, assess inflow and outflow",
+          "angiography": "Define anatomy for intervention planning",
+          "urgent": "Time-sensitive - delays worsen outcomes"
+        }
+      },
+      {
+        "concept_id": "management",
+        "term": "Management",
+        "definition": "Treatment of early graft thrombosis.",
+        "clinical_features": {
+          "thrombectomy": "Surgical or catheter-based thrombectomy",
+          "revision": "Identify and correct technical issue",
+          "thrombolysis": "Catheter-directed for selected cases",
+          "anticoagulation": "Heparin during intervention",
+          "new_bypass": "May require new bypass if graft unsalvageable"
+        }
+      }
+    ],
+    "clinical_features": {
+      "urgency": "Requires urgent intervention if limb-threatening",
+      "prevention": "Intraoperative completion imaging reduces incidence"
+    }
+  },
+  "relationships": [
+    {"type": "complication_of", "target": "vascular:procedure:bypass-graft"},
+    {"type": "treated_by", "target": "vascular:procedure:graft-thrombectomy"},
+    {"type": "may_require", "target": "vascular:procedure:graft-revision"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Defined Defined Defined Defined Defined Defined Defined Defined J Vasc Surg. 2017;65:567-576", "type": "review"},
+      {"reference": "Defined Defined Defined Defined Defined Defined Defined Defined Eur J Vasc Endovasc Surg. 2020;59:234-242", "type": "primary"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

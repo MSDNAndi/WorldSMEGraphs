@@ -1,0 +1,87 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:cerebrovascular:crescendo-tia",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:22:00.000Z",
+    "updated": "2026-01-07T01:22:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.92,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/cerebrovascular",
+    "type": "clinical-condition",
+    "difficulty": "advanced",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "CVA-002",
+    "title": "Crescendo TIA",
+    "definition": "Repetitive transient ischemic attacks occurring with increasing frequency over a short time period, indicating an unstable carotid plaque and high imminent stroke risk.",
+    "concepts": [
+      {
+        "concept_id": "definition",
+        "term": "Clinical Definition",
+        "definition": "Criteria for crescendo TIA.",
+        "clinical_features": {
+          "frequency": "Two or more TIAs within 24 hours, or increasing frequency",
+          "pattern": "Stereotyped symptoms suggesting same vascular territory",
+          "instability": "Indicates active plaque with ongoing embolization",
+          "urgency": "Medical emergency requiring immediate evaluation"
+        }
+      },
+      {
+        "concept_id": "pathophysiology",
+        "term": "Pathophysiology",
+        "definition": "Mechanism of crescendo TIA.",
+        "clinical_features": {
+          "unstable_plaque": "Plaque rupture with superimposed thrombus",
+          "recurrent_embolization": "Repeated showers of emboli from unstable lesion",
+          "hemodynamic": "Severe stenosis with borderline perfusion",
+          "thrombus_propagation": "Progressive luminal narrowing from thrombus growth"
+        }
+      },
+      {
+        "concept_id": "management",
+        "term": "Urgent Management",
+        "definition": "Treatment approach for crescendo TIA.",
+        "clinical_features": {
+          "hospital_admission": "Stroke unit admission mandatory",
+          "antiplatelet": "Dual antiplatelet (aspirin + clopidogrel) typically initiated",
+          "anticoagulation": "Heparin considered by some for plaque stabilization",
+          "urgent_imaging": "Immediate carotid imaging to identify culprit lesion",
+          "urgent_revascularization": "CEA within 24-48 hours if significant stenosis identified"
+        }
+      },
+      {
+        "concept_id": "surgical-timing",
+        "term": "Timing of Intervention",
+        "definition": "Evidence for urgent surgery.",
+        "clinical_features": {
+          "optimal_timing": "Within 48 hours of symptoms",
+          "delay_risks": "Each day delay increases stroke risk",
+          "exceptions": "May delay if large infarct on imaging",
+          "outcomes": "Early surgery safe and effective in most cases"
+        }
+      }
+    ],
+    "clinical_features": {
+      "stroke_risk": "Up to 20% stroke risk within 7 days if untreated",
+      "surgical_benefit": "NNT of 5-6 for CEA in symptomatic stenosis"
+    }
+  },
+  "relationships": [
+    {"type": "indicates", "target": "vascular:carotid:unstable-plaque"},
+    {"type": "high_risk_for", "target": "vascular:cerebrovascular:stroke"},
+    {"type": "urgent_indication_for", "target": "vascular:procedure:cea"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Rothwell PM et al. Lancet. 2007;369:1432-1442", "type": "primary"},
+      {"reference": "Rantner B et al. Eur J Vasc Endovasc Surg. 2018;55:455-459", "type": "guideline"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

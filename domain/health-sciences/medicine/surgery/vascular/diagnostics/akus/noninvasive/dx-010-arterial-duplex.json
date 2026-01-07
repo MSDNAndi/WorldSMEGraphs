@@ -1,0 +1,87 @@
+{
+  "@context": "aku-v2",
+  "@type": "diagnostic-method",
+  "@id": "vascular:diagnostics:arterial-duplex",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:26:00.000Z",
+    "updated": "2026-01-07T01:26:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.94,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "diagnostic-method",
+    "difficulty": "intermediate",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "DX-010",
+    "title": "Arterial Duplex Ultrasound Protocol",
+    "definition": "A comprehensive ultrasound examination of the lower extremity arterial system using B-mode imaging and pulsed-wave Doppler to evaluate for peripheral artery disease and graft surveillance.",
+    "concepts": [
+      {
+        "concept_id": "technique",
+        "term": "Examination Technique",
+        "definition": "Standard approach to arterial duplex.",
+        "clinical_features": {
+          "imaging": "Gray-scale assessment of arterial walls, plaque",
+          "doppler": "Spectral waveform analysis at each segment",
+          "color": "Color flow to identify focal acceleration, occlusion",
+          "segments": "Aorta, iliacs, CFA, SFA, popliteal, tibials"
+        }
+      },
+      {
+        "concept_id": "velocity-criteria",
+        "term": "Velocity Criteria",
+        "definition": "Doppler criteria for grading stenosis severity.",
+        "clinical_features": {
+          "normal": "Triphasic waveform, PSV <150 cm/s in native vessels",
+          "mild_stenosis": "PSV 150-200 cm/s, Vr 1.5-2.0",
+          "moderate_stenosis": "PSV 200-300 cm/s, Vr 2.0-4.0",
+          "severe_stenosis": "PSV >300 cm/s, Vr >4.0, monophasic distal",
+          "occlusion": "No flow, pre-occlusive thump"
+        }
+      },
+      {
+        "concept_id": "graft-surveillance",
+        "term": "Bypass Graft Surveillance",
+        "definition": "Protocol for monitoring vein bypass grafts.",
+        "clinical_features": {
+          "timing": "1, 3, 6, 12 months, then annually",
+          "psv": "Absolute PSV <45 cm/s suggests impending failure",
+          "vr": "Velocity ratio >3.0-3.5 indicates significant stenosis",
+          "location": "Anastomoses, mid-graft, valve sites"
+        }
+      },
+      {
+        "concept_id": "waveform-analysis",
+        "term": "Waveform Interpretation",
+        "definition": "Understanding arterial waveform patterns.",
+        "clinical_features": {
+          "triphasic": "Normal, low resistance at rest",
+          "biphasic": "Early disease, loss of flow reversal",
+          "monophasic": "Significant proximal disease",
+          "tardus_parvus": "Delayed upstroke, proximal high-grade stenosis"
+        }
+      }
+    ],
+    "clinical_features": {
+      "accuracy": "85-90% agreement with angiography for significant stenosis",
+      "advantages": "Non-invasive, repeatable, hemodynamic information"
+    }
+  },
+  "relationships": [
+    {"type": "diagnoses", "target": "vascular:pathology:pad"},
+    {"type": "monitors", "target": "vascular:procedure:bypass-graft"},
+    {"type": "complements", "target": "vascular:diagnostics:abi"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Defined Defined Defined Defined J Vasc Surg. 2018;68:1851-1867", "type": "guideline"},
+      {"reference": "Defined Defined Defined Defined Vasc Med. 2015;20:536-544", "type": "review"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

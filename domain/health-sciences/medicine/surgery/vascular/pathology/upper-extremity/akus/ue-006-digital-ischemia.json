@@ -1,0 +1,89 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:upper-extremity:digital-ischemia",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:22:00.000Z",
+    "updated": "2026-01-07T01:22:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.92,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/upper-extremity",
+    "type": "clinical-condition",
+    "difficulty": "advanced",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "UE-006",
+    "title": "Digital Ischemia Evaluation",
+    "definition": "A systematic approach to the diagnosis of finger or toe ischemia, encompassing vascular, rheumatologic, hematologic, and environmental causes.",
+    "concepts": [
+      {
+        "concept_id": "clinical-presentation",
+        "term": "Clinical Presentation",
+        "definition": "Signs and symptoms of digital ischemia.",
+        "clinical_features": {
+          "color_changes": "Pallor (white), cyanosis (blue), rubor (red) sequence",
+          "pain": "Rest pain, cold intolerance, numbness",
+          "tissue_loss": "Ulceration, necrosis, gangrene in severe cases",
+          "distribution": "Single digit suggests local cause, multiple digits suggests systemic"
+        }
+      },
+      {
+        "concept_id": "differential",
+        "term": "Differential Diagnosis",
+        "definition": "Categories of causes for digital ischemia.",
+        "clinical_features": {
+          "atherosclerotic": "Upper extremity atherosclerosis (uncommon)",
+          "embolic": "Cardiac emboli, proximal arterial source",
+          "vasospastic": "Raynaud's phenomenon (primary or secondary)",
+          "inflammatory": "Vasculitis (Buerger's, scleroderma, CREST)",
+          "traumatic": "Hypothenar hammer syndrome, repetitive trauma",
+          "thrombotic": "Hypercoagulable states, cryoglobulinemia"
+        }
+      },
+      {
+        "concept_id": "workup",
+        "term": "Diagnostic Workup",
+        "definition": "Evaluation strategy for digital ischemia.",
+        "clinical_features": {
+          "vascular": "Arterial duplex, digital pressures, cold challenge testing",
+          "rheumatologic": "ANA, RF, anti-centromere, anti-Scl-70, ANCA",
+          "hematologic": "CBC, coagulation, cryoglobulins, hypercoagulable panel",
+          "cardiac": "ECG, echocardiography if embolic source suspected",
+          "angiography": "CTA or conventional angiography for proximal source"
+        }
+      },
+      {
+        "concept_id": "management",
+        "term": "Management Principles",
+        "definition": "Treatment approach based on etiology.",
+        "clinical_features": {
+          "acute": "Anticoagulation, thrombolysis for acute occlusion",
+          "vasospastic": "Calcium channel blockers, PDE5 inhibitors, smoking cessation",
+          "inflammatory": "Immunosuppression for vasculitis, disease-specific therapy",
+          "surgical": "Sympathectomy, bypass, digital amputation if needed"
+        }
+      }
+    ],
+    "clinical_features": {
+      "key_principle": "Identify underlying cause before treatment",
+      "multidisciplinary": "May require vascular surgery, rheumatology, hematology input"
+    }
+  },
+  "relationships": [
+    {"type": "differential_includes", "target": "vascular:vasospastic:raynauds"},
+    {"type": "differential_includes", "target": "vascular:vasculitis:buergers"},
+    {"type": "evaluated_with", "target": "vascular:diagnostics:digital-pressures"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Landry GJ. Semin Vasc Surg. 2013;26:8-14", "type": "review"},
+      {"reference": "Cooke JP et al. J Am Coll Cardiol. 2005;46:1847-1850", "type": "guideline"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

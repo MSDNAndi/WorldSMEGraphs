@@ -1,0 +1,82 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-procedure",
+  "@id": "vascular:dialysis:dril",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:28:00.000Z",
+    "updated": "2026-01-07T01:28:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.92,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/dialysis-access",
+    "type": "clinical-procedure",
+    "difficulty": "advanced",
+    "importance": "medium"
+  },
+  "content": {
+    "identifier": "DIAL-011",
+    "title": "DRIL Procedure for Steal Syndrome",
+    "definition": "Distal Revascularization-Interval Ligation (DRIL) - a surgical procedure to treat hemodialysis access-induced steal syndrome by restoring distal arterial perfusion while maintaining access function.",
+    "concepts": [
+      {
+        "concept_id": "indication",
+        "term": "Indications",
+        "definition": "When to perform DRIL.",
+        "clinical_features": {
+          "steal_syndrome": "Symptomatic steal not responsive to access banding",
+          "tissue_loss": "Digital ischemia, ulceration, or gangrene",
+          "ischemic_monomelic_neuropathy": "Acute neurological symptoms post-access"
+        }
+      },
+      {
+        "concept_id": "technique",
+        "term": "Surgical Technique",
+        "definition": "Key steps in the DRIL procedure.",
+        "clinical_features": {
+          "bypass": "Create bypass from proximal brachial artery to artery distal to access",
+          "ligation": "Ligate brachial artery between access and distal anastomosis",
+          "conduit": "Vein bypass preferred (reversed GSV or arm vein)",
+          "result": "Distal arm perfused via bypass, access fed by proximal artery"
+        }
+      },
+      {
+        "concept_id": "mechanism",
+        "term": "Mechanism",
+        "definition": "How DRIL improves distal perfusion.",
+        "clinical_features": {
+          "reversal": "Prevents retrograde flow from distal artery into access",
+          "augmentation": "Bypass provides antegrade perfusion to distal arm",
+          "access_preservation": "Access continues to function via proximal artery"
+        }
+      },
+      {
+        "concept_id": "outcomes",
+        "term": "Outcomes",
+        "definition": "Results of DRIL procedure.",
+        "clinical_features": {
+          "symptom_relief": "80-90% improvement or resolution of symptoms",
+          "access_preservation": "70-85% access preservation",
+          "patency": "Bypass patency 70-80% at 1 year"
+        }
+      }
+    ],
+    "clinical_features": {
+      "alternative": "Access ligation if tissue loss extensive or patient not bypass candidate"
+    }
+  },
+  "relationships": [
+    {"type": "treats", "target": "vascular:complication:steal-syndrome"},
+    {"type": "preserves", "target": "vascular:dialysis:av-fistula"},
+    {"type": "alternative_to", "target": "vascular:procedure:access-banding"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "J Vasc Surg. 2008;47:1341-1345", "type": "primary"},
+      {"reference": "Semin Dial. 2007;20:593-597", "type": "review"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

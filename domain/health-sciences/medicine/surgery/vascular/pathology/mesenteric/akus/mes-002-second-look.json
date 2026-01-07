@@ -1,0 +1,85 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-procedure",
+  "@id": "vascular:mesenteric:second-look-laparotomy",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:26:00.000Z",
+    "updated": "2026-01-07T01:26:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.93,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/mesenteric",
+    "type": "surgical-strategy",
+    "difficulty": "advanced",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "MES-002",
+    "title": "Second-Look Laparotomy",
+    "definition": "A planned re-exploration of the abdomen 24-48 hours after initial surgery for acute mesenteric ischemia to reassess bowel viability and resect any additional non-viable intestine.",
+    "concepts": [
+      {
+        "concept_id": "rationale",
+        "term": "Rationale",
+        "definition": "Why second-look laparotomy is important.",
+        "clinical_features": {
+          "viability_uncertainty": "Bowel viability often unclear at initial surgery",
+          "delayed_necrosis": "Some bowel may progress to necrosis after revascularization",
+          "reperfusion_injury": "Reperfusion may cause additional damage",
+          "mortality_reduction": "Reduces missed necrosis and sepsis"
+        }
+      },
+      {
+        "concept_id": "indications",
+        "term": "Indications",
+        "definition": "When to plan a second-look.",
+        "clinical_features": {
+          "questionable_bowel": "Any bowel of uncertain viability left at initial surgery",
+          "extensive_ischemia": "Large territory involved",
+          "marginal_revascularization": "Concern for adequacy of revascularization",
+          "clinical_deterioration": "Worsening despite revascularization"
+        }
+      },
+      {
+        "concept_id": "timing",
+        "term": "Timing",
+        "definition": "When to perform second-look.",
+        "clinical_features": {
+          "planned": "Typically 24-48 hours after initial surgery",
+          "earlier": "If clinical deterioration occurs",
+          "delayed": "May delay if hemodynamically unstable"
+        }
+      },
+      {
+        "concept_id": "technique",
+        "term": "Intraoperative Assessment",
+        "definition": "How to assess bowel viability at second-look.",
+        "clinical_features": {
+          "clinical": "Color, peristalsis, arterial bleeding from cut edge",
+          "doppler": "Mesenteric arterial and anti-mesenteric signals",
+          "fluorescence": "ICG fluorescence angiography if available",
+          "resection": "Resect clearly non-viable bowel, preserve marginal"
+        }
+      }
+    ],
+    "clinical_features": {
+      "decision": "Decision for second-look made at initial surgery, not delayed",
+      "abdomen_management": "Often use temporary closure at initial surgery"
+    }
+  },
+  "relationships": [
+    {"type": "follows", "target": "vascular:mesenteric:revascularization"},
+    {"type": "component_of", "target": "vascular:mesenteric:ami-management"},
+    {"type": "may_require", "target": "vascular:procedure:bowel-resection"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Defined Defined Defined Defined J Vasc Surg. 2017;65:1544-1557", "type": "guideline"},
+      {"reference": "Defined Defined Defined Defined Ann Surg. 2014;259:113-120", "type": "primary"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}
