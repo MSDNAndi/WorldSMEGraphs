@@ -24,6 +24,12 @@ style: dora-inspired, explorer tone, speech-bubble only
 7. **Protocol Build** — Sample size, IRB, data capture, outcome tracking.
 8. **Payoff** — Successful case, poster with Dr. Erben, and future paper.
 
+### Narrative Summary
+- Act 1 (Panels 1-4): Dora-style explorer energy, characters set the mission and define Type 2 endoleak with arrows and sac diagrams.
+- Act 2 (Panels 5-16): Clinical rigor—growth thresholds, CTA phases, source-vessel mapping, and approach decisions—delivered via speech bubbles.
+- Act 3 (Panels 17-24): Research innovation beats—pressure probe, CEUS timing, protocol math, IRB and data discipline.
+- Act 4 (Panels 25-32): Execution and payoff—ethics, data capture, results teaser, AR future, success follow-up, and journal submission.
+
 ## Panel List (concise)
 1. Courtyard kickoff  
 2. Goal map  
