@@ -104,13 +104,31 @@ domain/
 │           ├── controlling/
 │           └── operations/
 │
-└── health-sciences/          # ✅ COMPLETE - Health and medicine
-    └── medicine/             # ✅ 68 AKUs + terminology
+└── health-sciences/          # ✅ ACTIVE - Health and medicine
+    └── medicine/             # ✅ 598+ AKUs + terminology
         └── surgery/vascular/
-            ├── complications/endoleaks/
-            ├── pathology/mesenteric-ischemia/
-            ├── child-akus/
-            └── terminology/
+            ├── anatomy/akus/{collaterals,variants}/
+            ├── complications/akus/              # Endoleak, migration, pseudoaneurysm, etc.
+            ├── diagnostics/akus/{imaging,noninvasive,physical-exam}/
+            ├── dialysis-access/akus/            # AVF, maturation, steal, DRIL
+            ├── foundations/                     # Foundational concepts
+            ├── pathology/
+            │   ├── aortic/
+            │   ├── cerebrovascular/akus/        # Carotid, stroke, TIA
+            │   ├── congenital/akus/
+            │   ├── genetic-disorders/akus/      # FMD, HHT, Marfan, etc.
+            │   ├── lymphatic/akus/
+            │   ├── mesenteric/akus/
+            │   ├── rare-syndromes/akus/         # TOS, Leriche, entrapment
+            │   ├── renal-artery/akus/
+            │   ├── trauma/regional/akus/
+            │   ├── upper-extremity/akus/
+            │   ├── vascular-malformations/akus/
+            │   └── venous/akus/{chronic,physiology,procedures,superficial}/
+            ├── pharmacology/akus/{anticoagulation,antiplatelet,claudication}/
+            ├── procedures/akus/{bypass,carotid,endovascular,access,techniques}/
+            ├── terminology/
+            └── wound-care/akus/
 ```
 
 **Legacy directories (`science/`, `economics/`, `medicine/`) have been removed.**

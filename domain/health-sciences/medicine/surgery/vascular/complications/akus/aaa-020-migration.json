@@ -1,0 +1,83 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:aortic:aaa-endograft-migration",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:35:00.000Z",
+    "updated": "2026-01-07T01:35:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.92,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/complications",
+    "type": "clinical-condition",
+    "difficulty": "advanced",
+    "importance": "medium"
+  },
+  "content": {
+    "identifier": "AAA-020",
+    "title": "Endograft Migration",
+    "definition": "Movement of an aortic endograft more than 10mm caudally from its original position, which may lead to type I endoleak and loss of seal.",
+    "concepts": [
+      {
+        "concept_id": "definition",
+        "term": "Definition",
+        "definition": "Diagnostic criteria for migration.",
+        "clinical_features": {
+          "threshold": ">10mm movement from original position",
+          "direction": "Usually caudal (inferior)",
+          "timing": "May occur early or late post-EVAR",
+          "detection": "Serial CT measurements from renal arteries"
+        }
+      },
+      {
+        "concept_id": "risk_factors",
+        "term": "Risk Factors",
+        "definition": "What predisposes to migration.",
+        "clinical_features": {
+          "neck": "Short neck (<10mm), severe angulation (>60°)",
+          "morphology": "Conical neck, thrombus/calcium in landing zone",
+          "device": "Inadequate oversizing, infrarenal fixation only",
+          "progression": "Continued aortic neck dilation"
+        }
+      },
+      {
+        "concept_id": "consequences",
+        "term": "Consequences",
+        "definition": "What happens with migration.",
+        "clinical_features": {
+          "type_1a": "Proximal type I endoleak most common consequence",
+          "sac_pressurization": "Return of aneurysm sac pressurization",
+          "rupture": "Risk of aneurysm rupture if untreated"
+        }
+      },
+      {
+        "concept_id": "treatment",
+        "term": "Treatment",
+        "definition": "Management of migrated endograft.",
+        "clinical_features": {
+          "proximal_extension": "Proximal cuff or fenestrated extension",
+          "relining": "New stent-graft within old graft",
+          "open_conversion": "If endovascular options exhausted",
+          "observation": "If no endoleak and stable sac, may observe"
+        }
+      }
+    ],
+    "clinical_features": {
+      "prevention": "Proper patient selection and device sizing",
+      "surveillance": "Lifelong imaging mandatory after EVAR"
+    }
+  },
+  "relationships": [
+    {"type": "complication_of", "target": "vascular:procedure:evar"},
+    {"type": "causes", "target": "vascular:complication:type-1-endoleak"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "J Vasc Surg. 2017;66:1287-1295", "type": "primary"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

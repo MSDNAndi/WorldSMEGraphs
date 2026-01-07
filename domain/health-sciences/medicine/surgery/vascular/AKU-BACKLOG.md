@@ -32,28 +32,31 @@ This document tracks all identified topics that still need to be developed into 
 
 | Category | Total Identified | AKUs Created | Remaining |
 |----------|-----------------|--------------|-----------|
-| Aortic Disease | 45 | 35 | 10 |
-| PAD/Lower Extremity | 60 | 34 | 26 |
-| Carotid/Cerebrovascular | 25 | 13 | 12 |
-| Venous Disease | 45 | 15 | 30 |
-| Mesenteric/Visceral | 20 | 5 | 15 |
-| Renal Artery | 12 | 2 | 10 |
-| Upper Extremity | 20 | 6 | 14 |
-| Lymphatic | 20 | 3 | 17 |
-| Trauma | 20 | 11 | 9 |
-| Genetic/Connective Tissue | 40 | 8 | 32 |
-| Vasculitis | 25 | 6 | 19 |
-| Vascular Malformations | 25 | 6 | 19 |
-| Congenital | 15 | 4 | 11 |
-| Rare Syndromes | 25 | 5 | 20 |
-| Procedures | 60 | 45 | 15 |
-| Diagnostics | 25 | 9 | 16 |
-| Pharmacology | 15 | 7 | 8 |
-| Complications | 20 | 10 | 10 |
-| Anatomy | 20 | 2 | 18 |
-| Dialysis Access | 15 | 4 | 11 |
-| Wound Care | 12 | 3 | 9 |
-| **TOTAL** | **~564** | **~233** | **~331** |
+| Aortic Disease | 45 | 36 | 9 |
+| PAD/Lower Extremity | 60 | 36 | 24 |
+| Carotid/Cerebrovascular | 25 | 18 | 7 |
+| Venous Disease | 45 | 28 | 17 |
+| Mesenteric/Visceral | 20 | 8 | 12 |
+| Renal Artery | 12 | 5 | 7 |
+| Upper Extremity | 20 | 9 | 11 |
+| Lymphatic | 20 | 14 | 6 |
+| Trauma | 20 | 16 | 4 |
+| Genetic/Connective Tissue | 40 | 15 | 25 |
+| Vasculitis | 25 | 8 | 17 |
+| Vascular Malformations | 25 | 10 | 15 |
+| Congenital | 15 | 5 | 10 |
+| Rare Syndromes | 25 | 10 | 15 |
+| Procedures | 60 | 53 | 7 |
+| Diagnostics | 25 | 14 | 11 |
+| Pharmacology | 15 | 14 | 1 |
+| Complications | 20 | 14 | 6 |
+| Anatomy | 20 | 8 | 12 |
+| Dialysis Access | 15 | 9 | 6 |
+| Wound Care | 12 | 6 | 6 |
+| **TOTAL** | **~564** | **~326** | **~238** |
+
+> **Last Updated**: 2026-01-07 (via multi-agent AKU creation session)
+> **Session Note**: 93 new AKUs created, all marked with `"status": "pending-quality-check"` for fact verification.
 
 ---
 

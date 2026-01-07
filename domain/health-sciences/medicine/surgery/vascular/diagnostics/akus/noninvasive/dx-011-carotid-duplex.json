@@ -1,0 +1,87 @@
+{
+  "@context": "aku-v2",
+  "@type": "diagnostic-test",
+  "@id": "vascular:diagnostics:carotid-duplex",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:35:00.000Z",
+    "updated": "2026-01-07T01:35:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "diagnostic-method",
+    "difficulty": "intermediate",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "DX-011",
+    "title": "Carotid Duplex Ultrasound Protocol",
+    "definition": "A standardized ultrasound examination of the carotid arteries using B-mode imaging and Doppler spectral analysis to evaluate for atherosclerotic stenosis and plaque characteristics.",
+    "concepts": [
+      {
+        "concept_id": "technique",
+        "term": "Examination Technique",
+        "definition": "Standard carotid duplex approach.",
+        "clinical_features": {
+          "imaging": "B-mode assessment of plaque morphology",
+          "color": "Color flow for turbulence, flow direction",
+          "spectral": "Angle-corrected velocities at ICA, CCA, ECA",
+          "vertebral": "Include vertebral artery assessment"
+        }
+      },
+      {
+        "concept_id": "velocity_criteria",
+        "term": "Velocity Criteria for ICA Stenosis",
+        "definition": "Doppler criteria for grading internal carotid stenosis.",
+        "clinical_features": {
+          "normal": "PSV <125 cm/s, ICA/CCA ratio <2.0",
+          "less_50": "PSV <125 cm/s, plaque present",
+          "50_69": "PSV 125-230 cm/s, ICA/CCA ratio 2.0-4.0",
+          "70_99": "PSV >230 cm/s, ICA/CCA ratio >4.0, EDV >100 cm/s",
+          "near_occlusion": "High/variable velocities, string sign on imaging",
+          "occlusion": "No detectable ICA flow"
+        }
+      },
+      {
+        "concept_id": "plaque",
+        "term": "Plaque Characterization",
+        "definition": "Assessment of plaque morphology.",
+        "clinical_features": {
+          "echogenicity": "Hypo-, iso-, hyperechoic compared to sternomastoid",
+          "homogeneity": "Homogeneous vs heterogeneous",
+          "surface": "Smooth, irregular, ulcerated",
+          "clinical_significance": "Hypoechoic, heterogeneous = higher risk"
+        }
+      },
+      {
+        "concept_id": "indications",
+        "term": "Clinical Indications",
+        "definition": "When to perform carotid duplex.",
+        "clinical_features": {
+          "symptomatic": "TIA, stroke, amaurosis fugax",
+          "asymptomatic": "Carotid bruit, prior to CABG",
+          "surveillance": "Post-CEA or CAS follow-up",
+          "screening": "High-risk populations (controversial)"
+        }
+      }
+    ],
+    "clinical_features": {
+      "accuracy": "Sensitivity/specificity >90% for significant stenosis",
+      "limitations": "Calcified plaque may shadow, operator dependent"
+    }
+  },
+  "relationships": [
+    {"type": "diagnoses", "target": "vascular:pathology:carotid-stenosis"},
+    {"type": "guides", "target": "vascular:procedure:cea"},
+    {"type": "surveillance_for", "target": "vascular:procedure:carotid-stenting"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "J Am Soc Echocardiogr. 2020;33:1-48", "type": "guideline"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}
