@@ -35,6 +35,8 @@ def load_alt_text():
 def build_map():
     prompts = load_prompts()
     alt = load_alt_text()
+    if len(prompts) != len(IMAGES):
+        print(f"Warning: prompts ({len(prompts)}) != images ({len(IMAGES)})")
     data = []
     for idx, (num, prompt_line) in enumerate(prompts):
         file = str(IMAGES[idx].relative_to(BASE)) if idx < len(IMAGES) else None
