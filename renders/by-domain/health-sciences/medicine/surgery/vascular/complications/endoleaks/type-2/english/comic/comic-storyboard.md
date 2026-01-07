@@ -1,7 +1,7 @@
 ---
 source: domain/health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2
 audience: research-interns
-language: english (with spanish cues)
+language: english
 panels: 32
 style: dora-inspired, explorer tone, speech-bubble only
 ---
@@ -65,17 +65,16 @@ style: dora-inspired, explorer tone, speech-bubble only
 32. Future paper and sharing
 
 ## Visual & Prompt Notes
-- Bright pastel backgrounds, bold outlines, playful arrows like a map.
-- Speech bubbles carry all explanations; no side narration.
+- Bright pastel backgrounds, bold outlines, playful arrows like a map; Dora-inspired energy without copying.
+- Speech bubbles carry all explanations; no side narration; English-only text.
 - Clear labels on sac growth thresholds, imaging phases, and vessels.
-- Characters: Camilo (Colombia), Diego (Colombia), Camila (Ecuador), plus Dr. Young Erben cameo.
+- Consistent characters every panel: Camila (Ecuadorian; warm brown skin; long dark braid; teal explorer vest with sunflower patch; teal shorts; tan boots; purple backpack; badge “Camila”), Camilo (Colombian; medium brown skin; short straight dark hair; green vest with topo-map patch; khaki pants; tan boots; orange backpack; badge “Camilo”), Diego (Colombian; medium brown skin; short curly dark hair; orange vest with compass patch; navy pants; green backpack; badge “Diego”), Dr. Young Erben (middle-aged white male, glasses, lab coat) when present.
 - Science anchors: retrograde collateral inflow, delayed blush, sac growth ≥5 mm trigger, embolization options, follow-up cadence.
 
 ## Narration Tone (compelling + scientific)
-- Explorer energy (“¡Vamos!”) paired with precise thresholds and imaging phase names.
+- Explorer energy with precise thresholds and imaging phase names.
 - Each research insight voiced in-character (no omniscient narrator).
 - Humor via map arrows, stickers, and lightbulb “aha” beats; rigor via sac diameter numbers and CTA phase callouts.
-- Bilingual touches (English/Spanish) to keep voice authentic to the characters.
 
 ## Files
 - `storyboard.json` — authoritative panel data (titles, prompts, dialogue).

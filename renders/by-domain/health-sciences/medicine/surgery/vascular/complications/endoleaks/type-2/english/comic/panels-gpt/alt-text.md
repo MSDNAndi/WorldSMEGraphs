@@ -25,10 +25,10 @@
 22. Post-procedure CTA slice without blush and green checkmark.
 23. Poster draft listing CEUS persistence, sac pressure probe, overlay tool.
 24. Table with calculator, coffee cups, charts for sample size discussion.
-25. IRB consent form with heart icon; bilingual consent reminder.
+25. IRB consent form with heart icon; plain-English consent reminder.
 26. Laptop charting sac diameter with cloud/REDCap icon.
 27. Poster comparing growth vs stable lines with bubble labels for wash-out speed.
-28. Whiteboard bullets “localizar, medir, ruta” for teaching moment.
+28. Whiteboard bullets “locate, measure, route” for teaching moment.
 29. Augmented reality tablet projecting holographic artery over abdomen.
 30. Conference room poster presentation with Dr. Erben; stickers and charts.
 31. Follow-up visit with happy patient using cane; shrinking sac diagram.
