@@ -13,25 +13,46 @@ from typing import Dict, List
 # Character base descriptions (IDENTICAL across all panels)
 CHARACTER_BASES = {
     "camila": {
-        "appearance": """Camila is a young woman of Ecuadorian heritage in her early twenties with warm light brown skin (hex #D4A574). She has a youthful, friendly face with round, approachable features, warm brown eyes that sparkle with enthusiasm, and a genuine smile showing slight dimples on both cheeks. Her long dark brown hair (hex #654321) is styled in a single thick braid that drapes over her LEFT shoulder (from viewer's perspective), reaching down to mid-torso level. The braid is secured at the end with a small purple hair tie that matches her backpack.""",
-        "outfit": """Camila wears a teal explorer vest (hex #20B2AA) with six visible pockets. On the RIGHT chest is a large sunflower patch (3 inches diameter, yellow petals, brown center). Underneath: white short-sleeve t-shirt, crew neck. Teal shorts (hex #20B2AA, matching vest) hitting mid-thigh. Tan hiking boots (hex #D2B48C) with brown laces, ankle-height. Purple backpack (hex #9370DB) on both shoulders with black straps crossing chest in X pattern. White name badge on LEFT chest reading "Camila" in black Arial Bold font (0.75 inches tall)."""
+        "appearance": """Camila is a CARTOON CHARACTER in the Dora the Explorer style - young woman of Ecuadorian heritage in her early twenties. SIMPLIFIED CARTOON proportions with warm light brown skin (hex #D4A574, flat color, NO realistic textures). She has a SIMPLIFIED friendly cartoon face with LARGE expressive brown eyes (simple black outlines, white highlights), SMALL simple nose (dot or tiny triangle), and WIDE friendly smile showing simple teeth. Her long dark brown hair (hex #654321, flat color) is drawn as a single thick CARTOON braid with simple segments, draping over her LEFT shoulder, reaching mid-torso. The braid has a small purple hair tie. THICK BLACK OUTLINES (3-4px) around all features.""",
+        "outfit": """Camila wears a teal explorer vest (hex #20B2AA, flat color with black outlines) with six simple pockets (outlined in black). Large SIMPLE sunflower patch on RIGHT chest (3 inches diameter, yellow petals as simple rounded shapes, brown center circle, all with black outlines). Underneath: white short-sleeve t-shirt (simple shape, black outlines), crew neck. Teal shorts (hex #20B2AA) hitting mid-thigh (simple shape, black outlines). Tan hiking boots (hex #D2B48C, simplified cartoon boot shapes with black outlines and simple laces). Purple backpack (hex #9370DB, simplified shape) with black straps in X pattern. White name badge with "Camila" in simple bold letters. All elements have THICK BLACK OUTLINES."""
     },
     "camilo": {
-        "appearance": """Camilo is a young man of Colombian heritage in his early twenties with medium brown skin (hex #C19A6B). He has a friendly, open face with gentle features, short straight dark hair (hex #2C1810) cut in a neat professional style with slight side part, warm brown eyes, and an enthusiastic smile. His build is average and athletic, conveying capability and energy.""",
-        "outfit": """Camilo wears a green explorer vest (hex #3CB371) with six visible pockets. On the RIGHT chest is a topographic map patch (3 inches square, brown contour lines on beige background). Underneath: white short-sleeve t-shirt, crew neck. Khaki pants (hex #C3B091) reaching ankles. Tan hiking boots (hex #D2B48C) identical to Camila's, with brown laces. Orange backpack (hex #FFA500) on both shoulders with black straps. White name badge on LEFT chest reading "Camilo" in black Arial Bold font (0.75 inches tall)."""
+        "appearance": """Camilo is a CARTOON CHARACTER in the Dora the Explorer style - young man of Colombian heritage in his early twenties. SIMPLIFIED CARTOON proportions with medium brown skin (hex #C19A6B, flat color). SIMPLIFIED friendly cartoon face with LARGE expressive brown eyes (simple shapes), SMALL nose, and WIDE friendly smile. Short straight dark hair (hex #2C1810, simplified cartoon hair with simple strands). Athletic cartoon build. THICK BLACK OUTLINES (3-4px) around all features.""",
+        "outfit": """Camilo wears a green explorer vest (hex #3CB371, flat color with black outlines) with six simple pockets. Topographic map patch on RIGHT chest (3 inches square, simple brown lines on beige, black outlines). White t-shirt (simple shape). Khaki pants (hex #C3B091, simple shape). Tan hiking boots (hex #D2B48C, cartoon style). Orange backpack (hex #FFA500). Name badge "Camilo". All elements have THICK BLACK OUTLINES."""
     },
     "diego": {
-        "appearance": """Diego is a young man of Colombian heritage in his early twenties with lightly brown skin (hex #B8956A). He has a friendly, thoughtful face with short curly dark hair (hex #2C1810) with natural volume and texture, warm brown eyes behind subtle round-framed glasses (thin black frames), and a confident smile. His build is average, conveying both intelligence and approachability.""",
-        "outfit": """Diego wears an orange explorer vest (hex #FF8C00) with six visible pockets. On the RIGHT chest is a compass patch (3 inches diameter, nautical compass rose in black/white with red needle). Underneath: white short-sleeve t-shirt, crew neck. Navy blue pants (hex #000080) reaching ankles. Tan hiking boots (hex #D2B48C) identical to others. Green backpack (hex #90EE90) on both shoulders with black straps. White name badge on LEFT chest reading "Diego" in black Arial Bold font (0.75 inches tall)."""
+        "appearance": """Diego is a CARTOON CHARACTER in the Dora the Explorer style - young man of Colombian heritage in his early twenties. SIMPLIFIED CARTOON proportions with lightly brown skin (hex #B8956A, flat color). SIMPLIFIED friendly cartoon face with LARGE expressive brown eyes behind SIMPLE cartoon glasses (thin black frames, simple circles), SMALL nose, and friendly smile. Short curly dark hair (hex #2C1810, simple curly shapes). THICK BLACK OUTLINES (3-4px) around all features.""",
+        "outfit": """Diego wears an orange explorer vest (hex #FF8C00, flat color with black outlines) with six simple pockets. Compass patch on RIGHT chest (3 inches, simple compass rose design, black outlines). White t-shirt. Navy blue pants (hex #000080). Tan hiking boots (hex #D2B48C). Green backpack (hex #90EE90). Name badge "Diego". All elements have THICK BLACK OUTLINES."""
     },
     "dr_erben": {
-        "appearance": """Dr. Young Erben is a middle-aged physician of Korean ethnicity with fair skin, petite build, and professional demeanor. Neat short dark hair, typically wears stylish glasses with modern frames. Warm, intelligent eyes that convey both expertise and approachability.""",
-        "outfit": """Dr. Erben wears a white lab coat (hex #FFFFFF) over professional attire. The lab coat is knee-length, with lapels and pockets. Underneath: dress shirt and slacks in neutral tones. Name badge visible on lab coat lapel reading "Dr. Y. Erben" in professional font."""
+        "appearance": """Dr. Young Erben is a CARTOON CHARACTER in the Dora the Explorer style - middle-aged physician of Korean ethnicity. SIMPLIFIED CARTOON proportions with fair skin (flat color). SIMPLIFIED friendly professional cartoon face with LARGE expressive eyes behind SIMPLE cartoon glasses, SMALL nose, warm smile. Neat short dark hair (simple cartoon style). THICK BLACK OUTLINES around all features.""",
+        "outfit": """Dr. Erben wears a white lab coat (hex #FFFFFF, simple shape with black outlines) over professional attire (simplified). Name badge "Dr. Y. Erben" (simple text). All elements have THICK BLACK OUTLINES."""
     }
 }
 
 # Style foundation (same for all panels)
-STYLE_FOUNDATION = """Art Style: Dora the Explorer inspired educational illustration designed for research interns and medical students. 2D flat illustration with thick black outlines (3-4 pixel weight) on all major elements. Vector-like smoothness with no heavy textures or grain. Color palette: bright, saturated pastels - sky blues (#87CEEB), grass greens (#90EE90), sunshine yellows (#FFD700), warm oranges (#FFA500), soft purples (#DDA0DD). Line quality: bold, confident, friendly strokes; no sketchy edges. Shading: minimal cel-shading style with single soft shadows on ground plane only. Lighting: bright, even, cheerful, simulating midday outdoor light. Perspective: slight isometric feel with gentle depth but no aggressive foreshortening. Mood: energetic, optimistic, adventurous, educational."""
+STYLE_FOUNDATION = """**CRITICAL: THIS MUST BE A CARTOON ILLUSTRATION, NOT A PHOTOGRAPH OR PHOTOREALISTIC IMAGE**
+
+Art Style: CARTOON illustration in the exact style of Dora the Explorer TV show (Nick Jr. animated series). This is a 2D FLAT CARTOON with THICK BLACK OUTLINES (3-4 pixel weight) around EVERY element - characters, objects, backgrounds. NOT photorealistic, NOT realistic, NOT 3D rendered, NOT photograph. This is a HAND-DRAWN STYLE CARTOON for children's educational TV.
+
+Visual Characteristics:
+- **Drawing style**: Simplified, flat, cartoon shapes like Dora the Explorer, Blue's Clues, or Go Diego Go
+- **Line art**: Bold black outlines (3-4px) around ALL elements - mandatory
+- **Faces**: Simple, friendly cartoon faces with large expressive eyes, simple nose dots or small triangles, wide smiling mouths
+- **Bodies**: Simplified proportions, not anatomically realistic - cartoon proportions like animated TV shows
+- **Textures**: FLAT colors, NO photographic textures, NO realistic skin textures, NO photo-realism
+- **Shading**: MINIMAL cel-shading only - single flat shadow colors, NO gradient shading, NO realistic lighting
+- **Color palette**: Bright, saturated, flat pastels - sky blues (#87CEEB), grass greens (#90EE90), sunshine yellows (#FFD700), warm oranges (#FFA500), soft purples (#DDA0DD)
+- **Background**: Simple, flat colored shapes with black outlines - cartoonish trees, buildings, sky
+- **Overall feel**: Children's educational TV show animation, friendly and approachable, NOT realistic
+
+Line quality: Bold, confident, friendly cartoon strokes; smooth vector-like edges; no sketchy or painterly effects.
+Shading: Minimal cel-shading style (single flat shadow areas) on ground plane only.
+Lighting: Bright, even, cheerful - typical daytime cartoon lighting.
+Perspective: Slight isometric feel with gentle depth but NO photographic perspective or foreshortening.
+Mood: Energetic, optimistic, adventurous, educational - like a kids' TV show frame.
+
+**FORBIDDEN**: No photorealism, no realistic humans, no photographs, no 3D renders, no realistic textures, no realistic lighting, no depth of field blur, no photographic quality. THIS IS A CARTOON."""
 
 # Color palette (same for all panels)
 COLOR_PALETTE = """
