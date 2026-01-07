@@ -1,0 +1,71 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:amputation:amp-010-prosthetic-rehab",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:20:00.000Z",
+    "updated": "2026-01-07T02:20:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.88,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/amputation",
+    "type": "rehabilitation",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "AMP-010",
+    "keywords": ["prosthetic rehabilitation", "amputation recovery", "K-levels", "prosthetic fitting"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Prosthetic rehabilitation after amputation follows Medicare functional classification (K-levels) that predict ambulatory potential and guide prosthetic prescription, with K-level 2-3 typically required for functional community ambulation.",
+      "formal": "K-Level: K0 (non-ambulatory) → K4 (athlete) → Prosthetic_Prescription_Guide"
+    },
+    "explanation": {
+      "intuition": "Not every amputee can or wants to walk with a prosthesis. K-levels classify patients by their potential - from K0 (won't walk) to K4 (can run). This helps match the right prosthetic technology to the patient's abilities and goals.",
+      "key_insight": "The K-level determines prosthetic prescription and coverage. K2 (limited community ambulator) is typically minimum for microprocessor knees. Pre-amputation mobility, cognition, and comorbidities predict post-amputation K-level.",
+      "technical_details": "K-levels: K0 (non-ambulatory/household only without prosthesis), K1 (household ambulator), K2 (limited community - uneven terrain), K3 (community ambulator - varied speeds), K4 (exceeds basic ambulation - athletics). Factors predicting success: pre-amputation mobility, BKA vs AKA (BKA 70% ambulatory, AKA 30%), age, comorbidities, motivation. Prosthetic progression: immediate post-op (rigid dressing), preparatory prosthesis (6-8 weeks), definitive prosthesis (3-6 months)."
+    }
+  },
+  "clinical_features": {
+    "k_levels": {
+      "K0": "Does not have ability or potential to ambulate or transfer",
+      "K1": "Household ambulator - can walk on level surfaces",
+      "K2": "Limited community ambulator - can traverse low-level obstacles",
+      "K3": "Community ambulator - varied cadence, most environmental barriers",
+      "K4": "Exceeds basic ambulation - high impact, athletic"
+    },
+    "predictors_of_success": ["Pre-amputation mobility", "BKA vs AKA level", "Age <65", "Absence of dementia", "Motivation"],
+    "ambulation_rates": {"BKA": "~70%", "AKA": "~30%"},
+    "timeline": {"preparatory_prosthesis": "6-8 weeks", "definitive_prosthesis": "3-6 months"}
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Prosthetic Rehabilitation K-Levels"},
+    "altLabel": ["K-level classification", "Functional amputation classification", "Medicare prosthetic levels"],
+    "notation": "AMP-010"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:amputation:amputation-levels"],
+    "enables": ["vascular:amputation:prosthetic-prescription"],
+    "skos:broader": ["vascular:amputation:rehabilitation"],
+    "skos:related": ["vascular:amputation:bka", "vascular:amputation:aka"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "guideline", "organization": "Medicare", "title": "HCFA K-Level Classifications", "year": 2020}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "physical medicine residents", "prosthetists"],
+    "board_yield": "MEDIUM",
+    "clinical_pearls": [
+      "Pre-amputation mobility is strongest predictor of post-amputation ambulation",
+      "BKA has 2x higher prosthetic ambulation rate than AKA (70% vs 30%)",
+      "K2+ level typically required for microprocessor knee coverage"
+    ]
+  }
+}

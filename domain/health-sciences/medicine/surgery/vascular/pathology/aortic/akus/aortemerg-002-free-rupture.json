@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:aortic:aortemerg-002-free-rupture",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:15:00.000Z",
+    "updated": "2026-01-07T02:15:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.92,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aortic",
+    "type": "emergency",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "AORTEMERG-002",
+    "keywords": ["free rupture", "ruptured AAA", "aortic emergency", "exsanguination"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Free intraperitoneal rupture of an abdominal aortic aneurysm represents the most lethal presentation, with blood rupturing into the peritoneal cavity causing rapid hemodynamic collapse and requiring immediate surgical intervention.",
+      "formal": "Free_Rupture: AAA → Peritoneal_Cavity → Massive_Hemorrhage → Immediate_Death_Without_OR"
+    },
+    "explanation": {
+      "intuition": "Unlike contained rupture where the retroperitoneum tamponades bleeding, free rupture spills blood directly into the open belly cavity with nothing to slow the bleeding. It's like a broken pipe flooding an open field versus one flooding inside a wall cavity.",
+      "key_insight": "Free rupture mortality exceeds 90% without emergent surgery. Patients present in profound shock, often without the classic triad (pain, pulsatile mass, hypotension) because they lose consciousness rapidly. Time from recognition to aortic control determines survival.",
+      "technical_details": "Presentation: severe abdominal distension, profound hypotension, altered consciousness. Management: (1) Activate massive transfusion protocol, (2) Permissive hypotension (SBP 70-80) until aortic control, (3) Emergent OR - supraceliac aortic control, (4) Avoid pre-op imaging if unstable. Open repair with rapid proximal control preferred; EVAR possible in select hemodynamically tolerant patients. Damage control: supraceliac clamp, pack abdomen, resuscitate in ICU, return for definitive repair."
+    }
+  },
+  "clinical_features": {
+    "presentation": ["Profound hypotension", "Abdominal distension", "Altered consciousness", "Sudden collapse"],
+    "vs_contained_rupture": "No retroperitoneal tamponade - free bleeding into peritoneal cavity",
+    "mortality": ">90% without emergent surgery, 50-70% with surgery",
+    "management_priorities": ["Massive transfusion", "Permissive hypotension", "Emergent OR", "Supraceliac aortic control"],
+    "damage_control": "Supraceliac clamp, pack, resuscitate, return"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Free Aortic Rupture"},
+    "altLabel": ["Intraperitoneal AAA rupture", "Free AAA rupture", "Catastrophic aortic rupture"],
+    "notation": "AORTEMERG-002"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:aortic:aaa-natural-history"],
+    "enables": ["vascular:aortic:damage-control-surgery"],
+    "skos:broader": ["vascular:aortic:ruptured-aaa"],
+    "skos:related": ["vascular:aortic:contained-rupture", "vascular:aortic:supraceliac-clamp"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Journal of Vascular Surgery", "topic": "Ruptured AAA outcomes", "year": 2020}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "general surgery residents", "emergency medicine residents"],
+    "board_yield": "HIGH",
+    "clinical_pearls": [
+      "Do NOT waste time with imaging in the unstable patient - go directly to OR",
+      "Supraceliac aortic control provides fastest hemorrhage control",
+      "Permissive hypotension (SBP 70-80) prevents 'popping the clot'"
+    ]
+  }
+}

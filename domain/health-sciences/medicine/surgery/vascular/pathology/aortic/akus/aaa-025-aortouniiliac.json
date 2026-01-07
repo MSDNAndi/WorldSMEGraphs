@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "procedure",
+  "@id": "vascular:aortic:aaa-025-aortouniiliac",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:15:00.000Z",
+    "updated": "2026-01-07T02:15:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.90,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures",
+    "type": "procedure",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "AAA-025",
+    "keywords": ["aortouniiliac", "AUI device", "occluder plug", "fem-fem bypass"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Aortouniiliac (AUI) endograft configuration consists of a unibody main device extending to one iliac artery, with contralateral iliac occlusion and femoral-femoral bypass to restore bilateral leg perfusion.",
+      "formal": "AUI_System = Unibody_Graft + Contralateral_Occluder + Fem-Fem_Bypass"
+    },
+    "explanation": {
+      "intuition": "When one iliac artery is unsuitable for an endograft limb (occluded, aneurysmal to hypogastric, or too small), you exclude the aneurysm through one side only and reroute blood to the other leg via a surgical bypass.",
+      "key_insight": "AUI configuration is a bailout for difficult anatomy but requires fem-fem bypass patency for contralateral limb perfusion. Long-term bypass patency is excellent (~90% at 5 years) making this a durable solution.",
+      "technical_details": "Indications: unilateral common iliac aneurysm extending to hypogastric, severe unilateral iliac disease, failed contralateral limb. Components: (1) AUI main body landing in ipsilateral common/external iliac, (2) Contralateral iliac occluder plug (Amplatzer or device-specific), (3) Fem-fem bypass (8mm PTFE or Dacron) in subcutaneous tunnel. Must occlude contralateral iliac to prevent Type II endoleak via iliac branches."
+    }
+  },
+  "procedural_details": {
+    "indications": ["Unilateral common iliac aneurysm to hypogastric", "Unilateral severe iliac disease", "Failed bifurcated limb", "Narrow aortic bifurcation"],
+    "components": ["AUI main body", "Iliac occluder plug", "Femoral-femoral bypass graft"],
+    "contralateral_occlusion": "Required to prevent Type II endoleak",
+    "bypass_configuration": "8mm PTFE in subcutaneous suprapubic tunnel",
+    "fem_fem_patency": "~90% at 5 years"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Aortouniiliac Endograft"},
+    "altLabel": ["AUI device", "Unibody EVAR", "Monoiliac endograft"],
+    "notation": "AAA-025"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:aortic:evar-planning", "vascular:procedures:fem-fem-bypass"],
+    "enables": ["vascular:aortic:aneurysm-exclusion"],
+    "skos:broader": ["vascular:aortic:evar-configurations"],
+    "skos:related": ["vascular:aortic:iliac-aneurysm", "vascular:procedures:occluder-plug"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Journal of Vascular Surgery", "topic": "AUI EVAR outcomes", "year": 2019}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "interventional radiologists"],
+    "board_yield": "MEDIUM",
+    "clinical_pearls": [
+      "Always occlude the contralateral iliac ABOVE the hypogastric origin",
+      "Consider preserving at least one hypogastric if possible",
+      "Fem-fem bypass can be done before, during, or immediately after endograft deployment"
+    ]
+  }
+}

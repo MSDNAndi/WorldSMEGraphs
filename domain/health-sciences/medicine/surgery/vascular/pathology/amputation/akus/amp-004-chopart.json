@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "procedure",
+  "@id": "vascular:amputation:amp-004-chopart",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:18:00.000Z",
+    "updated": "2026-01-07T02:18:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.88,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures/amputation",
+    "type": "procedure",
+    "difficulty": "advanced",
+    "importance": "medium",
+    "aku_id": "AMP-004",
+    "keywords": ["Chopart amputation", "Lisfranc amputation", "midfoot amputation", "hindfoot preservation"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Chopart (talonavicular/calcaneocuboid) and Lisfranc (tarsometatarsal) amputations preserve the hindfoot and ankle, potentially avoiding below-knee amputation, but require careful tendon balancing to prevent equinus deformity and often need custom orthoses.",
+      "formal": "Midfoot_Amputation: Chopart (TN+CC) | Lisfranc (TMT) → Hindfoot_Preservation + Equinus_Risk"
+    },
+    "explanation": {
+      "intuition": "These midfoot amputations preserve the heel and ankle, allowing the patient to bear weight on their own bone rather than a prosthetic. However, losing the forefoot creates muscle imbalance that pulls the foot down (equinus), requiring surgical rebalancing.",
+      "key_insight": "The key challenge is preventing equinus contracture from unopposed Achilles pull. Achilles tendon lengthening and anterior muscle transfer are typically required. Without these, the foot will point down, creating pressure ulcers on the distal stump.",
+      "technical_details": "Lisfranc: disarticulation at tarsometatarsal joints. Chopart: disarticulation at talonavicular and calcaneocuboid joints. Both require: (1) Achilles tendon lengthening to prevent equinus, (2) Anterior tibial tendon transfer to calcaneus or midfoot, (3) Plantar flap coverage if possible. Prosthetics: custom ankle-foot orthosis (AFO) with toe filler. Complications: equinus contracture, pressure ulceration of stump, poor prosthetic fit."
+    }
+  },
+  "procedural_details": {
+    "levels": {"Lisfranc": "Tarsometatarsal joints", "Chopart": "Talonavicular + calcaneocuboid joints"},
+    "required_procedures": ["Achilles tendon lengthening", "Anterior tibial tendon transfer", "Plantar flap if possible"],
+    "prosthetics": "Custom AFO with toe filler",
+    "complications": ["Equinus contracture", "Stump ulceration", "Need for revision to higher level"],
+    "candidacy": "Good perfusion, minimal soft tissue loss, patient understands orthotics requirement"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Chopart and Lisfranc Amputations"},
+    "altLabel": ["Midfoot amputation", "Hindfoot-sparing amputation", "Transverse tarsal amputation"],
+    "notation": "AMP-004"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:amputation:level-selection"],
+    "enables": ["vascular:amputation:hindfoot-preservation"],
+    "skos:broader": ["vascular:procedures:amputation-levels"],
+    "skos:related": ["vascular:amputation:tma", "vascular:amputation:syme"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Journal of Bone and Joint Surgery", "topic": "Midfoot amputation outcomes", "year": 2019}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "orthopedic surgery residents"],
+    "board_yield": "MEDIUM",
+    "clinical_pearls": [
+      "Always lengthen Achilles tendon to prevent equinus",
+      "Anterior tibial transfer provides dorsiflexion force",
+      "Patient must commit to lifelong custom orthotics"
+    ]
+  }
+}

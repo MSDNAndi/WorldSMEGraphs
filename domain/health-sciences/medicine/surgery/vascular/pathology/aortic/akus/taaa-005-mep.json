@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:aortic:taaa-005-mep",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:15:00.000Z",
+    "updated": "2026-01-07T02:15:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.90,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aortic",
+    "type": "monitoring-technique",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "TAAA-005",
+    "keywords": ["motor evoked potentials", "MEP", "spinal cord monitoring", "neuromonitoring"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Motor evoked potentials (MEPs) are intraoperative neurophysiologic monitoring that detects spinal cord ischemia by measuring motor pathway integrity from cortex to muscle, allowing real-time intervention to prevent paraplegia during aortic surgery.",
+      "formal": "MEP_Signal = f(Cortical_Stimulus → Corticospinal_Tract → Anterior_Horn → Muscle_Response)"
+    },
+    "explanation": {
+      "intuition": "MEPs are like a real-time 'test call' through the spinal cord's motor highway. A magnetic pulse stimulates the brain, and if the signal arrives normally at leg muscles, the cord is getting enough blood. Signal loss is an alarm that the cord is at risk.",
+      "key_insight": "MEP monitors the anterior cord (motor pathways) which is most vulnerable to ischemia. A >75% amplitude decrease or loss of response signals impending cord injury, prompting immediate intervention (raise blood pressure, reimplant intercostals, CSF drain).",
+      "technical_details": "Technique: transcranial electrical stimulation of motor cortex with recording from limb muscles (tibialis anterior, abductor hallucis). Requires total IV anesthesia (no paralytic agents). Sensitive to: blood pressure, temperature, anesthetic depth, cord ischemia. Response to signal loss: raise MAP to 90-100mmHg, drain CSF to <10mmHg, reimplant critical intercostals. Combined with SSEPs (sensory evoked potentials) for comprehensive cord monitoring."
+    }
+  },
+  "clinical_features": {
+    "mechanism": "Transcranial motor cortex stimulation with peripheral muscle recording",
+    "pathway_monitored": "Anterior spinal cord (motor tracts)",
+    "warning_criteria": [">75% amplitude decrease", "Complete signal loss", "Increased latency"],
+    "interventions_for_signal_loss": ["Raise MAP to 90-100mmHg", "Drain CSF to <10cmH2O", "Reimplant intercostal arteries", "Cool patient"],
+    "anesthesia_requirements": "TIVA without neuromuscular blockade"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Motor Evoked Potential Monitoring"},
+    "altLabel": ["MEP monitoring", "Intraoperative spinal cord monitoring", "Neuromonitoring TAAA"],
+    "notation": "TAAA-005"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:aortic:spinal-cord-blood-supply"],
+    "enables": ["vascular:aortic:intraoperative-intervention"],
+    "skos:broader": ["vascular:aortic:spinal-protection"],
+    "skos:related": ["vascular:aortic:csf-drainage", "vascular:aortic:intercostal-reimplantation"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Journal of Thoracic and Cardiovascular Surgery", "topic": "Neuromonitoring in TAAA", "year": 2019}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "cardiac surgery residents", "neurophysiology technologists"],
+    "board_yield": "MEDIUM",
+    "clinical_pearls": [
+      "MEPs detect anterior cord ischemia earlier than clinical exam",
+      "TIVA anesthesia is mandatory - paralytics abolish MEP signals",
+      "Immediate response to signal loss can reverse impending paraplegia"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:aortic:aaa-022-neck-angulation",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:15:00.000Z",
+    "updated": "2026-01-07T02:15:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.90,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aortic",
+    "type": "anatomic-consideration",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "AAA-022",
+    "keywords": ["aortic neck angulation", "hostile neck", "EVAR planning", "proximal seal zone"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Aortic neck angulation refers to the angle between the suprarenal aorta and the infrarenal aneurysm neck, with angles >60° considered hostile anatomy that increases risk of endoleak and device failure after EVAR.",
+      "formal": "EVAR_Success_Risk ∝ 1 / (Neck_Angle + Neck_Length_Deficit + Thrombus_Burden)"
+    },
+    "explanation": {
+      "intuition": "The proximal seal zone of an endograft must conform to the aortic wall. When the neck bends sharply, the rigid stent graft may not appose the entire circumference, creating gaps where blood can leak (Type Ia endoleak).",
+      "key_insight": "Suprarenal angle (between suprarenal aorta and neck) is more predictive of failure than infrarenal angle. Angulation >60° requires careful device selection or consideration of open repair or complex endovascular approaches.",
+      "technical_details": "Measure on centerline reconstructions from CTA. Suprarenal angle measured at lowest renal artery. IFU (instructions for use) vary by device: some allow up to 60°, newer devices with active fixation may permit 75°. Hostile neck features include: length <10mm, diameter >32mm, angulation >60°, circumferential thrombus, and conical shape. Strategies include: choosing devices with suprarenal fixation, chimney/snorkel techniques, or fenestrated/branched grafts."
+    }
+  },
+  "clinical_features": {
+    "measurement": "Centerline CTA reconstruction at lowest renal artery level",
+    "hostile_neck_criteria": ["Length <10mm", "Diameter >32mm", "Angulation >60°", "Circumferential thrombus >2mm", "Reverse taper (conical)"],
+    "device_considerations": ["Suprarenal vs infrarenal fixation", "Active fixation (hooks/barbs)", "Low-profile design", "Flexibility"],
+    "alternatives_for_hostile_neck": ["Open repair", "Fenestrated EVAR", "Chimney EVAR", "Physician-modified devices"]
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Aortic Neck Angulation"},
+    "altLabel": ["Hostile aortic neck", "Neck angle", "Proximal seal zone anatomy"],
+    "notation": "AAA-022"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:aortic:cta-planning"],
+    "enables": ["vascular:aortic:device-selection"],
+    "skos:broader": ["vascular:aortic:evar-planning"],
+    "skos:related": ["vascular:aortic:endoleak-type-ia", "vascular:aortic:migration"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "European Journal of Vascular and Endovascular Surgery", "topic": "Hostile neck EVAR outcomes", "year": 2019}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "interventional radiologists"],
+    "board_yield": "HIGH",
+    "clinical_pearls": [
+      "Always measure neck angle on centerline reconstructions, not axial images",
+      "Suprarenal angle is more predictive of failure than infrarenal angle",
+      "Consider fenestrated or open repair when multiple hostile features present"
+    ]
+  }
+}
