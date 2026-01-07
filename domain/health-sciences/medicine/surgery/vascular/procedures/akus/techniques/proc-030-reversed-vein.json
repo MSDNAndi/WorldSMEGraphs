@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "procedure",
+  "@id": "vascular:procedures:proc-030-reversed-vein",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:35:00.000Z",
+    "updated": "2026-01-07T02:35:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.90,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures",
+    "type": "procedure",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "PROC-030",
+    "keywords": ["reversed vein bypass", "vein orientation", "infrainguinal bypass"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Reversed vein bypass harvests and flips the vein so the competent valves don't obstruct arterial flow, accepting a size mismatch (small end at femoral) in exchange for technical simplicity and reliable valve incompetence.",
+      "formal": "Reversed_Vein: Harvest → Flip → Valves_Open_Retrograde → Simple_Technique"
+    },
+    "explanation": {
+      "intuition": "Veins have one-way valves that prevent backflow. To use a vein as an artery bypass, you can simply flip it upside down - now arterial blood pushes the valves open instead of closed. The tradeoff is the small end is now at the big artery.",
+      "key_insight": "Reversed vein is technically simpler than in situ (no valvulotome needed) and has similar patency. The size mismatch is accepted; some surgeons prefer a larger conduit at the distal anastomosis where it's most critical.",
+      "technical_details": "Technique: harvest GSV, reverse orientation (small/distal end becomes proximal), tunnel to target, anastomose. Advantages: technically simple, no valvulotome, all side branches ligated at harvest. Disadvantages: size mismatch (small end at femoral, large end at tibial), more handling injury. Patency: equivalent to in situ in randomized trials. Orientation check: flow direction, identify marked end."
+    }
+  },
+  "procedural_details": {
+    "technique": "Harvest vein, reverse orientation, tunnel, anastomose",
+    "orientation": "Small (distal) end becomes proximal inflow",
+    "advantages": ["Technically simple", "No valvulotome needed", "Side branches ligated at harvest"],
+    "disadvantages": ["Size mismatch", "More handling during harvest"],
+    "patency": "Equivalent to in situ in randomized trials"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Reversed Vein Bypass"},
+    "altLabel": ["Reversed GSV bypass", "Traditional vein bypass", "Non-in situ bypass"],
+    "notation": "PROC-030"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:procedures:vein-harvest"],
+    "enables": ["vascular:procedures:infrainguinal-bypass"],
+    "skos:broader": ["vascular:procedures:vein-bypass-techniques"],
+    "skos:related": ["vascular:procedures:in-situ", "vascular:procedures:non-reversed"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "textbook", "title": "Rutherford's Vascular Surgery", "edition": "9th", "chapter": "Infrainguinal Bypass", "year": 2018}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents"],
+    "board_yield": "HIGH",
+    "clinical_pearls": [
+      "Patency equivalent to in situ in randomized trials",
+      "Technically simpler - good choice for many situations",
+      "Mark vein orientation during harvest to avoid confusion"
+    ]
+  }
+}

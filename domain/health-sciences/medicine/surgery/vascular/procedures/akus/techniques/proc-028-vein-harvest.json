@@ -1,0 +1,70 @@
+{
+  "@context": "aku-v2",
+  "@type": "procedure",
+  "@id": "vascular:procedures:proc-028-vein-harvest",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:35:00.000Z",
+    "updated": "2026-01-07T02:35:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.90,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures",
+    "type": "procedure",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "PROC-028",
+    "keywords": ["GSV harvest", "vein graft", "conduit harvest", "endoscopic harvest"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Great saphenous vein harvest for bypass conduit can be performed via open continuous incision, skip incisions, or endoscopic technique, with careful attention to preventing injury that causes intimal damage and early graft failure.",
+      "formal": "Vein_Harvest: Open_Continuous | Skip_Incisions | Endoscopic → Careful_Technique = Conduit_Quality"
+    },
+    "explanation": {
+      "intuition": "The great saphenous vein is the gold standard for bypass grafts. Harvesting it is like carefully removing a garden hose from the ground - you want to take it out intact, without kinking, stretching, or poking holes in it.",
+      "key_insight": "Vein quality determines graft patency. Surgical injury (intimal trauma, excessive dilation, prolonged ischemia) compromises the conduit. Gentle handling, minimal dilation, and careful branch ligation preserve endothelial integrity.",
+      "technical_details": "Preoperative: duplex vein mapping for diameter (≥3mm preferred), continuity, and course. Open technique: continuous or skip incisions over mapped vein. Endoscopic: smaller incisions, camera-assisted, similar patency when properly performed. Handling: minimal grasping, gentle dilation (max 500mmHg), ligate branches close to vein. Preservation: heparinized blood or balanced salt solution, avoid cold storage. Orientation: mark for non-reversed use to avoid improper valve direction."
+    }
+  },
+  "procedural_details": {
+    "preoperative": "Duplex vein mapping - diameter, course, continuity",
+    "techniques": {
+      "open_continuous": "Single incision over mapped vein",
+      "skip_incisions": "Multiple small incisions with bridging",
+      "endoscopic": "Camera-assisted harvest through small incisions"
+    },
+    "handling_principles": ["Minimal grasping", "Gentle dilation <500mmHg", "Ligate branches close", "Avoid cold storage"],
+    "preservation": "Heparinized blood or balanced salt solution",
+    "marking": "Mark for proper orientation in non-reversed use"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Great Saphenous Vein Harvest"},
+    "altLabel": ["GSV harvest", "Vein conduit harvest", "Autogenous conduit harvest"],
+    "notation": "PROC-028"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:anatomy:gsv"],
+    "enables": ["vascular:procedures:bypass-surgery"],
+    "skos:broader": ["vascular:procedures:conduit-preparation"],
+    "skos:related": ["vascular:procedures:arm-vein-harvest", "vascular:procedures:in-situ-bypass"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "textbook", "title": "Rutherford's Vascular Surgery", "edition": "9th", "chapter": "Infrainguinal Bypass", "year": 2018}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents"],
+    "board_yield": "HIGH",
+    "clinical_pearls": [
+      "Preoperative vein mapping essential - ≥3mm diameter preferred",
+      "Gentle handling preserves endothelial integrity",
+      "Avoid overdilation - max 500mmHg"
+    ]
+  }
+}
