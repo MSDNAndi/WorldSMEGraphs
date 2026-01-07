@@ -1,17 +1,58 @@
 # Runbook — Type 2 Endoleak Comic Assets
 
-## Prereqs
+## 🆕 V2 WORKFLOW (Recommended) - Improved Post-PR #36
+
+**📖 See full documentation:**
+- **Quick Start**: `QUICK-REFERENCE.md` (copy-paste commands)
+- **Overview**: `PROJECT-SUMMARY.md` (complete summary)
+- **Detailed Guide**: `README-IMPROVED-WORKFLOW.md` (comprehensive)
+
+**Key improvements**: Hyper-detailed prompts (8-20K chars each), zero placeholders, archived versions, better Dora-style story.
+
+### Generate Images (V2)
+```bash
+python .project/agents/image-generation/tools/gpt_image_generator.py \
+  --prompt-file gpt-prompts-v2-detailed-all-panels.txt \
+  --output-dir panels-gpt-v2 \
+  --aspect landscape --quality high --parallel 4 --enhance
+```
+
+### Optional: Apply Narrative Improvements First
+```bash
+# 1. Review improved story (30 min)
+less NARRATIVE-INTEGRATION-GUIDE.md
+
+# 2. Update storyboard.json (60 min)
+nano storyboard.json
+
+# 3. Regenerate prompts (5 min)
+python generate_detailed_prompts.py
+
+# 4. Generate images with improvements
+python .project/agents/image-generation/tools/gpt_image_generator.py \
+  --prompt-file gpt-prompts-v2-detailed-all-panels.txt \
+  --output-dir panels-gpt-v2-narrative \
+  --aspect landscape --quality high --parallel 4 --enhance
+```
+
+---
+
+## 📦 Original V1 Workflow (PR #36)
+
+### Prereqs
 - Env vars: `AI_FOUNDRY_API_KEY`, `AI_FOUNDRY_ENDPOINT`, `GPT_IMAGE_1DOT5_ENDPOINT_URL` (verify with `env | grep AI_FOUNDRY`).
 - Python 3.10+, Pillow installed (`pip install pillow`).
 - Quick check: `python renders/.../comic/check_env.py`
 
-## Generate Images
+### Generate Images (V1 - Original)
 ```bash
 python .project/agents/image-generation/tools/gpt_image_generator.py \
-  --prompt-file renders/by-domain/health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2/english/comic/gpt-prompts.txt \
-  --output-dir renders/by-domain/health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2/english/comic/panels-gpt \
+  --prompt-file gpt-prompts.txt \
+  --output-dir panels-gpt \
   --aspect landscape --quality high --parallel 4 --enhance --no-git
 ```
+
+**Note**: V1 prompts archived in `archive/2026-01-07-original-pr36/`. Use V2 for better quality.
 
 ## Build PDF (6 panels/page)
 ```bash
