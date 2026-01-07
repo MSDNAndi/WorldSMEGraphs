@@ -1,0 +1,88 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-procedure",
+  "@id": "vascular:procedure:carotid:cas-technique",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:47:00.000Z",
+    "updated": "2026-01-07T00:47:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.94,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures/carotid",
+    "type": "clinical-procedure",
+    "difficulty": "advanced",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "PROC-003",
+    "title": "Carotid Artery Stenting Technique",
+    "definition": "Endovascular technique for carotid artery stenosis treatment including access, embolic protection, angioplasty, and stent deployment.",
+    "concepts": [
+      {
+        "concept_id": "access",
+        "term": "Arterial Access",
+        "definition": "Vascular access for carotid stenting, typically via common femoral artery with selective catheterization of CCA.",
+        "clinical_features": {
+          "approach": ["Femoral", "Radial", "Direct carotid"],
+          "sheath_size": "6-8 French",
+          "guide_catheter": "90cm, 0.038\" compatible"
+        }
+      },
+      {
+        "concept_id": "embolic-protection",
+        "term": "Embolic Protection Devices",
+        "definition": "Devices to capture or prevent distal embolization during carotid intervention.",
+        "clinical_features": {
+          "distal_filter": ["FilterWire EZ", "Spider FX", "Emboshield NAV6"],
+          "proximal_occlusion": ["Mo.Ma", "Gore flow reversal"],
+          "mechanism": "Filter capture vs flow reversal"
+        }
+      },
+      {
+        "concept_id": "stent-deployment",
+        "term": "Stent Selection and Deployment",
+        "definition": "Carotid stent selection based on lesion characteristics and deployment technique.",
+        "clinical_features": {
+          "stent_types": ["Open-cell (Acculink, Wallstent)", "Closed-cell (Xact, NexStent)", "Hybrid (Cristallo Ideale)"],
+          "sizing": "1-2mm larger than reference vessel",
+          "predilation": "Often with 4mm balloon",
+          "postdilation": "5-6mm balloon to 8-10 atm"
+        }
+      },
+      {
+        "concept_id": "hemodynamic-management",
+        "term": "Hemodynamic Management",
+        "definition": "Management of bradycardia and hypotension from carotid body stimulation during CAS.",
+        "clinical_features": {
+          "mechanism": "Carotid body baroreceptor stimulation",
+          "prophylaxis": ["Atropine pretreatment", "Glycopyrrolate"],
+          "treatment": ["IV fluids", "Vasopressors", "Temporary pacing"]
+        }
+      }
+    ],
+    "clinical_features": {
+      "indications": ["High surgical risk", "Radiation-induced stenosis", "Post-CEA restenosis", "Hostile neck"],
+      "contraindications": ["Heavily calcified lesion", "Intraluminal thrombus", "Tortuous arch"],
+      "antiplatelet": "Dual antiplatelet therapy minimum 30 days pre/post"
+    },
+    "diagnostic_criteria": {
+      "technical_success": "Residual stenosis <30%",
+      "completion": "Angiography with intracranial views"
+    }
+  },
+  "relationships": [
+    {"type": "alternative_to", "target": "vascular:procedure:carotid:cea-technique"},
+    {"type": "requires", "target": "vascular:anatomy:aortic-arch"},
+    {"type": "informed_by", "target": "vascular:trial:crest"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Brott TG et al. N Engl J Med. 2010;363:11-23", "type": "primary"},
+      {"reference": "Rosenfield K et al. N Engl J Med. 2016;374:1011-1020", "type": "primary"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

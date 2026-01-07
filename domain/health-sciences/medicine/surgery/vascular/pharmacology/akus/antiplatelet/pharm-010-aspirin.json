@@ -1,0 +1,88 @@
+{
+  "@context": "aku-v2",
+  "@type": "pharmacology",
+  "@id": "vascular:pharmacology:antiplatelet:aspirin",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:54:00.000Z",
+    "updated": "2026-01-07T00:54:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.96,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pharmacology",
+    "type": "pharmacology",
+    "difficulty": "foundational",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "PHARM-010",
+    "title": "Aspirin in Vascular Surgery",
+    "definition": "Acetylsalicylic acid as cornerstone antiplatelet therapy for arterial disease prevention and treatment.",
+    "concepts": [
+      {
+        "concept_id": "mechanism",
+        "term": "Mechanism of Action",
+        "definition": "Irreversible acetylation of cyclooxygenase-1 (COX-1) inhibiting thromboxane A2 synthesis.",
+        "clinical_features": {
+          "target": "COX-1 in platelets",
+          "product_inhibited": "Thromboxane A2 (TXA2)",
+          "effect": "Prevents platelet aggregation",
+          "duration": "Lifespan of platelet (7-10 days)"
+        }
+      },
+      {
+        "concept_id": "dosing",
+        "term": "Aspirin Dosing",
+        "definition": "Recommended dosing for different vascular indications.",
+        "clinical_features": {
+          "primary_prevention": "Not routinely recommended (USPSTF 2022)",
+          "secondary_prevention": "81-325 mg daily",
+          "acute_acs": "162-325 mg loading dose",
+          "post_intervention": ["81 mg daily long-term", "Higher doses for specific indications"]
+        }
+      },
+      {
+        "concept_id": "resistance",
+        "term": "Aspirin Resistance",
+        "definition": "Failure of aspirin to adequately inhibit platelet function.",
+        "clinical_features": {
+          "prevalence": "5-60% depending on definition",
+          "mechanisms": ["Poor compliance", "Drug interactions (NSAIDs)", "Genetic polymorphisms", "Increased platelet turnover"],
+          "testing": ["Light transmission aggregometry", "VerifyNow", "TEG platelet mapping"],
+          "clinical_significance": "Controversial - routine testing not recommended"
+        }
+      },
+      {
+        "concept_id": "perioperative",
+        "term": "Perioperative Aspirin Management",
+        "definition": "Guidelines for aspirin use around surgical procedures.",
+        "clinical_features": {
+          "continue": ["Carotid surgery", "Coronary surgery", "Peripheral bypass", "Recent coronary stent"],
+          "consider_holding": ["Intracranial surgery", "Spine surgery", "Very high bleeding risk"],
+          "hold_duration": "7-10 days if discontinued"
+        }
+      }
+    ],
+    "clinical_features": {
+      "side_effects": ["GI bleeding", "Hemorrhagic stroke", "Aspirin-exacerbated respiratory disease"],
+      "gi_protection": "PPI co-prescription in high-risk patients"
+    },
+    "diagnostic_criteria": {
+      "effectiveness": "Platelet function testing if resistance suspected"
+    }
+  },
+  "relationships": [
+    {"type": "synergistic_with", "target": "vascular:pharmacology:p2y12-inhibitors"},
+    {"type": "used_in", "target": "vascular:procedures:bypass"},
+    {"type": "secondary_prevention", "target": "vascular:pathology:arterial:pad"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Antithrombotic Trialists' Collaboration. Lancet. 2009;373:1849-1860", "type": "meta-analysis"},
+      {"reference": "CAPRIE Steering Committee. Lancet. 1996;348:1329-1339", "type": "primary"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

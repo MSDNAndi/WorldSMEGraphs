@@ -1,0 +1,82 @@
+{
+  "@context": "aku-v2",
+  "@type": "syndrome",
+  "@id": "vascular:pathology:venous:post-thrombotic-syndrome",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:50:00.000Z",
+    "updated": "2026-01-07T00:50:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.94,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "syndrome",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "VEN-006",
+    "title": "Post-Thrombotic Syndrome",
+    "definition": "Chronic venous insufficiency that develops following deep vein thrombosis, characterized by leg pain, swelling, and skin changes.",
+    "concepts": [
+      {
+        "concept_id": "pathophysiology",
+        "term": "PTS Pathophysiology",
+        "definition": "Combination of residual venous obstruction and valvular reflux from thrombus-induced valve damage.",
+        "clinical_features": {
+          "mechanisms": ["Venous hypertension", "Valvular incompetence", "Chronic obstruction", "Impaired calf muscle pump"],
+          "timeline": "Develops 1-2 years after DVT in 20-50%",
+          "risk_factors": ["Iliofemoral location", "Recurrent DVT", "Obesity", "Older age", "Inadequate anticoagulation"]
+        }
+      },
+      {
+        "concept_id": "villalta-scale",
+        "term": "Villalta Scale",
+        "definition": "Validated clinical scoring system for diagnosis and severity grading of PTS.",
+        "clinical_features": {
+          "symptoms": ["Pain", "Cramps", "Heaviness", "Pruritus", "Paresthesia"],
+          "signs": ["Edema", "Skin induration", "Hyperpigmentation", "Redness", "Calf tenderness", "Venous ectasia"],
+          "scoring": {
+            "no_pts": "<5 points",
+            "mild": "5-9 points",
+            "moderate": "10-14 points",
+            "severe": "≥15 points or venous ulcer"
+          }
+        }
+      },
+      {
+        "concept_id": "treatment",
+        "term": "PTS Treatment",
+        "definition": "Management strategies for post-thrombotic syndrome.",
+        "clinical_features": {
+          "conservative": ["Compression therapy 30-40 mmHg", "Leg elevation", "Exercise", "Weight loss"],
+          "pharmacologic": ["Venoactive drugs (micronized purified flavonoid fraction)", "Pentoxifylline for ulcers"],
+          "interventional": ["Venous stenting for obstruction", "Valve repair/transplant (experimental)"],
+          "wound_care": "Compression, debridement, skin grafting for ulcers"
+        }
+      }
+    ],
+    "clinical_features": {
+      "prevention": "Adequate anticoagulation duration, early mobilization",
+      "quality_of_life": "Significant impact on work capacity and daily activities"
+    },
+    "diagnostic_criteria": {
+      "diagnosis": "Villalta score ≥5 at least 6 months after DVT",
+      "imaging": "Duplex to assess reflux and residual obstruction"
+    }
+  },
+  "relationships": [
+    {"type": "sequela_of", "target": "vascular:pathology:venous:dvt"},
+    {"type": "prevented_by", "target": "vascular:pathology:venous:cdt"},
+    {"type": "related_to", "target": "vascular:pathology:venous:cvi"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Kahn SR et al. Blood. 2014;124:2636-2641", "type": "primary"},
+      {"reference": "Kahn SR et al. J Thromb Haemost. 2009;7:879-883", "type": "primary"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

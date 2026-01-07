@@ -1,0 +1,79 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-procedure",
+  "@id": "vascular:procedure:carotid:cea-indications",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:45:00.000Z",
+    "updated": "2026-01-07T00:45:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures/carotid",
+    "type": "clinical-procedure",
+    "difficulty": "advanced",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "PROC-001",
+    "title": "Carotid Endarterectomy Indications",
+    "definition": "Evidence-based indications for carotid endarterectomy (CEA) based on symptom status and degree of stenosis, derived from landmark randomized controlled trials.",
+    "concepts": [
+      {
+        "concept_id": "symptomatic-indication",
+        "term": "Symptomatic CEA Indication",
+        "definition": "CEA indicated for symptomatic patients with 50-99% stenosis who have experienced ipsilateral TIA or stroke within 6 months, based on NASCET and ECST trials.",
+        "clinical_features": {
+          "stenosis_threshold": "≥50% by NASCET criteria",
+          "symptoms": ["Ipsilateral TIA", "Minor stroke", "Amaurosis fugax"],
+          "timing": "Within 14 days of symptom onset optimal",
+          "nnt": "6 to prevent one stroke at 5 years"
+        }
+      },
+      {
+        "concept_id": "asymptomatic-indication",
+        "term": "Asymptomatic CEA Indication",
+        "definition": "CEA may be considered for asymptomatic patients with 60-99% stenosis if perioperative risk <3%, based on ACAS and ACST trials.",
+        "clinical_features": {
+          "stenosis_threshold": "≥60% by NASCET criteria",
+          "perioperative_risk": "<3% combined stroke and death",
+          "life_expectancy": ">5 years required for benefit",
+          "nnt": "17 to prevent one stroke at 5 years"
+        }
+      },
+      {
+        "concept_id": "contraindications",
+        "term": "CEA Contraindications",
+        "definition": "Conditions that preclude or relatively contraindicate carotid endarterectomy.",
+        "clinical_features": {
+          "absolute": ["Complete occlusion", "Severe neurologic deficit"],
+          "relative": ["Radiation-induced stenosis", "Hostile neck", "High carotid bifurcation", "Severe medical comorbidities"]
+        }
+      }
+    ],
+    "clinical_features": {
+      "evaluation": "Duplex ultrasound, CTA or MRA for stenosis quantification",
+      "timing_benefit": "Greatest benefit within 2 weeks of symptoms",
+      "patient_selection": "Multidisciplinary assessment required"
+    },
+    "diagnostic_criteria": {
+      "NASCET_method": "[(1 - Nd/Cc) × 100] where Nd = narrowest diameter, Cc = normal distal ICA",
+      "ECST_method": "[(1 - Nd/Cb) × 100] where Cb = estimated bulb diameter"
+    }
+  },
+  "relationships": [
+    {"type": "prerequisite", "target": "vascular:anatomy:carotid-bifurcation"},
+    {"type": "related_to", "target": "vascular:procedure:carotid-stenting"},
+    {"type": "informed_by", "target": "vascular:trial:nascet"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "NASCET Collaborators. N Engl J Med. 1991;325:445-453", "type": "primary"},
+      {"reference": "ECST Collaborative Group. Lancet. 1998;351:1379-1387", "type": "primary"},
+      {"reference": "Ricotta JJ et al. J Vasc Surg. 2011;54:e1-e31", "type": "guideline"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

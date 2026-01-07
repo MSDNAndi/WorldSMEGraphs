@@ -1,0 +1,87 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-procedure",
+  "@id": "vascular:procedure:carotid:cea-technique",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:46:00.000Z",
+    "updated": "2026-01-07T00:46:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures/carotid",
+    "type": "clinical-procedure",
+    "difficulty": "advanced",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "PROC-002",
+    "title": "Carotid Endarterectomy Surgical Technique",
+    "definition": "Standard surgical technique for carotid endarterectomy including approach, arteriotomy, plaque removal, and closure options.",
+    "concepts": [
+      {
+        "concept_id": "exposure",
+        "term": "Carotid Exposure",
+        "definition": "Surgical exposure of the carotid bifurcation via longitudinal incision anterior to sternocleidomastoid muscle.",
+        "clinical_features": {
+          "incision": "Anterior border of SCM following skin crease",
+          "landmarks": ["Carotid pulse", "Angle of mandible", "Mastoid process"],
+          "structures_at_risk": ["Vagus nerve", "Hypoglossal nerve", "Marginal mandibular nerve"]
+        }
+      },
+      {
+        "concept_id": "arteriotomy",
+        "term": "Arteriotomy and Endarterectomy",
+        "definition": "Longitudinal arteriotomy from CCA across bulb into ICA with circumferential dissection of plaque in subintimal plane.",
+        "clinical_features": {
+          "plane": "External elastic lamina (adventitial plane)",
+          "endpoint": "Feathered distal endpoint in ICA",
+          "tacking_sutures": "Used if intimal flap present"
+        }
+      },
+      {
+        "concept_id": "shunting",
+        "term": "Carotid Shunting",
+        "definition": "Temporary internal shunt placement to maintain cerebral perfusion during carotid clamping.",
+        "clinical_features": {
+          "indications": ["Contralateral occlusion", "EEG changes", "Stump pressure <50 mmHg"],
+          "types": ["Javid", "Pruitt-Inahara", "Sundt"],
+          "routine_vs_selective": "Controversial - both approaches supported"
+        }
+      },
+      {
+        "concept_id": "closure",
+        "term": "Arteriotomy Closure",
+        "definition": "Options for arteriotomy closure including primary closure and patch angioplasty.",
+        "clinical_features": {
+          "primary_closure": "Acceptable if artery >5mm, no evidence of residual stenosis",
+          "patch_materials": ["Bovine pericardium", "PTFE", "Dacron", "Vein"],
+          "patch_advantage": "Reduced restenosis and perioperative stroke rates"
+        }
+      }
+    ],
+    "clinical_features": {
+      "anesthesia": "General or regional (cervical block)",
+      "cerebral_monitoring": ["EEG", "Stump pressure", "TCD", "Awake neurologic exam"],
+      "anticoagulation": "Systemic heparin 80-100 units/kg"
+    },
+    "diagnostic_criteria": {
+      "completion_assessment": "Intraoperative duplex or angiography",
+      "acceptable_velocity": "<150 cm/s peak systolic"
+    }
+  },
+  "relationships": [
+    {"type": "preceded_by", "target": "vascular:procedure:carotid:cea-indications"},
+    {"type": "requires", "target": "vascular:anatomy:carotid-bifurcation"},
+    {"type": "variant_of", "target": "vascular:procedure:carotid:eversion-cea"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Naylor AR. Eur J Vasc Endovasc Surg. 2018;55:290-298", "type": "guideline"},
+      {"reference": "Paraskevas KI et al. J Vasc Surg. 2019;70:1429-1439", "type": "review"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

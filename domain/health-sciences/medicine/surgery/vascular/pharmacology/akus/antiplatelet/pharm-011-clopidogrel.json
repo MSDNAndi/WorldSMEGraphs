@@ -1,0 +1,92 @@
+{
+  "@context": "aku-v2",
+  "@type": "pharmacology",
+  "@id": "vascular:pharmacology:antiplatelet:clopidogrel",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:55:00.000Z",
+    "updated": "2026-01-07T00:55:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pharmacology",
+    "type": "pharmacology",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "PHARM-011",
+    "title": "Clopidogrel (P2Y12 Inhibitor)",
+    "definition": "Thienopyridine prodrug antiplatelet agent that irreversibly inhibits P2Y12 ADP receptor on platelets.",
+    "concepts": [
+      {
+        "concept_id": "mechanism",
+        "term": "Mechanism of Action",
+        "definition": "Prodrug requiring hepatic CYP2C19 activation to active metabolite that irreversibly binds P2Y12 receptor.",
+        "clinical_features": {
+          "receptor": "P2Y12 ADP receptor",
+          "binding": "Irreversible (platelet lifespan effect)",
+          "cyp_activation": "CYP2C19 primary, also CYP3A4, CYP1A2",
+          "onset": "2-4 hours with loading dose"
+        }
+      },
+      {
+        "concept_id": "dosing",
+        "term": "Clopidogrel Dosing",
+        "definition": "Loading and maintenance dosing for various vascular indications.",
+        "clinical_features": {
+          "loading": "300-600 mg",
+          "maintenance": "75 mg daily",
+          "acs": "600 mg load, 75 mg daily for 12 months",
+          "stroke": "75 mg daily (no loading per CHANCE)"
+        }
+      },
+      {
+        "concept_id": "resistance",
+        "term": "Clopidogrel Resistance",
+        "definition": "Variable antiplatelet response due to genetic and drug factors.",
+        "clinical_features": {
+          "cyp2c19_polymorphism": {
+            "poor_metabolizers": "2-15% of population",
+            "lof_alleles": "*2, *3 most common",
+            "clinical_impact": "Increased stent thrombosis risk"
+          },
+          "drug_interactions": ["PPI (omeprazole strongest)", "CYP2C19 inhibitors"],
+          "alternatives": ["Prasugrel", "Ticagrelor"]
+        }
+      },
+      {
+        "concept_id": "indications",
+        "term": "Vascular Surgery Indications",
+        "definition": "Role of clopidogrel in vascular surgery patients.",
+        "clinical_features": {
+          "carotid_stent": "DAPT for minimum 30 days, ideally 3-6 months",
+          "peripheral_stent": "DAPT for 1-3 months",
+          "aspirin_intolerance": "Alternative monotherapy",
+          "pad": "May be superior to aspirin (CAPRIE)"
+        }
+      }
+    ],
+    "clinical_features": {
+      "perioperative": "Hold 5-7 days pre-elective surgery",
+      "testing": "CYP2C19 genotyping or platelet function testing in high-risk"
+    },
+    "diagnostic_criteria": {
+      "platelet_inhibition": "PRU <208 considered adequate on VerifyNow"
+    }
+  },
+  "relationships": [
+    {"type": "combined_with", "target": "vascular:pharmacology:aspirin"},
+    {"type": "alternative_to", "target": "vascular:pharmacology:ticagrelor"},
+    {"type": "used_in", "target": "vascular:procedures:stenting"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Mega JL et al. N Engl J Med. 2009;360:354-362", "type": "primary"},
+      {"reference": "Wallentin L et al. Lancet. 2010;376:1320-1328", "type": "primary"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "@context": "aku-v2",
+  "@type": "pharmacology",
+  "@id": "vascular:pharmacology:anticoagulation:warfarin",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:53:00.000Z",
+    "updated": "2026-01-07T00:53:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pharmacology",
+    "type": "pharmacology",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "PHARM-005",
+    "title": "Warfarin Anticoagulation",
+    "definition": "Vitamin K antagonist anticoagulant used for prevention and treatment of thromboembolic disorders.",
+    "concepts": [
+      {
+        "concept_id": "mechanism",
+        "term": "Mechanism of Action",
+        "definition": "Inhibits vitamin K epoxide reductase, preventing gamma-carboxylation of factors II, VII, IX, and X.",
+        "clinical_features": {
+          "affected_factors": ["Factor II (prothrombin)", "Factor VII", "Factor IX", "Factor X"],
+          "affected_proteins": ["Protein C", "Protein S"],
+          "onset": "Full effect 5-7 days due to factor half-lives"
+        }
+      },
+      {
+        "concept_id": "monitoring",
+        "term": "INR Monitoring",
+        "definition": "International Normalized Ratio for standardized warfarin monitoring.",
+        "clinical_features": {
+          "target_ranges": {
+            "vte": "2.0-3.0",
+            "mechanical_valve": "2.5-3.5",
+            "af": "2.0-3.0"
+          },
+          "time_in_range": "Goal >65-70% TTR",
+          "frequency": "Weekly until stable, then monthly"
+        }
+      },
+      {
+        "concept_id": "interactions",
+        "term": "Drug and Food Interactions",
+        "definition": "Extensive interactions affecting warfarin metabolism and vitamin K availability.",
+        "clinical_features": {
+          "potentiators": ["Amiodarone", "Fluconazole", "Metronidazole", "TMP-SMX", "Cranberry"],
+          "inhibitors": ["Rifampin", "Carbamazepine", "Phenytoin", "St. John's wort"],
+          "vitamin_k_foods": ["Leafy greens", "Liver", "Certain oils"],
+          "cyp2c9_cyp4f2": "Genetic polymorphisms affect dosing"
+        }
+      },
+      {
+        "concept_id": "reversal",
+        "term": "Warfarin Reversal",
+        "definition": "Strategies for reversing warfarin anticoagulation in bleeding or urgent surgery.",
+        "clinical_features": {
+          "vitamin_k": {
+            "oral": "2.5-5 mg for elevated INR without bleeding",
+            "iv": "10 mg for serious bleeding",
+            "onset": "6-24 hours"
+          },
+          "4_factor_pcc": ["Immediate reversal", "25-50 units/kg based on INR", "Preferred over FFP"],
+          "ffp": "15 mL/kg if PCC unavailable"
+        }
+      }
+    ],
+    "clinical_features": {
+      "bridge_therapy": "LMWH or UFH during initiation until INR therapeutic",
+      "perioperative": "Hold 5 days pre-procedure for most surgeries"
+    },
+    "diagnostic_criteria": {
+      "supratherapeutic": "INR >4 requires dose adjustment",
+      "critical": "INR >10 requires vitamin K"
+    }
+  },
+  "relationships": [
+    {"type": "alternative_to", "target": "vascular:pharmacology:doac"},
+    {"type": "treats", "target": "vascular:pathology:venous:dvt"},
+    {"type": "reversed_by", "target": "vascular:pharmacology:vitamin-k"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Holbrook A et al. Chest. 2012;141:e52S-e88S", "type": "guideline"},
+      {"reference": "Ageno W et al. Chest. 2012;141:e52S-e88S", "type": "guideline"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

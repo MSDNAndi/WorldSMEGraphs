@@ -1,0 +1,91 @@
+{
+  "@context": "aku-v2",
+  "@type": "diagnostic-procedure",
+  "@id": "vascular:diagnostics:imaging:cta-protocols",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:51:00.000Z",
+    "updated": "2026-01-07T00:51:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics/imaging",
+    "type": "diagnostic-procedure",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "DX-020",
+    "title": "CTA Protocols in Vascular Surgery",
+    "definition": "Computed tomography angiography protocols optimized for different vascular territories and clinical indications.",
+    "concepts": [
+      {
+        "concept_id": "aortic-cta",
+        "term": "Aortic CTA Protocol",
+        "definition": "CT angiography protocol for evaluation of thoracic and abdominal aortic pathology.",
+        "clinical_features": {
+          "phases": {
+            "non_contrast": "For intramural hematoma, calcification",
+            "arterial": "20-25 sec delay, aortic opacification",
+            "delayed": "60-70 sec, for endoleak detection"
+          },
+          "coverage": "Thoracic inlet to femoral heads",
+          "contrast": "100-120 mL at 4-5 mL/sec"
+        }
+      },
+      {
+        "concept_id": "runoff-cta",
+        "term": "Lower Extremity Runoff CTA",
+        "definition": "CTA protocol for peripheral arterial disease evaluation from aorta to feet.",
+        "clinical_features": {
+          "bolus_tracking": "Trigger at abdominal aorta >150 HU",
+          "coverage": "Renal arteries to toes",
+          "technique": ["Test bolus vs bolus tracking", "Dual-phase for slow flow"],
+          "contrast": "100-150 mL at 4 mL/sec"
+        }
+      },
+      {
+        "concept_id": "carotid-cta",
+        "term": "Carotid CTA Protocol",
+        "definition": "CTA protocol for extracranial and intracranial carotid evaluation.",
+        "clinical_features": {
+          "coverage": "Aortic arch to vertex",
+          "timing": "Bolus tracking at aortic arch",
+          "collimation": "0.5-0.625 mm for fine detail",
+          "contrast": "60-80 mL at 4-5 mL/sec"
+        }
+      },
+      {
+        "concept_id": "venous-cta",
+        "term": "CT Venography Protocol",
+        "definition": "Delayed phase CT for venous thrombosis and compression syndromes.",
+        "clinical_features": {
+          "timing": "180-240 sec delay",
+          "indications": ["DVT", "IVC thrombus", "May-Thurner", "IVCS"],
+          "contrast": "150 mL or split bolus technique"
+        }
+      }
+    ],
+    "clinical_features": {
+      "radiation_reduction": ["Iterative reconstruction", "Tube current modulation", "Low kVp"],
+      "contrast_safety": ["eGFR check", "Hydration", "Minimize volume in CKD"]
+    },
+    "diagnostic_criteria": {
+      "quality_metrics": "HU >200 in target vessel, minimal artifact"
+    }
+  },
+  "relationships": [
+    {"type": "alternative_to", "target": "vascular:diagnostics:mra"},
+    {"type": "superior_to", "target": "vascular:diagnostics:catheter-angiography"},
+    {"type": "supports", "target": "vascular:procedures:endovascular-planning"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Fleischmann D et al. Radiology. 2006;241:718-738", "type": "review"},
+      {"reference": "Defined by ACR-ASNR-SIR Practice Parameters", "type": "guideline"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}
