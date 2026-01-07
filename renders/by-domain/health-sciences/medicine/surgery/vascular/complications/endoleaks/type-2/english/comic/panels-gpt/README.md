@@ -8,6 +8,7 @@
 - Tip: run generator with `--no-git` if you prefer to stage files manually to avoid git warnings.
 - `alt-text.md` provides accessibility descriptions; `panel-map.json` also includes `alt_text`.
 - Refresh mapping with `python ../refresh_panel_map.py` after regenerating images or prompts.
+- Validate assets with `python ../validate_comic.py`.
 
 ## Panel → File map
 1. image_001_20260107_013733_e1ae2fc8.png
