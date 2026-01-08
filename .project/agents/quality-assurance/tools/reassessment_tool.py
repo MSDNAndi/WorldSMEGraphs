@@ -110,9 +110,15 @@ class ReassessmentTool:
         
         # 1. Scheduled reassessment check
         if last_assessment:
-            last_date = datetime.fromisoformat(
-                last_assessment.get("date", "2020-01-01").replace("Z", "")
-            )
+            date_str = last_assessment.get("date", "2020-01-01T00:00:00+00:00")
+            # Handle both Z suffix and +00:00 suffix
+            date_str = date_str.replace("Z", "+00:00")
+            try:
+                last_date = datetime.fromisoformat(date_str)
+            except ValueError:
+                # Fallback for dates without timezone
+                last_date = datetime.fromisoformat(date_str.replace("+00:00", "")).replace(tzinfo=timezone.utc)
+            
             grade = last_assessment.get("grade", "C")
             
             # Map grade to letter for interval lookup
@@ -175,9 +181,12 @@ class ReassessmentTool:
         
         # 2. Time since last assessment
         if last_assessment:
-            last_date = datetime.fromisoformat(
-                last_assessment.get("date", "2020-01-01").replace("Z", "")
-            )
+            date_str = last_assessment.get("date", "2020-01-01T00:00:00+00:00")
+            date_str = date_str.replace("Z", "+00:00")
+            try:
+                last_date = datetime.fromisoformat(date_str)
+            except ValueError:
+                last_date = datetime.fromisoformat(date_str.replace("+00:00", "")).replace(tzinfo=timezone.utc)
             days_ago = (datetime.now(timezone.utc) - last_date).days
             time_score = min(days_ago / 180, 1.0)  # Max out at 180 days
             score += time_score * weights["time_since_assessment"]
