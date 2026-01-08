@@ -1,0 +1,153 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-020-risk-adjusted-discount-rates",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T17:35:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.94,
+    "status": "validated",
+    "last_updated": "2026-01-08T17:35:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/corporate-finance/capital-budgeting",
+    "type": "theory",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "020",
+    "keywords": [
+      "risk-adjusted discount rate",
+      "risk premium",
+      "project risk",
+      "capm",
+      "hurdle rate"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "Risk-Adjusted Discount Rates reflect the principle that higher-risk projects require higher expected returns. Rather than using the company's overall WACC for all projects, the discount rate should be adjusted based on the specific risk characteristics of each project. This ensures that NPV analysis properly values risky cash flows.",
+      "formal": "Risk-Adjusted Rate = Risk-free Rate + β_project × (Market Premium) = rᶠ + β × (rₘ - rᶠ)"
+    },
+    "explanation": {
+      "intuition": "Would you accept the same return for a guaranteed government bond and a speculative startup investment? Of course not - you'd demand higher returns for taking more risk. The same logic applies to corporate projects: a risky R&D project should be evaluated with a higher discount rate than a routine equipment replacement.",
+      "key_insight": "Using a single company-wide discount rate for all projects leads to systematic errors: it overvalues high-risk projects (their discount rate is too low) and undervalues low-risk projects (their discount rate is too high). This 'accept the risky, reject the safe' bias can destroy shareholder value over time.",
+      "technical_details": "Project-specific rates can be estimated using: (1) Pure play method - find comparable firms with similar risk, (2) Subjective adjustment - add premium to WACC based on judgment, (3) CAPM-based - estimate project beta from comparable assets. The beta should reflect the systematic risk of the project's cash flows, not the company's overall beta.",
+      "common_misconceptions": [
+        "WACC is appropriate for all projects - only for average-risk projects",
+        "Higher risk always means higher discount rate - only systematic (undiversifiable) risk matters",
+        "Project risk equals company risk - projects can be much riskier or safer than the company average",
+        "Certainty equivalent method gives different answers - mathematically equivalent if done correctly"
+      ]
+    },
+    "definitions_glossary": {
+      "systematic_risk": "Risk that cannot be diversified away, measured by beta",
+      "project_beta": "The sensitivity of project cash flows to market movements",
+      "pure_play_method": "Finding comparable firms to estimate project-specific risk",
+      "risk_premium": "Additional return required above risk-free rate for bearing risk"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "wacc-formula",
+      "capm-formula",
+      "npv-definition"
+    ],
+    "enables": [
+      "project-specific-valuation",
+      "real-options-analysis",
+      "risk-return-tradeoff"
+    ],
+    "related_to": [
+      "certainty-equivalent-method",
+      "beta-estimation",
+      "cost-of-equity"
+    ],
+    "part_of": "advanced-capital-budgeting",
+    "skos:broader": [
+      {
+        "@id": "wsmg:capital-budgeting-definition",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:capm",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:wacc-formula",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "245-265",
+        "isbn": "978-1260013900"
+      },
+      {
+        "type": "paper",
+        "title": "Divisional Cost of Capital",
+        "authors": ["Haim Levy", "Marshall Sarnat"],
+        "journal": "Financial Management",
+        "year": 1978,
+        "volume": "7",
+        "pages": "38-47",
+        "doi": "10.2307/3665177"
+      }
+    ],
+    "extraction_method": "Manual curation from academic sources",
+    "validation_method": "Cross-validated with corporate finance practice",
+    "validation_date": "2026-01-08",
+    "confidence_factors": [
+      "Well-established in academic literature",
+      "Standard practice in sophisticated firms",
+      "Logical extension of CAPM/WACC"
+    ],
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T17:35:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "MBA",
+      "CFA candidates",
+      "corporate finance professionals"
+    ],
+    "learning_objectives": [
+      "Explain why project-specific discount rates are necessary",
+      "Estimate risk-adjusted rates using the pure play method",
+      "Apply CAPM to project evaluation",
+      "Identify when to deviate from company WACC"
+    ],
+    "estimated_time_minutes": 30,
+    "prerequisites_description": "WACC, CAPM, beta, systematic vs unsystematic risk",
+    "common_errors": [
+      "Adding arbitrary risk premiums without justification",
+      "Using firm beta for project with different risk profile",
+      "Ignoring financing effects (unlever then relever beta)",
+      "Double-counting risk (in both cash flows and discount rate)"
+    ],
+    "practice_problems": [
+      "Your firm's WACC is 10%. An R&D project has similar risk to biotech firms with 15% WACC. What rate to use?",
+      "How do you find the beta for a new product line with no comparable firms?",
+      "A safe utility-like division and a risky tech division - should they use the same hurdle rate?"
+    ]
+  },
+  "skos:prefLabel": "Risk-Adjusted Discount Rates",
+  "skos:notation": "aku-020-risk-adjusted-discount-rates",
+  "skos:definition": "The practice of adjusting the discount rate based on project-specific risk rather than using a single company-wide rate.",
+  "skos:altLabel": ["Project-Specific Discount Rate", "Risk-Adjusted Hurdle Rate"]
+}

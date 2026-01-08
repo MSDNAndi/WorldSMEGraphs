@@ -1,0 +1,214 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-013-wacc-formula",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T17:30:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-08T17:30:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/corporate-finance/cost-of-capital",
+    "type": "formula",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "013",
+    "keywords": [
+      "wacc",
+      "weighted average cost of capital",
+      "cost of capital",
+      "discount rate",
+      "capital structure"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The Weighted Average Cost of Capital (WACC) is the rate a company is expected to pay on average to all its security holders to finance its assets. It represents the minimum return that a company must earn on an existing asset base to satisfy its creditors, owners, and other capital providers.",
+      "formal": "WACC = (E/V) × rₑ + (D/V) × rᵈ × (1-T), where E = market value of equity, D = market value of debt, V = E+D, rₑ = cost of equity, rᵈ = cost of debt, T = tax rate"
+    },
+    "explanation": {
+      "intuition": "WACC is like the blended interest rate a company pays on all its financing. If you borrow some money at 5% and get some from investors who expect 12%, your overall cost is somewhere in between, weighted by how much of each you use.",
+      "key_insight": "WACC is the appropriate discount rate for evaluating projects with similar risk to the company's existing operations. The tax shield on debt (1-T term) reflects that interest payments are tax-deductible, making debt cheaper than its stated rate. This is why many companies use some debt financing.",
+      "technical_details": "The cost of equity (rₑ) is typically estimated using CAPM: rₑ = rᶠ + β(rₘ - rᶠ). The cost of debt (rᵈ) is the yield on the company's bonds or its borrowing rate. Market values, not book values, should be used for weights. WACC assumes a constant capital structure.",
+      "common_misconceptions": [
+        "Book values should be used - market values are correct",
+        "WACC is constant over time - it changes with capital structure and market conditions",
+        "WACC applies to all projects - only for projects with similar risk to the firm",
+        "Higher debt always lowers WACC - true only to a point before distress costs dominate"
+      ]
+    },
+    "definitions_glossary": {
+      "cost_of_equity": "The return required by equity investors, reflecting the risk of their investment",
+      "cost_of_debt": "The effective rate a company pays on its borrowed funds",
+      "tax_shield": "The reduction in taxes from deductible interest payments",
+      "capital_structure": "The mix of debt and equity financing used by a company"
+    }
+  },
+  "representations": {
+    "latex": "WACC = \\frac{E}{V} \\times r_e + \\frac{D}{V} \\times r_d \\times (1-T)",
+    "python": {
+      "code": "def calculate_wacc(equity_value: float, debt_value: float, \n                   cost_of_equity: float, cost_of_debt: float,\n                   tax_rate: float) -> float:\n    \"\"\"\n    Calculate Weighted Average Cost of Capital.\n    \n    Args:\n        equity_value: Market value of equity (E)\n        debt_value: Market value of debt (D)\n        cost_of_equity: Required return on equity (rₑ)\n        cost_of_debt: Interest rate on debt (rᵈ)\n        tax_rate: Corporate tax rate (T)\n    \n    Returns:\n        WACC as decimal\n    \n    Example:\n        >>> calculate_wacc(500, 200, 0.12, 0.06, 0.25)\n        0.0986  # 9.86%\n    \"\"\"\n    total_value = equity_value + debt_value\n    equity_weight = equity_value / total_value\n    debt_weight = debt_value / total_value\n    \n    wacc = (equity_weight * cost_of_equity + \n            debt_weight * cost_of_debt * (1 - tax_rate))\n    return wacc",
+      "test_cases": [
+        {
+          "input": {"equity_value": 500, "debt_value": 200, "cost_of_equity": 0.12, "cost_of_debt": 0.06, "tax_rate": 0.25},
+          "expected_output": 0.0986,
+          "description": "Typical company with 71% equity, 29% debt",
+          "tolerance": 0.001
+        },
+        {
+          "input": {"equity_value": 100, "debt_value": 0, "cost_of_equity": 0.10, "cost_of_debt": 0.0, "tax_rate": 0.30},
+          "expected_output": 0.10,
+          "description": "100% equity financed - WACC equals cost of equity",
+          "tolerance": 0.001
+        }
+      ]
+    },
+    "julia": "wacc(E, D, re, rd, T) = (E/(E+D))*re + (D/(E+D))*rd*(1-T)",
+    "wolfram": "WACC[E_, D_, re_, rd_, T_] := (E/(E+D))*re + (D/(E+D))*rd*(1-T)"
+  },
+  "variables": {
+    "WACC": {
+      "symbol": "WACC",
+      "name": "Weighted Average Cost of Capital",
+      "type": "percentage",
+      "constraints": ["0 < WACC < 1 typically"]
+    },
+    "E": {
+      "symbol": "E",
+      "name": "Market Value of Equity",
+      "type": "currency",
+      "constraints": ["E > 0"]
+    },
+    "D": {
+      "symbol": "D",
+      "name": "Market Value of Debt",
+      "type": "currency",
+      "constraints": ["D ≥ 0"]
+    },
+    "r_e": {
+      "symbol": "rₑ",
+      "name": "Cost of Equity",
+      "type": "percentage",
+      "constraints": ["r_e > r_f (risk premium)"]
+    },
+    "r_d": {
+      "symbol": "rᵈ",
+      "name": "Cost of Debt",
+      "type": "percentage",
+      "constraints": ["Pre-tax cost"]
+    },
+    "T": {
+      "symbol": "T",
+      "name": "Corporate Tax Rate",
+      "type": "percentage",
+      "constraints": ["0 ≤ T < 1"]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "cost-of-equity-capm",
+      "capital-structure-theory",
+      "time-value-of-money"
+    ],
+    "enables": [
+      "npv-calculation",
+      "dcf-valuation",
+      "project-hurdle-rate"
+    ],
+    "related_to": [
+      "capm-formula",
+      "modigliani-miller",
+      "optimal-capital-structure"
+    ],
+    "part_of": "cost-of-capital-analysis",
+    "skos:broader": [
+      {
+        "@id": "wsmg:cost-of-capital",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:capm",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "230-255",
+        "isbn": "978-1260013900"
+      },
+      {
+        "type": "textbook",
+        "title": "Corporate Finance",
+        "authors": ["Stephen Ross", "Randolph Westerfield", "Jeffrey Jaffe"],
+        "edition": "12th",
+        "year": 2019,
+        "pages": "385-410",
+        "isbn": "978-1259918940"
+      }
+    ],
+    "extraction_method": "Manual curation from corporate finance textbooks",
+    "validation_method": "Verified with executable code and test cases",
+    "validation_date": "2026-01-08",
+    "confidence_factors": [
+      "Standard corporate finance formula",
+      "Widely used in industry practice",
+      "Code produces expected results"
+    ],
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T17:30:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "undergraduate finance",
+      "MBA",
+      "CFA candidates",
+      "corporate finance professionals"
+    ],
+    "learning_objectives": [
+      "Calculate WACC from company data",
+      "Understand the tax shield effect",
+      "Determine appropriate discount rate for NPV",
+      "Analyze impact of capital structure on WACC"
+    ],
+    "estimated_time_minutes": 25,
+    "prerequisites_description": "Cost of equity (CAPM), cost of debt, capital structure basics",
+    "common_errors": [
+      "Using book values instead of market values",
+      "Forgetting the tax shield on debt",
+      "Applying WACC to projects with different risk",
+      "Confusing pre-tax and after-tax cost of debt"
+    ],
+    "practice_problems": [
+      "A company has $300M equity (cost 11%), $100M debt (cost 5%), 30% tax. Calculate WACC.",
+      "How does WACC change if the company doubles its debt?",
+      "Why is after-tax cost of debt used but not after-tax cost of equity?"
+    ]
+  },
+  "skos:prefLabel": "Weighted Average Cost of Capital",
+  "skos:notation": "aku-013-wacc-formula",
+  "skos:definition": "The blended rate of return required by all capital providers (debt and equity), used as the discount rate for firm valuation.",
+  "skos:altLabel": ["WACC", "Cost of Capital", "Kapitalkosten"],
+  "owl:sameAs": "http://dbpedia.org/resource/Weighted_average_cost_of_capital",
+  "skos:exactMatch": [
+    "http://dbpedia.org/resource/Weighted_average_cost_of_capital",
+    "http://www.wikidata.org/entity/Q665452"
+  ]
+}

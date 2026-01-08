@@ -293,14 +293,139 @@ Before using on production:
 
 **Solution**: Reduce parallelism or process smaller batches.
 
+### 10. comprehensive_quality_assessment.py (NEW)
+
+**Purpose**: Multi-dimensional quality assessment with scoring and tracking
+
+**Usage**:
+```bash
+# Single AKU - standard assessment
+python .project/agents/quality-assurance/tools/comprehensive_quality_assessment.py path/to/aku.json
+
+# Directory assessment
+python .project/agents/quality-assurance/tools/comprehensive_quality_assessment.py --directory path/to/akus/
+
+# Domain assessment
+python .project/agents/quality-assurance/tools/comprehensive_quality_assessment.py --domain health-sciences
+
+# Comprehensive assessment (all 8 dimensions)
+python .project/agents/quality-assurance/tools/comprehensive_quality_assessment.py path/to/aku.json --level comprehensive
+
+# Reassessment mode
+python .project/agents/quality-assurance/tools/comprehensive_quality_assessment.py path/to/aku.json --reassess
+
+# Export results to JSON
+python .project/agents/quality-assurance/tools/comprehensive_quality_assessment.py --directory path/to/akus/ --output results.json
+```
+
+**Features**:
+- **8 Quality Dimensions**:
+  1. Factual Accuracy (FA) - Verification of claims
+  2. Ontology Compliance (OC) - SKOS, JSON-LD, hierarchy
+  3. Reference Quality (RQ) - Source citations
+  4. Third-Party Verification (TPV) - Independent validation
+  5. Web Search Verification (WSV) - External links
+  6. Dependency Completeness (DC) - Required AKUs exist
+  7. Content Completeness (CC) - All sections present
+  8. Technical Quality (TQ) - Valid JSON, timestamps
+
+- **Composite Quality Score (CQS)**: Weighted average of all dimensions
+- **Grades**: A+ to F based on CQS thresholds
+- **Domain-Specific Weights**: Medical content weighted toward accuracy
+- **Missing Dependencies**: Identifies AKUs that need to be created
+- **Publication Readiness**: Checks domain-specific thresholds
+
+**Assessment Levels**:
+- `quick`: Technical + content (2-5 min)
+- `standard`: + ontology, references, dependencies (15-30 min)
+- `comprehensive`: All 8 dimensions (1-2 hours)
+
+**Output Example**:
+```
+GRADE: B+ (CQS: 0.8725)
+Publication Ready: ✅ Yes
+
+DIMENSION SCORES:
+  factual_accuracy              [████████░░] 0.84
+  ontology_compliance           [██████████] 1.00
+  reference_quality             [█████████░] 0.91
+  ...
+```
+
+**Related Framework**: See `.project/quality-assessment-framework.md` for full specification.
+
+## Quality Assessment Workflow
+
+### Complete Quality Review Process
+
+The comprehensive quality assessment framework enables multi-stage review:
+
+```
+1. CREATION → Quick Assessment
+   └─→ Pass: Proceed to Standard Assessment
+   └─→ Fail: Return for corrections
+
+2. STANDARD ASSESSMENT
+   └─→ CQS ≥ 0.80: Mark for publication review
+   └─→ CQS 0.70-0.79: Request improvements
+   └─→ CQS < 0.70: Return for rework
+
+3. COMPREHENSIVE REVIEW (for critical content)
+   └─→ All 8 dimensions assessed
+   └─→ Third-party verification
+   └─→ Web search validation
+   └─→ Missing dependencies identified
+
+4. PUBLICATION
+   └─→ Domain-specific thresholds met
+   └─→ Grade B+ or better
+   └─→ No critical issues
+```
+
+### Reassessment Triggers
+
+AKUs are reassessed when:
+- Error reported (High priority)
+- Source updated (High priority)
+- 6+ months since assessment (Medium priority)
+- Domain ontology changed (Medium priority)
+- New related AKU created (Low priority)
+
+### Quality Tracking
+
+All assessment results are stored in:
+- `.project/tracking/quality-scores.yaml` - Score database
+- Each AKU tracks: current score, history, next assessment date
+
+### Workflow Commands
+
+```bash
+# 1. Quick validation before commit
+python .project/agents/quality-assurance/tools/comprehensive_quality_assessment.py \
+  path/to/new-aku.json --level quick
+
+# 2. Standard assessment for PR review
+python .project/agents/quality-assurance/tools/comprehensive_quality_assessment.py \
+  --directory path/to/changed-akus/ --level standard
+
+# 3. Comprehensive review for publication
+python .project/agents/quality-assurance/tools/comprehensive_quality_assessment.py \
+  path/to/critical-aku.json --level comprehensive --verbose
+
+# 4. Domain-wide quality check
+python .project/agents/quality-assurance/tools/comprehensive_quality_assessment.py \
+  --domain health-sciences --output domain-quality-report.json
+```
+
 ## Version History
 
+- **v3.0** (2026-01-08): Added comprehensive_quality_assessment.py with 8-dimension scoring
 - **v2.0** (2026-01-04): Enhanced validate_aku_v2.py for new hierarchy
 - **v1.5** (2026-01-04): Updated visualize_relationships.py with new paths
 - **v1.0** (2025-12-27): Initial tool suite
 
 ---
 
-**Last Updated**: 2026-01-04  
+**Last Updated**: 2026-01-08  
 **Status**: Active and maintained  
 **Contact**: @quality-agent for questions
