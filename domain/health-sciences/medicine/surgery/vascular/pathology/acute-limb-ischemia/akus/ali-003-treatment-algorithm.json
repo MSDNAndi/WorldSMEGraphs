@@ -1,0 +1,64 @@
+{
+  "@context": "aku-v2",
+  "@type": "pathology",
+  "@id": "vasc:ali:ali-003-treatment-algorithm",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-07T02:40:00.000Z",
+    "updated": "2026-01-07T02:40:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.93,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/acute-limb-ischemia",
+    "type": "pathology",
+    "difficulty": "advanced",
+    "importance": "core"
+  },
+  "content": {
+    "title": "Acute Limb Ischemia Treatment Algorithm",
+    "description": "Evidence-based approach to managing acute limb ischemia based on severity classification and patient factors.",
+    "initial_management": {
+      "anticoagulation": "Immediate IV heparin (5000-10000 units bolus, drip)",
+      "pain_control": "Adequate analgesia",
+      "fluid_resuscitation": "Anticipate reperfusion",
+      "imaging": "Duplex or CTA if time permits"
+    },
+    "treatment_by_category": {
+      "category_I": {
+        "approach": "Elective evaluation and treatment",
+        "options": ["Medical optimization", "Scheduled revascularization if indicated"],
+        "timing": "Non-urgent"
+      },
+      "category_IIa": {
+        "approach": "Urgent revascularization",
+        "options": ["Catheter-directed thrombolysis (preferred if <14 days)", "Surgical thrombectomy", "Endovascular aspiration"],
+        "timing": "Within 6-12 hours"
+      },
+      "category_IIb": {
+        "approach": "Emergency revascularization",
+        "options": ["Surgical thrombectomy/embolectomy", "Bypass (if underlying PAD)", "Hybrid approach"],
+        "timing": "Immediate (within 6 hours)"
+      },
+      "category_III": {
+        "approach": "Primary amputation",
+        "rationale": "Reperfusion of non-viable tissue risks MODS",
+        "timing": "After stabilization"
+      }
+    },
+    "reperfusion_syndrome": {
+      "pathophysiology": "Ischemia-reperfusion injury releases myoglobin, potassium, lactate",
+      "manifestations": ["Myoglobinuria/renal failure", "Hyperkalemia", "Metabolic acidosis", "Compartment syndrome"],
+      "prevention": "Mannitol, bicarbonate, adequate hydration, fasciotomy if indicated"
+    }
+  },
+  "relationships": {
+    "related_to": ["vasc:ali:ali-001-classification", "vasc:ali:ali-002-etiology"],
+    "guides": ["vasc:ali:management"]
+  },
+  "provenance": {
+    "primary_sources": ["SVS Practice Guidelines", "TASC II Guidelines"],
+    "extraction_date": "2026-01-07"
+  }
+}

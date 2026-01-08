@@ -1,0 +1,90 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-procedure",
+  "@id": "vascular:procedure:bypass:fem-distal",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:01:00.000Z",
+    "updated": "2026-01-07T01:01:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.94,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures/bypass",
+    "type": "clinical-procedure",
+    "difficulty": "advanced",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "PROC-011",
+    "title": "Femoral-Distal Bypass",
+    "definition": "Surgical bypass from femoral artery to tibial or pedal arteries for advanced infrainguinal occlusive disease with critical limb ischemia.",
+    "concepts": [
+      {
+        "concept_id": "target-vessels",
+        "term": "Target Vessel Selection",
+        "definition": "Distal target vessel selection for infragenicular bypass.",
+        "clinical_features": {
+          "tibial_targets": ["Anterior tibial artery", "Posterior tibial artery", "Peroneal artery"],
+          "pedal_targets": ["Dorsalis pedis artery", "Plantar arteries"],
+          "selection_criteria": ["Best runoff to foot", "Continuous segment for anastomosis", "Proximity to tissue loss angiosome"]
+        }
+      },
+      {
+        "concept_id": "conduit-requirements",
+        "term": "Conduit Requirements",
+        "definition": "Autogenous vein is essential for distal bypass success.",
+        "clinical_features": {
+          "gsv_ipsilateral": "First choice, single-segment preferred",
+          "alternative_veins": ["Contralateral GSV", "Small saphenous vein", "Arm veins (cephalic, basilic)"],
+          "spliced_vein": "Acceptable when single segment unavailable",
+          "minimum_diameter": "3mm at anastomosis, ideally throughout",
+          "prosthetic": "Poor outcomes below-knee - avoid if possible"
+        }
+      },
+      {
+        "concept_id": "angiosome-concept",
+        "term": "Angiosome-Directed Revascularization",
+        "definition": "Target vessel selection based on angiosome anatomy to optimize wound healing.",
+        "clinical_features": {
+          "principle": "Direct revascularization to angiosome containing wound",
+          "anterior_tibial_angiosome": "Dorsum of foot",
+          "posterior_tibial_angiosome": "Plantar surface, heel",
+          "peroneal_angiosome": "Lateral ankle, lateral heel",
+          "evidence": "Controversial - some studies show benefit for direct revascularization"
+        }
+      },
+      {
+        "concept_id": "outcomes",
+        "term": "Outcomes",
+        "definition": "Expected outcomes for femoral-distal bypass.",
+        "clinical_features": {
+          "patency": "5-year primary patency 50-60% with autogenous vein",
+          "limb_salvage": "80-85% at 5 years",
+          "wound_healing": "70-80% complete healing for tissue loss",
+          "mortality": "2-5% perioperative"
+        }
+      }
+    ],
+    "clinical_features": {
+      "adjuncts": ["Vein cuff at distal anastomosis may improve prosthetic patency", "AV fistula creation"],
+      "surveillance": "Intensive duplex surveillance critical for early failure detection"
+    },
+    "diagnostic_criteria": {
+      "technical_success": "Palpable pedal pulse or ABI improvement"
+    }
+  },
+  "relationships": [
+    {"type": "extends", "target": "vascular:procedure:bypass:fem-pop-above"},
+    {"type": "informed_by", "target": "vascular:anatomy:angiosome"},
+    {"type": "treats", "target": "vascular:pathology:cli"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Conte MS et al. J Vasc Surg. 2019;69:3S-125S", "type": "guideline"},
+      {"reference": "Iida O et al. J Am Coll Cardiol. 2012;59:989-996", "type": "primary"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

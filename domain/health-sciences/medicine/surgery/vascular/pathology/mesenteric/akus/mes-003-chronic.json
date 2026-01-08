@@ -1,0 +1,147 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-algorithm",
+  "@id": "vascular:mesenteric:mes-003-chronic",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:20:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:20:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/mesenteric",
+    "type": "clinical_entity",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "MES-003",
+    "keywords": ["chronic mesenteric ischemia", "intestinal angina", "postprandial pain", "mesenteric stenosis"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "mesenteric_disease",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Chronic mesenteric ischemia (intestinal angina) results from atherosclerotic stenosis of mesenteric arteries, classically presenting with postprandial abdominal pain (intestinal angina), food fear, and significant weight loss, typically requiring two of three mesenteric vessels to be severely stenosed before symptoms occur due to extensive collateralization.",
+      "formal": "CMI = Postprandial_Pain + Food_Fear + Weight_Loss + Multi_Vessel_Stenosis + Revascularization_Benefits"
+    },
+    "explanation": {
+      "intuition": "The intestines need a lot of blood after eating to digest food. If the blood supply arteries are narrowed, eating causes pain - like angina of the heart but in the belly. Patients learn to fear food because eating hurts, so they lose a lot of weight. Unlike the heart, the gut has great backup blood supplies, so you usually need blockages in multiple arteries before symptoms start.",
+      "key_insight": "The key clinical pearl: CMI typically requires stenosis of at least 2 of 3 mesenteric vessels (celiac, SMA, IMA) due to excellent collateral networks (meandering mesenteric artery, arc of Riolan, pancreaticoduodenal arcades). Single-vessel disease rarely causes symptoms unless collaterals are compromised. SMA is the most important - treat first.",
+      "technical_details": "Pathophysiology: atherosclerotic stenosis at ostia → inability to meet postprandial metabolic demand → mucosal ischemia → pain. Classic triad: (1) postprandial pain (within 30-60 min of eating), (2) food fear/sitophobia (patients eat less to avoid pain), (3) significant weight loss (often >20 lbs). Differential: pancreatic cancer, peptic ulcer, gastroparesis. Diagnosis: mesenteric duplex (fasting PSV: celiac >200, SMA >275 suggests >70% stenosis), CTA/MRA for anatomy. Treatment: SMA revascularization is priority (stent preferred if anatomy suitable, bypass if endovascular fails). Celiac stenting controversial due to MAL compression. Outcomes: symptom relief 85-95%, 5-year patency 50-80% for stent, 80-90% for bypass."
+    }
+  },
+  "clinical_features": {
+    "epidemiology": {
+      "age": "Typically >60 years",
+      "sex": "Female slight predominance",
+      "risk_factors": "Atherosclerosis, smoking, diabetes, hypertension"
+    },
+    "clinical_triad": {
+      "postprandial_pain": "Dull, crampy periumbilical pain 15-60 min after eating, lasting 1-3 hours",
+      "food_fear": "Sitophobia - patients eat less to avoid pain",
+      "weight_loss": "Often significant (>10-20 lbs)"
+    },
+    "pathophysiology": {
+      "mechanism": "Mesenteric blood flow cannot meet increased postprandial demand",
+      "vessels_involved": "Usually 2-3 vessel disease required due to collaterals",
+      "progression": "May progress to acute mesenteric ischemia (acute-on-chronic)"
+    },
+    "diagnosis": {
+      "clinical_suspicion": "High in patients with classic triad and atherosclerotic disease",
+      "duplex": {
+        "fasting_criteria": {
+          "celiac": "PSV >200 cm/s suggests >70% stenosis",
+          "SMA": "PSV >275 cm/s suggests >70% stenosis"
+        },
+        "postprandial": "Normally SMA flow increases 50-100% after meal; blunted in CMI"
+      },
+      "CTA_MRA": "Gold standard for anatomic assessment and planning",
+      "angiography": "Reserved for intervention"
+    },
+    "differential_diagnosis": [
+      "Pancreatic cancer (weight loss, pain)",
+      "Peptic ulcer disease",
+      "Gastroparesis",
+      "Median arcuate ligament syndrome (younger patients)",
+      "IBS with secondary weight loss"
+    ],
+    "treatment": {
+      "endovascular": {
+        "stenting": "First-line for most patients; SMA is priority",
+        "advantages": "Less invasive, shorter recovery",
+        "limitations": "Lower long-term patency (50-80% at 5 years), in-stent restenosis"
+      },
+      "surgical": {
+        "bypass": "Antegrade from supraceliac aorta or retrograde from iliac",
+        "endarterectomy": "Rarely used; transaortic approach",
+        "patency": "80-90% at 5 years - superior to stenting",
+        "indications": "Endovascular failure, hostile anatomy, young patients"
+      },
+      "medical": "Optimize nutrition, small frequent meals, treat atherosclerotic risk factors"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Chronic Mesenteric Ischemia"
+    },
+    "altLabel": [
+      "Intestinal angina",
+      "Mesenteric artery stenosis"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Chronic ischemic syndrome caused by mesenteric artery stenosis, characterized by postprandial pain, food fear, and weight loss, typically requiring multi-vessel disease due to collateral networks."
+    },
+    "notation": "MES-003"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:anatomy:mesenteric"],
+    "enables": ["vascular:mesenteric:mes-001-acute-algorithm"],
+    "skos:broader": ["vascular:mesenteric"],
+    "skos:related": ["vascular:mesenteric:acute", "vascular:anatomy:arc-of-riolan"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery",
+        "edition": "10th",
+        "year": 2023
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "gastroenterology fellows"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Recognize the classic triad of chronic mesenteric ischemia",
+      "Understand why multi-vessel disease is usually required",
+      "Apply duplex criteria for mesenteric stenosis",
+      "Compare endovascular vs surgical revascularization"
+    ],
+    "clinical_pearls": [
+      "Classic triad: postprandial pain + food fear + weight loss",
+      "Usually need 2 of 3 vessels stenosed due to excellent collaterals",
+      "Duplex: SMA PSV >275 and celiac PSV >200 suggest significant stenosis",
+      "SMA is priority for revascularization",
+      "Bypass has better patency than stenting (80-90% vs 50-80% at 5 years)",
+      "May present as acute-on-chronic if thromboses"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "42654007",
+      "description": "Chronic mesenteric ischemia"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "K55.1",
+      "description": "Chronic vascular disorders of intestine"
+    }
+  ]
+}

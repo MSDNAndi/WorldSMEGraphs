@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "procedure",
+  "@id": "vascular:pad:pad-039-distal-origin",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:18:00.000Z",
+    "updated": "2026-01-07T02:18:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.88,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures",
+    "type": "procedure",
+    "difficulty": "advanced",
+    "importance": "medium",
+    "aku_id": "PAD-039",
+    "keywords": ["distal origin bypass", "short bypass", "popliteal origin", "tibial bypass"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Distal origin bypass uses a more distal arterial inflow source (such as popliteal artery) rather than femoral artery, creating a shorter bypass that conserves conduit and may improve patency for patients with isolated tibial disease.",
+      "formal": "Distal_Origin: Popliteal_or_Tibial_Inflow → Short_Bypass → Conduit_Conservation"
+    },
+    "explanation": {
+      "intuition": "If the highway is clear until the last exit (popliteal) but the local roads (tibials) are blocked, why build a bypass from the highway entrance (femoral)? Starting closer to the blockage uses less vein and puts less conduit at risk.",
+      "key_insight": "Shorter bypasses have fewer anastomoses to fail and conserve conduit for future procedures. When inflow is adequate (popliteal ABI >0.8, triphasic Doppler), distal origin bypass is a reasonable strategy.",
+      "technical_details": "Inflow assessment: measure popliteal pressure, should have <15mmHg gradient from femoral. Sources: above-knee popliteal, below-knee popliteal, tibioperoneal trunk. Configurations: pop-tibial, pop-pedal. Advantages: conserves vein, shorter OR time, fewer complications. Concerns: may sacrifice future options if inflow deteriorates. Patency: comparable to fem-tibial when appropriate selection."
+    }
+  },
+  "clinical_features": {
+    "concept": "Use most distal adequate inflow source",
+    "inflow_sources": ["Above-knee popliteal", "Below-knee popliteal", "Tibioperoneal trunk"],
+    "selection_criteria": ["Popliteal ABI >0.8", "Triphasic popliteal Doppler", "No significant SFA/popliteal disease"],
+    "advantages": ["Conserves conduit", "Shorter procedure", "Fewer wound complications"],
+    "considerations": "May limit future options if proximal disease progresses"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Distal Origin Bypass"},
+    "altLabel": ["Short bypass", "Popliteal origin bypass", "Pop-tibial bypass"],
+    "notation": "PAD-039"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:pad:inflow-assessment", "vascular:pad:conduit-selection"],
+    "enables": ["vascular:pad:tibial-revascularization"],
+    "skos:broader": ["vascular:procedures:bypass-techniques"],
+    "skos:related": ["vascular:pad:fem-tibial-bypass", "vascular:pad:conduit-conservation"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Journal of Vascular Surgery", "topic": "Short bypass strategies", "year": 2018}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents"],
+    "board_yield": "MEDIUM",
+    "clinical_pearls": [
+      "Confirm adequate inflow with popliteal pressure measurement",
+      "Conserves conduit for potential future procedures",
+      "Shorter bypass = fewer wound complications"
+    ]
+  }
+}

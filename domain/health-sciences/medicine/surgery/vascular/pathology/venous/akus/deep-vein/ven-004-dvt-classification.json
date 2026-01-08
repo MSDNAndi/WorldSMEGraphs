@@ -1,0 +1,81 @@
+{
+  "@context": "aku-v2",
+  "@type": "classification",
+  "@id": "vascular:pathology:venous:dvt-classification",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:48:00.000Z",
+    "updated": "2026-01-07T00:48:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/venous",
+    "type": "classification",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "VEN-004",
+    "title": "Deep Vein Thrombosis Classification",
+    "definition": "Classification systems for deep vein thrombosis based on anatomic location, acuity, and clinical severity.",
+    "concepts": [
+      {
+        "concept_id": "anatomic-classification",
+        "term": "Anatomic Classification",
+        "definition": "DVT classified by location: distal (calf veins), proximal (popliteal and above), and iliofemoral.",
+        "clinical_features": {
+          "distal": ["Posterior tibial", "Peroneal", "Gastrocnemius", "Soleal"],
+          "proximal": ["Popliteal", "Femoral", "Common femoral"],
+          "iliofemoral": ["Iliac veins", "IVC"],
+          "clinical_significance": "Proximal DVT has higher PE risk and requires treatment"
+        }
+      },
+      {
+        "concept_id": "acuity-classification",
+        "term": "Temporal Classification",
+        "definition": "DVT classified by duration since symptom onset.",
+        "clinical_features": {
+          "acute": "<14 days, best candidate for intervention",
+          "subacute": "14-28 days",
+          "chronic": ">28 days, organized thrombus"
+        }
+      },
+      {
+        "concept_id": "phlegmasia-spectrum",
+        "term": "Phlegmasia Spectrum",
+        "definition": "Severe forms of DVT with limb-threatening venous outflow obstruction.",
+        "clinical_features": {
+          "phlegmasia_alba_dolens": ["Massive iliofemoral DVT", "Pale swollen leg", "Arterial spasm"],
+          "phlegmasia_cerulea_dolens": ["Complete venous occlusion", "Cyanotic leg", "Compartment syndrome risk"],
+          "venous_gangrene": ["Arterial insufficiency", "Tissue necrosis", "Limb loss risk"]
+        }
+      }
+    ],
+    "clinical_features": {
+      "wells_criteria": "Clinical prediction score for DVT probability",
+      "d_dimer": "Negative D-dimer rules out DVT in low probability",
+      "ultrasound": "Compression ultrasound is diagnostic standard"
+    },
+    "diagnostic_criteria": {
+      "probability": {
+        "high": ">3 points on Wells score",
+        "moderate": "1-2 points",
+        "low": "0 or negative points"
+      }
+    }
+  },
+  "relationships": [
+    {"type": "related_to", "target": "vascular:pathology:venous:pe"},
+    {"type": "precedes", "target": "vascular:pathology:venous:pts"},
+    {"type": "treatment", "target": "vascular:pharmacology:anticoagulation"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Wells PS et al. N Engl J Med. 2003;349:1227-1235", "type": "primary"},
+      {"reference": "Kearon C et al. Chest. 2016;149:315-352", "type": "guideline"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

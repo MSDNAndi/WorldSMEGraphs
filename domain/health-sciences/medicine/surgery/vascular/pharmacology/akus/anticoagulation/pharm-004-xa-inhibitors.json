@@ -1,0 +1,162 @@
+{
+  "@context": "aku-v2",
+  "@type": "pharmacology",
+  "@id": "vascular:pharmacology:pharm-004-xa-inhibitors",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:00:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pharmacology",
+    "type": "pharmacology",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "PHARM-004",
+    "keywords": ["factor Xa inhibitor", "rivaroxaban", "apixaban", "edoxaban", "DOAC", "andexanet alfa"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "anticoagulation",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Direct factor Xa inhibitors (rivaroxaban, apixaban, edoxaban) are oral anticoagulants that directly inhibit activated factor X without requiring antithrombin, offering predictable pharmacokinetics, fixed dosing, and reduced monitoring compared to warfarin, with andexanet alfa available for reversal in life-threatening bleeding.",
+      "formal": "Xa_Inhibitors = Direct_Xa_Binding + Oral + Predictable_PK + No_Monitoring + Andexanet_Reversal"
+    },
+    "explanation": {
+      "intuition": "These newer blood thinners block one specific clotting factor (Xa) directly. Unlike warfarin, they work quickly, have consistent effects, and don't need regular blood tests. However, they have a specific antidote (andexanet) that can reverse them in emergencies, though it's very expensive.",
+      "key_insight": "The factor Xa inhibitors have largely replaced warfarin for many indications due to convenience and reduced bleeding complications. Key distinctions: apixaban has the best safety profile and least renal dependence; rivaroxaban requires once-daily dosing with food; edoxaban requires prior parenteral anticoagulation for VTE. All are contraindicated in mechanical heart valves.",
+      "technical_details": "Mechanism: Direct, competitive, reversible inhibition of free and clot-bound factor Xa. Rivaroxaban: 80-100% bioavailability (with food), 66% renal elimination, once daily, 5-9 hour half-life. Apixaban: 50% bioavailability, 27% renal elimination (least renal dependent), twice daily, 12 hour half-life, best safety in elderly. Edoxaban: 62% bioavailability, 50% renal elimination, once daily, unique - requires 5 days parenteral lead-in for VTE. Fondaparinux is a parenteral indirect Xa inhibitor (works through antithrombin). Reversal: andexanet alfa (recombinant modified factor Xa decoy) reverses rivaroxaban and apixaban; 4-factor PCC is alternative."
+    }
+  },
+  "clinical_features": {
+    "mechanism": {
+      "target": "Factor Xa - direct binding (free and clot-bound)",
+      "type": "Competitive, reversible inhibition",
+      "antithrombin_independence": "Does not require antithrombin (unlike fondaparinux)"
+    },
+    "agents": {
+      "rivaroxaban": {
+        "trade_name": "Xarelto",
+        "dosing_VTE": "15 mg BID x 21 days, then 20 mg daily",
+        "dosing_AFib": "20 mg daily with dinner (15 mg if CrCl 15-50)",
+        "renal": "66% renal; avoid if CrCl <30 for AFib, <15 for VTE",
+        "food": "Must take with food for adequate absorption",
+        "half_life": "5-9 hours"
+      },
+      "apixaban": {
+        "trade_name": "Eliquis",
+        "dosing_VTE": "10 mg BID x 7 days, then 5 mg BID",
+        "dosing_AFib": "5 mg BID (2.5 mg BID if 2 of: age ≥80, weight ≤60 kg, Cr ≥1.5)",
+        "renal": "27% renal - LEAST renal dependent",
+        "half_life": "12 hours",
+        "advantage": "Best safety profile, especially in elderly"
+      },
+      "edoxaban": {
+        "trade_name": "Savaysa",
+        "dosing_VTE": "60 mg daily (after 5-10 days parenteral)",
+        "dosing_AFib": "60 mg daily (30 mg if CrCl 15-50 or weight ≤60 kg)",
+        "renal": "50% renal",
+        "unique": "Requires 5+ days parenteral anticoagulation before starting for VTE",
+        "half_life": "10-14 hours"
+      },
+      "fondaparinux": {
+        "type": "Indirect Xa inhibitor (parenteral)",
+        "mechanism": "Works through antithrombin to inhibit Xa",
+        "dosing": "2.5 mg SC daily (prophylaxis), 5-10 mg SC daily (treatment)",
+        "HIT": "Can be used in HIT (synthetic, no cross-reactivity)"
+      }
+    },
+    "indications": [
+      "Non-valvular atrial fibrillation",
+      "VTE treatment and prevention",
+      "Post-surgical DVT prophylaxis",
+      "Secondary VTE prevention"
+    ],
+    "contraindications": [
+      "Mechanical heart valves (increased thrombosis)",
+      "Severe renal impairment (CrCl <15-30 depending on agent)",
+      "Active major bleeding",
+      "Pregnancy"
+    ],
+    "reversal": {
+      "andexanet_alfa": {
+        "mechanism": "Recombinant modified factor Xa decoy - binds and sequesters drug",
+        "agents_reversed": "Rivaroxaban, apixaban, (edoxaban less data)",
+        "dosing": "Low dose (rivaroxaban ≤10mg, apixaban ≤5mg, >8h post-dose): 400mg bolus + 480mg infusion; High dose: 800mg bolus + 960mg infusion",
+        "cost": "$24,000-50,000 per treatment",
+        "limitations": "May cause thrombosis; transient effect requires infusion"
+      },
+      "4_factor_PCC": "Alternative when andexanet unavailable - 25-50 units/kg",
+      "activated_charcoal": "If within 2 hours of ingestion"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Factor Xa Inhibitors"
+    },
+    "altLabel": [
+      "Direct oral anticoagulants",
+      "DOACs",
+      "NOACs",
+      "Rivaroxaban",
+      "Apixaban"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Oral anticoagulants that directly inhibit factor Xa, providing predictable anticoagulation without routine monitoring for atrial fibrillation and venous thromboembolism."
+    },
+    "notation": "PHARM-004"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:pharmacology:coagulation-cascade"],
+    "enables": [],
+    "skos:broader": ["vascular:pharmacology:anticoagulation"],
+    "skos:related": ["vascular:pharmacology:warfarin", "vascular:pharmacology:dabigatran"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "title": "CHEST Guidelines on Antithrombotic Therapy",
+        "organization": "American College of Chest Physicians",
+        "year": 2021
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "cardiology fellows", "internal medicine residents"],
+    "estimated_time": "25min",
+    "learning_objectives": [
+      "Compare pharmacokinetics of factor Xa inhibitors",
+      "Select appropriate agent based on patient characteristics",
+      "Apply andexanet alfa for reversal in emergencies",
+      "Recognize contraindications (mechanical valves)"
+    ],
+    "clinical_pearls": [
+      "Apixaban = LEAST renal dependent (27%) - best choice in renal impairment",
+      "Rivaroxaban MUST be taken with FOOD - otherwise poor absorption",
+      "Edoxaban requires 5 days parenteral BEFORE starting for VTE",
+      "MECHANICAL VALVES = absolute contraindication for all Xa inhibitors",
+      "Andexanet alfa costs $24,000-50,000 - PCC is alternative",
+      "Apixaban dose reduction: age ≥80 + weight ≤60kg + Cr ≥1.5 (need 2 of 3)"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "442031002",
+      "description": "Factor Xa inhibitor"
+    },
+    {
+      "codingSystem": "RxNorm",
+      "codeValue": "1114195",
+      "description": "Rivaroxaban"
+    }
+  ]
+}

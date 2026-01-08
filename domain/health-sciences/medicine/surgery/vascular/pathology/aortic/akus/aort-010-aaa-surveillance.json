@@ -1,0 +1,94 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-guideline",
+  "@id": "vascular:pathology:aortic:aaa-surveillance",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:56:00.000Z",
+    "updated": "2026-01-07T00:56:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aortic",
+    "type": "clinical-guideline",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "AORT-010",
+    "title": "Abdominal Aortic Aneurysm Surveillance",
+    "definition": "Evidence-based surveillance intervals and thresholds for elective repair of abdominal aortic aneurysms.",
+    "concepts": [
+      {
+        "concept_id": "surveillance-intervals",
+        "term": "Size-Based Surveillance Intervals",
+        "definition": "Ultrasound surveillance frequency based on aneurysm diameter.",
+        "clinical_features": {
+          "2.6_2.9_cm": "5-year interval",
+          "3.0_3.4_cm": "3-year interval",
+          "3.5_4.4_cm": "12-month interval",
+          "4.5_5.4_cm": "6-month interval",
+          "threshold_for_repair": "≥5.5 cm in men, ≥5.0 cm in women"
+        }
+      },
+      {
+        "concept_id": "repair-indications",
+        "term": "Indications for Elective Repair",
+        "definition": "Criteria for recommending elective AAA repair.",
+        "clinical_features": {
+          "size_threshold": {
+            "men": "≥5.5 cm",
+            "women": "≥5.0 cm",
+            "connective_tissue": "≥5.0 cm"
+          },
+          "growth_rate": ">1.0 cm/year or >0.5 cm in 6 months",
+          "symptoms": "Abdominal/back pain attributed to aneurysm",
+          "saccular": "Consider earlier repair for saccular aneurysms"
+        }
+      },
+      {
+        "concept_id": "screening",
+        "term": "AAA Screening Recommendations",
+        "definition": "USPSTF recommendations for one-time ultrasound screening.",
+        "clinical_features": {
+          "grade_b": "Men 65-75 years who have ever smoked",
+          "grade_c": "Men 65-75 years who have never smoked (selective)",
+          "grade_i": "Women 65-75 years who have ever smoked (insufficient evidence)",
+          "grade_d": "Women who have never smoked (do not screen)"
+        }
+      },
+      {
+        "concept_id": "growth-rate",
+        "term": "AAA Growth Rate",
+        "definition": "Expected aneurysm expansion and factors affecting growth.",
+        "clinical_features": {
+          "average_expansion": "2-3 mm/year for small AAA",
+          "large_aaa": "3-5 mm/year for AAA >5cm",
+          "accelerating_factors": ["Continued smoking", "COPD", "Hypertension", "Family history"],
+          "law_of_laplace": "Wall tension = (Pressure × Radius) / Wall thickness"
+        }
+      }
+    ],
+    "clinical_features": {
+      "imaging_modality": "Ultrasound preferred for surveillance, CT for preoperative planning",
+      "medical_optimization": ["Smoking cessation", "Statin therapy", "Blood pressure control"]
+    },
+    "diagnostic_criteria": {
+      "measurement": "Outer wall to outer wall, perpendicular to axis"
+    }
+  },
+  "relationships": [
+    {"type": "informs", "target": "vascular:procedures:evar"},
+    {"type": "informs", "target": "vascular:procedures:open-aaa-repair"},
+    {"type": "related_to", "target": "vascular:pathology:aortic:aaa-rupture-risk"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Chaikof EL et al. J Vasc Surg. 2018;67:2-77", "type": "guideline"},
+      {"reference": "USPSTF. JAMA. 2019;322:2211-2218", "type": "guideline"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

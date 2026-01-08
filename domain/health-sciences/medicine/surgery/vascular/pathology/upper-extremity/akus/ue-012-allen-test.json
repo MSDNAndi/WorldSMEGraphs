@@ -1,0 +1,87 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:upper-extremity:allen-test",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:22:00.000Z",
+    "updated": "2026-01-07T01:22:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.94,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "physical-examination",
+    "difficulty": "basic",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "UE-012",
+    "title": "Allen Test",
+    "definition": "A bedside test to assess the adequacy of collateral blood flow to the hand via the palmar arch, used before radial artery cannulation or harvest.",
+    "concepts": [
+      {
+        "concept_id": "technique",
+        "term": "Standard Allen Test Technique",
+        "definition": "How to perform the Allen test.",
+        "clinical_features": {
+          "step_1": "Have patient make a tight fist to exsanguinate hand",
+          "step_2": "Compress both radial and ulnar arteries at wrist",
+          "step_3": "Have patient open hand - palm should be pale/blanched",
+          "step_4": "Release ulnar artery while maintaining radial compression",
+          "step_5": "Observe time to reperfusion of palm and fingers"
+        }
+      },
+      {
+        "concept_id": "interpretation",
+        "term": "Test Interpretation",
+        "definition": "How to interpret the results.",
+        "clinical_features": {
+          "normal": "Color returns within 5-7 seconds (adequate collateral)",
+          "equivocal": "5-10 seconds",
+          "abnormal": ">10 seconds indicates poor ulnar collateral",
+          "clinical_significance": "Abnormal test suggests incomplete palmar arch"
+        }
+      },
+      {
+        "concept_id": "modified-allen",
+        "term": "Modified Allen Test",
+        "definition": "Objective measurement of collateral flow.",
+        "clinical_features": {
+          "pulse_oximetry": "Place oximeter on thumb, perform compression",
+          "doppler": "Use continuous wave Doppler on palmar arch",
+          "plethysmography": "Waveform analysis during compression",
+          "advantage": "Removes subjective assessment of color change"
+        }
+      },
+      {
+        "concept_id": "clinical-applications",
+        "term": "Clinical Applications",
+        "definition": "When to perform the Allen test.",
+        "clinical_features": {
+          "radial_artery_line": "Before arterial catheter placement",
+          "radial_harvest": "Before radial artery conduit harvest for CABG",
+          "dialysis_access": "Before radial-cephalic fistula creation",
+          "hand_surgery": "Before procedures that may compromise radial flow"
+        }
+      }
+    ],
+    "clinical_features": {
+      "limitations": "15-20% false positive rate, supplemental testing recommended",
+      "alternatives": "Doppler assessment, pulse oximetry more reliable"
+    }
+  },
+  "relationships": [
+    {"type": "assesses", "target": "vascular:anatomy:palmar-arch"},
+    {"type": "prerequisite_for", "target": "vascular:procedure:radial-artery-catheterization"},
+    {"type": "related_to", "target": "vascular:dialysis:radiocephalic-fistula"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Jarvis MA et al. J Hand Surg. 2000;25:57-61", "type": "primary"},
+      {"reference": "Barbeau GR et al. Am Heart J. 2004;147:489-493", "type": "primary"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

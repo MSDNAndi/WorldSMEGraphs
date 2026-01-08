@@ -1,0 +1,96 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:cerebrovascular:cea-patch-selection",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:28:00.000Z",
+    "updated": "2026-01-07T01:28:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.93,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures/carotid",
+    "type": "clinical-decision",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "CEA-003",
+    "title": "CEA Patch Selection",
+    "definition": "Selection criteria and comparison of patch materials for closure after carotid endarterectomy, including synthetic grafts, bovine pericardium, and autologous vein.",
+    "concepts": [
+      {
+        "concept_id": "evidence",
+        "term": "Evidence for Patch Closure",
+        "definition": "Why patching is preferred over primary closure.",
+        "clinical_features": {
+          "restenosis": "Reduces restenosis compared to primary closure",
+          "stroke_reduction": "Reduces perioperative stroke risk",
+          "standard": "Now considered standard of care for most CEA"
+        }
+      },
+      {
+        "concept_id": "dacron",
+        "term": "Dacron Patch",
+        "definition": "Woven polyester patch characteristics.",
+        "clinical_features": {
+          "availability": "Readily available, inexpensive",
+          "handling": "Easy to handle and suture",
+          "patency": "Excellent long-term patency",
+          "concerns": "Theoretical infection risk, rare pseudoaneurysm"
+        }
+      },
+      {
+        "concept_id": "ptfe",
+        "term": "PTFE Patch",
+        "definition": "Polytetrafluoroethylene patch characteristics.",
+        "clinical_features": {
+          "surface": "Smooth, low thrombogenicity",
+          "compliance": "More compliant than Dacron",
+          "patency": "Similar patency to Dacron",
+          "concerns": "May be slightly harder to suture"
+        }
+      },
+      {
+        "concept_id": "bovine",
+        "term": "Bovine Pericardium",
+        "definition": "Biologic patch characteristics.",
+        "clinical_features": {
+          "handling": "Excellent handling, conforms to anatomy",
+          "biocompatibility": "Biologic material, incorporated over time",
+          "patency": "Comparable to synthetics",
+          "concerns": "Cost, rare early rupture reported"
+        }
+      },
+      {
+        "concept_id": "vein",
+        "term": "Autologous Vein Patch",
+        "definition": "Saphenous vein patch characteristics.",
+        "clinical_features": {
+          "biocompatibility": "Completely autologous, no foreign material",
+          "harvest": "Requires additional incision",
+          "aneurysm": "Higher rate of patch aneurysm over time",
+          "current_use": "Less commonly used today"
+        }
+      }
+    ],
+    "clinical_features": {
+      "recommendation": "No definitive evidence favoring one synthetic over another",
+      "preference": "Surgeon preference and experience often guides selection"
+    }
+  },
+  "relationships": [
+    {"type": "component_of", "target": "vascular:procedure:carotid-endarterectomy"},
+    {"type": "uses", "target": "vascular:technique:patch-angioplasty"},
+    {"type": "compared_to", "target": "vascular:technique:primary-closure"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Cochrane Database Syst Rev. 2021;4:CD000160", "type": "systematic-review"},
+      {"reference": "J Vasc Surg. 2018;68:287-294", "type": "primary"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

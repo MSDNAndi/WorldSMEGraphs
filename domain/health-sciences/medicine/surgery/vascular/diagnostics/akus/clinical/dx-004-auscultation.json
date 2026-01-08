@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:diagnostics:dx-004-auscultation",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:28:00.000Z",
+    "updated": "2026-01-07T02:28:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.90,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "clinical-skills",
+    "difficulty": "foundational",
+    "importance": "high",
+    "aku_id": "DX-004",
+    "keywords": ["bruit", "auscultation", "vascular sounds", "stenosis detection"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Vascular auscultation detects bruits caused by turbulent blood flow through stenotic arteries, with bruit presence generally indicating 50-90% stenosis, though absence does not exclude significant disease.",
+      "formal": "Bruit: Turbulent_Flow → Audible_Sound → Stenosis 50-90%"
+    },
+    "explanation": {
+      "intuition": "A bruit is the sound of blood rushing through a narrowed pipe - like water whistling through a kinked garden hose. You hear it when there's enough narrowing to cause turbulence but not so much that flow stops completely.",
+      "key_insight": "Bruits disappear with very tight stenosis (>95%) because flow is too slow to generate turbulence. A previous bruit that disappears may indicate disease progression, not improvement.",
+      "technical_details": "Locations: carotid bifurcation, supraclavicular (subclavian), periumbilical (aorta/visceral), flank (renal), groin (femoral). Technique: light pressure with diaphragm, quiet room. Characteristics: timing (systolic vs continuous), pitch, radiation. Sensitivity: 60-70% for significant stenosis. Pitfalls: transmitted cardiac murmurs, venous hums, normal transmitted sounds in thin patients."
+    }
+  },
+  "clinical_features": {
+    "locations": ["Carotid bifurcation", "Supraclavicular fossa", "Periumbilical", "Flank", "Groin"],
+    "technique": "Light pressure with diaphragm in quiet environment",
+    "interpretation": {"present": "Suggests 50-90% stenosis", "absent": "Does not exclude disease"},
+    "stenosis_correlation": {"50-90%": "Bruit present", ">95%": "Bruit may disappear (critical stenosis)"},
+    "pitfalls": ["Transmitted cardiac murmurs", "Venous hums", "Normal findings in thin patients"]
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Auscultation for Bruits"},
+    "altLabel": ["Bruit detection", "Vascular auscultation", "Arterial sounds"],
+    "notation": "DX-004"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:diagnostics:physical-exam"],
+    "enables": ["vascular:diagnostics:stenosis-detection"],
+    "skos:broader": ["vascular:diagnostics:clinical-evaluation"],
+    "skos:related": ["vascular:carotid:stenosis", "vascular:renal:ras"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "textbook", "title": "Rutherford's Vascular Surgery", "edition": "9th", "year": 2018}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["medical students", "vascular surgery residents"],
+    "board_yield": "HIGH",
+    "clinical_pearls": [
+      "Bruit disappearing over time may indicate progression, not improvement",
+      "Sensitivity ~60-70% - absence doesn't exclude disease",
+      "Continuous bruit suggests AV fistula or severe stenosis with diastolic flow"
+    ]
+  }
+}

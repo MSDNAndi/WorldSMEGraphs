@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:carotid:carotid-012-contralateral",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:20:00.000Z",
+    "updated": "2026-01-07T02:20:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.90,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/cerebrovascular",
+    "type": "clinical-consideration",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "CAROTID-012",
+    "keywords": ["contralateral occlusion", "CCO", "CEA with occlusion", "high-risk carotid"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Carotid endarterectomy in the presence of contralateral internal carotid artery occlusion (CCO) carries higher stroke risk due to limited collateral flow during clamping, but the absolute benefit from treatment is also higher given the patient's vulnerability.",
+      "formal": "CCO: ↑Operative_Risk + ↑Benefit = Still_Favorable_Risk-Benefit"
+    },
+    "explanation": {
+      "intuition": "If one highway to the brain is completely closed, the remaining highway becomes critical. Operating on that last remaining route is riskier (you can't detour during construction), but also more important (it's the only road left).",
+      "key_insight": "Patients with CCO have higher perioperative stroke risk (3-4% vs 1-2%) but also higher natural history stroke risk without intervention. The net benefit still favors CEA in symptomatic patients. Shunting is routinely used.",
+      "technical_details": "Stroke risk during CEA with CCO: 3-4% (vs 1-2% without). Risk factors: inadequate circle of Willis, ipsilateral external carotid disease. Strategies: routine shunting, EEG/MEP monitoring, awake surgery, maintaining high blood pressure. Imaging: assess circle of Willis on CTA/MRA. Alternative: CAS may have similar risk profile. Indication: still indicated for symptomatic stenosis; asymptomatic more controversial given higher operative risk."
+    }
+  },
+  "clinical_features": {
+    "definition": "CEA on patent carotid with opposite ICA occluded",
+    "stroke_risk": "3-4% (vs 1-2% without CCO)",
+    "risk_factors": ["Incomplete circle of Willis", "Ipsilateral ECA disease", "Poor collateral development"],
+    "strategies": ["Routine shunting", "EEG/MEP monitoring", "Awake surgery", "Maintain high blood pressure"],
+    "indication": "Still beneficial for symptomatic patients despite higher risk"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "CEA with Contralateral Carotid Occlusion"},
+    "altLabel": ["CCO carotid surgery", "Contralateral occlusion CEA", "High-risk CEA"],
+    "notation": "CAROTID-012"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:carotid:cea-indications", "vascular:carotid:circle-of-willis"],
+    "enables": ["vascular:carotid:high-risk-management"],
+    "skos:broader": ["vascular:carotid:cea-considerations"],
+    "skos:related": ["vascular:carotid:shunting", "vascular:carotid:monitoring"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Journal of Vascular Surgery", "topic": "CCO CEA outcomes", "year": 2019}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents"],
+    "board_yield": "HIGH",
+    "clinical_pearls": [
+      "Perioperative stroke risk 3-4% with CCO (higher than normal)",
+      "Routine shunting recommended when contralateral is occluded",
+      "Net benefit still favors CEA in symptomatic patients"
+    ]
+  }
+}

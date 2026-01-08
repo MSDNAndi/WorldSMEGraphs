@@ -1,0 +1,146 @@
+{
+  "@context": "aku-v2",
+  "@type": "syndrome",
+  "@id": "vascular:malformations:vm-003-avm",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:10:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:10:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/vascular-malformations",
+    "type": "clinical_entity",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "VM-003",
+    "keywords": ["arteriovenous malformation", "AVM", "high-flow malformation", "Schobinger staging"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "vascular_malformations",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Arteriovenous malformations (AVMs) are high-flow vascular anomalies characterized by direct arteriovenous shunting without an intervening capillary bed (nidus), progressing through Schobinger stages from quiescence to decompensation, requiring complete nidus elimination through combined embolization and resection for cure.",
+      "formal": "AVM = High_Flow + AV_Shunt_Without_Capillary_Bed + Nidus + Schobinger_Staging + Requires_Complete_Nidus_Elimination"
+    },
+    "explanation": {
+      "intuition": "AVMs are like direct shortcuts between arteries and veins that shouldn't exist. Blood flows too fast through these abnormal connections (the nidus) instead of going through normal capillaries. They often seem stable for years, then suddenly enlarge and cause problems after puberty, pregnancy, or trauma.",
+      "key_insight": "The nidus is the key - partial treatment makes AVMs worse by stimulating angiogenesis. Embolization alone without resection leads to recurrence. The goal must be complete nidus elimination, which usually requires combined embolization followed by surgical resection. Some AVMs are unresectable and require palliative management.",
+      "technical_details": "AVMs are present at birth but may not be evident until triggered by puberty, pregnancy, trauma, or incomplete treatment. Pathophysiology: arteriovenous shunting causes venous arterialization, tissue ischemia from arterial steal, and high-output cardiac state if large. Schobinger staging: I (quiescence - warmth, pink-blue, AV shunting on Doppler), II (expansion - pulsation, thrill, bruit, tortuous veins), III (destruction - pain, ulceration, bleeding, steal phenomena), IV (decompensation - high-output cardiac failure). Imaging: Doppler shows high-velocity low-resistance flow; MRI/MRA for extent; angiography for treatment planning. Treatment: embolization (ethanol, Onyx, coils) to devascularize, followed by surgical resection within 24-72 hours while nidus still devascularized. Proximal ligation is CONTRAINDICATED - stimulates collateral recruitment."
+    }
+  },
+  "clinical_features": {
+    "pathophysiology": {
+      "lesion": "Direct arteriovenous connections without capillary bed",
+      "nidus": "Core of abnormal vessels - key target for treatment",
+      "consequences": ["Arteriovenous shunting", "Venous hypertension/arterialization", "Tissue ischemia (steal)", "Cardiac volume overload"]
+    },
+    "schobinger_staging": {
+      "Stage_I": {
+        "name": "Quiescence",
+        "features": "Warmth, pink-blue discoloration, AV shunting on Doppler",
+        "management": "Observation with close monitoring"
+      },
+      "Stage_II": {
+        "name": "Expansion",
+        "features": "Enlargement, pulsation, thrill, bruit, tortuous veins",
+        "management": "Consider intervention if progressive"
+      },
+      "Stage_III": {
+        "name": "Destruction",
+        "features": "Pain, ulceration, bleeding, dystrophic skin, steal ischemia",
+        "management": "Intervention indicated"
+      },
+      "Stage_IV": {
+        "name": "Decompensation",
+        "features": "High-output cardiac failure",
+        "management": "Urgent intervention required"
+      }
+    },
+    "triggers_for_progression": ["Puberty", "Pregnancy", "Trauma", "Incomplete treatment", "Proximal ligation"],
+    "diagnosis": {
+      "clinical": "Warmth, thrill, bruit, pulsation",
+      "duplex": "High-velocity, low-resistance arterial flow; arterialized veins",
+      "MRI_MRA": "Extent assessment, flow voids",
+      "angiography": "Defines feeding arteries, nidus, draining veins - for treatment planning"
+    },
+    "treatment": {
+      "principle": "Complete nidus elimination - partial treatment worsens",
+      "contraindicated": "Proximal vessel ligation (stimulates recruitment)",
+      "embolization": {
+        "agents": ["Absolute ethanol (most effective)", "Onyx", "NBCA", "Coils"],
+        "role": "Devascularize before resection; palliative if unresectable"
+      },
+      "surgery": {
+        "timing": "Within 24-72 hours of embolization",
+        "goal": "Complete nidus resection while devascularized"
+      },
+      "palliative": "Repeated embolization for unresectable lesions"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Arteriovenous Malformation (AVM)"
+    },
+    "altLabel": [
+      "High-flow vascular malformation",
+      "AVM"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "High-flow vascular malformation characterized by direct arteriovenous shunting through a nidus without an intervening capillary bed, progressing through Schobinger stages and requiring complete nidus elimination for cure."
+    },
+    "notation": "VM-003"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:malformations:vm-002-issva"],
+    "enables": ["vascular:malformations:vm-004-embolization"],
+    "skos:broader": ["vascular:malformations:high-flow"],
+    "skos:related": ["vascular:malformations:AVF"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery",
+        "edition": "10th",
+        "year": 2023
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "interventional radiologists", "plastic surgeons"],
+    "estimated_time": "22min",
+    "learning_objectives": [
+      "Apply Schobinger staging to AVMs",
+      "Understand why partial treatment worsens AVMs",
+      "Plan combined embolization and resection",
+      "Recognize contraindication to proximal ligation"
+    ],
+    "clinical_pearls": [
+      "AVM = HIGH-FLOW - warm, thrill, bruit (vs VM = low-flow, compressible)",
+      "NEVER ligate proximal vessels - stimulates collateral recruitment and makes it worse",
+      "Nidus is the key - must eliminate COMPLETELY for cure",
+      "Embolization alone = recurrence; embolization + resection = cure",
+      "Schobinger III (destruction) and IV (decompensation) require intervention",
+      "Triggers: puberty, pregnancy, trauma, partial treatment"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "234141006",
+      "description": "Arteriovenous malformation"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "Q27.30",
+      "description": "Arteriovenous malformation, site unspecified"
+    }
+  ]
+}

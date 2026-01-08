@@ -1,0 +1,88 @@
+{
+  "@context": "aku-v2",
+  "@type": "diagnostic-method",
+  "@id": "vascular:diagnostics:venous-duplex",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:26:00.000Z",
+    "updated": "2026-01-07T01:26:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.94,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "diagnostic-method",
+    "difficulty": "intermediate",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "DX-009",
+    "title": "Venous Duplex Ultrasound Protocol",
+    "definition": "A standardized ultrasound examination of the lower extremity venous system combining B-mode imaging with pulsed-wave Doppler to evaluate for deep vein thrombosis and venous reflux.",
+    "concepts": [
+      {
+        "concept_id": "dvt-examination",
+        "term": "DVT Examination",
+        "definition": "Protocol for acute DVT detection.",
+        "clinical_features": {
+          "compression": "Primary criterion - lack of complete compression indicates thrombus",
+          "imaging": "Visualize vein walls, intraluminal echogenicity",
+          "augmentation": "Distal compression should augment flow",
+          "spectral": "Absent or reduced respiratory phasicity suggests proximal obstruction",
+          "segments": "CFV, FV, popliteal, tibials (whole-leg vs limited)"
+        }
+      },
+      {
+        "concept_id": "reflux-examination",
+        "term": "Reflux Examination",
+        "definition": "Protocol for chronic venous insufficiency assessment.",
+        "clinical_features": {
+          "position": "Standing or reverse Trendelenburg",
+          "provocation": "Valsalva, manual compression/release, cuff deflation",
+          "threshold": ">0.5 seconds reflux = pathologic for superficial",
+          "threshold_deep": ">1.0 second for deep veins",
+          "mapping": "Identify all sources of reflux and perforators"
+        }
+      },
+      {
+        "concept_id": "anatomy",
+        "term": "Venous Anatomy Assessment",
+        "definition": "Anatomic evaluation of the venous system.",
+        "clinical_features": {
+          "gsv": "Size, depth, course, presence in saphenous compartment",
+          "ssv": "Termination level (variable), size",
+          "perforators": "Location, size, competence of incompetent perforators",
+          "deep_system": "Patency, post-thrombotic changes"
+        }
+      },
+      {
+        "concept_id": "reporting",
+        "term": "Reporting Elements",
+        "definition": "Key elements in the venous duplex report.",
+        "clinical_features": {
+          "dvt": "Location, extent, acuity (acute/chronic/mixed)",
+          "reflux": "Segments involved, reflux duration",
+          "measurements": "Vein diameter at key points",
+          "clinical_correlation": "Findings relevant to clinical question"
+        }
+      }
+    ],
+    "clinical_features": {
+      "sensitivity": ">95% for proximal DVT, 85-95% for distal DVT",
+      "preoperative": "Essential for planning venous interventions"
+    }
+  },
+  "relationships": [
+    {"type": "diagnoses", "target": "vascular:venous:dvt"},
+    {"type": "diagnoses", "target": "vascular:venous:chronic-venous-insufficiency"},
+    {"type": "guides", "target": "vascular:procedure:venous-ablation"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Lurie F et al. J Vasc Surg Venous Lymphat Disord. 2020;8:339-367", "type": "guideline"},
+      {"reference": "Zierler RE et al. J Vasc Ultrasound. 2018;42:99-112", "type": "primary"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

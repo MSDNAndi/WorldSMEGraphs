@@ -1,0 +1,86 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:dialysis:central-venous-stenosis",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:28:00.000Z",
+    "updated": "2026-01-07T01:28:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.93,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/dialysis-access",
+    "type": "clinical-condition",
+    "difficulty": "advanced",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "DIAL-009",
+    "title": "Central Venous Stenosis",
+    "definition": "Stenosis or occlusion of central veins (subclavian, brachiocephalic, or SVC) caused by prior central venous catheter placement, which compromises ipsilateral hemodialysis access function.",
+    "concepts": [
+      {
+        "concept_id": "etiology",
+        "term": "Etiology",
+        "definition": "Causes of central venous stenosis.",
+        "clinical_features": {
+          "catheter": "Prior or current central venous catheter (most common)",
+          "pacemaker": "Pacemaker/ICD leads",
+          "fistula_related": "High-flow fistula causing wall stress",
+          "location": "Subclavian vein most common, then brachiocephalic"
+        }
+      },
+      {
+        "concept_id": "presentation",
+        "term": "Clinical Presentation",
+        "definition": "Signs and symptoms of central venous stenosis.",
+        "clinical_features": {
+          "arm_swelling": "Ipsilateral arm and hand edema",
+          "chest_wall_collaterals": "Prominent chest wall and shoulder veins",
+          "access_dysfunction": "Elevated venous pressures during dialysis",
+          "progression": "Symptoms worsen with high-flow access"
+        }
+      },
+      {
+        "concept_id": "diagnosis",
+        "term": "Diagnosis",
+        "definition": "Imaging for central venous stenosis.",
+        "clinical_features": {
+          "fistulogram": "Venogram with central runoff most useful",
+          "duplex": "May show abnormal waveforms, cannot visualize central veins",
+          "ct_venogram": "Useful for anatomic planning",
+          "mra": "Alternative if CT contrast contraindicated"
+        }
+      },
+      {
+        "concept_id": "treatment",
+        "term": "Treatment",
+        "definition": "Management of central venous stenosis.",
+        "clinical_features": {
+          "angioplasty": "First-line treatment, high recurrence (50-60% at 1 year)",
+          "stent": "For elastic recoil or rapid recurrence",
+          "surgical_bypass": "Rarely needed (jugular transposition, chest bypass)",
+          "access_relocation": "May need to relocate access to contralateral arm"
+        }
+      }
+    ],
+    "clinical_features": {
+      "prevention": "Avoid subclavian catheters in ESRD patients",
+      "guideline": "Internal jugular preferred for temporary dialysis access"
+    }
+  },
+  "relationships": [
+    {"type": "complication_of", "target": "vascular:procedure:central-venous-catheter"},
+    {"type": "affects", "target": "vascular:dialysis:av-fistula"},
+    {"type": "treated_by", "target": "vascular:procedure:venous-angioplasty"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Am J Kidney Dis. 2020;75:S1-S164", "type": "guideline"},
+      {"reference": "J Vasc Surg. 2017;66:265-273", "type": "primary"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

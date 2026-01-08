@@ -1,0 +1,94 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-procedure",
+  "@id": "vascular:procedure:access:av-fistula",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:02:00.000Z",
+    "updated": "2026-01-07T01:02:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/procedures/access",
+    "type": "clinical-procedure",
+    "difficulty": "intermediate",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "PROC-020",
+    "title": "Arteriovenous Fistula Creation",
+    "definition": "Surgical creation of arteriovenous fistula for hemodialysis access, the preferred access type for end-stage renal disease patients.",
+    "concepts": [
+      {
+        "concept_id": "fistula-first",
+        "term": "Fistula First Initiative",
+        "definition": "KDOQI and Fistula First Initiative guidelines promoting AVF as primary dialysis access.",
+        "clinical_features": {
+          "goals": "AVF rate >65% for prevalent dialysis patients",
+          "rationale": ["Lower infection rate", "Better patency", "Lower mortality", "Lower cost"],
+          "contraindications": ["Severe heart failure", "Life expectancy <1 year", "Poor arm vessels"]
+        }
+      },
+      {
+        "concept_id": "site-selection",
+        "term": "Access Site Selection",
+        "definition": "Hierarchy of AVF placement progressing distal to proximal.",
+        "clinical_features": {
+          "hierarchy": [
+            "Radiocephalic (wrist) - Brescia-Cimino",
+            "Brachiocephalic (antecubital)",
+            "Brachiobasilic (with transposition)",
+            "Femoral (thigh)"
+          ],
+          "preoperative_assessment": ["Physical exam", "Vein mapping ultrasound", "Central vein evaluation if needed"],
+          "minimum_vein_diameter": "2.5mm (some use 2.0mm)"
+        }
+      },
+      {
+        "concept_id": "maturation",
+        "term": "AVF Maturation",
+        "definition": "Process of fistula development to allow successful cannulation.",
+        "clinical_features": {
+          "rule_of_6s": ["Flow >600 mL/min", "Diameter >6mm", "Depth <6mm", "Cannulation length >6cm"],
+          "maturation_time": "6-8 weeks for radiocephalic, 4-6 weeks for brachiocephalic",
+          "failure_rate": "20-40% primary failure rate",
+          "interventions": ["Balloon angioplasty for stenosis", "Superficialization procedure"]
+        }
+      },
+      {
+        "concept_id": "complications",
+        "term": "AVF Complications",
+        "definition": "Common complications of arteriovenous fistulas.",
+        "clinical_features": {
+          "failure_to_mature": "Most common, 20-40%",
+          "stenosis": "Juxta-anastomotic most common location",
+          "thrombosis": "Often secondary to stenosis",
+          "steal_syndrome": "Ischemia from diversion of blood",
+          "aneurysm": "From repeated cannulation",
+          "high_output_failure": "Rare, typically flow >2L/min"
+        }
+      }
+    ],
+    "clinical_features": {
+      "timing": "Refer when eGFR <30, create when eGFR <15-20",
+      "surgical_technique": "End-vein to side-artery anastomosis most common"
+    },
+    "diagnostic_criteria": {
+      "functional_access": "Adequate flow and depth for two-needle cannulation"
+    }
+  },
+  "relationships": [
+    {"type": "alternative_to", "target": "vascular:procedure:access:av-graft"},
+    {"type": "alternative_to", "target": "vascular:procedure:access:central-catheter"},
+    {"type": "treats", "target": "vascular:condition:esrd"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "KDOQI Clinical Practice Guideline for Vascular Access. Am J Kidney Dis. 2019;75:S1-S164", "type": "guideline"},
+      {"reference": "Lok CE et al. Am J Kidney Dis. 2020;75:S1-S164", "type": "guideline"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "@context": "aku-v2",
+  "@type": "syndrome",
+  "@id": "vascular:malformations:vm-002-issva",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:10:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:10:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/vascular-malformations",
+    "type": "classification",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "VM-002",
+    "keywords": ["ISSVA classification", "vascular anomalies", "hemangioma", "vascular malformation"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "vascular_malformations",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "The ISSVA (International Society for the Study of Vascular Anomalies) classification divides vascular anomalies into two fundamental categories: vascular tumors (including hemangiomas that proliferate and involute) and vascular malformations (structural abnormalities present at birth that grow proportionally), with malformations further classified by the predominant vessel type involved.",
+      "formal": "ISSVA_Classification: Vascular_Anomalies = Vascular_Tumors(Hemangioma, etc.) | Vascular_Malformations(Capillary | Venous | Lymphatic | Arterial | AVM | Combined)"
+    },
+    "explanation": {
+      "intuition": "Before ISSVA, vascular birthmarks were confusingly called 'hemangiomas' regardless of type. ISSVA clarified that TRUE hemangiomas are tumors that grow rapidly then shrink - completely different from malformations that are abnormal vessels present at birth that never go away and grow with the child.",
+      "key_insight": "The fundamental distinction between TUMORS (proliferative, may involute) and MALFORMATIONS (structural errors, never involute) guides all therapy. Infantile hemangiomas may be observed or treated with propranolol; vascular malformations require procedural intervention if symptomatic. This classification revolutionized management.",
+      "technical_details": "ISSVA 2018 Classification: (1) Vascular Tumors - benign (infantile hemangioma, congenital hemangioma, tufted angioma), locally aggressive (kaposiform hemangioendothelioma), malignant (angiosarcoma). (2) Vascular Malformations - simple (capillary CM, lymphatic LM, venous VM, arteriovenous AVM, arteriovenous fistula AVF), combined (CVM, LVM, CLVM, CAVM, etc.), major named vessels, associated with other anomalies. Flow classification: low-flow (CM, LM, VM) vs high-flow (AVM, AVF). Genetic mutations increasingly identified: PIK3CA (CLOVES, LM, VM), GNAQ (CM), MAP2K1 (AVM). This classification determines imaging approach, treatment modality, and prognosis."
+    }
+  },
+  "clinical_features": {
+    "vascular_tumors": {
+      "infantile_hemangioma": {
+        "natural_history": "Appears 1-4 weeks, rapid growth 0-12 months, involution 1-10 years",
+        "treatment": "Observation, propranolol if problematic",
+        "genetics": "GLUT-1 positive (differentiates from malformations)"
+      },
+      "congenital_hemangioma": {
+        "subtypes": ["RICH (rapidly involuting)", "NICH (non-involuting)", "PICH (partially involuting)"],
+        "difference": "Present and fully formed at birth (unlike infantile)"
+      },
+      "kaposiform_hemangioendothelioma": {
+        "concern": "Kasabach-Merritt phenomenon (consumptive coagulopathy)",
+        "treatment": "Sirolimus, vincristine, surgery"
+      }
+    },
+    "vascular_malformations": {
+      "simple": {
+        "capillary_CM": {
+          "example": "Port-wine stain",
+          "flow": "Low-flow",
+          "treatment": "Pulsed dye laser"
+        },
+        "venous_VM": {
+          "characteristics": "Compressible, expands with Valsalva",
+          "flow": "Low-flow",
+          "treatment": "Sclerotherapy, surgical excision"
+        },
+        "lymphatic_LM": {
+          "types": ["Macrocystic", "Microcystic", "Mixed"],
+          "flow": "Low-flow (no flow)",
+          "treatment": "Sclerotherapy (macrocystic), sirolimus"
+        },
+        "arteriovenous_AVM": {
+          "characteristics": "Warm, thrill, bruit, may bleed",
+          "flow": "High-flow",
+          "treatment": "Embolization + resection, staged approach"
+        }
+      },
+      "combined": ["CVM (capillary-venous)", "LVM (lymphatic-venous)", "CLVM (Klippel-Trenaunay)", "CAVM"]
+    },
+    "flow_classification": {
+      "low_flow": ["Capillary (CM)", "Venous (VM)", "Lymphatic (LM)"],
+      "high_flow": ["Arteriovenous malformation (AVM)", "Arteriovenous fistula (AVF)"]
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "ISSVA Classification of Vascular Anomalies"
+    },
+    "altLabel": [
+      "Vascular anomaly classification",
+      "Mulliken and Glowacki classification"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "International classification system dividing vascular anomalies into tumors (proliferative) and malformations (structural), with malformations further classified by predominant vessel type and flow characteristics."
+    },
+    "notation": "VM-002"
+  },
+  "relationships": {
+    "prerequisites": [],
+    "enables": ["vascular:malformations:vm-003-avm", "vascular:malformations:vm-016-hemangioma"],
+    "skos:broader": ["vascular:malformations"],
+    "skos:related": ["vascular:malformations:hemangioma", "vascular:malformations:klippel-trenaunay"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "consensus",
+        "title": "ISSVA Classification for Vascular Anomalies",
+        "organization": "International Society for the Study of Vascular Anomalies",
+        "year": 2018
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "pediatric surgeons", "interventional radiologists"],
+    "estimated_time": "25min",
+    "learning_objectives": [
+      "Distinguish vascular tumors from vascular malformations",
+      "Classify malformations by vessel type and flow",
+      "Apply ISSVA classification to guide treatment selection"
+    ],
+    "clinical_pearls": [
+      "TUMOR (hemangioma) = proliferates then involutes; MALFORMATION = structural, never involutes",
+      "Infantile hemangioma is GLUT-1 positive - use to differentiate if unsure",
+      "AVM is HIGH-FLOW - warm, thrill, bruit; VM is LOW-FLOW - compressible, expands with Valsalva",
+      "Propranolol revolutionized infantile hemangioma treatment",
+      "Klippel-Trenaunay = CLVM (capillary-lymphatic-venous malformation)",
+      "PIK3CA mutations underlie many vascular malformations"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "400047006",
+      "description": "Vascular malformation"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "Q27.9",
+      "description": "Congenital malformation of peripheral vascular system, unspecified"
+    }
+  ]
+}

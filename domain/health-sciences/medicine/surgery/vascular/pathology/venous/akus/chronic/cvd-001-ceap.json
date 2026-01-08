@@ -1,0 +1,96 @@
+{
+  "@context": "aku-v2",
+  "@type": "classification",
+  "@id": "vascular:venous:ceap-classification",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:20:00.000Z",
+    "updated": "2026-01-07T01:20:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/venous/classification",
+    "type": "classification-system",
+    "difficulty": "intermediate",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "CVD-001",
+    "title": "CEAP Classification of Chronic Venous Disease",
+    "definition": "An international standardized classification system for chronic venous disorders based on Clinical severity, Etiology, Anatomy, and Pathophysiology.",
+    "concepts": [
+      {
+        "concept_id": "clinical-component",
+        "term": "Clinical Classification (C)",
+        "definition": "Grading of visible and symptomatic manifestations of venous disease.",
+        "clinical_features": {
+          "C0": "No visible or palpable signs of venous disease",
+          "C1": "Telangiectasias or reticular veins",
+          "C2": "Varicose veins (≥3mm diameter)",
+          "C2r": "Recurrent varicose veins",
+          "C3": "Edema",
+          "C4a": "Pigmentation or eczema",
+          "C4b": "Lipodermatosclerosis or atrophie blanche",
+          "C4c": "Corona phlebectatica",
+          "C5": "Healed venous ulcer",
+          "C6": "Active venous ulcer",
+          "C6r": "Recurrent active ulcer",
+          "subscript_s": "Symptomatic (add 's' suffix)",
+          "subscript_a": "Asymptomatic (add 'a' suffix)"
+        }
+      },
+      {
+        "concept_id": "etiology-component",
+        "term": "Etiologic Classification (E)",
+        "definition": "Classification by cause of venous disease.",
+        "clinical_features": {
+          "Ep": "Primary (idiopathic, no known cause)",
+          "Es": "Secondary (post-thrombotic, traumatic)",
+          "Ec": "Congenital",
+          "En": "No venous cause identified"
+        }
+      },
+      {
+        "concept_id": "anatomy-component",
+        "term": "Anatomic Classification (A)",
+        "definition": "Location of venous disease within the venous system.",
+        "clinical_features": {
+          "As": "Superficial veins (GSV, SSV, tributaries)",
+          "Ad": "Deep veins (femoral, popliteal, tibial)",
+          "Ap": "Perforating veins",
+          "An": "No venous location identified"
+        }
+      },
+      {
+        "concept_id": "pathophysiology-component",
+        "term": "Pathophysiologic Classification (P)",
+        "definition": "Mechanism of venous dysfunction.",
+        "clinical_features": {
+          "Pr": "Reflux (valve incompetence)",
+          "Po": "Obstruction (venous outflow impairment)",
+          "Pr,o": "Reflux and obstruction combined",
+          "Pn": "No venous pathophysiology identified"
+        }
+      }
+    ],
+    "clinical_features": {
+      "basic_reporting": "C class with s/a suffix (e.g., C4b,s)",
+      "advanced_reporting": "Full CEAP (e.g., C4b,s,Ep,As,p,Pr)",
+      "updated_version": "CEAP 2020 revision with C2r, C4c, C6r additions"
+    }
+  },
+  "relationships": [
+    {"type": "classifies", "target": "vascular:venous:chronic-venous-disease"},
+    {"type": "complemented_by", "target": "vascular:venous:vcss-scoring"},
+    {"type": "guides", "target": "vascular:venous:treatment-selection"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Lurie F et al. J Vasc Surg Venous Lymphat Disord. 2020;8:342-352", "type": "guideline"},
+      {"reference": "Eklöf B et al. J Vasc Surg. 2004;40:1248-1252", "type": "primary"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

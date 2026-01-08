@@ -1,0 +1,151 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:renal:renal-007-flash-pulmonary-edema",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:45:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T00:45:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/renal-artery",
+    "type": "clinical_syndrome",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "RENAL-007",
+    "keywords": ["flash pulmonary edema", "Pickering syndrome", "bilateral renal artery stenosis", "recurrent pulmonary edema"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "renovascular_disease",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Flash pulmonary edema (Pickering syndrome) is the sudden onset of severe pulmonary edema in patients with bilateral renal artery stenosis or stenosis to a solitary kidney, characterized by rapid volume overload without primary cardiac dysfunction, and representing the strongest indication for renal artery revascularization.",
+      "formal": "Flash_Pulmonary_Edema = Sudden_Pulmonary_Edema + (Bilateral_RAS | Solitary_Kidney_RAS) + Preserved_EF + Responds_to_Revascularization"
+    },
+    "explanation": {
+      "intuition": "When both kidneys sense reduced blood flow due to stenosis, they activate the renin-angiotensin system aggressively, causing severe sodium and water retention plus vasoconstriction. The result is sudden, dramatic fluid overload that floods the lungs - not from a weak heart, but from too much volume.",
+      "key_insight": "Flash pulmonary edema is the one scenario where renal artery revascularization shows clear benefit. Unlike other indications where the CORAL trial showed equivalence, flash pulmonary edema often resolves dramatically after stenting. The key is recognizing it.",
+      "technical_details": "Pathophysiology: bilateral RAS or solitary kidney stenosis → impaired pressure natriuresis → sodium and water retention → volume expansion → LV end-diastolic pressure elevation → pulmonary edema. Activation of the renin-angiotensin system causes vasoconstriction and further pressure increase. Key features: recurrent episodes of sudden dyspnea, preserved ejection fraction (EF >40%), often presents at night or with exertion, rapid resolution with diuresis but recurrence. Diagnosis: clinical suspicion paramount, duplex or CTA to confirm bilateral RAS. Treatment: aggressive diuresis acutely, revascularization of hemodynamically significant lesions. Success rate for preventing recurrent episodes: 70-85%."
+    }
+  },
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Bilateral RAAS activation → impaired pressure natriuresis → volume overload",
+      "contributors": [
+        "Sodium and water retention from RAAS activation",
+        "Vasoconstriction from angiotensin II",
+        "Impaired renal escape from volume expansion",
+        "Diastolic dysfunction from chronic hypertension"
+      ]
+    },
+    "clinical_presentation": {
+      "onset": "Sudden, dramatic pulmonary edema",
+      "timing": "Often nocturnal (recumbent redistribution) or with exertion",
+      "recurrence": "Episodes recur despite medical therapy",
+      "cardiac_function": "Preserved ejection fraction (EF typically >40%)",
+      "response": "Resolves with diuresis but recurs"
+    },
+    "diagnosis": {
+      "clinical_clues": [
+        "Recurrent pulmonary edema episodes",
+        "Preserved LV function (not typical CHF)",
+        "Resistant hypertension",
+        "Renal insufficiency",
+        "Abdominal bruit"
+      ],
+      "imaging": {
+        "duplex": "Bilateral elevated PSV (>200 cm/s)",
+        "CTA": "Bilateral renal artery stenosis or solitary kidney stenosis",
+        "echocardiogram": "Preserved EF, may have diastolic dysfunction, LVH"
+      }
+    },
+    "differential_diagnosis": [
+      "Acute coronary syndrome",
+      "Flash pulmonary edema from other causes (cardiomyopathy, arrhythmia)",
+      "Volume overload from non-compliance"
+    ],
+    "treatment": {
+      "acute": {
+        "diuresis": "Aggressive furosemide, often IV",
+        "oxygenation": "Supplemental O2, BiPAP, intubation if needed",
+        "preload_reduction": "Nitrates if blood pressure permits"
+      },
+      "definitive": {
+        "revascularization": "Renal artery stenting of hemodynamically significant lesions",
+        "bilateral_approach": "Often treat both sides",
+        "success_rate": "70-85% prevention of recurrent episodes"
+      }
+    },
+    "prognosis": {
+      "without_treatment": "Recurrent episodes, progressive renal failure",
+      "with_revascularization": "Dramatic improvement in most patients"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Flash Pulmonary Edema (Pickering Syndrome)"
+    },
+    "altLabel": [
+      "Pickering syndrome",
+      "Renovascular flash pulmonary edema",
+      "Recurrent pulmonary edema with RAS"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Sudden-onset pulmonary edema caused by bilateral renal artery stenosis or stenosis to a solitary kidney, resulting from impaired pressure natriuresis and volume overload, representing the strongest indication for renal revascularization."
+    },
+    "notation": "RENAL-007"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:renal:renal-002-atherosclerotic-ras"],
+    "enables": ["vascular:renal:renal-009-stenting"],
+    "skos:broader": ["vascular:renal:clinical-syndromes"],
+    "skos:related": ["vascular:renal:ischemic-nephropathy"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "landmark_paper",
+        "title": "Pickering TG. Recurrent pulmonary oedema in hypertension due to bilateral renal artery stenosis",
+        "journal": "Lancet",
+        "year": 1988
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "cardiology fellows", "emergency medicine physicians"],
+    "estimated_time": "18min",
+    "learning_objectives": [
+      "Recognize flash pulmonary edema as a distinct clinical syndrome",
+      "Understand the pathophysiology linking bilateral RAS to pulmonary edema",
+      "Identify flash pulmonary edema as the strongest indication for renal stenting",
+      "Apply appropriate diagnostic workup"
+    ],
+    "clinical_pearls": [
+      "Flash pulmonary edema is the BEST indication for renal stenting - dramatic response",
+      "Key clue: preserved EF + recurrent pulmonary edema = think bilateral RAS",
+      "CORAL trial excluded these patients - don't apply CORAL results here",
+      "Episodes often nocturnal - recumbent fluid redistribution",
+      "Pickering described this syndrome - bilateral RAS + recurrent flash pulmonary edema",
+      "70-85% of patients have no further episodes after revascularization"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "19829001",
+      "description": "Pulmonary edema"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "J81.0",
+      "description": "Acute pulmonary edema"
+    }
+  ]
+}

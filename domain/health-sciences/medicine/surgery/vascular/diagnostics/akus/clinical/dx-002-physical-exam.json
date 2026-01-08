@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:diagnostics:dx-002-physical-exam",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:28:00.000Z",
+    "updated": "2026-01-07T02:28:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.92,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics",
+    "type": "clinical-skills",
+    "difficulty": "foundational",
+    "importance": "critical",
+    "aku_id": "DX-002",
+    "keywords": ["vascular examination", "pulse exam", "bruit", "skin changes"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "The vascular physical examination systematically evaluates arterial pulses, auscultation for bruits, skin and tissue changes, temperature differentials, and edema patterns to localize and characterize peripheral vascular disease.",
+      "formal": "Vascular_Exam: Inspection + Palpation (Pulses) + Auscultation (Bruits) + Special_Tests"
+    },
+    "explanation": {
+      "intuition": "The vascular exam is reading the body's roadmap - you're checking whether blood is getting where it needs to go. Absent pulses tell you where the road is blocked, cold skin tells you blood isn't arriving, and bruits tell you where the road is narrowed.",
+      "key_insight": "A complete pulse exam requires checking all named pulses bilaterally (carotid, brachial, radial, ulnar, femoral, popliteal, dorsalis pedis, posterior tibial). An absent pulse indicates disease at or above that level.",
+      "technical_details": "Inspection: skin color, hair loss, muscle atrophy, trophic changes, ulcers, gangrene. Palpation: pulse quality (0-2+ scale or absent/diminished/normal), temperature, capillary refill. Auscultation: carotid, subclavian, abdominal aorta, femoral bruits. Special tests: Buerger's test (pallor with elevation, rubor with dependency), Allen test (hand perfusion), venous filling time. Venous exam: edema distribution, varicosities, skin changes, ulcer location."
+    }
+  },
+  "clinical_features": {
+    "inspection": ["Skin color", "Hair loss", "Muscle atrophy", "Trophic nails", "Ulcers", "Gangrene"],
+    "palpation": ["All named pulses bilaterally", "Temperature", "Capillary refill"],
+    "auscultation": ["Carotid", "Subclavian", "Abdominal aorta", "Renal", "Femoral"],
+    "special_tests": ["Buerger's test", "Allen test", "Venous filling time", "Trendelenburg test"],
+    "pulse_grading": {"0": "Absent", "1+": "Diminished", "2+": "Normal", "3+": "Bounding"}
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Vascular Physical Examination"},
+    "altLabel": ["Peripheral vascular exam", "Arterial examination", "Pulse examination"],
+    "notation": "DX-002"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:anatomy:peripheral-arteries"],
+    "enables": ["vascular:diagnostics:noninvasive-testing"],
+    "skos:broader": ["vascular:diagnostics:clinical-evaluation"],
+    "skos:related": ["vascular:diagnostics:abi", "vascular:diagnostics:pulse-exam"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "textbook", "title": "Rutherford's Vascular Surgery", "edition": "9th", "chapter": "Physical Examination", "year": 2018}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["medical students", "vascular surgery residents"],
+    "board_yield": "HIGH",
+    "clinical_pearls": [
+      "Absent pulse localizes disease to that level or above",
+      "Bruit indicates stenosis 50-90%; absence doesn't exclude disease",
+      "Cool, hairless, shiny skin with thickened nails = chronic arterial insufficiency"
+    ]
+  }
+}

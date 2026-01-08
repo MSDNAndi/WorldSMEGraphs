@@ -1,0 +1,176 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-algorithm",
+  "@id": "vascular:mesenteric:mes-001-acute-algorithm",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:15:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T01:15:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/mesenteric",
+    "type": "algorithm",
+    "difficulty": "expert",
+    "importance": "critical",
+    "aku_id": "MES-001",
+    "keywords": ["acute mesenteric ischemia", "AMI", "SMA embolism", "mesenteric thrombosis", "NOMI"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "mesenteric_disease",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Acute mesenteric ischemia (AMI) is a life-threatening emergency requiring rapid diagnosis via CTA and early revascularization, with the four etiologies (SMA embolism, SMA thrombosis, mesenteric venous thrombosis, NOMI) each having distinct presentations and management strategies, and overall mortality remaining 50-80% due to delayed diagnosis.",
+      "formal": "AMI = (SMA_Embolism | SMA_Thrombosis | MVT | NOMI) + Rapid_CTA_Diagnosis + Early_Revascularization + Second_Look_Laparotomy"
+    },
+    "explanation": {
+      "intuition": "Acute mesenteric ischemia is like a heart attack in the intestines - blood supply is suddenly cut off and the bowel dies quickly. The key is speed: diagnose within hours (not days), restore blood flow immediately, and then check back later (second-look surgery) to see if the bowel survived.",
+      "key_insight": "The classic teaching 'pain out of proportion to exam' remains relevant but often presents late. Early diagnosis requires high clinical suspicion in at-risk patients (atrial fibrillation for embolism, atherosclerosis for thrombosis, hypercoagulability for venous). CTA has revolutionized diagnosis. Lactate elevation is a late finding indicating bowel necrosis, not ischemia.",
+      "technical_details": "Four etiologies: (1) SMA embolism (50%) - usually cardiac source, sudden onset, proximal SMA; (2) SMA thrombosis (25%) - chronic atherosclerosis, prior food fear/weight loss, involves ostium; (3) Mesenteric venous thrombosis (10%) - hypercoagulable states, CT shows thickened bowel and clot; (4) NOMI (15%) - hypoperfusion without obstruction, vasoconstriction, seen in ICU/cardiac surgery patients. Diagnosis: CTA is gold standard (95% sensitive/specific). Treatment algorithm: resuscitate, anticoagulate, CTA, then embolism→embolectomy/papaverine; thrombosis→SMA stenting or bypass; MVT→anticoagulation, surgery if peritonitis; NOMI→correct underlying cause, papaverine. Second-look laparotomy at 24-48 hours is essential when bowel viability uncertain."
+    }
+  },
+  "clinical_features": {
+    "etiologies": {
+      "SMA_embolism": {
+        "prevalence": "50% of AMI",
+        "source": "Cardiac (Afib, LV thrombus), aortic",
+        "location": "Usually 3-10 cm from ostium (beyond middle colic)",
+        "onset": "Sudden, dramatic",
+        "history": "Atrial fibrillation, recent MI, heart failure"
+      },
+      "SMA_thrombosis": {
+        "prevalence": "25% of AMI",
+        "pathology": "Atherosclerosis at ostium, superimposed thrombus",
+        "history": "Chronic mesenteric ischemia symptoms (food fear, weight loss)",
+        "onset": "May be subacute"
+      },
+      "mesenteric_venous_thrombosis": {
+        "prevalence": "10% of AMI",
+        "risk_factors": "Hypercoagulable states, portal hypertension, malignancy, intra-abdominal sepsis",
+        "presentation": "More insidious, days of symptoms",
+        "imaging": "CT shows SMV thrombus, bowel wall thickening"
+      },
+      "NOMI": {
+        "prevalence": "15% of AMI",
+        "mechanism": "Vasoconstriction without obstruction",
+        "setting": "ICU, post-cardiac surgery, vasopressors, digoxin toxicity",
+        "treatment": "Correct underlying cause, intra-arterial papaverine"
+      }
+    },
+    "presentation": {
+      "classic": "Sudden severe periumbilical pain 'out of proportion to exam'",
+      "early": "Nausea, vomiting, diarrhea (gut emptying)",
+      "late": "Peritonitis, bloody stool, hemodynamic instability (bowel necrosis)",
+      "MVT": "More gradual onset over days"
+    },
+    "diagnosis": {
+      "laboratory": {
+        "lactate": "Elevated late - indicates necrosis, not early ischemia",
+        "WBC": "Leukocytosis",
+        "acidosis": "Metabolic acidosis in advanced disease"
+      },
+      "imaging": {
+        "CTA": "Gold standard - sensitivity 94%, specificity 95%",
+        "findings": "Arterial occlusion, venous thrombosis, bowel wall enhancement/non-enhancement, pneumatosis"
+      }
+    },
+    "treatment_algorithm": {
+      "all_causes": {
+        "resuscitate": "Aggressive fluid resuscitation",
+        "anticoagulate": "Heparin unless contraindicated",
+        "NGT": "Bowel rest"
+      },
+      "SMA_embolism": {
+        "surgical": "Embolectomy (SMA at root of mesentery)",
+        "endovascular": "Catheter-directed therapy (aspiration, lysis)",
+        "adjunct": "Intra-arterial papaverine for spasm"
+      },
+      "SMA_thrombosis": {
+        "endovascular": "Stenting if stable, no peritonitis",
+        "surgical": "Bypass (aorta-SMA or iliac-SMA) if peritonitis or endovascular fails"
+      },
+      "MVT": {
+        "anticoagulation": "Primary treatment; surgery only for peritonitis",
+        "duration": "6 months minimum, often lifelong"
+      },
+      "NOMI": {
+        "correct_underlying": "Stop vasoconstrictors if possible, optimize cardiac output",
+        "papaverine": "Intra-arterial papaverine infusion"
+      },
+      "second_look": {
+        "timing": "24-48 hours after revascularization",
+        "indication": "Bowel viability uncertain at initial operation",
+        "purpose": "Assess viability, resect necrotic bowel"
+      }
+    },
+    "prognosis": {
+      "mortality": "50-80% overall",
+      "factors": "Delay in diagnosis, extent of necrosis, comorbidities"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Acute Mesenteric Ischemia Algorithm"
+    },
+    "altLabel": [
+      "AMI management",
+      "Intestinal infarction"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Management algorithm for acute mesenteric ischemia addressing the four etiologies (embolism, thrombosis, venous, NOMI) with rapid CTA diagnosis and early revascularization strategies."
+    },
+    "notation": "MES-001"
+  },
+  "relationships": {
+    "prerequisites": [],
+    "enables": ["vascular:mesenteric:mes-002-embolectomy"],
+    "skos:broader": ["vascular:mesenteric"],
+    "skos:related": ["vascular:mesenteric:chronic", "vascular:mesenteric:venous"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "guideline",
+        "title": "Clinical practice guidelines for the treatment of acute mesenteric ischemia",
+        "journal": "European Journal of Vascular and Endovascular Surgery",
+        "year": 2017
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "general surgery residents", "emergency physicians"],
+    "estimated_time": "30min",
+    "learning_objectives": [
+      "Differentiate the four etiologies of acute mesenteric ischemia",
+      "Apply CTA for rapid diagnosis",
+      "Select etiology-specific treatment",
+      "Understand the role of second-look laparotomy"
+    ],
+    "clinical_pearls": [
+      "Pain out of proportion to exam + atrial fibrillation = think SMA embolism",
+      "SMA thrombosis often has PRIOR symptoms of chronic mesenteric ischemia",
+      "Lactate is a LATE finding - indicates necrosis, not early ischemia",
+      "CTA is gold standard - 94% sensitive, 95% specific",
+      "Second-look laparotomy at 24-48 hours is ESSENTIAL if viability uncertain",
+      "NOMI = vasospasm without occlusion - common post-cardiac surgery, treat underlying cause"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "373407002",
+      "description": "Acute mesenteric ischemia"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "K55.0",
+      "description": "Acute vascular disorders of intestine"
+    }
+  ]
+}

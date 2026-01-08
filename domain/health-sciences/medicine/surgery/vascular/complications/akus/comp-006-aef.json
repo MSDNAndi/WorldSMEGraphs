@@ -1,0 +1,68 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:complications:comp-006-aef",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:35:00.000Z",
+    "updated": "2026-01-07T02:35:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.88,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/complications",
+    "type": "emergency",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "COMP-006",
+    "keywords": ["aortoenteric fistula", "AEF", "GI bleeding", "graft complication"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Aortoenteric fistula (AEF) is a communication between the aorta or aortic graft and the gastrointestinal tract (usually duodenum), presenting with GI bleeding that is often initially minor (herald bleed) before massive exsanguination.",
+      "formal": "AEF: Aorta/Graft ↔ GI_Tract → Herald_Bleed → Massive_Hemorrhage"
+    },
+    "explanation": {
+      "intuition": "When an aortic graft erodes into the bowel (usually the duodenum which drapes over it), blood can leak from the artery into the gut. This often starts as small bleeds (herald bleed) before a catastrophic hemorrhage occurs.",
+      "key_insight": "The herald bleed is a warning sign - patients with prior aortic surgery and GI bleeding should be considered to have AEF until proven otherwise. A high index of suspicion is critical because EGD often misses the lesion and CT may be non-diagnostic.",
+      "technical_details": "Types: Primary (aneurysm into bowel) or secondary (graft into bowel). Location: 75% involve 3rd/4th portion of duodenum. Presentation: GI bleeding (herald bleed followed by massive), sepsis, pulsatile mass, back pain. Diagnosis: CTA (air around graft, contrast extravasation), EGD (may see graft - pathognomonic but often misses). Treatment: emergency operation - graft excision, bowel repair, revascularization (extra-anatomic preferred). Mortality: 50% even with optimal treatment."
+    }
+  },
+  "clinical_features": {
+    "types": {"primary": "Native aneurysm eroding into bowel", "secondary": "Graft eroding into bowel"},
+    "location": "75% involve 3rd/4th portion of duodenum",
+    "presentation": ["GI bleeding (herald bleed)", "Sepsis", "Pulsatile abdominal mass", "Back pain"],
+    "herald_bleed": "Initial minor bleeding preceding massive hemorrhage",
+    "diagnosis": ["CTA (perigraft air, contrast extravasation)", "EGD (may see graft)", "High clinical suspicion"],
+    "treatment": "Emergency graft excision + bowel repair + extra-anatomic revascularization",
+    "mortality": "~50% even with surgery"
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Aortoenteric Fistula"},
+    "altLabel": ["AEF", "Aortoduodenal fistula", "Graft-enteric fistula"],
+    "notation": "COMP-006"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:aortic:aaa-repair", "vascular:complications:graft-infection"],
+    "enables": ["vascular:complications:emergency-management"],
+    "skos:broader": ["vascular:complications:aortic-graft-complications"],
+    "skos:related": ["vascular:procedures:extra-anatomic-bypass", "vascular:procedures:graft-excision"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Journal of Vascular Surgery", "topic": "Aortoenteric fistula", "year": 2019}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "general surgery residents"],
+    "board_yield": "HIGH",
+    "clinical_pearls": [
+      "Prior aortic surgery + GI bleeding = AEF until proven otherwise",
+      "Herald bleed is a warning - massive hemorrhage follows",
+      "EGD may miss AEF - seeing graft is pathognomonic but rare"
+    ]
+  }
+}

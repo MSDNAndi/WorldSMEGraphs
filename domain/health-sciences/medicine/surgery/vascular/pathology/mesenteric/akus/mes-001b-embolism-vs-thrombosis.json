@@ -1,0 +1,87 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:mesenteric:sma-embolism-thrombosis",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:26:00.000Z",
+    "updated": "2026-01-07T01:26:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.94,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/mesenteric",
+    "type": "clinical-differentiation",
+    "difficulty": "advanced",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "MES-001B",
+    "title": "SMA Embolism vs Thrombosis",
+    "definition": "Clinical and angiographic differentiation between embolic and thrombotic occlusion of the superior mesenteric artery, which has important implications for treatment strategy.",
+    "concepts": [
+      {
+        "concept_id": "embolic",
+        "term": "SMA Embolism",
+        "definition": "Acute occlusion from cardiac or proximal arterial embolus.",
+        "clinical_features": {
+          "source": "Atrial fibrillation (most common), LV thrombus, aortic plaque",
+          "location": "Just distal to middle colic branch (tapered origin)",
+          "onset": "Sudden, severe abdominal pain",
+          "collaterals": "Poor - no time to develop",
+          "history": "May have prior embolic events, cardiac history"
+        }
+      },
+      {
+        "concept_id": "thrombotic",
+        "term": "SMA Thrombosis",
+        "definition": "Occlusion from progressive atherosclerosis with superimposed thrombosis.",
+        "clinical_features": {
+          "location": "At or near SMA origin (ostial disease)",
+          "onset": "May be preceded by chronic mesenteric ischemia symptoms",
+          "collaterals": "Often well-developed from celiac and IMA",
+          "history": "Food fear, weight loss, postprandial pain preceding acute event",
+          "multi_vessel": "Often involvement of other mesenteric vessels"
+        }
+      },
+      {
+        "concept_id": "angiographic",
+        "term": "Angiographic Differentiation",
+        "definition": "Imaging features that distinguish embolic from thrombotic.",
+        "clinical_features": {
+          "embolus": "Meniscus sign, normal proximal SMA, abrupt cutoff",
+          "thrombus": "Ostial occlusion, aortic calcification, collaterals visible",
+          "cta_findings": "Both show SMA occlusion with wall enhancement of ischemic bowel"
+        }
+      },
+      {
+        "concept_id": "treatment",
+        "term": "Treatment Implications",
+        "definition": "How etiology affects management.",
+        "clinical_features": {
+          "embolectomy": "Preferred for embolic - simple thrombectomy/embolectomy",
+          "bypass": "May be needed for thrombotic - address underlying stenosis",
+          "endovascular": "Aspiration/thrombolysis for embolus, stent for thrombosis",
+          "anticoagulation": "Long-term for embolic source, antiplatelet for atherosclerotic"
+        }
+      }
+    ],
+    "clinical_features": {
+      "mortality": "Both carry 60-80% mortality if untreated",
+      "key_point": "Understanding etiology guides surgical approach"
+    }
+  },
+  "relationships": [
+    {"type": "form_of", "target": "vascular:mesenteric:acute-mesenteric-ischemia"},
+    {"type": "treated_by", "target": "vascular:procedure:sma-embolectomy"},
+    {"type": "treated_by", "target": "vascular:procedure:mesenteric-bypass"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Bala M et al. J Vasc Surg. 2017;65:1544-1557", "type": "guideline"},
+      {"reference": "Bjorck M et al. Eur J Vasc Endovasc Surg. 2017;53:460-510", "type": "guideline"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

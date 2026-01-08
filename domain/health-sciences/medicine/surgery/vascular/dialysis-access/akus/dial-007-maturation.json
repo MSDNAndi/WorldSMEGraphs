@@ -1,0 +1,86 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:dialysis:fistula-maturation",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:24:00.000Z",
+    "updated": "2026-01-07T01:24:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.93,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/dialysis-access",
+    "type": "clinical-concept",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "DIAL-007",
+    "title": "AV Fistula Maturation",
+    "definition": "The process by which a newly created arteriovenous fistula develops adequate size, flow, and wall thickness to allow successful hemodialysis cannulation.",
+    "concepts": [
+      {
+        "concept_id": "physiology",
+        "term": "Maturation Physiology",
+        "definition": "Vascular changes during maturation.",
+        "clinical_features": {
+          "dilation": "Venous dilation from increased flow and wall stress",
+          "wall_thickening": "Arterialization of vein wall (smooth muscle hypertrophy)",
+          "flow_increase": "Increase in access blood flow",
+          "timeline": "Typically 4-8 weeks for radiocephalic, 4-6 weeks for upper arm"
+        }
+      },
+      {
+        "concept_id": "rule-of-6s",
+        "term": "Rule of 6s",
+        "definition": "Criteria for adequate fistula maturation.",
+        "clinical_features": {
+          "diameter": "Minimum 6mm vein diameter",
+          "depth": "Less than 6mm from skin surface",
+          "flow": "Greater than 600mL/min blood flow",
+          "length": "At least 6cm usable length for cannulation"
+        }
+      },
+      {
+        "concept_id": "failure-to-mature",
+        "term": "Failure to Mature",
+        "definition": "Fistula that does not meet maturation criteria.",
+        "clinical_features": {
+          "incidence": "20-50% of newly created fistulas",
+          "risk_factors": "Female sex, diabetes, small vessels, obesity",
+          "evaluation": "Duplex ultrasound to identify cause",
+          "causes": "Inflow stenosis, juxta-anastomotic stenosis, accessory veins"
+        }
+      },
+      {
+        "concept_id": "salvage",
+        "term": "Maturation Failure Salvage",
+        "definition": "Interventions for non-maturing fistulas.",
+        "clinical_features": {
+          "angioplasty": "Balloon dilation of stenosis (most common intervention)",
+          "accessory_vein_ligation": "Eliminate competing outflow",
+          "surgical_revision": "Proximal anastomosis, superficialization",
+          "flow_augmentation": "Inflow artery angioplasty if diseased"
+        }
+      }
+    ],
+    "clinical_features": {
+      "monitoring": "Regular post-operative assessment every 2-4 weeks",
+      "exercise": "Hand exercises may promote maturation"
+    }
+  },
+  "relationships": [
+    {"type": "follows", "target": "vascular:dialysis:fistula-creation"},
+    {"type": "assessed_by", "target": "vascular:diagnostics:fistula-duplex"},
+    {"type": "failure_treated_by", "target": "vascular:procedure:fistuloplasty"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Lok CE et al. Am J Kidney Dis. 2020;75:S1-S164", "type": "guideline"},
+      {"reference": "Schmidli J et al. J Vasc Access. 2016;17:S1-S67", "type": "guideline"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-procedure",
+  "@id": "vascular:wound:npwt",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:24:00.000Z",
+    "updated": "2026-01-07T01:24:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.93,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/wound-care",
+    "type": "clinical-technology",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "WOUND-008",
+    "title": "Negative Pressure Wound Therapy (NPWT)",
+    "definition": "A wound healing technology that applies controlled subatmospheric pressure to wounds through a sealed dressing, promoting granulation tissue formation and wound contraction.",
+    "concepts": [
+      {
+        "concept_id": "mechanism",
+        "term": "Mechanism of Action",
+        "definition": "How NPWT promotes wound healing.",
+        "clinical_features": {
+          "macrodeformation": "Wound contraction drawing edges together",
+          "microdeformation": "Cell stretch promoting proliferation",
+          "fluid_removal": "Removes exudate and edema",
+          "perfusion": "Increases local blood flow",
+          "granulation": "Promotes granulation tissue formation"
+        }
+      },
+      {
+        "concept_id": "indications",
+        "term": "Indications",
+        "definition": "Appropriate uses for NPWT.",
+        "clinical_features": {
+          "acute": "Traumatic wounds, surgical dehiscence",
+          "chronic": "Diabetic ulcers, pressure ulcers, venous ulcers",
+          "grafts": "Over skin grafts and flaps",
+          "complex": "Exposed hardware, enteric fistulas (specialized systems)"
+        }
+      },
+      {
+        "concept_id": "contraindications",
+        "term": "Contraindications",
+        "definition": "When NPWT should not be used.",
+        "clinical_features": {
+          "absolute": "Untreated osteomyelitis, malignancy in wound, necrotic tissue with eschar",
+          "relative": "Exposed vessels or organs, bleeding disorders, anticoagulation",
+          "caution": "Ischemic wounds (ensure adequate perfusion first)"
+        }
+      },
+      {
+        "concept_id": "application",
+        "term": "Application Principles",
+        "definition": "Key aspects of NPWT use.",
+        "clinical_features": {
+          "foam": "Open-cell polyurethane foam cut to wound size",
+          "seal": "Occlusive adhesive drape over foam",
+          "pressure": "-75 to -125 mmHg typically",
+          "changes": "Dressing changes every 48-72 hours",
+          "instillation": "Some systems allow topical solution instillation"
+        }
+      }
+    ],
+    "clinical_features": {
+      "evidence": "Level I evidence for diabetic foot ulcers",
+      "cost": "Higher initial cost but may reduce overall healing time"
+    }
+  },
+  "relationships": [
+    {"type": "treats", "target": "vascular:wound:complex-wounds"},
+    {"type": "adjunct_to", "target": "vascular:procedure:skin-graft"},
+    {"type": "used_after", "target": "vascular:wound:debridement"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Huang C et al. J Vasc Surg. 2016;63:618-628", "type": "review"},
+      {"reference": "Dumville JC et al. Cochrane Database Syst Rev. 2015;6:CD010318", "type": "systematic-review"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

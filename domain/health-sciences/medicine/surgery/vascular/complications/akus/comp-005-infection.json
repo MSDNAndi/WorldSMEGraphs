@@ -1,0 +1,70 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:complications:comp-005-infection",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:35:00.000Z",
+    "updated": "2026-01-07T02:35:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.90,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/complications",
+    "type": "complication",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "COMP-005",
+    "keywords": ["graft infection", "prosthetic infection", "aortic graft infection", "Szilagyi classification"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Vascular graft infection is a devastating complication classified by depth (Szilagyi I-III), with treatment depending on graft location, extent of infection, and organism, ranging from antibiotics and debridement to complete graft excision with extra-anatomic reconstruction.",
+      "formal": "Graft_Infection: Szilagyi_Classification → Treatment = f(Location, Extent, Organism)"
+    },
+    "explanation": {
+      "intuition": "An infected graft is like having a contaminated highway in your body - it can cause bleeding, sepsis, and death if not managed. Treatment depends on how deep the infection goes and where the graft is located.",
+      "key_insight": "Aortic graft infection has 50% mortality with conservative treatment. Complete graft excision with extra-anatomic bypass is gold standard but carries high morbidity. Selected cases may allow in situ replacement with antibiotic-impregnated graft or cryopreserved homograft.",
+      "technical_details": "Szilagyi classification: Grade I (dermis), Grade II (subcutaneous), Grade III (graft involvement). Organisms: early (<4 months) Staph aureus, late (>4 months) Staph epidermidis, rarely gram-negative. Diagnosis: CT with perigraft air/fluid, WBC scan, aspiration culture. Treatment options: (1) Antibiotics + local debridement (Grade I-II), (2) Graft preservation with muscle flap (limited Grade III), (3) Complete excision with extra-anatomic reconstruction (gold standard for aortic), (4) In situ replacement with rifampin-soaked or cryopreserved graft (selected cases)."
+    }
+  },
+  "clinical_features": {
+    "classification": {"Grade_I": "Dermis only", "Grade_II": "Subcutaneous tissue", "Grade_III": "Graft involvement"},
+    "organisms": {"early": "Staph aureus", "late": "Staph epidermidis", "rare": "Gram-negative, Candida"},
+    "diagnosis": ["CT (perigraft air/fluid)", "WBC scan", "Aspiration culture"],
+    "treatment": {
+      "superficial": "Antibiotics + debridement",
+      "limited_graft": "Muscle flap coverage, possible graft preservation",
+      "aortic_standard": "Complete excision + extra-anatomic bypass",
+      "in_situ_alternative": "Rifampin-impregnated graft or cryopreserved homograft"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Vascular Graft Infection"},
+    "altLabel": ["Prosthetic graft infection", "Aortic graft infection", "Szilagyi classification"],
+    "notation": "COMP-005"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:procedures:bypass-surgery"],
+    "enables": ["vascular:complications:graft-excision"],
+    "skos:broader": ["vascular:complications:prosthetic-complications"],
+    "skos:related": ["vascular:procedures:extra-anatomic-bypass", "vascular:procedures:omental-flap"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Journal of Vascular Surgery", "topic": "Graft infection management", "year": 2020}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "infectious disease fellows"],
+    "board_yield": "HIGH",
+    "clinical_pearls": [
+      "Aortic graft infection has 50% mortality with conservative treatment",
+      "Complete excision with extra-anatomic bypass is gold standard for aortic",
+      "Staph epidermidis is most common late (>4 months) organism"
+    ]
+  }
+}

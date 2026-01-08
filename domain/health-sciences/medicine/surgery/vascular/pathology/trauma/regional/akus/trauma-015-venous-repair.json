@@ -1,0 +1,142 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:trauma:trauma-015-venous-repair",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:55:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T00:55:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/trauma",
+    "type": "treatment",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "TRAUMA-015",
+    "keywords": ["venous injury repair", "venous trauma", "venous ligation", "combined arteriovenous injury"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "trauma",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Venous injury repair in trauma balances the benefits of maintaining venous outflow against the risks of prolonged operative time and potential complications; while ligation is often tolerated, repair of major veins (popliteal, femoral, IVC) improves limb outcomes when performed by experienced surgeons in stable patients.",
+      "formal": "Venous_Repair_Decision = f(Vein_Importance, Patient_Stability, Surgeon_Experience, Combined_Arterial_Injury, Time)"
+    },
+    "explanation": {
+      "intuition": "Unlike arteries where repair is almost always necessary, veins can often be tied off because of excellent collateral drainage. However, for major 'highway' veins in the legs, especially when the artery is also injured, keeping the vein open reduces swelling and improves outcomes - if the patient is stable enough.",
+      "key_insight": "The critical decision points are: (1) Is this a major named vein (femoral, popliteal, IVC)? (2) Is there concomitant arterial injury? (3) Is the patient in extremis? Combined arteriovenous injuries have worse outcomes with venous ligation, but repair adds operative time and potential thrombosis risk. Damage control surgery prioritizes hemorrhage control - definitive venous repair can wait.",
+      "technical_details": "Venous injury patterns: transection, lateral injury, segmental loss. Repair options: lateral venorrhaphy (simple laceration), patch angioplasty (maintains caliber), end-to-end anastomosis (<2cm gap), interposition graft (vein or PTFE with anticoagulation). Ligation-safe veins: most upper extremity, tibial, superficial femoral (some controversy). Repair-preferred: common femoral, popliteal (especially with arterial injury), IVC below renals. For IVC: infrarenal can be ligated if necessary; suprarenal requires repair. Fasciotomy threshold lower with combined injuries. Anticoagulation controversial but may improve repair patency."
+    }
+  },
+  "clinical_features": {
+    "repair_vs_ligation": {
+      "factors_favoring_repair": [
+        "Major named vein (femoral, popliteal, IVC)",
+        "Combined arteriovenous injury",
+        "Stable patient",
+        "Experienced surgeon available",
+        "Simple injury pattern amenable to repair"
+      ],
+      "factors_favoring_ligation": [
+        "Hemodynamically unstable patient",
+        "Damage control situation",
+        "Minor vein (tibial, upper extremity)",
+        "Complex injury requiring extensive reconstruction",
+        "Contaminated field"
+      ]
+    },
+    "vein_specific_guidance": {
+      "IVC": {
+        "suprarenal": "Repair mandatory if possible",
+        "infrarenal": "Ligation tolerated but repair preferred if stable",
+        "technique": "Lateral venorrhaphy, patch, or narrow ligation with contralateral decompression"
+      },
+      "iliac_vein": "Repair preferred; ligation has high morbidity but tolerated",
+      "common_femoral": "Repair strongly preferred - ligation causes significant limb morbidity",
+      "superficial_femoral": "Controversial - repair preferred with arterial injury, ligation tolerated if isolated",
+      "popliteal": "Repair preferred, especially with arterial injury - high swelling/compartment syndrome with ligation",
+      "tibial_veins": "Ligation tolerated",
+      "upper_extremity": "Ligation usually tolerated"
+    },
+    "techniques": {
+      "lateral_venorrhaphy": "Simple laceration - primary closure without narrowing",
+      "patch_angioplasty": "Maintains lumen when primary closure would stenose",
+      "end_to_end": "For transection with <2cm gap after mobilization",
+      "interposition_graft": "Saphenous vein or PTFE (requires anticoagulation for prosthetic)",
+      "panel_graft": "Saphenous vein opened longitudinally for large veins"
+    },
+    "postoperative": {
+      "elevation": "Leg elevation to reduce edema",
+      "compression": "Compression stockings after acute phase",
+      "anticoagulation": "Consider for major repairs, especially prosthetic grafts",
+      "surveillance": "Duplex to assess patency"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Venous Injury Repair in Trauma"
+    },
+    "altLabel": [
+      "Venous trauma management",
+      "Vein repair vs ligation"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Management of traumatic venous injuries, balancing the benefits of repair to maintain outflow against the risks of prolonged surgery, with repair preferred for major veins in stable patients."
+    },
+    "notation": "TRAUMA-015"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:trauma:general-principles"],
+    "enables": [],
+    "skos:broader": ["vascular:trauma:venous"],
+    "skos:related": ["vascular:trauma:damage-control", "vascular:trauma:fasciotomy"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery",
+        "edition": "10th",
+        "chapter": "Vascular Trauma",
+        "year": 2023
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "trauma surgery residents"],
+    "estimated_time": "20min",
+    "learning_objectives": [
+      "Apply decision-making criteria for venous repair vs ligation",
+      "Identify veins where repair is strongly preferred",
+      "Select appropriate repair technique based on injury pattern",
+      "Understand the interplay with arterial injury"
+    ],
+    "clinical_pearls": [
+      "Popliteal vein + popliteal artery injury: repair BOTH if possible - ligation causes severe swelling",
+      "Common femoral vein repair strongly preferred - ligation causes significant morbidity",
+      "IVC below renals CAN be ligated in extremis - patient survives with leg elevation",
+      "Upper extremity veins: ligation almost always tolerated",
+      "Damage control = ligate and return later if stable",
+      "Lower threshold for fasciotomy with combined arteriovenous injury"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "CPT",
+      "codeValue": "35226",
+      "description": "Repair blood vessel, direct; lower extremity"
+    },
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "262574002",
+      "description": "Vascular injury"
+    }
+  ]
+}

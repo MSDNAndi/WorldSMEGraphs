@@ -1,0 +1,152 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:trauma:trauma-013-popliteal-artery",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:55:00.000Z",
+    "contributors": ["copilot-agent", "knowledge-graph-agent"],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-07T00:55:00.000Z"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/trauma",
+    "type": "clinical_entity",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "TRAUMA-013",
+    "keywords": ["popliteal artery trauma", "knee dislocation", "limb-threatening ischemia", "four-compartment fasciotomy"],
+    "medical_specialty": "vascular_surgery",
+    "clinical_context": "trauma",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Popliteal artery injury, most commonly associated with knee dislocation or fractures involving the distal femur or proximal tibia, carries the highest amputation rate of any extremity arterial injury (10-15%) due to limited collateral circulation and the time-critical nature of revascularization.",
+      "formal": "Popliteal_Injury = Knee_Dislocation_or_Fracture + High_Amputation_Risk + Limited_Collaterals + Time_Critical_Repair"
+    },
+    "explanation": {
+      "intuition": "The popliteal artery is tethered behind the knee, passing through a tight space where it can't move out of the way. When the knee dislocates or a severe fracture occurs, the artery gets stretched or torn. Because there are few good backup blood vessels around the knee, the leg below can die quickly without repair.",
+      "key_insight": "Knee dislocation = popliteal artery injury until proven otherwise. Even when the knee has spontaneously reduced, 20-40% have arterial injury. The '6-hour rule' for limb salvage is well-established - delays beyond 6-8 hours of warm ischemia dramatically increase amputation rates. Immediate vascular surgery consultation is mandatory.",
+      "technical_details": "The popliteal artery is the continuation of the superficial femoral artery at the adductor hiatus, running through the popliteal fossa and trifurcating into anterior tibial, posterior tibial, and peroneal arteries. It is relatively fixed at the adductor hiatus above and the soleus arch below, making it vulnerable to stretch injury. Knee dislocation (especially anterior and posterior) has 20-40% arterial injury rate. Collateral circulation via geniculate arteries is usually inadequate for acute occlusion. The golden rule: warm ischemia time <6 hours for optimal limb salvage. Management algorithm: ABC, assess pulses/ABI, CTA if ABI abnormal or high suspicion, immediate exploration for hard signs. Repair with reversed saphenous vein graft preferred. Four-compartment fasciotomy mandatory if ischemia >4-6 hours or significant swelling."
+    }
+  },
+  "clinical_features": {
+    "etiology": {
+      "knee_dislocation": {
+        "incidence": "20-40% have arterial injury",
+        "mechanism": "Stretch injury at fixed points above and below",
+        "high_risk": "Anterior and posterior dislocations > lateral"
+      },
+      "fractures": {
+        "distal_femur": "Supracondylar femur fractures",
+        "proximal_tibia": "Tibial plateau fractures with dislocation component"
+      },
+      "penetrating": "GSW, stab wounds to popliteal fossa",
+      "iatrogenic": "Knee arthroplasty, arthroscopy (rare)"
+    },
+    "assessment": {
+      "examination": ["Pulse examination (may be normal with intimal injury)", "Ankle-brachial index (ABI <0.9 abnormal)", "Doppler signals"],
+      "ABI_threshold": "ABI <0.9 mandates further evaluation; some use <0.8",
+      "imaging": "CTA is first-line for stable patients with abnormal ABI",
+      "observation_pitfall": "Intimal flap may cause delayed thrombosis - serial exams essential"
+    },
+    "ischemia_tolerance": {
+      "golden_period": "6 hours warm ischemia for optimal limb salvage",
+      "beyond_6_hours": "Amputation risk increases dramatically",
+      "myoglobin_release": "Reperfusion after prolonged ischemia causes rhabdomyolysis"
+    },
+    "treatment": {
+      "immediate": {
+        "resuscitation": "Manage hemorrhage, address other injuries",
+        "reduction": "Reduce dislocation to relieve arterial kinking",
+        "vascular_surgery": "Immediate consultation mandatory"
+      },
+      "operative": {
+        "approach": "Medial approach for exposure",
+        "repair": "Reversed saphenous vein interposition graft preferred over prosthetic",
+        "spanning_fixator": "May apply before or after vascular repair depending on stability",
+        "sequence": "Vascular repair first if actively ischemic; temporary shunt if fixation needed first"
+      },
+      "fasciotomy": {
+        "indication": "Ischemia >4-6 hours, significant swelling, post-revascularization edema",
+        "technique": "Four-compartment fasciotomy (anterior, lateral, deep posterior, superficial posterior)",
+        "timing": "Better prophylactic than therapeutic - low threshold"
+      }
+    },
+    "outcomes": {
+      "amputation_rate": "10-15% overall, higher with delayed diagnosis",
+      "functional_outcome": "Often limited even with limb salvage due to associated nerve and soft tissue injury"
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Popliteal Artery Trauma"
+    },
+    "altLabel": [
+      "Popliteal artery injury",
+      "Knee dislocation vascular injury"
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Traumatic injury to the popliteal artery, commonly from knee dislocation, carrying the highest amputation rate of extremity arterial injuries due to limited collateral circulation and time-critical nature of repair."
+    },
+    "notation": "TRAUMA-013"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:anatomy:lower-extremity"],
+    "enables": ["vascular:trauma:fasciotomy"],
+    "skos:broader": ["vascular:trauma:lower-extremity"],
+    "skos:related": ["vascular:trauma:compartment-syndrome", "orthopedic:knee-dislocation"]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Rutherford's Vascular Surgery",
+        "edition": "10th",
+        "year": 2023
+      },
+      {
+        "type": "guideline",
+        "title": "WTA Critical Decisions in Trauma",
+        "organization": "Western Trauma Association",
+        "year": 2020
+      }
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "trauma surgery residents", "orthopedic surgery residents"],
+    "estimated_time": "25min",
+    "learning_objectives": [
+      "Recognize the association between knee dislocation and popliteal artery injury",
+      "Apply the 6-hour rule for limb-threatening ischemia",
+      "Perform systematic assessment of popliteal injuries",
+      "Understand the rationale for prophylactic fasciotomy"
+    ],
+    "clinical_pearls": [
+      "Knee dislocation = popliteal injury until proven otherwise (20-40% incidence)",
+      "Popliteal injury has HIGHEST amputation rate of any extremity artery (10-15%)",
+      "6-hour rule: warm ischemia >6 hours dramatically increases amputation risk",
+      "ABI <0.9 mandates further evaluation - CTA or exploration",
+      "Normal pulse does NOT rule out intimal injury - may thrombose later",
+      "Four-compartment fasciotomy mandatory if ischemia >4-6 hours",
+      "Vein graft preferred over prosthetic for contaminated/traumatic field"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "262575001",
+      "description": "Injury of popliteal artery"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "S85.0",
+      "description": "Injury of popliteal artery"
+    }
+  ]
+}

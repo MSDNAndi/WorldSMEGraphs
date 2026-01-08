@@ -1,0 +1,82 @@
+{
+  "@context": "aku-v2",
+  "@type": "assessment-tool",
+  "@id": "vascular:venous:vcss-scoring",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:20:00.000Z",
+    "updated": "2026-01-07T01:20:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.93,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/venous/assessment",
+    "type": "scoring-system",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "CVD-002",
+    "title": "Venous Clinical Severity Score (VCSS)",
+    "definition": "A validated scoring system that quantifies the severity of chronic venous disease symptoms and signs, used to track disease progression and treatment response.",
+    "concepts": [
+      {
+        "concept_id": "scoring-elements",
+        "term": "VCSS Scoring Elements",
+        "definition": "The ten components assessed in the VCSS.",
+        "clinical_features": {
+          "pain": "0=None, 1=Occasional, 2=Daily, 3=Daily limiting activity",
+          "varicose_veins": "0=None, 1=Few, 2=Multiple GSV, 3=Extensive",
+          "venous_edema": "0=None, 1=Evening/ankle, 2=Afternoon/above ankle, 3=Morning/above ankle",
+          "skin_pigmentation": "0=None, 1=Limited, 2=Diffuse lower third, 3=Wider distribution",
+          "inflammation": "0=None, 1=Mild, 2=Moderate, 3=Severe",
+          "induration": "0=None, 1=Limited <5cm, 2=5-10cm, 3=>10cm",
+          "active_ulcers": "0=None, 1=1, 2=2, 3=≥3",
+          "ulcer_duration": "0=None, 1=<3mo, 2=3-12mo, 3=>12mo",
+          "ulcer_size": "0=None, 1=<2cm, 2=2-6cm, 3=>6cm",
+          "compression": "0=Not used, 1=Intermittent, 2=Most days, 3=Full compliance"
+        }
+      },
+      {
+        "concept_id": "score-interpretation",
+        "term": "Score Interpretation",
+        "definition": "Clinical interpretation of VCSS totals.",
+        "clinical_features": {
+          "score_range": "0-30 (sum of 10 elements, each 0-3)",
+          "mild": "1-7",
+          "moderate": "8-15",
+          "severe": ">15",
+          "clinical_use": "Track treatment response over time"
+        }
+      },
+      {
+        "concept_id": "revised-vcss",
+        "term": "Revised VCSS (rVCSS)",
+        "definition": "Updated version of VCSS with improved reliability.",
+        "clinical_features": {
+          "changes": "Compression therapy scoring modified",
+          "validation": "Improved inter-rater reliability",
+          "adoption": "Recommended for clinical trials"
+        }
+      }
+    ],
+    "clinical_features": {
+      "advantages": "Quantitative, reproducible, validated",
+      "limitations": "Subject to inter-observer variability",
+      "comparison": "Complements CEAP which is categorical"
+    }
+  },
+  "relationships": [
+    {"type": "complements", "target": "vascular:venous:ceap-classification"},
+    {"type": "measures", "target": "vascular:venous:chronic-venous-disease"},
+    {"type": "outcome_measure_for", "target": "vascular:venous:treatment-trials"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Rutherford RB et al. J Vasc Surg. 2000;31:1307-1312", "type": "primary"},
+      {"reference": "Vasquez MA et al. J Vasc Surg. 2010;52:1387-1396", "type": "primary"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

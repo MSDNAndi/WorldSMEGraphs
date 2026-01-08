@@ -1,0 +1,56 @@
+{
+  "@context": "aku-v2",
+  "@type": "pathology",
+  "@id": "vasc:dissection:diss-001-classification",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-07T02:50:00.000Z",
+    "updated": "2026-01-07T02:50:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.95,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aortic-dissection",
+    "type": "pathology",
+    "difficulty": "intermediate",
+    "importance": "core"
+  },
+  "content": {
+    "title": "Aortic Dissection Classification Systems",
+    "description": "Standard classification systems for categorizing aortic dissection based on anatomic extent and timing.",
+    "stanford_classification": {
+      "type_A": {
+        "definition": "Involves ascending aorta (regardless of origin)",
+        "management": "Emergent surgical repair",
+        "mortality_untreated": "1-2% per hour initially"
+      },
+      "type_B": {
+        "definition": "Originates distal to left subclavian, does not involve ascending aorta",
+        "management": "Medical therapy (uncomplicated) or intervention (complicated)",
+        "mortality_medical": "10% at 30 days"
+      }
+    },
+    "debakey_classification": {
+      "type_I": "Originates in ascending, extends to descending",
+      "type_II": "Limited to ascending aorta only",
+      "type_III": "Originates in descending aorta",
+      "type_IIIa": "Limited to descending thoracic",
+      "type_IIIb": "Extends below diaphragm"
+    },
+    "timing": {
+      "acute": "<14 days from symptom onset",
+      "subacute": "14-90 days",
+      "chronic": ">90 days"
+    },
+    "clinical_utility": "Stanford preferred for rapid treatment decisions; DeBakey provides more anatomic detail"
+  },
+  "relationships": {
+    "related_to": ["vasc:dissection:diss-002-type-a", "vasc:dissection:diss-003-type-b"],
+    "used_for": ["vasc:dissection:management"]
+  },
+  "provenance": {
+    "primary_sources": ["Aortic Dissection Guidelines", "Stanford and DeBakey Original Papers"],
+    "extraction_date": "2026-01-07"
+  }
+}

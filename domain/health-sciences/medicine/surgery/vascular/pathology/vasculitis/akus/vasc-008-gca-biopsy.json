@@ -1,0 +1,125 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:vasculitis:gca-biopsy",
+  "metadata": {
+    "version": "1.1.0",
+    "created": "2026-01-07T01:22:00.000Z",
+    "updated": "2026-01-07T18:50:00.000Z",
+    "contributors": ["vascular-surgery-agent", "fact-checking-agent"],
+    "confidence": 0.95,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/vasculitis",
+    "type": "diagnostic-procedure",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "VASC-008",
+    "title": "Temporal Artery Biopsy for Giant Cell Arteritis",
+    "definition": "A surgical diagnostic procedure involving excision of a segment of the superficial temporal artery to confirm the diagnosis of giant cell arteritis through histopathologic examination.",
+    "concepts": [
+      {
+        "concept_id": "indications",
+        "term": "Indications",
+        "definition": "When to perform temporal artery biopsy.",
+        "clinical_features": {
+          "clinical_suspicion": "New headache in patient >50 years with elevated ESR/CRP",
+          "symptoms": "Scalp tenderness, jaw claudication, visual symptoms",
+          "pmr": "Polymyalgia rheumatica with cranial symptoms",
+          "ultrasound_negative": "Negative ultrasound but high clinical suspicion"
+        }
+      },
+      {
+        "concept_id": "technique",
+        "term": "Surgical Technique",
+        "definition": "How to perform the biopsy.",
+        "clinical_features": {
+          "vessel_identification": "Palpate or use ultrasound to mark course",
+          "anesthesia": "Local anesthesia with lidocaine, avoid epinephrine",
+          "incision": "2-3cm incision along artery course",
+          "length": "Minimum 2cm specimen (some recommend 3-4cm)",
+          "closure": "Ligate ends, close in layers"
+        }
+      },
+      {
+        "concept_id": "timing",
+        "term": "Timing Considerations",
+        "definition": "When to biopsy relative to treatment.",
+        "clinical_features": {
+          "steroids": "Do not delay steroids for biopsy if high clinical suspicion",
+          "yield": "Positive findings persist for 2-6 weeks after starting steroids",
+          "visual_symptoms": "Start steroids immediately if visual symptoms present",
+          "optimal_window": "Within 1-2 weeks of starting steroids"
+        }
+      },
+      {
+        "concept_id": "histopathology",
+        "term": "Histopathologic Findings",
+        "definition": "Microscopic features of giant cell arteritis.",
+        "clinical_features": {
+          "classic": "Granulomatous inflammation with multinucleated giant cells",
+          "intimal_proliferation": "Intimal hyperplasia with luminal narrowing",
+          "fragmentation": "Internal elastic lamina fragmentation",
+          "skip_lesions": "Patchy involvement may cause false negatives",
+          "sensitivity": "70-80% with adequate specimen length"
+        }
+      }
+    ],
+    "clinical_features": {
+      "contralateral_biopsy": "Consider if first biopsy negative but suspicion remains high",
+      "complications": "Hematoma, wound infection, facial nerve injury (rare)"
+    }
+  },
+  "relationships": [
+    {"type": "diagnoses", "target": "vascular:vasculitis:giant-cell-arteritis"},
+    {"type": "complemented_by", "target": "vascular:diagnostics:temporal-artery-ultrasound"},
+    {"type": "guides", "target": "vascular:treatment:gca-steroids"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Hellmich B et al. 2018 Update of the EULAR recommendations for the management of large vessel vasculitis. Ann Rheum Dis. 2020;79:19-30", "type": "guideline"},
+      {"reference": "Muratore F et al. J Autoimmun. 2018;96:15-22", "type": "review"},
+      {"reference": "Dasgupta B et al. BSR and BHPR guidelines for the management of giant cell arteritis. Rheumatology. 2010;49:1594-1597", "type": "guideline"}
+    ],
+    "extraction_method": "expert-synthesis"
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "rheumatology fellows", "ophthalmology residents"],
+    "estimated_time": "12min",
+    "learning_objectives": [
+      "Identify indications for temporal artery biopsy",
+      "Perform temporal artery biopsy with appropriate technique",
+      "Understand timing relative to steroid therapy",
+      "Interpret histopathologic findings"
+    ],
+    "clinical_pearls": [
+      "NEVER delay steroids for biopsy if clinical suspicion high, especially with visual symptoms",
+      "Minimum 2cm specimen length - longer (3-4cm) increases yield due to skip lesions",
+      "Biopsy remains positive for 2-6 weeks after starting steroids",
+      "Sensitivity only 70-80% - negative biopsy does not rule out GCA",
+      "Consider contralateral biopsy if first negative but suspicion remains high",
+      "Avoid epinephrine in local anesthetic - may cause vasoconstriction"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "414341000",
+      "description": "Biopsy of temporal artery"
+    },
+    {
+      "codingSystem": "CPT",
+      "codeValue": "37609",
+      "description": "Ligation or biopsy, temporal artery"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "M31.6",
+      "description": "Other giant cell arteritis"
+    }
+  ]
+}

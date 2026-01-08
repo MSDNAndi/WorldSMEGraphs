@@ -1,0 +1,89 @@
+{
+  "@context": "aku-v2",
+  "@type": "diagnostic-procedure",
+  "@id": "vascular:diagnostics:imaging:mra-protocols",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T00:52:00.000Z",
+    "updated": "2026-01-07T00:52:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.94,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/diagnostics/imaging",
+    "type": "diagnostic-procedure",
+    "difficulty": "intermediate",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "DX-021",
+    "title": "MRA Protocols in Vascular Surgery",
+    "definition": "Magnetic resonance angiography protocols for vascular evaluation without ionizing radiation.",
+    "concepts": [
+      {
+        "concept_id": "ce-mra",
+        "term": "Contrast-Enhanced MRA",
+        "definition": "Gadolinium-enhanced MRA providing high spatial resolution vascular imaging.",
+        "clinical_features": {
+          "technique": ["3D spoiled gradient echo", "Timing bolus or bolus tracking"],
+          "contrast": "Gadolinium 0.1-0.2 mmol/kg",
+          "advantages": ["High resolution", "Fast acquisition", "Reliable timing"],
+          "limitations": ["NSF risk in CKD", "Gadolinium deposition concerns"]
+        }
+      },
+      {
+        "concept_id": "tof-mra",
+        "term": "Time-of-Flight MRA",
+        "definition": "Non-contrast MRA technique using flow-related enhancement.",
+        "clinical_features": {
+          "principle": "Fresh inflowing blood appears bright due to unsaturated spins",
+          "applications": ["Intracranial MRA", "Carotid bifurcation"],
+          "advantages": ["No contrast needed", "Safe in renal failure"],
+          "limitations": ["Overestimates stenosis", "Slow flow signal loss", "Long acquisition"]
+        }
+      },
+      {
+        "concept_id": "pc-mra",
+        "term": "Phase-Contrast MRA",
+        "definition": "Non-contrast MRA technique providing both anatomic and flow velocity information.",
+        "clinical_features": {
+          "principle": "Phase shift proportional to velocity",
+          "applications": ["Venous imaging", "CSF flow studies", "Shunt evaluation"],
+          "quantification": "Flow velocity and volume measurements possible",
+          "venc": "Velocity encoding matched to expected flow"
+        }
+      },
+      {
+        "concept_id": "ncmra",
+        "term": "Non-Contrast MRA Techniques",
+        "definition": "Advanced non-contrast MRA methods for patients with renal insufficiency.",
+        "clinical_features": {
+          "fresh_blood": "Cardiac-gated 3D FSE exploiting systolic/diastolic flow differences",
+          "qiss": "Quiescent Interval Single Shot - fast peripheral MRA",
+          "inhance": "Inversion-recovery based venous or arterial imaging",
+          "indications": ["CKD stage 4-5", "Gadolinium allergy", "Repeated surveillance"]
+        }
+      }
+    ],
+    "clinical_features": {
+      "contraindications": ["Pacemakers (some)", "Metallic implants", "Claustrophobia"],
+      "renal_safety": "eGFR threshold varies by institution (typically >30)"
+    },
+    "diagnostic_criteria": {
+      "quality": "Adequate signal-to-noise, no venous contamination"
+    }
+  },
+  "relationships": [
+    {"type": "alternative_to", "target": "vascular:diagnostics:cta"},
+    {"type": "preferred_for", "target": "vascular:conditions:renal-failure"},
+    {"type": "supports", "target": "vascular:procedures:planning"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Lanzman RS et al. Eur J Radiol. 2012;81:2231-2241", "type": "review"},
+      {"reference": "Defined by ACR-ASNR Practice Parameters", "type": "guideline"}
+    ],
+    "extraction_method": "expert-review"
+  }
+}

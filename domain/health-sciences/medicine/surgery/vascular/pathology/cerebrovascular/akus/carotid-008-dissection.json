@@ -1,0 +1,88 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-condition",
+  "@id": "vascular:cerebrovascular:carotid-dissection",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:22:00.000Z",
+    "updated": "2026-01-07T01:22:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.93,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/cerebrovascular",
+    "type": "clinical-condition",
+    "difficulty": "advanced",
+    "importance": "critical"
+  },
+  "content": {
+    "identifier": "CAROTID-008",
+    "title": "Carotid Artery Dissection",
+    "definition": "A tear in the wall of the carotid artery allowing blood to enter between arterial layers, creating an intramural hematoma that may cause stenosis, occlusion, or pseudoaneurysm formation.",
+    "concepts": [
+      {
+        "concept_id": "etiology",
+        "term": "Etiology",
+        "definition": "Causes and risk factors for carotid dissection.",
+        "clinical_features": {
+          "traumatic": "Direct neck trauma, hyperextension/rotation injuries",
+          "spontaneous": "Often associated with connective tissue disorders",
+          "iatrogenic": "Post-catheterization, chiropractic manipulation",
+          "associated_conditions": "FMD, Marfan, Ehlers-Danlos Type IV, recent infection"
+        }
+      },
+      {
+        "concept_id": "presentation",
+        "term": "Clinical Presentation",
+        "definition": "Signs and symptoms of carotid dissection.",
+        "clinical_features": {
+          "pain": "Ipsilateral headache, neck pain (50-70%)",
+          "horner_syndrome": "Partial Horner's (miosis, ptosis) from sympathetic chain compression",
+          "stroke_symptoms": "TIA or stroke in 50-80%",
+          "cranial_nerve": "Lower cranial nerve palsies in some cases",
+          "pulsatile_tinnitus": "Due to turbulent flow"
+        }
+      },
+      {
+        "concept_id": "diagnosis",
+        "term": "Diagnostic Workup",
+        "definition": "Imaging modalities for diagnosis.",
+        "clinical_features": {
+          "cta": "First-line, shows intimal flap, mural hematoma, narrowed lumen",
+          "mri_mra": "Excellent for intramural hematoma (T1 fat-sat), follow-up imaging",
+          "duplex": "May show dissection flap, altered waveforms",
+          "dsa": "String sign, tapered occlusion, pseudoaneurysm if present"
+        }
+      },
+      {
+        "concept_id": "management",
+        "term": "Treatment",
+        "definition": "Therapeutic approach to carotid dissection.",
+        "clinical_features": {
+          "anticoagulation": "Heparin followed by warfarin for 3-6 months (traditional)",
+          "antiplatelet": "Aspirin alternative, similar outcomes in CADISS trial",
+          "endovascular": "Stenting for symptomatic stenosis despite medical therapy",
+          "surgical": "Rarely needed, for pseudoaneurysm or failed medical management",
+          "follow_up": "Serial imaging at 3-6 months to assess healing"
+        }
+      }
+    ],
+    "clinical_features": {
+      "prognosis": "Most heal spontaneously, ~85% show improvement on imaging",
+      "recurrence": "1-2% annual risk of contralateral dissection"
+    }
+  },
+  "relationships": [
+    {"type": "causes", "target": "vascular:cerebrovascular:stroke"},
+    {"type": "associated_with", "target": "vascular:genetic:fmd"},
+    {"type": "treated_with", "target": "vascular:pharmacology:anticoagulation"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Debette S et al. Lancet Neurol. 2015;14:640-654", "type": "review"},
+      {"reference": "CADISS Trial Investigators. Lancet Neurol. 2015;14:361-367", "type": "primary"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

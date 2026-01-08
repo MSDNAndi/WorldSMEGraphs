@@ -1,0 +1,100 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-guideline",
+  "@id": "vasc:dial:rule-of-6s",
+  "metadata": {
+    "version": "2.1.0",
+    "created": "2026-01-07T03:31:00.000Z",
+    "updated": "2026-01-07T18:58:00.000Z",
+    "contributors": ["knowledge-graph-agent", "fact-checking-agent"],
+    "confidence": 0.96,
+    "status": "validated"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/dialysis-access",
+    "type": "maturation-criteria",
+    "difficulty": "basic",
+    "importance": "high",
+    "aku_id": "DIAL-008",
+    "keywords": ["Rule of 6s", "fistula maturation", "AVF criteria", "dialysis access", "KDOQI"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "The Rule of 6s defines clinical criteria for AV fistula maturation: blood flow >600 mL/min, vein diameter >6 mm, and depth <6 mm from skin surface, typically assessed at 4-6 weeks post-creation.",
+      "formal": "Mature_AVF = Flow>600mL/min + Diameter>6mm + Depth<6mm"
+    },
+    "explanation": {
+      "intuition": "The Rule of 6s provides simple, memorable criteria for determining if a fistula is ready for dialysis needle cannulation. A fistula needs enough flow to provide adequate dialysis, large enough diameter for safe cannulation, and shallow enough to be easily accessed.",
+      "key_insight": "Primary fistula failure (failure to mature) occurs in 20-60% of cases, making early assessment and intervention critical. Ultrasound assessment at 4-6 weeks allows early identification of failing fistulas for salvage procedures (angioplasty, revision).",
+      "technical_details": "Physical exam findings of mature fistula: palpable thrill (high-pitched vibration), soft and easily compressible body, visible outflow vein enlargement. Ultrasound criteria: measure flow at brachial artery (for upper arm) or radial artery (for forearm), measure diameter in transverse at anastomosis and outflow, measure depth from skin surface. Immature fistula: flow <500 mL/min at 4-6 weeks is concerning. Intervention options: angioplasty of stenosis, revision of anastomosis, accessory vein ligation, superficialization for depth issues."
+    }
+  },
+  "clinical_features": {
+    "maturation_criteria": {
+      "flow": ">600 mL/min (measured at inflow artery)",
+      "diameter": ">6 mm (measured at outflow vein)",
+      "depth": "<6 mm from skin surface",
+      "timing": "Assess at 4-6 weeks, use at 6 weeks to 3 months"
+    },
+    "physical_exam": {
+      "thrill": "High-pitched vibration at anastomosis",
+      "bruit": "Continuous bruit with systolic accentuation",
+      "compressibility": "Easily compressible, soft body",
+      "augmentation": "Visible vein enlargement with exercise/dependent arm"
+    },
+    "failure_to_mature": {
+      "incidence": "20-60% of primary AVF",
+      "causes": ["Juxta-anastomotic stenosis", "Accessory vein steal", "Central venous stenosis", "Small vessel diameter"],
+      "interventions": ["Balloon angioplasty", "Anastomotic revision", "Accessory vein ligation", "Superficialization"]
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Rule of 6s for Fistula Maturation"},
+    "altLabel": ["Fistula maturation criteria", "AVF readiness criteria", "6-6-6 rule"],
+    "notation": "DIAL-008"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:dialysis:avf-creation"],
+    "enables": ["vascular:dialysis:fistula-cannulation"],
+    "skos:broader": ["vascular:dialysis:fistula-management"],
+    "skos:related": ["vascular:dialysis:failure-to-mature", "vascular:dialysis:fistula-salvage"]
+  },
+  "provenance": {
+    "sources": [
+      {"reference": "Robbin ML et al. Hemodialysis arteriovenous fistula maturity: US evaluation. Radiology. 2002;225:59-64", "type": "primary", "notes": "Original description of Rule of 6s"},
+      {"reference": "KDOQI Clinical Practice Guidelines for Vascular Access. Am J Kidney Dis. 2019;75(4 Suppl 2):S1-S164", "type": "guideline", "notes": "Updated KDOQI vascular access guidelines"}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents", "nephrology fellows", "interventional radiology fellows"],
+    "estimated_time": "10min",
+    "learning_objectives": [
+      "Apply the Rule of 6s to assess fistula maturation",
+      "Perform physical examination of AV fistula",
+      "Identify failure to mature and intervention options"
+    ],
+    "clinical_pearls": [
+      "The Rule of 6s: Flow >600, Diameter >6mm, Depth <6mm",
+      "Assess at 4-6 weeks to allow early salvage of failing fistulas",
+      "Failure to mature occurs in 20-60% - early intervention is key",
+      "Physical exam: Thrill at anastomosis, soft compressible body, visible outflow vein",
+      "If flow <500 mL/min at 4 weeks, fistulogram and intervention indicated",
+      "Juxta-anastomotic stenosis is the most common cause of failure to mature"
+    ],
+    "board_yield": "HIGH"
+  },
+  "medicalCode": [
+    {
+      "codingSystem": "CPT",
+      "codeValue": "93990",
+      "description": "Duplex scan of hemodialysis access"
+    },
+    {
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "T82.41XA",
+      "description": "Breakdown (mechanical) of vascular dialysis catheter"
+    }
+  ]
+}

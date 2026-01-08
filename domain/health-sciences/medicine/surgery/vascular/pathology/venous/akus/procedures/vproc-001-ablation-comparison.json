@@ -1,0 +1,98 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-comparison",
+  "@id": "vascular:venous:ablation-comparison",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T01:20:00.000Z",
+    "updated": "2026-01-07T01:20:00.000Z",
+    "contributors": ["vascular-surgery-agent"],
+    "confidence": 0.93,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/venous/procedures",
+    "type": "clinical-comparison",
+    "difficulty": "advanced",
+    "importance": "high"
+  },
+  "content": {
+    "identifier": "VPROC-001",
+    "title": "GSV Ablation Techniques Compared",
+    "definition": "A comparative analysis of endovenous ablation modalities for great saphenous vein incompetence including thermal, chemical, and mechanical methods.",
+    "concepts": [
+      {
+        "concept_id": "radiofrequency",
+        "term": "Radiofrequency Ablation (RFA)",
+        "definition": "Thermal ablation using radiofrequency energy to heat and occlude the vein.",
+        "clinical_features": {
+          "mechanism": "Resistive heating of vein wall to 120°C",
+          "devices": "ClosureFast (Medtronic), RFITT",
+          "technique": "Segmental ablation in 7cm segments",
+          "tumescent_required": true,
+          "occlusion_rates": "92-97% at 5 years",
+          "advantages": "Controlled energy delivery, consistent temperatures",
+          "disadvantages": "Higher cost, requires tumescent anesthesia"
+        }
+      },
+      {
+        "concept_id": "laser",
+        "term": "Endovenous Laser Ablation (EVLA)",
+        "definition": "Thermal ablation using laser energy.",
+        "clinical_features": {
+          "mechanism": "Laser energy absorbed by blood/water/vein wall",
+          "wavelengths": "810nm, 940nm (hemoglobin), 1470nm, 1940nm (water)",
+          "technique": "Continuous or pulsed pullback",
+          "tumescent_required": true,
+          "occlusion_rates": "93-97% at 5 years",
+          "advantages": "Lower cost, multiple wavelength options",
+          "disadvantages": "More post-procedure pain with older wavelengths"
+        }
+      },
+      {
+        "concept_id": "cyanoacrylate",
+        "term": "Cyanoacrylate Closure (CAC)",
+        "definition": "Non-thermal closure using tissue adhesive.",
+        "clinical_features": {
+          "mechanism": "Polymer adhesive physically occludes vein lumen",
+          "devices": "VenaSeal (Medtronic)",
+          "technique": "Injections every 3cm with compression",
+          "tumescent_required": false,
+          "occlusion_rates": "94-97% at 3 years",
+          "advantages": "No tumescent, no thermal injury risk, minimal post-procedure pain",
+          "disadvantages": "Phlebitis in 10-15%, foreign body remains, cost"
+        }
+      },
+      {
+        "concept_id": "mechanochemical",
+        "term": "Mechanochemical Ablation (MOCA)",
+        "definition": "Combined mechanical and chemical ablation.",
+        "clinical_features": {
+          "mechanism": "Rotating wire damages endothelium + sclerosant",
+          "devices": "ClariVein (Merit), Flebogrif",
+          "technique": "Sclerosant infusion during wire rotation",
+          "tumescent_required": false,
+          "occlusion_rates": "87-94% at 3 years",
+          "advantages": "No tumescent, no thermal injury",
+          "disadvantages": "Slightly lower occlusion rates, technique dependent"
+        }
+      }
+    ],
+    "clinical_features": {
+      "current_preference": "Thermal ablation (RFA/EVLA) remains first-line in most centers",
+      "non_thermal_role": "Growing role for non-tumescent techniques"
+    }
+  },
+  "relationships": [
+    {"type": "treats", "target": "vascular:venous:gsv-incompetence"},
+    {"type": "targets", "target": "vascular:venous:gsv-anatomy"},
+    {"type": "alternative_to", "target": "vascular:procedure:gsv-stripping"}
+  ],
+  "provenance": {
+    "sources": [
+      {"reference": "Gloviczki P et al. J Vasc Surg Venous Lymphat Disord. 2024;12:101670", "type": "guideline"},
+      {"reference": "Rasmussen LH et al. J Vasc Surg. 2013;58:727-734", "type": "primary"}
+    ],
+    "extraction_method": "expert-synthesis"
+  }
+}

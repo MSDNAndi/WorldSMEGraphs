@@ -1,0 +1,66 @@
+{
+  "@context": "aku-v2",
+  "@type": "clinical-concept",
+  "@id": "vascular:complications:comp-004-late-failure",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-07T02:30:00.000Z",
+    "updated": "2026-01-07T02:30:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.88,
+    "status": "pending-quality-check"
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/complications",
+    "type": "complication",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "COMP-004",
+    "keywords": ["late graft failure", "progression of disease", "graft atherosclerosis", "conduit failure"],
+    "medical_specialty": "vascular_surgery",
+    "isNativeDomain": true
+  },
+  "content": {
+    "statement": {
+      "text": "Late graft failure (beyond 2 years) is primarily caused by progression of atherosclerotic disease in inflow/outflow vessels or development of graft atherosclerosis in vein conduits, requiring ongoing risk factor modification and surveillance.",
+      "formal": "Late_Failure: Disease_Progression | Graft_Atherosclerosis → Requires_Medical_Optimization + Reintervention"
+    },
+    "explanation": {
+      "intuition": "Years after a bypass, the same disease that caused the original blockage can affect the new connections or even the bypass graft itself. It's like fixing one pothole while more develop on the same road over time.",
+      "key_insight": "Late graft failure reflects the systemic nature of atherosclerosis. Risk factor modification (smoking cessation, statin therapy, glycemic control) is essential. Vein grafts can develop their own atherosclerosis, appearing as irregular lesions on surveillance.",
+      "technical_details": "Causes: (1) Inflow disease progression, (2) Outflow disease progression, (3) Vein graft atherosclerosis, (4) Aneurysmal degeneration. Timing: typically >2 years post-surgery. Appearance: irregular, ulcerated lesions (vs smooth hyperplastic lesions of intermediate failure). Prevention: aggressive risk factor modification - smoking cessation (most important), statin therapy, antiplatelet agents, BP and glucose control. Management: endovascular intervention for focal lesions, new bypass if extensive disease."
+    }
+  },
+  "clinical_features": {
+    "timing": ">2 years post-procedure",
+    "causes": ["Inflow disease progression", "Outflow disease progression", "Vein graft atherosclerosis", "Aneurysmal degeneration"],
+    "appearance": "Irregular, ulcerated lesions on imaging",
+    "prevention": ["Smoking cessation (most important)", "Statin therapy", "Antiplatelet agents", "BP/glucose control"],
+    "treatment": ["Focal: endovascular intervention", "Extensive: new bypass"]
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Late Graft Failure"},
+    "altLabel": ["Atherosclerotic graft failure", "Disease progression failure", "Vein graft atherosclerosis"],
+    "notation": "COMP-004"
+  },
+  "relationships": {
+    "prerequisites": ["vascular:procedures:bypass-surgery"],
+    "enables": ["vascular:complications:secondary-prevention"],
+    "skos:broader": ["vascular:complications:graft-failure"],
+    "skos:related": ["vascular:complications:intermediate-failure", "vascular:pharmacology:statins"]
+  },
+  "provenance": {
+    "primary_sources": [
+      {"type": "journal", "title": "Journal of Vascular Surgery", "topic": "Long-term bypass outcomes", "year": 2020}
+    ]
+  },
+  "pedagogical": {
+    "target_audience": ["vascular surgery residents"],
+    "board_yield": "HIGH",
+    "clinical_pearls": [
+      "Late failure is atherosclerosis (irregular) vs intermediate failure which is hyperplasia (smooth)",
+      "Smoking cessation is the single most important intervention to prevent late failure",
+      "Vein grafts develop atherosclerosis over time - surveillance important beyond 2 years"
+    ]
+  }
+}
