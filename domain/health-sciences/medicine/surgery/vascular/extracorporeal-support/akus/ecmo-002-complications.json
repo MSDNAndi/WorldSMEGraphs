@@ -1,0 +1,154 @@
+{
+  "@context": "aku-v2",
+  "@type": "concept",
+  "@id": "vascular:surgery:extracorporeal:ecmo-complications",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T22:30:00.000Z",
+    "updated": "2026-01-08T22:30:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.90,
+    "status": "draft",
+    "review_required": true
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/extracorporeal-support",
+    "type": "concept",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "audience_levels": ["fellow", "attending"]
+  },
+  "content": {
+    "title": "ECMO Vascular Complications",
+    "definition": "Vascular complications associated with extracorporeal membrane oxygenation, including limb ischemia, cannula-related injury, bleeding, and thrombosis requiring vascular surgical management.",
+    "key_concepts": [
+      {
+        "concept": "Limb Ischemia",
+        "description": "Most common vascular complication of VA-ECMO. Occurs due to arterial obstruction from cannula."
+      },
+      {
+        "concept": "Distal Perfusion Failure",
+        "description": "Inadequate antegrade flow through distal perfusion cannula leading to progressive ischemia."
+      },
+      {
+        "concept": "Differential Hypoxia (Harlequin Syndrome)",
+        "description": "Upper body hypoxemia with lower body hyperoxia in VA-ECMO when cardiac function recovers but lungs remain impaired."
+      }
+    ],
+    "limb_ischemia": {
+      "incidence": "10-30% without distal perfusion, <10% with adequate DPC",
+      "risk_factors": [
+        "Large arterial cannula relative to vessel size",
+        "Peripheral arterial disease",
+        "Vasopressors",
+        "Small distal perfusion cannula",
+        "Malposition of DPC"
+      ],
+      "monitoring": {
+        "clinical": "Hourly pulse check, capillary refill, color, temperature",
+        "nirs": "Near-infrared spectroscopy for tissue oxygenation",
+        "doppler": "Regular assessment of pedal signals"
+      },
+      "management": {
+        "mild": "Optimize DPC position, increase DPC flow, reduce vasopressors",
+        "moderate": "Enlarge DPC (exchange for larger), add second DPC",
+        "severe": {
+          "options": [
+            "Move to axillary cannulation (definitively solves leg ischemia)",
+            "Fasciotomy if compartment syndrome developing",
+            "Amputation if irreversible necrosis"
+          ]
+        }
+      }
+    },
+    "distal_perfusion_cannula": {
+      "sizing": "6-8 Fr antegrade in SFA or posterior tibial artery",
+      "flow_targets": "Usually 150-400 mL/min, depending on patient size",
+      "troubleshooting": {
+        "low_flow": "Check for kinking, reposition, consider larger cannula",
+        "persistent_ischemia": "May need second DPC in different vessel"
+      }
+    },
+    "hemorrhagic_complications": {
+      "incidence": "30-50% of ECMO patients",
+      "sites": [
+        "Cannulation sites",
+        "Surgical sites",
+        "Gastrointestinal",
+        "Intracranial"
+      ],
+      "causes": [
+        "Anticoagulation",
+        "Thrombocytopenia",
+        "Acquired von Willebrand disease",
+        "Consumptive coagulopathy"
+      ],
+      "management": {
+        "local": "Pressure, hemostatic agents, suture repair if needed",
+        "systemic": "Transfusion, reduce anticoagulation if safe, factor replacement",
+        "surgical": "Exploration for uncontrolled hemorrhage"
+      }
+    },
+    "thrombotic_complications": {
+      "circuit_thrombosis": "Oxygenator, pump head, tubing",
+      "cannula_thrombosis": "Especially with low flow",
+      "systemic_thromboembolism": "Stroke, limb ischemia, mesenteric ischemia",
+      "management": {
+        "circuit": "Circuit change if significant thrombus burden",
+        "patient": "Anticoagulation adjustment, thrombolysis for critical thrombosis"
+      }
+    },
+    "vascular_injury": {
+      "arterial_dissection": "During cannulation - requires surgical repair",
+      "vessel_laceration": "Control bleeding, repair primarily",
+      "pseudoaneurysm": "Post-decannulation - may need repair",
+      "aortoiliac_occlusion": "Rare but catastrophic - requires immediate intervention"
+    },
+    "decannulation_complications": {
+      "bleeding": "Manual pressure, surgical repair if needed",
+      "pseudoaneurysm": "Common after percutaneous arterial access - surveillance, repair if expanding",
+      "thrombosis": "DVT after venous decannulation - anticoagulation"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "vascular:surgery:extracorporeal:ecmo-vascular-access"
+    ],
+    "related_concepts": [
+      "vascular:surgery:complications:limb-ischemia",
+      "vascular:surgery:complications:access-complications"
+    ],
+    "cross_domain_references": [
+      {
+        "domain": "critical-care",
+        "concept": "ecmo-management",
+        "relationship": "complication-of"
+      }
+    ]
+  },
+  "evidence": {
+    "level": "Level 2b",
+    "sources": [
+      {
+        "type": "guideline",
+        "organization": "ELSO",
+        "title": "ELSO Guidelines for ECMO Management",
+        "year": 2022
+      }
+    ]
+  },
+  "pedagogy": {
+    "learning_objectives": [
+      "List vascular complications of ECMO by category",
+      "Describe monitoring protocols for limb ischemia detection",
+      "Explain management options for ECMO-related limb ischemia",
+      "Discuss hemorrhagic and thrombotic complications"
+    ],
+    "clinical_pearls": [
+      "Check leg perfusion hourly - ischemia progresses rapidly",
+      "If DPC not providing adequate perfusion, consider axillary conversion",
+      "All ECMO patients bleed - balance anticoagulation carefully",
+      "Harlequin syndrome indicates improving cardiac function but persistent lung failure"
+    ]
+  }
+}
