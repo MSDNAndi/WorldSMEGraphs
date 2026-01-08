@@ -1,0 +1,144 @@
+{
+  "@context": "aku-v2",
+  "@type": "concept",
+  "@id": "wsmg:health-sciences:medicine:surgery:vascular:pathology:aortic-dissection:diss-010",
+  "metadata": {
+    "version": "2.1.0",
+    "created": "2026-01-08T21:55:00.000Z",
+    "modified": "2026-01-08T21:55:00.000Z",
+    "contributors": ["copilot-agent", "vascular-surgery-sme"],
+    "confidence": 0.92,
+    "status": "pending-quality-check",
+    "language": "en",
+    "licenses": ["CC-BY-4.0"]
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pathology/aortic-dissection",
+    "subdomain": "classification",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
+  },
+  "content": {
+    "title": "Aortic Dissection Classification Systems",
+    "summary": "Multiple classification systems exist for aortic dissection, each with different focuses. The Stanford and DeBakey systems classify by anatomical extent, while newer systems incorporate timing, complications, and imaging characteristics.",
+    "definition": "Systematic categorization of aortic dissections based on anatomical involvement, timing, complications, and other factors to guide treatment decisions and prognostication",
+    "stanford_classification": {
+      "description": "Based on involvement of ascending aorta, regardless of entry site",
+      "type_A": {
+        "definition": "Any dissection involving the ascending aorta",
+        "treatment": "Emergent surgical repair",
+        "includes": "Arch and descending involvement if ascending involved"
+      },
+      "type_B": {
+        "definition": "Dissection NOT involving the ascending aorta",
+        "treatment": "Medical management unless complicated",
+        "complicated_indications": ["Malperfusion", "Rupture", "Refractory pain/hypertension", "Rapid expansion"]
+      },
+      "advantages": "Simple, guides immediate treatment decisions"
+    },
+    "debakey_classification": {
+      "description": "Based on entry site and extent of propagation",
+      "type_I": {
+        "definition": "Entry in ascending, propagates to at least aortic arch (often descending)",
+        "equivalent": "Stanford Type A"
+      },
+      "type_II": {
+        "definition": "Entry and propagation limited to ascending aorta only",
+        "equivalent": "Stanford Type A"
+      },
+      "type_III": {
+        "definition": "Entry in descending aorta",
+        "type_IIIa": "Limited to thoracic aorta",
+        "type_IIIb": "Extends below diaphragm",
+        "equivalent": "Stanford Type B"
+      },
+      "advantages": "More anatomically detailed"
+    },
+    "timing_classification": {
+      "acute": {
+        "definition": "<14 days from symptom onset",
+        "significance": "Highest mortality period"
+      },
+      "subacute": {
+        "definition": "14-90 days from symptom onset",
+        "significance": "Intermediate risk; some stabilization"
+      },
+      "chronic": {
+        "definition": ">90 days from symptom onset",
+        "significance": "Aortic wall remodeled; different management considerations"
+      }
+    },
+    "penn_classification": {
+      "description": "Stratifies Type A by ischemia and circulatory status",
+      "class_Aa": "No branch vessel malperfusion, no circulatory instability",
+      "class_Ab": "Branch vessel malperfusion without circulatory instability",
+      "class_Ac": "Circulatory instability (tamponade, AI) without branch malperfusion",
+      "class_Abc": "Both branch malperfusion and circulatory instability",
+      "significance": "Predicts mortality; guides surgical approach"
+    },
+    "TEM_classification": {
+      "description": "Anatomical sub-classification of Type B",
+      "based_on": "Entry tear location and distal extent",
+      "clinical_value": "Guides endovascular treatment planning"
+    },
+    "dissection_vs_variants": {
+      "classic_dissection": "Intimal tear with true/false lumen",
+      "intramural_hematoma": "No identifiable intimal tear or flow in false lumen",
+      "penetrating_aortic_ulcer": "Ulcerated atherosclerotic plaque penetrating IEL",
+      "limited_intimal_tear": "Small tear without extensive propagation",
+      "acute_aortic_syndromes": "Umbrella term for all above"
+    },
+    "clinical_application": {
+      "stanford": "Most commonly used for initial treatment decisions",
+      "debakey": "Provides more anatomic detail for surgical planning",
+      "timing": "Affects approach and risk profile",
+      "penn": "Refines Type A prognosis and prioritization"
+    }
+  },
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Aortic Dissection Classification Systems"},
+    "altLabel": [
+      {"@language": "en", "@value": "Stanford classification"},
+      {"@language": "en", "@value": "DeBakey classification"},
+      {"@language": "en", "@value": "Dissection classification"}
+    ],
+    "definition": {"@language": "en", "@value": "Systems for categorizing aortic dissections by anatomy, timing, and complications"},
+    "notation": "diss-010"
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "wsmg:health-sciences:medicine:surgery:vascular:pathology:aortic-dissection", "skos:prefLabel": "Aortic Dissection"}],
+    "skos:related": [
+      {"@id": "wsmg:health-sciences:medicine:surgery:vascular:pathology:aortic-dissection:type-a", "skos:prefLabel": "Type A Dissection"},
+      {"@id": "wsmg:health-sciences:medicine:surgery:vascular:pathology:aortic-dissection:type-b", "skos:prefLabel": "Type B Dissection"}
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I71.00",
+      "description": "Dissection of unspecified site of aorta"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Apply Stanford classification to determine treatment urgency",
+      "Distinguish DeBakey types and their anatomical features",
+      "Define timing categories and their clinical significance",
+      "Describe the Penn classification for Type A stratification",
+      "Differentiate classic dissection from other acute aortic syndromes"
+    ],
+    "clinical_pearls": [
+      "Stanford A = involves ascending = emergent surgery",
+      "Stanford B = does NOT involve ascending = medical unless complicated",
+      "Acute = <14 days; Subacute = 14-90 days; Chronic = >90 days",
+      "DeBakey I/II = Stanford A; DeBakey III = Stanford B",
+      "Penn class Abc (both malperfusion AND instability) has worst prognosis"
+    ],
+    "estimated_time": "20min",
+    "target_audience": ["vascular_surgery_residents", "cardiothoracic_surgery", "emergency_medicine"]
+  }
+}
