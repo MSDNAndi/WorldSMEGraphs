@@ -1,0 +1,145 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-031-npv-with-inflation",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:45:20.258Z",
+    "contributors": [
+      "copilot-agent",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "draft",
+    "last_updated": "2026-01-08T16:45:20.258Z"
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "formula",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "031",
+    "keywords": [
+      "inflation",
+      "real cash flows",
+      "nominal cash flows",
+      "real discount rate",
+      "Fisher equation"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "NPV analysis must maintain consistency between cash flow type (real or nominal) and discount rate type. The Fisher equation relates nominal and real rates: (1 + nominal) = (1 + real) × (1 + inflation).",
+      "formal": "(1 + r_nominal) = (1 + r_real) × (1 + π), where π is expected inflation rate"
+    },
+    "explanation": {
+      "intuition": "Inflation erodes purchasing power over time. When forecasting cash flows, you can either work in 'today's dollars' (real) or 'future dollars' (nominal), but you must match your discount rate to your cash flow type.",
+      "key_insight": "The critical rule is consistency: nominal cash flows must be discounted at nominal rates, real cash flows at real rates. Mixing them produces incorrect NPV calculations.",
+      "technical_details": "Nominal cash flows include inflation in their growth projections. Real cash flows assume constant purchasing power. The real discount rate is approximately the nominal rate minus expected inflation, but the exact relationship is given by the Fisher equation.",
+      "common_misconceptions": [
+        "You can use any discount rate with any cash flow - mixing real and nominal leads to errors",
+        "Real and nominal approaches give different NPVs - they give the same NPV when applied correctly",
+        "Inflation effects are negligible - at 3% inflation, purchasing power halves in 24 years"
+      ]
+    },
+    "definitions_glossary": {
+      "nominal_cash_flow": "Cash flow stated in the dollars of the period when it will be received",
+      "real_cash_flow": "Cash flow stated in constant purchasing power (today's dollars)",
+      "nominal_discount_rate": "Discount rate that includes expected inflation",
+      "real_discount_rate": "Discount rate after removing the effect of inflation"
+    }
+  },
+  "relationships": {
+    "requires": [
+      "aku-001-npv-definition",
+      "aku-004-discount-rate-definition",
+      "aku-007-time-value-of-money"
+    ],
+    "enables": [
+      "aku-040-real-estate-investment-example"
+    ],
+    "related_to": [
+      "aku-013-wacc-formula",
+      "aku-044-terminal-value-definition"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Brealey, R., Myers, S., & Allen, F. (2020). Principles of Corporate Finance. 13th Edition. McGraw-Hill.",
+        "chapter": "Chapter 3: Real and Nominal Rates",
+        "pages": "56-62"
+      },
+      {
+        "type": "academic_paper",
+        "citation": "Fisher, I. (1930). The Theory of Interest. Macmillan.",
+        "contribution": "Original derivation of the relationship between real and nominal interest rates"
+      }
+    ],
+    "academic_consensus": "universally_accepted",
+    "field_applicability": [
+      "corporate finance",
+      "investment analysis",
+      "macroeconomics",
+      "real estate"
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Convert between nominal and real discount rates using the Fisher equation",
+      "Apply consistent treatment of inflation in NPV analysis",
+      "Recognize when to use real vs. nominal approaches",
+      "Verify NPV equivalence between the two approaches"
+    ],
+    "prerequisites": [
+      "Basic NPV concepts",
+      "Understanding of inflation",
+      "Discount rate concepts"
+    ],
+    "formulas": [
+      {
+        "name": "Fisher Equation (Exact)",
+        "expression": "(1 + r_nominal) = (1 + r_real) × (1 + π)",
+        "variables": {
+          "r_nominal": "Nominal discount rate",
+          "r_real": "Real discount rate",
+          "π": "Expected inflation rate"
+        }
+      },
+      {
+        "name": "Fisher Approximation",
+        "expression": "r_real ≈ r_nominal - π",
+        "note": "Accurate when rates are small"
+      },
+      {
+        "name": "Real Cash Flow Conversion",
+        "expression": "CF_real_t = CF_nominal_t / (1 + π)^t",
+        "variables": {
+          "t": "Time period"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "context": "Rate conversion",
+        "scenario": "Nominal rate = 10%, expected inflation = 3%",
+        "calculation": "r_real = (1.10/1.03) - 1 = 6.80% (exact) or ≈7% (approximation)"
+      },
+      {
+        "context": "NPV equivalence",
+        "scenario": "Project generates $100 nominal cash flow in year 1. r_nominal = 10%, π = 3%",
+        "calculation_nominal": "PV = $100/1.10 = $90.91",
+        "calculation_real": "CF_real = $100/1.03 = $97.09; PV = $97.09/1.068 = $90.91"
+      }
+    ]
+  },
+  "cross_domain_links": {
+    "macroeconomics": "inflation_expectations",
+    "monetary_economics": "interest_rate_theory",
+    "real_estate": "property_valuation"
+  }
+}

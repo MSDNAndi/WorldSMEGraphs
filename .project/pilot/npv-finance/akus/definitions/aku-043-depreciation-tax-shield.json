@@ -1,0 +1,143 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-043-depreciation-tax-shield",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:45:20.258Z",
+    "contributors": [
+      "copilot-agent",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "draft",
+    "last_updated": "2026-01-08T16:45:20.258Z"
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "043",
+    "keywords": [
+      "depreciation",
+      "tax shield",
+      "after-tax cash flow",
+      "capital budgeting",
+      "npv analysis"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "A depreciation tax shield is the reduction in income taxes that results from being allowed to deduct depreciation expense, creating a cash flow benefit equal to depreciation multiplied by the tax rate.",
+      "formal": "Tax Shield = Depreciation × Tax Rate, or TS = D × T_c"
+    },
+    "explanation": {
+      "intuition": "Depreciation reduces reported income, which reduces taxes owed. Although depreciation is a non-cash expense, the tax savings it creates is very real cash that stays in the company.",
+      "key_insight": "In NPV analysis, depreciation affects cash flows indirectly through taxes. The depreciation tax shield must be added back to calculate true cash flows from operations.",
+      "technical_details": "The tax shield depends on the depreciation method (straight-line vs. accelerated), the asset's useful life, and the applicable tax rate. Accelerated depreciation (like MACRS in the US) provides larger tax shields in early years, increasing NPV due to the time value of money.",
+      "common_misconceptions": [
+        "Depreciation is a cash expense - it's not, only the tax benefit creates cash flow",
+        "All depreciation methods yield the same NPV - accelerated methods increase NPV",
+        "Book depreciation equals tax depreciation - they often differ"
+      ]
+    },
+    "definitions_glossary": {
+      "depreciation": "The systematic allocation of an asset's cost over its useful life for accounting and tax purposes",
+      "tax_shield": "Any deduction that reduces taxable income and therefore reduces tax payments",
+      "straight_line_depreciation": "Depreciation method that allocates equal amounts of cost to each period",
+      "accelerated_depreciation": "Depreciation methods that allocate more cost to earlier periods",
+      "MACRS": "Modified Accelerated Cost Recovery System - the depreciation method used for US federal taxes"
+    }
+  },
+  "relationships": {
+    "requires": [
+      "aku-001-npv-definition",
+      "aku-015-after-tax-npv-formula"
+    ],
+    "enables": [
+      "aku-027-equipment-replacement-example",
+      "aku-040-real-estate-investment-example"
+    ],
+    "related_to": [
+      "aku-013-wacc-formula",
+      "aku-023-incremental-cash-flow-analysis"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Brealey, R., Myers, S., & Allen, F. (2020). Principles of Corporate Finance. 13th Edition. McGraw-Hill.",
+        "chapter": "Chapter 6: Depreciation and Taxes",
+        "pages": "142-148"
+      },
+      {
+        "type": "textbook",
+        "citation": "Damodaran, A. (2012). Investment Valuation. 3rd Edition. Wiley.",
+        "chapter": "Chapter 9: Cash Flows and Tax Effects",
+        "pages": "278-295"
+      }
+    ],
+    "academic_consensus": "universally_accepted",
+    "field_applicability": [
+      "corporate finance",
+      "tax planning",
+      "capital budgeting",
+      "financial modeling"
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Calculate the depreciation tax shield for different depreciation methods",
+      "Incorporate tax shields into NPV analysis",
+      "Compare the NPV impact of different depreciation schedules",
+      "Understand the relationship between book and tax depreciation"
+    ],
+    "prerequisites": [
+      "Understanding of depreciation concepts",
+      "Knowledge of corporate taxation",
+      "Familiarity with NPV calculations"
+    ],
+    "examples": [
+      {
+        "context": "Straight-line depreciation",
+        "scenario": "Equipment costs $100,000 with 5-year life, 30% tax rate. Annual depreciation = $20,000. Tax shield = $20,000 × 0.30 = $6,000 per year.",
+        "calculation": "PV of tax shields = $6,000 × PVIFA(r, 5 years)"
+      },
+      {
+        "context": "Accelerated vs straight-line",
+        "scenario": "Compare NPV using MACRS vs straight-line for same equipment. MACRS provides higher early tax shields, resulting in higher NPV.",
+        "correct_approach": "Calculate PV of tax shields under each method and compare"
+      }
+    ],
+    "formulas": [
+      {
+        "name": "Annual Tax Shield",
+        "expression": "TS = D × T_c",
+        "variables": {
+          "TS": "Tax shield",
+          "D": "Depreciation expense",
+          "T_c": "Corporate tax rate"
+        }
+      },
+      {
+        "name": "PV of Tax Shields (Straight-line)",
+        "expression": "PV(TS) = (Asset Cost / n) × T_c × PVIFA(r, n)",
+        "variables": {
+          "n": "Useful life in years",
+          "r": "Discount rate",
+          "PVIFA": "Present Value Interest Factor of Annuity"
+        }
+      }
+    ]
+  },
+  "cross_domain_links": {
+    "accounting": "depreciation_methods",
+    "taxation": "tax_planning",
+    "real_estate": "property_depreciation"
+  }
+}

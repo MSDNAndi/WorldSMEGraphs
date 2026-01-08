@@ -1,0 +1,138 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-045-cost-of-equity-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:45:20.258Z",
+    "contributors": [
+      "copilot-agent",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "draft",
+    "last_updated": "2026-01-08T16:45:20.258Z"
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "aku_id": "045",
+    "keywords": [
+      "cost of equity",
+      "CAPM",
+      "required return",
+      "beta",
+      "equity risk premium"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The cost of equity is the rate of return required by equity investors to compensate for the systematic risk of their investment, commonly estimated using the Capital Asset Pricing Model (CAPM).",
+      "formal": "r_e = r_f + β × (r_m - r_f), where r_f is risk-free rate, β is systematic risk, (r_m - r_f) is market risk premium"
+    },
+    "explanation": {
+      "intuition": "Equity investors give up the certainty of a risk-free investment and take on risk. They require compensation for this risk - the higher the risk, the higher the required return. Cost of equity is what investors demand for bearing the stock's systematic risk.",
+      "key_insight": "Only systematic (market) risk is priced because diversified investors can eliminate company-specific risk. A company with higher beta has higher cost of equity because its returns are more volatile in line with the market.",
+      "technical_details": "CAPM is the most common approach, but alternatives include the Dividend Discount Model (r_e = D₁/P₀ + g), Fama-French three-factor model, and build-up method. Each has advantages depending on data availability and company characteristics.",
+      "common_misconceptions": [
+        "Cost of equity equals dividend yield - it also includes expected capital appreciation",
+        "Lower beta is always better - it means lower return requirement but also lower expected returns",
+        "Historical beta predicts future beta - betas change over time with company risk profile"
+      ]
+    },
+    "definitions_glossary": {
+      "cost_of_equity": "Required return on equity investment to compensate for risk",
+      "beta": "Measure of systematic risk relative to the market portfolio",
+      "risk_free_rate": "Return on a zero-default-risk investment, typically government bonds",
+      "market_risk_premium": "Expected excess return of market portfolio over risk-free rate",
+      "systematic_risk": "Risk that cannot be diversified away (market risk)"
+    }
+  },
+  "relationships": {
+    "requires": [
+      "aku-004-discount-rate-definition",
+      "aku-007-time-value-of-money"
+    ],
+    "enables": [
+      "aku-013-wacc-formula",
+      "aku-020-risk-adjusted-discount-rates"
+    ],
+    "related_to": [
+      "aku-001-npv-definition",
+      "aku-019-opportunity-cost-concept"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "academic_paper",
+        "citation": "Sharpe, W. (1964). Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk. Journal of Finance, 19(3), 425-442.",
+        "contribution": "Original derivation of CAPM"
+      },
+      {
+        "type": "textbook",
+        "citation": "Brealey, R., Myers, S., & Allen, F. (2020). Principles of Corporate Finance. 13th Edition. McGraw-Hill.",
+        "chapter": "Chapter 8: Risk and the Cost of Capital",
+        "pages": "195-220"
+      }
+    ],
+    "academic_consensus": "well_established",
+    "field_applicability": [
+      "corporate finance",
+      "equity valuation",
+      "portfolio management",
+      "investment analysis"
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Calculate cost of equity using CAPM",
+      "Understand the role of beta in measuring systematic risk",
+      "Compare different methods for estimating cost of equity",
+      "Apply cost of equity in NPV calculations for equity-financed projects"
+    ],
+    "prerequisites": [
+      "Risk and return concepts",
+      "Time value of money",
+      "Basic statistics (correlation, variance)"
+    ],
+    "formulas": [
+      {
+        "name": "CAPM",
+        "expression": "r_e = r_f + β × (r_m - r_f)",
+        "variables": {
+          "r_e": "Cost of equity",
+          "r_f": "Risk-free rate",
+          "β": "Beta (systematic risk coefficient)",
+          "r_m - r_f": "Market risk premium"
+        }
+      },
+      {
+        "name": "Dividend Growth Model (Gordon)",
+        "expression": "r_e = D₁/P₀ + g",
+        "variables": {
+          "D₁": "Expected dividend next year",
+          "P₀": "Current stock price",
+          "g": "Expected dividend growth rate"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "context": "CAPM calculation",
+        "scenario": "Risk-free rate = 3%, Market risk premium = 6%, Company beta = 1.2",
+        "calculation": "r_e = 3% + 1.2 × 6% = 3% + 7.2% = 10.2%"
+      }
+    ]
+  },
+  "cross_domain_links": {
+    "portfolio_theory": "modern_portfolio_theory",
+    "asset_pricing": "factor_models",
+    "equity_research": "valuation_methods"
+  }
+}

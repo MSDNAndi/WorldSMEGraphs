@@ -1,0 +1,151 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-050-international-npv-example",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:45:20.258Z",
+    "contributors": [
+      "copilot-agent",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.93,
+    "status": "draft",
+    "last_updated": "2026-01-08T16:45:20.258Z"
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "example",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "050",
+    "keywords": [
+      "international npv",
+      "foreign investment",
+      "currency risk",
+      "country risk",
+      "multinational"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "International NPV analysis must account for currency exchange rates, country-specific risks, different tax regimes, and capital market segmentation, leading to more complex valuation approaches.",
+      "formal": "NPV can be calculated in foreign currency and converted, or by converting all cash flows to home currency first"
+    },
+    "explanation": {
+      "intuition": "When investing abroad, you face all the normal project risks plus additional complications: What if the currency moves? What if the government changes policies? What tax rate applies? International NPV must capture all these factors.",
+      "key_insight": "There are two equivalent approaches: (1) discount foreign-currency cash flows at foreign-currency discount rate, then convert at spot rate, or (2) convert cash flows to home currency using forward rates, then discount at home-currency rate. Both should give the same answer if markets are efficient.",
+      "technical_details": "The interest rate parity relationship links forward rates to interest rate differentials. Country risk can be addressed through adjusted discount rates or probability-weighted scenario analysis. Transfer pricing and blocked funds add complexity.",
+      "common_misconceptions": [
+        "Use today's exchange rate for all future cash flows - use forward rates or scenario analysis",
+        "Higher interest rates abroad mean higher required returns - parity relationships often explain this",
+        "Country risk premium can simply be added to WACC - different risks may require different adjustments"
+      ]
+    },
+    "definitions_glossary": {
+      "currency_risk": "Risk that exchange rate movements affect home-currency value of foreign cash flows",
+      "country_risk": "Political, economic, and regulatory risks specific to a foreign country",
+      "interest_rate_parity": "Relationship between forward rates and interest rate differentials across countries",
+      "blocked_funds": "Cash flows that cannot be repatriated due to government restrictions",
+      "transfer_pricing": "Prices charged between related entities in different countries"
+    }
+  },
+  "relationships": {
+    "requires": [
+      "aku-001-npv-definition",
+      "aku-013-wacc-formula",
+      "aku-020-risk-adjusted-discount-rates"
+    ],
+    "enables": [],
+    "related_to": [
+      "aku-031-npv-with-inflation",
+      "aku-032-scenario-analysis-formula"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Brealey, R., Myers, S., & Allen, F. (2020). Principles of Corporate Finance. 13th Edition. McGraw-Hill.",
+        "chapter": "Chapter 27: International Financial Management",
+        "pages": "705-730"
+      },
+      {
+        "type": "textbook",
+        "citation": "Eiteman, D., Stonehill, A., & Moffett, M. (2018). Multinational Business Finance. 15th Edition. Pearson.",
+        "chapter": "Chapter 18: Multinational Capital Budgeting",
+        "pages": "545-580"
+      }
+    ],
+    "academic_consensus": "well_established",
+    "field_applicability": [
+      "international finance",
+      "multinational corporations",
+      "foreign direct investment",
+      "emerging markets"
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Apply NPV analysis to international investment decisions",
+      "Understand two approaches to handling currency in NPV",
+      "Incorporate country risk into investment analysis",
+      "Evaluate the impact of exchange rate movements on project value"
+    ],
+    "prerequisites": [
+      "Domestic NPV analysis",
+      "Basic understanding of exchange rates",
+      "WACC calculation"
+    ],
+    "worked_example": {
+      "scenario": "US company evaluating manufacturing plant in Germany",
+      "given": {
+        "investment": "€10 million (Year 0)",
+        "annual_cash_flows": "€2 million for 7 years",
+        "spot_rate": "$1.10/€",
+        "german_risk_free": "2%",
+        "us_risk_free": "4%",
+        "project_wacc_euros": "10%"
+      },
+      "approach_1_foreign_currency": {
+        "step_1": "Calculate NPV in euros: -€10M + €2M × PVIFA(10%, 7) = -€10M + €2M × 4.868 = -€0.26M",
+        "step_2": "Convert to dollars: -€0.26M × $1.10/€ = -$0.29M",
+        "conclusion": "Negative NPV - reject project"
+      },
+      "approach_2_home_currency": {
+        "step_1": "Calculate forward rates using interest rate parity: F_t = S × (1+r_$)^t / (1+r_€)^t",
+        "step_2": "Convert each cash flow at its forward rate",
+        "step_3": "Discount at dollar-denominated WACC",
+        "note": "Should give equivalent result to Approach 1"
+      },
+      "risk_considerations": [
+        "Currency hedging costs may reduce cash flows",
+        "Country risk premium may require higher discount rate",
+        "Tax treaty benefits affect after-tax cash flows",
+        "Repatriation restrictions may delay or block cash flows"
+      ]
+    },
+    "two_approaches_comparison": {
+      "approach_1": {
+        "name": "Foreign Currency Approach",
+        "method": "Discount FC cash flows at FC rate, convert NPV at spot",
+        "advantages": "Simpler if FC discount rate is known",
+        "disadvantages": "May obscure currency exposure"
+      },
+      "approach_2": {
+        "name": "Home Currency Approach",
+        "method": "Convert cash flows using forward rates, discount at HC rate",
+        "advantages": "Shows currency risk explicitly",
+        "disadvantages": "Requires forward rate estimation for each period"
+      }
+    }
+  },
+  "cross_domain_links": {
+    "international_economics": "exchange_rate_theory",
+    "international_business": "foreign_direct_investment",
+    "derivatives": "currency_hedging"
+  }
+}

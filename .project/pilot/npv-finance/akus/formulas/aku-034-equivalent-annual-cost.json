@@ -1,0 +1,141 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-034-equivalent-annual-cost",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:45:20.258Z",
+    "contributors": [
+      "copilot-agent",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "draft",
+    "last_updated": "2026-01-08T16:45:20.258Z"
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "formula",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "034",
+    "keywords": [
+      "equivalent annual cost",
+      "EAC",
+      "annualized cost",
+      "project comparison",
+      "different lives"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "Equivalent Annual Cost (EAC) converts the total present value of project costs into an equivalent annual amount, enabling comparison of projects with different lifespans.",
+      "formal": "EAC = PV(costs) × r / [1 - (1+r)^(-n)] = PV(costs) / PVIFA(r, n)"
+    },
+    "explanation": {
+      "intuition": "When comparing equipment with different lifespans, we can't just compare total costs - a machine lasting 10 years will obviously cost more than one lasting 5 years. EAC puts costs on an 'annual rental' basis for fair comparison.",
+      "key_insight": "EAC assumes projects can be repeated indefinitely. It's most appropriate for projects that will be replaced with similar alternatives when they end. For one-time projects, use adjusted present value methods instead.",
+      "technical_details": "EAC is calculated by finding the annuity payment that has the same present value as the project's total costs. The project with the lower EAC is preferred, assuming revenues are the same or analyzed separately.",
+      "common_misconceptions": [
+        "Higher upfront cost means higher EAC - not if the asset lasts longer or has lower operating costs",
+        "EAC comparison works for all projects - only valid when projects are repeatable",
+        "Revenues don't matter for EAC - they should be analyzed alongside or netted against costs"
+      ]
+    },
+    "definitions_glossary": {
+      "equivalent_annual_cost": "Annual cost that has same PV as total project costs",
+      "PVIFA": "Present Value Interest Factor of Annuity",
+      "repeatable_project": "Project that will be replaced with similar investment when it ends",
+      "replacement_chain": "Series of identical or similar projects over time"
+    }
+  },
+  "relationships": {
+    "requires": [
+      "aku-001-npv-definition",
+      "aku-011-annuity-npv-formula"
+    ],
+    "enables": [
+      "aku-027-equipment-replacement-example",
+      "aku-041-project-comparison-example"
+    ],
+    "related_to": [
+      "aku-033-break-even-analysis",
+      "aku-025-npv-vs-irr-comparison"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Brealey, R., Myers, S., & Allen, F. (2020). Principles of Corporate Finance. 13th Edition. McGraw-Hill.",
+        "chapter": "Chapter 6: Equivalent Annual Costs",
+        "pages": "145-150"
+      },
+      {
+        "type": "textbook",
+        "citation": "Ross, S., Westerfield, R., & Jaffe, J. (2019). Corporate Finance. 12th Edition. McGraw-Hill.",
+        "chapter": "Chapter 7: Comparing Projects with Different Lives",
+        "pages": "212-220"
+      }
+    ],
+    "academic_consensus": "universally_accepted",
+    "field_applicability": [
+      "capital budgeting",
+      "asset management",
+      "operations management",
+      "equipment procurement"
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Calculate EAC from project present value",
+      "Compare projects with different lifespans using EAC",
+      "Understand when EAC analysis is appropriate",
+      "Apply EAC to equipment replacement decisions"
+    ],
+    "prerequisites": [
+      "Present value calculations",
+      "Annuity formulas",
+      "Basic NPV understanding"
+    ],
+    "formulas": [
+      {
+        "name": "EAC from PV",
+        "expression": "EAC = PV × r / [1 - (1+r)^(-n)]",
+        "variables": {
+          "PV": "Present value of all costs",
+          "r": "Discount rate",
+          "n": "Project life in years"
+        }
+      },
+      {
+        "name": "EAC using annuity factor",
+        "expression": "EAC = PV / PVIFA(r, n)",
+        "variables": {
+          "PVIFA(r, n)": "[1 - (1+r)^(-n)] / r"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "context": "Machine comparison",
+        "scenario": "Machine A: Costs $10,000, lasts 3 years. Machine B: Costs $15,000, lasts 5 years. r=10%",
+        "calculations": {
+          "PVIFA_3yr": "[1 - 1.10^(-3)] / 0.10 = 2.487",
+          "PVIFA_5yr": "[1 - 1.10^(-5)] / 0.10 = 3.791",
+          "EAC_A": "$10,000 / 2.487 = $4,021/year",
+          "EAC_B": "$15,000 / 3.791 = $3,957/year",
+          "decision": "Choose Machine B (lower EAC)"
+        }
+      }
+    ]
+  },
+  "cross_domain_links": {
+    "operations_management": "equipment_selection",
+    "leasing": "lease_vs_buy",
+    "infrastructure": "asset_lifecycle"
+  }
+}

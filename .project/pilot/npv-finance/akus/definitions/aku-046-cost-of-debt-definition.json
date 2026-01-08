@@ -1,0 +1,137 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-046-cost-of-debt-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:45:20.258Z",
+    "contributors": [
+      "copilot-agent",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "draft",
+    "last_updated": "2026-01-08T16:45:20.258Z"
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "046",
+    "keywords": [
+      "cost of debt",
+      "after-tax cost",
+      "interest expense",
+      "tax shield",
+      "yield to maturity"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The cost of debt is the effective rate that a company pays on its borrowed funds, measured after-tax because interest payments are tax-deductible, reducing the effective cost to the firm.",
+      "formal": "r_d(after-tax) = r_d × (1 - T_c), where r_d is pre-tax cost of debt, T_c is corporate tax rate"
+    },
+    "explanation": {
+      "intuition": "When a company borrows money, it pays interest. But because interest is tax-deductible, the government effectively subsidizes part of the interest cost. If a company pays 8% interest and has a 25% tax rate, the after-tax cost is only 6%.",
+      "key_insight": "Always use after-tax cost of debt in WACC calculations because the tax deductibility of interest reduces the true cost to the company. This is called the interest tax shield.",
+      "technical_details": "The pre-tax cost of debt is typically measured as the yield to maturity on existing debt or the rate on new borrowings. For companies with public debt, use current market yields rather than historical coupon rates. Credit spreads over government bonds reflect default risk.",
+      "common_misconceptions": [
+        "Coupon rate equals cost of debt - use current market yield, not historical coupon",
+        "Cost of debt is always lower than cost of equity - not always, especially for distressed firms",
+        "Pre-tax cost should be used in WACC - after-tax reflects true economic cost"
+      ]
+    },
+    "definitions_glossary": {
+      "cost_of_debt": "The effective rate a company pays on its current debt obligations",
+      "yield_to_maturity": "The total return anticipated if the debt is held to maturity",
+      "interest_tax_shield": "Tax savings from the deductibility of interest expense",
+      "credit_spread": "The difference between corporate bond yield and risk-free rate",
+      "effective_interest_rate": "The actual cost after accounting for all factors"
+    }
+  },
+  "relationships": {
+    "requires": [
+      "aku-004-discount-rate-definition",
+      "aku-043-depreciation-tax-shield"
+    ],
+    "enables": [
+      "aku-013-wacc-formula"
+    ],
+    "related_to": [
+      "aku-045-cost-of-equity-definition",
+      "aku-015-after-tax-npv-formula"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Brealey, R., Myers, S., & Allen, F. (2020). Principles of Corporate Finance. 13th Edition. McGraw-Hill.",
+        "chapter": "Chapter 17: Cost of Debt and Capital Structure",
+        "pages": "435-445"
+      },
+      {
+        "type": "textbook",
+        "citation": "Damodaran, A. (2012). Investment Valuation. 3rd Edition. Wiley.",
+        "chapter": "Chapter 8: Estimating Cost of Debt",
+        "pages": "195-210"
+      }
+    ],
+    "academic_consensus": "universally_accepted",
+    "field_applicability": [
+      "corporate finance",
+      "capital structure",
+      "credit analysis",
+      "bond valuation"
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Calculate after-tax cost of debt",
+      "Understand why after-tax cost is relevant for WACC",
+      "Estimate cost of debt using yield to maturity",
+      "Analyze factors affecting a company's cost of debt"
+    ],
+    "prerequisites": [
+      "Bond pricing basics",
+      "Understanding of corporate taxation",
+      "Time value of money"
+    ],
+    "formulas": [
+      {
+        "name": "After-Tax Cost of Debt",
+        "expression": "r_d(after-tax) = r_d × (1 - T_c)",
+        "variables": {
+          "r_d": "Pre-tax cost of debt (yield to maturity)",
+          "T_c": "Corporate marginal tax rate"
+        }
+      },
+      {
+        "name": "Annual Interest Tax Shield",
+        "expression": "Tax Shield = Interest Expense × T_c",
+        "note": "This is the annual cash flow benefit from debt"
+      }
+    ],
+    "examples": [
+      {
+        "context": "After-tax cost calculation",
+        "scenario": "Company bond yield = 7%, Corporate tax rate = 25%",
+        "calculation": "After-tax cost = 7% × (1 - 0.25) = 7% × 0.75 = 5.25%"
+      },
+      {
+        "context": "Interest tax shield",
+        "scenario": "Interest expense = $1,000,000, Tax rate = 30%",
+        "calculation": "Tax shield = $1,000,000 × 0.30 = $300,000 savings"
+      }
+    ]
+  },
+  "cross_domain_links": {
+    "fixed_income": "bond_pricing",
+    "credit_analysis": "credit_risk",
+    "capital_structure": "leverage_decisions"
+  }
+}
