@@ -4,9 +4,19 @@
 
 > A file-based, language-agnostic knowledge representation system for subject matter expert domains
 
-## 🎉 What's New (v0.3.0 - January 2026)
+## 🎉 What's New (v0.3.1 - January 2026)
 
-**Latest Update**: Centralized renders infrastructure!
+**Latest Update (v0.3.1)**: Image generation workflow enforcement!
+
+- ✅ **Workflow enforcement system** - Ensures images generated BEFORE documents (learned from PR #36/#38)
+- ✅ **64KB documentation** - Comprehensive guides (WORKFLOW-ENFORCEMENT.md, QUICK-START.md)
+- ✅ **Validation tools** - validate_workflow.py (13KB), validate_prompts.py (15KB)
+- ✅ **Blocking generators** - presentation_generator.py and build_gpt_pdf.py enforce workflow
+- ✅ **Pre-commit hook** - Prevents committing documents without images
+- ✅ **Agent update** - image-generation.agent.md upgraded to v3.0
+- ✅ **Complete prompts required** - 8K-20K characters, super explicit, no placeholders
+
+**Previous Update (v0.3.0)**: Centralized renders infrastructure!
 
 - ✅ **255 renders migrated** from distributed `.renders/` to centralized `renders/` directory
 - ✅ **21 documentation files** updated with new paths
@@ -211,6 +221,14 @@ See [Project Structure Documentation](.project/structure.md) for complete detail
 - **[AKU Templates](docs/templates/)**: Ready-to-use templates for medical, economics, science domains
 - **[Agent Configurations](.github/copilot/agents/)**: Specialized agent instructions
 - **[Agent KPIs](.github/copilot/agent-kpis.md)**: Agent performance tracking
+- **[Image Generation Workflow](.project/agents/image-generation/QUICK-START.md)**: **START HERE** for presentations, comics, diagrams 🎨 NEW
+
+### Image Generation & Visual Content ⭐ NEW (2026-01-08)
+- **[Quick Start Guide](.project/agents/image-generation/QUICK-START.md)**: Step-by-step tutorial for creating visual content
+- **[Workflow Enforcement](.project/agents/image-generation/WORKFLOW-ENFORCEMENT.md)**: Complete phase-by-phase guide (20KB)
+- **[Tools Reference](.project/agents/image-generation/tools/README.md)**: Validation and generation tools
+- **Key Rule**: Always generate images BEFORE creating final documents (PDF, PPTX, HTML)
+- **Tools**: Workflow validation, prompt checking, pre-commit hooks, blocking generators
 
 ## Architecture
 

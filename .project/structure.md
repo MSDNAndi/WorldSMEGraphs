@@ -399,8 +399,83 @@ Listed in `.gitignore`:
 
 ---
 
-**Last Updated**: 2026-01-04T18:55:00.000Z  
+## Image Generation Workflow (Added 2026-01-08)
+
+### Purpose
+Enforce correct workflow order for creating visual assets (presentations, comics, diagrams) to ensure:
+1. Complete prompts written before image generation
+2. All images generated before final documents
+3. Previous versions properly archived
+
+### Tools Location
+`.project/agents/image-generation/`
+
+### Documentation (64KB total)
+1. **WORKFLOW-ENFORCEMENT.md** (20KB) - Comprehensive phase-by-phase guide
+2. **QUICK-START.md** (16KB) - Step-by-step tutorial
+3. **tools/README.md** - Tool reference and usage
+4. **tools/validate_workflow.py** (13KB) - Phase order validation
+5. **tools/validate_prompts.py** (15KB) - Prompt quality checking
+6. **pre-commit-hook.sh** (5KB) - Git hook to prevent violations
+
+### Correct Workflow Order
+
+**Phase 1-2: Storyboard** → **Phase 3: Prompts** → **Phase 4: Images** → **Phase 5: Documents**
+
+### Key Principles (from PR #36 and PR #38)
+1. **Images BEFORE Documents**: Always generate images before creating PDF/PPTX/HTML
+2. **Complete Prompts**: 8K-20K characters each, no placeholders
+3. **Super Explicit**: Specify directions (LEFT TO RIGHT), colors (hex codes), sizes (pixels)
+4. **Archive Management**: Previous versions in dated subfolders
+
+### Enforcement Mechanisms
+- **Blocking validation** in presentation_generator.py and build_gpt_pdf.py
+- **Pre-commit hooks** prevent committing documents without images
+- **Validation scripts** check workflow order before building
+- **Clear error messages** guide users to correct violations
+
+### Usage Examples
+
+```bash
+# Quick start
+cat .project/agents/image-generation/QUICK-START.md
+
+# Validate prompts before generating images
+python .project/agents/image-generation/tools/validate_prompts.py prompts/
+
+# Validate workflow before creating documents
+python .project/agents/image-generation/tools/validate_workflow.py .
+
+# Generate images (parallel for efficiency)
+python .project/agents/image-generation/tools/gpt_image_generator.py \
+  --prompt-file prompts/all-slides.txt \
+  --output-dir images/ \
+  --parallel 5 --enhance
+
+# Create documents (blocked if images missing)
+python .project/agents/image-generation/tools/presentation_generator.py \
+  --slides storyboard.yaml \
+  --image-dir images/
+```
+
+### Updated Agent
+- **image-generation.agent.md**: Updated to v3.0 with workflow enforcement capabilities
+
+### See Also
+- PR #36: Original comic generation with lessons learned
+- PR #38: Improved workflow with hyper-detailed prompts
+- `.github/agents/image-generation.agent.md`: Agent configuration
+
+---
+
+**Last Updated**: 2026-01-08T17:35:00.000Z  
 **Major Changes**: 
+- **2026-01-08 17:35 UTC**: Added image generation workflow enforcement system (64KB docs + tools)
+  - Created comprehensive workflow documentation (WORKFLOW-ENFORCEMENT.md, QUICK-START.md)
+  - Created validation tools (validate_workflow.py, validate_prompts.py)
+  - Added blocking validation to generators (presentation_generator.py, build_gpt_pdf.py)
+  - Created pre-commit hook for Git enforcement
+  - Updated image-generation agent to v3.0
 - **2026-01-04 18:50 UTC**: ✅ MIGRATION COMPLETE - All domains migrated to global hierarchy
   - Completed migration of 40 files (category theory components + math content)
   - Added 16 missing files (metadata, terminology, schema)
