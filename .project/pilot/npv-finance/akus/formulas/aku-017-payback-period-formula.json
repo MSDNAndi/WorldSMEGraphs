@@ -1,0 +1,169 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-017-payback-period-formula",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T18:02:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-08T18:02:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/corporate-finance/capital-budgeting",
+    "type": "formula",
+    "difficulty": "beginner",
+    "importance": "medium",
+    "aku_id": "017",
+    "keywords": [
+      "payback period",
+      "capital budgeting",
+      "liquidity",
+      "risk measure"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The Payback Period is the length of time required for an investment to recover its initial cost from the cash inflows it generates. While theoretically inferior to NPV (it ignores time value and post-payback cash flows), it remains popular in practice as a simple risk and liquidity measure.",
+      "formal": "Payback Period = Number of years before cumulative cash flows equal initial investment"
+    },
+    "explanation": {
+      "intuition": "How long until I get my money back? The payback period answers this simple question. If you invest $100,000 and generate $25,000 per year, payback is 4 years.",
+      "key_insight": "Payback is popular despite its flaws because it's easy to understand and captures liquidity risk. Shorter payback means faster recovery and lower risk of project failure. However, it ignores the time value of money and all cash flows after payback.",
+      "technical_details": "Simple payback ignores TVM. Discounted payback period addresses this by using discounted cash flows. Even so, both ignore post-payback cash flows. The Graham-Harvey survey found 57% of CFOs 'always or almost always' use payback, showing its persistent popularity."
+    },
+    "limitations": [
+      "Ignores time value of money (unless discounted payback)",
+      "Ignores cash flows after payback",
+      "Arbitrary cutoff period",
+      "May reject long-term profitable projects",
+      "Biases toward short-term projects"
+    ],
+    "when_to_use": [
+      "As a secondary criterion alongside NPV",
+      "For liquidity-constrained firms",
+      "In highly uncertain environments where distant cash flows are very uncertain",
+      "For quick screening of many small projects"
+    ],
+    "definitions_glossary": {
+      "simple_payback": "Uses undiscounted cash flows",
+      "discounted_payback": "Uses present values of cash flows",
+      "cumulative_cash_flow": "Running total of cash flows over time"
+    }
+  },
+  "representations": {
+    "latex": "\\text{Payback} = n + \\frac{|\\text{Cumulative CF at year } n|}{\\text{CF at year } n+1}",
+    "python": {
+      "code": "def payback_period(initial_investment: float, cash_flows: list) -> float:\n    \"\"\"\n    Calculate simple payback period.\n    \n    Args:\n        initial_investment: Initial investment (positive)\n        cash_flows: List of annual cash flows\n    \n    Returns:\n        Payback period in years\n    \n    Example:\n        >>> payback_period(100000, [30000, 40000, 40000, 30000])\n        2.75  # Payback in 2.75 years\n    \"\"\"\n    cumulative = 0\n    for t, cf in enumerate(cash_flows, 1):\n        cumulative += cf\n        if cumulative >= initial_investment:\n            # Calculate fractional year\n            prior_cumulative = cumulative - cf\n            remaining = initial_investment - prior_cumulative\n            fraction = remaining / cf\n            return t - 1 + fraction\n    return float('inf')  # Never pays back\n\ndef discounted_payback(initial_investment: float, cash_flows: list, rate: float) -> float:\n    \"\"\"\n    Calculate discounted payback period.\n    \"\"\"\n    cumulative = 0\n    for t, cf in enumerate(cash_flows, 1):\n        pv = cf / (1 + rate)**t\n        cumulative += pv\n        if cumulative >= initial_investment:\n            prior_cumulative = cumulative - pv\n            remaining = initial_investment - prior_cumulative\n            fraction = remaining / pv\n            return t - 1 + fraction\n    return float('inf')",
+      "test_cases": [
+        {
+          "input": {"initial_investment": 100000, "cash_flows": [30000, 40000, 40000, 30000]},
+          "expected_output": 2.75,
+          "description": "Standard payback calculation",
+          "tolerance": 0.01
+        },
+        {
+          "input": {"initial_investment": 50000, "cash_flows": [25000, 25000, 25000]},
+          "expected_output": 2.0,
+          "description": "Exact payback at year boundary",
+          "tolerance": 0.01
+        }
+      ]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "cash-flow-concept",
+      "capital-budgeting-definition"
+    ],
+    "enables": [
+      "discounted-payback",
+      "project-risk-assessment"
+    ],
+    "related_to": [
+      "npv-definition",
+      "irr-definition",
+      "liquidity-analysis"
+    ],
+    "supersedes": [],
+    "part_of": "capital-budgeting-methods",
+    "skos:broader": [
+      {
+        "@id": "wsmg:capital-budgeting-definition",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:npv-definition",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "87-92",
+        "isbn": "978-1260013900"
+      },
+      {
+        "type": "paper",
+        "title": "How Do CFOs Make Capital Budgeting and Capital Structure Decisions?",
+        "authors": ["John Graham", "Campbell Harvey"],
+        "journal": "Journal of Applied Corporate Finance",
+        "year": 2002,
+        "doi": "10.1111/j.1745-6622.2002.tb00337.x"
+      }
+    ],
+    "extraction_method": "Manual curation from corporate finance literature",
+    "validation_method": "Verified with executable code and practitioner surveys",
+    "validation_date": "2026-01-08",
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T18:02:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "undergraduate finance",
+      "MBA",
+      "business managers"
+    ],
+    "learning_objectives": [
+      "Calculate simple and discounted payback",
+      "Identify limitations of payback",
+      "Understand why payback remains popular despite flaws"
+    ],
+    "estimated_time_minutes": 15,
+    "prerequisites_description": "Basic cash flow understanding",
+    "common_errors": [
+      "Forgetting to handle partial years",
+      "Using payback as sole criterion",
+      "Ignoring cash flows after payback"
+    ],
+    "practice_problems": [
+      "Calculate payback for $80K investment with $20K/year cash flows",
+      "Why might a cash-strapped company prefer shorter payback?",
+      "What are the risks of using payback as the primary criterion?"
+    ]
+  },
+  "skos:prefLabel": "Payback Period",
+  "skos:notation": "aku-017-payback-period-formula",
+  "skos:definition": "The length of time required for an investment's cash inflows to equal the initial investment amount.",
+  "skos:altLabel": ["Simple Payback", "Payback Rule"],
+  "owl:sameAs": "http://dbpedia.org/resource/Payback_period",
+  "skos:exactMatch": [
+    "http://dbpedia.org/resource/Payback_period",
+    "http://www.wikidata.org/entity/Q1539532"
+  ]
+}
