@@ -592,3 +592,128 @@ Continue ontology integration work beyond Phase 1 foundation. Enable full semant
 - PR #11: Ontology research findings
 - `.project/research/ontology-and-numbering-analysis.md`
 
+
+### 🎯 IMP-010: Expand Image Generation Workflow Enforcement (COMPLETED 2026-01-08)
+**Category**: Content Creation Infrastructure  
+**Impact**: High  
+**Effort**: Medium (6 hours)  
+**Priority**: Phase 1 (Current)  
+**Status**: ✅ COMPLETED
+
+**Description**:
+Implement comprehensive workflow enforcement system to ensure images are generated BEFORE final documents, with complete prompts and proper archiving. Based on lessons from PR #36 and PR #38.
+
+**Problem Statement**:
+- Previous work (PR #36) had convoluted workflow - images generated during document creation
+- Prompts used placeholders instead of complete descriptions
+- Previous versions only in git history, not archived in folders
+
+**Completed Work** (2026-01-08):
+- [x] Created WORKFLOW-ENFORCEMENT.md (20KB comprehensive guide)
+- [x] Created QUICK-START.md (16KB step-by-step tutorial)
+- [x] Created validate_workflow.py (13KB) - Phase order validation
+- [x] Created validate_prompts.py (15KB) - Prompt quality checking
+- [x] Created pre-commit-hook.sh (5KB) - Git hook prevention
+- [x] Updated presentation_generator.py with blocking validation
+- [x] Updated build_gpt_pdf.py with blocking validation
+- [x] Updated image-generation.agent.md to v3.0
+- [x] Updated .project/structure.md with workflow section
+- [x] Updated README.md with workflow links (v0.3.1)
+- [x] Created real-world example (Category Theory presentation storyboard)
+- [x] Tested validation tools on existing content
+
+**Benefits Achieved**:
+- ✅ Prevents workflow violations (images must exist before documents)
+- ✅ Ensures complete prompts (no placeholders, 8K-20K chars)
+- ✅ Provides clear error messages guiding users to fixes
+- ✅ Enforces archive management for version control
+- ✅ Validates prompt quality with scoring system
+- ✅ Pre-commit hooks prevent bad commits
+- ✅ Documentation provides step-by-step guidance
+
+**Metrics**:
+- Documentation: 64KB (WORKFLOW-ENFORCEMENT.md, QUICK-START.md, tools/README.md updates)
+- Code: 28KB (validate_workflow.py, validate_prompts.py, generator updates)
+- Tests: Validated on 2 existing projects (comic, functional programming)
+- Coverage: All document generators now have workflow validation
+
+**Enforcement Mechanisms**:
+1. Blocking functions in generators
+2. Pre-commit hooks
+3. Validation scripts
+4. Clear error messages
+5. Example projects
+
+**See**:
+- `.project/agents/image-generation/WORKFLOW-ENFORCEMENT.md`
+- `.project/agents/image-generation/QUICK-START.md`
+- `renders/.../functional-programming/presentations/professional-category-theory/` (example)
+
+**Completed**: 2026-01-08  
+**Session Time**: 20 minutes (continuing to 50+)
+
+---
+
+### 🎯 IMP-011: CI/CD Integration for Workflow Validation
+**Category**: Automation & Quality Assurance  
+**Impact**: Medium-High  
+**Effort**: Low-Medium (2-3 hours)  
+**Priority**: Phase 2  
+**Status**: 📋 Proposed
+
+**Description**:
+Integrate workflow validation into CI/CD pipeline to automatically check workflow compliance on pull requests.
+
+**Benefits**:
+- Automated workflow enforcement
+- Catch violations before merge
+- No manual validation needed
+- Consistent quality standards
+- Build failure on workflow violations
+
+**Implementation**:
+1. Create GitHub Actions workflow (.github/workflows/validate-image-workflow.yml)
+2. Run validate_workflow.py on all content directories
+3. Run validate_prompts.py on all prompt files
+4. Fail build if violations found
+5. Report findings in PR comments
+
+**Dependencies**:
+- Workflow enforcement tools (✅ Available - IMP-010)
+- Python environment in CI/CD (✅ Available)
+- Content discovery mechanism
+
+**Estimated Effort**: 2-3 hours
+
+---
+
+### 🎯 IMP-012: Interactive Workflow Tutorial
+**Category**: Developer Experience  
+**Impact**: Medium  
+**Effort**: Medium (3-4 hours)  
+**Priority**: Phase 2  
+**Status**: 📋 Proposed
+
+**Description**:
+Create interactive tutorial or script that guides users through creating their first presentation with proper workflow.
+
+**Features**:
+- Interactive CLI script
+- Step-by-step prompts
+- Validates each phase before proceeding
+- Generates example content
+- Provides real-time feedback
+
+**Implementation**:
+```bash
+python .project/agents/image-generation/tools/workflow_tutorial.py
+```
+
+**Benefits**:
+- Lower barrier to entry
+- Hands-on learning
+- Reduces workflow violations
+- Builds muscle memory
+
+**Estimated Effort**: 3-4 hours
+

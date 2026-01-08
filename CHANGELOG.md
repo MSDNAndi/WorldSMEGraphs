@@ -8,6 +8,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Image Generation Workflow Enforcement** (2026-01-08) - v0.3.1
+  - Comprehensive workflow enforcement system (64KB documentation + 29KB code)
+  - Documentation:
+    - `WORKFLOW-ENFORCEMENT.md` (20KB) - Complete phase-by-phase guide
+    - `QUICK-START.md` (16KB) - Step-by-step tutorial
+    - `tools/README.md` - Updated with workflow tools reference
+  - Validation tools:
+    - `validate_workflow.py` (13KB) - Phase order validation
+    - `validate_prompts.py` (15KB) - Prompt quality checking
+    - `workflow_constants.py` (1KB) - Shared validation constants
+    - `pre-commit-hook.sh` (5KB) - Git hook enforcement
+  - Generator updates with blocking validation:
+    - `presentation_generator.py` - validate_images_exist() function
+    - `build_gpt_pdf.py` - Workflow enforcement
+  - Example project: Category Theory presentation storyboard
+  - Enforces correct order: Storyboard → Prompts → Images → Documents
+  - Ensures complete prompts (8K-20K chars, no placeholders)
+  - Based on lessons learned from PR #36 and PR #38
 - **Centralized Renders Infrastructure** (2026-01-06)
   - New `renders/` directory at repository root
   - `renders/by-domain/` organization (255 files)
@@ -28,6 +46,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Session work summary template (`.project/tracking/session-work-summary-2026-01-04.md`)
 
 ### Changed
+- **Image Generation Agent** - Updated to v3.0 with workflow enforcement capabilities
+- **Project Documentation** - Updated README.md to v0.3.1, added workflow links
+- **Structure Documentation** - Added image generation workflow section
+- **Improvements Tracking** - Added IMP-010 (completed), IMP-011/012 (proposed)
 - **Renders Migration** - Extracted all `.renders/` content to centralized `renders/`
   - Updated 23 documentation files with new render paths
   - Updated 4 agent configurations
@@ -43,6 +65,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Legacy render path references in documentation
 
 ### Fixed
+- **Code Review Issues** (2026-01-08):
+  - Consolidated placeholder keywords into shared constants
+  - Improved docstrings explaining blocking behavior
+  - Eliminated code duplication between validators
 - Completed incomplete PR #30 migration
 - Removed duplicate content (293 files from old locations)
 - Fixed inconsistent path references in documentation

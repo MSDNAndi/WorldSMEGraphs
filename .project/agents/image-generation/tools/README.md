@@ -212,3 +212,92 @@ The tool handles common errors:
 |---------|------|---------|
 | 2.0.0 | 2026-01-04 | PARALLEL generation, LINEAR backoff, rate tracking, super explicit prompts |
 | 1.0.0 | 2026-01-04 | Initial release |
+
+---
+
+## Workflow Enforcement Tools (v1.0.0)
+
+> **Added**: 2026-01-08  
+> **Purpose**: Enforce correct workflow order for image generation and content creation  
+> **Based on**: PR #36 and PR #38 learnings
+
+### New Tools for Workflow Validation
+
+#### 1. validate_workflow.py
+**Size**: 13KB  
+**Purpose**: Validate phase order and completeness
+
+Checks that content follows correct workflow:
+- ✅ Storyboard exists (Phase 1-2)
+- ✅ Prompts complete (Phase 3)
+- ✅ Images generated (Phase 4)
+- ✅ Documents only after images (Phase 5)
+
+```bash
+# Validate current directory
+python validate_workflow.py
+
+# Validate specific directory
+python validate_workflow.py renders/by-domain/.../presentations/
+
+# Verbose with warnings
+python validate_workflow.py --verbose
+
+# JSON output
+python validate_workflow.py --json
+```
+
+#### 2. validate_prompts.py
+**Size**: 15KB  
+**Purpose**: Validate prompt quality
+
+Checks prompt completeness:
+- ✅ Length (target 8K-20K chars)
+- ✅ No placeholders
+- ✅ No external references
+- ✅ Super explicit details
+
+```bash
+# Validate prompts
+python validate_prompts.py prompts/
+
+# With quality threshold
+python validate_prompts.py prompts/ --min-score 70
+```
+
+#### 3. pre-commit-hook.sh
+**Size**: 5KB  
+**Purpose**: Prevent workflow violations in commits
+
+Install:
+```bash
+cp pre-commit-hook.sh ../../../.git/hooks/pre-commit
+chmod +x ../../../.git/hooks/pre-commit
+```
+
+### Workflow Documentation
+
+See [WORKFLOW-ENFORCEMENT.md](../WORKFLOW-ENFORCEMENT.md) (20KB) for complete guide including:
+- Phase-by-phase workflow
+- Validation requirements
+- Archive management
+- Common mistakes
+- Examples and checklists
+
+### Correct Workflow Order
+
+**Phase 1-2**: Storyboard → **Phase 3**: Prompts → **Phase 4**: Images → **Phase 5**: Documents
+
+**Critical Rule**: Images MUST be generated BEFORE creating final documents (PDF, PPTX, HTML).
+
+### Quick Reference
+
+| Task | Tool |
+|------|------|
+| Generate images | gpt_image_generator.py |
+| Validate workflow | validate_workflow.py |
+| Validate prompts | validate_prompts.py |
+| Prevent bad commits | pre-commit-hook.sh |
+| Create presentations | presentation_generator.py (updated with validation) |
+| Read full guide | WORKFLOW-ENFORCEMENT.md |
+

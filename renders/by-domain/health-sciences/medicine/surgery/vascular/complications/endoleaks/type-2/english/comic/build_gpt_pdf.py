@@ -1,7 +1,53 @@
+#!/usr/bin/env python3
+"""
+Build PDF from comic panel images
+
+WORKFLOW ENFORCEMENT: This script requires images to exist before running.
+Images must be generated (Phase 4) before building documents (Phase 5).
+
+See: .project/agents/image-generation/WORKFLOW-ENFORCEMENT.md
+"""
+
 import json
 import argparse
 from pathlib import Path
 from PIL import Image
+
+
+def validate_images_exist(src_dir: Path, expected_count: int = 32) -> list:
+    """
+    Validate that all required images exist before building PDF.
+    
+    Raises:
+        FileNotFoundError: If images directory doesn't exist or images are missing
+    """
+    if not src_dir.exists():
+        raise FileNotFoundError(
+            f"❌ Images directory does not exist: {src_dir}\n\n"
+            f"WORKFLOW VIOLATION: You MUST generate images (Phase 4) BEFORE creating documents (Phase 5).\n\n"
+            f"Generate images first using:\n"
+            f"  python .project/agents/image-generation/tools/gpt_image_generator.py \\\n"
+            f"    --prompt-file prompts/all-panels.txt \\\n"
+            f"    --output-dir {src_dir} \\\n"
+            f"    --aspect landscape --quality high --parallel 5 --enhance\n\n"
+            f"See: .project/agents/image-generation/WORKFLOW-ENFORCEMENT.md"
+        )
+    
+    files = sorted(src_dir.glob("image_*.png"))
+    
+    if len(files) == 0:
+        raise FileNotFoundError(
+            f"❌ No images found in: {src_dir}\n\n"
+            f"WORKFLOW VIOLATION: You MUST generate images (Phase 4) BEFORE creating documents (Phase 5).\n\n"
+            f"The images directory exists but is empty. Generate images first.\n\n"
+            f"See: .project/agents/image-generation/WORKFLOW-ENFORCEMENT.md"
+        )
+    
+    if len(files) != expected_count:
+        print(f"⚠️  Warning: expected {expected_count} images, found {len(files)}")
+    
+    return files
+
 
 def main():
     parser = argparse.ArgumentParser(description='Build PDF from comic panel images')
@@ -19,9 +65,25 @@ def main():
     return SRC, PDF, PDF_FEATURED, PANEL_MAP, DEFAULT_FEATURED_PANEL
 
 def collect_images(src_dir):
-    files = sorted(src_dir.glob("image_*.png"))
-    if len(files) != 32:
-        print(f"Warning: expected 32 images, found {len(files)}")
+    """
+    Collect images with validation.
+    
+    CRITICAL WORKFLOW ENFORCEMENT:
+    This function BLOCKS execution if required images don't exist.
+    Images must be generated (Phase 4) BEFORE building documents (Phase 5).
+    
+    Args:
+        src_dir: Directory containing image files
+        
+    Returns:
+        List of image file paths
+        
+    Raises:
+        FileNotFoundError: If images directory doesn't exist or is empty
+        
+    See: .project/agents/image-generation/WORKFLOW-ENFORCEMENT.md
+    """
+    files = validate_images_exist(src_dir, expected_count=32)
     return files
 
 
