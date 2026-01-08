@@ -1,0 +1,149 @@
+{
+  "@context": "aku-v2",
+  "@type": "procedure",
+  "@id": "vascular:surgery:extracorporeal:ecmo-vascular-access",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T22:00:00.000Z",
+    "updated": "2026-01-08T22:00:00.000Z",
+    "contributors": ["copilot-agent"],
+    "confidence": 0.90,
+    "status": "draft",
+    "review_required": true
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/extracorporeal-support",
+    "type": "procedure",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "audience_levels": ["fellow", "attending"]
+  },
+  "content": {
+    "title": "ECMO Vascular Access and Cannulation",
+    "definition": "Vascular surgical techniques for establishing extracorporeal membrane oxygenation (ECMO) access, including percutaneous and open cannulation, and management of vascular complications.",
+    "key_concepts": [
+      {
+        "concept": "ECMO Types",
+        "description": "VV-ECMO: veno-venous for respiratory support. VA-ECMO: veno-arterial for cardiac and respiratory support."
+      },
+      {
+        "concept": "Cannulation Sites",
+        "description": "Femoral vessels (most common), internal jugular vein, subclavian/axillary vessels, central cannulation (sternotomy)."
+      },
+      {
+        "concept": "Distal Perfusion",
+        "description": "Critical for VA-ECMO: antegrade limb perfusion cannula prevents leg ischemia from arterial cannula obstruction."
+      }
+    ],
+    "va_ecmo_cannulation": {
+      "femoral": {
+        "arterial": {
+          "size": "15-21 Fr depending on patient size and flow requirements",
+          "technique": "Percutaneous Seldinger or open cutdown",
+          "distal_perfusion": "6-8 Fr antegrade cannula mandatory - insert in SFA or anterior tibial"
+        },
+        "venous": {
+          "size": "21-25 Fr for adequate drainage",
+          "tip_position": "Right atrium for optimal drainage"
+        }
+      },
+      "axillary_subclavian": {
+        "indication": "Need for ambulatory ECMO, peripheral vascular disease, refractory upper body hypoxemia",
+        "technique": "Open cutdown with side-arm graft sewn to axillary/subclavian artery",
+        "advantages": "Antegrade aortic flow, allows ambulation, avoids leg ischemia"
+      },
+      "central": {
+        "indication": "Postcardiotomy failure, right atrial drainage needed",
+        "technique": "Sternotomy with direct cannulation of aorta/right atrium"
+      }
+    },
+    "vv_ecmo_cannulation": {
+      "dual_site": {
+        "drainage": "Femoral vein, tip in IVC/RA junction",
+        "return": "Right internal jugular vein, tip in RA",
+        "sizes": "21-25 Fr drainage, 17-21 Fr return"
+      },
+      "single_site": {
+        "technique": "Bicaval dual-lumen cannula via right IJ",
+        "advantages": "Single access site, facilitates mobilization",
+        "disadvantages": "Requires TEE for positioning, cannot provide as high flow"
+      }
+    },
+    "complications": {
+      "arterial": {
+        "limb_ischemia": {
+          "incidence": "10-30% without distal perfusion",
+          "prevention": "Mandatory distal perfusion cannula for VA-ECMO",
+          "monitoring": "NIRS, clinical exam, Doppler",
+          "management": "Reposition cannula, add/enlarge DPC, compartment release if needed"
+        },
+        "pseudoaneurysm": "Complication of percutaneous access - repair after decannulation",
+        "dissection": "Can occur during cannulation - may require surgical repair"
+      },
+      "venous": {
+        "ivc_perforation": "Rare but life-threatening - requires immediate surgical intervention",
+        "dvt": "Common after decannulation - anticoagulation and surveillance"
+      },
+      "bleeding": {
+        "cannulation_site": "Common, especially with anticoagulation",
+        "management": "Local measures, factor replacement, reduce anticoagulation if safe"
+      }
+    },
+    "decannulation": {
+      "venous": "Percutaneous cannulae - manual pressure. Open cannulae - suture closure of venotomy.",
+      "arterial_percutaneous": "Pressure then delayed repair if pseudoaneurysm forms, or primary surgical repair",
+      "arterial_open": "Arteriotomy closure with patch if needed, assess for stenosis",
+      "graft_cannulation": "Ligate and oversew graft"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "vascular:surgery:access:femoral-vessel-access",
+      "vascular:surgery:anatomy:femoral-vessels"
+    ],
+    "related_concepts": [
+      "vascular:surgery:extracorporeal:temporary-bypass",
+      "vascular:surgery:complications:limb-ischemia"
+    ],
+    "cross_domain_references": [
+      {
+        "domain": "critical-care",
+        "concept": "ecmo-management",
+        "relationship": "vascular-component-of"
+      },
+      {
+        "domain": "cardiac-surgery",
+        "concept": "mechanical-circulatory-support",
+        "relationship": "related-technique"
+      }
+    ]
+  },
+  "evidence": {
+    "level": "Level 2b",
+    "sources": [
+      {
+        "type": "guideline",
+        "organization": "ELSO",
+        "title": "ELSO Guidelines for ECMO Cannulation",
+        "year": 2022
+      }
+    ],
+    "citations": [
+      "Lamb KM, et al. Arterial protocol for percutaneous lower extremity cannulation for venoarterial ECMO. ASAIO J. 2017;63(2):e11-e14"
+    ]
+  },
+  "pedagogy": {
+    "learning_objectives": [
+      "Differentiate between VV-ECMO and VA-ECMO cannulation strategies",
+      "Describe techniques for femoral and axillary arterial cannulation",
+      "Explain the importance and technique of distal perfusion in VA-ECMO",
+      "List vascular complications of ECMO and their management"
+    ],
+    "clinical_pearls": [
+      "ALWAYS place distal perfusion cannula for femoral VA-ECMO",
+      "Check leg perfusion hourly - limb ischemia progresses rapidly",
+      "Bicaval dual-lumen cannula requires TEE guidance for safe placement",
+      "Have surgical repair capability available for decannulation"
+    ]
+  }
+}
