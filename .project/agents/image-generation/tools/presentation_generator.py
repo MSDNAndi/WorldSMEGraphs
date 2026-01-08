@@ -145,6 +145,67 @@ class PresentationConfig:
 
 
 # =============================================================================
+# WORKFLOW VALIDATION (Enforce proper phase order)
+# =============================================================================
+
+def validate_images_exist(slides: List, images_dir: Path) -> None:
+    """
+    BLOCKING validation: All required images must exist before document generation.
+    
+    This enforces the correct workflow order learned from PR #36 and PR #38:
+    Phase 1-2: Storyboard → Phase 3: Prompts → Phase 4: Images → Phase 5: Documents
+    
+    Raises:
+        FileNotFoundError: If any required image is missing
+        ValueError: If images directory doesn't exist
+    """
+    if not images_dir.exists():
+        raise ValueError(
+            f"❌ Images directory does not exist: {images_dir}\n\n"
+            f"WORKFLOW VIOLATION: You MUST generate images (Phase 4) BEFORE creating documents (Phase 5).\n\n"
+            f"Correct workflow order:\n"
+            f"  1-2. Create storyboard (content planning)\n"
+            f"  3. Write complete prompts (no placeholders)\n"
+            f"  4. Generate images using prompts\n"
+            f"  5. Create final documents referencing images ← YOU ARE HERE (TOO EARLY!)\n\n"
+            f"See: .project/agents/image-generation/WORKFLOW-ENFORCEMENT.md\n"
+            f"Run: python .project/agents/image-generation/tools/validate_workflow.py"
+        )
+    
+    # Check which slides need images
+    missing_images = []
+    for i, slide in enumerate(slides):
+        if hasattr(slide, 'image_file') and slide.image_file:
+            # Explicit image file specified
+            image_path = images_dir / slide.image_file
+            if not image_path.exists():
+                missing_images.append((i+1, slide.image_file, str(image_path)))
+        elif hasattr(slide, 'image_path') and slide.image_path:
+            # Image path already set
+            if not Path(slide.image_path).exists():
+                missing_images.append((i+1, Path(slide.image_path).name, str(slide.image_path)))
+    
+    if missing_images:
+        error_msg = (
+            f"❌ Cannot generate document: {len(missing_images)} required image(s) missing.\n\n"
+            f"Missing images:\n"
+        )
+        for slide_num, filename, path in missing_images:
+            error_msg += f"  - Slide {slide_num}: {filename}\n    Expected at: {path}\n"
+        
+        error_msg += (
+            f"\nWORKFLOW VIOLATION: You MUST generate images (Phase 4) BEFORE creating documents (Phase 5).\n\n"
+            f"Generate images first using:\n"
+            f"  python .project/agents/image-generation/tools/gpt_image_generator.py \\\n"
+            f"    --prompt-file prompts/all-slides.txt \\\n"
+            f"    --output-dir {images_dir} \\\n"
+            f"    --aspect landscape --quality high --parallel 5 --enhance\n\n"
+            f"See: .project/agents/image-generation/WORKFLOW-ENFORCEMENT.md"
+        )
+        raise FileNotFoundError(error_msg)
+
+
+# =============================================================================
 # CONTENT SAFETY HANDLER (Import from gpt_image_generator for shared code)
 # =============================================================================
 
@@ -847,6 +908,16 @@ async def generate_presentation(
     print(f"\n🎨 Generating presentation: {config.title}")
     print(f"   Style: {config.style}")
     print(f"   Slides: {len(config.slides)}")
+    
+    # WORKFLOW VALIDATION: If not generating images, they must already exist
+    if not generate_images:
+        print("\n🔍 Validating workflow: Checking that images exist...")
+        try:
+            validate_images_exist(config.slides, config.image_dir)
+            print("   ✅ All required images found")
+        except (FileNotFoundError, ValueError) as e:
+            print(f"\n{e}\n")
+            raise
     
     # Generate images if requested and generator available
     if generate_images and image_generator_func:
