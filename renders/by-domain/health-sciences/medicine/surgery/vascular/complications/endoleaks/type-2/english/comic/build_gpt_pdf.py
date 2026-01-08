@@ -1,34 +1,42 @@
 import json
+import argparse
 from pathlib import Path
 from PIL import Image
 
-BASE = Path(__file__).parent
-SRC = BASE / "panels-gpt"
-PDF = BASE / "type2-endoleak-comic-gpt.pdf"
-PDF_FEATURED = BASE / "type2-endoleak-comic-gpt-featured.pdf"
-PANEL_MAP = BASE / "panel-map.json"
-DEFAULT_FEATURED_PANEL = 15  # panel number (1-based)
+def main():
+    parser = argparse.ArgumentParser(description='Build PDF from comic panel images')
+    parser.add_argument('--input-dir', type=str, default='panels-gpt', help='Input directory containing images')
+    parser.add_argument('--output', type=str, default='type2-endoleak-comic-gpt.pdf', help='Output PDF file')
+    args = parser.parse_args()
+    
+    BASE = Path(__file__).parent
+    SRC = BASE / args.input_dir
+    PDF = BASE / args.output
+    PDF_FEATURED = BASE / args.output.replace('.pdf', '-featured.pdf')
+    PANEL_MAP = BASE / "panel-map.json"
+    DEFAULT_FEATURED_PANEL = 15  # panel number (1-based)
+    
+    return SRC, PDF, PDF_FEATURED, PANEL_MAP, DEFAULT_FEATURED_PANEL
 
-
-def collect_images():
-    files = sorted(SRC.glob("image_*.png"))
+def collect_images(src_dir):
+    files = sorted(src_dir.glob("image_*.png"))
     if len(files) != 32:
         print(f"Warning: expected 32 images, found {len(files)}")
     return files
 
 
-def get_featured_index():
+def get_featured_index(panel_map_path, default_featured=15):
     try:
-        data = json.loads(PANEL_MAP.read_text())
+        data = json.loads(panel_map_path.read_text())
         for entry in data:
             if entry.get("featured"):
                 return max(entry["panel"] - 1, 0)
     except Exception as e:
         print(f"Warning: unable to read featured panel from panel-map.json ({e})")
-    return DEFAULT_FEATURED_PANEL - 1
+    return default_featured - 1
 
 
-def build_pdf(images):
+def build_pdf(images, pdf_path):
     if not images:
         print("No images to build PDF")
         return
@@ -53,15 +61,14 @@ def build_pdf(images):
             page.paste(resized, (x, y))
         pages.append(page)
 
-    pages[0].save(PDF, save_all=True, append_images=pages[1:])
-    print(f"PDF written to {PDF}")
+    pages[0].save(pdf_path, save_all=True, append_images=pages[1:])
+    print(f"PDF written to {pdf_path}")
 
 
-def build_featured_pdf(images):
+def build_featured_pdf(images, pdf_featured_path, featured_idx):
     if not images:
         print("No images to build featured PDF")
         return
-    featured_idx = get_featured_index()
     if featured_idx >= len(images):
         print("Featured index out of range; skipping featured PDF")
         return
@@ -96,11 +103,13 @@ def build_featured_pdf(images):
             page.paste(resized, (x, y))
         pages.append(page)
 
-    pages[0].save(PDF_FEATURED, save_all=True, append_images=pages[1:])
-    print(f"Featured PDF written to {PDF_FEATURED}")
+    pages[0].save(pdf_featured_path, save_all=True, append_images=pages[1:])
+    print(f"Featured PDF written to {pdf_featured_path}")
 
 
 if __name__ == "__main__":
-    imgs = collect_images()
-    build_pdf(imgs)
-    build_featured_pdf(imgs)
+    SRC, PDF, PDF_FEATURED, PANEL_MAP, DEFAULT_FEATURED_PANEL = main()
+    imgs = collect_images(SRC)
+    build_pdf(imgs, PDF)
+    featured_idx = get_featured_index(PANEL_MAP, DEFAULT_FEATURED_PANEL)
+    build_featured_pdf(imgs, PDF_FEATURED, featured_idx)
