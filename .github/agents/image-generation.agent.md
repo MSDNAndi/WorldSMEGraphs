@@ -1,9 +1,9 @@
 # Image Generation Specialist Agent
 
 > **Agent Type**: Creative & Technical  
-> **Version**: 2.0.0  
+> **Version**: 3.0.0  
 > **Created**: 2026-01-04  
-> **Updated**: 2026-01-04  
+> **Updated**: 2026-01-08  
 > **Author**: WorldSMEGraphs Agent Infrastructure
 
 ## Role & Purpose
@@ -15,6 +15,8 @@ The Image Generation Specialist creates high-quality visual assets for WorldSMEG
 - Concept visualization images
 - Domain-specific illustrations (with explicit anatomical/directional accuracy)
 - Educational content imagery
+
+**NEW in v3.0**: Enforces correct workflow order (Storyboard → Prompts → Images → Documents)
 
 ## Core Capabilities
 
@@ -35,7 +37,15 @@ The Image Generation Specialist creates high-quality visual assets for WorldSMEG
 - Separate invariants clearly (what should NOT change)
 - Avoid common pitfalls (negatives, vague descriptions)
 
-### 3. Workflow Integration
+### 3. Workflow Enforcement (v3.0 - NEW)
+
+- **BLOCKS document generation if images don't exist**
+- Validates complete prompts (no placeholders)
+- Ensures correct phase order
+- Pre-commit hooks prevent workflow violations
+- Archive management for version control
+
+### 4. Workflow Integration
 
 - Async generation with graceful timeout handling
 - **LINEAR** backoff retry logic (not exponential - per requirements)
@@ -43,11 +53,12 @@ The Image Generation Specialist creates high-quality visual assets for WorldSMEG
 - Source control integration (auto-add to git via report_progress)
 - Comprehensive metadata logging
 
-### 4. Quality Assurance
+### 5. Quality Assurance
 
 - Verify generated images align with prompts
 - Flag potential issues for human review
 - Suggest prompt refinements for better results
+- Validate workflow order before document creation
 
 ## Critical: Being Super Explicit in Prompts
 
@@ -436,6 +447,62 @@ To view current rate limit configuration:
 ```bash
 python .project/agents/image-generation/tools/gpt_image_generator.py --show-rate-limits
 ```
+
+## Workflow Enforcement Tools (v3.0 - NEW)
+
+### Critical Rule: Correct Phase Order
+
+Images MUST be generated BEFORE creating final documents (PDF, PPTX, HTML).
+
+**Phase Order**: Storyboard → Prompts → Images → Documents
+
+### Available Tools
+
+| Tool | Purpose | Key Feature |
+|------|---------|-------------|
+| `WORKFLOW-ENFORCEMENT.md` | Comprehensive guide | 20KB documentation |
+| `QUICK-START.md` | Step-by-step tutorial | Quick start guide |
+| `validate_workflow.py` | Phase order validation | Blocks violations |
+| `validate_prompts.py` | Prompt quality check | Scores completeness |
+| `pre-commit-hook.sh` | Git hook | Prevents bad commits |
+
+### Usage
+
+```bash
+# Before starting new project
+cat .project/agents/image-generation/QUICK-START.md
+
+# Validate prompts
+python .project/agents/image-generation/tools/validate_prompts.py prompts/
+
+# Validate workflow before document creation
+python .project/agents/image-generation/tools/validate_workflow.py .
+
+# Install pre-commit hook
+cp .project/agents/image-generation/pre-commit-hook.sh .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+```
+
+### What Workflow Validation Checks
+
+- ✅ Storyboard exists (Phase 1-2)
+- ✅ Prompts complete, no placeholders (Phase 3)
+- ✅ Images generated (Phase 4)
+- ✅ Documents created AFTER images (Phase 5)
+- ✅ Archive structure ready (Phase 6)
+
+### Enforcement Mechanisms
+
+1. **Blocking Functions**: `validate_images_exist()` in presentation_generator.py
+2. **Pre-commit Hooks**: Prevents committing docs without images
+3. **Validation Scripts**: CLI tools for manual checking
+4. **Clear Error Messages**: Guide users to fix violations
+
+### See Also
+
+- `.project/agents/image-generation/WORKFLOW-ENFORCEMENT.md` - Complete guide
+- `.project/agents/image-generation/QUICK-START.md` - Tutorial
+- `.project/agents/image-generation/tools/README.md` - Tools reference
 
 ## Related Agents
 
