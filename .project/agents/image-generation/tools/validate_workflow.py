@@ -23,6 +23,18 @@ from pathlib import Path
 from typing import List, Dict, Tuple
 from dataclasses import dataclass
 
+# Import shared constants
+try:
+    from workflow_constants import PLACEHOLDER_KEYWORDS, MIN_LENGTH
+except ImportError:
+    # Fallback if constants file not available
+    PLACEHOLDER_KEYWORDS = [
+        "PLACEHOLDER", "TODO", "TBD", "FIXME", "XXX",
+        "[insert", "[add", "[describe", "[fill in",
+        "Apply STYLE BASE", "Use style from", "See style guide",
+    ]
+    MIN_LENGTH = 1000
+
 @dataclass
 class ValidationResult:
     """Result of workflow validation."""
@@ -92,24 +104,19 @@ def validate_phase_3_prompts(content_dir: Path) -> ValidationResult:
         errors.append("Prompts directory/files exist but no .txt files found")
     
     # Validate each prompt
-    placeholder_keywords = [
-        "PLACEHOLDER", "TODO", "TBD", "FIXME",
-        "Apply STYLE BASE", "[insert", "[add", "[describe"
-    ]
-    
     for prompt_file in all_prompts:
         try:
             content = prompt_file.read_text(encoding='utf-8')
             
             # Check length (should be substantial)
-            if len(content) < 1000:
+            if len(content) < MIN_LENGTH:
                 warnings.append(
                     f"{prompt_file.name}: Only {len(content)} characters "
                     f"(recommend 5K+, target 8K-20K)"
                 )
             
             # Check for placeholders
-            for keyword in placeholder_keywords:
+            for keyword in PLACEHOLDER_KEYWORDS:
                 if keyword.lower() in content.lower():
                     errors.append(
                         f"{prompt_file.name}: Contains placeholder '{keyword}'\n"

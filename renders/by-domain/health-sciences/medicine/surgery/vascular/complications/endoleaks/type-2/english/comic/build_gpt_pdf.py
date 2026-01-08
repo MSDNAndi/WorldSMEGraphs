@@ -65,7 +65,24 @@ def main():
     return SRC, PDF, PDF_FEATURED, PANEL_MAP, DEFAULT_FEATURED_PANEL
 
 def collect_images(src_dir):
-    """Collect images with validation."""
+    """
+    Collect images with validation.
+    
+    CRITICAL WORKFLOW ENFORCEMENT:
+    This function BLOCKS execution if required images don't exist.
+    Images must be generated (Phase 4) BEFORE building documents (Phase 5).
+    
+    Args:
+        src_dir: Directory containing image files
+        
+    Returns:
+        List of image file paths
+        
+    Raises:
+        FileNotFoundError: If images directory doesn't exist or is empty
+        
+    See: .project/agents/image-generation/WORKFLOW-ENFORCEMENT.md
+    """
     files = validate_images_exist(src_dir, expected_count=32)
     return files
 

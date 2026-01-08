@@ -23,6 +23,34 @@ from pathlib import Path
 from typing import List, Dict, Tuple
 from dataclasses import dataclass
 
+# Import shared constants
+try:
+    from workflow_constants import (
+        PLACEHOLDER_KEYWORDS,
+        EXTERNAL_REFERENCE_PATTERNS,
+        MIN_LENGTH,
+        RECOMMENDED_LENGTH,
+        TARGET_MIN_LENGTH,
+        TARGET_MAX_LENGTH,
+        EXPLICIT_INDICATORS
+    )
+except ImportError:
+    # Fallback if constants file not available
+    PLACEHOLDER_KEYWORDS = [
+        "PLACEHOLDER", "TODO", "TBD", "FIXME", "XXX",
+        "[insert", "[add", "[describe", "[fill in",
+        "Apply STYLE BASE", "Use style from", "See style guide",
+    ]
+    EXTERNAL_REFERENCE_PATTERNS = [
+        r"refer to\s+\w+", r"see\s+(the\s+)?style\s+guide",
+        r"as described in", r"use\s+the\s+style\s+from",
+    ]
+    MIN_LENGTH = 1000
+    RECOMMENDED_LENGTH = 5000
+    TARGET_MIN_LENGTH = 8000
+    TARGET_MAX_LENGTH = 20000
+    EXPLICIT_INDICATORS = ["LEFT TO RIGHT", "clockwise", r"#[0-9A-Fa-f]{6}", r"\d+\s*px"]
+
 @dataclass
 class PromptIssue:
     """An issue found in a prompt."""
@@ -40,55 +68,6 @@ class PromptValidation:
     errors: List[PromptIssue]
     warnings: List[PromptIssue]
     score: float  # 0-100 quality score
-
-# Placeholder keywords that indicate incomplete prompts
-PLACEHOLDER_KEYWORDS = [
-    "PLACEHOLDER",
-    "TODO",
-    "TBD",
-    "FIXME",
-    "XXX",
-    "[insert",
-    "[add",
-    "[describe",
-    "[fill in",
-    "Apply STYLE BASE",
-    "Use style from",
-    "See style guide",
-]
-
-# External reference patterns
-EXTERNAL_REFERENCE_PATTERNS = [
-    r"refer to\s+\w+",
-    r"see\s+(the\s+)?style\s+guide",
-    r"as described in",
-    r"use\s+the\s+style\s+from",
-    r"apply\s+(the\s+)?style",
-    r"consult\s+the",
-]
-
-# Indicators of super explicit prompts (good)
-EXPLICIT_INDICATORS = [
-    "LEFT TO RIGHT",
-    "clockwise",
-    "counterclockwise",
-    "from left to right",
-    "from top to bottom",
-    r"#[0-9A-Fa-f]{6}",  # Hex color codes
-    r"\d+\s*px",  # Pixel measurements
-    r"\d+\s*%",  # Percentage measurements
-    "explicitly",
-    "specific",
-    "exact",
-    r"at\s+x=\d+",  # Position coordinates
-    r"centered at",
-]
-
-# Length thresholds
-MIN_LENGTH = 1000  # Absolute minimum
-RECOMMENDED_LENGTH = 5000  # Recommended minimum
-TARGET_MIN_LENGTH = 8000  # Target minimum
-TARGET_MAX_LENGTH = 20000  # Target maximum
 
 def validate_prompt_length(content: str) -> Tuple[List[PromptIssue], List[PromptIssue]]:
     """Validate prompt length against standards."""
