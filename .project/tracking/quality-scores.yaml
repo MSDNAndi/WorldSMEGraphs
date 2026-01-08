@@ -1,0 +1,246 @@
+# Quality Scores Tracking Database
+# Generated and maintained by comprehensive_quality_assessment.py
+# Last Updated: 2026-01-08T16:45:00.000Z
+
+summary:
+  total_akus: 658
+  assessed_akus: 9
+  average_cqs: 0.6546
+  grade_distribution:
+    A+: 0
+    A: 0
+    B+: 0
+    B: 0
+    C+: 1
+    C: 0
+    D: 7
+    F: 1
+  domain_averages:
+    formal-sciences: null
+    natural-sciences: null
+    social-sciences: 0.6546
+    health-sciences: null
+  last_updated: "2026-01-08T16:52:00.000Z"
+  next_scheduled_assessment: "2026-01-15"
+
+akus:
+  # NPV Pilot AKUs - Definitions
+  aku-001-npv-definition:
+    current_assessment:
+      date: "2026-01-08T16:52:23.000Z"
+      level: comprehensive
+      assessor: comprehensive_quality_assessment.py
+      cqs: 0.79
+      grade: C+
+      dimension_scores:
+        factual_accuracy: 0.84
+        ontology_compliance: 1.00
+        reference_quality: 0.91
+        third_party_verification: 0.25
+        web_search_verification: 0.90
+        dependency_completeness: 0.60
+        content_completeness: 1.00
+        technical_quality: 1.00
+      issues:
+        - "Missing prerequisite AKU: time-value-of-money"
+        - "Missing prerequisite AKU: present-value-concept"
+        - "Missing prerequisite AKU: discount-rate-definition"
+        - "Limited third-party verification"
+      recommendations:
+        - "Create missing prerequisite AKUs"
+        - "Request @peer-review agent verification"
+    publication_ready: false
+    missing_dependencies:
+      - id: time-value-of-money
+        type: definition
+        priority: critical
+      - id: present-value-concept
+        type: definition
+        priority: critical
+      - id: discount-rate-definition
+        type: definition
+        priority: critical
+      - id: cash-flow-concept
+        type: definition
+        priority: critical
+    assessment_history: []
+    next_scheduled_assessment: "2026-07-08"
+    reassessment_count: 0
+
+  aku-003-present-value-concept:
+    current_assessment:
+      date: "2026-01-08T16:52:23.000Z"
+      level: comprehensive
+      assessor: comprehensive_quality_assessment.py
+      cqs: 0.67
+      grade: D
+      dimension_scores:
+        factual_accuracy: 0.60
+        ontology_compliance: 0.70
+        reference_quality: 0.50
+        third_party_verification: 0.25
+        web_search_verification: 0.30
+        dependency_completeness: 0.50
+        content_completeness: 0.75
+        technical_quality: 0.90
+      issues:
+        - "Needs more authoritative sources"
+        - "Missing external ontology links"
+      recommendations:
+        - "Add DOI/ISBN to sources"
+        - "Add SKOS relationships"
+    publication_ready: false
+    assessment_history: []
+    next_scheduled_assessment: "2026-07-08"
+    reassessment_count: 0
+
+  aku-004-discount-rate-definition:
+    current_assessment:
+      date: "2026-01-08T16:52:23.000Z"
+      level: comprehensive
+      assessor: comprehensive_quality_assessment.py
+      cqs: 0.69
+      grade: D
+    publication_ready: false
+    next_scheduled_assessment: "2026-07-08"
+    reassessment_count: 0
+
+  aku-005-cash-flow-concept:
+    current_assessment:
+      date: "2026-01-08T16:52:23.000Z"
+      level: comprehensive
+      assessor: comprehensive_quality_assessment.py
+      cqs: 0.66
+      grade: D
+    publication_ready: false
+    next_scheduled_assessment: "2026-07-08"
+    reassessment_count: 0
+
+  # NPV Pilot AKUs - Formulas
+  aku-002-npv-basic-formula:
+    current_assessment:
+      date: "2026-01-08T16:52:23.000Z"
+      level: comprehensive
+      assessor: comprehensive_quality_assessment.py
+      cqs: 0.66
+      grade: D
+    publication_ready: false
+    next_scheduled_assessment: "2026-07-08"
+    reassessment_count: 0
+
+  aku-006-discount-factor-formula:
+    current_assessment:
+      date: "2026-01-08T16:52:23.000Z"
+      level: comprehensive
+      assessor: comprehensive_quality_assessment.py
+      cqs: 0.62
+      grade: D
+    publication_ready: false
+    next_scheduled_assessment: "2026-07-08"
+    reassessment_count: 0
+
+  # NPV Pilot AKUs - Theory
+  aku-024-npv-decision-rule:
+    current_assessment:
+      date: "2026-01-08T16:52:23.000Z"
+      level: comprehensive
+      assessor: comprehensive_quality_assessment.py
+      cqs: 0.69
+      grade: D
+    publication_ready: false
+    next_scheduled_assessment: "2026-07-08"
+    reassessment_count: 0
+
+  # NPV Pilot AKUs - Examples
+  aku-027-equipment-replacement-example:
+    current_assessment:
+      date: "2026-01-08T16:52:23.000Z"
+      level: comprehensive
+      assessor: comprehensive_quality_assessment.py
+      cqs: 0.69
+      grade: D
+    publication_ready: false
+    next_scheduled_assessment: "2026-07-08"
+    reassessment_count: 0
+
+# Priority Queue for Quality Improvement
+priority_queue:
+  critical:
+    - aku_id: aku-003-present-value-concept-ENHANCED
+      reason: "Lowest score (0.42)"
+      action: "Review and fix structural issues"
+    - aku_id: aku-006-discount-factor-formula
+      reason: "Low formula coverage"
+      action: "Add test cases and more sources"
+  high:
+    - aku_id: aku-002-npv-basic-formula
+      reason: "Core formula needs enhancement"
+      action: "Add derivation and more examples"
+    - aku_id: aku-005-cash-flow-concept
+      reason: "Foundational concept"
+      action: "Enhance with more detail"
+  medium:
+    - aku_id: aku-001-npv-definition
+      reason: "Highest score but needs third-party verification"
+      action: "Request @peer-review"
+
+# Missing Dependencies to Create
+missing_dependencies_to_create:
+  - id: time-value-of-money
+    type: definition
+    priority: critical
+    requested_by:
+      - aku-001-npv-definition
+    suggested_domain_path: "social-sciences/economics/finance/fundamentals"
+    status: pending
+    
+  - id: opportunity-cost-concept
+    type: theory
+    priority: high
+    requested_by:
+      - aku-001-npv-definition (implicit)
+    suggested_domain_path: "social-sciences/economics/microeconomics/fundamentals"
+    status: pending
+
+  - id: internal-rate-of-return
+    type: definition
+    priority: medium
+    requested_by:
+      - aku-001-npv-definition
+    suggested_domain_path: "social-sciences/economics/finance/valuation"
+    status: pending
+
+  - id: profitability-index
+    type: formula
+    priority: medium
+    requested_by:
+      - aku-001-npv-definition
+    suggested_domain_path: "social-sciences/economics/finance/valuation"
+    status: pending
+
+# Reassessment Schedule
+reassessment_schedule:
+  daily:
+    - type: broken_link_check
+      last_run: null
+  weekly:
+    - type: random_sample_assessment
+      last_run: null
+      sample_size: 10
+  monthly:
+    - type: domain_comprehensive_review
+      last_run: null
+      domains:
+        - social-sciences
+        - health-sciences
+  quarterly:
+    - type: full_repository_assessment
+      last_run: null
+
+# Quality Trends
+quality_trends:
+  - date: "2026-01-08"
+    total_assessed: 9
+    average_cqs: 0.6546
+    publication_ready: 0
+    notes: "Initial comprehensive assessment of NPV pilot"

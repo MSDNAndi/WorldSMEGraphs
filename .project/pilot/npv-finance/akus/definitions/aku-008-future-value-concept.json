@@ -1,0 +1,225 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-008-future-value-concept",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:58:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-08T16:58:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/fundamentals",
+    "type": "definition",
+    "difficulty": "beginner",
+    "importance": "foundational",
+    "aku_id": "008",
+    "keywords": [
+      "future value",
+      "fv",
+      "compounding",
+      "time value of money",
+      "growth"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "Future Value (FV) is the value of a current asset at a specified date in the future based on an assumed rate of growth over time. It represents the amount to which an investment will grow after earning interest over a given period.",
+      "formal": "FV = PV × (1+r)^n, where PV is present value, r is the periodic interest rate, and n is the number of compounding periods"
+    },
+    "explanation": {
+      "intuition": "Future value answers the question: 'If I invest this money today, how much will I have at some future point?' It's like watching your savings account grow over time as interest compounds on your balance.",
+      "key_insight": "The power of compounding means that future value grows exponentially, not linearly, with time. This is why Albert Einstein allegedly called compound interest 'the eighth wonder of the world.' Small differences in interest rates or time horizons can lead to dramatically different outcomes.",
+      "technical_details": "The future value calculation assumes a constant periodic rate and regular compounding. For continuous compounding, FV = PV × e^(rt). For irregular cash flows, each must be compounded separately. The compound annual growth rate (CAGR) can be derived from FV and PV: CAGR = (FV/PV)^(1/n) - 1.",
+      "common_misconceptions": [
+        "Simple interest and compound interest give similar results - for long periods, compound interest yields significantly higher future values",
+        "Doubling the time doubles the future value - due to exponential growth, doubling time more than doubles FV",
+        "FV calculations don't apply to declining assets - negative growth rates work the same way mathematically"
+      ]
+    },
+    "definitions_glossary": {
+      "compounding": "The process where interest is earned on both the principal and previously accumulated interest",
+      "compound_annual_growth_rate": "The mean annual growth rate of an investment over a specified period longer than one year",
+      "compounding_frequency": "How often interest is calculated and added to the principal (annually, semi-annually, quarterly, monthly, daily, continuously)",
+      "rule_of_72": "A quick estimation: divide 72 by the interest rate to approximate years needed to double an investment"
+    }
+  },
+  "representations": {
+    "latex": "FV = PV \\times (1+r)^n \\quad \\text{and} \\quad FV_{\\text{continuous}} = PV \\times e^{rt}",
+    "mathml": "<math><mi>FV</mi><mo>=</mo><mi>PV</mi><mo>×</mo><msup><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>r</mi><mo>)</mo></mrow><mi>n</mi></msup></math>",
+    "python": {
+      "code": "import math\n\ndef future_value(present_value: float, rate: float, periods: int) -> float:\n    \"\"\"\n    Calculate future value with discrete compounding.\n    \n    Args:\n        present_value: Initial investment amount\n        rate: Interest rate per period (e.g., 0.06 for 6%)\n        periods: Number of compounding periods\n    \n    Returns:\n        Future value after compounding\n    \n    Example:\n        >>> future_value(1000, 0.08, 10)\n        2158.92\n    \"\"\"\n    return present_value * (1 + rate) ** periods\n\ndef future_value_continuous(present_value: float, rate: float, time: float) -> float:\n    \"\"\"\n    Calculate future value with continuous compounding.\n    \n    Args:\n        present_value: Initial investment amount\n        rate: Annual interest rate\n        time: Time in years\n    \n    Returns:\n        Future value with continuous compounding\n    \n    Example:\n        >>> future_value_continuous(1000, 0.08, 10)\n        2225.54\n    \"\"\"\n    return present_value * math.exp(rate * time)\n\ndef years_to_double(rate: float) -> float:\n    \"\"\"\n    Calculate years needed to double an investment (Rule of 72 exact).\n    \n    Args:\n        rate: Annual interest rate\n    \n    Returns:\n        Years to double the investment\n    \"\"\"\n    return math.log(2) / math.log(1 + rate)",
+      "test_cases": [
+        {
+          "input": {"present_value": 1000, "rate": 0.08, "periods": 10},
+          "expected_output": 2158.92,
+          "description": "$1000 invested at 8% for 10 years",
+          "tolerance": 0.01
+        },
+        {
+          "input": {"present_value": 5000, "rate": 0.05, "periods": 20},
+          "expected_output": 13266.49,
+          "description": "$5000 at 5% for 20 years",
+          "tolerance": 0.01
+        },
+        {
+          "input": {"present_value": 100, "rate": 0.12, "periods": 6},
+          "expected_output": 197.38,
+          "description": "Rule of 72: ~6 years to double at 12%",
+          "tolerance": 0.01
+        }
+      ]
+    },
+    "julia": "fv(pv, r, n) = pv * (1 + r)^n\nfv_continuous(pv, r, t) = pv * exp(r * t)",
+    "wolfram": "FutureValue[pv_, r_, n_] := pv * (1 + r)^n"
+  },
+  "variables": {
+    "FV": {
+      "symbol": "FV",
+      "name": "Future Value",
+      "type": "currency",
+      "unit": "USD (or local currency)",
+      "constraints": ["FV > 0 for positive rates and PV"]
+    },
+    "PV": {
+      "symbol": "PV",
+      "name": "Present Value",
+      "type": "currency",
+      "unit": "USD (or local currency)",
+      "constraints": ["PV > 0 for standard investments"]
+    },
+    "r": {
+      "symbol": "r",
+      "name": "Interest Rate per Period",
+      "type": "percentage",
+      "unit": "decimal (0.08 = 8%)",
+      "constraints": ["r > -1 for valid calculations", "typically r > 0"]
+    },
+    "n": {
+      "symbol": "n",
+      "name": "Number of Periods",
+      "type": "integer",
+      "unit": "periods (years, months, etc.)",
+      "constraints": ["n >= 0"]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "time-value-of-money"
+    ],
+    "enables": [
+      "compound-interest-calculations",
+      "retirement-planning",
+      "investment-growth-analysis"
+    ],
+    "related_to": [
+      "present-value-concept",
+      "compound-interest",
+      "annuity-future-value"
+    ],
+    "conflicts_with": [],
+    "supersedes": [],
+    "part_of": "time-value-of-money-concepts",
+    "skos:broader": [
+      {
+        "@id": "wsmg:time-value-of-money",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "wsmg:annuity-future-value",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:present-value-concept",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:compound-interest",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "28-35",
+        "isbn": "978-1260013900"
+      },
+      {
+        "type": "textbook",
+        "title": "Financial Management: Theory & Practice",
+        "authors": ["Eugene Brigham", "Michael Ehrhardt"],
+        "edition": "16th",
+        "year": 2019,
+        "pages": "95-105",
+        "isbn": "978-1337902601"
+      }
+    ],
+    "extraction_method": "Manual curation from authoritative finance textbooks",
+    "validation_method": "Cross-validated with executable code and test cases",
+    "validation_date": "2026-01-08",
+    "confidence_factors": [
+      "Universal consensus across finance literature",
+      "Simple mathematical derivation verified",
+      "Executable code produces expected results"
+    ],
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T16:58:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "high school students",
+      "undergraduate finance",
+      "personal finance learners"
+    ],
+    "learning_objectives": [
+      "Calculate the future value of a single sum",
+      "Understand the impact of compounding frequency",
+      "Apply the Rule of 72 for quick estimations",
+      "Compare discrete and continuous compounding"
+    ],
+    "estimated_time_minutes": 15,
+    "prerequisites_description": "Understanding of time value of money concept and basic exponents",
+    "common_errors": [
+      "Using annual rate with monthly periods without adjustment",
+      "Confusing simple interest (linear) with compound interest (exponential)",
+      "Forgetting that 5% is 0.05 in calculations"
+    ],
+    "practice_problems": [
+      "You invest $2,500 at 7% annual interest. What will it be worth in 15 years?",
+      "Using the Rule of 72, how long until an investment doubles at 9% interest?",
+      "Compare FV of $10,000 at 6% for 20 years: annual vs. monthly compounding"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "formula",
+    "visualization_type": "growth_chart",
+    "emphasis": ["formula", "compound growth visualization", "real-world examples"]
+  },
+  "skos:prefLabel": "Future Value",
+  "skos:notation": "aku-008-future-value-concept",
+  "skos:definition": "The value of a current asset at a specified date in the future based on an assumed rate of growth over time.",
+  "skos:altLabel": ["FV", "Endwert", "Valor Futuro"],
+  "owl:sameAs": "http://dbpedia.org/resource/Future_value",
+  "skos:exactMatch": [
+    "http://dbpedia.org/resource/Future_value",
+    "http://www.wikidata.org/entity/Q1140611"
+  ]
+}

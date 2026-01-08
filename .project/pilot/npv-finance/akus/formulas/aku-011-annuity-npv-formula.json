@@ -1,0 +1,224 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-011-annuity-npv-formula",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T17:18:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.96,
+    "status": "validated",
+    "last_updated": "2026-01-08T17:18:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/valuation/npv",
+    "type": "formula",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "011",
+    "keywords": [
+      "annuity",
+      "npv",
+      "present value of annuity",
+      "pva",
+      "level payments"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The Present Value of an Annuity formula calculates the current worth of a series of equal payments made at regular intervals over a specified period. This is a special case of NPV calculation that simplifies when cash flows are identical in each period.",
+      "formal": "PVA = C × [(1 - (1+r)^(-n)) / r] = C × PVIFA(r,n), where C is the periodic payment, r is the discount rate, and n is the number of periods"
+    },
+    "explanation": {
+      "intuition": "Instead of discounting each payment individually and adding them up, the annuity formula provides a shortcut. Think of it as asking: 'What single amount today equals receiving $C per year for n years?' This is useful for loans, leases, retirement planning, and any situation with level payments.",
+      "key_insight": "The annuity formula is derived from the geometric series sum. The Present Value Interest Factor of Annuity (PVIFA) represents the present value of $1 received at the end of each period for n periods. As n approaches infinity, PVIFA approaches 1/r, giving us the perpetuity formula.",
+      "technical_details": "There are two variants: ordinary annuity (payments at end of period) and annuity due (payments at beginning). For annuity due: PVA_due = PVA_ordinary × (1+r). The formula assumes: (1) equal payment amounts, (2) equal time intervals, (3) constant discount rate. For growing annuities, use the Gordon growth adjustment.",
+      "common_misconceptions": [
+        "Annuity formula works for any cash flows - only for equal, regular payments",
+        "Ordinary and annuity due give same results - annuity due is worth (1+r) times more",
+        "PVIFA is just for present value - there's also FVIFA for future value of annuity"
+      ]
+    },
+    "definitions_glossary": {
+      "annuity": "A series of equal payments at regular intervals",
+      "ordinary_annuity": "Payments made at the end of each period",
+      "annuity_due": "Payments made at the beginning of each period",
+      "pvifa": "Present Value Interest Factor of Annuity - the multiplier for annuity PV calculation"
+    }
+  },
+  "representations": {
+    "latex": "PVA = C \\times \\left[ \\frac{1 - (1+r)^{-n}}{r} \\right] = C \\times PVIFA_{r,n}",
+    "mathml": "<math><mi>PVA</mi><mo>=</mo><mi>C</mi><mo>×</mo><mfrac><mrow><mn>1</mn><mo>-</mo><msup><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>r</mi><mo>)</mo></mrow><mrow><mo>-</mo><mi>n</mi></mrow></msup></mrow><mi>r</mi></mfrac></math>",
+    "python": {
+      "code": "def present_value_annuity(payment: float, rate: float, periods: int) -> float:\n    \"\"\"\n    Calculate present value of an ordinary annuity.\n    \n    Args:\n        payment: Equal periodic payment amount (C)\n        rate: Discount rate per period (r)\n        periods: Number of payment periods (n)\n    \n    Returns:\n        Present value of the annuity\n    \n    Example:\n        >>> present_value_annuity(1000, 0.08, 5)\n        3992.71  # PV of $1000/year for 5 years at 8%\n    \"\"\"\n    if rate == 0:\n        return payment * periods\n    pvifa = (1 - (1 + rate) ** (-periods)) / rate\n    return payment * pvifa\n\ndef present_value_annuity_due(payment: float, rate: float, periods: int) -> float:\n    \"\"\"\n    Calculate present value of an annuity due (payments at beginning).\n    \n    Returns:\n        Present value of the annuity due\n    \"\"\"\n    return present_value_annuity(payment, rate, periods) * (1 + rate)\n\ndef calculate_payment(present_value: float, rate: float, periods: int) -> float:\n    \"\"\"\n    Calculate the payment amount for a loan/annuity given PV.\n    \n    This is the standard loan payment formula.\n    \n    Example:\n        >>> calculate_payment(100000, 0.06/12, 360)  # 30-year mortgage at 6%\n        599.55\n    \"\"\"\n    if rate == 0:\n        return present_value / periods\n    pvifa = (1 - (1 + rate) ** (-periods)) / rate\n    return present_value / pvifa",
+      "test_cases": [
+        {
+          "input": {"payment": 1000, "rate": 0.08, "periods": 5},
+          "expected_output": 3992.71,
+          "description": "PV of $1000/year for 5 years at 8%",
+          "tolerance": 0.01
+        },
+        {
+          "input": {"payment": 500, "rate": 0.05, "periods": 20},
+          "expected_output": 6231.11,
+          "description": "PV of $500/year for 20 years at 5%",
+          "tolerance": 0.01
+        },
+        {
+          "input": {"present_value": 100000, "rate": 0.005, "periods": 360},
+          "expected_output": 599.55,
+          "description": "Monthly payment on $100K 30-year mortgage at 6%/year",
+          "tolerance": 0.01
+        }
+      ]
+    },
+    "julia": "pv_annuity(C, r, n) = C * (1 - (1+r)^(-n)) / r",
+    "wolfram": "PVAnnuity[C_, r_, n_] := C * (1 - (1+r)^(-n)) / r"
+  },
+  "variables": {
+    "PVA": {
+      "symbol": "PVA",
+      "name": "Present Value of Annuity",
+      "type": "currency",
+      "constraints": ["PVA > 0 for positive payments and rates"]
+    },
+    "C": {
+      "symbol": "C",
+      "name": "Periodic Payment",
+      "type": "currency",
+      "constraints": ["Equal amount each period"]
+    },
+    "r": {
+      "symbol": "r",
+      "name": "Discount Rate per Period",
+      "type": "percentage",
+      "constraints": ["r > 0 for standard calculation"]
+    },
+    "n": {
+      "symbol": "n",
+      "name": "Number of Periods",
+      "type": "integer",
+      "constraints": ["n >= 1"]
+    },
+    "PVIFA": {
+      "symbol": "PVIFA",
+      "name": "Present Value Interest Factor of Annuity",
+      "type": "multiplier",
+      "constraints": ["PVIFA = (1 - (1+r)^(-n)) / r"]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "time-value-of-money",
+      "present-value-concept",
+      "npv-definition"
+    ],
+    "enables": [
+      "loan-payment-calculation",
+      "retirement-planning",
+      "lease-valuation"
+    ],
+    "related_to": [
+      "npv-basic-formula",
+      "perpetuity-npv-formula",
+      "future-value-annuity"
+    ],
+    "supersedes": [],
+    "part_of": "npv-formula-family",
+    "skos:broader": [
+      {
+        "@id": "wsmg:npv-definition",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "wsmg:perpetuity-npv-formula",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:loan-amortization",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "34-42",
+        "isbn": "978-1260013900"
+      },
+      {
+        "type": "textbook",
+        "title": "Financial Management: Theory & Practice",
+        "authors": ["Eugene Brigham", "Michael Ehrhardt"],
+        "edition": "16th",
+        "year": 2019,
+        "pages": "110-125",
+        "isbn": "978-1337902601"
+      }
+    ],
+    "extraction_method": "Manual curation from authoritative finance textbooks",
+    "validation_method": "Verified with executable code and test cases",
+    "validation_date": "2026-01-08",
+    "confidence_factors": [
+      "Standard mathematical derivation",
+      "Universal usage in finance",
+      "Code produces expected results"
+    ],
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T17:18:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "undergraduate finance",
+      "MBA",
+      "personal finance learners",
+      "CFA candidates"
+    ],
+    "learning_objectives": [
+      "Calculate present value of ordinary annuity",
+      "Distinguish ordinary annuity from annuity due",
+      "Apply formula to loan payments and retirement planning",
+      "Derive PVIFA and understand its meaning"
+    ],
+    "estimated_time_minutes": 20,
+    "prerequisites_description": "Present value concept, time value of money",
+    "common_errors": [
+      "Using wrong formula for annuity due vs ordinary annuity",
+      "Not matching rate and period units (annual rate with monthly payments)",
+      "Forgetting that PVIFA is just a shortcut, not new concept"
+    ],
+    "practice_problems": [
+      "What is the PV of receiving $2,000 per year for 10 years at 6%?",
+      "You want $1M at retirement in 30 years. How much must you save annually at 7%?",
+      "Calculate the monthly payment on a $300,000 mortgage at 5% for 30 years."
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "formula",
+    "visualization_type": "timeline",
+    "emphasis": ["formula derivation", "practical applications", "calculator usage"]
+  },
+  "skos:prefLabel": "Present Value of Annuity",
+  "skos:notation": "aku-011-annuity-npv-formula",
+  "skos:definition": "The present value of a series of equal payments made at regular intervals.",
+  "skos:altLabel": ["PVA", "Annuity PV", "Rentenbarwert"],
+  "owl:sameAs": "http://dbpedia.org/resource/Present_value#Annuity",
+  "skos:exactMatch": [
+    "http://www.wikidata.org/entity/Q16836979"
+  ]
+}

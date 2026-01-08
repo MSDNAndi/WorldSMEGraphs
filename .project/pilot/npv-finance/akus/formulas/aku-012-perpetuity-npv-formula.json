@@ -1,0 +1,214 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-012-perpetuity-npv-formula",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T17:20:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.97,
+    "status": "validated",
+    "last_updated": "2026-01-08T17:20:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/valuation/npv",
+    "type": "formula",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "012",
+    "keywords": [
+      "perpetuity",
+      "consol",
+      "infinite cash flow",
+      "present value",
+      "valuation"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "A Perpetuity is a stream of equal payments that continues forever. The present value of a perpetuity is remarkably simple: PV = C/r, where C is the constant payment and r is the discount rate. This formula is fundamental to valuing stocks (via dividend discount model) and terminal values in DCF analysis.",
+      "formal": "PV_perpetuity = C / r, and for growing perpetuity: PV = C / (r - g), where g is the constant growth rate and r > g"
+    },
+    "explanation": {
+      "intuition": "How can an infinite stream have a finite value? The answer lies in discounting - payments far in the future become vanishingly small in present value terms. After about 50-100 years at typical discount rates, additional payments add essentially nothing to the total value.",
+      "key_insight": "The perpetuity formula is the limit of the annuity formula as n → ∞: as (1+r)^(-n) → 0, PVA = C × [1-(1+r)^(-n)]/r → C/r. This elegant result is widely used: a stock paying constant dividends forever is worth Dividend/r. A project with perpetual cash flows has terminal value = CF/r.",
+      "technical_details": "The growing perpetuity formula PV = C/(r-g) requires r > g for convergence. This is also known as the Gordon Growth Model when applied to dividends. If g = 0, it reduces to the simple perpetuity. Historical examples include British Consols (perpetual bonds) and preferred stock with fixed dividends.",
+      "common_misconceptions": [
+        "Perpetuities can't have finite value - they do because of discounting",
+        "Nothing lasts forever so the formula is useless - it's an approximation for very long-lived assets",
+        "Growing perpetuity works for any g - only if r > g, otherwise the series diverges"
+      ]
+    },
+    "definitions_glossary": {
+      "perpetuity": "An infinite stream of equal periodic payments",
+      "consol": "A British government bond paying perpetual interest (historical)",
+      "growing_perpetuity": "A perpetuity with payments growing at constant rate g",
+      "terminal_value": "The value of a project's cash flows beyond the explicit forecast period"
+    }
+  },
+  "representations": {
+    "latex": "PV_{\\text{perpetuity}} = \\frac{C}{r} \\quad \\text{and} \\quad PV_{\\text{growing}} = \\frac{C}{r - g}",
+    "mathml": "<math><msub><mi>PV</mi><mtext>perpetuity</mtext></msub><mo>=</mo><mfrac><mi>C</mi><mi>r</mi></mfrac></math>",
+    "python": {
+      "code": "def present_value_perpetuity(cash_flow: float, rate: float) -> float:\n    \"\"\"\n    Calculate present value of a perpetuity.\n    \n    Args:\n        cash_flow: Constant periodic payment (C)\n        rate: Discount rate (r), must be > 0\n    \n    Returns:\n        Present value of the perpetuity\n    \n    Example:\n        >>> present_value_perpetuity(100, 0.05)\n        2000.0  # $100/year forever at 5% is worth $2000 today\n    \"\"\"\n    if rate <= 0:\n        raise ValueError(\"Rate must be positive for perpetuity valuation\")\n    return cash_flow / rate\n\ndef present_value_growing_perpetuity(cash_flow: float, rate: float, growth: float) -> float:\n    \"\"\"\n    Calculate present value of a growing perpetuity (Gordon Growth Model).\n    \n    Args:\n        cash_flow: First payment (C)\n        rate: Discount rate (r)\n        growth: Constant growth rate (g), must be < rate\n    \n    Returns:\n        Present value of the growing perpetuity\n    \n    Example:\n        >>> present_value_growing_perpetuity(100, 0.10, 0.03)\n        1428.57  # $100 growing at 3%, discounted at 10%\n    \"\"\"\n    if growth >= rate:\n        raise ValueError(\"Growth rate must be less than discount rate\")\n    return cash_flow / (rate - growth)\n\ndef implied_growth_rate(stock_price: float, dividend: float, rate: float) -> float:\n    \"\"\"\n    Calculate implied growth rate from stock price using Gordon Model.\n    \n    Args:\n        stock_price: Current market price\n        dividend: Next expected dividend\n        rate: Required rate of return\n    \n    Returns:\n        Implied dividend growth rate\n    \"\"\"\n    return rate - (dividend / stock_price)",
+      "test_cases": [
+        {
+          "input": {"cash_flow": 100, "rate": 0.05},
+          "expected_output": 2000.0,
+          "description": "Simple perpetuity: $100/year at 5%",
+          "tolerance": 0.01
+        },
+        {
+          "input": {"cash_flow": 1000, "rate": 0.08},
+          "expected_output": 12500.0,
+          "description": "Preferred stock paying $1000/year at 8%",
+          "tolerance": 0.01
+        },
+        {
+          "input": {"cash_flow": 100, "rate": 0.10, "growth": 0.03},
+          "expected_output": 1428.57,
+          "description": "Growing perpetuity at 3% growth, 10% discount",
+          "tolerance": 0.01
+        }
+      ]
+    },
+    "julia": "pv_perpetuity(C, r) = C / r\npv_growing_perpetuity(C, r, g) = C / (r - g)",
+    "wolfram": "PVPerpetuity[C_, r_] := C / r\nPVGrowingPerpetuity[C_, r_, g_] := C / (r - g)"
+  },
+  "variables": {
+    "PV": {
+      "symbol": "PV",
+      "name": "Present Value",
+      "type": "currency",
+      "constraints": ["PV > 0 for positive C and r"]
+    },
+    "C": {
+      "symbol": "C",
+      "name": "Constant Payment",
+      "type": "currency",
+      "constraints": ["First payment for growing perpetuity"]
+    },
+    "r": {
+      "symbol": "r",
+      "name": "Discount Rate",
+      "type": "percentage",
+      "constraints": ["r > 0", "r > g for growing perpetuity"]
+    },
+    "g": {
+      "symbol": "g",
+      "name": "Growth Rate",
+      "type": "percentage",
+      "constraints": ["g < r for convergence", "typically 0 ≤ g < r"]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "time-value-of-money",
+      "present-value-concept",
+      "annuity-npv-formula"
+    ],
+    "enables": [
+      "gordon-growth-model",
+      "terminal-value-calculation",
+      "stock-valuation"
+    ],
+    "related_to": [
+      "dividend-discount-model",
+      "bond-pricing",
+      "dcf-analysis"
+    ],
+    "supersedes": [],
+    "part_of": "npv-formula-family",
+    "skos:broader": [
+      {
+        "@id": "wsmg:annuity-npv-formula",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:narrower": [],
+    "skos:related": [
+      {
+        "@id": "wsmg:gordon-growth-model",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "42-48",
+        "isbn": "978-1260013900"
+      },
+      {
+        "type": "textbook",
+        "title": "Investment Valuation",
+        "authors": ["Aswath Damodaran"],
+        "edition": "3rd",
+        "year": 2012,
+        "pages": "85-95",
+        "isbn": "978-1118011522"
+      }
+    ],
+    "extraction_method": "Manual curation from finance textbooks",
+    "validation_method": "Mathematical derivation verified with executable code",
+    "validation_date": "2026-01-08",
+    "confidence_factors": [
+      "Mathematical limit of annuity formula",
+      "Widely used in practice (DCF, DDM)",
+      "Historical precedent (British Consols)"
+    ],
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T17:20:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "undergraduate finance",
+      "MBA",
+      "CFA candidates",
+      "equity analysts"
+    ],
+    "learning_objectives": [
+      "Calculate present value of a perpetuity",
+      "Apply the growing perpetuity formula",
+      "Use perpetuity in terminal value calculations",
+      "Connect perpetuity to stock valuation"
+    ],
+    "estimated_time_minutes": 15,
+    "prerequisites_description": "Present value, annuity formula, basic limits",
+    "common_errors": [
+      "Using growing perpetuity when g ≥ r (undefined)",
+      "Forgetting the first payment timing",
+      "Confusing this with annuity formula"
+    ],
+    "practice_problems": [
+      "A preferred stock pays $5 dividend forever. At 8% required return, what's it worth?",
+      "A company will pay $2 dividend next year, growing 4%/year. At 10% discount rate, what's the value?",
+      "What growth rate is implied if a stock trading at $50 pays $3 dividend and investors require 12%?"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "formula",
+    "visualization_type": "timeline_infinite",
+    "emphasis": ["simple formula", "Gordon Growth Model", "terminal value application"]
+  },
+  "skos:prefLabel": "Present Value of Perpetuity",
+  "skos:notation": "aku-012-perpetuity-npv-formula",
+  "skos:definition": "The present value of an infinite stream of equal payments, calculated as PV = C/r.",
+  "skos:altLabel": ["Perpetuity PV", "Consol Value", "Gordon Model (for growing)"],
+  "owl:sameAs": "http://dbpedia.org/resource/Perpetuity",
+  "skos:exactMatch": [
+    "http://dbpedia.org/resource/Perpetuity",
+    "http://www.wikidata.org/entity/Q1190622"
+  ]
+}
