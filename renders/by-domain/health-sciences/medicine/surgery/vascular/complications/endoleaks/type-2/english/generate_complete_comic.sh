@@ -32,7 +32,7 @@ echo
 
 # Step 2: Generate images (parallel)
 echo "Step 2: Generating images (32 panels, parallel processing)..."
-python .project/agents/image-generation/tools/gpt_image_generator.py \
+python ../../../../../.project/agents/image-generation/tools/gpt_image_generator.py \
     --prompt-file "${COMIC_DIR}/prompts-all-panels.txt" \
     --output-dir "${COMIC_DIR}/panels-gpt" \
     --aspect landscape \
@@ -61,7 +61,7 @@ echo
 
 # Step 5: Generate PDF
 echo "Step 5: Generating PDF..."
-python build_gpt_pdf.py \
+python comic/build_gpt_pdf.py \
     --input-dir "${COMIC_DIR}/panels-gpt" \
     --output "${COMIC_DIR}/comic.pdf"
 echo "✓ PDF generated"
