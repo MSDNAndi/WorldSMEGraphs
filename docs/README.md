@@ -1,6 +1,6 @@
 # Documentation Index
 
-> **Last Updated**: 2026-01-04T17:21:00Z
+> **Last Updated**: 2026-01-09T17:20:00Z
 
 Welcome to the WorldSMEGraphs documentation! This directory contains comprehensive guides for contributors, developers, and users.
 
@@ -119,11 +119,27 @@ The project uses standard ontologies (Schema.org, SKOS, SNOMED CT, FIBO) for kno
 
 The `agents/` subdirectory contains detailed documentation for specialized AI agents:
 
-- **[agents/](agents/)** - Individual agent specifications and usage guides
-  - Knowledge graph agent
-  - AKU atomicity specialist
-  - Domain expert templates
-  - And 60+ other specialized agents
+- **[agents/AGENTS-GUIDE.md](agents/AGENTS-GUIDE.md)** - Comprehensive agent system guide ⭐ NEW
+  - Agent file format and requirements
+  - How agents are loaded
+  - All 61 agent categories
+  - Invoking agents with examples
+  - Creating new agents
+  - Best practices
+
+- **[agents/AGENT-SEGMENTATION-STRATEGY.md](agents/AGENT-SEGMENTATION-STRATEGY.md)** - Future scaling plans ⭐ NEW
+  - Category subdirectory organization
+  - Domain-specific organization
+  - Multi-repository architecture
+  - Migration guidelines
+
+- **[agents/aku-atomicity-specialist.md](agents/aku-atomicity-specialist.md)** - AKU granularity specialist
+  - Split, merge, recombine operations
+  - Quality assurance
+
+See also:
+- **[../.github/agents/README.md](../.github/agents/README.md)** - Agent format requirements and quick reference
+- **[../AGENTS.md](../AGENTS.md)** - Project-level agent guidance (AGENTS.md standard)
 
 ## Templates
 
