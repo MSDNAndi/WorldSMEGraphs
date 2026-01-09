@@ -27,9 +27,11 @@ for i in $(seq 1 35); do
     # Read prompt content
     prompt_content=$(cat "$prompt_file")
     
-    # Generate image using --prompt flag (not --prompt-file) with 120s timeout
+    # Generate image using --prompt flag with proper panel numbering
+    # IMPORTANT: Use --output to ensure correct panel number in filename
     python "$TOOL_DIR/gpt_image_generator.py" \
         --prompt "$prompt_content" \
+        --output "image_${panel_num}" \
         --aspect landscape \
         --quality high \
         --output-dir "$OUTPUT_DIR" \
@@ -44,6 +46,7 @@ for i in $(seq 1 35); do
         # Retry once
         python "$TOOL_DIR/gpt_image_generator.py" \
             --prompt "$prompt_content" \
+            --output "image_${panel_num}" \
             --aspect landscape \
             --quality high \
             --output-dir "$OUTPUT_DIR" \

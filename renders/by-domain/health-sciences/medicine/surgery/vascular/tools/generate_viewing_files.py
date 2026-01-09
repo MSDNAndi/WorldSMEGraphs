@@ -26,21 +26,57 @@ def find_comic_directories(base_path: str) -> List[Path]:
     return comic_dirs
 
 def get_panel_images(panels_dir: Path) -> List[Tuple[int, Path]]:
-    """Get sorted list of panel images with their numbers."""
+    """Get sorted list of panel images with their numbers.
+    
+    This function handles two scenarios:
+    1. Properly numbered images: image_001_*, image_002_*, etc.
+    2. Broken numbering (all image_001_*): Use timestamp ordering
+    
+    Returns list of (panel_number, path) tuples.
+    """
     images = []
     for img in panels_dir.glob("image_*.png"):
-        match = re.match(r'image_(\d+)_', img.name)
+        match = re.match(r'image_(\d+)_(\d{8}_\d{6})_([a-f0-9]+)', img.name)
         if match:
             panel_num = int(match.group(1))
-            images.append((panel_num, img))
+            timestamp = match.group(2)
+            images.append((panel_num, timestamp, img))
     
+    # Check if all images have the same panel number (broken numbering)
+    panel_nums = set(p[0] for p in images)
+    
+    if len(panel_nums) == 1 and len(images) > 1:
+        # All images have the same panel number - use timestamp ordering
+        # This happens when image generator was called without --output
+        print(f"  Note: All images numbered as panel {list(panel_nums)[0]}, using timestamp order")
+        
+        # Sort by timestamp
+        images.sort(key=lambda x: x[1])
+        
+        # Group by unique hash to avoid duplicates, take first of each timestamp
+        seen_hashes = set()
+        unique_images = []
+        panel_counter = 1
+        for _, timestamp, path in images:
+            # Extract hash from filename
+            hash_match = re.match(r'image_\d+_\d+_\d+_([a-f0-9]+)', path.name)
+            img_hash = hash_match.group(1) if hash_match else path.name
+            
+            if img_hash not in seen_hashes:
+                seen_hashes.add(img_hash)
+                unique_images.append((panel_counter, path))
+                panel_counter += 1
+        
+        return unique_images
+    
+    # Normal case: properly numbered images
     # Sort by panel number and take the first occurrence of each
     images.sort(key=lambda x: x[0])
     
     # Deduplicate - keep first instance of each panel number
     seen = set()
     unique_images = []
-    for num, path in images:
+    for num, timestamp, path in images:
         if num not in seen:
             seen.add(num)
             unique_images.append((num, path))
