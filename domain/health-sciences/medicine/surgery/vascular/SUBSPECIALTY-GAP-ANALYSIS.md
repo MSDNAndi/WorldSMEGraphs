@@ -18,6 +18,109 @@ This document outlines the comprehensive gap analysis methodology for the Vascul
 
 ## Gap Analysis Methodology
 
+### 0. Ontology System Parsing Analysis
+
+This section identifies gaps by parsing the ontology structures in ONTOLOGY.md and comparing against the global-hierarchy.yaml to find missing or incomplete coverage.
+
+#### Global Hierarchy Cross-Reference
+
+**Source**: `domain/_ontology/global-hierarchy.yaml`
+
+The global hierarchy defines vascular surgery under:
+```
+health-sciences → medicine → surgery → vascular-surgery
+  ├── procedures
+  │   ├── evar
+  │   ├── open-repair
+  │   └── bypass
+  ├── pathology
+  │   ├── abdominal-aortic-aneurysm
+  │   ├── mesenteric-ischemia
+  │   └── peripheral-artery-disease
+  └── complications
+      └── endoleaks
+```
+
+#### Ontology Structure Parsing Results
+
+**Parsed from**: `ONTOLOGY.md` (1300+ lines, ~650 planned AKUs)
+
+| Ontology Section | Planned AKUs | Existing AKUs | Coverage % | Gap Status |
+|------------------|--------------|---------------|------------|------------|
+| **Foundations** | 10 | 6 | 60% | 🟡 MEDIUM |
+| **AAA** | 15 | 9 | 60% | 🟡 MEDIUM |
+| **TAA** | 12 | 0 | 0% | 🔴 HIGH |
+| **Aortic Dissection** | 15 | 5 | 33% | 🔴 HIGH |
+| **PAD** | 22 | 6 | 27% | 🔴 HIGH |
+| **Carotid Disease** | 15 | 5+ | 33% | 🟡 MEDIUM |
+| **DVT** | 15 | 4 | 27% | 🔴 HIGH |
+| **Venous Insufficiency** | 12 | 2 | 17% | 🔴 HIGH |
+| **Mesenteric Ischemia** | 55 | 55+ | 100% | ✅ COMPLETE |
+| **Renal Artery** | 12 | 2 | 17% | 🔴 HIGH |
+| **Upper Extremity** | 10 | 2 | 20% | 🔴 HIGH |
+| **Popliteal Aneurysm** | 8 | 1 | 13% | 🔴 HIGH |
+| **May-Thurner** | 8 | 0 | 0% | 🔴 HIGH |
+| **Nutcracker** | 9 | 0 | 0% | 🔴 HIGH |
+| **TOS** | 15 | 3 | 20% | 🔴 HIGH |
+| **Genetic/Connective** | 60 | 3 | 5% | 🔴 CRITICAL |
+| **Congenital** | 22 | 2 | 9% | 🔴 HIGH |
+| **Vasculitis** | 52 | 4 | 8% | 🔴 CRITICAL |
+| **Vascular Malformations** | 48 | 3 | 6% | 🔴 HIGH |
+| **Lymphatic** | 23 | 2 | 9% | 🔴 HIGH |
+| **Trauma** | 40 | 0 | 0% | 🔴 CRITICAL |
+| **EVAR** | 10 | 1 | 10% | 🔴 HIGH |
+| **Open Aortic Repair** | 12 | 0 | 0% | 🔴 HIGH |
+| **CEA** | 10 | 1 | 10% | 🔴 HIGH |
+| **Lower Ext Bypass** | 12 | 1 | 8% | 🔴 HIGH |
+| **Dialysis Access** | 30 | 3 | 10% | 🔴 HIGH |
+| **Diagnostics** | 34 | 4 | 12% | 🔴 HIGH |
+| **Endoleaks** | 24 | 8 | 33% | 🟡 MEDIUM |
+
+**Summary**: 650 planned AKUs, ~130 existing = **20% overall coverage**
+
+#### Identified High-Priority Ontology Gaps
+
+Based on ontology parsing, the following areas need immediate attention:
+
+| Gap Category | Missing Topics | Priority | Recommended AKUs |
+|--------------|----------------|----------|------------------|
+| **Trauma** | All trauma AKUs missing | 🔴 CRITICAL | blunt-aortic, BCVI, compartment-syndrome |
+| **Genetic/Connective** | Marfan, Loeys-Dietz, EDS, FMD | 🔴 CRITICAL | All 60 planned |
+| **Vasculitis** | Takayasu, GCA, Buerger's, PAN | 🔴 CRITICAL | All 52 planned |
+| **Venous Compression** | May-Thurner, Nutcracker, Pelvic | 🔴 HIGH | All 23 planned |
+| **TAA** | Entire subdomain missing | 🔴 HIGH | All 12 planned |
+| **Open Procedures** | Open AAA repair, aortic clamping | 🔴 HIGH | All 12 planned |
+
+#### Cross-Domain Reference Analysis
+
+Parsing the ontology reveals these cross-domain links that should exist:
+
+| Vascular Concept | Related Domain | Link Type | Status |
+|------------------|----------------|-----------|--------|
+| Atherosclerosis | Cardiology | `uses` | ✅ Exists |
+| Stroke prevention | Neurology | `informs` | 🟡 Partial |
+| Renovascular HTN | Nephrology | `uses` | 🟡 Partial |
+| PE/DVT continuum | Pulmonology | `uses` | ❌ Missing |
+| Wound healing | Plastic Surgery | `uses` | ❌ Missing |
+| Diabetes foot | Endocrinology | `informs` | 🟡 Partial |
+| Coagulation | Hematology | `uses` | ❌ Missing |
+| Connective tissue | Genetics | `uses` | ❌ Missing |
+
+#### Ontology Structural Recommendations
+
+1. **Add missing subdomain folders** for:
+   - `pathology/thoracic-aortic-aneurysm/`
+   - `pathology/trauma/`
+   - `pathology/compression-syndromes/`
+   
+2. **Create concept-index.yaml** files for each subdomain
+
+3. **Ensure bidirectional linking** between related concepts
+
+4. **Add cross-domain reference AKUs** linking to cardiology, nephrology, neurology
+
+---
+
 ### 1. Board Certification Cross-Reference
 
 #### Vascular Surgery Board (VSITE/VSB) Topic Areas
@@ -199,7 +302,41 @@ For comprehensive review, the following expert types should review the content:
 
 ---
 
+## Ontology-Based Priority Queue
+
+Based on the ontology parsing analysis, the following AKU creation priority is recommended:
+
+### Immediate Priority (Next 50 AKUs)
+
+| # | Subdomain | AKU Topic | Ontology Reference |
+|---|-----------|-----------|-------------------|
+| 1 | Trauma | Blunt Aortic Injury | bvt-001 |
+| 2 | Trauma | BCVI Screening | bvt-007 |
+| 3 | Trauma | Compartment Syndrome | comp-001 |
+| 4 | Genetic | Marfan Syndrome | marfan-001 |
+| 5 | Genetic | Loeys-Dietz Syndrome | lds-001 |
+| 6 | Genetic | Vascular EDS | eds-001 |
+| 7 | Vasculitis | Takayasu Arteritis | tak-001 |
+| 8 | Vasculitis | Giant Cell Arteritis | gca-001 |
+| 9 | Venous | May-Thurner Syndrome | mts-001 |
+| 10 | Venous | Nutcracker Syndrome | ncs-001 |
+| 11 | TAA | TAA Definition | taa-001 |
+| 12 | TAA | Crawford Classification | taa-002 |
+| 13 | Open Surgery | Open AAA Repair | oar-001 |
+| 14 | Open Surgery | Aortic Clamping | oar-004 |
+| 15 | Lymphatic | Lymphedema Definition | lymph-001 |
+
+### Systematic Completion Plan
+
+1. **Week 1-2**: Complete Trauma subdomain (40 AKUs)
+2. **Week 3-4**: Complete Genetic/Connective subdomain (60 AKUs)
+3. **Week 5-6**: Complete Vasculitis subdomain (52 AKUs)
+4. **Week 7-8**: Complete Venous Compression (23 AKUs)
+5. **Week 9-10**: Complete TAA and Open Surgery (24 AKUs)
+
+---
+
 **Document Status**: Active  
-**Last Updated**: 2026-01-08  
-**Version**: 1.0  
+**Last Updated**: 2026-01-09  
+**Version**: 2.0 (Added Ontology Parsing Analysis)  
 **Author**: Copilot Agent
