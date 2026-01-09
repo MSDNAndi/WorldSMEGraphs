@@ -323,14 +323,38 @@ See [WORKFLOW-ENFORCEMENT.md](../WORKFLOW-ENFORCEMENT.md) (20KB) for complete gu
 
 **Critical Rule**: Images MUST be generated BEFORE creating final documents (PDF, PPTX, HTML).
 
+#### 4. init_comic_project.py (NEW in v2.1)
+**Size**: 11KB  
+**Purpose**: Initialize new comic projects with story-first workflow structure
+
+Creates correct directory structure and template files:
+- `story-development/01-story-idea.md` - Story concept (NO panels)
+- `story-development/02-narrative.md` - Full prose narrative
+- `story-development/03-panel-planning.md` - Panel decisions AFTER story
+- `comic/individual-prompts/` - Prompt files directory
+- `comic/panels-gpt/` - Generated images directory
+
+```bash
+# Initialize new comic project
+python init_comic_project.py --name "deep-vein-thrombosis-v1" --topic "Deep Vein Thrombosis"
+
+# With custom character
+python init_comic_project.py \
+    --name "peripheral-artery-disease-v1" \
+    --topic "Peripheral Artery Disease" \
+    --character "Dr. Sarah Chen"
+```
+
 ### Quick Reference
 
 | Task | Tool |
 |------|------|
+| Initialize comic project | init_comic_project.py |
 | Generate images | gpt_image_generator.py |
 | Validate workflow | validate_workflow.py |
 | Validate prompts | validate_prompts.py |
 | Prevent bad commits | pre-commit-hook.sh |
 | Create presentations | presentation_generator.py (updated with validation) |
+| Read comic workflow | COMIC-STORY-WORKFLOW.md |
 | Read full guide | WORKFLOW-ENFORCEMENT.md |
 
