@@ -1,3 +1,11 @@
+---
+name: image-generation
+description: Creates high-quality visual assets using GPT Image 1.5 via Azure AI Foundry, including presentation slides, diagrams, and concept visualizations
+tools:
+- '*'
+infer: true
+---
+
 # Image Generation Specialist Agent
 
 > **Agent Type**: Creative & Technical  
