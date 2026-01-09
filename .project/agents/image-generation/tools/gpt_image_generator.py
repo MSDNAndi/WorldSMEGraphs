@@ -1065,7 +1065,8 @@ async def main():
             print("📁 Detected multi-panel prompt file with delimiters")
             
             # Split on panel delimiters - returns [before, num1, content1, num2, content2, ...]
-            sections = re.split(r'(?:^|\n)={3,}\s*PANEL\s*(\d+).*?={0,}\s*(?:\n|$)', 
+            # Pattern requires at least 3 equals signs for both opening and optional closing
+            sections = re.split(r'(?:^|\n)={3,}\s*PANEL\s*(\d+).*?(?:={3,})?\s*(?:\n|$)', 
                                content, flags=re.IGNORECASE)
             
             # Process pairs of (panel_number, content)

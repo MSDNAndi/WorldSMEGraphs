@@ -1,24 +1,26 @@
 # Image Generation Workflow Documentation - Complete Index
 
-> **Version**: 1.0.0  
+> **Version**: 1.1.0  
 > **Created**: 2026-01-08  
-> **Total Documentation**: 93KB across 5 comprehensive guides
+> **Updated**: 2026-01-09 (Added comic workflow guide)
+> **Total Documentation**: 104KB across 6 comprehensive guides
 
 ## 📚 Documentation Suite
 
-This directory contains a complete workflow enforcement system to ensure images are generated BEFORE final documents, based on lessons from PR #36 and PR #38.
+This directory contains a complete workflow enforcement system to ensure images are generated BEFORE final documents, based on lessons from PR #36, PR #38, and PR #42.
 
 ### Navigation Guide
 
 | Document | Size | When to Use | Audience |
 |----------|------|-------------|----------|
 | **[QUICK-START.md](./QUICK-START.md)** | 16KB | Creating NEW projects | Beginners, All users |
+| **[COMIC-STORY-WORKFLOW.md](./COMIC-STORY-WORKFLOW.md)** | 11KB | Creating educational COMICS | Comic creators, Story writers |
 | **[MIGRATION-GUIDE.md](./MIGRATION-GUIDE.md)** | 14KB | Updating EXISTING projects | Maintainers, Developers |
 | **[FAQ.md](./FAQ.md)** | 15KB | Questions or problems | Everyone |
 | **[WORKFLOW-ENFORCEMENT.md](./WORKFLOW-ENFORCEMENT.md)** | 20KB | Understanding the system | Technical deep-dive |
 | **[tools/README.md](./tools/README.md)** | 5KB | Using validation tools | Developers |
 
-**Total**: 93KB of comprehensive documentation covering all scenarios.
+**Total**: 104KB of comprehensive documentation covering all scenarios.
 
 ---
 
@@ -32,6 +34,14 @@ This directory contains a complete workflow enforcement system to ensure images 
 - Templates and examples
 - Time estimates
 - Checklists
+
+#### Create an Educational Comic
+→ **[COMIC-STORY-WORKFLOW.md](./COMIC-STORY-WORKFLOW.md)**
+- Story-first approach (NO panels in story idea)
+- Full narrative before panel decisions
+- Panel planning as separate phase
+- Multi-panel prompt file format
+- Image generation with proper panel numbering
 
 #### Update an Existing Project
 → **[MIGRATION-GUIDE.md](./MIGRATION-GUIDE.md)**
@@ -348,6 +358,7 @@ cat .project/agents/image-generation/FAQ.md | grep -A 10 "your question keywords
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.1.0 | 2026-01-09 | Added COMIC-STORY-WORKFLOW.md, updated index for PR #42 fixes |
 | 1.0.0 | 2026-01-08 | Initial comprehensive documentation suite |
 
 ---
@@ -370,13 +381,14 @@ Having trouble? Check in order:
 1. **[FAQ.md](./FAQ.md)** - 50+ common questions answered
 2. **Error messages** - They contain guidance
 3. **[QUICK-START.md](./QUICK-START.md)** or **[MIGRATION-GUIDE.md](./MIGRATION-GUIDE.md)** - Step-by-step instructions
-4. **[WORKFLOW-ENFORCEMENT.md](./WORKFLOW-ENFORCEMENT.md)** - Technical details
-5. **Example projects** - See working implementations
+4. **[COMIC-STORY-WORKFLOW.md](./COMIC-STORY-WORKFLOW.md)** - Comic-specific workflow
+5. **[WORKFLOW-ENFORCEMENT.md](./WORKFLOW-ENFORCEMENT.md)** - Technical details
+6. **Example projects** - See working implementations
 
 Most questions are answered in the docs!
 
 ---
 
-**Last Updated**: 2026-01-08  
+**Last Updated**: 2026-01-09  
 **Maintained By**: WorldSMEGraphs Image Generation Team  
-**Version**: 1.0.0
+**Version**: 1.1.0

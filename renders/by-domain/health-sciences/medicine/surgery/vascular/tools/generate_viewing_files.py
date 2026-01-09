@@ -58,8 +58,8 @@ def get_panel_images(panels_dir: Path) -> List[Tuple[int, Path]]:
         unique_images = []
         panel_counter = 1
         for _, timestamp, path in images:
-            # Extract hash from filename
-            hash_match = re.match(r'image_\d+_\d+_\d+_([a-f0-9]+)', path.name)
+            # Extract hash from filename - format is image_XXX_YYYYMMDD_HHMMSS_HASHCODE.png
+            hash_match = re.match(r'image_\d+_\d{8}_\d{6}_([a-f0-9]+)', path.name)
             img_hash = hash_match.group(1) if hash_match else path.name
             
             if img_hash not in seen_hashes:
