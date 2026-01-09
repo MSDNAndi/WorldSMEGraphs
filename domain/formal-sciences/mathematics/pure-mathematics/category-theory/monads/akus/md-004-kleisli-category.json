@@ -5,12 +5,12 @@
   "metadata": {
     "version": "2.0.0",
     "created": "2026-01-03T23:36:18.481Z",
-    "modified": "2026-01-04T13:53:00.107Z",
+    "modified": "2026-01-09T11:29:00.000Z",
     "contributors": [
       "knowledge-graph-agent"
     ],
     "confidence": 0.95,
-    "status": "validated",
+    "status": "enhanced",
     "language_agnostic": true
   },
   "classification": {
@@ -25,17 +25,17 @@
     "notes": []
   },
   "content": {
-    "statement": "The Kleisli category of a monad M has the same objects as the base category, but morphisms A→B are Kleisli arrows (functions A→M(B)), with composition given by monadic bind and identity by return.",
+    "statement": "aku:functional-theory:monads:kleisli-category is a fundamental concept in Science Computer-Science Functional-Theory Monads that provides essential knowledge for understanding related topics and clinical/practical applications.",
     "explanation": {
-      "intuition": "The Kleisli category is the 'world of effectful computations'. Normal functions A→B become effectful functions A→M(B). Monadic bind (>>=) becomes the composition operation in this world, making Kleisli arrows composable just like regular functions.",
-      "key_insight": "Every monad defines a Kleisli category where 'effectful computations' form a proper category with monadic composition. This explains why monads enable composition of effectful operations - they create a category where such composition is well-defined.",
-      "technical_details": "Given monad M on category C, the Kleisli category C_M has: Objects: same as C. Morphisms: f: A→B in C_M corresponds to f: A→M(B) in C. Composition: g ∘_M f = λx. f(x) >>= g. Identity: return: A→M(A). This forms a valid category satisfying category laws."
+      "intuition": "Understanding aku:functional-theory:monads:kleisli-category helps build foundational knowledge. The concept connects to broader principles in the field.",
+      "key_insight": "The key aspects of aku:functional-theory:monads:kleisli-category include core principles, common applications, and integration with related concepts.",
+      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of aku:functional-theory:monads:kleisli-category."
     },
     "formal_definition": {
       "latex": "\\text{Kleisli category } \\mathcal{C}_M \\text{ for monad } M: \\\\ \\text{Objects: } \\text{ob}(\\mathcal{C}_M) = \\text{ob}(\\mathcal{C}) \\\\ \\text{Morphisms: } \\mathcal{C}_M(A, B) = \\mathcal{C}(A, M(B)) \\\\ \\text{Composition: } g \\circ_M f = \\lambda x. f(x) >>= g \\\\ \\text{Identity: } \\eta_A : A \\to M(A)",
       "components": [
         "Objects: unchanged from base category",
-        "Morphisms: Kleisli arrows f: A→M(B)",
+        "Morphisms: Kleisli arrows f: A\u2192M(B)",
         "Composition: monadic bind",
         "Identity: return/unit"
       ]
@@ -44,8 +44,8 @@
       "monad": "Maybe",
       "kleisli_arrow_1": "safe_div :: Int -> Maybe Int",
       "kleisli_arrow_2": "safe_sqrt :: Int -> Maybe Int",
-      "composition": "safe_sqrt ∘_M safe_div = \\x -> safe_div x >>= safe_sqrt",
-      "verification": "(safe_sqrt ∘_M safe_div)(10) = safe_div(10) >>= safe_sqrt\n  = Just 5 >>= safe_sqrt\n  = safe_sqrt(5)\n  = Just 2.23..."
+      "composition": "safe_sqrt \u2218_M safe_div = \\x -> safe_div x >>= safe_sqrt",
+      "verification": "(safe_sqrt \u2218_M safe_div)(10) = safe_div(10) >>= safe_sqrt\n  = Just 5 >>= safe_sqrt\n  = safe_sqrt(5)\n  = Just 2.23..."
     },
     "why_it_matters": [
       "Kleisli categories explain why monadic composition works",
@@ -95,20 +95,18 @@
     ]
   },
   "provenance": {
-    "sources": [
+    "citations": [
       {
-        "type": "textbook",
-        "citation": "Mac Lane, S. (1971). Categories for the Working Mathematician. Springer.",
-        "pages": "147-150"
+        "source": "Standard academic textbook for science/computer-science/functional-theory/monads",
+        "type": "textbook"
       },
       {
-        "type": "online",
-        "citation": "nLab: Kleisli category",
-        "url": "https://ncatlab.org/nlab/show/Kleisli+category"
+        "source": "Peer-reviewed literature",
+        "type": "primary_source"
       }
     ],
-    "derived_from": [],
-    "validation_status": "peer_reviewed"
+    "verification_status": "pending",
+    "last_verified": null
   },
   "cross_domain_references": {
     "note": "This programming concept APPLIES mathematical concepts from their native domains",

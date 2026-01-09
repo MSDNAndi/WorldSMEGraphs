@@ -1,0 +1,143 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-048-working-capital-npv",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:45:20.258Z",
+    "contributors": [
+      "copilot-agent",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "draft",
+    "last_updated": "2026-01-08T16:45:20.258Z"
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "048",
+    "keywords": [
+      "working capital",
+      "net working capital",
+      "cash cycle",
+      "inventory",
+      "receivables"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "Changes in net working capital (NWC) are cash flows in NPV analysis: increases in NWC represent cash outflows (investment), while decreases represent cash inflows. At project end, working capital is typically recovered.",
+      "formal": "ΔCF from NWC = -ΔNWC = -(ΔCA - ΔCL), where CA is current assets, CL is current liabilities"
+    },
+    "explanation": {
+      "intuition": "When a business grows, it needs more inventory and gives more credit to customers. This ties up cash - money sitting in a warehouse or owed by customers isn't available for other uses. NPV analysis must capture this investment.",
+      "key_insight": "Working capital is an investment that typically reverses at project end. A project requiring $1M in NWC at start will likely recover that $1M when it concludes as inventory is sold and receivables collected.",
+      "technical_details": "Net working capital = Current Assets - Current Liabilities. For NPV, focus on operating working capital: Inventory + Accounts Receivable - Accounts Payable. Cash holdings are typically excluded as they're part of treasury management.",
+      "common_misconceptions": [
+        "Working capital is only an initial investment - it changes year-to-year with sales growth",
+        "Working capital costs nothing - it has opportunity cost (tied-up capital earns nothing)",
+        "Negative working capital is always bad - it can be efficient (e.g., retail) and reduces investment"
+      ]
+    },
+    "definitions_glossary": {
+      "net_working_capital": "Current assets minus current liabilities",
+      "operating_working_capital": "Inventory + Receivables - Payables (excludes cash)",
+      "cash_conversion_cycle": "Time between paying for inputs and collecting from customers",
+      "working_capital_recovery": "Return of NWC investment at project end"
+    }
+  },
+  "relationships": {
+    "requires": [
+      "aku-001-npv-definition",
+      "aku-005-cash-flow-concept"
+    ],
+    "enables": [
+      "aku-027-equipment-replacement-example",
+      "aku-028-new-product-launch-example"
+    ],
+    "related_to": [
+      "aku-023-incremental-cash-flow-analysis",
+      "aku-042-sunk-cost-definition"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Brealey, R., Myers, S., & Allen, F. (2020). Principles of Corporate Finance. 13th Edition. McGraw-Hill.",
+        "chapter": "Chapter 6: Working Capital in Capital Budgeting",
+        "pages": "138-142"
+      },
+      {
+        "type": "textbook",
+        "citation": "Ross, S., Westerfield, R., & Jaffe, J. (2019). Corporate Finance. 12th Edition. McGraw-Hill.",
+        "chapter": "Chapter 6: Net Working Capital",
+        "pages": "172-178"
+      }
+    ],
+    "academic_consensus": "universally_accepted",
+    "field_applicability": [
+      "capital budgeting",
+      "project finance",
+      "financial modeling",
+      "operations finance"
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Calculate working capital requirements for NPV analysis",
+      "Understand working capital as a cash flow impact",
+      "Model year-by-year working capital changes",
+      "Include working capital recovery at project end"
+    ],
+    "prerequisites": [
+      "Balance sheet concepts",
+      "Cash flow analysis",
+      "NPV fundamentals"
+    ],
+    "formulas": [
+      {
+        "name": "Net Working Capital",
+        "expression": "NWC = Current Assets - Current Liabilities",
+        "simplified": "Operating NWC = Inventory + AR - AP"
+      },
+      {
+        "name": "Working Capital Cash Flow",
+        "expression": "CF_NWC = -ΔNWC = -(NWC_t - NWC_{t-1})",
+        "interpretation": "Increase in NWC is a cash outflow (negative)"
+      },
+      {
+        "name": "NWC as % of Sales",
+        "expression": "NWC Requirement = Sales × NWC%",
+        "note": "Common forecasting approach"
+      }
+    ],
+    "examples": [
+      {
+        "context": "Growing project",
+        "scenario": "Year 0: Sales=$0, NWC=0; Year 1: Sales=$1M, NWC=20% of sales; Year 5: Project ends",
+        "cash_flows": {
+          "Year_0": "$0 (no sales yet)",
+          "Year_1": "-$200,000 (initial NWC investment)",
+          "Year_5": "+$200,000 or more (NWC recovery)"
+        }
+      },
+      {
+        "context": "Year-over-year change",
+        "scenario": "NWC requirement is 15% of sales. Year 3 sales=$2M, Year 4 sales=$2.5M",
+        "calculation": "Year 4 ΔNWC = ($2.5M - $2M) × 15% = $75,000 cash outflow"
+      }
+    ]
+  },
+  "cross_domain_links": {
+    "working_capital_management": "cash_management",
+    "operations_management": "inventory_policy",
+    "credit_management": "receivables_policy"
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-007-time-value-of-money",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:55:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-08T16:55:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/fundamentals",
+    "type": "definition",
+    "difficulty": "beginner",
+    "importance": "foundational",
+    "aku_id": "007",
+    "keywords": [
+      "time value of money",
+      "tvm",
+      "present value",
+      "future value",
+      "compound interest",
+      "discounting"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The Time Value of Money (TVM) is a fundamental financial principle stating that a sum of money is worth more now than the same sum will be at a future date due to its potential earning capacity. This core principle underlies all of finance and forms the basis for discounted cash flow analysis, bond pricing, and investment valuation.",
+      "formal": "PV = FV / (1+r)^n, where PV is present value, FV is future value, r is the interest rate, and n is the number of periods"
+    },
+    "explanation": {
+      "intuition": "Money available today is worth more than the identical sum in the future because you can invest it and earn interest. A dollar today can be invested to become more than a dollar tomorrow. This opportunity cost of delayed receipt is the essence of time value of money.",
+      "key_insight": "The time value of money exists for three fundamental reasons: (1) opportunity cost - money can be invested to earn returns, (2) inflation - purchasing power typically decreases over time, and (3) risk - future cash flows are uncertain. Even in a world without inflation or risk, time value would exist due to opportunity cost alone.",
+      "technical_details": "TVM calculations involve moving cash flows forward (compounding) or backward (discounting) through time. Compounding calculates future value: FV = PV × (1+r)^n. Discounting calculates present value: PV = FV / (1+r)^n. The discount rate (r) reflects the opportunity cost of capital and may incorporate risk premiums.",
+      "common_misconceptions": [
+        "TVM is just about inflation - while inflation reduces purchasing power, TVM exists even without inflation due to opportunity cost",
+        "All future money is worth less - with negative interest rates (rare), future money could theoretically be worth more",
+        "The discount rate is always the interest rate - the appropriate rate depends on risk and opportunity cost, not just market rates"
+      ]
+    },
+    "definitions_glossary": {
+      "present_value": "The current worth of a future sum of money or stream of cash flows given a specified rate of return",
+      "future_value": "The value of a current asset at a specified date in the future based on an assumed rate of growth",
+      "compound_interest": "Interest calculated on the initial principal and also on the accumulated interest of previous periods",
+      "discount_rate": "The interest rate used to discount future cash flows back to their present value",
+      "opportunity_cost": "The potential benefit lost when one alternative is selected over another"
+    }
+  },
+  "representations": {
+    "latex": "PV = \\frac{FV}{(1+r)^n} \\quad \\text{and} \\quad FV = PV \\times (1+r)^n",
+    "mathml": "<math><mi>PV</mi><mo>=</mo><mfrac><mi>FV</mi><msup><mrow><mo>(</mo><mn>1</mn><mo>+</mo><mi>r</mi><mo>)</mo></mrow><mi>n</mi></msup></mfrac></math>",
+    "python": {
+      "code": "def present_value(future_value: float, rate: float, periods: int) -> float:\n    \"\"\"\n    Calculate the present value of a future sum.\n    \n    Args:\n        future_value: The future amount to be received\n        rate: Interest rate per period (e.g., 0.05 for 5%)\n        periods: Number of periods until future value is received\n    \n    Returns:\n        Present value of the future amount\n    \n    Example:\n        >>> present_value(1000, 0.05, 3)\n        863.84\n    \"\"\"\n    return future_value / (1 + rate) ** periods\n\ndef future_value(present_value: float, rate: float, periods: int) -> float:\n    \"\"\"\n    Calculate the future value of a present sum.\n    \n    Args:\n        present_value: The current amount to be invested\n        rate: Interest rate per period\n        periods: Number of periods to compound\n    \n    Returns:\n        Future value after compounding\n    \n    Example:\n        >>> future_value(1000, 0.05, 3)\n        1157.63\n    \"\"\"\n    return present_value * (1 + rate) ** periods",
+      "test_cases": [
+        {
+          "input": {"future_value": 1000, "rate": 0.05, "periods": 3},
+          "expected_output": 863.84,
+          "description": "Present value of $1000 received in 3 years at 5%",
+          "tolerance": 0.01
+        },
+        {
+          "input": {"present_value": 1000, "rate": 0.10, "periods": 5},
+          "expected_output": 1610.51,
+          "description": "Future value of $1000 invested for 5 years at 10%",
+          "tolerance": 0.01
+        },
+        {
+          "input": {"future_value": 100, "rate": 0.00, "periods": 10},
+          "expected_output": 100.00,
+          "description": "Zero interest rate - no time value effect",
+          "tolerance": 0.01
+        }
+      ]
+    },
+    "julia": "pv(fv, r, n) = fv / (1 + r)^n\nfv(pv, r, n) = pv * (1 + r)^n",
+    "wolfram": "PresentValue[fv_, r_, n_] := fv / (1 + r)^n"
+  },
+  "variables": {
+    "PV": {
+      "symbol": "PV",
+      "name": "Present Value",
+      "type": "currency",
+      "unit": "USD (or local currency)",
+      "constraints": ["must be positive for standard calculations"]
+    },
+    "FV": {
+      "symbol": "FV",
+      "name": "Future Value",
+      "type": "currency",
+      "unit": "USD (or local currency)",
+      "constraints": ["must be positive for standard calculations"]
+    },
+    "r": {
+      "symbol": "r",
+      "name": "Interest Rate / Discount Rate",
+      "type": "percentage",
+      "unit": "decimal (0.05 = 5%)",
+      "constraints": ["typically -1 < r < 1", "r > -1 for valid calculations"]
+    },
+    "n": {
+      "symbol": "n",
+      "name": "Number of Periods",
+      "type": "integer",
+      "unit": "years/months/days depending on context",
+      "constraints": ["n >= 0"]
+    }
+  },
+  "relationships": {
+    "prerequisites": [],
+    "enables": [
+      "present-value-concept",
+      "future-value-concept",
+      "npv-definition",
+      "irr-definition",
+      "bond-pricing",
+      "loan-amortization"
+    ],
+    "related_to": [
+      "compound-interest",
+      "simple-interest",
+      "opportunity-cost",
+      "inflation"
+    ],
+    "conflicts_with": [],
+    "supersedes": [],
+    "part_of": "financial-mathematics-fundamentals",
+    "skos:broader": [],
+    "skos:narrower": [
+      {
+        "@id": "wsmg:present-value-concept",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:future-value-concept",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:compound-interest",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:discount-rate-definition",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "25-45",
+        "isbn": "978-1260013900"
+      },
+      {
+        "type": "textbook",
+        "title": "Financial Management: Theory & Practice",
+        "authors": ["Eugene Brigham", "Michael Ehrhardt"],
+        "edition": "16th",
+        "year": 2019,
+        "pages": "87-120",
+        "isbn": "978-1337902601"
+      },
+      {
+        "type": "textbook",
+        "title": "Fundamentals of Financial Management",
+        "authors": ["James Van Horne", "John Wachowicz"],
+        "edition": "14th",
+        "year": 2008,
+        "pages": "27-58",
+        "isbn": "978-0273713630"
+      }
+    ],
+    "extraction_method": "Manual curation from authoritative finance textbooks",
+    "validation_method": "Cross-validated against multiple sources and executable code",
+    "validation_date": "2026-01-08",
+    "confidence_factors": [
+      "Universal consensus in finance literature",
+      "Foundational concept taught in all finance curricula",
+      "Executable code with test cases verified",
+      "No significant controversy or debate"
+    ],
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T16:55:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "high school students",
+      "undergraduate finance",
+      "MBA",
+      "general public"
+    ],
+    "learning_objectives": [
+      "Understand why money has time value",
+      "Calculate present value of a future sum",
+      "Calculate future value of a present sum",
+      "Explain the three fundamental reasons for time value",
+      "Apply TVM concepts to personal financial decisions"
+    ],
+    "estimated_time_minutes": 20,
+    "prerequisites_description": "Basic arithmetic and understanding of percentages",
+    "common_errors": [
+      "Confusing interest rate units (using 5 instead of 0.05)",
+      "Forgetting to match period units (annual rate with monthly periods)",
+      "Applying simple interest formula when compound interest is appropriate"
+    ],
+    "practice_problems": [
+      "If you invest $5,000 today at 6% annual interest, how much will you have in 10 years?",
+      "What is the present value of $50,000 to be received in 5 years at a 8% discount rate?",
+      "Your parents promise you $10,000 for graduation in 4 years. At 5% interest, what is that worth today?"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "formula",
+    "visualization_type": "timeline",
+    "emphasis": ["intuition", "formula", "real-world examples"],
+    "academic_level_adjustments": {
+      "high_school": "Focus on savings account examples and intuition",
+      "undergraduate": "Include formal derivation and continuous compounding",
+      "graduate": "Connect to stochastic discount factors and asset pricing"
+    }
+  },
+  "skos:prefLabel": "Time Value of Money",
+  "skos:notation": "aku-007-time-value-of-money",
+  "skos:definition": "The principle that a sum of money is worth more now than the same sum at a future date due to its potential earning capacity.",
+  "skos:altLabel": ["TVM", "Zeitwert des Geldes", "Valor Temporal del Dinero"],
+  "owl:sameAs": "http://dbpedia.org/resource/Time_value_of_money",
+  "skos:exactMatch": [
+    "http://dbpedia.org/resource/Time_value_of_money",
+    "http://www.wikidata.org/entity/Q1074295"
+  ]
+}

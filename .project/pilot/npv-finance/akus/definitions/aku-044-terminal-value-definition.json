@@ -1,0 +1,141 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-044-terminal-value-definition",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:45:20.258Z",
+    "contributors": [
+      "copilot-agent",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "draft",
+    "last_updated": "2026-01-08T16:45:20.258Z"
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "definition",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "044",
+    "keywords": [
+      "terminal value",
+      "continuing value",
+      "exit value",
+      "perpetuity",
+      "dcf valuation"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "Terminal value represents the present value of all future cash flows beyond the explicit forecast period in a DCF valuation, typically calculated using either the perpetuity growth method or exit multiple method.",
+      "formal": "TV = CF_{n+1} / (r - g) for perpetuity method, or TV = EBITDA_n × Exit Multiple for exit multiple method"
+    },
+    "explanation": {
+      "intuition": "Since we cannot forecast cash flows indefinitely, we use terminal value to capture all value creation beyond our explicit forecast period. It often represents 60-80% of a company's total value.",
+      "key_insight": "Terminal value sensitivity to growth rate and discount rate assumptions makes it crucial to use realistic, sustainable assumptions. Small changes in these inputs can dramatically affect the valuation.",
+      "technical_details": "The perpetuity growth method assumes cash flows grow at a constant rate forever. This rate should not exceed long-term GDP growth. The exit multiple method assumes the asset is sold at the end of the forecast period at a typical industry multiple.",
+      "common_misconceptions": [
+        "High terminal value means the model is wrong - it often legitimately represents most of firm value",
+        "Terminal growth rate can equal expected short-term growth - it must be sustainable long-term",
+        "Terminal value is arbitrary - it requires careful analysis of industry dynamics"
+      ]
+    },
+    "definitions_glossary": {
+      "terminal_value": "The value of an asset at the end of the explicit forecast period",
+      "perpetuity_growth_method": "Terminal value calculation assuming perpetual cash flow growth",
+      "exit_multiple_method": "Terminal value calculation using comparable transaction multiples",
+      "explicit_forecast_period": "The period for which detailed cash flow projections are made"
+    }
+  },
+  "relationships": {
+    "requires": [
+      "aku-001-npv-definition",
+      "aku-012-perpetuity-npv-formula",
+      "aku-004-discount-rate-definition"
+    ],
+    "enables": [
+      "aku-040-real-estate-investment-example"
+    ],
+    "related_to": [
+      "aku-013-wacc-formula",
+      "aku-026-sensitivity-analysis"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Koller, T., Goedhart, M., & Wessels, D. (2020). Valuation: Measuring and Managing the Value of Companies. 7th Edition. Wiley.",
+        "chapter": "Chapter 12: Estimating Continuing Value",
+        "pages": "285-320"
+      },
+      {
+        "type": "textbook",
+        "citation": "Damodaran, A. (2012). Investment Valuation. 3rd Edition. Wiley.",
+        "chapter": "Chapter 12: Terminal Value",
+        "pages": "365-400"
+      }
+    ],
+    "academic_consensus": "universally_accepted",
+    "field_applicability": [
+      "equity valuation",
+      "corporate finance",
+      "M&A",
+      "private equity"
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Calculate terminal value using perpetuity growth method",
+      "Calculate terminal value using exit multiple method",
+      "Understand appropriate terminal growth rate selection",
+      "Analyze sensitivity of valuation to terminal value assumptions"
+    ],
+    "prerequisites": [
+      "Understanding of DCF fundamentals",
+      "Perpetuity formulas",
+      "Cost of capital concepts"
+    ],
+    "formulas": [
+      {
+        "name": "Gordon Growth Terminal Value",
+        "expression": "TV = CF_{n+1} / (WACC - g)",
+        "variables": {
+          "CF_{n+1}": "Cash flow in year n+1 (first year of terminal period)",
+          "WACC": "Weighted average cost of capital",
+          "g": "Perpetual growth rate"
+        }
+      },
+      {
+        "name": "Exit Multiple Terminal Value",
+        "expression": "TV = Metric_n × Exit Multiple",
+        "variables": {
+          "Metric_n": "Financial metric in final forecast year (EBITDA, Revenue, etc.)",
+          "Exit Multiple": "Industry-appropriate valuation multiple"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "context": "Perpetuity growth method",
+        "scenario": "Year 5 FCF = $100M, expected to grow 2% perpetually. WACC = 10%.",
+        "calculation": "TV = $100M × 1.02 / (0.10 - 0.02) = $1,275M"
+      },
+      {
+        "context": "Exit multiple method",
+        "scenario": "Year 5 EBITDA = $50M. Industry exit EV/EBITDA = 8x.",
+        "calculation": "TV = $50M × 8 = $400M"
+      }
+    ]
+  },
+  "cross_domain_links": {
+    "equity_research": "dcf_valuation",
+    "private_equity": "exit_planning",
+    "investment_banking": "merger_valuation"
+  }
+}

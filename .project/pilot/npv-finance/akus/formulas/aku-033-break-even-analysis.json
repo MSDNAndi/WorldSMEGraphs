@@ -1,0 +1,142 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-033-break-even-analysis",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:45:20.258Z",
+    "contributors": [
+      "copilot-agent",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "draft",
+    "last_updated": "2026-01-08T16:45:20.258Z"
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "formula",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "033",
+    "keywords": [
+      "break-even",
+      "npv break-even",
+      "accounting break-even",
+      "cash break-even",
+      "risk analysis"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "Break-even analysis determines the level of a key variable (sales, price, cost) at which NPV equals zero, indicating the minimum required performance for value creation.",
+      "formal": "NPV = 0 = -I₀ + Σ[CF(Q*) / (1+r)^t], solve for Q* (break-even quantity)"
+    },
+    "explanation": {
+      "intuition": "Break-even analysis answers the question: What minimum level of sales (or other variable) do we need to justify this investment? It provides a clear target for management.",
+      "key_insight": "NPV break-even differs from accounting break-even. Accounting break-even covers costs but destroys value because it ignores opportunity cost of capital. NPV break-even requires covering both costs and cost of capital.",
+      "technical_details": "Three types of break-even exist: (1) Cash break-even - covers cash costs only, (2) Accounting break-even - covers all costs including depreciation, (3) NPV break-even - covers all costs plus opportunity cost of capital.",
+      "common_misconceptions": [
+        "Accounting break-even is sufficient - it destroys value by ignoring capital costs",
+        "Break-even is the same regardless of discount rate - higher discount rates raise NPV break-even",
+        "Break-even analysis is only for sales quantity - applies to any key variable"
+      ]
+    },
+    "definitions_glossary": {
+      "cash_break_even": "Sales level where cash inflows equal cash outflows",
+      "accounting_break_even": "Sales level where revenue equals all costs including depreciation",
+      "npv_break_even": "Sales level where project NPV equals zero",
+      "contribution_margin": "Revenue minus variable costs per unit"
+    }
+  },
+  "relationships": {
+    "requires": [
+      "aku-001-npv-definition",
+      "aku-026-sensitivity-analysis"
+    ],
+    "enables": [
+      "aku-041-project-comparison-example"
+    ],
+    "related_to": [
+      "aku-032-scenario-analysis-formula",
+      "aku-049-npv-limitations"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Brealey, R., Myers, S., & Allen, F. (2020). Principles of Corporate Finance. 13th Edition. McGraw-Hill.",
+        "chapter": "Chapter 10: Break-Even Analysis",
+        "pages": "254-258"
+      },
+      {
+        "type": "textbook",
+        "citation": "Ross, S., Westerfield, R., & Jaffe, J. (2019). Corporate Finance. 12th Edition. McGraw-Hill.",
+        "chapter": "Chapter 8: Break-Even",
+        "pages": "235-242"
+      }
+    ],
+    "academic_consensus": "universally_accepted",
+    "field_applicability": [
+      "project finance",
+      "operations management",
+      "strategic planning",
+      "cost accounting"
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Calculate cash, accounting, and NPV break-even points",
+      "Understand why NPV break-even exceeds accounting break-even",
+      "Apply break-even analysis to project risk assessment",
+      "Use break-even to evaluate operating leverage"
+    ],
+    "prerequisites": [
+      "Basic NPV calculation",
+      "Understanding of fixed and variable costs",
+      "Contribution margin concept"
+    ],
+    "formulas": [
+      {
+        "name": "Accounting Break-Even",
+        "expression": "Q_acct = (FC + D) / (P - VC)",
+        "variables": {
+          "Q_acct": "Accounting break-even quantity",
+          "FC": "Fixed costs",
+          "D": "Depreciation",
+          "P": "Price per unit",
+          "VC": "Variable cost per unit"
+        }
+      },
+      {
+        "name": "NPV Break-Even (Annuity)",
+        "expression": "Q_NPV = (FC + EAC) / (P - VC)",
+        "variables": {
+          "Q_NPV": "NPV break-even quantity",
+          "EAC": "Equivalent annual cost of initial investment",
+          "EAC": "I₀ × r / [1 - (1+r)^(-n)]"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "context": "Compare break-even types",
+        "scenario": "Investment=$1M, 5-year life, r=10%. FC=$100k/yr, P=$50, VC=$30. Depreciation=$200k/yr.",
+        "calculations": {
+          "EAC": "$1M × 0.10 / [1 - 1.10^(-5)] = $263,797/yr",
+          "Accounting_BE": "($100k + $200k) / ($50 - $30) = 15,000 units",
+          "NPV_BE": "($100k + $263,797) / ($50 - $30) = 18,190 units"
+        }
+      }
+    ]
+  },
+  "cross_domain_links": {
+    "managerial_accounting": "cost_volume_profit",
+    "operations_management": "capacity_planning",
+    "strategy": "competitive_positioning"
+  }
+}

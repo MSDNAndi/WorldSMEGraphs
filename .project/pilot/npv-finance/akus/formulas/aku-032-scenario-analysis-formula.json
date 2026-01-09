@@ -1,0 +1,135 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-032-scenario-analysis-formula",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:45:20.258Z",
+    "contributors": [
+      "copilot-agent",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "draft",
+    "last_updated": "2026-01-08T16:45:20.258Z"
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "formula",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "032",
+    "keywords": [
+      "scenario analysis",
+      "expected npv",
+      "risk assessment",
+      "probability weighted",
+      "base case"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "Scenario analysis evaluates project NPV under different assumptions (best, base, worst case), calculating expected NPV as the probability-weighted average of scenario NPVs.",
+      "formal": "E[NPV] = Σ(P_i × NPV_i) for all scenarios i, where P_i is probability of scenario i"
+    },
+    "explanation": {
+      "intuition": "Rather than relying on a single 'most likely' case, scenario analysis shows how NPV varies under different plausible futures. This helps decision-makers understand the range of possible outcomes.",
+      "key_insight": "Scenario analysis reveals asymmetric risks - a project might have limited upside but significant downside, or vice versa. The expected NPV may differ substantially from the base case NPV.",
+      "technical_details": "Typical scenarios include optimistic (best case), pessimistic (worst case), and base case (most likely). Each scenario specifies different values for key variables like revenues, costs, and timing. Probabilities must sum to 1.",
+      "common_misconceptions": [
+        "The base case is the expected outcome - it's just the most likely, not probability-weighted",
+        "Equal weighting of scenarios is objective - probability assignment requires careful analysis",
+        "Three scenarios are always sufficient - complex projects may need more scenarios"
+      ]
+    },
+    "definitions_glossary": {
+      "scenario_analysis": "Analysis of NPV under different plausible sets of assumptions",
+      "base_case": "The most likely or expected scenario",
+      "best_case": "Optimistic scenario with favorable outcomes",
+      "worst_case": "Pessimistic scenario with unfavorable outcomes",
+      "expected_npv": "Probability-weighted average of scenario NPVs"
+    }
+  },
+  "relationships": {
+    "requires": [
+      "aku-001-npv-definition",
+      "aku-026-sensitivity-analysis"
+    ],
+    "enables": [
+      "aku-041-project-comparison-example"
+    ],
+    "related_to": [
+      "aku-020-risk-adjusted-discount-rates",
+      "aku-049-npv-limitations"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Brealey, R., Myers, S., & Allen, F. (2020). Principles of Corporate Finance. 13th Edition. McGraw-Hill.",
+        "chapter": "Chapter 10: Project Analysis",
+        "pages": "258-265"
+      },
+      {
+        "type": "textbook",
+        "citation": "Ross, S., Westerfield, R., & Jaffe, J. (2019). Corporate Finance. 12th Edition. McGraw-Hill.",
+        "chapter": "Chapter 8: Risk Analysis",
+        "pages": "242-258"
+      }
+    ],
+    "academic_consensus": "universally_accepted",
+    "field_applicability": [
+      "project finance",
+      "corporate finance",
+      "strategic planning",
+      "risk management"
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Construct best, base, and worst case scenarios",
+      "Calculate expected NPV from scenario probabilities",
+      "Interpret scenario analysis results for decision making",
+      "Identify key value drivers that differ across scenarios"
+    ],
+    "prerequisites": [
+      "Basic NPV calculation",
+      "Understanding of probability concepts",
+      "Sensitivity analysis"
+    ],
+    "formulas": [
+      {
+        "name": "Expected NPV",
+        "expression": "E[NPV] = Σ(P_i × NPV_i)",
+        "variables": {
+          "P_i": "Probability of scenario i",
+          "NPV_i": "NPV under scenario i"
+        },
+        "constraint": "ΣP_i = 1"
+      },
+      {
+        "name": "Standard Deviation of NPV",
+        "expression": "σ_NPV = √[Σ P_i × (NPV_i - E[NPV])²]",
+        "variables": {
+          "σ_NPV": "Standard deviation of possible NPV outcomes"
+        }
+      }
+    ],
+    "examples": [
+      {
+        "context": "Three-scenario analysis",
+        "scenario": "Best case (P=20%): NPV=$50M; Base case (P=60%): NPV=$20M; Worst case (P=20%): NPV=-$10M",
+        "calculation": "E[NPV] = 0.20×$50M + 0.60×$20M + 0.20×(-$10M) = $10M + $12M - $2M = $20M"
+      }
+    ]
+  },
+  "cross_domain_links": {
+    "decision_analysis": "decision_trees",
+    "statistics": "expected_value",
+    "risk_management": "risk_quantification"
+  }
+}

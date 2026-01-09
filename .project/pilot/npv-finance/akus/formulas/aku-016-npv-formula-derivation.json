@@ -1,0 +1,149 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-016-npv-formula-derivation",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T17:58:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.96,
+    "status": "validated",
+    "last_updated": "2026-01-08T17:58:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/valuation/npv",
+    "type": "formula",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "016",
+    "keywords": [
+      "npv derivation",
+      "mathematical derivation",
+      "present value",
+      "summation",
+      "compound interest"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "The NPV formula can be derived from first principles using the time value of money. This derivation shows how the general NPV formula emerges from discounting each individual cash flow and how special cases like annuities and perpetuities are limiting cases."
+    },
+    "derivation": {
+      "step_1": {
+        "title": "Start with Present Value of a Single Cash Flow",
+        "formula": "PV = CF / (1+r)^t",
+        "explanation": "A cash flow CF received at time t has present value of CF discounted by the factor (1+r)^t"
+      },
+      "step_2": {
+        "title": "Sum All Cash Flows",
+        "formula": "NPV = Σ(t=0 to T) [CF_t / (1+r)^t]",
+        "explanation": "The NPV is simply the sum of present values of all cash flows, including the initial investment at t=0"
+      },
+      "step_3": {
+        "title": "Separate Initial Investment",
+        "formula": "NPV = -C_0 + Σ(t=1 to T) [CF_t / (1+r)^t]",
+        "explanation": "Since the initial investment is at t=0, no discounting is needed for it. We use negative sign to indicate outflow."
+      },
+      "step_4": {
+        "title": "Annuity Special Case",
+        "condition": "When all CF_t are equal (CF_t = C for all t)",
+        "formula": "NPV = -C_0 + C × Σ(t=1 to T) [1/(1+r)^t]",
+        "simplification": "Using geometric series: NPV = -C_0 + C × [1 - (1+r)^(-T)] / r"
+      },
+      "step_5": {
+        "title": "Perpetuity Limit",
+        "condition": "When T → ∞",
+        "formula": "NPV = -C_0 + C/r",
+        "explanation": "As T approaches infinity, (1+r)^(-T) approaches 0, giving the perpetuity formula"
+      }
+    },
+    "mathematical_proof": {
+      "annuity_derivation": {
+        "geometric_series": "Let S = 1/(1+r) + 1/(1+r)^2 + ... + 1/(1+r)^T",
+        "multiply_by_ratio": "(1+r)S = 1 + 1/(1+r) + ... + 1/(1+r)^(T-1)",
+        "subtract": "(1+r)S - S = 1 - 1/(1+r)^T",
+        "solve": "S = [1 - (1+r)^(-T)] / r",
+        "result": "This is the PVIFA formula"
+      }
+    },
+    "explanation": {
+      "intuition": "The NPV formula is just repeated application of 'a dollar tomorrow is worth less than a dollar today.' Each future dollar is discounted more heavily, and we add up all these discounted values.",
+      "key_insight": "The beautiful thing about the derivation is how complex-looking formulas (annuities, perpetuities) emerge naturally from simple summation. It's all just PV = FV/(1+r)^t applied repeatedly.",
+      "technical_details": "The annuity formula comes from the sum of a geometric series. The perpetuity is the limit as the number of terms goes to infinity. Understanding this derivation helps debug errors and extend to new situations."
+    }
+  },
+  "representations": {
+    "latex": "NPV = \\sum_{t=0}^{T} \\frac{CF_t}{(1+r)^t} = -C_0 + \\sum_{t=1}^{T} \\frac{CF_t}{(1+r)^t}",
+    "python": {
+      "code": "def npv_general(cash_flows: list, rate: float) -> float:\n    \"\"\"\n    Calculate NPV from first principles.\n    \n    Args:\n        cash_flows: List of cash flows, starting with t=0\n        rate: Discount rate\n    \n    Returns:\n        Net Present Value\n    \"\"\"\n    return sum(cf / (1 + rate)**t for t, cf in enumerate(cash_flows))\n\ndef npv_annuity(initial: float, payment: float, rate: float, periods: int) -> float:\n    \"\"\"\n    Calculate NPV using annuity formula (for equal payments).\n    \"\"\"\n    pvifa = (1 - (1 + rate)**(-periods)) / rate\n    return -initial + payment * pvifa\n\n# Verify they give same answer\ncash_flows = [-1000] + [200]*10\nnpv1 = npv_general(cash_flows, 0.08)\nnpv2 = npv_annuity(1000, 200, 0.08, 10)\nprint(f\"General formula: {npv1:.2f}\")\nprint(f\"Annuity formula: {npv2:.2f}\")\nprint(f\"Match: {abs(npv1 - npv2) < 0.01}\")"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "time-value-of-money",
+      "present-value-concept"
+    ],
+    "enables": [
+      "npv-definition",
+      "annuity-npv-formula",
+      "perpetuity-npv-formula"
+    ],
+    "related_to": [
+      "geometric-series",
+      "mathematical-finance"
+    ],
+    "part_of": "npv-formula-family",
+    "skos:broader": [
+      {
+        "@id": "wsmg:mathematical-finance",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "32-45",
+        "isbn": "978-1260013900"
+      }
+    ],
+    "extraction_method": "Mathematical derivation from first principles",
+    "validation_method": "Verified with executable code",
+    "validation_date": "2026-01-08",
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T17:58:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "undergraduate finance",
+      "MBA",
+      "quantitative finance"
+    ],
+    "learning_objectives": [
+      "Derive the NPV formula from basic principles",
+      "Show how annuity and perpetuity formulas emerge",
+      "Understand the mathematical foundation of discounting"
+    ],
+    "estimated_time_minutes": 25,
+    "prerequisites_description": "Basic algebra, understanding of series",
+    "practice_problems": [
+      "Derive the perpetuity formula from the annuity formula",
+      "Prove that as T→∞, PVIFA approaches 1/r",
+      "Show the annuity formula by summing the geometric series"
+    ]
+  },
+  "skos:prefLabel": "NPV Formula Derivation",
+  "skos:notation": "aku-016-npv-formula-derivation",
+  "skos:definition": "The mathematical derivation of the NPV formula from first principles, including special cases for annuities and perpetuities."
+}

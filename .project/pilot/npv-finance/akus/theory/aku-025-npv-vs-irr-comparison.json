@@ -1,0 +1,214 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-025-npv-vs-irr-comparison",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T17:10:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-08T17:10:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/corporate-finance/capital-budgeting",
+    "type": "theory",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "025",
+    "keywords": [
+      "npv",
+      "irr",
+      "internal rate of return",
+      "net present value",
+      "capital budgeting",
+      "investment decision"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "Net Present Value (NPV) and Internal Rate of Return (IRR) are the two most widely used capital budgeting criteria. While both use discounted cash flows, they can give conflicting recommendations in certain situations. NPV is generally considered theoretically superior because it directly measures value creation, while IRR measures the rate of return. When NPV and IRR conflict, NPV should be preferred.",
+      "formal": "NPV > 0 ⟺ IRR > r (for conventional cash flows), but may conflict for mutually exclusive projects or non-conventional cash flows"
+    },
+    "explanation": {
+      "intuition": "NPV tells you 'how much wealth does this project create?' while IRR tells you 'what percentage return does this project earn?' For a single accept/reject decision with conventional cash flows, both give the same answer. But when comparing projects of different sizes or durations, or with unusual cash flow patterns, they can disagree.",
+      "key_insight": "NPV is theoretically superior for three main reasons: (1) it directly measures dollar value creation, which is the firm's ultimate goal, (2) it assumes reinvestment at the cost of capital (more realistic than IRR's implicit assumption), and (3) it handles non-conventional cash flows and mutually exclusive projects correctly. However, managers often prefer IRR because it's expressed as a familiar percentage return.",
+      "technical_details": "Conflicts arise in three main scenarios: (1) Mutually exclusive projects of different scales - IRR favors smaller projects with higher percentages; (2) Mutually exclusive projects with different timing - IRR may favor projects with faster payback; (3) Non-conventional cash flows (multiple sign changes) - IRR can have multiple solutions or none. The 'crossover rate' is where two projects have equal NPV; above this rate, the rankings change.",
+      "common_misconceptions": [
+        "Higher IRR always means better project - not true when comparing mutually exclusive projects",
+        "IRR is the actual return earned - only if cash flows can be reinvested at that rate",
+        "NPV and IRR always agree - they agree for accept/reject but may conflict for ranking",
+        "Multiple IRRs make a project bad - it just means IRR isn't the right criterion"
+      ]
+    },
+    "definitions_glossary": {
+      "conventional_cash_flows": "Cash flow pattern with one sign change: initial outflow followed by inflows (or vice versa)",
+      "non_conventional_cash_flows": "Cash flow pattern with multiple sign changes, leading to potential multiple IRRs",
+      "mutually_exclusive_projects": "Projects where accepting one precludes accepting others",
+      "crossover_rate": "Discount rate at which two projects have equal NPV",
+      "reinvestment_rate_assumption": "NPV assumes reinvestment at cost of capital; IRR assumes reinvestment at IRR"
+    }
+  },
+  "representations": {
+    "latex": "\\text{Crossover Rate: } \\sum_{t=0}^{T} \\frac{(CF_A - CF_B)_t}{(1+r_{cross})^t} = 0",
+    "python": {
+      "code": "import numpy as np\nfrom scipy.optimize import brentq\n\ndef calculate_npv(cash_flows, discount_rate):\n    \"\"\"Calculate NPV of cash flows.\"\"\"\n    return sum(cf / (1 + discount_rate)**t for t, cf in enumerate(cash_flows))\n\ndef calculate_irr(cash_flows):\n    \"\"\"Calculate IRR using numerical methods.\"\"\"\n    def npv_func(r):\n        return calculate_npv(cash_flows, r)\n    try:\n        return brentq(npv_func, -0.99, 10.0)\n    except ValueError:\n        return None  # No IRR found in range\n\ndef compare_projects(project_a, project_b, cost_of_capital):\n    \"\"\"\n    Compare two projects using NPV and IRR.\n    \n    Returns:\n        dict with NPV and IRR for each project and recommendation\n    \"\"\"\n    npv_a = calculate_npv(project_a, cost_of_capital)\n    npv_b = calculate_npv(project_b, cost_of_capital)\n    irr_a = calculate_irr(project_a)\n    irr_b = calculate_irr(project_b)\n    \n    npv_choice = 'A' if npv_a > npv_b else 'B'\n    irr_choice = 'A' if irr_a and irr_b and irr_a > irr_b else 'B'\n    \n    return {\n        'project_a': {'npv': npv_a, 'irr': irr_a},\n        'project_b': {'npv': npv_b, 'irr': irr_b},\n        'npv_recommends': npv_choice,\n        'irr_recommends': irr_choice,\n        'conflict': npv_choice != irr_choice\n    }",
+      "test_cases": [
+        {
+          "input": {
+            "project_a": [-100, 40, 40, 40, 40],
+            "project_b": [-100, 0, 0, 0, 175],
+            "cost_of_capital": 0.10
+          },
+          "expected_output": {
+            "npv_a": 26.79,
+            "npv_b": 19.52,
+            "irr_a": 0.219,
+            "irr_b": 0.150
+          },
+          "description": "Both NPV and IRR agree - choose Project A",
+          "tolerance": 0.5
+        }
+      ]
+    }
+  },
+  "variables": {
+    "NPV": {
+      "symbol": "NPV",
+      "name": "Net Present Value",
+      "type": "currency",
+      "constraints": ["Can be positive, negative, or zero"]
+    },
+    "IRR": {
+      "symbol": "IRR",
+      "name": "Internal Rate of Return",
+      "type": "percentage",
+      "constraints": ["May not exist or may have multiple values for non-conventional cash flows"]
+    },
+    "r_cross": {
+      "symbol": "r_cross",
+      "name": "Crossover Rate",
+      "type": "percentage",
+      "constraints": ["Rate where NPV(A) = NPV(B)"]
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "npv-definition",
+      "irr-definition",
+      "time-value-of-money"
+    ],
+    "enables": [
+      "advanced-capital-budgeting",
+      "project-ranking",
+      "modified-irr"
+    ],
+    "related_to": [
+      "npv-decision-rule",
+      "profitability-index",
+      "payback-period"
+    ],
+    "conflicts_with": [],
+    "part_of": "capital-budgeting-methods",
+    "skos:broader": [
+      {
+        "@id": "wsmg:capital-budgeting-definition",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:narrower": [],
+    "skos:related": [
+      {
+        "@id": "wsmg:npv-definition",
+        "@type": "skos:Concept"
+      },
+      {
+        "@id": "wsmg:irr-definition",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "108-125",
+        "isbn": "978-1260013900"
+      },
+      {
+        "type": "textbook",
+        "title": "Corporate Finance",
+        "authors": ["Stephen Ross", "Randolph Westerfield", "Jeffrey Jaffe"],
+        "edition": "12th",
+        "year": 2019,
+        "pages": "155-172",
+        "isbn": "978-1259918940"
+      },
+      {
+        "type": "paper",
+        "title": "The Capital Budgeting Decision: Theory and Practice",
+        "authors": ["Harold Bierman", "Seymour Smidt"],
+        "journal": "Routledge",
+        "year": 2012,
+        "isbn": "978-0415400046"
+      }
+    ],
+    "extraction_method": "Manual curation from corporate finance literature",
+    "validation_method": "Verified against multiple authoritative sources",
+    "validation_date": "2026-01-08",
+    "confidence_factors": [
+      "Widely accepted in academic literature",
+      "Standard MBA curriculum topic",
+      "Practitioner surveys confirm usage patterns"
+    ],
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T17:10:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "undergraduate finance",
+      "MBA",
+      "CFA candidates",
+      "corporate finance professionals"
+    ],
+    "learning_objectives": [
+      "Identify when NPV and IRR give conflicting signals",
+      "Explain why NPV is theoretically preferred",
+      "Calculate crossover rates",
+      "Apply correct criterion based on decision type"
+    ],
+    "estimated_time_minutes": 30,
+    "prerequisites_description": "NPV and IRR calculation, discount rate concepts",
+    "common_errors": [
+      "Using IRR to rank mutually exclusive projects of different sizes",
+      "Not recognizing multiple IRRs in non-conventional cash flows",
+      "Assuming higher IRR always means better investment",
+      "Forgetting reinvestment rate assumptions"
+    ],
+    "practice_problems": [
+      "Project A: -$1M initial, $400K/year for 4 years. Project B: -$500K initial, $200K/year for 4 years. At 10% WACC, which is better? Do NPV and IRR agree?",
+      "Find the crossover rate for two projects given their cash flows.",
+      "A project has cash flows: -100, +230, -132. How many IRRs exist?"
+    ]
+  },
+  "rendering_hints": {
+    "primary_representation": "comparative_table",
+    "visualization_type": "npv_profile_graph",
+    "emphasis": ["comparison chart", "conflict scenarios", "decision rules"]
+  },
+  "skos:prefLabel": "NPV vs IRR Comparison",
+  "skos:notation": "aku-025-npv-vs-irr-comparison",
+  "skos:definition": "Analysis of when NPV and IRR capital budgeting criteria agree or conflict, and why NPV is theoretically preferred.",
+  "skos:altLabel": ["NPV-IRR Conflict", "Capital Budgeting Criteria Comparison"],
+  "owl:sameAs": "http://dbpedia.org/resource/Internal_rate_of_return#NPV_profile"
+}

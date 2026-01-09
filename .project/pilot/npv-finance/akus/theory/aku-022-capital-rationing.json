@@ -1,0 +1,134 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-022-capital-rationing",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T18:00:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.94,
+    "status": "validated",
+    "last_updated": "2026-01-08T18:00:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/corporate-finance/capital-budgeting",
+    "type": "theory",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "022",
+    "keywords": [
+      "capital rationing",
+      "budget constraints",
+      "project selection",
+      "profitability index",
+      "optimization"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "Capital Rationing occurs when a firm has more positive NPV projects than it can fund due to budget constraints. In such situations, the firm must choose which projects to accept. The Profitability Index (PI) helps rank projects to maximize total value per dollar invested."
+    },
+    "explanation": {
+      "intuition": "If you have $10 million to invest but $15 million of positive NPV projects, you can't do them all. You need to pick the combination that creates the most value. Simply picking the highest NPV projects isn't always optimal - you want the most 'bang for your buck.'",
+      "key_insight": "Under capital rationing, maximize total NPV subject to the budget constraint. With single-period rationing and divisible projects, rank by PI and accept in order until budget is exhausted. With indivisible projects or multi-period constraints, integer programming may be needed.",
+      "technical_details": "Soft rationing: Internal budget limits set by management - can be relaxed if justified. Hard rationing: Genuine inability to raise capital (market imperfections). The theoretical answer is to raise more capital for positive NPV projects, but real-world constraints often prevent this."
+    },
+    "solution_methods": {
+      "pi_ranking": {
+        "when": "Single-period constraint, divisible projects",
+        "method": "Rank by PI descending, accept until budget exhausted",
+        "limitation": "May not work for indivisible projects"
+      },
+      "integer_programming": {
+        "when": "Indivisible projects, multi-period constraints",
+        "method": "Formulate as optimization problem: max ΣNPVi × xi subject to ΣCosti × xi ≤ Budget, xi ∈ {0,1}",
+        "limitation": "Computational complexity for many projects"
+      },
+      "practical_approach": {
+        "when": "Most real-world situations",
+        "method": "Rank by PI, then check if swapping projects improves total NPV",
+        "note": "Often combined with strategic considerations"
+      }
+    },
+    "definitions_glossary": {
+      "soft_rationing": "Self-imposed budget limits that could be relaxed",
+      "hard_rationing": "Genuine inability to raise additional capital",
+      "divisible_projects": "Projects that can be partially undertaken",
+      "indivisible_projects": "Projects that must be fully accepted or rejected"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "npv-definition",
+      "profitability-index-formula",
+      "capital-budgeting-definition"
+    ],
+    "enables": [
+      "project-portfolio-optimization",
+      "strategic-capital-allocation"
+    ],
+    "related_to": [
+      "optimal-capital-structure",
+      "financial-constraints"
+    ],
+    "part_of": "capital-budgeting-methods",
+    "skos:broader": [
+      {
+        "@id": "wsmg:capital-budgeting-definition",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:profitability-index-formula",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "125-135",
+        "isbn": "978-1260013900"
+      }
+    ],
+    "extraction_method": "Manual curation from corporate finance literature",
+    "validation_method": "Cross-validated with optimization theory",
+    "validation_date": "2026-01-08",
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T18:00:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "MBA",
+      "corporate finance professionals"
+    ],
+    "learning_objectives": [
+      "Define capital rationing and distinguish soft from hard",
+      "Apply PI ranking under capital rationing",
+      "Recognize when simple PI ranking may fail"
+    ],
+    "estimated_time_minutes": 25,
+    "prerequisites_description": "NPV, profitability index",
+    "practice_problems": [
+      "With $500K budget, which projects to select: A (NPV=$100K, cost=$200K), B (NPV=$120K, cost=$300K), C (NPV=$80K, cost=$200K)?",
+      "Why might a firm impose soft capital rationing?",
+      "When does PI ranking fail to find the optimal project set?"
+    ]
+  },
+  "skos:prefLabel": "Capital Rationing",
+  "skos:notation": "aku-022-capital-rationing",
+  "skos:definition": "The situation where a firm must select among positive NPV projects due to limited capital, using methods like PI ranking to maximize value.",
+  "owl:sameAs": "http://dbpedia.org/resource/Capital_rationing"
+}

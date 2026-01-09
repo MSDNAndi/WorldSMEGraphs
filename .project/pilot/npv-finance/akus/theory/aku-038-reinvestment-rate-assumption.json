@@ -1,0 +1,130 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-038-reinvestment-rate-assumption",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T16:45:20.258Z",
+    "contributors": [
+      "copilot-agent",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.94,
+    "status": "draft",
+    "last_updated": "2026-01-08T16:45:20.258Z"
+  },
+  "classification": {
+    "domain_path": "economics/bwl/finance/valuation/npv",
+    "type": "theory",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "038",
+    "keywords": [
+      "reinvestment rate",
+      "npv assumption",
+      "irr assumption",
+      "mirr",
+      "terminal value"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "NPV implicitly assumes intermediate cash flows are reinvested at the discount rate (cost of capital), while IRR assumes reinvestment at the IRR itself - a key difference that can lead to different project rankings.",
+      "formal": "NPV assumes: FV of CFs = Σ CF_t × (1+r)^(n-t) where r is discount rate"
+    },
+    "explanation": {
+      "intuition": "When a project generates cash in year 3, what happens to that money until the project ends? NPV says it earns the cost of capital; IRR says it earns the project's IRR. For high-IRR projects, IRR's assumption is often unrealistic.",
+      "key_insight": "NPV's reinvestment rate assumption is generally more realistic because companies can typically earn their cost of capital on incremental cash flows, but cannot necessarily find additional projects earning the same IRR.",
+      "technical_details": "This difference only matters when comparing projects with different lives or timing of cash flows. The Modified IRR (MIRR) addresses this by using a explicit reinvestment rate assumption, making it more comparable to NPV results.",
+      "common_misconceptions": [
+        "The reinvestment assumption is an optional feature - it's built into the mathematics of each method",
+        "High IRR always means high value creation - only true if reinvestment rate equals IRR",
+        "NPV has no reinvestment assumption - it does, just a more realistic one"
+      ]
+    },
+    "definitions_glossary": {
+      "reinvestment_rate": "Rate of return earned on intermediate cash flows until project completion",
+      "implicit_assumption": "An assumption built into a formula rather than explicitly stated",
+      "terminal_value_at_NPV": "FV of cash flows reinvested at the discount rate",
+      "terminal_value_at_IRR": "FV of cash flows reinvested at the IRR"
+    }
+  },
+  "relationships": {
+    "requires": [
+      "aku-001-npv-definition",
+      "aku-010-irr-definition",
+      "aku-004-discount-rate-definition"
+    ],
+    "enables": [
+      "aku-018-modified-irr-formula",
+      "aku-025-npv-vs-irr-comparison"
+    ],
+    "related_to": [
+      "aku-007-time-value-of-money",
+      "aku-019-opportunity-cost-concept"
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "citation": "Brealey, R., Myers, S., & Allen, F. (2020). Principles of Corporate Finance. 13th Edition. McGraw-Hill.",
+        "chapter": "Chapter 5: NPV and Other Investment Criteria",
+        "pages": "115-120"
+      },
+      {
+        "type": "textbook",
+        "citation": "Ross, S., Westerfield, R., & Jaffe, J. (2019). Corporate Finance. 12th Edition. McGraw-Hill.",
+        "chapter": "Chapter 5: Reinvestment Assumption",
+        "pages": "145-152"
+      }
+    ],
+    "academic_consensus": "universally_accepted",
+    "field_applicability": [
+      "capital budgeting",
+      "project evaluation",
+      "investment analysis"
+    ]
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Explain the reinvestment rate assumptions of NPV and IRR",
+      "Demonstrate how these assumptions affect project rankings",
+      "Calculate terminal values under different reinvestment assumptions",
+      "Justify why NPV's assumption is generally more realistic"
+    ],
+    "prerequisites": [
+      "NPV calculation",
+      "IRR calculation",
+      "Time value of money"
+    ],
+    "examples": [
+      {
+        "context": "Impact of reinvestment assumption",
+        "scenario": "Project A: IRR=30%, generates $100,000 in year 1. Project B: IRR=20%, generates $100,000 in year 3. Cost of capital=10%",
+        "analysis": {
+          "project_a_under_irr": "Year 1 cash reinvested at 30% for 2 years: $100,000 × 1.30² = $169,000",
+          "project_a_under_npv": "Year 1 cash reinvested at 10% for 2 years: $100,000 × 1.10² = $121,000",
+          "conclusion": "IRR overstates Project A's value if 30% reinvestment isn't achievable"
+        }
+      }
+    ],
+    "comparison_table": {
+      "headers": ["Metric", "NPV", "IRR"],
+      "rows": [
+        ["Reinvestment assumption", "Cost of capital (r)", "Project's IRR"],
+        ["Realism", "More realistic for most firms", "Only realistic if equivalent projects exist"],
+        ["Ranking consistency", "Always gives consistent ranking", "Can rank differently than NPV"],
+        ["Recommended use", "Primary decision criterion", "Supplementary metric, use with caution"]
+      ]
+    }
+  },
+  "cross_domain_links": {
+    "portfolio_management": "portfolio_returns",
+    "bond_mathematics": "yield_to_maturity",
+    "capital_markets": "return_compounding"
+  }
+}

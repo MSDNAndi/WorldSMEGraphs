@@ -1,0 +1,140 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-026-sensitivity-analysis",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T18:11:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.94,
+    "status": "validated",
+    "last_updated": "2026-01-08T18:11:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/corporate-finance/capital-budgeting",
+    "type": "theory",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "026",
+    "keywords": [
+      "sensitivity analysis",
+      "what-if analysis",
+      "risk analysis",
+      "tornado diagram",
+      "key drivers"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "Sensitivity Analysis examines how changes in individual assumptions affect NPV. By varying one input at a time (sales volume, price, costs, discount rate), managers can identify which factors have the greatest impact on project value and where additional analysis or risk mitigation is needed."
+    },
+    "explanation": {
+      "intuition": "NPV is only as good as its inputs. Sensitivity analysis asks 'what if I'm wrong?' By testing how NPV changes when assumptions change, you identify the critical uncertainties and assess downside risk.",
+      "key_insight": "The goal isn't prediction accuracy but understanding which assumptions matter most. A project might be profitable under base assumptions but highly sensitive to raw material costs - this tells you where to focus risk management efforts.",
+      "technical_details": "Method: (1) Identify key value drivers (volume, price, costs, timing), (2) Establish plausible range for each (optimistic, base, pessimistic), (3) Vary one factor at a time, recalculate NPV, (4) Display results in a tornado diagram (factors ordered by impact magnitude)."
+    },
+    "methods": {
+      "one_way_sensitivity": {
+        "description": "Vary one input, hold others at base case",
+        "output": "Sensitivity table or graph showing NPV vs. input value",
+        "limitation": "Ignores correlations between variables"
+      },
+      "tornado_diagram": {
+        "description": "Bar chart showing impact of each variable on NPV",
+        "output": "Visual ranking of input importance",
+        "use": "Quickly identify most critical assumptions"
+      },
+      "breakeven_analysis": {
+        "description": "Find the value of each input that makes NPV = 0",
+        "output": "Breakeven values for key inputs",
+        "use": "Assess 'how wrong can I be before project fails'"
+      },
+      "scenario_analysis": {
+        "description": "Change multiple variables together (best/base/worst case)",
+        "output": "NPV range across scenarios",
+        "advantage": "Captures correlations"
+      }
+    },
+    "definitions_glossary": {
+      "base_case": "The most likely or expected scenario",
+      "tornado_diagram": "Horizontal bar chart with widest bars at top showing greatest sensitivities",
+      "value_driver": "An input assumption that significantly impacts project value"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "npv-definition",
+      "capital-budgeting-definition"
+    ],
+    "enables": [
+      "scenario-analysis",
+      "monte-carlo-simulation",
+      "risk-management"
+    ],
+    "related_to": [
+      "npv-limitations",
+      "real-options"
+    ],
+    "part_of": "risk-analysis-methods",
+    "skos:broader": [
+      {
+        "@id": "wsmg:capital-budgeting-definition",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:monte-carlo",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "265-280",
+        "isbn": "978-1260013900"
+      }
+    ],
+    "extraction_method": "Manual curation from corporate finance literature",
+    "validation_method": "Cross-validated with practitioner methods",
+    "validation_date": "2026-01-08",
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T18:11:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "undergraduate finance",
+      "MBA",
+      "financial analysts"
+    ],
+    "learning_objectives": [
+      "Perform one-way sensitivity analysis",
+      "Construct and interpret a tornado diagram",
+      "Identify critical assumptions in NPV analysis"
+    ],
+    "estimated_time_minutes": 25,
+    "prerequisites_description": "NPV calculation, spreadsheet skills",
+    "practice_problems": [
+      "Which input change would have the biggest impact: 10% price increase or 10% volume increase?",
+      "Construct a sensitivity table for NPV vs. discount rate (6%, 8%, 10%, 12%)",
+      "Find the breakeven sales volume for a project"
+    ]
+  },
+  "skos:prefLabel": "Sensitivity Analysis",
+  "skos:notation": "aku-026-sensitivity-analysis",
+  "skos:definition": "A technique for assessing how changes in individual input assumptions affect NPV, helping identify critical value drivers and risks.",
+  "skos:altLabel": ["What-If Analysis", "One-Way Sensitivity"],
+  "owl:sameAs": "http://dbpedia.org/resource/Sensitivity_analysis"
+}

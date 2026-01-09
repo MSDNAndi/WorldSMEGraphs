@@ -1,0 +1,193 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/economics.jsonld"
+  ],
+  "@type": "EducationalResource",
+  "@id": "aku-015-after-tax-npv-formula",
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-01-08T17:55:00.000Z",
+    "contributors": [
+      "comprehensive_quality_assessment.py",
+      "finance-valuation-expert-v1"
+    ],
+    "confidence": 0.95,
+    "status": "validated",
+    "last_updated": "2026-01-08T17:55:00.000Z"
+  },
+  "classification": {
+    "domain_path": "social-sciences/economics/finance/valuation/npv",
+    "type": "formula",
+    "difficulty": "intermediate",
+    "importance": "high",
+    "aku_id": "015",
+    "keywords": [
+      "after-tax npv",
+      "tax shield",
+      "depreciation",
+      "operating cash flow",
+      "taxation"
+    ]
+  },
+  "content": {
+    "statement": {
+      "text": "After-tax NPV analysis adjusts cash flows for the impact of corporate taxes. The key insight is that depreciation, while a non-cash expense, creates a tax shield that increases after-tax cash flows. The Operating Cash Flow formula is: OCF = (Revenue - Costs - Depreciation) × (1 - T) + Depreciation.",
+      "formal": "After-tax CF = (Rev - OpCosts)(1-T) + Dep × T = EBIT(1-T) + Dep"
+    },
+    "explanation": {
+      "intuition": "Taxes reduce your cash flows, but depreciation helps. Even though depreciation doesn't cost you cash, it reduces taxable income, which saves you tax dollars. The 'depreciation tax shield' equals Depreciation × Tax Rate.",
+      "key_insight": "The after-tax formula can be expressed two ways: (1) The tax-adjusted approach: After-tax OCF = (Rev - Costs - Dep)(1-T) + Dep, or (2) The tax-shield approach: After-tax OCF = (Rev - Costs)(1-T) + Dep×T. Both are mathematically equivalent.",
+      "technical_details": "Three methods for calculating after-tax OCF: (1) Bottom-up: Net Income + Depreciation, (2) Top-down: Revenue - Costs - Taxes, (3) Tax-shield: (Revenue - Costs)(1-T) + Dep×T. The tax shield approach separates the operating component from the tax benefit of depreciation."
+    },
+    "formulas": {
+      "operating_cash_flow": "OCF = (Revenue - Operating Costs - Depreciation) × (1 - T) + Depreciation",
+      "alternative_form": "OCF = (Revenue - Operating Costs) × (1 - T) + Depreciation × T",
+      "tax_shield": "Depreciation Tax Shield = Depreciation × T"
+    },
+    "definitions_glossary": {
+      "tax_shield": "Reduction in taxes due to allowable deductions like depreciation or interest",
+      "depreciation": "Systematic allocation of an asset's cost over its useful life (non-cash expense)",
+      "operating_cash_flow": "Cash generated from core business operations before financing costs",
+      "ebit": "Earnings Before Interest and Taxes"
+    }
+  },
+  "representations": {
+    "latex": "OCF = (Rev - Costs - Dep) \\times (1-T) + Dep = (Rev - Costs)(1-T) + Dep \\times T",
+    "python": {
+      "code": "def after_tax_operating_cash_flow(\n    revenue: float,\n    operating_costs: float,\n    depreciation: float,\n    tax_rate: float\n) -> dict:\n    \"\"\"\n    Calculate after-tax operating cash flow.\n    \n    Args:\n        revenue: Total revenue\n        operating_costs: Operating expenses (excluding depreciation)\n        depreciation: Depreciation expense\n        tax_rate: Corporate tax rate (e.g., 0.25 for 25%)\n    \n    Returns:\n        Dictionary with EBIT, taxes, net income, and OCF\n    \n    Example:\n        >>> result = after_tax_operating_cash_flow(1000000, 600000, 100000, 0.25)\n        >>> result['ocf']\n        325000.0  # After-tax operating cash flow\n    \"\"\"\n    ebit = revenue - operating_costs - depreciation\n    taxes = ebit * tax_rate\n    net_income = ebit - taxes\n    ocf = net_income + depreciation\n    \n    # Verify with tax-shield approach\n    ocf_alt = (revenue - operating_costs) * (1 - tax_rate) + depreciation * tax_rate\n    \n    return {\n        'revenue': revenue,\n        'operating_costs': operating_costs,\n        'depreciation': depreciation,\n        'ebit': ebit,\n        'taxes': taxes,\n        'net_income': net_income,\n        'depreciation_add_back': depreciation,\n        'ocf': ocf,\n        'ocf_verification': ocf_alt,\n        'depreciation_tax_shield': depreciation * tax_rate\n    }",
+      "test_cases": [
+        {
+          "input": {"revenue": 1000000, "operating_costs": 600000, "depreciation": 100000, "tax_rate": 0.25},
+          "expected_output": 325000.0,
+          "description": "Standard OCF calculation",
+          "tolerance": 0.01
+        },
+        {
+          "input": {"revenue": 500000, "operating_costs": 300000, "depreciation": 50000, "tax_rate": 0.30},
+          "expected_output": 155000.0,
+          "description": "Higher tax rate scenario",
+          "tolerance": 0.01
+        }
+      ]
+    },
+    "julia": "ocf(R, C, D, T) = (R - C - D)*(1-T) + D",
+    "wolfram": "OCF[R_, C_, D_, T_] := (R - C - D)*(1-T) + D"
+  },
+  "variables": {
+    "OCF": {
+      "symbol": "OCF",
+      "name": "Operating Cash Flow",
+      "type": "currency",
+      "constraints": ["Can be negative if project is losing money"]
+    },
+    "Rev": {
+      "symbol": "Rev",
+      "name": "Revenue",
+      "type": "currency"
+    },
+    "Costs": {
+      "symbol": "Costs",
+      "name": "Operating Costs",
+      "type": "currency",
+      "note": "Excluding depreciation"
+    },
+    "Dep": {
+      "symbol": "Dep",
+      "name": "Depreciation",
+      "type": "currency"
+    },
+    "T": {
+      "symbol": "T",
+      "name": "Corporate Tax Rate",
+      "type": "percentage"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      "npv-definition",
+      "cash-flow-concept"
+    ],
+    "enables": [
+      "project-cash-flow-analysis",
+      "capital-budgeting-with-taxes"
+    ],
+    "related_to": [
+      "depreciation-methods",
+      "tax-planning",
+      "wacc-formula"
+    ],
+    "part_of": "npv-formula-family",
+    "skos:broader": [
+      {
+        "@id": "wsmg:npv-definition",
+        "@type": "skos:Concept"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:wacc-formula",
+        "@type": "skos:Concept"
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "type": "textbook",
+        "title": "Principles of Corporate Finance",
+        "authors": ["Richard Brealey", "Stewart Myers", "Franklin Allen"],
+        "edition": "13th",
+        "year": 2020,
+        "pages": "145-155",
+        "isbn": "978-1260013900"
+      },
+      {
+        "type": "textbook",
+        "title": "Corporate Finance",
+        "authors": ["Stephen Ross", "Randolph Westerfield", "Jeffrey Jaffe"],
+        "edition": "12th",
+        "year": 2019,
+        "pages": "182-195",
+        "isbn": "978-1259918940"
+      }
+    ],
+    "extraction_method": "Manual curation from corporate finance textbooks",
+    "validation_method": "Verified with executable code",
+    "validation_date": "2026-01-08",
+    "confidence_factors": [
+      "Standard formula in capital budgeting",
+      "Two derivations produce same result"
+    ],
+    "dc:creator": ["finance-valuation-expert-v1"],
+    "dc:modified": "2026-01-08T17:55:00.000Z"
+  },
+  "pedagogical": {
+    "target_audiences": [
+      "undergraduate finance",
+      "MBA",
+      "CFA candidates"
+    ],
+    "learning_objectives": [
+      "Calculate after-tax operating cash flow",
+      "Understand the depreciation tax shield",
+      "Apply the formula to project analysis"
+    ],
+    "estimated_time_minutes": 20,
+    "prerequisites_description": "NPV basics, understanding of depreciation",
+    "common_errors": [
+      "Double-counting depreciation",
+      "Forgetting the add-back of depreciation",
+      "Confusing pre-tax and after-tax cash flows"
+    ],
+    "practice_problems": [
+      "A project has $500K revenue, $300K costs, $50K depreciation, 30% tax. What's OCF?",
+      "Calculate the depreciation tax shield for $100K depreciation at 25% tax rate",
+      "Why do we add back depreciation after computing net income?"
+    ]
+  },
+  "skos:prefLabel": "After-Tax NPV and Operating Cash Flow",
+  "skos:notation": "aku-015-after-tax-npv-formula",
+  "skos:definition": "The formula for calculating after-tax operating cash flow, accounting for the depreciation tax shield.",
+  "skos:altLabel": ["After-Tax OCF", "Tax-Adjusted Cash Flow", "Depreciation Tax Shield"]
+}

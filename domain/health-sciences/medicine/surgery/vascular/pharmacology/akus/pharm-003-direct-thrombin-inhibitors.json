@@ -1,0 +1,282 @@
+{
+  "@context": "aku-v2",
+  "@type": "concept",
+  "@id": "wsmg:health-sciences:medicine:surgery:vascular:pharmacology:pharm-003",
+  "metadata": {
+    "version": "2.1.0",
+    "created": "2026-01-08T20:30:00.000Z",
+    "modified": "2026-01-09T11:29:00.000Z",
+    "contributors": [
+      "copilot-agent",
+      "vascular-surgery-sme"
+    ],
+    "confidence": 0.93,
+    "status": "enhanced",
+    "language": "en",
+    "licenses": [
+      "CC-BY-4.0"
+    ]
+  },
+  "classification": {
+    "domain_path": "health-sciences/medicine/surgery/vascular/pharmacology",
+    "subdomain": "anticoagulation",
+    "type": "definition",
+    "difficulty": "intermediate",
+    "importance": "critical",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
+  },
+  "content": {
+    "title": "Direct Thrombin Inhibitors",
+    "summary": "Direct thrombin inhibitors (DTIs) are anticoagulants that directly bind to and inhibit thrombin without requiring antithrombin as a cofactor. They are particularly valuable in heparin-induced thrombocytopenia and have predictable pharmacokinetics.",
+    "definition": "A class of anticoagulants that directly bind and inhibit thrombin (factor IIa), independent of antithrombin cofactor activity, blocking both fibrin-bound and free thrombin",
+    "mechanism_of_action": {
+      "thrombin_inhibition": {
+        "direct_binding": "Binds directly to active site and/or exosite of thrombin",
+        "no_cofactor": "Does not require antithrombin III (unlike heparin)",
+        "inhibits_both": "Blocks both free circulating thrombin AND fibrin-bound thrombin"
+      },
+      "advantage_over_heparin": [
+        "Can inhibit clot-bound thrombin (heparin cannot)",
+        "Not inhibited by platelet factor 4",
+        "Predictable dose-response",
+        "Does not cause HIT"
+      ]
+    },
+    "classification": {
+      "by_binding": {
+        "bivalent": {
+          "definition": "Binds both active site and exosite 1 of thrombin",
+          "examples": "Hirudin, bivalirudin, lepirudin",
+          "binding": "Essentially irreversible"
+        },
+        "univalent": {
+          "definition": "Binds only to active site",
+          "examples": "Argatroban, dabigatran, melagatran",
+          "binding": "Reversible"
+        }
+      }
+    },
+    "specific_agents": {
+      "argatroban": {
+        "route": "IV continuous infusion",
+        "half_life": "40-50 minutes",
+        "metabolism": "Hepatic (cytochrome P450)",
+        "dose_adjustment": "Reduce in hepatic impairment",
+        "renal_effect": "No dose adjustment for renal failure",
+        "monitoring": "aPTT (target 1.5-3x baseline)",
+        "indications": [
+          "HIT with or without thrombosis",
+          "PCI in patients with HIT"
+        ],
+        "reversal": "No specific antidote; short half-life allows effect to wear off"
+      },
+      "bivalirudin": {
+        "route": "IV bolus and infusion",
+        "half_life": "25 minutes (normal renal function)",
+        "metabolism": "Proteolytic cleavage and renal",
+        "dose_adjustment": "Reduce in renal impairment",
+        "monitoring": "ACT for PCI, aPTT for medical",
+        "indications": [
+          "PCI (alternative to heparin)",
+          "HIT requiring PCI"
+        ],
+        "advantages": [
+          "Short half-life",
+          "Lower bleeding risk than heparin+GP IIb/IIIa in some settings"
+        ],
+        "reversal": "No antidote; short half-life"
+      },
+      "dabigatran": {
+        "route": "Oral",
+        "half_life": "12-17 hours",
+        "metabolism": "Primarily renal (80%)",
+        "dose_adjustment": "Reduce or avoid in severe renal impairment",
+        "monitoring": "Not routinely monitored; thrombin time if needed",
+        "indications": [
+          "Atrial fibrillation stroke prevention",
+          "VTE treatment and prevention"
+        ],
+        "reversal": {
+          "specific": "Idarucizumab (Praxbind) - monoclonal antibody fragment",
+          "other": "Hemodialysis can remove drug"
+        }
+      },
+      "desirudin_lepirudin": {
+        "note": "Hirudin derivatives; lepirudin withdrawn from market",
+        "limitations": [
+          "Recombinant hirudin origin",
+          "Can cause antibody formation",
+          "Renal clearance (problematic in HIT with renal failure)"
+        ]
+      }
+    },
+    "clinical_applications": {
+      "HIT": {
+        "role": "First-line alternative anticoagulation",
+        "agents": [
+          "Argatroban (hepatic clearance - good for renal failure)",
+          "Bivalirudin (shorter half-life)"
+        ],
+        "critical": "Must stop all heparin products and switch immediately"
+      },
+      "PCI": {
+        "bivalirudin": "Alternative to heparin, especially in bleeding risk",
+        "argatroban": "Option for HIT patients requiring PCI"
+      },
+      "VTE_prevention_treatment": {
+        "dabigatran": "FDA-approved for DVT/PE and stroke prevention in AF"
+      }
+    },
+    "laboratory_monitoring": {
+      "aPTT": {
+        "use": "Argatroban, bivalirudin at sub-PCI doses",
+        "target": "1.5-3x baseline (argatroban)"
+      },
+      "ACT": {
+        "use": "Bivalirudin for PCI",
+        "target": "Per institutional protocol"
+      },
+      "ECT_TT": {
+        "use": "Dabigatran level assessment if needed",
+        "interpretation": "Thrombin time very sensitive to dabigatran"
+      },
+      "INR_effect": "Argatroban falsely elevates INR - complicates warfarin transition"
+    },
+    "reversal_and_bleeding": {
+      "argatroban": {
+        "reversal": "Stop infusion; half-life ~45 min",
+        "bleeding": "Supportive care, transfusion"
+      },
+      "bivalirudin": {
+        "reversal": "Stop infusion; half-life ~25 min",
+        "hemodialysis": "Can remove some drug"
+      },
+      "dabigatran": {
+        "specific_reversal": "Idarucizumab (5g IV)",
+        "hemodialysis": "Removes ~60% over 4 hours",
+        "supportive": "PCC, activated charcoal if recent ingestion"
+      }
+    },
+    "comparison_to_other_anticoagulants": {
+      "vs_heparin": [
+        "More predictable response",
+        "No HIT risk",
+        "Can inhibit clot-bound thrombin",
+        "More expensive"
+      ],
+      "vs_factor_Xa_inhibitors": [
+        "DTIs inhibit thrombin directly",
+        "Factor Xa inhibitors block upstream in cascade",
+        "Dabigatran has specific reversal agent"
+      ]
+    },
+    "statement": "Direct Thrombin Inhibitors is a fundamental concept in Health-Sciences Medicine Surgery Vascular Pharmacology that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "explanation": {
+      "intuition": "Understanding Direct Thrombin Inhibitors helps build foundational knowledge. The concept connects to broader principles in the field.",
+      "key_insight": "The key aspects of Direct Thrombin Inhibitors include core principles, common applications, and integration with related concepts.",
+      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Direct Thrombin Inhibitors."
+    }
+  },
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Direct Thrombin Inhibitors"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "DTI"
+      },
+      {
+        "@language": "en",
+        "@value": "Direct thrombin inhibitor anticoagulants"
+      },
+      {
+        "@language": "en",
+        "@value": "Factor IIa inhibitors"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Anticoagulants that directly bind and inhibit thrombin independent of antithrombin"
+    },
+    "notation": "pharm-003"
+  },
+  "relationships": {
+    "skos:broader": [
+      {
+        "@id": "wsmg:health-sciences/medicine/surgery/vascular/pharmacology",
+        "skos:prefLabel": "Vascular Pharmacology"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences:medicine:surgery:vascular:pharmacology:pharm-001",
+        "skos:prefLabel": "Heparin Pharmacology"
+      },
+      {
+        "@id": "wsmg:health-sciences/medicine/surgery/vascular/pathology/hit",
+        "skos:prefLabel": "Heparin-Induced Thrombocytopenia"
+      }
+    ],
+    "enables": [
+      {
+        "@id": "wsmg:health-sciences/medicine/surgery/vascular/pathology/hit-management",
+        "reason": "Alternative anticoagulation in HIT"
+      }
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ATC",
+      "codeValue": "B01AE",
+      "description": "Direct thrombin inhibitors"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D015951",
+      "uri": "http://id.nlm.nih.gov/mesh/D015951",
+      "description": "Factor IIa Inhibitors"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Explain the mechanism of action of direct thrombin inhibitors",
+      "Compare bivalent and univalent DTI binding",
+      "List specific DTIs and their pharmacokinetic properties",
+      "Select appropriate DTI for HIT and PCI settings",
+      "Describe reversal strategies for DTI anticoagulation"
+    ],
+    "clinical_pearls": [
+      "DTIs can inhibit clot-bound thrombin (heparin cannot)",
+      "Argatroban: hepatic metabolism - good for HIT with renal failure",
+      "Argatroban falsely elevates INR - complicates warfarin transition",
+      "Dabigatran has specific reversal: idarucizumab (Praxbind)",
+      "Bivalirudin has very short half-life (~25 min) - good for procedures"
+    ],
+    "estimated_time": "25min",
+    "target_audience": [
+      "vascular_surgery_residents",
+      "pharmacy",
+      "hematology",
+      "cardiology"
+    ]
+  },
+  "provenance": {
+    "citations": [
+      {
+        "source": "UpToDate. (2024). Direct Thrombin Inhibitors. Wolters Kluwer.",
+        "type": "clinical_reference"
+      },
+      {
+        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
+        "type": "textbook"
+      }
+    ],
+    "verification_status": "pending",
+    "last_verified": null
+  }
+}
