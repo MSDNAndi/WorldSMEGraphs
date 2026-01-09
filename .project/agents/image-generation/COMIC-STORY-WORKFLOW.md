@@ -2,10 +2,23 @@
 
 > **Critical Rule**: Write the STORY first, decide PANELS later.
 > 
-> **Version**: 1.0.0  
+> **Version**: 1.1.0  
 > **Created**: 2026-01-09  
-> **Updated from**: PR #42 feedback on wrong workflow order
+> **Updated**: 2026-01-09 (Added init_comic_project.py tool)
 > **Purpose**: Enforce story-first approach for educational comics
+
+## Quick Start
+
+Use the initialization tool to create a new comic project with the correct structure:
+
+```bash
+python .project/agents/image-generation/tools/init_comic_project.py \
+    --name "deep-vein-thrombosis-v1" \
+    --topic "Deep Vein Thrombosis" \
+    --character "Dr. Young Erben"
+```
+
+This creates all template files with the correct story-first structure.
 
 ## Problem Statement
 
