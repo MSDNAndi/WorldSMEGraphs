@@ -3,435 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acute Limb Ischemia: A Race Against Time - Dr. Young Erben's Story</title>
+    <title>Acute Limb Ischemia - Educational Comic</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            padding: 20px;
+            background-color: #f5f5f5;
         }
-        
-        header {
-            background: linear-gradient(135deg, #008B8B 0%, #2F4F4F 100%);
-            color: white;
-            padding: 40px;
+        h1 {
+            color: #2c3e50;
             text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
         }
-        
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .nav-buttons {
+            text-align: center;
+            margin: 20px 0;
         }
-        
-        header .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-        
-        .character-intro {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        
-        .character-intro h3 {
-            margin-bottom: 10px;
-        }
-        
-        nav {
-            background: #f8f9fa;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            border-bottom: 3px solid #008B8B;
-        }
-        
-        nav button {
-            background: #008B8B;
+        .nav-buttons button {
+            background-color: #3498db;
             color: white;
             border: none;
             padding: 10px 20px;
-            border-radius: 5px;
+            margin: 0 10px;
             cursor: pointer;
-            font-size: 1em;
-            transition: all 0.3s;
+            font-size: 16px;
+            border-radius: 5px;
         }
-        
-        nav button:hover {
-            background: #006666;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        .nav-buttons button:hover {
+            background-color: #2980b9;
         }
-        
-        nav button.active {
-            background: #DC143C;
+        .nav-buttons button:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
         }
-        
         .page {
             display: none;
-            padding: 40px;
         }
-        
         .page.active {
             display: block;
-            animation: fadeIn 0.5s;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .page-title {
-            font-size: 2em;
-            color: #008B8B;
-            margin-bottom: 30px;
-            text-align: center;
-            border-bottom: 3px solid #008B8B;
-            padding-bottom: 15px;
-        }
-        
-        .panels-grid {
+        .panel-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
         }
-        
         .panel-card {
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        
-        .panel-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .panel-card h3 {
+            color: #34495e;
+            margin-top: 0;
         }
-        
-        .panel-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 3px solid #008B8B;
+        .panel-card p {
+            margin: 8px 0;
+            color: #555;
         }
-        
-        .panel-info {
-            padding: 20px;
+        .panel-card strong {
+            color: #2c3e50;
         }
-        
-        .panel-number {
-            background: #008B8B;
-            color: white;
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .panel-title {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #2F4F4F;
-            margin-bottom: 10px;
-        }
-        
-        .panel-description {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-        
-        .panel-focus {
-            background: #f0f8ff;
-            padding: 10px;
-            border-left: 3px solid #DC143C;
-            font-style: italic;
-            margin-top: 10px;
+        .info-box {
+            background-color: #ecf0f1;
+            padding: 15px;
             border-radius: 5px;
-        }
-        
-        .educational-summary {
-            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 30px;
-        }
-        
-        .educational-summary h3 {
-            color: #008B8B;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-        
-        .educational-summary ul {
-            list-style-position: inside;
-            line-height: 2;
-        }
-        
-        .educational-summary li {
-            margin-bottom: 10px;
-        }
-        
-        footer {
-            background: #2F4F4F;
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
-        
-        footer a {
-            color: #87CEEB;
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        .navigation-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            padding: 20px 0;
-            border-top: 2px solid #e0e0e0;
-        }
-        
-        .nav-btn {
-            background: #008B8B;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1.1em;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .nav-btn:hover {
-            background: #006666;
-            transform: translateY(-2px);
-        }
-        
-        .nav-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🏥 Acute Limb Ischemia: A Race Against Time</h1>
-            <div class="subtitle">An Emergency Vascular Surgery Story</div>
-            <div class="character-intro">
-                <h3>Featuring Dr. Young Erben</h3>
-                <p>Korean-American vascular surgeon | Multilingual (Spanish, English, German, Korean) | Cultural competence in action</p>
-            </div>
-        </header>
-        
-        <nav>
-            <button onclick="showPage(1)" class="page-btn active">Page 1: Emergency Call</button>
-            <button onclick="showPage(2)" class="page-btn">Page 2: Diagnosis</button>
-            <button onclick="showPage(3)" class="page-btn">Page 3: Preparation</button>
-            <button onclick="showPage(4)" class="page-btn">Page 4: Procedure</button>
-            <button onclick="showPage(5)" class="page-btn">Page 5: Recovery</button>
-            <button onclick="showPage(6)" class="page-btn">Page 6: Long-Term Care</button>
-        </nav>
-        
-        <!-- Page 1 -->
-        <div class="page page-1 active">
-            <h2 class="page-title">Page 1: The Emergency Call (Panels 1-6)</h2>
-            <div class="panels-grid">
-                <div class="panel-card">
-                    <img src="panels-gpt/image_001_20260108_235318_d594cdd1.png" alt="Panel 1" class="panel-image">
-                    <div class="panel-info">
-                        <span class="panel-number">Panel 1</span>
-                        <div class="panel-title">The 3 AM Call</div>
-                        <div class="panel-description">Dr. Erben awakened by emergency phone call</div>
-                        <div class="panel-focus">"Dr. Erben? We have a code vascular..."</div>
-                    </div>
-                </div>
-                
-                <div class="panel-card">
-                    <img src="panels-gpt/image_001_20260108_235419_a5bd915f.png" alt="Panel 2" class="panel-image">
-                    <div class="panel-info">
-                        <span class="panel-number">Panel 2</span>
-                        <div class="panel-title">Racing to Hospital</div>
-                        <div class="panel-description">Time-critical emergency response</div>
-                        <div class="panel-focus">Every minute counts in acute limb ischemia</div>
-                    </div>
-                </div>
-                
-                <div class="panel-card">
-                    <img src="panels-gpt/image_001_20260108_235521_a829c98e.png" alt="Panel 3" class="panel-image">
-                    <div class="panel-info">
-                        <span class="panel-number">Panel 3</span>
-                        <div class="panel-title">ER Arrival</div>
-                        <div class="panel-description">Dr. Erben arriving in ER</div>
-                        <div class="panel-focus">"¿Dónde está el paciente?"</div>
-                    </div>
-                </div>
-                
-                <div class="panel-card">
-                    <img src="panels-gpt/image_001_20260108_235616_dce8929b.png" alt="Panel 4" class="panel-image">
-                    <div class="panel-info">
-                        <span class="panel-number">Panel 4</span>
-                        <div class="panel-title">Speaking Spanish</div>
-                        <div class="panel-description">Connecting with Venezuelan patient Carlos</div>
-                        <div class="panel-focus">Trust-building through language and culture</div>
-                    </div>
-                </div>
-                
-                <div class="panel-card">
-                    <img src="panels-gpt/image_001_20260108_235710_15cb11cf.png" alt="Panel 5" class="panel-image">
-                    <div class="panel-info">
-                        <span class="panel-number">Panel 5</span>
-                        <div class="panel-title">The 6 Ps Assessment</div>
-                        <div class="panel-description">Complete clinical evaluation</div>
-                        <div class="panel-focus">Pain, Pallor, Pulselessness, Paresthesias, Paralysis, Poikilothermia</div>
-                    </div>
-                </div>
-                
-                <div class="panel-card">
-                    <img src="panels-gpt/image_001_20260108_235809_ba759cd9.png" alt="Panel 6" class="panel-image">
-                    <div class="panel-info">
-                        <span class="panel-number">Panel 6</span>
-                        <div class="panel-title">Doppler Ultrasound</div>
-                        <div class="panel-description">No arterial signals detected</div>
-                        <div class="panel-focus">Complete arterial occlusion confirmed</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="navigation-buttons">
-                <button class="nav-btn" onclick="showPage('prev')" disabled>← Previous Page</button>
-                <button class="nav-btn" onclick="showPage('next')">Next Page →</button>
-            </div>
-        </div>
-        
-        <!-- Additional pages would follow similar pattern... -->
-        <!-- For brevity, I'll create a summary page -->
-        
-        <div class="page page-summary">
-            <h2 class="page-title">Educational Summary</h2>
-            
-            <div class="educational-summary">
-                <h3>🎯 Key Learning Points</h3>
-                <ul>
-                    <li><strong>6 Ps of Acute Limb Ischemia</strong>: Pain, Pallor, Pulselessness, Paresthesias, Paralysis, Poikilothermia</li>
-                    <li><strong>Golden Window</strong>: 6 hours to save limb function</li>
-                    <li><strong>Embolic Source</strong>: Atrial fibrillation → embolism (sudden onset)</li>
-                    <li><strong>Fogarty Technique</strong>: Balloon catheter thromboembolectomy</li>
-                    <li><strong>Immediate Anticoagulation</strong>: Heparin bolus prevents further clotting</li>
-                    <li><strong>Long-term Prevention</strong>: Warfarin for AFib patients</li>
-                </ul>
-            </div>
-            
-            <div class="educational-summary">
-                <h3>👨‍⚕️ Medical Accuracy</h3>
-                <ul>
-                    <li>Based on AHA/ACC guidelines for acute limb ischemia</li>
-                    <li>Realistic surgical procedure steps and timing</li>
-                    <li>Evidence-based anticoagulation protocols</li>
-                    <li>Appropriate recovery trajectory</li>
-                </ul>
-            </div>
-            
-            <div class="educational-summary">
-                <h3>🌍 Cultural Competence</h3>
-                <ul>
-                    <li>Multilingual care (Spanish/English)</li>
-                    <li>Family-centered communication</li>
-                    <li>Trust-building across language barriers</li>
-                    <li>Advocacy for system improvements</li>
-                </ul>
-            </div>
-        </div>
-        
-        <footer>
-            <h3>About Dr. Young Erben</h3>
-            <p>Korean-American vascular surgeon specializing in emergency vascular care</p>
-            <p>Multilingual: Spanish (Venezuelan upbringing), English, German, Korean</p>
-            <p>Committed to culturally competent, patient-centered care</p>
-            <hr style="margin: 20px auto; width: 50%; opacity: 0.3;">
-            <p>Part of the <a href="../../../../../../README.md">WorldSMEGraphs</a> Vascular Surgery Education Series</p>
-            <p>© 2026 Educational Use Only</p>
-        </footer>
+    <h1>Acute Limb Ischemia</h1>
+    <div class="info-box">
+        <strong>Character:</strong> Dr. Young Erben (Korean, petite, 40s, multilingual vascular surgeon)<br>
+        <strong>Total Panels:</strong> 35<br>
+        <strong>Pages:</strong> 6
     </div>
-    
+
+    <div class="page" id="page1">
+        <h2>Page 1 of 6</h2>
+        <div class="panel-grid">
+            <div class="panel-card">
+                <h3>Panel 1: The 3 AM Call</h3>
+                <p><strong>Scene:</strong> Dr. Young Erben's bedroom, nightstand with phone ringing, clock showing 3:02 AM</p>
+                <p><strong>Dialogue:</strong> Phone: *RING* Dr. Erben: 'Dr. Erben speaking...'</p>
+                <p><strong>Focus:</strong> Emergency response - vascular surgeons on call 24/7</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 2: Racing to Hospital</h3>
+                <p><strong>Scene:</strong> Dr. Erben driving through empty pre-dawn streets, dashboard showing 3:11 AM</p>
+                <p><strong>Dialogue:</strong> Dr. Erben (thinking): 'Embolus vs thrombosis? Need to move fast - every minute counts.'</p>
+                <p><strong>Focus:</strong> Time-critical nature of acute limb ischemia</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 3: ER Arrival - First Look</h3>
+                <p><strong>Scene:</strong> Emergency room, Carlos on stretcher with pale left leg, wife crying nearby</p>
+                <p><strong>Dialogue:</strong> ER Resident: 'He's been like this 4 hours. No pulses.'</p>
+                <p><strong>Focus:</strong> Visual presentation of acute ischemia</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 4: Speaking Spanish - Building Trust</h3>
+                <p><strong>Scene:</strong> Bedside, Dr. Erben speaking to Carlos in Spanish</p>
+                <p><strong>Dialogue:</strong> Dr. Erben (Spanish): '¡Señor Ramirez! Soy la Dra. Erben. Voy a examinar su pierna ahora.' [Mr. Ramirez! I'm Dr. Erben. I'm going to examine your leg now.]</p>
+                <p><strong>Focus:</strong> Importance of language concordance in emergency medicine</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 5: The 6 Ps Assessment</h3>
+                <p><strong>Scene:</strong> Systematic examination, close-up showing each of the 6 Ps being checked</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'All six Ps present. This is complete acute ischemia.'</p>
+                <p><strong>Focus:</strong> The 6 Ps of acute limb ischemia - systematic assessment</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 6: Doppler Ultrasound - Confirming the Worst</h3>
+                <p><strong>Scene:</strong> Dr. Erben using handheld Doppler probe on Carlos's leg</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'No arterial signals distally. Complete occlusion. But femoral pulse is strong - blockage is in between.'</p>
+                <p><strong>Focus:</strong> Doppler ultrasound in vascular assessment</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="page2">
+        <h2>Page 2 of 6</h2>
+        <div class="panel-grid">
+            <div class="panel-card">
+                <h3>Panel 7: EKG Shows Atrial Fibrillation</h3>
+                <p><strong>Scene:</strong> Dr. Erben reviewing EKG strip with characteristic irregular rhythm</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Here's our culprit - atrial fibrillation. Carlos, ¿toma anticoagulantes?' [do you take blood thinners?] Carlos: 'No, doctora.'</p>
+                <p><strong>Focus:</strong> Atrial fibrillation as source of arterial emboli</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 8: Wife's Fear of Amputation</h3>
+                <p><strong>Scene:</strong> Maria bursting into exam room, face showing terror</p>
+                <p><strong>Dialogue:</strong> Maria (Spanish): '¡Mi amor! Doctor, por favor, ¿van a cortar su pierna?' [My love! Doctor, please, are you going to cut off his leg?]</p>
+                <p><strong>Focus:</strong> Patient/family fears in vascular emergencies</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 9: The Race Against Time Explained</h3>
+                <p><strong>Scene:</strong> Dr. Erben sitting eye-level with couple, drawing quick diagram</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'We have 2-3 hours before permanent damage. We must move NOW. No delays.'</p>
+                <p><strong>Focus:</strong> Golden window for limb salvage</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 10: Informed Consent</h3>
+                <p><strong>Scene:</strong> Carlos signing consent form, Dr. Erben explaining risks</p>
+                <p><strong>Dialogue:</strong> Carlos (Spanish): 'Haga lo que tenga que hacer, doctora.' [Do what you have to do, doctor.]</p>
+                <p><strong>Focus:</strong> Informed consent in emergency vascular surgery</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 11: Team Mobilization</h3>
+                <p><strong>Scene:</strong> Dr. Erben outside ER making rapid phone calls, montage of team members waking up</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Emergency OR. Acute limb ischemia. Fogarty embolectomy. 15 minutes.'</p>
+                <p><strong>Focus:</strong> Mobilizing surgical team for emergencies</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 12: Heparin Bolus</h3>
+                <p><strong>Scene:</strong> Nurse hanging heparin drip, IV going into Carlos's arm</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'This keeps the clot from getting worse while we prepare surgery.'</p>
+                <p><strong>Focus:</strong> Anticoagulation in acute limb ischemia</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="page3">
+        <h2>Page 3 of 6</h2>
+        <div class="panel-grid">
+            <div class="panel-card">
+                <h3>Panel 13: Surgical Diagram</h3>
+                <p><strong>Scene:</strong> Dr. Erben drawing simple diagram showing heart, leg, clot, catheter</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Clot formed here (heart), traveled here (leg), we go in here (groin), and pull it out.'</p>
+                <p><strong>Focus:</strong> Patient education using visual aids</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 14: Carlos's Fear About Walking</h3>
+                <p><strong>Scene:</strong> Close-up of Carlos's worried face</p>
+                <p><strong>Dialogue:</strong> Carlos: 'Doctora, ¿podré caminar otra vez? I'm a gardener. My work, my life... it's all walking.' [Will I be able to walk again?]</p>
+                <p><strong>Focus:</strong> Impact of vascular disease on livelihood and identity</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 15: Dr. Erben's Reassurance</h3>
+                <p><strong>Scene:</strong> Dr. Erben holding Carlos's hand, speaking with quiet confidence</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'If we move quickly, yes - you will walk, you will work in your gardens again. Confía en mí.' [Trust me.]</p>
+                <p><strong>Focus:</strong> Surgeon-patient relationship, realistic optimism</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 16: OR Team Assembly</h3>
+                <p><strong>Scene:</strong> Operating room, team laying out instruments</p>
+                <p><strong>Dialogue:</strong> Scrub Tech: 'Fogarty catheters ready - 3, 4, and 5 French. Vascular clamps, check.'</p>
+                <p><strong>Focus:</strong> OR preparation for vascular emergency</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 17: Spinal Anesthesia</h3>
+                <p><strong>Scene:</strong> Carlos positioned on side, anesthesiologist placing spinal</p>
+                <p><strong>Dialogue:</strong> Dr. Kim: 'Small pinch, Carlos. Medication going in now. Legs will be numb in minutes.'</p>
+                <p><strong>Focus:</strong> Spinal anesthesia for lower extremity vascular surgery</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 18: Surgical Prep and Draping</h3>
+                <p><strong>Scene:</strong> Carlos's groin being prepped with betadine, team draping</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Time out: Carlos Ramirez, 68, acute left leg ischemia, Fogarty embolectomy. Let's save this leg.'</p>
+                <p><strong>Focus:</strong> Surgical time-out and sterile field preparation</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="page4">
+        <h2>Page 4 of 6</h2>
+        <div class="panel-grid">
+            <div class="panel-card">
+                <h3>Panel 19: Groin Incision</h3>
+                <p><strong>Scene:</strong> Dr. Erben making clean incision over femoral artery</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Knife. Bovie.'</p>
+                <p><strong>Focus:</strong> Surgical approach to femoral artery</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 20: Exposing Femoral Artery</h3>
+                <p><strong>Scene:</strong> Dissection layers showing subcutaneous fat, fascia, then artery</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Good proximal flow. Isolating the vessels now.'</p>
+                <p><strong>Focus:</strong> Surgical anatomy of femoral triangle</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 21: Arteriotomy - Clot Visible</h3>
+                <p><strong>Scene:</strong> Opening the artery, dark clot visible inside</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'There's our culprit. Look at the size of that embolus.'</p>
+                <p><strong>Focus:</strong> Arteriotomy technique, identifying embolus</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 22: Fogarty Catheter Insertion</h3>
+                <p><strong>Scene:</strong> Dr. Erben advancing thin catheter into artery</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Advancing... 10cm... 20cm... 30cm... there's resistance. That's as far as it goes.'</p>
+                <p><strong>Focus:</strong> Fogarty catheter technique</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 23: Balloon Inflation Explained</h3>
+                <p><strong>Scene:</strong> Close-up diagram overlay showing balloon inflating inside artery</p>
+                <p><strong>Dialogue:</strong> Dr. Erben (teaching): 'See how the balloon creates a seal? As I pull back, it drags the clot along. Like a plunger in a pipe.'</p>
+                <p><strong>Focus:</strong> Mechanism of Fogarty thromboembolectomy</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 24: First Pass Extraction</h3>
+                <p><strong>Scene:</strong> Large clot being pulled out of arteriotomy</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Here it comes... SPLOP! That's what was blocking his leg.'</p>
+                <p><strong>Focus:</strong> Embolus removal, size of typical cardiac embolus</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="page5">
+        <h2>Page 5 of 6</h2>
+        <div class="panel-grid">
+            <div class="panel-card">
+                <h3>Panel 25: Multiple Passes</h3>
+                <p><strong>Scene:</strong> Repeated catheter passes, progressively smaller clots</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Keep going until we get fresh bleeding from below. Pass 2... pass 3... pass 4...'</p>
+                <p><strong>Focus:</strong> Complete clot clearance requires multiple passes</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 26: Fresh Bleeding - Sign of Success</h3>
+                <p><strong>Scene:</strong> Bright red blood pulsing from arteriotomy</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Look at that color - fresh, oxygenated blood! Distal vessels are patent. We're clear!'</p>
+                <p><strong>Focus:</strong> Back-bleeding as sign of successful revascularization</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 27: Patch Angioplasty</h3>
+                <p><strong>Scene:</strong> Dr. Erben suturing bovine pericardial patch over arteriotomy</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Patching prevents narrowing. We didn't go through all this just to have it close up again.'</p>
+                <p><strong>Focus:</strong> Patch angioplasty technique to prevent stenosis</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 28: Final Check - Foot Pink</h3>
+                <p><strong>Scene:</strong> Dr. Erben feeling for pedal pulses, foot now healthy pink color</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Dorsalis pedis pulse - present! Posterior tibial - present! Triphasic signals! This leg is saved!'</p>
+                <p><strong>Focus:</strong> Assessment of successful revascularization</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 29: Wiggling Toes</h3>
+                <p><strong>Scene:</strong> Recovery room, Carlos moving his toes</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: '¿Puedes mover los dedos?' Carlos: '¡Puedo moverlos! ¡Doctora, puedo moverlos!' [Can you move your toes? I can move them!]</p>
+                <p><strong>Focus:</strong> Early recovery signs after revascularization</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 30: Explaining the Source</h3>
+                <p><strong>Scene:</strong> Dr. Erben with tablet showing heart diagram</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Your heart's irregular rhythm caused blood to pool. That formed a clot. The clot traveled to your leg.'</p>
+                <p><strong>Focus:</strong> Pathophysiology of cardiogenic emboli</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="page6">
+        <h2>Page 6 of 6</h2>
+        <div class="panel-grid">
+            <div class="panel-card">
+                <h3>Panel 31: Cardiology Consultation Coming</h3>
+                <p><strong>Scene:</strong> Dr. Erben explaining need for anticoagulation</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'We need to break this chain. Blood thinners stop new clots from forming. For life, Maria. For life.'</p>
+                <p><strong>Focus:</strong> Prevention of recurrent emboli</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 32: The Critical Question</h3>
+                <p><strong>Scene:</strong> Maria asking about previous care failure</p>
+                <p><strong>Dialogue:</strong> Maria: '¿Por qué didn't they give him blood thinners before? This should have been prevented!' [Why...]</p>
+                <p><strong>Focus:</strong> System failures, importance of appropriate anticoagulation</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 33: Education About Stroke Risk</h3>
+                <p><strong>Scene:</strong> Dr. Erben showing statistics and stroke risk diagram</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Without blood thinners: 5% yearly risk of stroke or another clot. With them: <1%. This is about preventing a stroke that could be devastating.'</p>
+                <p><strong>Focus:</strong> Stroke risk in atrial fibrillation, benefits of anticoagulation</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 34: Discharge Planning</h3>
+                <p><strong>Scene:</strong> Discharge teaching two days later</p>
+                <p><strong>Dialogue:</strong> Dr. Erben: 'Coumadin starts tonight. Lab tomorrow for INR check. Goal 2 to 3. Cardiology appointment next week - don't miss it.'</p>
+                <p><strong>Focus:</strong> Anticoagulation management, monitoring requirements</p>
+            </div>
+            <div class="panel-card">
+                <h3>Panel 35: Three-Month Follow-Up - Dancing Again</h3>
+                <p><strong>Scene:</strong> Clinic three months later, Carlos dancing with Maria</p>
+                <p><strong>Dialogue:</strong> Carlos: 'Doctora, mira esto! Back in my gardens. Walking miles. Even dancing!' Dr. Erben: 'This is success, Carlos. You saved your own leg by following the plan.'</p>
+                <p><strong>Focus:</strong> Long-term success with appropriate management</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="nav-buttons">
+        <button id="prevBtn" onclick="changePage(-1)">Previous</button>
+        <span id="pageInfo"></span>
+        <button id="nextBtn" onclick="changePage(1)">Next</button>
+    </div>
+
     <script>
         let currentPage = 1;
         const totalPages = 6;
-        
-        function showPage(page) {
-            // Handle prev/next
-            if (page === 'prev' && currentPage > 1) {
-                currentPage--;
-            } else if (page === 'next' && currentPage < totalPages) {
-                currentPage++;
-            } else if (typeof page === 'number') {
-                currentPage = page;
-            }
+
+        function showPage(n) {
+            const pages = document.querySelectorAll('.page');
+            if (n > totalPages) currentPage = totalPages;
+            if (n < 1) currentPage = 1;
             
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById('page' + currentPage).classList.add('active');
             
-            // Show selected page
-            document.querySelector(`.page-${currentPage}`).classList.add('active');
-            document.querySelectorAll('.page-btn')[currentPage - 1].classList.add('active');
-            
-            // Update navigation buttons
-            updateNavigationButtons();
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('prevBtn').disabled = (currentPage === 1);
+            document.getElementById('nextBtn').disabled = (currentPage === totalPages);
+            document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages}`;
         }
-        
-        function updateNavigationButtons() {
-            const prevButtons = document.querySelectorAll('.navigation-buttons button:first-child');
-            const nextButtons = document.querySelectorAll('.navigation-buttons button:last-child');
-            
-            prevButtons.forEach(btn => {
-                btn.disabled = currentPage === 1;
-            });
-            
-            nextButtons.forEach(btn => {
-                btn.disabled = currentPage === totalPages;
-            });
+
+        function changePage(n) {
+            currentPage += n;
+            showPage(currentPage);
         }
-        
-        // Initialize
-        updateNavigationButtons();
+
+        // Show first page on load
+        showPage(1);
     </script>
 </body>
 </html>
