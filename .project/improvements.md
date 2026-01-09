@@ -14,6 +14,31 @@
 
 ## Completed Improvements (Recent)
 
+### ✅ Comic Image Generation Fixes - PR #42 (2026-01-09)
+**Impact**: High  
+**Effort**: 50+ minute session  
+**Completed**: 2026-01-09
+
+**What Was Done**:
+- Fixed viewing file generator to handle broken image numbering (timestamp ordering fallback)
+- Fixed image generator to properly parse multi-panel prompt files (`=== PANEL XX ===` delimiters)
+- Fixed generation scripts to use `--output image_XX` for proper panel numbering
+- Created COMIC-STORY-WORKFLOW.md (11KB) - story-first approach for comics
+- Updated INDEX.md, FAQ.md, LESSONS-LEARNED.md with PR #42 lessons
+- Regenerated viewing files for all 9 comic directories
+- Added README files to v2 comics with workflow notes
+
+**Benefits Achieved**:
+- All v2 comics now display correctly (35, 32, 24, 40 panels vs. only 1 before)
+- Image generator properly parses 8K+ character multi-line prompts
+- Clear documentation for story-first comic workflow
+- Troubleshooting guide for common issues
+- Future comics will follow correct workflow
+
+**See**: PR #42 and `.project/agents/image-generation/COMIC-STORY-WORKFLOW.md`
+
+---
+
 ### ✅ Agent Documentation and Format Fix (2026-01-09)
 **Impact**: High  
 **Effort**: 50+ minute session  
@@ -209,6 +234,30 @@ Support rendering in 10+ languages beyond English and German.
 ---
 
 ## Medium Impact Improvements
+
+### 📈 IMP-016: Consolidate Regex Patterns Across Tools
+**Category**: Code Quality  
+**Impact**: Medium  
+**Effort**: Low  
+**Priority**: Phase 2
+**Created**: 2026-01-09
+
+**Description**:
+Several tools use hardcoded regex patterns that duplicate constants defined in `workflow_constants.py`. Consolidate these for maintainability.
+
+**Files to Update**:
+- `gpt_image_generator.py` - Import PANEL_DELIMITER_DETECT, PANEL_DELIMITER_SPLIT
+- `generate_viewing_files.py` - Import IMAGE_FILENAME_PATTERN, IMAGE_HASH_EXTRACT
+
+**Benefits**:
+- Single source of truth for patterns
+- Easier to update patterns consistently
+- Reduced duplication
+- Better testability
+
+**See**: Code review comments from PR #42
+
+---
 
 ### 📈 IMP-004: Interactive AKU Editor
 **Category**: Developer Tools  

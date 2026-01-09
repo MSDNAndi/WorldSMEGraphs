@@ -198,6 +198,23 @@ Educational use permitted. Medical accuracy validated against current evidence-b
 
 ---
 
+## Workflow Note
+
+> **Important**: This comic was created using an **older workflow** where panels were defined in the Story Idea phase and narrative was written per-panel.
+>
+> **For new comics**, use the **story-first workflow** documented in:
+> `.project/agents/image-generation/COMIC-STORY-WORKFLOW.md`
+>
+> **Correct workflow**:
+> 1. Story Idea (NO panels yet)
+> 2. Full Narrative (flowing prose, NO panel references)
+> 3. Panel Planning (decide panels AFTER story is written)
+> 4. Storyboard
+> 5. Prompts
+> 6. Images
+
+---
+
 **Version**: 2.0  
 **Created**: 2026-01-08  
 **Status**: 97% complete (awaiting panel 19 fix)  

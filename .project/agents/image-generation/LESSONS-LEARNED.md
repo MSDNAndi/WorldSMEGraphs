@@ -527,9 +527,62 @@ See: [Link to documentation]
 
 ---
 
+## Addendum: PR #42 Lessons (2026-01-09)
+
+### Additional Issues Found
+
+**1. Multi-Line Prompt Parsing**
+- **Issue**: `--prompt-file` treated each LINE as a prompt, not each PANEL
+- **Impact**: Multi-line prompts (8K+ chars) were split into many single-line prompts
+- **Fix**: Added delimiter detection (`=== PANEL XX ===`) for proper parsing
+- **Lesson**: Test file parsing with REAL content formats, not assumptions
+
+**2. Image Output Naming**
+- **Issue**: Generation scripts didn't use `--output` parameter with panel numbers
+- **Impact**: All images named `image_001_*` regardless of actual panel number
+- **Fix**: Updated scripts to use `--output image_XX --output-dir path`
+- **Lesson**: Verify the entire pipeline, not just individual components
+
+**3. Viewing File Recovery**
+- **Issue**: Broken numbering made viewing files show only "Panel 1"
+- **Fix**: Added timestamp-based ordering as fallback for broken numbering
+- **Lesson**: Build recovery mechanisms for when things go wrong
+
+**4. Story vs Panel Workflow**
+- **Issue**: Panels were decided in the Story Idea phase (too early)
+- **Impact**: Constrained storytelling, reduced quality
+- **Fix**: Created COMIC-STORY-WORKFLOW.md enforcing story-first approach:
+  1. Story Idea (no panels)
+  2. Full Narrative (prose)
+  3. Panel Planning (after story)
+  4. Storyboard
+  5. Prompts
+  6. Images
+- **Lesson**: Creative content needs creative freedom BEFORE structural constraints
+
+### New Recommendations
+
+**For Comic/Story Projects**:
+1. Write the story FIRST as flowing prose
+2. Decide panels AFTER the story is complete
+3. Panel count should serve the story, not the other way around
+
+**For Prompt Files**:
+1. Use `=== PANEL XX ===` delimiters for multi-panel files
+2. Each panel's prompt should be self-contained (8K+ chars)
+3. Test with `--dry-run` before actual generation
+
+**For Generation Scripts**:
+1. Always use `--output image_XX` with proper panel numbers
+2. Use `--output-dir` for the directory path
+3. Test one panel first before batch generation
+
+---
+
 **Document**: Lessons Learned  
 **Project**: Image Generation Workflow Enforcement v0.3.1  
 **Date**: 2026-01-08  
+**Updated**: 2026-01-09 (PR #42 lessons added)  
 **Purpose**: Capture insights for future reference  
 **Status**: Complete
 

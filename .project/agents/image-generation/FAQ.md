@@ -576,13 +576,85 @@ See IMP-011 (CI/CD integration) and IMP-012 (interactive tutorial) for examples.
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.1.0 | 2026-01-09 | Added troubleshooting for PR #42 issues (panel numbering, multi-line prompts) |
 | 1.0.0 | 2026-01-08 | Initial FAQ based on common questions |
+
+---
+
+## Troubleshooting New Issues (PR #42)
+
+### Q: All my images are numbered `image_001_*` instead of `image_001`, `image_002`, etc.
+
+**A**: The generation script didn't include the `--output` parameter with panel numbers.
+
+**Fix for existing images**: Run viewing file generator (uses timestamp ordering as fallback):
+```bash
+python tools/generate_viewing_files.py
+```
+
+**Fix for future generation**: Update your script to include panel numbering:
+```bash
+# WRONG - all images get image_001 prefix
+python gpt_image_generator.py --prompt "$prompt_content" --output-dir panels/
+
+# CORRECT - each image gets proper panel number
+python gpt_image_generator.py --prompt "$prompt_content" --output "image_${panel_num}" --output-dir panels/
+```
+
+### Q: My viewing files only show "Panel 1" even though I have many images
+
+**A**: This happens when all images have the same `image_001` prefix. The viewing file generator now handles this by using timestamp ordering.
+
+**Fix**: Regenerate viewing files:
+```bash
+python renders/.../tools/generate_viewing_files.py
+```
+
+### Q: How do I use multi-line prompts (8K+ characters) from a file?
+
+**A**: Use `=== PANEL XX ===` delimiters in your prompts file:
+
+```text
+=== PANEL 01: First Scene ===
+
+[Your complete 8K+ character prompt here]
+All the details, colors, positioning...
+
+=== PANEL 02: Second Scene ===
+
+[Your complete 8K+ character prompt here]
+...
+```
+
+Then run:
+```bash
+python gpt_image_generator.py --prompt-file prompts-all-panels.txt --output-dir panels/ --parallel 5
+```
+
+The generator auto-detects the delimiter format and extracts each panel's prompt correctly.
+
+### Q: How should I structure my story for a comic?
+
+**A**: Use the story-first workflow (COMIC-STORY-WORKFLOW.md):
+
+1. **Story Idea**: Define characters, educational goals, story hook - NO panels yet
+2. **Full Narrative**: Write complete flowing prose story - NO panel references
+3. **Panel Planning**: Decide how to break story into panels AFTER story is written
+4. **Storyboard**: Map narrative sections to specific panels
+5. **Prompts**: Write detailed prompts for each panel
+6. **Images**: Generate images with proper numbering
+
+**Common Mistake**: Defining "Story Arc (35 Panels)" in the Story Idea phase locks you into a structure before the story is written.
+
+---
 
 ## See Also
 
+- **COMIC-STORY-WORKFLOW.md** - Story-first approach for comics (11KB)
 - **WORKFLOW-ENFORCEMENT.md** - Complete guide (20KB)
 - **QUICK-START.md** - Tutorial (16KB)
 - **MIGRATION-GUIDE.md** - Existing projects (14KB)
 - **tools/README.md** - Tool reference
 - **PR #36** - Original lessons learned
 - **PR #38** - Workflow improvements
+- **PR #42** - Comic fixes and story-first workflow

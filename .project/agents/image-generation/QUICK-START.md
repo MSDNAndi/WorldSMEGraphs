@@ -490,20 +490,24 @@ Use this checklist for every new content project:
 
 After creating your content:
 1. Review [WORKFLOW-ENFORCEMENT.md](./WORKFLOW-ENFORCEMENT.md) for deeper understanding
-2. Check [image-generation.agent.md](../../.github/agents/image-generation.agent.md) for advanced features
-3. Read [image-prompt-engineering-guide.md](./image-prompt-engineering-guide.md) for prompt tips
-4. Study PR #36 and PR #38 for real-world examples
+2. For **comics**, see [COMIC-STORY-WORKFLOW.md](./COMIC-STORY-WORKFLOW.md) for story-first approach
+3. Check [image-generation.agent.md](../../.github/agents/image-generation.agent.md) for advanced features
+4. Read [image-prompt-engineering-guide.md](./image-prompt-engineering-guide.md) for prompt tips
+5. Study PR #36, PR #38, and PR #42 for real-world examples
 
 ## Support
 
 Questions? Check:
 1. This quick start guide
 2. WORKFLOW-ENFORCEMENT.md (comprehensive)
-3. tools/README.md (tool reference)
-4. Validation tool error messages (they guide you)
+3. COMIC-STORY-WORKFLOW.md (for comics)
+4. tools/README.md (tool reference)
+5. FAQ.md (common questions and troubleshooting)
+6. Validation tool error messages (they guide you)
 
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.1.0 | 2026-01-09 | Added links to COMIC-STORY-WORKFLOW.md and FAQ.md |
 | 1.0.0 | 2026-01-08 | Initial quick start guide |
