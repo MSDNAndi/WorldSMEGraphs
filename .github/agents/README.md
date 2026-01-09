@@ -1,23 +1,73 @@
 # WorldSMEGraphs Copilot Agents
 
-> **Last Updated**: 2025-12-29  
+> **Last Updated**: 2026-01-09  
 > **Total Agents**: 61 agent configurations  
 > **Location**: `.github/agents/` (per GitHub Copilot standards)
-> **Format**: `.agent.md` files
+> **Format**: `.agent.md` files with YAML frontmatter
 > **Quality Standard**: All agents follow GitHub Copilot custom agent format
 
 ## Overview
 
-This directory contains 60 specialized GitHub Copilot agent configurations that work together to create, manage, and enhance the WorldSMEGraphs knowledge representation system. All agents follow the official GitHub Copilot custom agent format as documented at: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents
+This directory contains 61 specialized GitHub Copilot agent configurations that work together to create, manage, and enhance the WorldSMEGraphs knowledge representation system. 
+
+### Official GitHub Documentation References
+
+- [GitHub Copilot Custom Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+- [AGENTS.md Standard](https://agents.md) - Open format for guiding coding agents (60k+ projects)
+
+### Relationship to AGENTS.md Standard
+
+This project uses `.agent.md` files in `.github/agents/` which is the GitHub Copilot custom agent format. This is complementary to the `AGENTS.md` standard:
+
+- **AGENTS.md**: General project guidance for all AI coding agents (like README for agents)
+- **.agent.md files**: Specialized agent definitions with specific capabilities
 
 ## Agent Format Standard
 
-All agents MUST follow this format:
-- **File Extension**: `.agent.md` (not `.agent.md`, `.yaml`, or plain `.md`)
-- **Location**: `.github/agents/[agent-name].agent.md`
-- **Structure**: Markdown format with required sections (see individual agents)
+### Required YAML Frontmatter
 
-## Quick Reference - All 60 Agents
+All agent files MUST start with valid YAML frontmatter:
+
+```markdown
+---
+name: agent-name
+description: Brief description of agent capabilities  
+tools:
+- '*'
+infer: true
+---
+
+# Agent Title
+
+[Detailed agent instructions...]
+```
+
+### Frontmatter Fields
+
+| Field | Required | Type | Description |
+|-------|----------|------|-------------|
+| `name` | ✅ Yes | string | Agent identifier for `@agent-name` invocation |
+| `description` | ✅ Yes | string | Brief capability description shown in agent list |
+| `tools` | ✅ Yes | array | Tool permissions (`'*'` grants all tools) |
+| `infer` | Recommended | boolean | Allow inference (`true` recommended) |
+
+### File Requirements
+
+- **File Extension**: `.agent.md` (not `.yaml`, `.yml`, or plain `.md`)
+- **Location**: `.github/agents/[agent-name].agent.md`
+- **Minimum Lines**: 180 lines of comprehensive specifications
+- **Structure**: YAML frontmatter + Markdown content
+
+### Common Format Issues
+
+| Issue | Impact | Solution |
+|-------|--------|----------|
+| Missing `---` delimiter | Agent not loaded | Start file with `---` |
+| Missing `name:` field | Can't invoke agent | Add `name:` to frontmatter |
+| Invalid YAML syntax | Parsing error | Validate YAML (spaces, not tabs) |
+| Wrong file extension | Not discovered | Rename to `.agent.md` |
+
+## Quick Reference - All 61 Agents
 
 ### Core Infrastructure (3 agents)
 | Agent | Lines | Purpose |
