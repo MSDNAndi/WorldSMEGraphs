@@ -231,6 +231,104 @@ def validate_sections(content: str) -> List[PromptIssue]:
     
     return warnings
 
+def parse_multi_panel_prompts(content: str) -> List[Tuple[int, str]]:
+    """
+    Parse a multi-panel prompt file using === PANEL XX === delimiters.
+    Returns list of (panel_number, prompt_content) tuples.
+    
+    Added in v1.1.0 (PR #42) to properly validate multi-panel prompt files.
+    """
+    # Check for panel delimiters
+    if not re.search(r'(?:^|\n)={3,}.*PANEL\s*\d+', content, re.IGNORECASE):
+        return []  # Not a multi-panel file
+    
+    # Split on panel delimiters
+    sections = re.split(r'(?:^|\n)={3,}\s*PANEL\s*(\d+).*?(?:={3,})?\s*(?:\n|$)', 
+                       content, flags=re.IGNORECASE)
+    
+    # Process pairs of (panel_number, content)
+    panels = []
+    for i in range(1, len(sections) - 1, 2):
+        panel_num_str = sections[i]
+        prompt_text = sections[i + 1].strip() if i + 1 < len(sections) else ""
+        
+        if panel_num_str and prompt_text:
+            panel_num = int(panel_num_str)
+            panels.append((panel_num, prompt_text))
+    
+    return panels
+
+def validate_multi_panel_file(filepath: Path) -> List[PromptValidation]:
+    """
+    Validate a multi-panel prompt file.
+    Returns a list of PromptValidation results, one per panel.
+    """
+    try:
+        content = filepath.read_text(encoding='utf-8')
+    except Exception as e:
+        return [PromptValidation(
+            filename=filepath.name,
+            length=0,
+            passed=False,
+            errors=[PromptIssue('error', 'file', f"Cannot read file: {e}")],
+            warnings=[],
+            score=0
+        )]
+    
+    panels = parse_multi_panel_prompts(content)
+    
+    if not panels:
+        # Not a multi-panel file, return empty list
+        return []
+    
+    results = []
+    for panel_num, prompt_text in panels:
+        errors = []
+        warnings = []
+        
+        # Validate length
+        length_errors, length_warnings = validate_prompt_length(prompt_text)
+        errors.extend(length_errors)
+        warnings.extend(length_warnings)
+        
+        # Check for placeholders
+        placeholder_errors = validate_no_placeholders(prompt_text)
+        errors.extend(placeholder_errors)
+        
+        # Check for external references
+        external_warnings = validate_no_external_references(prompt_text)
+        warnings.extend(external_warnings)
+        
+        # Check for explicit detail
+        detail_warnings, explicitness_score = validate_explicit_detail(prompt_text)
+        warnings.extend(detail_warnings)
+        
+        # Check for recommended structure
+        structure_warnings = validate_sections(prompt_text)
+        warnings.extend(structure_warnings)
+        
+        # Calculate overall score
+        length_score = min(len(prompt_text) / TARGET_MIN_LENGTH * 50, 50)
+        quality_score = (explicitness_score / 100) * 50
+        total_score = length_score + quality_score
+        
+        # Deduct for errors
+        total_score -= len(errors) * 10
+        total_score = max(0, min(100, total_score))
+        
+        passed = len(errors) == 0
+        
+        results.append(PromptValidation(
+            filename=f"{filepath.name} → Panel {panel_num:02d}",
+            length=len(prompt_text),
+            passed=passed,
+            errors=errors,
+            warnings=warnings,
+            score=total_score
+        ))
+    
+    return results
+
 def validate_prompt_file(filepath: Path) -> PromptValidation:
     """Validate a single prompt file."""
     try:
@@ -383,9 +481,20 @@ Examples:
     
     results = []
     for prompt_file in sorted(prompt_files):
-        result = validate_prompt_file(prompt_file)
-        results.append(result)
-        print_validation_result(result, args.verbose)
+        # First, check if it's a multi-panel file
+        multi_panel_results = validate_multi_panel_file(prompt_file)
+        
+        if multi_panel_results:
+            # Multi-panel file: validate each panel separately
+            print(f"\n📁 Multi-panel file detected: {prompt_file.name} ({len(multi_panel_results)} panels)")
+            for result in multi_panel_results:
+                results.append(result)
+                print_validation_result(result, args.verbose)
+        else:
+            # Single prompt file
+            result = validate_prompt_file(prompt_file)
+            results.append(result)
+            print_validation_result(result, args.verbose)
     
     # Summary
     print("\n" + "="*70)
