@@ -216,6 +216,23 @@ carotid-artery-stenosis-v2/
 
 ---
 
+## Workflow Note
+
+> **Important**: This comic was created using an **older workflow** where panels were defined in the Story Idea phase and narrative was written per-panel.
+>
+> **For new comics**, use the **story-first workflow** documented in:
+> `.project/agents/image-generation/COMIC-STORY-WORKFLOW.md`
+>
+> **Correct workflow**:
+> 1. Story Idea (NO panels yet)
+> 2. Full Narrative (flowing prose, NO panel references)
+> 3. Panel Planning (decide panels AFTER story is written)
+> 4. Storyboard
+> 5. Prompts
+> 6. Images
+
+---
+
 **Target Completion**: All 40 images + comprehensive documentation  
 **Educational Impact**: Accessible, culturally relevant stroke prevention education  
 **Innovation**: Separated workflow emphasizes storytelling before visualization
