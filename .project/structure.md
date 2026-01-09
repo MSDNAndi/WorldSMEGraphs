@@ -141,10 +141,13 @@ WorldSMEGraphs/
 │   ├── agents/              # GitHub Copilot custom agent definitions (.agent.md)
 │   │   ├── recruiter.agent.md        # Format gatekeeper agent
 │   │   ├── coordinator.agent.md       # Workflow orchestration agent
-│   │   └── [52 other agents].agent.md # Specialized domain agents
+│   │   └── [59 other agents].agent.md # Specialized domain agents (61 total)
 │   ├── copilot/             # Copilot configuration
-│   │   ├── agents/          # Legacy agent utilities
 │   │   └── agent-kpis.md   # Agent performance tracking
+│   ├── scripts/             # Validation and utility scripts
+│   │   ├── validate-agent-format.sh  # Agent frontmatter validation
+│   │   ├── check-agent-lengths.sh    # Agent line count validation
+│   │   └── validate-structure.sh     # Project structure validation
 │   ├── workflows/           # GitHub Actions workflows
 │   └── copilot-instructions.md  # Main Copilot instructions
 │
@@ -205,13 +208,16 @@ WorldSMEGraphs/
 ### `.github/`
 GitHub-specific configuration including:
 - **agents/**: GitHub Copilot custom agent definitions (.agent.md format)
-  - All 53 agents in standardized format
+  - All 61 agents in standardized format (validated via validate-agent-format.sh)
   - **recruiter.agent.md**: Format gatekeeper and ecosystem curator
   - **coordinator.agent.md**: Multi-agent workflow orchestrator
   - Location per GitHub Copilot standards: `.github/agents/`
 - **copilot/**: Copilot configuration
-  - **agents/**: Legacy agent utilities and scripts
   - **agent-kpis.md**: Performance tracking for all agents
+- **scripts/**: Validation and utility scripts
+  - **validate-agent-format.sh**: Validates YAML frontmatter format
+  - **check-agent-lengths.sh**: Validates 180-line minimum
+  - **validate-structure.sh**: Validates project structure
 - **workflows/**: GitHub Actions for CI/CD and automation
 - **copilot-instructions.md**: Main instructions for Copilot
 

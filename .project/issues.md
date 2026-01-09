@@ -1,6 +1,6 @@
 # Open Issues and Blockers
 
-> **Last Updated**: 2026-01-06  
+> **Last Updated**: 2026-01-09  
 > **Purpose**: Track open issues, blockers, and problems needing resolution  
 > **Archives**: Resolved issues are archived in `.project/tracking/archived/`
 
@@ -23,6 +23,48 @@
 
 ### 🟡 Important Issues  
 *Should be addressed in current phase*
+
+#### Issue #5: Agent Documentation and Format Compliance
+**Status**: ✅ COMPLETE  
+**Created**: 2026-01-09  
+**Completed**: 2026-01-09T17:25:00.000Z  
+**Priority**: High  
+**Area**: Agent Infrastructure  
+**Assignee**: GitHub Copilot
+
+**Description**:
+Agents were not being utilized correctly due to format issues. Investigation needed to check agent parsing, validate against official GitHub Copilot documentation, and create comprehensive agent documentation.
+
+**Root Cause**:
+- `image-generation.agent.md` was missing required YAML frontmatter
+- Legacy script in `.github/copilot/agents/` was outdated (looking for .yml files)
+- Documentation needed updates with official format requirements
+
+**Completed Work**:
+- [x] Fixed `image-generation.agent.md` - added YAML frontmatter
+- [x] Created `docs/agents/AGENTS-GUIDE.md` - comprehensive 16KB guide
+- [x] Created `docs/agents/AGENT-SEGMENTATION-STRATEGY.md` - future scaling plans
+- [x] Created `AGENTS.md` at repository root (per AGENTS.md standard)
+- [x] Created `.github/scripts/validate-agent-format.sh` - format validation
+- [x] Updated `.github/agents/README.md` with format requirements
+- [x] Updated `.github/copilot-instructions.md` with troubleshooting
+- [x] Updated `docs/README.md` with agent documentation links
+- [x] Updated `.project/structure.md` with current counts (61 agents)
+- [x] Updated `.project/TODO-agent-fixes.md` - marked all issues resolved
+- [x] Removed legacy `.github/copilot/agents/check-agent-lengths.sh`
+
+**Validation**:
+- All 61 agents pass format validation
+- All 61 agents pass line count validation (180+ lines)
+- All agent names match their filenames
+
+**Documentation Created**:
+- `AGENTS.md` (repository root) - 5KB
+- `docs/agents/AGENTS-GUIDE.md` - 16KB
+- `docs/agents/AGENT-SEGMENTATION-STRATEGY.md` - 8KB
+- `.github/scripts/validate-agent-format.sh` - 4KB
+
+---
 
 #### Issue #4: Renders Infrastructure Refactoring
 **Status**: ✅ COMPLETE  
