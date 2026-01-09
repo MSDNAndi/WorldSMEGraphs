@@ -13,13 +13,14 @@
 - ❌ **"SESSION COMPLETE: [description]"** = ENDS session (only use at minute 50+)
 
 **SESSION WORKFLOW:**
-1. **IMMEDIATELY** run: `date -u +"%s"` and record start epoch
-2. Calculate target: start_epoch + 3000 (50 minutes in seconds)
-3. Work continuously, using **"Progress report:"** commits every 10-15 minutes
-4. After EACH "Progress report:" commit, **IMMEDIATELY** continue to next work item
-5. At minute 45+: Check if `current_epoch - start_epoch ≥ 3000`
-6. If < 3000: **KEEP WORKING** with more "Progress report:" commits
-7. If ≥ 3000: **NOW** create "SESSION COMPLETE:" commit (this ends session)
+1. **IMMEDIATELY** run: `uptime -s` to get system boot time (this is your start time)
+2. Run: `date -u +"%s"` to get current time and calculate elapsed since boot
+3. Calculate target: boot_time + 3000 (50 minutes in seconds)
+4. Work continuously, using **"Progress report:"** commits every 10-15 minutes
+5. After EACH "Progress report:" commit, **IMMEDIATELY** continue to next work item
+6. At minute 45+: Check if `current_time - boot_time ≥ 3000`
+7. If < 3000: **KEEP WORKING** with more "Progress report:" commits
+8. If ≥ 3000: **NOW** create "SESSION COMPLETE:" commit (this ends session)
 
 **NEVER:**
 - ❌ Use "SESSION COMPLETE", "FINAL", "DONE" in commits before 50 minutes
@@ -111,6 +112,10 @@ If you finish before 50 minutes, you have FAILED this session and violated proje
 - ❌ Stop working because you can't think of what to do next
 - ❌ End session early because "most of the work is done"
 - ❌ Commit and stop before checking if 50 minutes have elapsed
+- ❌ **Defer work to "the next session" or "future session"**
+- ❌ **Assume work is "too much for this session"**
+- ❌ **Plan to continue later instead of working now**
+- ❌ **Create implementation plans without implementing**
 
 **REMEMBER:**
 - ✅ Commits are checkpoints, NOT stopping points
@@ -118,14 +123,32 @@ If you finish before 50 minutes, you have FAILED this session and violated proje
 - ✅ Documentation can ALWAYS be improved
 - ✅ Code quality can ALWAYS be enhanced
 - ✅ If you can't find work, you're not looking hard enough
+- ✅ **Work towards the goal continuously - never defer to "next session"**
+- ✅ **Break large tasks into smaller pieces and start working**
+- ✅ **Make progress on the actual task, not just planning**
+- ✅ **All agents share the same 50-minute session (boot time)**
 
 ---
 
 #### Session Start (REQUIRED)
-1. **IMMEDIATELY** run: `date -u +"%Y-%m-%dT%H:%M:%S.%3NZ"` and record start time
-2. Calculate target end time (start + 50 minutes)
-3. Set session goals based on available time
-4. Document start time in session log
+
+**⚠️ CRITICAL: Use Boot Time as Start Time ⚠️**
+
+The session start time is the **boot time** of the initial agent/process. This time is **SHARED** across all agents including:
+- Main Copilot agent
+- Custom agents
+- Sub-agents
+- Recruited agents
+
+**DO NOT** reset the start time when delegating to agents. All agents share the same 50-minute session window.
+
+1. **IMMEDIATELY** run: `uptime -s` to get system boot time (your start time)
+2. Run: `date -u +"%s"` and `date -d "$(uptime -s)" +"%s"` to calculate time since boot
+3. Calculate target: boot_time + 3000 seconds (50 minutes)
+4. Set session goals based on available time
+5. Document boot time in session log
+6. **Pass boot time to all delegated agents** - they must use the same start time
+7. **IMPORTANT**: Use system boot time, NOT epoch time, as your session start
 
 #### During Work (Minute 0-48)
 
@@ -200,10 +223,12 @@ If you finish before 50 minutes, you have FAILED this session and violated proje
 #### Final Minutes (Minute 50+ ONLY)
 
 **⏱️ TIME CHECK REQUIRED:**
-1. Run: `date -u +"%s"` to get current epoch timestamp
-2. Calculate: current_epoch - start_epoch
-3. If result < 3000 seconds (50 minutes): **CONTINUE WORKING with "Progress report:" commits**
-4. If result ≥ 3000 seconds (50 minutes): **NOW you can create final commit**
+1. Run: `uptime -s` to get boot time
+2. Run: `date -u +"%s"` to get current epoch timestamp
+3. Run: `date -d "$(uptime -s)" +"%s"` to get boot epoch timestamp  
+4. Calculate: current_epoch - boot_epoch (this is time since boot in seconds)
+5. If result < 3000 seconds (50 minutes): **CONTINUE WORKING with "Progress report:" commits**
+6. If result ≥ 3000 seconds (50 minutes): **NOW you can create final commit**
 
 **ONLY when time ≥50 minutes:**
 - ✅ Create final commit with **"SESSION COMPLETE:"** prefix (this ENDS the session)
@@ -229,6 +254,46 @@ If you finish before 50 minutes, you have FAILED this session and violated proje
 8. **Structure optimization** (Clean up organization)
 
 **Rule**: If you cannot find 50 minutes of work, you are not looking hard enough. There is ALWAYS work to do.
+
+#### ⚠️ NEVER Defer Work to "Next Session" ⚠️
+
+**PROHIBITED BEHAVIORS:**
+- ❌ Creating "implementation plans" without implementing
+- ❌ Writing "TODO for next session" documentation
+- ❌ Stating "this is too much work for one session"
+- ❌ Deferring actual work to "future sessions"
+- ❌ Planning instead of doing
+- ❌ Creating frameworks without content
+- ❌ Estimating work hours as a reason to not start
+
+**REQUIRED BEHAVIORS:**
+- ✅ **Always work towards the goal** - start implementing immediately
+- ✅ **Break large tasks into chunks** - complete what you can in 50 minutes
+- ✅ **Make incremental progress** - partial completion is better than planning
+- ✅ **Find additional work** if you complete early
+- ✅ **Keep working** until 50 minutes elapsed
+
+**Example - WRONG:**
+```
+"This task requires 4 stories × 30 panels = 120 images, estimated 35-40 hours.
+Creating implementation plan for next session. Framework complete."
+```
+
+**Example - CORRECT:**
+```
+"Starting Story 1. Developed story idea (5 min). Writing narrative now (30 min target).
+Will create storyboard and generate first 8 images before session ends.
+Progress report: Story 1 narrative complete (7000 words, commit 9ef76f9).
+Progress report: Story 1 storyboard complete (35 panels, commit a1b2c3d).
+Progress report: Story 1 first 8 images generated (commit d4e5f6g)."
+```
+
+**Boot Time Across All Agents:**
+- Main agent boot time = session start time
+- Custom agents inherit same start time
+- Sub-agents share same 50-minute window
+- **DO NOT** reset timer when delegating work
+- All agents must complete work within shared 50-minute session
 
 ### Work Tracking System in .project/
 
