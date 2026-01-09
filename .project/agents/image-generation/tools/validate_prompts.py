@@ -34,7 +34,9 @@ try:
         RECOMMENDED_LENGTH,
         TARGET_MIN_LENGTH,
         TARGET_MAX_LENGTH,
-        EXPLICIT_INDICATORS
+        EXPLICIT_INDICATORS,
+        PANEL_DELIMITER_DETECT,
+        PANEL_DELIMITER_SPLIT,
     )
 except ImportError:
     # Fallback if constants file not available
@@ -52,6 +54,8 @@ except ImportError:
     TARGET_MIN_LENGTH = 8000
     TARGET_MAX_LENGTH = 20000
     EXPLICIT_INDICATORS = ["LEFT TO RIGHT", "clockwise", r"#[0-9A-Fa-f]{6}", r"\d+\s*px"]
+    PANEL_DELIMITER_DETECT = r'(?:^|\n)={3,}.*PANEL\s*\d+'
+    PANEL_DELIMITER_SPLIT = r'(?:^|\n)={3,}\s*PANEL\s*(\d+).*?(?:={3,})?\s*(?:\n|$)'
 
 @dataclass
 class PromptIssue:
@@ -239,14 +243,14 @@ def parse_multi_panel_prompts(content: str) -> List[Tuple[int, str]]:
     Returns list of (panel_number, prompt_content) tuples.
     
     Added in v1.1.0 (PR #42) to properly validate multi-panel prompt files.
+    Uses shared constants from workflow_constants.py.
     """
-    # Check for panel delimiters
-    if not re.search(r'(?:^|\n)={3,}.*PANEL\s*\d+', content, re.IGNORECASE):
+    # Check for panel delimiters using shared constant
+    if not re.search(PANEL_DELIMITER_DETECT, content, re.IGNORECASE):
         return []  # Not a multi-panel file
     
-    # Split on panel delimiters
-    sections = re.split(r'(?:^|\n)={3,}\s*PANEL\s*(\d+).*?(?:={3,})?\s*(?:\n|$)', 
-                       content, flags=re.IGNORECASE)
+    # Split on panel delimiters using shared constant
+    sections = re.split(PANEL_DELIMITER_SPLIT, content, flags=re.IGNORECASE)
     
     # Process pairs of (panel_number, content)
     panels = []
