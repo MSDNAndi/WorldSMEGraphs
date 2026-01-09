@@ -267,7 +267,10 @@ GitHub Copilot loads custom agents from `.github/agents/*.agent.md` files. The l
 ### Verification Script
 
 ```bash
-# Check all agents have valid frontmatter
+# Check all agents have valid frontmatter format
+bash .github/scripts/validate-agent-format.sh
+
+# Check all agents meet 180-line minimum
 bash .github/scripts/check-agent-lengths.sh
 ```
 
@@ -605,10 +608,10 @@ focusing on variables and equations
 
 ## Related Documentation
 
-- [Agent README](.github/agents/README.md) - Quick reference
-- [Agent KPIs](.github/copilot/agent-kpis.md) - Performance tracking
-- [Copilot Instructions](.github/copilot-instructions.md) - Main instructions
-- [Contributing Guide](docs/CONTRIBUTING.md) - Contribution guidelines
+- [Agent README](../../.github/agents/README.md) - Quick reference
+- [Agent KPIs](../../.github/copilot/agent-kpis.md) - Performance tracking
+- [Copilot Instructions](../../.github/copilot-instructions.md) - Main instructions
+- [Contributing Guide](../CONTRIBUTING.md) - Contribution guidelines
 
 ---
 
