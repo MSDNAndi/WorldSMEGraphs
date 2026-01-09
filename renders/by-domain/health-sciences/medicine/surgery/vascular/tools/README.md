@@ -8,6 +8,13 @@ This directory contains utility scripts for managing vascular surgery educationa
 
 **Purpose**: Automatically generate three viewing format markdown files for comic directories.
 
+**Features** (v1.1 - Updated 2026-01-09):
+- Scans for comic directories with `panels-gpt/` folders
+- Extracts panel images (deduplicates automatically)
+- **NEW**: Handles broken panel numbering (all `image_001_*`) using timestamp ordering
+- Reads `storyboard.json` for dialogue/captions when available
+- Generates three viewing formats
+
 **Usage**:
 ```bash
 python3 tools/generate_viewing_files.py
@@ -145,6 +152,12 @@ To add new tools:
 **Broken image links**:
 - Ensure relative paths are correct
 - Check image files exist in `panels-gpt/`
+
+**All panels show as "Panel 1"**:
+- This occurs when all images have `image_001_*` prefix (broken numbering)
+- The tool now automatically uses timestamp ordering as fallback
+- Look for message: "Note: All images numbered as panel 1, using timestamp order"
+- To fix permanently, regenerate images with proper `--output image_XX` parameter
 
 **Missing dialogue**:
 - Add `storyboard.json` if you want dialogue in continuous view
