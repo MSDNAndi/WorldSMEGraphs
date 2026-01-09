@@ -64,8 +64,76 @@
 
 ---
 
+![Panel 16](./panels-gpt/image_016_20260107_032838_347e09b6.png)
+
+---
+
+![Panel 17](./panels-gpt/image_017_20260107_032910_8fba2c10.png)
+
+---
+
+![Panel 18](./panels-gpt/image_018_20260107_032929_a056294f.png)
+
+---
+
+![Panel 19](./panels-gpt/image_019_20260107_032932_1fb33382.png)
+
+---
+
+![Panel 20](./panels-gpt/image_020_20260107_032932_ff9a0609.png)
+
+---
+
+![Panel 21](./panels-gpt/image_021_20260107_032936_c96b0794.png)
+
+---
+
+![Panel 22](./panels-gpt/image_022_20260107_032934_8e598900.png)
+
+---
+
+![Panel 23](./panels-gpt/image_023_20260107_032938_381acc2b.png)
+
+---
+
+![Panel 24](./panels-gpt/image_024_20260107_032939_3e7f100e.png)
+
+---
+
+![Panel 25](./panels-gpt/image_025_20260107_033013_2a678481.png)
+
+---
+
+![Panel 26](./panels-gpt/image_026_20260107_033029_deeced4a.png)
+
+---
+
+![Panel 27](./panels-gpt/image_027_20260107_033030_c3003531.png)
+
+---
+
+![Panel 28](./panels-gpt/image_028_20260107_033032_0d65df7a.png)
+
+---
+
+![Panel 29](./panels-gpt/image_029_20260107_033038_7da5d288.png)
+
+---
+
+![Panel 30](./panels-gpt/image_030_20260107_033044_186e6dc2.png)
+
+---
+
+![Panel 31](./panels-gpt/image_031_20260107_033040_2ba037a6.png)
+
+---
+
+![Panel 32](./panels-gpt/image_032_20260107_033035_0e56d247.png)
+
+---
+
 **Document Metadata:**
-- **Version**: 1.0
+- **Version**: 1.1
 - **Format**: Images-only viewer (no narrative text)
-- **Source**: Type 2 Endoleak Comic panels
+- **Source**: Type 2 Endoleak Comic panels (32 panels)
 - **License**: CC-BY-4.0
