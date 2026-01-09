@@ -24,28 +24,15 @@ generate_panel() {
     # Read prompt content (one file = one prompt)
     local prompt_content=$(cat "$PROMPTS_DIR/panel_${panel_num}.txt")
     
-    # Generate using --prompt flag (not --prompt-file to avoid line splitting issue)
+    # Generate using --prompt flag with proper output naming
+    # FIXED: Use --output for filename prefix, --output-dir for directory
     if timeout 90 python "$TOOL_PATH" \
         --prompt "$prompt_content" \
-        --output "$OUTPUT_DIR" \
+        --output "image_${panel_num}" \
+        --output-dir "$OUTPUT_DIR" \
         --aspect landscape \
-        --quality high 2>&1 | tee /tmp/panel_${panel_num}_output.log | grep -q "✓ Success"; then
+        --quality high 2>&1 | tee /tmp/panel_${panel_num}_output.log | grep -q "✓ Saved"; then
         echo "  ✅ Generated successfully!"
-        
-        # Rename the generated file to include proper panel number
-        latest_file=$(ls -t "$OUTPUT_DIR"/image_*.png 2>/dev/null | head -1)
-        if [ -n "$latest_file" ]; then
-            # Extract timestamp and hash from filename
-            timestamp=$(echo "$latest_file" | grep -oP '\d{8}_\d{6}')
-            hash=$(echo "$latest_file" | grep -oP '[a-f0-9]{8}\.png$' | sed 's/\.png//')
-            new_name="$OUTPUT_DIR/image_${panel_num}_${timestamp}_${hash}.png"
-            
-            if [ "$latest_file" != "$new_name" ]; then
-                mv "$latest_file" "$new_name" 2>/dev/null || true
-                echo "  ✓ Renamed to: image_${panel_num}_*.png"
-            fi
-        fi
-        
         return 0
     else
         echo "  ❌ Generation failed"

@@ -24,12 +24,17 @@ generate_panel() {
         return 0
     fi
     
+    # Read prompt content
+    local prompt_content=$(cat "$PROMPTS_DIR/panel_${panel_num}.txt")
+    
     while [ $retry_count -lt $max_retries ]; do
         echo "  🔄 Attempt $((retry_count + 1))/$max_retries..."
         
+        # FIXED: Use --output for filename prefix, --output-dir for directory
         if python "$TOOL_PATH" \
-            --prompt-file "$PROMPTS_DIR/panel_${panel_num}.txt" \
-            --output "$OUTPUT_DIR" \
+            --prompt "$prompt_content" \
+            --output "image_${panel_num}" \
+            --output-dir "$OUTPUT_DIR" \
             --aspect landscape \
             --quality high \
             2>&1 | grep -q "✓ Saved:"; then

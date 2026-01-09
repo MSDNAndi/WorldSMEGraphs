@@ -1049,11 +1049,59 @@ async def main():
     
     # Collect prompts
     prompts = []
+    panel_numbers = []  # Track panel numbers for proper output naming
+    
     if args.prompt:
         prompts.append(args.prompt)
+        panel_numbers.append(1)
     elif args.prompt_file:
         with open(args.prompt_file) as f:
-            prompts = [line.strip() for line in f if line.strip() and not line.startswith("#")]
+            content = f.read()
+        
+        # Check if file uses panel delimiters (multi-line prompts)
+        # Supports formats like "=== PANEL 01:" or "PANEL 1:" or "================\nPANEL 1"
+        if re.search(r'(?:^|\n)={3,}.*PANEL\s*\d+', content, re.IGNORECASE):
+            # Multi-panel file with === delimiters
+            print("📁 Detected multi-panel prompt file with delimiters")
+            
+            # Split on panel delimiters - returns [before, num1, content1, num2, content2, ...]
+            sections = re.split(r'(?:^|\n)={3,}\s*PANEL\s*(\d+).*?={0,}\s*(?:\n|$)', 
+                               content, flags=re.IGNORECASE)
+            
+            # Process pairs of (panel_number, content)
+            # sections[0] is content before first PANEL, skip it
+            # Then alternating: panel_num, content, panel_num, content...
+            for i in range(1, len(sections) - 1, 2):
+                panel_num_str = sections[i]
+                prompt_text = sections[i + 1].strip() if i + 1 < len(sections) else ""
+                
+                if panel_num_str and prompt_text:
+                    panel_num = int(panel_num_str)
+                    prompts.append(prompt_text)
+                    panel_numbers.append(panel_num)
+            
+            print(f"   Found {len(prompts)} panel prompts")
+        
+        elif re.search(r'\n\s*\n', content):
+            # Multi-line prompts separated by blank lines
+            print("📁 Detected prompts separated by blank lines")
+            sections = re.split(r'\n\s*\n', content)
+            for idx, section in enumerate(sections):
+                section = section.strip()
+                if section and not section.startswith('#'):
+                    prompts.append(section)
+                    panel_numbers.append(idx + 1)
+        
+        else:
+            # Single-line prompts (one per line) - original behavior
+            lines = [line.strip() for line in content.split('\n') 
+                     if line.strip() and not line.startswith("#")]
+            prompts = lines
+            panel_numbers = list(range(1, len(lines) + 1))
+    
+    if not prompts:
+        print("Error: No prompts found", file=sys.stderr)
+        return 1
     
     # Enhance prompts if requested (RECOMMENDED for best results)
     if args.enhance:
@@ -1100,13 +1148,16 @@ async def main():
     # Build configs for all prompts
     configs = []
     for i, prompt in enumerate(prompts):
+        # Use panel number from file parsing, or default to sequential numbering
+        panel_num = panel_numbers[i] if i < len(panel_numbers) else i + 1
+        
         config = GenerationConfig(
             prompt=prompt,
             aspect_ratio=aspect_map[args.aspect],
             quality=quality_map[args.quality],
             n_variations=args.variations,
             output_dir=args.output_dir,
-            output_prefix=Path(args.output).stem if args.output else f"image_{i+1:03d}",
+            output_prefix=Path(args.output).stem if args.output else f"image_{panel_num:03d}",
             output_format=args.format,
             background=args.background,
             max_retries=args.max_retries,
