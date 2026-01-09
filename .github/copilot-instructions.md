@@ -388,6 +388,20 @@ renders/                                    # Centralized rendered content (move
 
 See `.github/agents/` for specialized agent configurations (all use `.agent.md` format per GitHub Copilot standards)
 
+**Documentation:**
+- [AGENTS-GUIDE.md](docs/agents/AGENTS-GUIDE.md) - Comprehensive agent documentation
+- [AGENT-SEGMENTATION-STRATEGY.md](docs/agents/AGENT-SEGMENTATION-STRATEGY.md) - Future scaling plans
+- [.github/agents/README.md](.github/agents/README.md) - Quick reference and format info
+
+**Validation:**
+```bash
+# Validate agent format
+bash .github/scripts/validate-agent-format.sh
+
+# Check agent line counts
+bash .github/scripts/check-agent-lengths.sh
+```
+
 ### How to Invoke Agents
 
 Agents are invoked using the `@agent-name` syntax followed by specific instructions:
@@ -846,6 +860,21 @@ If stuck or uncertain:
 
 ## Common Pitfalls and Troubleshooting
 
+### Agent Loading Issues
+- **Problem**: Agent not recognized when using `@agent-name`
+  - **Check 1**: Verify file exists in `.github/agents/agent-name.agent.md`
+  - **Check 2**: Ensure file starts with `---` (YAML frontmatter delimiter)
+  - **Check 3**: Confirm `name:` field in frontmatter matches the invocation name
+  - **Check 4**: Ensure file extension is exactly `.agent.md`
+  - **Validation**: Run `bash .github/scripts/validate-agent-format.sh`
+
+### Agent Format Issues
+- **Problem**: Agent loads but with wrong metadata or behavior
+  - **Solution**: Check YAML frontmatter syntax (no tabs, proper indentation)
+  - **Required Fields**: `name:`, `description:`, `tools:`
+  - **Common Fix**: Ensure frontmatter ends with `---` on its own line
+  - **Validation**: Run format validation script to identify issues
+
 ### Agent Invocation Issues
 - **Problem**: Agent doesn't respond as expected
   - **Solution**: Ensure you're using the correct `@agent-name` format
@@ -910,7 +939,10 @@ python .project/agents/quality-assurance/tools/validate_aku.py path/to/aku.json
 # Validate cross-domain linking
 python domain/_ontology/tools/validate_cross_domain.py path/to/aku.json
 
-# Check agent quality
+# Check agent format (frontmatter validation)
+bash .github/scripts/validate-agent-format.sh
+
+# Check agent line counts
 bash .github/scripts/check-agent-lengths.sh
 
 # Validate project structure
