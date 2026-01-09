@@ -117,7 +117,7 @@ What creates urgency or emotional connection?]
 
 **Status**: Story Concept Complete  
 **Next Step**: Write full narrative in `02-narrative.md`  
-**Created**: {datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.000Z')}
+**Created**: {datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'}
 '''
 
 
@@ -316,7 +316,7 @@ For educational use.
 
 ---
 
-**Created**: {datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.000Z')}  
+**Created**: {datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'}  
 **Workflow**: Story-first approach (COMIC-STORY-WORKFLOW.md)
 '''
 
