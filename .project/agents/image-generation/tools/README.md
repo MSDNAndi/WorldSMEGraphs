@@ -1,13 +1,13 @@
 # GPT Image 1.5 Generation Tool
 
-> **Version**: 2.0.0  
+> **Version**: 2.1.0  
 > **Created**: 2026-01-04  
-> **Updated**: 2026-01-04  
+> **Updated**: 2026-01-09  
 > **Author**: WorldSMEGraphs Image Generation Agent
 
 A robust Python tool for generating images using GPT Image 1.5 via Azure AI Foundry.
 
-## Features (v2.0)
+## Features (v2.1)
 
 - ✅ **PARALLEL Generation**: Generate multiple images concurrently (respects rate limits)
 - ✅ **LINEAR Backoff**: Smart linear backoff (not exponential) when rate limited
@@ -18,6 +18,38 @@ A robust Python tool for generating images using GPT Image 1.5 via Azure AI Foun
 - ✅ **Multiple Variations**: Generate multiple image variations in one call
 - ✅ **Auto Git Tracking**: Automatically adds generated images to source control
 - ✅ **Comprehensive Logging**: Detailed output for debugging and monitoring
+- ✅ **Multi-Panel Prompt Parsing** (NEW in v2.1): Automatic parsing of `=== PANEL XX ===` delimiters
+
+## What's New in v2.1 (PR #42 Fixes)
+
+### Multi-Panel Prompt File Support
+
+The tool now automatically detects and parses multi-panel prompt files:
+
+**Format**:
+```text
+=== PANEL 01: First Scene ===
+
+[Your complete 8K+ character prompt here]
+All the details, colors, positioning...
+
+=== PANEL 02: Second Scene ===
+
+[Your complete 8K+ character prompt here]
+...
+```
+
+**Benefits**:
+- Each panel's prompt can be multi-line (8K-20K characters)
+- Panel numbers are extracted for proper output file naming (`image_001_*`, `image_002_*`, etc.)
+- No need to split prompts into separate files for each panel
+
+**Usage**:
+```bash
+python gpt_image_generator.py --prompt-file prompts-all-panels.txt --output-dir panels/ --parallel 5
+```
+
+**Detection**: The tool auto-detects the format based on `=== PANEL XX ===` pattern. Falls back to single-line prompts if no delimiters found.
 
 ## Prerequisites
 
@@ -210,6 +242,7 @@ The tool handles common errors:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.0 | 2026-01-09 | Multi-panel prompt parsing (`=== PANEL XX ===` delimiters), panel number extraction for output naming |
 | 2.0.0 | 2026-01-04 | PARALLEL generation, LINEAR backoff, rate tracking, super explicit prompts |
 | 1.0.0 | 2026-01-04 | Initial release |
 
