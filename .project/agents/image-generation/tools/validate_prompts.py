@@ -4,17 +4,19 @@ Prompt Completeness Validation
 ===============================
 
 Validates that image generation prompts are complete and self-contained
-according to the standards learned from PR #36 and PR #38.
+according to the standards learned from PR #36, PR #38, and PR #42.
 
 Checks for:
 - Sufficient length (target 8K-20K characters)
 - No placeholder text
 - No external references
 - Super explicit directions and specifications
+- Multi-panel prompt file support (=== PANEL XX === delimiters)
 
 Author: WorldSMEGraphs Image Generation Specialist
-Version: 1.0.0
+Version: 1.1.0
 Created: 2026-01-08
+Updated: 2026-01-09 (Added multi-panel prompt file validation)
 """
 
 import sys

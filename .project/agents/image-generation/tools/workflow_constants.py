@@ -6,8 +6,9 @@ Common constants used across workflow validation tools to ensure
 consistent validation criteria.
 
 Author: WorldSMEGraphs Image Generation Specialist
-Version: 1.0.0
+Version: 1.1.0
 Created: 2026-01-08
+Updated: 2026-01-09 (Added multi-panel and image filename patterns)
 """
 
 # Placeholder keywords that indicate incomplete prompts
@@ -58,3 +59,13 @@ EXPLICIT_INDICATORS = [
     r"at\s+x=\d+",  # Position coordinates
     r"centered at",
 ]
+
+# Multi-panel prompt file patterns (regex)
+# Used to detect and parse files with === PANEL XX === delimiters
+PANEL_DELIMITER_DETECT = r'(?:^|\n)={3,}.*PANEL\s*\d+'
+PANEL_DELIMITER_SPLIT = r'(?:^|\n)={3,}\s*PANEL\s*(\d+).*?(?:={3,})?\s*(?:\n|$)'
+
+# Image filename patterns (regex)
+# Standard format: image_XXX_YYYYMMDD_HHMMSS_HASHCODE.png
+IMAGE_FILENAME_PATTERN = r'image_(\d+)_(\d{8}_\d{6})_([a-f0-9]+)\.png'
+IMAGE_HASH_EXTRACT = r'image_\d+_\d{8}_\d{6}_([a-f0-9]+)'
