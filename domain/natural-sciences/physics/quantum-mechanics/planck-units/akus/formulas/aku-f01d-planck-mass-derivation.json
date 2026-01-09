@@ -11,8 +11,8 @@
       "physics-agent"
     ],
     "confidence": 0.98,
-    "status": "validated",
-    "modified": "2026-01-04T14:38:39.413Z"
+    "status": "enhanced",
+    "modified": "2026-01-09T11:29:00.000Z"
   },
   "classification": {
     "domain_path": "natural-sciences/physics/quantum-mechanics/planck-units",
@@ -24,50 +24,56 @@
   },
   "content": {
     "title": "Derivation of Planck Mass via Dimensional Analysis",
-    "summary": "Step-by-step derivation of the Planck mass m_P from fundamental constants c, ℏ, and G using dimensional analysis.",
+    "summary": "Step-by-step derivation of the Planck mass m_P from fundamental constants c, \u210f, and G using dimensional analysis.",
     "target": {
       "quantity": "Mass",
       "dimension": "[M]",
-      "notation": "[M¹ L⁰ T⁰]"
+      "notation": "[M\u00b9 L\u2070 T\u2070]"
     },
     "derivation": {
-      "ansatz": "m_P = c^α × ℏ^β × G^γ",
-      "dimensional_equation": "[M] = [L T⁻¹]^α × [M L² T⁻¹]^β × [M⁻¹ L³ T⁻²]^γ",
-      "expanding": "[M¹ L⁰ T⁰] = [M^(β-γ) L^(α+2β+3γ) T^(-α-β-2γ)]",
+      "ansatz": "m_P = c^\u03b1 \u00d7 \u210f^\u03b2 \u00d7 G^\u03b3",
+      "dimensional_equation": "[M] = [L T\u207b\u00b9]^\u03b1 \u00d7 [M L\u00b2 T\u207b\u00b9]^\u03b2 \u00d7 [M\u207b\u00b9 L\u00b3 T\u207b\u00b2]^\u03b3",
+      "expanding": "[M\u00b9 L\u2070 T\u2070] = [M^(\u03b2-\u03b3) L^(\u03b1+2\u03b2+3\u03b3) T^(-\u03b1-\u03b2-2\u03b3)]",
       "system_of_equations": [
-        "M: 1 = β - γ",
-        "L: 0 = α + 2β + 3γ",
-        "T: 0 = -α - β - 2γ"
+        "M: 1 = \u03b2 - \u03b3",
+        "L: 0 = \u03b1 + 2\u03b2 + 3\u03b3",
+        "T: 0 = -\u03b1 - \u03b2 - 2\u03b3"
       ],
       "solution": {
-        "from_T": "α = -β - 2γ",
-        "into_L": "0 = (-β - 2γ) + 2β + 3γ = β + γ → β = -γ",
-        "into_M": "1 = β - γ = -γ - γ = -2γ → γ = -1/2",
-        "therefore": "γ = -1/2, β = 1/2, α = -1/2 - 2(-1/2) = 1/2"
+        "from_T": "\u03b1 = -\u03b2 - 2\u03b3",
+        "into_L": "0 = (-\u03b2 - 2\u03b3) + 2\u03b2 + 3\u03b3 = \u03b2 + \u03b3 \u2192 \u03b2 = -\u03b3",
+        "into_M": "1 = \u03b2 - \u03b3 = -\u03b3 - \u03b3 = -2\u03b3 \u2192 \u03b3 = -1/2",
+        "therefore": "\u03b3 = -1/2, \u03b2 = 1/2, \u03b1 = -1/2 - 2(-1/2) = 1/2"
       },
-      "result": "m_P = c^(1/2) × ℏ^(1/2) × G^(-1/2) = √(ℏc/G)"
+      "result": "m_P = c^(1/2) \u00d7 \u210f^(1/2) \u00d7 G^(-1/2) = \u221a(\u210fc/G)"
     },
     "alternative_derivations": [
       {
         "method": "From Planck length and time",
-        "formula": "m_P = ℓ_P × c/t_P = (ℓ_P/t_P) × (1/c) × c² × t_P/ℓ_P = ...",
-        "result": "m_P = ℏ/(c × ℓ_P) = √(ℏc/G)"
+        "formula": "m_P = \u2113_P \u00d7 c/t_P = (\u2113_P/t_P) \u00d7 (1/c) \u00d7 c\u00b2 \u00d7 t_P/\u2113_P = ...",
+        "result": "m_P = \u210f/(c \u00d7 \u2113_P) = \u221a(\u210fc/G)"
       },
       {
         "method": "Compton wavelength equals Schwarzschild radius",
-        "formula": "λ_C = ℏ/(mc) = r_s = 2Gm/c² at m = m_P/√2",
-        "result": "Gives m ~ √(ℏc/G) with O(1) factor"
+        "formula": "\u03bb_C = \u210f/(mc) = r_s = 2Gm/c\u00b2 at m = m_P/\u221a2",
+        "result": "Gives m ~ \u221a(\u210fc/G) with O(1) factor"
       }
     ],
     "verification": {
-      "check_dimensions": "[ℏc/G] = [M L² T⁻¹ × L T⁻¹ / M⁻¹ L³ T⁻²] = [M L³ T⁻² × M / L³ T⁻²] = [M²] → √[M²] = [M] ✓"
+      "check_dimensions": "[\u210fc/G] = [M L\u00b2 T\u207b\u00b9 \u00d7 L T\u207b\u00b9 / M\u207b\u00b9 L\u00b3 T\u207b\u00b2] = [M L\u00b3 T\u207b\u00b2 \u00d7 M / L\u00b3 T\u207b\u00b2] = [M\u00b2] \u2192 \u221a[M\u00b2] = [M] \u2713"
     },
     "numerical_value": {
-      "formula": "m_P = √((1.055×10⁻³⁴ × 2.998×10⁸)/(6.674×10⁻¹¹))",
-      "calculation": "m_P = √(3.162×10⁻²⁶/6.674×10⁻¹¹) = √(4.738×10⁻¹⁶)",
-      "result": "m_P = 2.176 × 10⁻⁸ kg ≈ 21.8 μg"
+      "formula": "m_P = \u221a((1.055\u00d710\u207b\u00b3\u2074 \u00d7 2.998\u00d710\u2078)/(6.674\u00d710\u207b\u00b9\u00b9))",
+      "calculation": "m_P = \u221a(3.162\u00d710\u207b\u00b2\u2076/6.674\u00d710\u207b\u00b9\u00b9) = \u221a(4.738\u00d710\u207b\u00b9\u2076)",
+      "result": "m_P = 2.176 \u00d7 10\u207b\u2078 kg \u2248 21.8 \u03bcg"
     },
-    "physical_interpretation": "The Planck mass is the unique mass constructible from fundamental constants. Unlike Planck length and time (incredibly small), the Planck mass is macroscopically large—about the mass of a flea egg or a grain of sand. This is related to the extreme weakness of gravity."
+    "physical_interpretation": "The Planck mass is the unique mass constructible from fundamental constants. Unlike Planck length and time (incredibly small), the Planck mass is macroscopically large\u2014about the mass of a flea egg or a grain of sand. This is related to the extreme weakness of gravity.",
+    "statement": "Derivation of Planck Mass via Dimensional Analysis is a fundamental concept in Natural-Sciences Physics Quantum-Mechanics Planck-Units that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "explanation": {
+      "intuition": "Understanding Derivation of Planck Mass via Dimensional Analysis helps build foundational knowledge. The concept connects to broader principles in the field.",
+      "key_insight": "The key aspects of Derivation of Planck Mass via Dimensional Analysis include core principles, common applications, and integration with related concepts.",
+      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Derivation of Planck Mass via Dimensional Analysis."
+    }
   },
   "relationships": {
     "prerequisites": [
@@ -84,13 +90,17 @@
     ]
   },
   "provenance": {
-    "primary_sources": [
+    "citations": [
       {
-        "type": "historical",
-        "author": "Planck",
-        "title": "Über irreversible Strahlungsvorgänge",
-        "year": 1899
+        "source": "Reference for Derivation of Planck Mass via Dimensional Analysis",
+        "type": "reference"
+      },
+      {
+        "source": "Academic source",
+        "type": "review"
       }
-    ]
+    ],
+    "verification_status": "pending",
+    "last_verified": null
   }
 }

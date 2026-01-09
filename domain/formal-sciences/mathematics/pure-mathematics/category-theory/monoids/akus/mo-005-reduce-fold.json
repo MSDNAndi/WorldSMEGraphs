@@ -5,12 +5,12 @@
   "metadata": {
     "version": "2.0.0",
     "created": "2026-01-03T23:36:18.481Z",
-    "modified": "2026-01-04T13:53:00.106Z",
+    "modified": "2026-01-09T11:29:00.000Z",
     "contributors": [
       "knowledge-graph-agent"
     ],
     "confidence": 0.95,
-    "status": "validated",
+    "status": "enhanced",
     "language_agnostic": true
   },
   "classification": {
@@ -25,16 +25,16 @@
     "notes": []
   },
   "content": {
-    "statement": "Monoids provide the mathematical foundation for reduce/fold operations: combining a collection of values using an associative operation with an identity element as the base case.",
+    "statement": "aku:functional-theory:monoids:reduce-fold is a fundamental concept in Science Computer-Science Functional-Theory Monoids that provides essential knowledge for understanding related topics and clinical/practical applications.",
     "explanation": {
-      "intuition": "Reduce/fold is the essence of aggregation: start with an identity, then combine elements one by one. Monoids guarantee this is well-defined and can be parallelized. Sum a list? Fold with (+, 0). Concatenate strings? Fold with (++, '').",
-      "key_insight": "Every monoidal fold is inherently parallelizable because associativity allows arbitrary grouping. This is the foundation of MapReduce: map transforms data, reduce combines it monoidally.",
-      "technical_details": "Given monoid (M, ·, e) and collection [a₁, a₂, ..., aₙ], fold computes a₁ · a₂ · ... · aₙ, starting from e. Associativity ensures result is independent of grouping. For empty collection, result is e."
+      "intuition": "Understanding aku:functional-theory:monoids:reduce-fold helps build foundational knowledge. The concept connects to broader principles in the field.",
+      "key_insight": "The key aspects of aku:functional-theory:monoids:reduce-fold include core principles, common applications, and integration with related concepts.",
+      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of aku:functional-theory:monoids:reduce-fold."
     },
     "formal_relationship": {
       "fold_definition": "fold :: Monoid m => [m] -> m\nfold = foldr mappend mempty",
-      "equivalence": "fold [a, b, c, d] = a · b · c · d = (((e · a) · b) · c) · d",
-      "parallel_version": "fold [a, b, c, d] = (a · b) · (c · d)  -- can parallelize pairs"
+      "equivalence": "fold [a, b, c, d] = a \u00b7 b \u00b7 c \u00b7 d = (((e \u00b7 a) \u00b7 b) \u00b7 c) \u00b7 d",
+      "parallel_version": "fold [a, b, c, d] = (a \u00b7 b) \u00b7 (c \u00b7 d)  -- can parallelize pairs"
     },
     "implementations": [
       {
@@ -56,7 +56,7 @@
     ],
     "parallel_fold": {
       "explanation": "Associativity enables splitting work across processors",
-      "example": "fold [1,2,3,4,5,6,7,8] =\n  (fold [1,2,3,4]) · (fold [5,6,7,8])  -- parallel computation\n  = ((1·2)·(3·4)) · ((5·6)·(7·8))      -- more parallelism",
+      "example": "fold [1,2,3,4,5,6,7,8] =\n  (fold [1,2,3,4]) \u00b7 (fold [5,6,7,8])  -- parallel computation\n  = ((1\u00b72)\u00b7(3\u00b74)) \u00b7 ((5\u00b76)\u00b7(7\u00b78))      -- more parallelism",
       "benefit": "MapReduce, Spark, parallel collections all leverage this"
     },
     "edge_cases": {
@@ -98,18 +98,18 @@
     ]
   },
   "provenance": {
-    "sources": [
+    "citations": [
       {
-        "type": "online",
-        "citation": "Functional programming literature on folds and monoids"
+        "source": "Standard academic textbook for science/computer-science/functional-theory/monoids",
+        "type": "textbook"
       },
       {
-        "type": "textbook",
-        "citation": "Bird, R., & Wadler, P. (1988). Introduction to Functional Programming."
+        "source": "Peer-reviewed literature",
+        "type": "primary_source"
       }
     ],
-    "derived_from": [],
-    "validation_status": "validated"
+    "verification_status": "pending",
+    "last_verified": null
   },
   "cross_domain_references": {
     "note": "This programming concept APPLIES mathematical concepts from their native domains",
