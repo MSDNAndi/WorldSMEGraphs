@@ -67,7 +67,7 @@ infer: true
 | Invalid YAML syntax | Parsing error | Validate YAML (spaces, not tabs) |
 | Wrong file extension | Not discovered | Rename to `.agent.md` |
 
-## Quick Reference - All 60 Agents
+## Quick Reference - All 61 Agents
 
 ### Core Infrastructure (3 agents)
 | Agent | Lines | Purpose |

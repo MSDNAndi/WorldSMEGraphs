@@ -556,7 +556,7 @@ This automated script checks for:
 - Required directories exist
 - Essential files present
 - Validation scripts available
-- Agent files present (60 agents)
+- Agent files present (61 agents)
 - Domain structure correct
 
 **Manual Validation:**
