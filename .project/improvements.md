@@ -235,6 +235,30 @@ Support rendering in 10+ languages beyond English and German.
 
 ## Medium Impact Improvements
 
+### 📈 IMP-016: Consolidate Regex Patterns Across Tools
+**Category**: Code Quality  
+**Impact**: Medium  
+**Effort**: Low  
+**Priority**: Phase 2
+**Created**: 2026-01-09
+
+**Description**:
+Several tools use hardcoded regex patterns that duplicate constants defined in `workflow_constants.py`. Consolidate these for maintainability.
+
+**Files to Update**:
+- `gpt_image_generator.py` - Import PANEL_DELIMITER_DETECT, PANEL_DELIMITER_SPLIT
+- `generate_viewing_files.py` - Import IMAGE_FILENAME_PATTERN, IMAGE_HASH_EXTRACT
+
+**Benefits**:
+- Single source of truth for patterns
+- Easier to update patterns consistently
+- Reduced duplication
+- Better testability
+
+**See**: Code review comments from PR #42
+
+---
+
 ### 📈 IMP-004: Interactive AKU Editor
 **Category**: Developer Tools  
 **Impact**: Medium  
