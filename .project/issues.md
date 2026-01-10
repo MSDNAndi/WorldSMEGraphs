@@ -17,6 +17,68 @@
 ### 🔴 Critical Blockers
 *Issues preventing progress on critical work*
 
+#### Issue #6: Systematic Wikidata Q1 Error Across 2,743 AKUs 🚨
+**Status**: 🔴 CRITICAL - OPEN  
+**Created**: 2026-01-10  
+**Priority**: P0 (Immediate)  
+**Area**: Data Quality / Semantic Web  
+**Assignee**: TBD  
+**Discovered by**: fact-checking-agent
+
+**Description**:
+Systematic error discovered where 2,743 AKUs incorrectly reference Wikidata entity Q1 ("Universe") in their `skos:exactMatch` field. This causes complete failure of semantic web integration, as all affected AKUs link to the wrong concept.
+
+**Impact**:
+- ❌ Semantic web integration BROKEN for 2,743 AKUs
+- ❌ Knowledge graph cannot be published
+- ❌ RDF/SPARQL queries return incorrect results
+- ❌ External validation tools flag as errors
+- ❌ Damages project credibility
+
+**Root Cause**:
+Appears to be template/generation error that used Q1 as placeholder value and was never corrected during bulk AKU creation.
+
+**Scope by Domain**:
+- Economics/Macroeconomics: ~50 AKUs (8 fixed, 42 remaining)
+- Medicine: ~1000+ AKUs (estimated)
+- Natural Sciences: ~500+ AKUs (estimated)
+- Formal Sciences: ~200+ AKUs (estimated)
+- Engineering/Other: ~1000+ AKUs (estimated)
+
+**Fixes Completed** (Session 2026-01-10):
+- [x] macro-001-gdp.json: Q1 → Q12638 (GDP)
+- [x] macro-003-inflation.json: Q1 → Q179174 (Inflation)
+- [x] macro-002-gdp-components.json: Q1 → Q186039 (GDP component)
+- [x] macro-004-cpi.json: Q1 → Q181865 (CPI)
+- [x] macro-007-business-cycles.json: Q1 → Q221395 (Business cycle)
+- [x] macro-008-recession.json: Q1 → Q176494 (Recession)
+- [x] macro-009-aggregate-demand.json: Q1 → Q4691546 (Aggregate demand)
+- [x] Created comprehensive issue documentation
+
+**Remaining Work**:
+- [ ] Fix remaining ~42 macroeconomics AKUs (P0)
+- [ ] Fix ~1000+ medicine AKUs (P0)
+- [ ] Develop automated Wikidata lookup tool (P1)
+- [ ] Create domain-specific mapping heuristics (P1)
+- [ ] Fix remaining ~1600+ AKUs across all domains (P2)
+
+**Action Items**:
+1. **Immediate (P0)**: Fix all economics macroeconomics AKUs manually
+2. **This Week**: Develop automation for Wikidata entity lookup
+3. **Next Sprint**: Systematic correction by domain priority
+4. **Prevention**: Add Q1 validation rule to AKU validator
+
+**Documentation**:
+- Full report: `domain/economics/macroeconomics/akus/CRITICAL-SYSTEMATIC-WIKIDATA-Q1-ERROR.md`
+- Fact-check report: `domain/economics/macroeconomics/akus/FACT-CHECK-REPORT-macro-001-gdp.md`
+
+**Related Commits**:
+- 3981f38: GDP fact-checking (Q1 → Q12638)
+- 3f07c60: Inflation fact-checking (Q1 → Q179174)
+- 2ef30dd: 5 macro AKUs systematic fix
+
+---
+
 **None currently** ✅
 
 ---

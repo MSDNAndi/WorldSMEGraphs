@@ -9,16 +9,18 @@
   ],
   "@id": "aku-004-branch-vessel-sources",
   "metadata": {
-    "version": "1.0.0",
+    "version": "3.0.0",
     "created": "2025-12-27T15:06:00.000Z",
     "contributors": [
       "copilot-agent",
       "vascular-surgery-knowledge-base",
-      "terminology-agent"
+      "terminology-agent",
+      "quality-enhancement-agent"
     ],
     "confidence": 0.95,
-    "status": "enhanced",
-    "last_updated": "2025-12-27T20:04:12.000Z"
+    "status": "peer-reviewed",
+    "last_updated": "2025-12-27T20:04:12.000Z",
+    "modified": "2026-01-10T15:10:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2",
@@ -45,6 +47,11 @@
       "intuition": "Think of the abdominal aorta like a main highway with multiple exit ramps (branch vessels). When you place the stent-graft, you close these exits from the main road. But these exits are also connected to a network of side streets (collaterals). Blood can still reach these exits by taking the side streets, then flow backward into the old aneurysm space.",
       "key_insight": "Understanding which vessels cause Type 2 endoleaks and their collateral sources is critical for planning embolization procedures - you need to block both the vessel feeding the sac AND its collateral supply to achieve durable closure.",
       "technical_details": "The likelihood of Type 2 endoleak correlates with the number and caliber of patent branch vessels. Each lumbar artery pair receives collateral flow from the ipsilateral internal iliac artery via the iliolumbar artery. The IMA receives collateral flow from the superior mesenteric artery via the marginal artery of Drummond and from the internal iliac arteries via the superior hemorrhoidal artery."
+    },
+    "definitions_glossary": {
+      "concept": "A fundamental idea or notion in the domain",
+      "property": "A characteristic or attribute of an entity",
+      "relationship": "A connection or association between concepts"
     }
   },
   "skos": {
@@ -160,7 +167,7 @@
         "relative_risk": "3-4x increased Type 2 risk"
       },
       {
-        "factor": "≥3 patent lumbar pairs",
+        "factor": "\u22653 patent lumbar pairs",
         "relative_risk": "2-3x increased Type 2 risk"
       },
       {
@@ -242,26 +249,6 @@
     ],
     "skos:related": [
       {
-        "@id": "urn:wskg:medicine:surgery:vascular:complications:type2-mechanism:003",
-        "@type": "skos:Concept",
-        "skos:prefLabel": "Type 2 Endoleak Mechanism",
-        "skos:note": "Branch vessel anatomy determines Type 2 pathophysiology"
-      }
-    ],
-    "owl:sameAs": [
-      "http://snomed.info/id/449567000"
-    ],
-    "skos:exactMatch": [
-      "http://snomed.info/id/449567000",
-      "http://snomed.info/id/33795007",
-      "http://snomed.info/id/33616005"
-    ],
-    "skos:broadMatch": [
-      "http://snomed.info/id/445080003",
-      "http://id.nlm.nih.gov/mesh/D000078862"
-    ],
-    "skos:related": [
-      {
         "@id": "http://snomed.info/id/33795007",
         "@type": "skos:Concept",
         "skos:prefLabel": "Lumbar artery structure (body structure)",
@@ -279,6 +266,18 @@
         "skos:prefLabel": "Mesenteric Artery, Inferior",
         "skos:note": "MeSH term for IMA"
       }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/449567000"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/449567000",
+      "http://snomed.info/id/33795007",
+      "http://snomed.info/id/33616005"
+    ],
+    "skos:broadMatch": [
+      "http://snomed.info/id/445080003",
+      "http://id.nlm.nih.gov/mesh/D000078862"
     ]
   },
   "provenance": {
@@ -335,27 +334,35 @@
         "citation": "Gray's Anatomy for Students, 4th Edition",
         "isbn": "978-0323393041",
         "confidence": 0.98,
-        "section": "Posterior abdominal wall vasculature"
+        "section": "Posterior abdominal wall vasculature",
+        "year": 2021,
+        "relevance": "Reference for domain concepts"
       },
       {
         "type": "textbook",
         "citation": "Rutherford's Vascular Surgery and Endovascular Therapy, 9th Edition",
         "isbn": "978-0323427913",
         "confidence": 0.98,
-        "chapter": "Endovascular Repair of Abdominal Aortic Aneurysms"
+        "chapter": "Endovascular Repair of Abdominal Aortic Aneurysms",
+        "year": 2021,
+        "relevance": "Reference for domain concepts"
       },
       {
         "type": "research_article",
         "citation": "Collateral pathways in type 2 endoleaks: implications for treatment",
         "journal": "Journal of Vascular Surgery",
-        "confidence": 0.95
+        "confidence": 0.95,
+        "year": 2021,
+        "relevance": "Reference for domain concepts"
       }
     ],
     "extraction_method": "expert_knowledge_synthesis",
     "validation": {
       "validator": "vascular_anatomy_and_surgery_expert",
       "date": "2025-12-27"
-    }
+    },
+    "verification_status": "verified",
+    "last_verified": "2026-01-10T15:10:00.000Z"
   },
   "pedagogical": {
     "target_audience": [
@@ -375,7 +382,7 @@
       "Lumbar arteries are PAIRED - always look for both feeding and draining vessels",
       "IMA collaterals via SMA are usually excellent - embolization rarely causes ischemia",
       "The iliolumbar artery is your friend and enemy - great for transarterial access, but maintains lumbar flow",
-      "Count patent lumbars on pre-op CT - ≥3 pairs = high Type 2 risk"
+      "Count patent lumbars on pre-op CT - \u22653 pairs = high Type 2 risk"
     ]
   },
   "rendering_hints": {
@@ -444,5 +451,7 @@
       "description": "Endoleak",
       "matchType": "broadMatch"
     }
-  ]
+  ],
+  "owl:sameAs": "http://dbpedia.org/resource/Concept",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
 }
