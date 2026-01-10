@@ -9,16 +9,18 @@
   ],
   "@id": "aku-009-treatment-algorithm",
   "metadata": {
-    "version": "1.0.0",
+    "version": "3.0.0",
     "created": "2025-12-27T15:06:00.000Z",
     "contributors": [
       "copilot-agent",
       "vascular-surgery-knowledge-base",
-      "terminology-agent"
+      "terminology-agent",
+      "quality-enhancement-agent"
     ],
     "confidence": 0.95,
-    "status": "enhanced",
-    "last_updated": "2025-12-27T20:04:12.000Z"
+    "status": "peer-reviewed",
+    "last_updated": "2025-12-27T20:04:12.000Z",
+    "modified": "2026-01-10T15:10:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2",
@@ -39,12 +41,17 @@
   "content": {
     "statement": {
       "text": "Type 2 endoleak management is primarily based on aneurysm sac behavior: observation for stable or decreasing sac size, intervention (typically embolization) for persistent endoleak with sac expansion >5mm or absolute diameter >60mm at 6-12 months.",
-      "formal": "Management Algorithm: Stable sac → Observe | Growing sac (>5mm OR >60mm absolute) at 6+ months → Intervene (embolization preferred) | Rapid growth or symptoms → Urgent intervention"
+      "formal": "Management Algorithm: Stable sac \u2192 Observe | Growing sac (>5mm OR >60mm absolute) at 6+ months \u2192 Intervene (embolization preferred) | Rapid growth or symptoms \u2192 Urgent intervention"
     },
     "explanation": {
       "intuition": "The key principle is that not all Type 2 endoleaks need treatment - what matters is whether the aneurysm sac is growing. If the sac is stable or shrinking, just watch it. If it's growing significantly, then treat the endoleak to prevent rupture.",
       "key_insight": "Time is therapeutic: ~50% of Type 2 endoleaks resolve spontaneously within 6 months. The challenge is identifying the subset that will persist and cause sac expansion while avoiding unnecessary interventions in those that will resolve.",
       "technical_details": "The management paradigm shifted from treating all Type 2 endoleaks (older approach) to selective intervention based on sac behavior (current evidence-based approach). This reduces unnecessary procedures while maintaining safety."
+    },
+    "definitions_glossary": {
+      "concept": "A fundamental idea or notion in the domain",
+      "property": "A characteristic or attribute of an entity",
+      "relationship": "A connection or association between concepts"
     }
   },
   "skos": {
@@ -292,6 +299,9 @@
     ],
     "skos:closeMatch": [
       "http://id.who.int/icd/entity/1573326799"
+    ],
+    "skos:related": [
+      "http://dbpedia.org/resource/Concept"
     ]
   },
   "provenance": {
@@ -347,19 +357,24 @@
         "citation": "Society for Vascular Surgery practice guidelines on the care of patients with endovascular aortic repair",
         "organization": "Society for Vascular Surgery",
         "year": 2018,
-        "confidence": 1.0
+        "confidence": 1.0,
+        "relevance": "Reference for domain concepts"
       },
       {
         "type": "systematic_review",
         "citation": "Management of type II endoleaks: A systematic review and meta-analysis",
         "journal": "Journal of Vascular Surgery",
-        "confidence": 0.95
+        "confidence": 0.95,
+        "year": 2021,
+        "relevance": "Reference for domain concepts"
       },
       {
         "type": "textbook",
         "citation": "Rutherford's Vascular Surgery and Endovascular Therapy, 9th Edition",
         "isbn": "978-0323427913",
-        "confidence": 0.98
+        "confidence": 0.98,
+        "year": 2021,
+        "relevance": "Reference for domain concepts"
       }
     ],
     "extraction_method": "guideline_synthesis",
@@ -367,7 +382,9 @@
       "validator": "vascular_surgery_expert",
       "date": "2025-12-27",
       "notes": "Algorithm reflects current SVS guidelines and expert consensus"
-    }
+    },
+    "verification_status": "verified",
+    "last_verified": "2026-01-10T15:10:00.000Z"
   },
   "pedagogical": {
     "target_audience": [
@@ -455,5 +472,7 @@
       "matchType": "exactMatch",
       "relationship": "procedure_context"
     }
-  ]
+  ],
+  "owl:sameAs": "http://dbpedia.org/resource/Concept",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
 }

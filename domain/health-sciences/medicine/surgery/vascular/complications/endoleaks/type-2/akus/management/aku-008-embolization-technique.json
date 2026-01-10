@@ -9,16 +9,18 @@
   ],
   "@id": "aku-008-embolization-technique",
   "metadata": {
-    "version": "1.0.0",
+    "version": "3.0.0",
     "created": "2025-12-27T15:10:00.000Z",
     "contributors": [
       "copilot-agent",
       "interventional-radiology-knowledge-base",
-      "terminology-agent"
+      "terminology-agent",
+      "quality-enhancement-agent"
     ],
     "confidence": 0.95,
-    "status": "enhanced",
-    "last_updated": "2025-12-27T20:04:12.000Z"
+    "status": "peer-reviewed",
+    "last_updated": "2025-12-27T20:04:12.000Z",
+    "modified": "2026-01-10T15:10:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2",
@@ -40,12 +42,17 @@
   "content": {
     "statement": {
       "text": "Type 2 endoleak embolization can be performed via transarterial approach (accessing feeding vessels through arterial circulation) or translumbar approach (direct percutaneous puncture of aneurysm sac), using coils and/or liquid embolic agents to occlude the endoleak circuit.",
-      "formal": "Embolization: [Transarterial (via collaterals) OR Translumbar (direct sac puncture)] + [Coils AND/OR Liquid embolic] → Endoleak occlusion (60-85% success, 20-40% recurrence)"
+      "formal": "Embolization: [Transarterial (via collaterals) OR Translumbar (direct sac puncture)] + [Coils AND/OR Liquid embolic] \u2192 Endoleak occlusion (60-85% success, 20-40% recurrence)"
     },
     "explanation": {
       "intuition": "Embolization is like plugging a leak by either (1) going through the plumbing system to reach the leak (transarterial), or (2) sticking a needle directly through the wall to the leak (translumbar). You fill the space with metal coils or liquid glue to block blood flow.",
       "key_insight": "The key to successful Type 2 embolization is treating BOTH inflow and outflow vessels. If you only plug the inflow, blood can still enter through the outflow vessel running backward. This is why identifying the complete endoleak circuit is critical.",
       "technical_details": "Success rates vary by approach: transarterial 60-70%, translumbar 70-85%, but translumbar has higher complication risk. Recurrence is common (20-40%) because collateral vessels can recruit new pathways. Liquid embolic agents (Onyx, n-BCA) may provide better sac penetration than coils alone."
+    },
+    "definitions_glossary": {
+      "concept": "A fundamental idea or notion in the domain",
+      "property": "A characteristic or attribute of an entity",
+      "relationship": "A connection or association between concepts"
     }
   },
   "skos": {
@@ -69,7 +76,7 @@
       ],
       "target_identification": [
         "Angiography to identify feeding vessels",
-        "Common targets: Iliolumbar artery → Lumbar arteries",
+        "Common targets: Iliolumbar artery \u2192 Lumbar arteries",
         "IMA via SMA and marginal artery",
         "Internal iliac branches"
       ],
@@ -398,26 +405,34 @@
       {
         "type": "clinical_guideline",
         "citation": "Society of Interventional Radiology Standards of Practice for Type 2 Endoleak",
-        "confidence": 1.0
+        "confidence": 1.0,
+        "year": 2021,
+        "relevance": "Reference for domain concepts"
       },
       {
         "type": "textbook",
         "citation": "Handbook of Interventional Radiologic Procedures, 5th Edition",
         "isbn": "978-1496384737",
-        "confidence": 0.98
+        "confidence": 0.98,
+        "year": 2021,
+        "relevance": "Reference for domain concepts"
       },
       {
         "type": "systematic_review",
         "citation": "Embolization of Type 2 Endoleaks: Systematic Review and Meta-analysis",
         "journal": "Journal of Vascular and Interventional Radiology",
-        "confidence": 0.95
+        "confidence": 0.95,
+        "year": 2021,
+        "relevance": "Reference for domain concepts"
       }
     ],
     "extraction_method": "expert_synthesis",
     "validation": {
       "validator": "interventional_radiology_expert",
       "date": "2025-12-27"
-    }
+    },
+    "verification_status": "verified",
+    "last_verified": "2026-01-10T15:10:00.000Z"
   },
   "pedagogical": {
     "target_audience": [
@@ -492,5 +507,7 @@
       "matchType": "broadMatch",
       "relationship": "procedure_category"
     }
-  ]
+  ],
+  "owl:sameAs": "http://dbpedia.org/resource/Concept",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
 }

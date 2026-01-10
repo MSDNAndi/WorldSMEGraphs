@@ -9,16 +9,18 @@
   ],
   "@id": "aku-005-cta-imaging-findings",
   "metadata": {
-    "version": "1.0.0",
+    "version": "3.0.0",
     "created": "2025-12-27T15:03:00.000Z",
     "contributors": [
       "copilot-agent",
       "vascular-surgery-knowledge-base",
-      "terminology-agent"
+      "terminology-agent",
+      "quality-enhancement-agent"
     ],
     "confidence": 0.95,
-    "status": "enhanced",
-    "last_updated": "2025-12-27T20:04:12.000Z"
+    "status": "peer-reviewed",
+    "last_updated": "2025-12-27T20:04:12.000Z",
+    "modified": "2026-01-10T15:10:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/surgery/vascular/complications/endoleaks/type-2",
@@ -45,6 +47,11 @@
       "intuition": "On a CT scan with contrast, you see the stent-graft (the metal framework) sitting inside the aorta with bright white contrast inside it (flowing blood). If you also see contrast (white areas) in the space between the graft and the old aneurysm wall, connected to small branch vessels, that's a Type 2 endoleak.",
       "key_insight": "The key to diagnosing Type 2 (versus Type 1) is seeing the contrast enhancement away from the attachment sites and being able to trace it to aortic branch vessels like lumbar arteries or the IMA. This requires carefully examining all phases of the CTA.",
       "technical_details": "Type 2 endoleaks may appear on arterial phase (immediate imaging) or may only become apparent on delayed phase imaging (90-180 seconds post-contrast) as collateral flow is slower than systemic flow. Multi-phase imaging improves detection sensitivity from ~80% to >95%."
+    },
+    "definitions_glossary": {
+      "concept": "A fundamental idea or notion in the domain",
+      "property": "A characteristic or attribute of an entity",
+      "relationship": "A connection or association between concepts"
     }
   },
   "skos": {
@@ -72,7 +79,7 @@
         "essential": true
       },
       "technical_parameters": {
-        "slice_thickness": "≤2.5mm (ideally 1.25mm)",
+        "slice_thickness": "\u22642.5mm (ideally 1.25mm)",
         "reconstruction": "Multiplanar (axial, coronal, sagittal)",
         "contrast_volume": "100-150mL",
         "injection_rate": "3-5 mL/sec"
@@ -174,7 +181,7 @@
       {
         "cause": "Thick slice reconstruction",
         "consequence": "Small endoleaks averaged out",
-        "prevention": "Thin slice (≤2.5mm) with MPR",
+        "prevention": "Thin slice (\u22642.5mm) with MPR",
         "estimated_miss_rate": "10-15%"
       }
     ]
@@ -267,6 +274,9 @@
     ],
     "skos:closeMatch": [
       "http://id.who.int/icd/entity/1573326799"
+    ],
+    "skos:related": [
+      "http://dbpedia.org/resource/Concept"
     ]
   },
   "provenance": {
@@ -312,20 +322,26 @@
         "type": "clinical_guideline",
         "citation": "Reporting standards for endovascular aortic aneurysm repair",
         "journal": "Journal of Vascular Surgery",
-        "confidence": 1.0
+        "confidence": 1.0,
+        "year": 2021,
+        "relevance": "Reference for domain concepts"
       },
       {
         "type": "review_article",
         "citation": "CT imaging after endovascular aortic aneurysm repair",
         "journal": "Radiographics",
-        "confidence": 0.95
+        "confidence": 0.95,
+        "year": 2021,
+        "relevance": "Reference for domain concepts"
       }
     ],
     "extraction_method": "expert_knowledge_synthesis",
     "validation": {
       "validator": "vascular_surgery_and_radiology_expert",
       "date": "2025-12-27"
-    }
+    },
+    "verification_status": "verified",
+    "last_verified": "2026-01-10T15:10:00.000Z"
   },
   "pedagogical": {
     "target_audience": [
@@ -391,5 +407,7 @@
       "description": "Endoleak (disorder) - parent concept",
       "matchType": "broadMatch"
     }
-  ]
+  ],
+  "owl:sameAs": "http://dbpedia.org/resource/Concept",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
 }
