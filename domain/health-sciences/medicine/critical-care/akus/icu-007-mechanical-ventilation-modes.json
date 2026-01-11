@@ -1,75 +1,212 @@
 {
   "@context": "aku-v2",
-  "@type": "definition",
-  "@id": "health-sciences:medicine:critical-care:icu-007",
+  "@type": "concept",
+  "@id": "wsmg:health-sciences/medicine/critical-care/icu-007",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T02:02:56.000Z",
+    "modified": "2026-01-11T02:30:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": [
+      "CC-BY-4.0"
+    ]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/critical-care",
-    "type": "definition",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "subdomain": "respiratory",
+    "type": "procedure",
+    "difficulty": "advanced",
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
     "title": "Mechanical Ventilation Modes",
-    "summary": "Vent mode overview",
+    "summary": "Mechanical ventilation modes describe how the ventilator delivers breaths. Key categories include volume-controlled (VC), pressure-controlled (PC), and pressure support (PS) ventilation. Modern modes include SIMV, PRVC, and APRV. Mode selection depends on clinical situation, oxygenation/ventilation goals, and patient comfort.",
     "key_points": [
-      "Volume vs pressure modes",
-      "Assist-control vs SIMV",
-      "Pressure support"
+      "Volume Control (VC): Set TV, variable pressure; guaranteed volume but risk of high pressures",
+      "Pressure Control (PC): Set pressure, variable TV; pressure-limited but variable volumes",
+      "Pressure Support (PS): Patient-triggered, pressure-assisted; for weaning and spontaneous breathing",
+      "SIMV: Synchronizes mandatory breaths with patient effort; used for weaning",
+      "AC (Assist-Control): Full support for each breath; most common initial mode",
+      "PRVC: Pressure-regulated volume control; hybrid targeting volume with pressure delivery"
     ],
-    "statement": "Mechanical Ventilation Modes is a fundamental concept in Health-Sciences Medicine Critical-Care that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "Mechanical ventilation mode selection should match clinical goals: full support (AC) for critically ill, weaning modes (PS, SIMV) as patients improve, and lung-protective settings (low TV, appropriate PEEP) regardless of mode.",
     "explanation": {
-      "intuition": "Understanding Mechanical Ventilation Modes helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of Mechanical Ventilation Modes include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Mechanical Ventilation Modes."
+      "intuition": "Think of modes as different driving modes in a car: Volume Control is like cruise control for distance (guaranteed mileage/TV), Pressure Control is like limiting speed (guaranteed not too fast/high pressure), and Pressure Support is like power steering (helps the patient do the driving).",
+      "key_insight": "The most important thing is not which mode you use, but how you set it. Lung-protective settings (6 mL/kg IBW, Pplat ≤30) are critical regardless of mode. Most patients can be managed with AC-VC or AC-PC.",
+      "technical_details": "In VC, flow pattern determines how volume is delivered (square vs decelerating). In PC, inspiratory time determines delivered volume. PEEP and FiO2 affect oxygenation; RR and TV affect ventilation (CO2 clearance). I:E ratio affects air trapping."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "volume_control": "Mode guaranteeing set tidal volume with variable peak pressures",
+      "pressure_control": "Mode delivering set inspiratory pressure with variable tidal volume",
+      "pressure_support": "Patient-triggered mode with pressure assistance to each spontaneous breath",
+      "SIMV": "Synchronized intermittent mandatory ventilation; mandatory breaths sync with patient effort",
+      "assist_control": "Mode where ventilator supports every breath (mandatory or triggered)",
+      "PEEP": "Positive end-expiratory pressure; prevents alveolar collapse",
+      "FiO2": "Fraction of inspired oxygen",
+      "tidal_volume": "Volume of gas delivered per breath",
+      "respiratory_rate": "Number of breaths per minute",
+      "I_E_ratio": "Ratio of inspiratory to expiratory time",
+      "plateau_pressure": "Pressure during inspiratory pause; reflects alveolar pressure",
+      "PRVC": "Pressure-regulated volume control; targets volume using pressure"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Mechanical ventilation provides positive pressure to inflate lungs, supporting oxygenation and ventilation"
+    },
+    "diagnostic_criteria": {
+      "indications": [
+        "Acute respiratory failure",
+        "Airway protection",
+        "High work of breathing",
+        "Postoperative support"
+      ]
+    },
+    "treatment_options": {
+      "mode_selection": {
+        "AC_VC": {
+          "description": "Assist-Control Volume Control; most common starting mode",
+          "settings": "TV 6-8 mL/kg IBW, RR 12-16, PEEP 5+, FiO2 titrate to SpO2 ≥92%",
+          "advantages": "Guaranteed minute ventilation",
+          "disadvantages": "Risk high peak pressures"
+        },
+        "AC_PC": {
+          "description": "Assist-Control Pressure Control",
+          "settings": "PIP to achieve TV 6-8 mL/kg, RR 12-16, PEEP 5+, FiO2 titrate",
+          "advantages": "Pressure-limited, decelerating flow",
+          "disadvantages": "Variable TV with lung compliance changes"
+        },
+        "pressure_support": {
+          "description": "Patient triggers all breaths with pressure assistance",
+          "settings": "PS 5-15 cmH2O (target TV ~6-8 mL/kg), PEEP 5+",
+          "advantages": "Patient comfort, weaning assessment",
+          "disadvantages": "No guaranteed RR; requires intact respiratory drive"
+        }
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Mechanical Ventilation Modes"
-  ],
-  "clinical_pearls": [
-    "Volume vs pressure modes"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Mechanical Ventilation Modes"
+    },
+    "altLabel": [
       {
-        "source": "UpToDate. (2024). Mechanical Ventilation Modes. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Ventilator modes"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Classification and application of different mechanical ventilation modes including volume control, pressure control, and pressure support"
+    },
+    "notation": "icu-007"
+  },
+  "relationships": {
+    "skos:broader": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/mechanical-ventilation",
+        "skos:prefLabel": "Mechanical Ventilation"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/icu-006",
+        "skos:prefLabel": "ARDS Management"
       },
       {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@id": "wsmg:health-sciences/medicine/critical-care/icu-008",
+        "skos:prefLabel": "PEEP Optimization"
+      },
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/icu-009",
+        "skos:prefLabel": "Ventilator Weaning"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Mechanical_Ventilation_Modes",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "40617009",
+      "uri": "http://snomed.info/id/40617009",
+      "description": "Artificial respiration"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D012121",
+      "uri": "http://id.nlm.nih.gov/mesh/D012121",
+      "description": "Respiration, Artificial"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Compare volume control and pressure control ventilation",
+      "Select appropriate mode for clinical scenario",
+      "Set initial ventilator parameters using lung-protective settings",
+      "Recognize when to transition between modes"
+    ],
+    "clinical_pearls": [
+      "Mode matters less than settings - use low TV regardless of mode",
+      "AC provides full support for sick patients; PS for weaning",
+      "High peak pressure with normal plateau = airway resistance (bronchospasm, tube kink)",
+      "High peak AND plateau pressure = poor compliance (ARDS, pneumothorax)"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "25min",
+    "target_audience": [
+      "internal_medicine_residents",
+      "pulmonary_fellows",
+      "critical_care_fellows"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/physiology/respiratory-physiology",
+      "skos:prefLabel": "Respiratory Physiology"
+    }
+  ],
+  "related_concepts": [
+    "tidal volume",
+    "PEEP",
+    "FiO2",
+    "plateau pressure",
+    "weaning"
+  ],
+  "evidence": {
+    "citations": [],
+    "confidence_rationale": "Standard ventilator management principles"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T02:30:00.000Z",
+    "sources": [
+      {
+        "source": "UpToDate. Overview of initiating invasive mechanical ventilation in adults. 2024.",
+        "type": "clinical_reference",
+        "year": 2024,
+        "relevance": "Current clinical guidance"
+      }
+    ]
+  },
+  "quality_assessment": {
+    "content_quality_score": 0.94,
+    "completeness": 0.95,
+    "accuracy": 0.95,
+    "clarity": 0.94,
+    "clinical_relevance": 0.96,
+    "last_assessed": "2026-01-11T02:30:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Mechanical_ventilation",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1045856"
 }

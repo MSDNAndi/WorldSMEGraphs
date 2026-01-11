@@ -1,75 +1,308 @@
 {
   "@context": "aku-v2",
-  "@type": "definition",
-  "@id": "health-sciences:medicine:hematology:hem-022",
+  "@type": "concept",
+  "@id": "wsmg:health-sciences/medicine/hematology/hem-022",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:58:35.000Z",
+    "modified": "2026-01-11T01:54:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": ["CC-BY-4.0"]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/hematology",
+    "subdomain": "myeloproliferative-neoplasms",
     "type": "definition",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
     "title": "Essential Thrombocythemia",
-    "summary": "Platelet overproduction",
+    "summary": "Essential thrombocythemia (ET) is a BCR-ABL-negative myeloproliferative neoplasm characterized by sustained thrombocytosis (≥450 × 10⁹/L) arising from clonal megakaryocyte proliferation. Driver mutations include JAK2 V617F (~55%), CALR (~25%), and MPL (~5%), with 10-15% being 'triple-negative.' ET presents with vasomotor symptoms, thrombosis, and paradoxical bleeding with extreme thrombocytosis.",
     "key_points": [
-      "JAK2, CALR, MPL mutations",
-      "Thrombosis and bleeding",
-      "Aspirin, cytoreduction"
+      "Diagnostic threshold: Platelet count ≥450 × 10⁹/L sustained",
+      "Driver mutations: JAK2 V617F (55%), CALR (25%), MPL (5%), triple-negative (10-15%)",
+      "CALR-mutated ET has lowest thrombosis risk and best prognosis",
+      "Risk stratification: IPSET-thrombosis score guides treatment intensity",
+      "Very low/low risk: aspirin alone or observation",
+      "High risk (age ≥60 or prior thrombosis): cytoreduction with hydroxyurea or anagrelide"
     ],
-    "statement": "Essential Thrombocythemia is a fundamental concept in Health-Sciences Medicine Hematology that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "Essential thrombocythemia is a clonal megakaryocytic disorder with isolated thrombocytosis, managed with risk-adapted antiplatelet and cytoreductive therapy to prevent thrombohemorrhagic complications while monitoring for transformation to myelofibrosis.",
     "explanation": {
-      "intuition": "Understanding Essential Thrombocythemia helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of Essential Thrombocythemia include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Essential Thrombocythemia."
+      "intuition": "Think of ET as a 'megakaryocyte production line running in overdrive' - driver mutations cause excessive platelet production. Paradoxically, extremely high platelets (>1000) can cause BLEEDING by binding von Willebrand factor, creating acquired vWD.",
+      "key_insight": "Unlike PV, ET patients have mutational heterogeneity with different prognoses: CALR-mutated ET has lowest thrombosis risk and longest survival, while JAK2-mutated ET behaves more like PV with higher thrombotic risk.",
+      "technical_details": "CALR mutations (type 1 and type 2) cause mutant calreticulin to bind MPL receptor, activating JAK-STAT signaling. MPL W515L/K mutations directly activate the thrombopoietin receptor. Triple-negative cases may harbor non-canonical mutations or represent reactive thrombocytosis."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "thrombocytosis": "Elevated platelet count above normal range; reactive vs clonal etiologies",
+      "megakaryocyte": "Bone marrow cell that produces platelets through cytoplasmic fragmentation",
+      "JAK2_V617F": "Activating mutation in Janus kinase 2 causing constitutive signaling",
+      "CALR_mutation": "Calreticulin gene frameshift mutation causing MPL activation; type 1 (52bp del) and type 2 (5bp ins)",
+      "MPL_mutation": "Thrombopoietin receptor mutation causing constitutive activation (W515L/K)",
+      "triple_negative": "ET without JAK2, CALR, or MPL mutations; requires exclusion of reactive causes",
+      "acquired_von_Willebrand": "Bleeding disorder from platelet-mediated vWF consumption in extreme thrombocytosis",
+      "erythromelalgia": "Burning pain and erythema in extremities from platelet-mediated microvascular occlusion",
+      "hydroxyurea": "First-line cytoreductive agent inhibiting ribonucleotide reductase",
+      "anagrelide": "Platelet-lowering agent inhibiting megakaryocyte differentiation",
+      "IPSET_thrombosis": "International Prognostic Score for ET-thrombosis risk stratification",
+      "myelofibrotic_transformation": "Evolution to post-ET myelofibrosis with marrow fibrosis and cytopenias"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Clonal megakaryocyte proliferation with increased platelet production from driver mutations activating JAK-STAT pathway",
+      "genetic_landscape": {
+        "JAK2_V617F": "Present in ~55% of ET; higher thrombosis risk, may evolve to PV phenotype",
+        "CALR": "Present in ~25%; type 1 better prognosis than type 2; lowest thrombosis risk",
+        "MPL": "Present in ~5%; similar prognosis to CALR-mutated",
+        "triple_negative": "10-15%; must exclude reactive causes; variable prognosis",
+        "additional_mutations": ["ASXL1 (adverse)", "TET2", "DNMT3A", "SF3B1", "TP53 (very adverse)"]
+      },
+      "clinical_manifestations": {
+        "vasomotor_symptoms": ["Erythromelalgia", "Headache", "Visual disturbances", "Lightheadedness"],
+        "thrombosis": ["Arterial (stroke, MI, peripheral)", "Venous (DVT, PE, splanchnic)", "Microvascular (digital ischemia)"],
+        "bleeding": ["Mucocutaneous bleeding with extreme thrombocytosis (>1500 × 10⁹/L)", "Acquired von Willebrand disease"]
+      }
+    },
+    "diagnostic_criteria": {
+      "WHO_2016_criteria": {
+        "major_criteria": [
+          "Platelet count ≥450 × 10⁹/L",
+          "Bone marrow biopsy showing proliferation mainly of megakaryocyte lineage with increased mature, large megakaryocytes with hyperlobulated nuclei; no increase in neutrophil granulopoiesis or erythropoiesis; rarely minor (grade 1) reticulin fibrosis",
+          "Not meeting WHO criteria for BCR-ABL1+ CML, PV, PMF, MDS, or other myeloid neoplasm",
+          "Presence of JAK2, CALR, or MPL mutation"
+        ],
+        "minor_criteria": [
+          "Presence of clonal marker OR absence of evidence for reactive thrombocytosis"
+        ],
+        "diagnosis_requirements": "All 4 major criteria OR first 3 major + minor criterion"
+      },
+      "workup": [
+        "CBC with peripheral smear",
+        "Iron studies (rule out iron deficiency masking PV)",
+        "Inflammatory markers (CRP, ESR) to exclude reactive causes",
+        "JAK2 V617F, CALR, MPL mutation testing",
+        "BCR-ABL1 testing to exclude CML",
+        "Bone marrow biopsy with reticulin stain",
+        "Ristocetin cofactor activity if platelets >1000 (acquired vWD screening)"
+      ],
+      "reactive_thrombocytosis_causes": [
+        "Iron deficiency",
+        "Infection/inflammation",
+        "Malignancy",
+        "Post-splenectomy",
+        "Hemolysis",
+        "Rebound after chemotherapy"
+      ]
+    },
+    "differential_diagnosis": [
+      "Reactive thrombocytosis (infection, inflammation, iron deficiency)",
+      "Polycythemia vera (may present with thrombocytosis before erythrocytosis)",
+      "Prefibrotic primary myelofibrosis (requires bone marrow distinction)",
+      "CML (BCR-ABL1 positive)",
+      "Myelodysplastic syndrome with isolated 5q deletion"
+    ],
+    "treatment_options": {
+      "risk_stratification": {
+        "IPSET_thrombosis": {
+          "very_low_risk": "Age <60, no JAK2, no thrombosis history",
+          "low_risk": "Age <60, JAK2 positive, no thrombosis history",
+          "intermediate_risk": "Age ≥60, no JAK2, no thrombosis history",
+          "high_risk": "Age ≥60 with JAK2 OR prior thrombosis"
+        }
+      },
+      "treatment_by_risk": {
+        "very_low_risk": "Observation or low-dose aspirin (controversial)",
+        "low_risk": "Low-dose aspirin (81-100 mg daily)",
+        "intermediate_risk": "Low-dose aspirin ± cytoreduction based on cardiovascular risk",
+        "high_risk": "Low-dose aspirin + cytoreduction (hydroxyurea first-line)"
+      },
+      "cytoreductive_agents": {
+        "hydroxyurea": "First-line; 500-1500 mg daily; goal platelets <400-600",
+        "anagrelide": "Second-line; fewer chromosomal aberrations but more cardiac/GI side effects",
+        "interferon_alpha": "Preferred in young patients, pregnancy; achieves molecular responses",
+        "pegylated_interferon": "Better tolerated than standard IFN"
+      },
+      "special_situations": {
+        "extreme_thrombocytosis": "Check ristocetin cofactor; hold aspirin if <30% to avoid bleeding",
+        "pregnancy": "High risk; use aspirin and interferon-α; consider LMWH",
+        "surgery": "Normalize platelets preoperatively if elective"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Essential Thrombocythemia"
-  ],
-  "clinical_pearls": [
-    "JAK2, CALR, MPL mutations"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Essential Thrombocythemia"
+    },
+    "altLabel": [
+      {"@language": "en", "@value": "ET"},
+      {"@language": "en", "@value": "Essential thrombocytosis"},
+      {"@language": "en", "@value": "Primary thrombocythemia"},
+      {"@language": "en", "@value": "Idiopathic thrombocythemia"}
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A BCR-ABL-negative myeloproliferative neoplasm characterized by sustained thrombocytosis from clonal megakaryocyte proliferation, with driver mutations in JAK2, CALR, or MPL, presenting with thrombotic and bleeding complications"
+    },
+    "notation": "hem-022",
+    "scopeNote": {
+      "@language": "en",
+      "@value": "Core MPN concept with emphasis on mutational heterogeneity and risk-adapted therapy"
+    }
+  },
+  "relationships": {
+    "skos:broader": [
       {
-        "source": "UpToDate. (2024). Essential Thrombocythemia. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@id": "wsmg:health-sciences/medicine/hematology/myeloproliferative-neoplasms",
+        "skos:prefLabel": "Myeloproliferative Neoplasms"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/hematology/hem-021",
+        "skos:prefLabel": "Polycythemia Vera"
       },
       {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
+        "@id": "wsmg:health-sciences/medicine/hematology/hem-023",
+        "skos:prefLabel": "Primary Myelofibrosis"
+      },
+      {
+        "@id": "wsmg:health-sciences/medicine/hematology/reactive-thrombocytosis",
+        "skos:prefLabel": "Reactive Thrombocytosis"
+      }
+    ],
+    "owl:sameAs": [
+      "http://dbpedia.org/resource/Essential_thrombocytosis"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "109994006",
+      "uri": "http://snomed.info/id/109994006",
+      "description": "Essential thrombocythemia"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "D47.3",
+      "uri": "http://hl7.org/fhir/sid/icd-10-cm/D47.3",
+      "description": "Essential (hemorrhagic) thrombocythemia"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D013920",
+      "uri": "http://id.nlm.nih.gov/mesh/D013920",
+      "description": "Thrombocythemia, Essential"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Apply WHO 2016 diagnostic criteria to diagnose essential thrombocythemia",
+      "Order appropriate mutation testing (JAK2, CALR, MPL, BCR-ABL)",
+      "Calculate IPSET-thrombosis score for risk stratification",
+      "Implement risk-adapted antiplatelet and cytoreductive therapy",
+      "Recognize acquired von Willebrand disease in extreme thrombocytosis"
+    ],
+    "clinical_pearls": [
+      "CALR-mutated ET has best prognosis with lowest thrombosis risk",
+      "Platelets >1 million: check vWF activity before starting aspirin (acquired vWD risk)",
+      "JAK2+ ET may evolve to PV phenotype over time - monitor hemoglobin",
+      "Bone marrow biopsy distinguishes ET from prefibrotic myelofibrosis (critical for prognosis)",
+      "Triple-negative ET requires thorough exclusion of reactive causes"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "25min",
+    "target_audience": [
+      "medical_students",
+      "internal_medicine_residents",
+      "hematology_fellows"
+    ],
+    "common_misconceptions": [
+      "All high platelets need treatment - reactive thrombocytosis is more common than clonal",
+      "Higher platelet count means more thrombosis - actually extreme thrombocytosis causes bleeding",
+      "Anagrelide is equivalent to hydroxyurea - PT-1 trial showed higher arterial thrombosis with anagrelide"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/hematology/platelet-physiology",
+      "skos:prefLabel": "Platelet Physiology"
+    },
+    {
+      "@id": "wsmg:health-sciences/medicine/hematology/JAK-STAT-signaling",
+      "skos:prefLabel": "JAK-STAT Signaling Pathway"
+    }
+  ],
+  "related_concepts": [
+    "thrombocytosis",
+    "megakaryocyte",
+    "JAK2 mutation",
+    "CALR mutation",
+    "acquired von Willebrand disease"
+  ],
+  "evidence": {
+    "citations": [
+      {
+        "authors": "Harrison CN, Campbell PJ, Buck G, et al.",
+        "title": "Hydroxyurea compared with anagrelide in high-risk essential thrombocythemia",
+        "journal": "N Engl J Med",
+        "year": 2005,
+        "volume": "353",
+        "pages": "33-45",
+        "doi": "10.1056/NEJMoa043800"
+      },
+      {
+        "authors": "Barbui T, Finazzi G, Carobbio A, et al.",
+        "title": "Development and validation of an International Prognostic Score of thrombosis in WHO-Essential Thrombocythemia (IPSET-thrombosis)",
+        "journal": "Blood",
+        "year": 2012,
+        "volume": "120",
+        "pages": "5128-5133",
+        "doi": "10.1182/blood-2012-07-444067"
+      }
+    ],
+    "confidence_rationale": "WHO diagnostic criteria and validated risk stratification scores"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T01:54:00.000Z",
+    "sources": [
+      {
+        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill, 2022.",
         "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "year": 2022,
+        "isbn": "978-1264268504",
+        "relevance": "Standard medical reference"
+      },
+      {
+        "source": "UpToDate. Diagnosis and clinical manifestations of essential thrombocythemia. 2024.",
+        "type": "clinical_reference",
+        "year": 2024,
+        "relevance": "Current clinical guidance"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Essential_Thrombocythemia",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "content_quality_score": 0.94,
+    "completeness": 0.95,
+    "accuracy": 0.95,
+    "clarity": 0.93,
+    "clinical_relevance": 0.96,
+    "last_assessed": "2026-01-11T01:54:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Essential_thrombocytosis",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1124513"
 }

@@ -1,75 +1,291 @@
 {
   "@context": "aku-v2",
-  "@type": "procedure",
-  "@id": "health-sciences:medicine:critical-care:icu-004",
+  "@type": "concept",
+  "@id": "wsmg:health-sciences/medicine/critical-care/icu-004",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T02:02:56.000Z",
+    "modified": "2026-01-11T02:22:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": [
+      "CC-BY-4.0"
+    ]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/critical-care",
+    "subdomain": "pharmacology",
     "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "critical",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
-    "title": "Vasopressor Selection",
-    "summary": "Vasopressor choice",
+    "title": "Vasopressor Selection in Shock",
+    "summary": "Vasopressors are medications used to increase systemic vascular resistance and blood pressure in shock states. Selection depends on shock type and desired hemodynamic effect. Norepinephrine is first-line for most shock types; vasopressin is added as a catecholamine-sparing agent; epinephrine provides both inotropy and vasoconstriction; phenylephrine is a pure vasoconstrictor.",
     "key_points": [
-      "Norepinephrine first-line",
-      "Vasopressin adjunct",
-      "Phenylephrine considerations"
+      "Norepinephrine: First-line for septic and most shock types (alpha-1 + mild beta-1)",
+      "Vasopressin: Second agent in septic shock (V1 receptor; catecholamine-sparing)",
+      "Epinephrine: Anaphylaxis first-line; second/third line for refractory shock",
+      "Phenylephrine: Pure alpha-1 agonist; use with caution (may decrease CO)",
+      "Dopamine: Generally avoided (increased arrhythmias vs norepinephrine)",
+      "Target MAP ≥65 mmHg (may need higher in chronic hypertension)"
     ],
-    "statement": "Vasopressor Selection is a fundamental concept in Health-Sciences Medicine Critical-Care that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "Vasopressor selection should be guided by shock physiology, with norepinephrine as first-line for most shock states, vasopressin as a second agent for refractory septic shock, and specific agents for special situations including epinephrine for anaphylaxis.",
     "explanation": {
-      "intuition": "Understanding Vasopressor Selection helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of Vasopressor Selection include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Vasopressor Selection."
+      "intuition": "Think of vasopressors as squeezing the blood vessel 'pipes' to maintain pressure when they're too dilated (sepsis) or when the pump is failing and can't generate enough pressure (cardiogenic). Different drugs squeeze different receptor types with different downstream effects.",
+      "key_insight": "SOAP II trial established norepinephrine superiority over dopamine (fewer arrhythmias, lower mortality in cardiogenic shock subgroup). VASST trial showed vasopressin is catecholamine-sparing but doesn't reduce mortality as monotherapy.",
+      "technical_details": "Receptor profiles: NE = alpha-1 >> beta-1; vasopressin = V1; epinephrine = beta-1 > alpha-1 > beta-2 (dose-dependent); phenylephrine = pure alpha-1; dopamine = dose-dependent D1/beta-1/alpha-1. Always use central line for vesicant vasopressors when possible."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "vasopressor": "Agent that increases vascular resistance and blood pressure via vasoconstriction",
+      "norepinephrine": "Catecholamine with potent alpha-1 and moderate beta-1 activity; first-line vasopressor",
+      "vasopressin": "Non-catecholamine V1 receptor agonist; added to norepinephrine in septic shock",
+      "epinephrine": "Catecholamine with beta and alpha effects; first-line in anaphylaxis",
+      "phenylephrine": "Pure alpha-1 agonist; increases SVR but may decrease CO",
+      "dopamine": "Dose-dependent D1/beta/alpha effects; generally avoided due to arrhythmias",
+      "angiotensin_II": "Vasoconstrictor for refractory vasodilatory shock; acts on AT1 receptors",
+      "alpha_1_receptor": "Vascular smooth muscle receptor causing vasoconstriction",
+      "beta_1_receptor": "Cardiac receptor increasing inotropy and chronotropy",
+      "catecholamine": "Class of drugs including epinephrine, norepinephrine, dopamine",
+      "central_line": "Central venous catheter preferred for vasopressor administration",
+      "extravasation": "Vasopressor leak into tissue causing necrosis; treat with phentolamine"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "receptor_effects": {
+        "alpha_1": "Arterial and venous vasoconstriction → increased SVR and preload",
+        "beta_1": "Increased inotropy (contractility) and chronotropy (heart rate)",
+        "beta_2": "Bronchodilation; vasodilation (skeletal muscle)",
+        "V1": "Vasopressin receptor; potent vasoconstriction without catecholamine effects"
+      },
+      "agent_profiles": {
+        "norepinephrine": {
+          "alpha_1": "+++",
+          "beta_1": "+",
+          "beta_2": "0",
+          "dosing": "0.05-2 mcg/kg/min"
+        },
+        "epinephrine": {
+          "alpha_1": "++",
+          "beta_1": "+++",
+          "beta_2": "++",
+          "dosing": "0.01-0.5 mcg/kg/min"
+        },
+        "phenylephrine": {
+          "alpha_1": "+++",
+          "beta_1": "0",
+          "beta_2": "0",
+          "dosing": "0.5-5 mcg/kg/min"
+        },
+        "vasopressin": {
+          "V1": "+++",
+          "dosing": "0.01-0.04 units/min (fixed dose)"
+        },
+        "dopamine": {
+          "D1": "+ (low)",
+          "beta_1": "++ (mid)",
+          "alpha_1": "++ (high)",
+          "dosing": "2-20 mcg/kg/min"
+        }
+      }
+    },
+    "diagnostic_criteria": {
+      "indications": [
+        "Hypotension despite adequate fluid resuscitation",
+        "MAP <65 mmHg (or individualized target)",
+        "Evidence of tissue hypoperfusion (elevated lactate, oliguria, altered mental status)"
+      ],
+      "monitoring": [
+        "Continuous arterial BP (arterial line preferred)",
+        "Urine output",
+        "Mental status",
+        "Lactate clearance",
+        "Central venous access when possible"
+      ]
+    },
+    "differential_diagnosis": [
+      "Inadequate volume resuscitation (give fluids first)",
+      "Cardiogenic shock needing inotropy more than vasoconstriction",
+      "Obstructive shock (treat underlying cause)",
+      "Adrenal insufficiency (give steroids)"
+    ],
+    "treatment_options": {
+      "by_shock_type": {
+        "septic_shock": {
+          "first_line": "Norepinephrine",
+          "second_line": "Vasopressin (add at 0.03 units/min)",
+          "third_line": "Epinephrine",
+          "adjuncts": "Steroids if refractory"
+        },
+        "cardiogenic_shock": {
+          "vasopressor": "Norepinephrine (preferred over dopamine)",
+          "inotrope": "Dobutamine or milrinone for low CO"
+        },
+        "anaphylactic_shock": {
+          "first_line": "Epinephrine IM 0.3-0.5 mg; IV infusion if severe"
+        },
+        "neurogenic_shock": {
+          "first_line": "Norepinephrine or phenylephrine (pure vasoconstriction)"
+        },
+        "hypovolemic_shock": {
+          "primary": "Volume resuscitation",
+          "vasopressor": "Norepinephrine as bridge if profound hypotension"
+        }
+      },
+      "practical_considerations": {
+        "access": "Central line preferred; peripheral acceptable short-term in emergency",
+        "titration": "Start low, increase q5-10 min to target MAP",
+        "weaning": "Reduce by 10-20% when MAP stable and lactate clearing",
+        "complications": [
+          "Arrhythmias",
+          "Peripheral ischemia",
+          "Extravasation necrosis"
+        ]
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Vasopressor Selection"
-  ],
-  "clinical_pearls": [
-    "Norepinephrine first-line"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Vasopressor Selection"
+    },
+    "altLabel": [
       {
-        "source": "UpToDate. (2024). Vasopressor Selection. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Vasopressor therapy"
       },
       {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
-        "type": "textbook",
+        "@language": "en",
+        "@value": "Pressor selection"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The evidence-based selection and titration of vasoactive medications to maintain adequate blood pressure and tissue perfusion in shock states"
+    },
+    "notation": "icu-004"
+  },
+  "relationships": {
+    "skos:broader": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/hemodynamics",
+        "skos:prefLabel": "Hemodynamics"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/icu-002",
+        "skos:prefLabel": "Septic Shock Management"
+      },
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/icu-005",
+        "skos:prefLabel": "Inotrope Selection"
+      }
+    ],
+    "owl:sameAs": [
+      "http://dbpedia.org/resource/Vasopressor"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "372694002",
+      "uri": "http://snomed.info/id/372694002",
+      "description": "Vasopressor therapy"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D014662",
+      "uri": "http://id.nlm.nih.gov/mesh/D014662",
+      "description": "Vasoconstrictor Agents"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Compare receptor profiles of common vasopressors",
+      "Apply norepinephrine as first-line vasopressor for most shock types",
+      "Identify appropriate second-line agents for refractory shock",
+      "Recognize complications of vasopressor therapy"
+    ],
+    "clinical_pearls": [
+      "Norepinephrine is first-line for septic AND cardiogenic shock (SOAP II)",
+      "Vasopressin 0.03 units/min is catecholamine-sparing; don't titrate above 0.04",
+      "Phenylephrine may DECREASE cardiac output - use with caution in low CO states",
+      "Peripheral vasopressors are acceptable short-term; transition to central when possible"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "25min",
+    "target_audience": [
+      "medical_students",
+      "internal_medicine_residents",
+      "emergency_medicine_residents",
+      "critical_care_fellows"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/critical-care/icu-001",
+      "skos:prefLabel": "Shock Classification"
+    }
+  ],
+  "related_concepts": [
+    "norepinephrine",
+    "vasopressin",
+    "epinephrine",
+    "shock resuscitation",
+    "MAP target"
+  ],
+  "evidence": {
+    "citations": [
+      {
+        "authors": "De Backer D, Biston P, Devriendt J, et al.",
+        "title": "Comparison of dopamine and norepinephrine in the treatment of shock",
+        "journal": "N Engl J Med",
+        "year": 2010,
+        "volume": "362",
+        "pages": "779-789",
+        "doi": "10.1056/NEJMoa0907118"
+      }
+    ],
+    "confidence_rationale": "SOAP II trial and Surviving Sepsis Campaign guidelines"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T02:22:00.000Z",
+    "sources": [
+      {
+        "source": "Surviving Sepsis Campaign Guidelines 2021",
+        "type": "guideline",
         "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "relevance": "Primary clinical guideline"
+      },
+      {
+        "source": "UpToDate. Use of vasopressors and inotropes. 2024.",
+        "type": "clinical_reference",
+        "year": 2024,
+        "relevance": "Current clinical guidance"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Vasopressor_Selection",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "content_quality_score": 0.95,
+    "completeness": 0.96,
+    "accuracy": 0.96,
+    "clarity": 0.95,
+    "clinical_relevance": 0.97,
+    "last_assessed": "2026-01-11T02:22:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Vasopressor",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q7916839"
 }

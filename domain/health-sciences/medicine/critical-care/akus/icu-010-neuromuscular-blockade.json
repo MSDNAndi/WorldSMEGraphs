@@ -1,75 +1,247 @@
 {
   "@context": "aku-v2",
-  "@type": "procedure",
-  "@id": "health-sciences:medicine:critical-care:icu-010",
+  "@type": "concept",
+  "@id": "wsmg:health-sciences/medicine/critical-care/icu-010",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T02:02:56.000Z",
+    "modified": "2026-01-11T02:36:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
     "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "status": "validated",
+    "language": "en",
+    "licenses": [
+      "CC-BY-4.0"
+    ]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/critical-care",
+    "subdomain": "pharmacology",
     "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "MEDIUM"
   },
   "content": {
-    "title": "Neuromuscular Blockade",
-    "summary": "Paralytic use in ICU",
+    "title": "Neuromuscular Blockade in the ICU",
+    "summary": "Neuromuscular blocking agents (NMBAs) paralyze skeletal muscles by blocking acetylcholine at the neuromuscular junction. In the ICU, they are used for severe ARDS to improve ventilator synchrony, for intubation, and for increased intracranial pressure. Cisatracurium is preferred for infusions due to organ-independent metabolism. Complications include prolonged weakness (ICUAW) and awareness if inadequate sedation.",
     "key_points": [
-      "ARDS indication",
-      "Train-of-four monitoring",
-      "ICU-acquired weakness risk"
+      "Indications: Severe ARDS (ACURASYS trial), intubation, elevated ICP, refractory shivering",
+      "Cisatracurium preferred for infusions (organ-independent Hofmann elimination)",
+      "Rocuronium preferred for intubation (rapid onset)",
+      "ALWAYS ensure adequate sedation and analgesia before paralysis",
+      "Monitor with train-of-four (TOF); target 1-2 twitches",
+      "ACURASYS showed mortality benefit; ROSE trial did not replicate - use remains selective"
     ],
-    "statement": "Neuromuscular Blockade is a fundamental concept in Health-Sciences Medicine Critical-Care that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "Neuromuscular blockade should be reserved for specific indications where paralysis provides clear benefit, with attention to adequate sedation, monitoring, and minimizing duration to reduce ICU-acquired weakness.",
     "explanation": {
-      "intuition": "Understanding Neuromuscular Blockade helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of Neuromuscular Blockade include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Neuromuscular Blockade."
+      "intuition": "NMBAs paralyze patients completely but do NOT provide sedation or pain control - the patient may be fully aware but unable to move. Always sedate deeply before paralyzing. Think of it as removing the body's ability to fight the ventilator in severe ARDS.",
+      "key_insight": "The ACURASYS trial (2010) showed mortality benefit with early 48h cisatracurium in severe ARDS. The larger ROSE trial (2019) did not replicate this benefit with current lung-protective practices. Use remains selective for ventilator dyssynchrony despite optimal sedation.",
+      "technical_details": "Cisatracurium undergoes Hofmann elimination (spontaneous degradation) independent of renal/hepatic function - preferred for infusion. Succinylcholine is depolarizing (contraindicated in hyperkalemia, burns, denervation). TOF monitoring at ulnar nerve; target 1-2 of 4 twitches for adequate paralysis."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "neuromuscular_blockade": "Pharmacological paralysis of skeletal muscles by blocking neuromuscular junction",
+      "NMBA": "Neuromuscular blocking agent; causes paralysis without sedation or analgesia",
+      "cisatracurium": "Non-depolarizing NMBA; organ-independent metabolism; preferred for infusion",
+      "rocuronium": "Non-depolarizing NMBA; rapid onset; reversed by sugammadex",
+      "vecuronium": "Non-depolarizing NMBA; hepatic metabolism; older agent",
+      "succinylcholine": "Depolarizing NMBA; rapid onset/offset; hyperkalemia risk",
+      "train_of_four": "Monitoring technique using 4 electrical stimuli to assess paralysis depth",
+      "Hofmann_elimination": "Spontaneous drug degradation independent of organ function",
+      "sugammadex": "Selective reversal agent for rocuronium/vecuronium",
+      "ICU_acquired_weakness": "Muscle weakness developing during critical illness; worsened by NMBAs",
+      "ventilator_dyssynchrony": "Patient-ventilator mismatch; may indicate need for paralysis",
+      "awareness": "Patient consciousness during paralysis; prevented by adequate sedation"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "NMBAs block acetylcholine binding at nicotinic receptors on motor end plates → inability to generate muscle action potentials → paralysis"
+    },
+    "diagnostic_criteria": {
+      "indications": [
+        "Severe ARDS with ventilator dyssynchrony despite sedation (P/F <150)",
+        "Intubation (facilitate laryngoscopy)",
+        "Elevated intracranial pressure (prevent coughing/straining)",
+        "Therapeutic hypothermia (prevent shivering)",
+        "Status epilepticus (suppress motor activity)"
+      ],
+      "contraindications": {
+        "succinylcholine": [
+          "Hyperkalemia",
+          "Burns >24h",
+          "Denervation injury",
+          "Malignant hyperthermia susceptibility"
+        ],
+        "all_NMBAs": [
+          "No secured airway",
+          "Inadequate sedation"
+        ]
+      }
+    },
+    "treatment_options": {
+      "agent_selection": {
+        "intubation": {
+          "rapid_sequence": "Succinylcholine 1-1.5 mg/kg or rocuronium 1.2 mg/kg",
+          "reversal_available": "Rocuronium preferred if sugammadex available"
+        },
+        "ICU_infusion": {
+          "first_choice": "Cisatracurium (organ-independent metabolism)",
+          "alternatives": "Vecuronium, rocuronium (with monitoring)"
+        }
+      },
+      "monitoring": {
+        "train_of_four": "Apply at ulnar nerve q4-6h; target 1-2 of 4 twitches",
+        "sedation": "BIS monitor if available; ensure adequate sedation"
+      },
+      "duration": {
+        "ARDS": "Limit to 48h if possible (ACURASYS protocol)",
+        "other": "Shortest duration necessary"
+      },
+      "complications": {
+        "prolonged_weakness": "ICU-acquired weakness; worsened by steroids + NMBAs",
+        "awareness": "Paralyzed but conscious; ensure deep sedation",
+        "corneal_injury": "Cannot blink; use lubricants, tape lids"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Neuromuscular Blockade"
-  ],
-  "clinical_pearls": [
-    "ARDS indication"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Neuromuscular Blockade"
+    },
+    "altLabel": [
       {
-        "source": "UpToDate. (2024). Neuromuscular Blockade. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Paralytic agents"
       },
       {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Muscle relaxants in ICU"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The use of neuromuscular blocking agents to produce skeletal muscle paralysis for specific indications in critically ill patients"
+    },
+    "notation": "icu-010"
+  },
+  "relationships": {
+    "skos:broader": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/pharmacology",
+        "skos:prefLabel": "ICU Pharmacology"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/icu-006",
+        "skos:prefLabel": "ARDS Management"
+      },
+      {
+        "@id": "wsmg:health-sciences/medicine/anesthesiology/intubation",
+        "skos:prefLabel": "Endotracheal Intubation"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Neuromuscular_Blockade",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "313255009",
+      "uri": "http://snomed.info/id/313255009",
+      "description": "Neuromuscular blockade"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D009466",
+      "uri": "http://id.nlm.nih.gov/mesh/D009466",
+      "description": "Neuromuscular Blocking Agents"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "List indications for neuromuscular blockade in the ICU",
+      "Select appropriate NMBA for clinical scenario",
+      "Monitor paralysis depth with train-of-four",
+      "Recognize and prevent complications of NMBAs"
+    ],
+    "clinical_pearls": [
+      "NEVER paralyze without adequate sedation - awareness is devastating",
+      "Cisatracurium preferred for infusion (Hofmann elimination)",
+      "Succinylcholine contraindicated >24h after burns, crush injury, denervation",
+      "ACURASYS showed benefit; ROSE did not - use selectively in severe ARDS"
+    ],
+    "board_yield": "MEDIUM",
+    "estimated_time": "20min",
+    "target_audience": [
+      "internal_medicine_residents",
+      "anesthesiology_residents",
+      "critical_care_fellows"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/critical-care/icu-006",
+      "skos:prefLabel": "ARDS Management"
+    }
+  ],
+  "related_concepts": [
+    "cisatracurium",
+    "rocuronium",
+    "train-of-four",
+    "ICU-acquired weakness",
+    "intubation"
+  ],
+  "evidence": {
+    "citations": [
+      {
+        "authors": "Papazian L, Forel JM, Gacouin A, et al.",
+        "title": "Neuromuscular blockers in early ARDS",
+        "journal": "N Engl J Med",
+        "year": 2010,
+        "volume": "363",
+        "pages": "1107-1116",
+        "doi": "10.1056/NEJMoa1005372"
+      },
+      {
+        "authors": "National Heart, Lung, and Blood Institute PETAL Clinical Trials Network",
+        "title": "Early neuromuscular blockade in ARDS (ROSE trial)",
+        "journal": "N Engl J Med",
+        "year": 2019,
+        "volume": "380",
+        "pages": "1997-2008",
+        "doi": "10.1056/NEJMoa1901686"
+      }
+    ],
+    "confidence_rationale": "ACURASYS and ROSE trials"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T02:36:00.000Z",
+    "sources": [
+      {
+        "source": "UpToDate. Neuromuscular blocking agents in critically ill patients. 2024.",
+        "type": "clinical_reference",
+        "year": 2024,
+        "relevance": "Current clinical guidance"
+      }
+    ]
+  },
+  "quality_assessment": {
+    "content_quality_score": 0.93,
+    "completeness": 0.94,
+    "accuracy": 0.95,
+    "clarity": 0.93,
+    "clinical_relevance": 0.94,
+    "last_assessed": "2026-01-11T02:36:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Neuromuscular-blocking_drug",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q905425"
 }

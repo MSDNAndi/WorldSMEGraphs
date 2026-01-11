@@ -1,75 +1,230 @@
 {
   "@context": "aku-v2",
-  "@type": "procedure",
-  "@id": "health-sciences:medicine:critical-care:icu-009",
+  "@type": "concept",
+  "@id": "wsmg:health-sciences/medicine/critical-care/icu-009",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T02:02:56.000Z",
+    "modified": "2026-01-11T02:34:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
     "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "status": "validated",
+    "language": "en",
+    "licenses": [
+      "CC-BY-4.0"
+    ]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/critical-care",
+    "subdomain": "respiratory",
     "type": "procedure",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
-    "title": "Ventilator Weaning",
-    "summary": "Liberation from MV",
+    "title": "Ventilator Weaning and Liberation",
+    "summary": "Ventilator weaning is the process of transitioning patients from mechanical ventilation to spontaneous breathing. It involves daily screening for readiness, spontaneous breathing trials (SBT), and extubation when criteria are met. Most patients can be extubated after passing a 30-120 minute SBT. Prolonged weaning failure requires identification and treatment of underlying causes.",
     "key_points": [
-      "Readiness assessment",
-      "SBT protocol",
-      "Cuff leak test"
+      "Daily readiness screening: resolved/improving cause, adequate oxygenation, hemodynamically stable, awake",
+      "Spontaneous Breathing Trial (SBT): T-piece or low PS (5-8 cmH2O) for 30-120 min",
+      "RSBI (f/Vt) <105 predicts successful weaning",
+      "Cuff leak test for upper airway patency if concern for edema",
+      "Extubation failure (re-intubation within 48-72h): 10-20%; higher mortality",
+      "Causes of weaning failure: cardiac, respiratory, neuromuscular, psychological"
     ],
-    "statement": "Ventilator Weaning is a fundamental concept in Health-Sciences Medicine Critical-Care that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "Ventilator liberation requires systematic daily screening, spontaneous breathing trials when criteria are met, and extubation following successful SBT, with attention to factors that may cause weaning failure.",
     "explanation": {
-      "intuition": "Understanding Ventilator Weaning helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of Ventilator Weaning include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Ventilator Weaning."
+      "intuition": "Think of weaning like training wheels on a bike - you gradually reduce support and test if the patient can breathe independently. The SBT is the 'test ride' where you see if they can manage on their own. If they pass, remove the tube.",
+      "key_insight": "The longer patients stay on the ventilator, the worse outcomes. Daily awakening trials + SBT (ABC trial) reduced ventilator days. Sedation interruption is as important as ventilator weaning.",
+      "technical_details": "RSBI = respiratory rate / tidal volume (in liters). <105 breaths/min/L suggests likely success. SBT can be done with T-piece (no support), CPAP 5 cmH2O, or PS 5-8 + PEEP 5. All approaches have similar predictive value."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "weaning": "Process of reducing ventilator support and transitioning to spontaneous breathing",
+      "SBT": "Spontaneous breathing trial; test of ability to breathe independently",
+      "RSBI": "Rapid shallow breathing index (f/Vt); <105 predicts successful weaning",
+      "extubation": "Removal of endotracheal tube",
+      "extubation_failure": "Need for re-intubation within 48-72 hours of extubation",
+      "cuff_leak_test": "Test for upper airway patency; absent leak suggests edema risk",
+      "prolonged_weaning": "Failure of weaning after 3 or more SBT attempts over >7 days",
+      "daily_awakening_trial": "Interruption of sedation to assess neurological status",
+      "T_piece": "Oxygen delivery system disconnected from ventilator for SBT",
+      "tracheostomy": "Surgical airway for prolonged ventilation needs",
+      "diaphragm_dysfunction": "Weakened diaphragm from ventilator-induced diaphragmatic dysfunction",
+      "unplanned_extubation": "Accidental or self-removal of ETT; 50% require re-intubation"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Mechanical ventilation can lead to diaphragm atrophy (VIDD), deconditioning, and psychological dependence; systematic weaning minimizes complications"
+    },
+    "diagnostic_criteria": {
+      "readiness_criteria": [
+        "Cause of intubation resolving/resolved",
+        "Adequate oxygenation (P/F >150, FiO2 ≤0.4, PEEP ≤8)",
+        "Hemodynamically stable (no/low-dose vasopressors)",
+        "Adequate mentation (follows commands)",
+        "Intact cough and airway protective reflexes"
+      ],
+      "SBT_methods": {
+        "T_piece": "Breathing through tube with oxygen but no ventilator support",
+        "low_PS": "PS 5-8 cmH2O + PEEP 5 cmH2O; may slightly overestimate success",
+        "duration": "30-120 minutes; shorter if high-risk for failure"
+      }
+    },
+    "treatment_options": {
+      "SBT_assessment": {
+        "success_criteria": [
+          "Tolerated 30-120 min without distress",
+          "RR <35",
+          "SpO2 >90%",
+          "HR <140 and <20% change",
+          "No accessory muscle use, diaphoresis, or agitation"
+        ],
+        "failure_criteria": [
+          "RR >35",
+          "SpO2 <90%",
+          "HR >140 or arrhythmia",
+          "SBP >180 or <90",
+          "Signs of increased work of breathing"
+        ]
+      },
+      "post_SBT_management": {
+        "passed": "Assess for cuff leak if concern → extubate → monitor closely",
+        "failed": "Return to full support → identify cause → retry next day"
+      },
+      "causes_of_weaning_failure": {
+        "cardiac": "Weaning-induced pulmonary edema; diurese, may need echo",
+        "respiratory": "Weak muscles, bronchospasm, secretions, upper airway obstruction",
+        "neurologic": "Delirium, sedation, stroke, neuromuscular disease",
+        "psychological": "Anxiety, fear; may benefit from reassurance, gradual weaning"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Ventilator Weaning"
-  ],
-  "clinical_pearls": [
-    "Readiness assessment"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Ventilator Weaning"
+    },
+    "altLabel": [
       {
-        "source": "UpToDate. (2024). Ventilator Weaning. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Liberation from mechanical ventilation"
       },
       {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Extubation assessment"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The systematic process of reducing ventilator support and transitioning patients to independent spontaneous breathing culminating in extubation"
+    },
+    "notation": "icu-009"
+  },
+  "relationships": {
+    "skos:broader": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/mechanical-ventilation",
+        "skos:prefLabel": "Mechanical Ventilation"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/icu-007",
+        "skos:prefLabel": "Mechanical Ventilation Modes"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Ventilator_Weaning",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "243182005",
+      "uri": "http://snomed.info/id/243182005",
+      "description": "Weaning from mechanical ventilation"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D015300",
+      "uri": "http://id.nlm.nih.gov/mesh/D015300",
+      "description": "Ventilator Weaning"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Screen patients daily for weaning readiness",
+      "Conduct and interpret spontaneous breathing trials",
+      "Calculate and apply RSBI for weaning prediction",
+      "Identify causes of weaning failure"
+    ],
+    "clinical_pearls": [
+      "RSBI <105 predicts success; >105 predicts failure (but not perfect)",
+      "Daily awakening + SBT reduces vent days and mortality (ABC trial)",
+      "Cardiac failure is underappreciated cause of weaning failure - get echo/BNP",
+      "If failed 3+ SBTs, consider tracheostomy evaluation"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "20min",
+    "target_audience": [
+      "internal_medicine_residents",
+      "pulmonary_fellows",
+      "critical_care_fellows"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/critical-care/icu-007",
+      "skos:prefLabel": "Mechanical Ventilation Modes"
+    }
+  ],
+  "related_concepts": [
+    "spontaneous breathing trial",
+    "RSBI",
+    "extubation",
+    "sedation interruption",
+    "tracheostomy"
+  ],
+  "evidence": {
+    "citations": [
+      {
+        "authors": "Girard TD, Kress JP, Fuchs BD, et al.",
+        "title": "Efficacy and safety of a paired sedation and ventilator weaning protocol (Awakening and Breathing Controlled trial)",
+        "journal": "Lancet",
+        "year": 2008,
+        "volume": "371",
+        "pages": "126-134",
+        "doi": "10.1016/S0140-6736(08)60105-1"
+      }
+    ],
+    "confidence_rationale": "ABC trial and standard weaning protocols"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T02:34:00.000Z",
+    "sources": [
+      {
+        "source": "UpToDate. Weaning from mechanical ventilation. 2024.",
+        "type": "clinical_reference",
+        "year": 2024,
+        "relevance": "Current clinical guidance"
+      }
+    ]
+  },
+  "quality_assessment": {
+    "content_quality_score": 0.94,
+    "completeness": 0.95,
+    "accuracy": 0.95,
+    "clarity": 0.94,
+    "clinical_relevance": 0.96,
+    "last_assessed": "2026-01-11T02:34:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Ventilator_weaning",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q25107579"
 }

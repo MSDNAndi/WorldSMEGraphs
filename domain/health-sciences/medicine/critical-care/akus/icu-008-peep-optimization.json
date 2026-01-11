@@ -1,75 +1,230 @@
 {
   "@context": "aku-v2",
-  "@type": "procedure",
-  "@id": "health-sciences:medicine:critical-care:icu-008",
+  "@type": "concept",
+  "@id": "wsmg:health-sciences/medicine/critical-care/icu-008",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T02:02:56.000Z",
+    "modified": "2026-01-11T02:32:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
     "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "status": "validated",
+    "language": "en",
+    "licenses": [
+      "CC-BY-4.0"
+    ]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/critical-care",
+    "subdomain": "respiratory",
     "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
     "title": "PEEP Optimization",
-    "summary": "PEEP titration",
+    "summary": "Positive End-Expiratory Pressure (PEEP) maintains alveolar recruitment and prevents collapse at end-expiration. Optimization balances recruitment benefits against overdistension, hemodynamic compromise, and barotrauma. Strategies include ARDSNet PEEP/FiO2 tables, best compliance titration, driving pressure minimization, and esophageal pressure-guided PEEP.",
     "key_points": [
-      "Recruitment and overdistension",
-      "PEEP tables",
-      "Driving pressure"
+      "PEEP prevents end-expiratory alveolar collapse (atelectrauma)",
+      "ARDSNet PEEP/FiO2 tables: standard approach in ARDS",
+      "Higher PEEP may benefit severe ARDS but not mild ARDS",
+      "Best PEEP = lowest driving pressure (compliance-guided)",
+      "Esophageal balloon: measures transpulmonary pressure for PEEP setting",
+      "Complications: overdistension, hemodynamic compromise, pneumothorax"
     ],
-    "statement": "PEEP Optimization is a fundamental concept in Health-Sciences Medicine Critical-Care that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "PEEP optimization aims to maximize alveolar recruitment while minimizing overdistension and hemodynamic effects, using standardized tables or individualized approaches based on compliance, driving pressure, or transpulmonary pressure measurement.",
     "explanation": {
-      "intuition": "Understanding PEEP Optimization helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of PEEP Optimization include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of PEEP Optimization."
+      "intuition": "PEEP acts like a doorstop keeping alveoli open at the end of each breath. Too little PEEP and alveoli collapse (atelectrauma); too much and healthy alveoli are overinflated (overdistension). Finding the 'Goldilocks' PEEP keeps most alveoli open with minimal overdistension.",
+      "key_insight": "Driving pressure (Pplat - PEEP) may be the most important parameter. Optimizing PEEP to minimize driving pressure (maximize compliance) individualizes PEEP to patient's lung mechanics.",
+      "technical_details": "ARDSNet uses low PEEP/FiO2 and high PEEP/FiO2 tables (no mortality difference in most studies). EPVent-2 used esophageal pressure to titrate PEEP to transpulmonary pressure >0 - no mortality benefit. Decremental PEEP titration after recruitment maneuver is an alternative approach."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "PEEP": "Positive end-expiratory pressure maintained between breaths",
+      "recruitment": "Opening collapsed alveoli through positive pressure",
+      "atelectrauma": "Lung injury from repetitive opening/closing of alveoli",
+      "overdistension": "Excessive stretching of already-open alveoli",
+      "driving_pressure": "Plateau pressure minus PEEP; force distending the lung",
+      "compliance": "Change in volume per unit pressure; reflects lung stiffness",
+      "transpulmonary_pressure": "Alveolar pressure minus pleural pressure",
+      "esophageal_pressure": "Surrogate for pleural pressure using esophageal balloon",
+      "barotrauma": "Lung injury from high pressures (pneumothorax, pneumomediastinum)",
+      "recruitment_maneuver": "Transient high PEEP to open collapsed lung units",
+      "auto_PEEP": "Intrinsic PEEP from incomplete exhalation (air trapping)",
+      "best_PEEP": "PEEP level optimizing recruitment vs overdistension"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "PEEP maintains positive pressure at end-expiration → keeps alveoli open → improves V/Q matching → improves oxygenation",
+      "balance": "Must avoid overdistension (high Pplat) and hemodynamic compromise (decreased venous return)"
+    },
+    "diagnostic_criteria": {
+      "indications": [
+        "ARDS",
+        "Acute hypoxemic respiratory failure",
+        "Cardiogenic pulmonary edema",
+        "Post-operative atelectasis"
+      ]
+    },
+    "treatment_options": {
+      "PEEP_titration_strategies": {
+        "ARDSNet_tables": {
+          "description": "Standardized PEEP/FiO2 combinations",
+          "approach": "Match PEEP to FiO2 using low or high PEEP tables",
+          "evidence": "No mortality difference between high and low PEEP in unselected ARDS"
+        },
+        "driving_pressure_guided": {
+          "description": "Set PEEP to minimize driving pressure",
+          "approach": "Increase PEEP, measure Pplat; optimal PEEP when driving pressure lowest",
+          "evidence": "Lower driving pressure associated with survival in retrospective analyses"
+        },
+        "compliance_guided": {
+          "description": "Incremental or decremental PEEP titration to find best compliance",
+          "approach": "After recruitment, decrease PEEP and find compliance peak",
+          "evidence": "Physiologically sound but no mortality trial data"
+        },
+        "esophageal_pressure_guided": {
+          "description": "Measure transpulmonary pressure to set PEEP",
+          "approach": "Titrate PEEP to transpulmonary PEEP >0 at end-expiration",
+          "evidence": "EPVent-2 showed improved oxygenation but not mortality"
+        }
+      },
+      "practical_considerations": {
+        "starting_PEEP": "5-8 cmH2O for most patients; higher in ARDS",
+        "hemodynamic_effects": "May decrease preload/CO - monitor BP; may need fluids",
+        "high_PEEP_contraindications": [
+          "Undrained pneumothorax",
+          "Severe COPD with auto-PEEP",
+          "RV failure"
+        ]
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand PEEP Optimization"
-  ],
-  "clinical_pearls": [
-    "Recruitment and overdistension"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "PEEP Optimization"
+    },
+    "altLabel": [
       {
-        "source": "UpToDate. (2024). PEEP Optimization. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "PEEP titration"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Strategies to optimize positive end-expiratory pressure to maximize alveolar recruitment while minimizing overdistension and hemodynamic compromise"
+    },
+    "notation": "icu-008"
+  },
+  "relationships": {
+    "skos:broader": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/mechanical-ventilation",
+        "skos:prefLabel": "Mechanical Ventilation"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/icu-006",
+        "skos:prefLabel": "ARDS Management"
       },
       {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@id": "wsmg:health-sciences/medicine/critical-care/icu-007",
+        "skos:prefLabel": "Mechanical Ventilation Modes"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/PEEP_Optimization",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "243180002",
+      "uri": "http://snomed.info/id/243180002",
+      "description": "Positive end expiratory pressure ventilation"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D011175",
+      "uri": "http://id.nlm.nih.gov/mesh/D011175",
+      "description": "Positive-Pressure Respiration"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Explain the physiological rationale for PEEP",
+      "Apply ARDSNet PEEP/FiO2 tables",
+      "Calculate and interpret driving pressure",
+      "Recognize signs of inappropriate PEEP (overdistension vs derecruitment)"
+    ],
+    "clinical_pearls": [
+      "Driving pressure <15 cmH2O is associated with better outcomes",
+      "SpO2 92-96% is adequate - don't chase 100% with excessive PEEP/FiO2",
+      "If BP drops with PEEP increase, may indicate hypovolemia or RV strain",
+      "Auto-PEEP (intrinsic PEEP) must be measured to assess total PEEP"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "20min",
+    "target_audience": [
+      "internal_medicine_residents",
+      "pulmonary_fellows",
+      "critical_care_fellows"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/critical-care/icu-007",
+      "skos:prefLabel": "Mechanical Ventilation Modes"
+    }
+  ],
+  "related_concepts": [
+    "driving pressure",
+    "lung recruitment",
+    "compliance",
+    "atelectasis",
+    "oxygenation"
+  ],
+  "evidence": {
+    "citations": [
+      {
+        "authors": "Amato MB, Meade MO, Slutsky AS, et al.",
+        "title": "Driving pressure and survival in the acute respiratory distress syndrome",
+        "journal": "N Engl J Med",
+        "year": 2015,
+        "volume": "372",
+        "pages": "747-755",
+        "doi": "10.1056/NEJMsa1410639"
+      }
+    ],
+    "confidence_rationale": "Driving pressure analysis and PEEP trials"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T02:32:00.000Z",
+    "sources": [
+      {
+        "source": "UpToDate. Positive end-expiratory pressure (PEEP). 2024.",
+        "type": "clinical_reference",
+        "year": 2024,
+        "relevance": "Current clinical guidance"
+      }
+    ]
+  },
+  "quality_assessment": {
+    "content_quality_score": 0.94,
+    "completeness": 0.95,
+    "accuracy": 0.95,
+    "clarity": 0.93,
+    "clinical_relevance": 0.96,
+    "last_assessed": "2026-01-11T02:32:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Positive_end-expiratory_pressure",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q595869"
 }

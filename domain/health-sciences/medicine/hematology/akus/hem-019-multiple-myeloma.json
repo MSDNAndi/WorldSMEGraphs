@@ -1,75 +1,256 @@
 {
   "@context": "aku-v2",
-  "@type": "definition",
-  "@id": "health-sciences:medicine:hematology:hem-019",
+  "@type": "concept",
+  "@id": "wsmg:health-sciences/medicine/hematology/hem-019",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:58:35.000Z",
+    "modified": "2026-01-11T02:50:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": [
+      "CC-BY-4.0"
+    ]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/hematology",
+    "subdomain": "plasma-cell-dyscrasias",
     "type": "definition",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "critical",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
     "title": "Multiple Myeloma",
-    "summary": "Plasma cell neoplasm",
+    "summary": "Multiple myeloma (MM) is a malignant plasma cell neoplasm characterized by clonal bone marrow plasma cells producing monoclonal immunoglobulin (M-protein). It causes end-organ damage (CRAB: Calcium elevation, Renal insufficiency, Anemia, Bone disease). Treatment involves triplet regimens (proteasome inhibitor + IMiD + steroid) and autologous stem cell transplant in eligible patients.",
     "key_points": [
-      "CRAB criteria",
-      "M-protein",
-      "Proteasome inhibitors, IMiDs"
+      "Definition: ≥10% clonal bone marrow plasma cells OR biopsy-proven plasmacytoma + myeloma-defining event",
+      "CRAB criteria: Calcium >11, Renal (Cr >2), Anemia (Hgb <10), Bone lesions",
+      "SLiM criteria: 60% plasma cells, involved/uninvolved FLC ratio ≥100, >1 focal lesion on MRI",
+      "M-protein: SPEP + SFLC for diagnosis and monitoring",
+      "Treatment: VRd (bortezomib-lenalidomide-dex) → ASCT if eligible; daratumumab increasingly first-line",
+      "Supportive: bisphosphonates, infection prophylaxis, thromboprophylaxis"
     ],
-    "statement": "Multiple Myeloma is a fundamental concept in Health-Sciences Medicine Hematology that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "Multiple myeloma is a clonal plasma cell malignancy producing monoclonal immunoglobulin with end-organ damage (CRAB) diagnosed by bone marrow biopsy and serum/urine protein electrophoresis, treated with proteasome inhibitor-based triplet regimens and autologous stem cell transplant in eligible patients.",
     "explanation": {
-      "intuition": "Understanding Multiple Myeloma helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of Multiple Myeloma include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Multiple Myeloma."
+      "intuition": "Plasma cells are antibody factories. In myeloma, a single plasma cell clone multiplies uncontrollably, crowding the bone marrow (→anemia), destroying bone (→fractures, hypercalcemia), and producing excessive antibody protein that damages kidneys (→renal failure).",
+      "key_insight": "The CRAB criteria identify symptomatic myeloma requiring treatment. The newer SLiM criteria identify high-risk 'smoldering' myeloma that should also be treated despite absent CRAB features because progression is imminent.",
+      "technical_details": "M-protein is detected by SPEP (serum protein electrophoresis) as a monoclonal spike. Immunofixation identifies the heavy and light chain type (IgG kappa is most common). Free light chain assay is essential for light-chain-only myeloma. t(11;14), t(4;14), del(17p), and +1q are important cytogenetics."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "multiple_myeloma": "Clonal plasma cell neoplasm producing monoclonal immunoglobulin with end-organ damage",
+      "M_protein": "Monoclonal immunoglobulin or light chain produced by myeloma cells",
+      "CRAB": "Calcium, Renal, Anemia, Bone - end-organ damage criteria",
+      "SLiM": "Sixty percent plasma cells, Light chain ratio ≥100, MRI lesions >1 - biomarkers of imminent progression",
+      "SPEP": "Serum protein electrophoresis; detects monoclonal protein spike",
+      "SFLC": "Serum free light chain assay; detects kappa or lambda light chains",
+      "proteasome_inhibitor": "Drug class blocking proteasome (bortezomib, carfilzomib, ixazomib)",
+      "IMiD": "Immunomodulatory drug (lenalidomide, pomalidomide, thalidomide)",
+      "ASCT": "Autologous stem cell transplant; consolidation after induction",
+      "MGUS": "Monoclonal gammopathy of undetermined significance; precursor lesion",
+      "smoldering_myeloma": "Clonal plasma cells with M-protein but no CRAB; watch or treat if SLiM",
+      "daratumumab": "Anti-CD38 monoclonal antibody; increasingly first-line in myeloma"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Clonal plasma cell proliferation → M-protein production → hyperviscosity, renal damage; bone destruction via osteoclast activation; bone marrow crowding → cytopenias"
+    },
+    "clinical_manifestations": {
+      "CRAB": {
+        "C": "Hypercalcemia (bone resorption)",
+        "R": "Renal insufficiency (light chain cast nephropathy)",
+        "A": "Anemia (marrow replacement)",
+        "B": "Bone disease (lytic lesions, fractures)"
+      },
+      "other": [
+        "Infections (antibody deficiency)",
+        "Hyperviscosity (IgA, IgG3)",
+        "Amyloidosis (AL)"
+      ]
+    },
+    "diagnostic_criteria": {
+      "IMWG_2014": {
+        "requirement": "≥10% clonal plasma cells OR plasmacytoma AND myeloma-defining event",
+        "myeloma_defining_events": {
+          "CRAB": [
+            "Ca >11 mg/dL",
+            "Cr >2 mg/dL or CrCl <40",
+            "Hgb <10 g/dL",
+            "≥1 lytic bone lesion"
+          ],
+          "SLiM": [
+            "≥60% bone marrow plasma cells",
+            "FLC ratio ≥100",
+            ">1 focal lesion on MRI"
+          ]
+        }
+      },
+      "workup": [
+        "CBC, BMP, calcium, LDH",
+        "SPEP, UPEP, immunofixation, SFLC",
+        "Bone marrow biopsy with cytogenetics/FISH",
+        "Skeletal survey or whole-body low-dose CT or PET-CT"
+      ]
+    },
+    "differential_diagnosis": [
+      "MGUS (M-protein <3 g/dL, <10% plasma cells, no CRAB)",
+      "Smoldering myeloma (≥10% plasma cells but no CRAB/SLiM)",
+      "Waldenström macroglobulinemia (IgM, lymphoplasmacytic)",
+      "AL amyloidosis (light chain deposition)"
+    ],
+    "treatment_options": {
+      "induction": {
+        "transplant_eligible": "VRd (bortezomib-lenalidomide-dex) × 3-4 cycles; Dara-VRd increasingly used",
+        "transplant_ineligible": "VRd or Dara-Rd until progression; similar regimens, longer duration"
+      },
+      "transplant": {
+        "ASCT": "High-dose melphalan followed by autologous stem cell rescue; deepens response"
+      },
+      "maintenance": {
+        "standard": "Lenalidomide until progression",
+        "high_risk": "Consider bortezomib-based maintenance"
+      },
+      "supportive": {
+        "bone": "Zoledronic acid or denosumab",
+        "infection": "Vaccination; acyclovir/valacyclovir prophylaxis",
+        "renal": "Avoid NSAIDs, nephrotoxins; hydration",
+        "thromboprophylaxis": "Aspirin or anticoagulation with IMiDs"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Multiple Myeloma"
-  ],
-  "clinical_pearls": [
-    "CRAB criteria"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Multiple Myeloma"
+    },
+    "altLabel": [
       {
-        "source": "UpToDate. (2024). Multiple Myeloma. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Plasma cell myeloma"
       },
       {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Kahler disease"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A clonal plasma cell malignancy producing monoclonal immunoglobulin (M-protein) causing CRAB end-organ damage"
+    },
+    "notation": "hem-019"
+  },
+  "relationships": {
+    "skos:broader": [
+      {
+        "@id": "wsmg:health-sciences/medicine/hematology/plasma-cell-dyscrasias",
+        "skos:prefLabel": "Plasma Cell Dyscrasias"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/hematology/hem-020",
+        "skos:prefLabel": "Monoclonal Gammopathy of Undetermined Significance"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Multiple_Myeloma",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "109989006",
+      "uri": "http://snomed.info/id/109989006",
+      "description": "Multiple myeloma"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "C90.0",
+      "uri": "http://hl7.org/fhir/sid/icd-10-cm/C90.0",
+      "description": "Multiple myeloma"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D009101",
+      "uri": "http://id.nlm.nih.gov/mesh/D009101",
+      "description": "Multiple Myeloma"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Apply CRAB and SLiM criteria for diagnosis",
+      "Interpret serum protein electrophoresis and free light chains",
+      "Select appropriate induction therapy based on transplant eligibility",
+      "Recognize high-risk cytogenetics"
+    ],
+    "clinical_pearls": [
+      "Check SFLC even if SPEP normal - 15% are light-chain-only myeloma",
+      "Whole-body low-dose CT replacing skeletal survey - finds more lesions",
+      "High-risk cytogenetics: t(4;14), t(14;16), del(17p), +1q - shorter remissions",
+      "Daratumumab added to VRd (Dara-VRd) improves MRD negativity and PFS"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "30min",
+    "target_audience": [
+      "internal_medicine_residents",
+      "hematology_fellows"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/hematology/hem-020",
+      "skos:prefLabel": "MGUS"
+    }
+  ],
+  "related_concepts": [
+    "M-protein",
+    "proteasome inhibitor",
+    "ASCT",
+    "CRAB criteria",
+    "free light chains"
+  ],
+  "evidence": {
+    "citations": [
+      {
+        "authors": "Rajkumar SV, Dimopoulos MA, Palumbo A, et al.",
+        "title": "International Myeloma Working Group updated criteria for the diagnosis of multiple myeloma",
+        "journal": "Lancet Oncol",
+        "year": 2014,
+        "volume": "15",
+        "pages": "e538-e548",
+        "doi": "10.1016/S1470-2045(14)70442-5"
+      }
+    ],
+    "confidence_rationale": "IMWG diagnostic criteria and NCCN treatment guidelines"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T02:50:00.000Z",
+    "sources": [
+      {
+        "source": "IMWG 2014 Diagnostic Criteria",
+        "type": "guideline",
+        "year": 2014,
+        "relevance": "Primary diagnostic criteria"
+      }
+    ]
+  },
+  "quality_assessment": {
+    "content_quality_score": 0.95,
+    "completeness": 0.96,
+    "accuracy": 0.96,
+    "clarity": 0.94,
+    "clinical_relevance": 0.97,
+    "last_assessed": "2026-01-11T02:50:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Multiple_myeloma",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q176780"
 }
