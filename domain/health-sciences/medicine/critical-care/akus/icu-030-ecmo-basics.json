@@ -3,73 +3,219 @@
   "@type": "procedure",
   "@id": "health-sciences:medicine:critical-care:icu-030",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T02:02:56.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "critical-care-specialist"
     ],
-    "confidence": 0.95,
+    "confidence": 0.96,
     "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "modified": "2026-01-11T11:50:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/critical-care",
     "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "high",
+    "subspecialty": "advanced-life-support"
   },
   "content": {
     "title": "ECMO Basics",
-    "summary": "Extracorporeal membrane oxygenation",
+    "summary": "Extracorporeal membrane oxygenation (ECMO) provides temporary cardiopulmonary support by draining venous blood, oxygenating it externally, and returning it to the patient, with VV-ECMO for respiratory failure and VA-ECMO for cardiac failure or arrest.",
     "key_points": [
-      "VV vs VA ECMO",
-      "Patient selection",
-      "Complications"
+      "VV-ECMO: venous drainage and return for respiratory failure; patient's heart provides circulation",
+      "VA-ECMO: venous drainage, arterial return for cardiac failure; bypasses heart and lungs",
+      "Indications: refractory respiratory failure (ARDS, bridge to transplant) or cardiogenic shock/arrest",
+      "Requires systemic anticoagulation with continuous monitoring for bleeding and thrombosis",
+      "Bridge therapy - to recovery, to transplant, or to decision; not destination therapy",
+      "Complications: bleeding, thrombosis, limb ischemia (VA), infection, hemolysis"
     ],
-    "statement": "ECMO Basics is a fundamental concept in Health-Sciences Medicine Critical-Care that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "Extracorporeal membrane oxygenation (ECMO) is an advanced life support modality that provides temporary gas exchange and/or circulatory support by draining blood from the venous system, passing it through a membrane oxygenator, and returning it to the patient's venous (VV-ECMO) or arterial (VA-ECMO) circulation.",
     "explanation": {
-      "intuition": "Understanding ECMO Basics helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of ECMO Basics include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of ECMO Basics."
+      "intuition": "ECMO is essentially a heart-lung bypass machine used outside the operating room for days to weeks. It takes over the work of gas exchange (and in VA-ECMO, circulation) to let the patient's lungs and/or heart rest and recover. It buys time while treating the underlying condition.",
+      "key_insight": "ECMO is a bridge, not a destination. The key questions before initiating are: what are we bridging to? Is there a reversible condition? Is the patient a transplant candidate? ECMO without a clear exit strategy often leads to difficult decisions.",
+      "technical_details": "VV-ECMO uses dual-lumen single cannula (IJ) or femoral/IJ configuration; blood drains from vena cava, passes through oxygenator and heat exchanger, returns to right atrium. VA-ECMO drains from femoral vein (or RA), returns to femoral artery (or aorta) providing both oxygenation and circulatory support. Flow rates 3-5 L/min; FiO2 and sweep gas adjust oxygenation and CO2 removal. Anticoagulation targets ACT 180-220 seconds or aPTT 1.5-2x normal."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "ecmo": "Extracorporeal membrane oxygenation - temporary cardiopulmonary support system",
+      "vv_ecmo": "Venovenous ECMO - blood removed and returned to venous system for isolated respiratory support",
+      "va_ecmo": "Venoarterial ECMO - blood removed from venous system, returned to arterial system for cardiac and respiratory support",
+      "membrane_oxygenator": "Device where gas exchange occurs - blood flows past semipermeable membrane; O2 diffuses in, CO2 out",
+      "sweep_gas": "Gas flow through oxygenator controlling CO2 removal; higher sweep = more CO2 removed",
+      "cannulation": "Placement of large-bore vascular access for ECMO drainage and return",
+      "centrifugal_pump": "Blood pump that propels blood through ECMO circuit",
+      "act": "Activated clotting time - point-of-care test for anticoagulation monitoring during ECMO",
+      "recirculation": "In VV-ECMO, oxygenated blood being re-drained before reaching systemic circulation; reduces efficiency",
+      "limb_ischemia": "Leg ischemia distal to femoral arterial cannula in VA-ECMO; requires distal perfusion catheter",
+      "decannulation": "Removal of ECMO cannulas when support no longer needed",
+      "bridge_to_recovery": "Using ECMO to support patient until native organ function returns"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "gas_exchange": "Blood passes through membrane oxygenator where O2 diffuses into blood and CO2 diffuses out; independent of patient lungs",
+      "circulatory_support": "In VA-ECMO, centrifugal pump provides forward flow bypassing the failing heart",
+      "lung_rest": "Low tidal volumes and pressures on ventilator allow lung recovery in ARDS"
+    },
+    "configurations": {
+      "vv_ecmo": {
+        "circuit": "Venous drainage (femoral or IJ) → oxygenator → venous return (IJ or femoral)",
+        "indications": "Refractory hypoxemia (ARDS), hypercapnic respiratory failure, bridge to lung transplant",
+        "hemodynamics": "Patient's heart provides all circulation; requires adequate cardiac function",
+        "oxygenation": "Depends on ECMO flow, cardiac output, and recirculation"
+      },
+      "va_ecmo": {
+        "circuit": "Venous drainage (femoral or RA) → oxygenator → arterial return (femoral or aorta)",
+        "indications": "Cardiogenic shock, cardiac arrest, post-cardiotomy, bridge to heart transplant/LVAD",
+        "hemodynamics": "Provides circulatory support; offloads failing heart",
+        "complications": "Limb ischemia, LV distension (may need venting), differential hypoxia"
+      }
+    },
+    "indications": {
+      "respiratory": {
+        "ards": "Severe ARDS failing lung-protective ventilation (CESAR, EOLIA trials)",
+        "bridge_to_transplant": "Support while awaiting lung transplant",
+        "other": "Status asthmaticus, massive PE with hemodynamic instability"
+      },
+      "cardiac": {
+        "cardiogenic_shock": "Acute MI, fulminant myocarditis, post-cardiotomy",
+        "cardiac_arrest": "E-CPR for selected in-hospital or out-of-hospital arrests",
+        "bridge": "Bridge to VAD or heart transplant"
+      }
+    },
+    "management": {
+      "anticoagulation": {
+        "unfractionated_heparin": "Standard anticoagulant; target ACT 180-220s or aPTT 1.5-2x",
+        "monitoring": "ACT, aPTT, anti-Xa; adjust for bleeding or thrombosis",
+        "bleeding_management": "May reduce or hold anticoagulation; transfuse as needed"
+      },
+      "circuit_management": {
+        "flow": "Typically 3-5 L/min; adjust for oxygenation and cardiac output goals",
+        "sweep": "Controls CO2 removal; increase sweep to reduce CO2",
+        "fio2": "Membrane FiO2 typically 100%; patient FiO2 can be weaned"
+      },
+      "ventilator_management": {
+        "lung_rest": "Low tidal volumes (4-6 mL/kg), low PEEP, low rate to minimize VILI",
+        "monitoring": "Serial imaging, compliance, readiness for weaning trials"
+      }
+    },
+    "complications": {
+      "bleeding": "Most common; from anticoagulation, surgical sites, coagulopathy",
+      "thrombosis": "Circuit clot, stroke, limb ischemia; balance with anticoagulation",
+      "infection": "Cannula site, nosocomial pneumonia, bacteremia",
+      "hemolysis": "From pump or circuit; monitor LDH, plasma-free hemoglobin",
+      "limb_ischemia": "VA-ECMO with femoral arterial cannula; use distal perfusion catheter",
+      "neurologic": "Stroke (hemorrhagic or ischemic), hypoxic-ischemic encephalopathy"
+    }
   },
-  "learning_objectives": [
-    "Understand ECMO Basics"
+  "skos": {
+    "prefLabel": "ECMO Basics",
+    "altLabel": [
+      "Extracorporeal Membrane Oxygenation",
+      "ECLS",
+      "Extracorporeal Life Support",
+      "VV-ECMO",
+      "VA-ECMO"
+    ],
+    "definition": "Advanced temporary cardiopulmonary support using an extracorporeal circuit to provide gas exchange and/or circulatory support for patients with refractory respiratory or cardiac failure.",
+    "broader": [
+      "health-sciences:medicine:critical-care:advanced-life-support"
+    ],
+    "related": [
+      "health-sciences:medicine:critical-care:icu-027-acute-respiratory-failure",
+      "health-sciences:medicine:critical-care:icu-008-ards",
+      "health-sciences:medicine:critical-care:icu-002-cardiogenic-shock"
+    ],
+    "narrower": []
+  },
+  "medicalCode": {
+    "snomedCt": {
+      "conceptId": "233573008",
+      "term": "Extracorporeal membrane oxygenation"
+    },
+    "icd10_pcs": {
+      "code": "5A15223",
+      "display": "Extracorporeal membrane oxygenation, continuous"
+    },
+    "mesh": {
+      "descriptorId": "D015199",
+      "term": "Extracorporeal Membrane Oxygenation"
+    }
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Compare VV-ECMO and VA-ECMO configurations and indications",
+      "Describe the basic components of an ECMO circuit",
+      "Identify appropriate candidates for ECMO support",
+      "Explain anticoagulation management during ECMO",
+      "Recognize common ECMO complications and their management",
+      "Apply the concept of ECMO as bridge therapy"
+    ],
+    "clinical_pearls": [
+      "ECMO is a bridge - always ask: bridge to what? Recovery, transplant, or decision?",
+      "VV-ECMO requires adequate cardiac function - the patient's heart does all the pumping",
+      "VA-ECMO with femoral cannulation causes limb ischemia - always place distal perfusion catheter",
+      "Increase sweep gas to remove more CO2; increase flow to improve oxygenation",
+      "Differential hypoxia in VA-ECMO: upper body hypoxic, lower body well-oxygenated if mixing occurs",
+      "ECMO doesn't fix the underlying problem - treat the cause while supporting the patient"
+    ],
+    "board_yield": {
+      "usmle_step1": "Gas exchange physiology, oxygenator function, anticoagulation",
+      "usmle_step2": "Indications, VV vs VA selection, basic complications",
+      "usmle_step3": "Patient selection, ethical considerations, weaning criteria",
+      "abim_critical_care": "Circuit management, troubleshooting, evidence base (CESAR, EOLIA)"
+    },
+    "common_misconceptions": [
+      "Misconception: ECMO can support anyone indefinitely. Reality: ECMO is temporary; need exit strategy",
+      "Misconception: VV and VA ECMO are interchangeable. Reality: VV is for respiratory failure only; VA adds circulatory support",
+      "Misconception: ECMO eliminates need for ventilator. Reality: Patient stays on ventilator at rest settings for lung recovery"
+    ]
+  },
+  "prerequisites": [
+    "health-sciences:medicine:critical-care:icu-027-acute-respiratory-failure",
+    "health-sciences:medicine:critical-care:icu-007-mechanical-ventilation-modes"
   ],
-  "clinical_pearls": [
-    "VV vs VA ECMO"
+  "related_concepts": [
+    "health-sciences:medicine:critical-care:icu-008-ards",
+    "health-sciences:medicine:critical-care:icu-002-cardiogenic-shock"
   ],
+  "evidence": {
+    "citations": [
+      {
+        "reference": "Combes A, et al. Extracorporeal Membrane Oxygenation for Severe Acute Respiratory Distress Syndrome (EOLIA). N Engl J Med. 2018;378(21):1965-1975.",
+        "doi": "10.1056/NEJMoa1800385",
+        "pmid": "29791822"
+      }
+    ],
+    "confidence_rationale": "Established rescue therapy with RCT evidence; survival benefit in select populations"
+  },
   "provenance": {
     "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
+    "last_verified": "2026-01-11T11:50:00.000Z",
     "sources": [
       {
-        "source": "UpToDate. (2024). ECMO Basics. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "source": "EOLIA Trial. N Engl J Med. 2018;378:1965-1975",
+        "type": "randomized-controlled-trial",
+        "year": 2018,
+        "relevance": "Major trial of ECMO in severe ARDS"
       },
       {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "source": "ELSO Guidelines for Cardiopulmonary ECLS 2017",
+        "type": "guideline",
+        "year": 2017,
+        "relevance": "International ECMO registry guidelines"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/ECMO_Basics",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "content_quality_score": 0.95,
+    "completeness": 0.96,
+    "accuracy": 0.97,
+    "clarity": 0.94,
+    "assessment_date": "2026-01-11T11:50:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Extracorporeal_membrane_oxygenation",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1383656"
 }

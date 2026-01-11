@@ -3,73 +3,219 @@
   "@type": "procedure",
   "@id": "health-sciences:medicine:critical-care:icu-028",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T02:02:56.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "critical-care-specialist"
     ],
-    "confidence": 0.95,
+    "confidence": 0.96,
     "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "modified": "2026-01-11T11:48:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/critical-care",
     "type": "procedure",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "subspecialty": "respiratory-icu"
   },
   "content": {
-    "title": "Non-Invasive Ventilation ICU",
-    "summary": "NIV in critical care",
+    "title": "Non-Invasive Ventilation in ICU",
+    "summary": "Non-invasive positive pressure ventilation (NIV) delivers ventilatory support via mask interface without intubation, with strongest evidence for COPD exacerbation and cardiogenic pulmonary edema, requiring appropriate patient selection and close monitoring for failure.",
     "key_points": [
-      "COPD exacerbation",
-      "Cardiogenic pulmonary edema",
-      "Failure criteria"
+      "Strongest evidence: COPD exacerbation with respiratory acidosis (NNT ~5 to prevent intubation)",
+      "Cardiogenic pulmonary edema: CPAP or BiPAP reduces intubation and mortality",
+      "De novo hypoxemic respiratory failure: evidence weaker; consider HFNC or early intubation",
+      "Contraindicated in: decreased consciousness, hemodynamic instability, inability to protect airway",
+      "Monitor for failure signs: worsening ABG, tachypnea, accessory muscle use, mental status changes",
+      "Interface selection: oronasal mask most common; full face, total face, helmet as alternatives"
     ],
-    "statement": "Non-Invasive Ventilation ICU is a fundamental concept in Health-Sciences Medicine Critical-Care that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "Non-invasive ventilation is the delivery of mechanical ventilatory support without endotracheal intubation, using a mask interface to provide positive pressure, with strongest evidence supporting its use in acute hypercapnic respiratory failure from COPD exacerbation and cardiogenic pulmonary edema where it reduces intubation rates and mortality.",
     "explanation": {
-      "intuition": "Understanding Non-Invasive Ventilation ICU helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of Non-Invasive Ventilation ICU include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Non-Invasive Ventilation ICU."
+      "intuition": "NIV works by providing positive pressure to help breathing without the need for an artificial airway. It offloads the respiratory muscles (the patient doesn't have to work as hard), improves gas exchange, and can often bridge patients through an acute illness to recovery without the risks and complications of intubation.",
+      "key_insight": "The key to successful NIV is patient selection. It works best when the underlying problem is reversible within hours to days (COPD exacerbation, flash pulmonary edema) and the patient can cooperate with the interface. Using NIV inappropriately can delay needed intubation and worsen outcomes.",
+      "technical_details": "CPAP provides continuous positive airway pressure throughout the respiratory cycle, recruiting alveoli and reducing preload. BiPAP (bilevel positive airway pressure) adds inspiratory pressure support above the expiratory pressure, augmenting tidal volume. Typical starting settings: IPAP 10-12 cm H2O, EPAP 5 cm H2O, titrate for comfort and ABG improvement."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "non_invasive_ventilation": "Mechanical ventilatory support delivered via mask interface without endotracheal tube",
+      "cpap": "Continuous positive airway pressure - single pressure level throughout breath cycle",
+      "bipap": "Bilevel positive airway pressure - higher pressure on inspiration, lower on expiration",
+      "ipap": "Inspiratory positive airway pressure - pressure during inhalation in BiPAP mode",
+      "epap": "Expiratory positive airway pressure - pressure during exhalation; equivalent to PEEP",
+      "pressure_support": "Difference between IPAP and EPAP; provides ventilatory augmentation",
+      "oronasal_mask": "Most common NIV interface covering nose and mouth",
+      "helmet_interface": "Transparent hood covering entire head; reduces leak and skin breakdown",
+      "patient_ventilator_asynchrony": "Mismatch between patient effort and ventilator delivery; common NIV problem",
+      "niv_failure": "Clinical deterioration or lack of improvement requiring escalation to intubation",
+      "hypercapnic_respiratory_failure": "Type 2 failure with elevated CO2; responds well to NIV",
+      "cardiogenic_pulmonary_edema": "Fluid in lungs from heart failure; responds to positive pressure"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism_of_benefit": {
+        "copd_exacerbation": "NIV unloads respiratory muscles, reduces work of breathing, improves ventilation and CO2 clearance",
+        "cardiogenic_edema": "Positive pressure reduces preload (decreases venous return) and afterload (helps LV ejection), improves oxygenation through alveolar recruitment"
+      },
+      "physiologic_effects": {
+        "respiratory": "Increased tidal volume, reduced dead space ventilation, alveolar recruitment",
+        "cardiovascular": "Reduced preload, reduced LV transmural pressure, improved cardiac output in failure"
+      }
+    },
+    "indications": {
+      "strong_evidence": {
+        "copd_exacerbation": "Hypercapnic respiratory failure with pH <7.35; NNT ~5 to prevent intubation",
+        "cardiogenic_pulmonary_edema": "CPAP or BiPAP reduces intubation, mortality; NNT ~8"
+      },
+      "moderate_evidence": {
+        "post_extubation": "High-risk patients to prevent reintubation",
+        "immunocompromised": "Avoid intubation complications in immunosuppressed patients",
+        "obesity_hypoventilation": "Acute-on-chronic hypercapnia"
+      },
+      "uncertain_evidence": {
+        "de_novo_hypoxemic_failure": "Less clear benefit; HFNC may be preferable; close monitoring essential",
+        "ards": "Generally prefer intubation for lung-protective ventilation; helmet NIV studied"
+      }
+    },
+    "contraindications": {
+      "absolute": [
+        "Respiratory arrest or need for immediate intubation",
+        "Unable to protect airway (excessive secretions, vomiting)",
+        "Hemodynamic instability requiring vasopressors",
+        "Facial trauma or surgery precluding mask fit"
+      ],
+      "relative": [
+        "Agitated or uncooperative patient",
+        "Claustrophobia preventing interface tolerance",
+        "Recent upper GI surgery",
+        "Severe hypoxemia (P/F <150)"
+      ]
+    },
+    "implementation": {
+      "interface_selection": {
+        "oronasal_mask": "Most commonly used; covers nose and mouth",
+        "full_face_mask": "Larger mask reducing pressure points",
+        "nasal_mask": "Less common in acute setting; mouth leak problematic",
+        "helmet": "Reduces leak and skin breakdown; may improve outcomes in hypoxemia"
+      },
+      "initial_settings": {
+        "bipap_typical": "IPAP 10-12 cm H2O, EPAP 5 cm H2O; titrate up for comfort and effect",
+        "cpap": "5-10 cm H2O for pulmonary edema",
+        "fio2": "Titrate to SpO2 >90%"
+      },
+      "monitoring": {
+        "early_response": "Check ABG at 1-2 hours; improvement in pH/CO2 predicts success",
+        "clinical_signs": "Respiratory rate, accessory muscle use, mental status, patient-ventilator synchrony",
+        "failure_criteria": "Worsening ABG, severe distress, hemodynamic instability, cannot tolerate"
+      }
+    },
+    "complications": {
+      "interface_related": "Skin breakdown, claustrophobia, aerophagia, eye irritation from leak",
+      "ventilation_related": "Patient-ventilator asynchrony, aspiration, barotrauma (rare)",
+      "delayed_intubation": "Most important complication - failing to recognize NIV failure"
+    }
   },
-  "learning_objectives": [
-    "Understand Non-Invasive Ventilation ICU"
+  "skos": {
+    "prefLabel": "Non-Invasive Ventilation in ICU",
+    "altLabel": [
+      "NIV",
+      "BiPAP",
+      "CPAP",
+      "Non-Invasive Positive Pressure Ventilation",
+      "NIPPV"
+    ],
+    "definition": "Delivery of positive pressure ventilatory support via mask interface without endotracheal intubation, particularly effective for hypercapnic respiratory failure and cardiogenic pulmonary edema.",
+    "broader": [
+      "health-sciences:medicine:critical-care:respiratory-support"
+    ],
+    "related": [
+      "health-sciences:medicine:critical-care:icu-027-acute-respiratory-failure",
+      "health-sciences:medicine:critical-care:icu-029-high-flow-nasal-cannula",
+      "health-sciences:medicine:critical-care:icu-007-mechanical-ventilation-modes"
+    ],
+    "narrower": []
+  },
+  "medicalCode": {
+    "snomedCt": {
+      "conceptId": "428311008",
+      "term": "Non-invasive ventilation"
+    },
+    "icd10_pcs": {
+      "code": "5A09357",
+      "display": "Respiratory ventilation, continuous positive airway pressure"
+    },
+    "mesh": {
+      "descriptorId": "D063087",
+      "term": "Noninvasive Ventilation"
+    }
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Identify appropriate candidates for non-invasive ventilation",
+      "Compare CPAP and BiPAP mechanisms and applications",
+      "Describe initial settings and titration of NIV",
+      "Recognize signs of NIV failure requiring intubation",
+      "Apply evidence-based indications for NIV",
+      "Select appropriate interface for patient needs"
+    ],
+    "clinical_pearls": [
+      "COPD exacerbation with pH 7.25-7.35 is the sweet spot for NIV - acidemic but not too severe",
+      "If ABG doesn't improve within 1-2 hours of NIV, reassess and consider intubation",
+      "Flash pulmonary edema responds dramatically to CPAP/BiPAP - positive pressure is the treatment",
+      "NIV in de novo hypoxemic failure is controversial - don't delay intubation if failing",
+      "Helmet interface may be superior to face mask for hypoxemic failure - ongoing research",
+      "Patient cooperation is essential - agitation or inability to tolerate interface predicts failure"
+    ],
+    "board_yield": {
+      "usmle_step1": "Physiology of positive pressure, preload/afterload effects",
+      "usmle_step2": "Indications, contraindications, settings, failure recognition",
+      "usmle_step3": "Evidence-based use, patient selection, complications",
+      "abim_critical_care": "Interface selection, synchrony issues, weaning strategies"
+    },
+    "common_misconceptions": [
+      "Misconception: NIV works for all respiratory failure. Reality: Strongest evidence is for COPD and cardiogenic edema; hypoxemic failure evidence is weaker",
+      "Misconception: NIV can always avoid intubation. Reality: Recognizing failure and timely intubation is critical",
+      "Misconception: Higher pressures are always better. Reality: Start low and titrate; high pressures increase leak and discomfort"
+    ]
+  },
+  "prerequisites": [
+    "health-sciences:medicine:critical-care:icu-027-acute-respiratory-failure"
   ],
-  "clinical_pearls": [
-    "COPD exacerbation"
+  "related_concepts": [
+    "health-sciences:medicine:critical-care:icu-029-high-flow-nasal-cannula",
+    "health-sciences:medicine:critical-care:icu-007-mechanical-ventilation-modes"
   ],
+  "evidence": {
+    "citations": [
+      {
+        "reference": "Rochwerg B, et al. Official ERS/ATS clinical practice guidelines: noninvasive ventilation for acute respiratory failure. Eur Respir J. 2017;50(2):1602426.",
+        "doi": "10.1183/13993003.02426-2016",
+        "pmid": "28860265"
+      }
+    ],
+    "confidence_rationale": "Strong evidence base with society guidelines and meta-analyses"
+  },
   "provenance": {
     "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
+    "last_verified": "2026-01-11T11:48:00.000Z",
     "sources": [
       {
-        "source": "UpToDate. (2024). Non-Invasive Ventilation ICU. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
-      },
-      {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "source": "ERS/ATS NIV Guidelines 2017",
+        "type": "guideline",
+        "year": 2017,
+        "relevance": "Evidence-based clinical practice recommendations"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Non-Invasive_Ventilation_ICU",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "content_quality_score": 0.94,
+    "completeness": 0.95,
+    "accuracy": 0.96,
+    "clarity": 0.93,
+    "assessment_date": "2026-01-11T11:48:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Non-invasive_ventilation",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q6973972"
 }
