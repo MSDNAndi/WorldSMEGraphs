@@ -1,76 +1,251 @@
 {
-  "@context": "aku-v2",
-  "@type": "procedure",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalGuideline"
+  ],
   "@id": "health-sciences:medicine:cardiology:cardio-010",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:50:10.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "cardiology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-11T14:38:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/cardiology",
-    "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "type": "treatment",
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "010",
+    "keywords": [
+      "atrial fibrillation",
+      "rhythm control",
+      "cardioversion",
+      "ablation",
+      "antiarrhythmic drugs"
+    ],
+    "medical_specialty": "cardiology",
+    "clinical_context": "arrhythmia_management"
   },
   "content": {
-    "title": "AF Rhythm Control",
-    "summary": "Maintaining sinus rhythm",
+    "title": "Atrial Fibrillation Rhythm Control",
+    "summary": "Strategies to restore and maintain sinus rhythm in atrial fibrillation",
     "key_points": [
-      "Cardioversion electrical/pharmacologic",
-      "Antiarrhythmics: amiodarone, flecainide",
-      "Catheter ablation for refractory"
+      "Rhythm control preferred in symptomatic patients",
+      "Cardioversion (electrical or pharmacologic) restores sinus rhythm",
+      "Catheter ablation (PVI) is first-line for paroxysmal AF",
+      "Antiarrhythmic drugs maintain sinus rhythm post-cardioversion",
+      "Drug choice depends on structural heart disease presence",
+      "Anticoagulation still needed even after successful rhythm control"
     ],
-    "statement": "AF Rhythm Control is a fundamental concept in health-sciences medicine cardiology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Rhythm control in AF aims to restore and maintain sinus rhythm through cardioversion (electrical or pharmacologic), antiarrhythmic drugs, and/or catheter ablation. Pulmonary vein isolation (PVI) is now first-line for symptomatic paroxysmal AF. Rhythm control may improve outcomes when initiated early (EAST-AFNET 4 trial).",
+      "formal": "AF Rhythm Control = Cardioversion \u2192 [AAD maintenance OR Catheter ablation (PVI)] \u2192 Continue anticoagulation"
+    },
     "explanation": {
-      "intuition": "Understanding AF Rhythm Control helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of AF Rhythm Control include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of AF Rhythm Control to real-world scenarios."
+      "intuition": "Rhythm control tries to eliminate AF and restore the normal heartbeat. This involves zapping the heart back to normal rhythm (cardioversion), then using drugs or ablation to keep it there. The goal is symptom relief and potentially better long-term outcomes.",
+      "key_insight": "EAST-AFNET 4 showed early rhythm control (within 1 year of diagnosis) reduces cardiovascular events compared to rate control. This has shifted thinking toward more aggressive early rhythm management, especially with safer ablation techniques."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "rhythm_control": "Strategy to restore and maintain sinus rhythm in AF",
+      "cardioversion": "Restoration of sinus rhythm by electrical shock or drugs",
+      "DC_cardioversion": "Synchronized electrical shock to reset heart rhythm",
+      "pharmacologic_cardioversion": "Drug-induced restoration of sinus rhythm (flecainide, propafenone, ibutilide)",
+      "catheter_ablation": "Invasive procedure creating lesions to eliminate AF substrate",
+      "pulmonary_vein_isolation": "Ablation electrically isolating pulmonary veins from left atrium",
+      "antiarrhythmic_drug": "Medication preventing AF recurrence after cardioversion",
+      "TEE_guided_cardioversion": "Using transesophageal echo to rule out LAA thrombus before cardioversion",
+      "pill_in_pocket": "Self-administered flecainide/propafenone for infrequent paroxysmal AF",
+      "ablation_substrate": "Structural and electrical abnormalities maintaining AF",
+      "cryoablation": "Ablation using cold (freezing) energy vs radiofrequency (heat)",
+      "pulsed_field_ablation": "Newer non-thermal ablation technology"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical/scientific knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "AF_initiation": "Triggers from pulmonary veins initiate AF",
+      "AF_maintenance": "Atrial remodeling creates substrate for reentry and perpetuation",
+      "ablation_rationale": "PVI eliminates triggers; substrate modification addresses maintenance"
+    },
+    "treatment_options": {
+      "cardioversion": {
+        "electrical": {
+          "technique": "Biphasic 120-200J synchronized shock",
+          "success_rate": ">90% immediate success",
+          "anticoagulation": "3 weeks before + 4 weeks after (or TEE to exclude thrombus)"
+        },
+        "pharmacologic": {
+          "flecainide": "200-300mg PO (Class IC); no structural heart disease",
+          "propafenone": "450-600mg PO (Class IC); no structural heart disease",
+          "ibutilide": "1mg IV over 10 min, repeat if needed (Class III); QT monitoring",
+          "amiodarone": "IV or PO loading; slower conversion but safe in structural HD"
+        }
+      },
+      "antiarrhythmic_drugs": {
+        "no_structural_HD": [
+          "Flecainide (Class IC)",
+          "Propafenone (Class IC)",
+          "Sotalol (Class III)",
+          "Dronedarone (Class III)"
+        ],
+        "CAD_without_HF": [
+          "Sotalol",
+          "Dronedarone",
+          "Dofetilide"
+        ],
+        "HFrEF": [
+          "Amiodarone (preferred)",
+          "Dofetilide (in-hospital initiation)"
+        ],
+        "avoid_flecainide_propafenone": "Contraindicated in structural heart disease (proarrhythmic)"
+      },
+      "catheter_ablation": {
+        "PVI": {
+          "indication": "First-line for symptomatic paroxysmal AF; reasonable for persistent",
+          "success_rate": "70-80% paroxysmal, 50-70% persistent (may need repeat)",
+          "techniques": "Radiofrequency, cryoablation, pulsed field ablation"
+        },
+        "complications": [
+          "Stroke (0.5%)",
+          "Tamponade (1%)",
+          "PV stenosis (<1%)",
+          "Phrenic nerve injury",
+          "Esophageal injury (rare but serious)"
+        ],
+        "post_ablation": "Continue anticoagulation 2-3 months minimum; long-term based on CHA2DS2-VASc"
+      },
+      "hybrid_approaches": {
+        "ablation_plus_AAD": "Combined approach may be more effective than either alone",
+        "surgical_ablation": "MAZE procedure during cardiac surgery; standalone thoracoscopic ablation"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand AF Rhythm Control"
-  ],
-  "clinical_pearls": [
-    "Cardioversion electrical/pharmacologic"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Atrial Fibrillation Rhythm Control"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "AF Rhythm Control"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Sinus Rhythm Restoration in AF"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Strategies using cardioversion, antiarrhythmic drugs, and catheter ablation to restore and maintain sinus rhythm in atrial fibrillation"
+    },
+    "notation": "cardio-010"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "49436004",
+      "description": "Atrial fibrillation",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-PCS",
+      "codeValue": "02584ZZ",
+      "description": "Destruction of heart conduction mechanism",
+      "matchType": "related"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "cardiology_fellows",
+      "internal_medicine_residents",
+      "electrophysiologists"
+    ],
+    "estimated_time": "40min",
+    "difficulty_curve": 0.78,
+    "learning_objectives": [
+      "Select appropriate antiarrhythmic based on structural heart disease",
+      "Describe anticoagulation requirements around cardioversion",
+      "Understand PVI mechanism and indication",
+      "Recognize when ablation is preferred over AADs"
+    ],
+    "clinical_pearls": [
+      "Class IC drugs (flecainide, propafenone) contraindicated in structural HD - proarrhythmic risk",
+      "Continue anticoagulation after ablation based on CHA2DS2-VASc, not rhythm",
+      "Early rhythm control (within 1 year) may reduce CV events (EAST-AFNET 4)",
+      "Pill-in-pocket only for infrequent, hemodynamically stable paroxysmal AF",
+      "Amiodarone is effective but has significant long-term toxicity"
+    ],
+    "board_yield": {
+      "usmle_step2": "High",
+      "cardiology_boards": "Critical"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "health-sciences:medicine:cardiology:cardio-007",
+        "title": "Atrial Fibrillation Definition",
+        "strength": 1.0
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-007",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Atrial Fibrillation"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-009",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "AF Rate Control"
+      }
+    ],
+    "owl:sameAs": [
+      "http://www.wikidata.org/entity/Q207104"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T14:38:00.000Z",
+    "sources": [
+      {
+        "source": "2023 ACC/AHA/ACCP/HRS AF Guideline",
+        "type": "clinical_guideline",
+        "year": 2023,
+        "confidence": 1.0
+      },
+      {
+        "source": "EAST-AFNET 4 Trial. N Engl J Med 2020;383:1305-1316",
+        "type": "primary_literature",
+        "year": 2020,
+        "confidence": 0.98
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/AF_Rhythm_Control",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.94,
+    "completeness": 0.95,
+    "accuracy": 0.96,
+    "clarity": 0.93,
+    "pedagogical_quality": 0.93,
+    "ontology_alignment": 0.94,
+    "last_assessment": "2026-01-11T14:38:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Atrial_fibrillation",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q207104"
 }

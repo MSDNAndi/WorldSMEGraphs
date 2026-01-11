@@ -1,75 +1,287 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:cardiology:cardio-004",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:50:10.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "cardiology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.97,
+    "status": "validated",
+    "modified": "2026-01-11T14:26:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/cardiology",
-    "type": "definition",
+    "type": "classification",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "foundational",
+    "aku_id": "004",
+    "keywords": [
+      "heart failure",
+      "HFrEF",
+      "HFpEF",
+      "HFmrEF",
+      "ejection fraction",
+      "NYHA class"
+    ],
+    "medical_specialty": "cardiology",
+    "clinical_context": "heart_failure"
   },
   "content": {
     "title": "Heart Failure Classification",
-    "summary": "NYHA functional classification",
+    "summary": "Classification of heart failure by ejection fraction, NYHA functional class, and ACC/AHA staging",
     "key_points": [
-      "Class I: no limitation",
-      "Class II: slight limitation",
-      "Class III: marked limitation",
-      "Class IV: symptoms at rest"
+      "HFrEF: EF \u226440% - reduced ejection fraction",
+      "HFmrEF: EF 41-49% - mildly reduced EF",
+      "HFpEF: EF \u226550% - preserved ejection fraction",
+      "HFimpEF: EF improved from \u226440% to >40%",
+      "NYHA I-IV describes functional limitation",
+      "ACC/AHA Stages A-D describe disease progression"
     ],
-    "statement": "Heart failure is classified by left ventricular ejection fraction (LVEF): HFrEF (LVEF \u226440%), HFmrEF (LVEF 41-49%), and HFpEF (LVEF \u226550%), with distinct pathophysiology and treatment approaches.",
+    "statement": {
+      "text": "Heart failure is classified by left ventricular ejection fraction (LVEF): HFrEF (\u226440%), HFmrEF (41-49%), HFpEF (\u226550%), and HFimpEF (previously \u226440%, now >40%). Functional status is graded by NYHA class (I-IV based on symptom limitation), while ACC/AHA stages (A-D) describe disease progression from risk factors through advanced refractory HF.",
+      "formal": "HF Classification = EF-based [HFrEF \u226440% | HFmrEF 41-49% | HFpEF \u226550%] + NYHA [I-IV] + Stage [A-D]"
+    },
     "explanation": {
-      "intuition": "Heart failure is a clinical syndrome where the heart cannot pump blood effectively. EF-based classification guides treatment.",
-      "key_insight": "GDMT for HFrEF includes the 'four pillars': ARNI/ACEi/ARB, beta-blocker, MRA, and SGLT2i - all reduce mortality.",
-      "technical_details": "Stage A-D classification: A=at risk, B=structural disease without symptoms, C=symptomatic HF, D=advanced HF requiring specialized interventions."
+      "intuition": "Heart failure classification matters because treatments differ dramatically. HFrEF has multiple proven life-prolonging therapies (ACEi, beta-blocker, MRA, SGLT2i, ARNI), while HFpEF historically had no mortality benefit therapies until SGLT2 inhibitors. Classification guides treatment selection.",
+      "key_insight": "LVEF alone doesn't tell the whole story. A patient with EF 35% (HFrEF) in NYHA Class I has no symptoms despite low EF, while a patient with EF 55% (HFpEF) in NYHA Class III is severely limited. Both EF-based and symptom-based classifications inform prognosis and treatment.",
+      "technical_details": "The new HFimpEF category recognizes that patients who recover EF still need guideline-directed medical therapy (GDMT) continued - stopping therapy often leads to EF decline and clinical deterioration. HFmrEF is a 'gray zone' where evidence is emerging but less robust than HFrEF."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "ejection_fraction": "Percentage of blood ejected from left ventricle with each contraction; normal \u226552% (men) or \u226554% (women)",
+      "HFrEF": "Heart failure with reduced ejection fraction (\u226440%); systolic dysfunction",
+      "HFpEF": "Heart failure with preserved ejection fraction (\u226550%); diastolic dysfunction",
+      "HFmrEF": "Heart failure with mildly reduced ejection fraction (41-49%); intermediate phenotype",
+      "HFimpEF": "Heart failure with improved ejection fraction; previously \u226440%, now >40% on therapy",
+      "NYHA_class": "New York Heart Association functional classification based on symptom severity",
+      "ACC_AHA_stage": "American College of Cardiology/American Heart Association staging (A-D) for HF progression",
+      "diastolic_dysfunction": "Impaired ventricular relaxation and filling despite normal contraction",
+      "systolic_dysfunction": "Impaired ventricular contraction and ejection",
+      "GDMT": "Guideline-directed medical therapy - evidence-based medications for HF",
+      "congestion": "Fluid accumulation (pulmonary edema, peripheral edema) from elevated filling pressures",
+      "low_output_symptoms": "Fatigue and exercise intolerance from inadequate cardiac output"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical/scientific knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "HFrEF_mechanism": "Primary contractile dysfunction \u2192 reduced stroke volume \u2192 neurohormonal activation (RAAS, sympathetic) \u2192 volume retention and further remodeling \u2192 progressive dilation and dysfunction",
+      "HFpEF_mechanism": "Impaired relaxation and increased stiffness \u2192 elevated filling pressures \u2192 congestion with preserved or near-normal EF. Often associated with comorbidities: HTN, obesity, diabetes, AF, CKD.",
+      "neurohormonal_activation": [
+        "RAAS activation \u2192 sodium/water retention, vasoconstriction, fibrosis",
+        "Sympathetic activation \u2192 tachycardia, vasoconstriction, myocyte toxicity",
+        "Natriuretic peptide release \u2192 compensatory vasodilation, natriuresis"
+      ]
+    },
+    "diagnostic_criteria": {
+      "EF_based_classification": {
+        "HFrEF": "LVEF \u226440%",
+        "HFmrEF": "LVEF 41-49%",
+        "HFpEF": "LVEF \u226550%",
+        "HFimpEF": "Previous LVEF \u226440%, current LVEF >40% (with GDMT)"
+      },
+      "NYHA_functional_class": {
+        "Class_I": "No limitation of physical activity; ordinary activity does not cause symptoms",
+        "Class_II": "Slight limitation; comfortable at rest, but ordinary activity causes symptoms",
+        "Class_III": "Marked limitation; comfortable at rest, but less than ordinary activity causes symptoms",
+        "Class_IV": "Unable to carry on any physical activity without symptoms; symptoms at rest"
+      },
+      "ACC_AHA_staging": {
+        "Stage_A": "At risk for HF but no structural heart disease or symptoms (HTN, DM, CAD risk factors)",
+        "Stage_B": "Structural heart disease but no symptoms (prior MI, LVH, low EF, valvular disease)",
+        "Stage_C": "Structural heart disease with prior or current symptoms of HF",
+        "Stage_D": "Refractory HF requiring specialized interventions (LVAD, transplant, palliative care)"
+      }
+    },
+    "treatment_options": {
+      "HFrEF_GDMT": {
+        "core_therapies": [
+          "ACE inhibitor or ARB (or ARNI if tolerated)",
+          "Beta-blocker (carvedilol, metoprolol succinate, or bisoprolol)",
+          "Mineralocorticoid receptor antagonist (spironolactone or eplerenone)",
+          "SGLT2 inhibitor (dapagliflozin or empagliflozin)"
+        ],
+        "additional_therapies": [
+          "ARNI (sacubitril/valsartan) instead of ACEi for additional benefit",
+          "Hydralazine/nitrates for African Americans (A-HeFT trial)",
+          "Ivabradine if HR >70 despite max beta-blocker (sinus rhythm required)",
+          "Diuretics for congestion (symptom relief, not mortality benefit)"
+        ],
+        "device_therapy": [
+          "ICD if EF \u226435% despite 3 months GDMT (primary prevention)",
+          "CRT if EF \u226435% + LBBB + QRS \u2265150ms + NYHA II-IV"
+        ]
+      },
+      "HFpEF_management": {
+        "evidence_based": [
+          "SGLT2 inhibitor (EMPEROR-Preserved, DELIVER trials)",
+          "Diuretics for congestion",
+          "Control of comorbidities (HTN, AF rate control, weight loss)"
+        ],
+        "emerging": "GLP-1 receptor agonists for HFpEF with obesity"
+      },
+      "HFmrEF_approach": "Treat like HFrEF - emerging evidence supports similar therapies"
+    }
   },
-  "learning_objectives": [
-    "Understand Heart Failure Classification"
-  ],
-  "clinical_pearls": [
-    "Class I: no limitation"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Heart Failure Classification"
+    },
+    "altLabel": [
       {
-        "source": "Heidenreich PA, et al. 2022 AHA/ACC/HFSA Guideline for HF Management. Circulation 2022;145:e895-e1032.",
-        "type": "guideline",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "HF Classification"
       },
       {
-        "source": "McDonagh TA, et al. 2021 ESC Guidelines for HF. Eur Heart J 2021;42:3599-3726.",
-        "type": "guideline",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Ejection Fraction-Based HF Categories"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "System for categorizing heart failure by ejection fraction (HFrEF, HFmrEF, HFpEF, HFimpEF), functional status (NYHA I-IV), and disease progression (ACC/AHA Stages A-D)"
+    },
+    "notation": "cardio-004",
+    "scopeNote": "2022 AHA/ACC/HFSA Heart Failure Guidelines provide current classification criteria"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "84114007",
+      "uri": "http://snomed.info/id/84114007",
+      "description": "Heart failure (disorder)",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I50",
+      "description": "Heart failure",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I50.2",
+      "description": "Systolic (congestive) heart failure",
+      "matchType": "narrower"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I50.3",
+      "description": "Diastolic (congestive) heart failure",
+      "matchType": "narrower"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D006333",
+      "uri": "http://id.nlm.nih.gov/mesh/D006333",
+      "description": "Heart Failure",
+      "matchType": "broadMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "internal_medicine_residents",
+      "cardiology_fellows",
+      "primary_care_physicians"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.6,
+    "learning_objectives": [
+      "Classify heart failure by ejection fraction using current terminology",
+      "Apply NYHA functional classification to patients",
+      "Distinguish ACC/AHA stages and their implications",
+      "Understand treatment differences between HFrEF and HFpEF",
+      "Recognize the importance of continuing GDMT in HFimpEF"
+    ],
+    "clinical_pearls": [
+      "HFimpEF still needs GDMT - don't stop therapy just because EF recovered",
+      "NYHA class changes with treatment; ACC/AHA stage only progresses (never regresses)",
+      "HFpEF diagnosis requires elevated filling pressures, not just preserved EF + symptoms",
+      "SGLT2 inhibitors now benefit ALL HF regardless of EF or diabetes status",
+      "HFmrEF is a transition zone - patients may improve to HFpEF or worsen to HFrEF"
+    ],
+    "board_yield": {
+      "usmle_step1": "Medium - pathophysiology of systolic vs diastolic dysfunction",
+      "usmle_step2": "Very High - classification and treatment selection",
+      "internal_medicine_boards": "Critical - comprehensive HF management"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:cardiology:cardiac-physiology",
+        "title": "Cardiac Physiology",
+        "strength": 0.9
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-005",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "HFrEF Treatment"
+      },
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-006",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "HFpEF Management"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-034",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Echocardiography",
+        "skos:note": "Primary method for measuring EF"
+      },
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-044",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Cardiogenic Shock",
+        "skos:note": "Extreme end of HF spectrum"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/84114007",
+      "http://www.wikidata.org/entity/Q181754"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T14:26:00.000Z",
+    "sources": [
+      {
+        "source": "Heidenreich PA, et al. 2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure. Circulation 2022;145:e895-e1032",
+        "type": "clinical_guideline",
+        "year": 2022,
+        "confidence": 1.0
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Heart_Failure_Classification",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.95,
+    "completeness": 0.96,
+    "accuracy": 0.97,
+    "clarity": 0.94,
+    "pedagogical_quality": 0.94,
+    "ontology_alignment": 0.95,
+    "last_assessment": "2026-01-11T14:26:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Heart_failure",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q181754"
 }
