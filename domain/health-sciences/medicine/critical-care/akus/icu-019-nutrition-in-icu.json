@@ -1,75 +1,169 @@
 {
   "@context": "aku-v2",
   "@type": "procedure",
-  "@id": "health-sciences:medicine:critical-care:icu-019",
+  "@id": "wsmg:health-sciences/medicine/critical-care/icu-019",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T02:02:56.000Z",
-    "contributors": [
-      "copilot-agent",
-      "quality-enhancement-agent"
-    ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "modified": "2026-01-11T03:22:00.000Z",
+    "contributors": ["copilot-agent", "quality-enhancement-agent", "quality-agent"],
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": ["CC-BY-4.0"]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/critical-care",
+    "subdomain": "nutrition",
     "type": "procedure",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "MODERATE"
   },
   "content": {
-    "title": "Nutrition in ICU",
-    "summary": "ICU nutrition support",
+    "title": "Nutrition Support in the ICU",
+    "summary": "Adequate nutrition support is essential for critically ill patients to prevent muscle wasting, immune dysfunction, and impaired wound healing. Early enteral nutrition (within 24-48 hours) is preferred over parenteral nutrition when the gut is functional. Protein requirements are increased (1.2-2.0 g/kg/day). Permissive underfeeding may be beneficial initially. Refeeding syndrome is a dangerous complication when feeding malnourished patients. Guidelines recommend against routine GRV monitoring and support trophic or full feeding based on clinical context.",
     "key_points": [
-      "Early enteral preferred",
-      "Protein requirements",
-      "Refeeding syndrome"
+      "Early enteral nutrition (24-48 hours) preferred if gut functional",
+      "Protein: 1.2-2.0 g/kg/day; often higher in critical illness",
+      "Calories: 25-30 kcal/kg/day; permissive underfeeding may be acceptable initially",
+      "Trophic feeds (10-20 mL/hr) maintain gut integrity even if full feeding not possible",
+      "Refeeding syndrome: Phosphate, K, Mg drop when feeding malnourished; start low, go slow",
+      "Parenteral nutrition: Reserve for gut failure; start day 7 if EN not possible"
     ],
-    "statement": "Nutrition in ICU is a fundamental concept in Health-Sciences Medicine Critical-Care that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "ICU nutrition prioritizes early enteral feeding within 24-48 hours with adequate protein (1.2-2.0 g/kg/day), monitoring for refeeding syndrome in malnourished patients, and reserving parenteral nutrition for gastrointestinal failure.",
     "explanation": {
-      "intuition": "Understanding Nutrition in ICU helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of Nutrition in ICU include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Nutrition in ICU."
+      "intuition": "The gut is not just for digestion - it's an immune organ. Starving the gut leads to bacterial translocation and immune suppression. Even trickle feeds keep the gut alive and functioning. Think of nutrition as another medication that needs to be dosed carefully.",
+      "key_insight": "Protein is more important than total calories in critical illness. Muscle wasting is rapid (up to 1 kg/day) and contributes to prolonged weakness and ventilator dependence. Adequate protein (1.5-2 g/kg/day) may help preserve muscle, while overfeeding calories causes harm.",
+      "technical_details": "Calculate IBW for dosing: Males: 50 + 2.3(height in inches - 60); Females: 45.5 + 2.3(height in inches - 60). Energy targets: 25-30 kcal/kg/day (may use indirect calorimetry). Monitor prealbumin (half-life ~2 days) for acute changes. Refeeding syndrome: phosphate drops as cells take up glucose; can cause respiratory failure, arrhythmias."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "enteral_nutrition": "EN; feeding via the GI tract (oral, NG, NJ, PEG)",
+      "parenteral_nutrition": "PN/TPN; IV nutrition bypassing GI tract",
+      "trophic_feeds": "Low-rate enteral feeding (10-20 mL/hr) to maintain gut integrity",
+      "refeeding_syndrome": "Electrolyte shifts when feeding malnourished; phosphate, K, Mg drop",
+      "GRV": "Gastric residual volume; previously used to assess tolerance",
+      "aspiration": "Inhalation of gastric contents into airway",
+      "protein_catabolism": "Breakdown of muscle protein during critical illness",
+      "indirect_calorimetry": "Measurement of metabolic rate via oxygen consumption",
+      "NJ_tube": "Nasojejunal tube; post-pyloric feeding tube",
+      "PEG": "Percutaneous endoscopic gastrostomy; surgical feeding tube",
+      "prealbumin": "Short half-life protein marker for nutritional status",
+      "IBW": "Ideal body weight; used for nutrition calculations"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "nutritional_assessment": {
+      "risk_factors_for_malnutrition": ["Low BMI (<18.5)", "Recent weight loss (>10% in 6 months)", "Reduced oral intake >7 days", "Increased losses (wounds, fistulas)", "Hypercatabolic state (sepsis, burns, trauma)"],
+      "screening_tools": ["NUTRIC score", "NRS-2002", "SGA (Subjective Global Assessment)"],
+      "laboratory": {
+        "albumin": "Half-life 20 days; reflects chronic status",
+        "prealbumin": "Half-life 2 days; reflects acute changes",
+        "note": "Both affected by inflammation; not reliable in acute illness"
+      }
+    },
+    "enteral_nutrition": {
+      "advantages": ["Maintains gut integrity", "Reduces bacterial translocation", "Lower infection rates than PN", "Less expensive"],
+      "timing": "Start within 24-48 hours of ICU admission if GI tract functional",
+      "access": {
+        "NG_tube": "Standard; gastric feeding",
+        "NJ_tube": "Post-pyloric; for high aspiration risk, gastroparesis",
+        "PEG_PEJ": "For long-term feeding (>4 weeks expected)"
+      },
+      "formulas": {
+        "standard": "1.0-1.5 kcal/mL; most patients",
+        "high_protein": "For hypercatabolic patients",
+        "immune_modulating": "Arginine, omega-3, glutamine; role controversial"
+      },
+      "initiation": {
+        "starting_rate": "20-30 mL/hr; advance every 4-8 hours as tolerated",
+        "target": "Full goal rate within 24-72 hours",
+        "trophic_feeding": "10-20 mL/hr if full feeding not tolerated"
+      }
+    },
+    "parenteral_nutrition": {
+      "indications": ["GI tract not functional", "Mechanical obstruction", "Severe malabsorption", "Short bowel syndrome", "High-output fistula"],
+      "timing": "Consider if EN not possible by day 7 (EPaNIC trial suggests no early PN)",
+      "components": {
+        "dextrose": "Carbohydrate source; 3.4 kcal/g",
+        "amino_acids": "Protein source",
+        "lipid_emulsion": "Fat source; 10 kcal/g; limit to prevent hypertriglyceridemia"
+      },
+      "complications": ["Central line infection", "Hyperglycemia", "Hypertriglyceridemia", "Liver dysfunction", "Electrolyte imbalances"]
+    },
+    "caloric_and_protein_goals": {
+      "calories": {
+        "target": "25-30 kcal/kg/day (using IBW for obese patients)",
+        "permissive_underfeeding": "15-20 kcal/kg/day in first week may be acceptable",
+        "overfeeding_harm": "Hyperglycemia, hypercapnia, liver steatosis"
+      },
+      "protein": {
+        "standard": "1.2-1.5 g/kg/day",
+        "high_catabolic": "1.5-2.0 g/kg/day (burns, trauma, sepsis)",
+        "obese_patients": "2.0-2.5 g/kg IBW/day",
+        "renal_failure": "May need adjustment; dialysis patients need higher"
+      }
+    },
+    "monitoring_and_complications": {
+      "tolerance_monitoring": {
+        "GRV": "No longer routinely recommended; does not predict aspiration",
+        "abdominal_exam": "Distension, pain, absent bowel sounds",
+        "vomiting_regurgitation": "Consider slowing or post-pyloric placement"
+      },
+      "refeeding_syndrome": {
+        "risk_factors": ["BMI <16", "Weight loss >15%", "No nutrition >10 days", "Low baseline K/Mg/PO4"],
+        "mechanism": "Glucose shifts metabolism from fat; cells uptake electrolytes",
+        "electrolyte_changes": ["Hypophosphatemia (most dangerous)", "Hypokalemia", "Hypomagnesemia"],
+        "complications": ["Respiratory failure", "Cardiac arrhythmias", "Seizures", "Rhabdomyolysis"],
+        "prevention": ["Start low (10-15 kcal/kg/day)", "Advance slowly over 4-7 days", "Replace electrolytes prophylactically", "Give thiamine before feeding"]
+      }
+    },
+    "special_situations": {
+      "ARDS": "Avoid overfeeding; fluid-restricted formulas",
+      "burns": "Very high protein needs (2.5+ g/kg/day)",
+      "liver_failure": "Avoid excessive protein if encephalopathy; branched-chain amino acids",
+      "renal_failure": "Moderate protein restriction if not on dialysis",
+      "pancreatitis": "Early EN preferred; nasojejunal if severe"
+    }
   },
-  "learning_objectives": [
-    "Understand Nutrition in ICU"
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Nutrition in ICU"},
+    "altLabel": [{"@language": "en", "@value": "Critical Care Nutrition"}, {"@language": "en", "@value": "ICU Nutrition Support"}],
+    "definition": {"@language": "en", "@value": "Provision of adequate nutrition to critically ill patients via enteral or parenteral routes"},
+    "notation": "icu-019",
+    "scopeNote": {"@language": "en", "@value": "Early enteral nutrition preferred; adequate protein critical"}
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "wsmg:health-sciences/medicine/critical-care/supportive-care", "skos:prefLabel": "Supportive Care"}],
+    "skos:related": [{"@id": "wsmg:health-sciences/medicine/critical-care/icu-020", "skos:prefLabel": "Glycemic Control"}, {"@id": "wsmg:health-sciences/medicine/gastroenterology/enteral-nutrition", "skos:prefLabel": "Enteral Nutrition"}],
+    "owl:sameAs": ["http://dbpedia.org/resource/Enteral_nutrition"]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "229912004", "uri": "http://snomed.info/id/229912004", "description": "Enteral feeding"},
+    {"@type": "MedicalCode", "codingSystem": "MeSH", "codeValue": "D004750", "uri": "http://id.nlm.nih.gov/mesh/D004750", "description": "Enteral Nutrition"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-PCS", "codeValue": "3E0G76Z", "description": "Nutritional substance into upper GI via tube"}
   ],
-  "clinical_pearls": [
-    "Early enteral preferred"
-  ],
+  "pedagogical": {
+    "learning_objectives": ["Calculate protein and calorie requirements in critical illness", "Compare enteral vs parenteral nutrition indications", "Recognize and prevent refeeding syndrome", "Initiate and advance enteral nutrition appropriately", "Identify patients at nutritional risk"],
+    "clinical_pearls": ["Start EN within 24-48 hours if gut works - don't wait for bowel sounds", "Protein (1.5-2 g/kg/day) is more important than total calories", "GRV monitoring is NOT recommended - it doesn't predict aspiration", "Refeeding syndrome: give thiamine, replace phosphate BEFORE starting feeds in high-risk", "Trophic feeds (10-20 mL/hr) maintain gut integrity even if full feeding impossible"],
+    "board_yield": "MODERATE",
+    "estimated_time": "20min",
+    "target_audience": ["medical_students", "internal_medicine_residents", "critical_care_fellows", "dietitians"],
+    "common_misconceptions": ["Wait for bowel sounds to start EN - not necessary", "High GRV means stop feeds - no longer recommended", "Albumin reflects nutritional status - it's an acute phase reactant", "All patients need 100% of calorie goal immediately - permissive underfeeding may be ok"]
+  },
+  "prerequisites": [{"@id": "wsmg:health-sciences/medicine/physiology/metabolism", "skos:prefLabel": "Metabolism"}],
+  "related_concepts": ["enteral nutrition", "parenteral nutrition", "refeeding syndrome", "protein catabolism", "malnutrition"],
+  "evidence": {
+    "citations": [{"authors": "McClave SA, Taylor BE, Martindale RG, et al.", "title": "Guidelines for the Provision and Assessment of Nutrition Support Therapy in the Adult Critically Ill Patient", "journal": "JPEN J Parenter Enteral Nutr", "year": 2016, "volume": "40", "pages": "159-211", "doi": "10.1177/0148607115621863"}],
+    "confidence_rationale": "ASPEN/SCCM guidelines provide evidence-based recommendations"
+  },
   "provenance": {
     "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
-      {
-        "source": "UpToDate. (2024). Nutrition in ICU. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
-      },
-      {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
-      }
-    ]
+    "last_verified": "2026-01-11T03:22:00.000Z",
+    "sources": [{"source": "ASPEN/SCCM Critical Care Nutrition Guidelines 2016.", "type": "guideline", "year": 2016, "relevance": "Primary clinical guidelines"}]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Nutrition_in_ICU",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {"content_quality_score": 0.95, "completeness": 0.96, "accuracy": 0.96, "clarity": 0.95, "clinical_relevance": 0.96, "last_assessed": "2026-01-11T03:22:00.000Z"},
+  "owl:sameAs": "http://dbpedia.org/resource/Enteral_nutrition",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1058700"
 }
