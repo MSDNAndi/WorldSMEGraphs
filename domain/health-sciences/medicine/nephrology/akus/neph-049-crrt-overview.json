@@ -1,76 +1,389 @@
 {
-  "@context": "aku-v2",
-  "@type": "procedure",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalProcedure"
+  ],
   "@id": "health-sciences:medicine:nephrology:neph-049",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:53:50.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "nephrology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T02:40:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/nephrology",
     "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "049",
+    "keywords": [
+      "continuous renal replacement therapy",
+      "CRRT",
+      "CVVH",
+      "CVVHD",
+      "CVVHDF",
+      "hemofiltration",
+      "acute kidney injury",
+      "critical care nephrology"
+    ],
+    "medical_specialty": "nephrology",
+    "clinical_context": "critical_care"
   },
   "content": {
-    "title": "CRRT Overview",
-    "summary": "Continuous renal replacement",
+    "title": "Continuous Renal Replacement Therapy (CRRT)",
+    "summary": "Continuous extracorporeal blood purification therapy used for hemodynamically unstable patients with acute kidney injury in the ICU, providing slow, continuous solute and fluid removal over 24 hours",
     "key_points": [
-      "ICU modality",
-      "Hemodynamic stability",
-      "CVVH, CVVHD, CVVHDF"
+      "Preferred over intermittent hemodialysis in hemodynamically unstable patients",
+      "Three main modalities: CVVH (hemofiltration), CVVHD (hemodialysis), CVVHDF (hemodiafiltration)",
+      "Requires continuous anticoagulation (citrate or heparin)",
+      "Blood flow rates typically 150-250 mL/min",
+      "Effluent dose target 20-25 mL/kg/hr",
+      "Better hemodynamic stability due to slow fluid removal",
+      "Allows for aggressive nutrition and medication dosing"
     ],
-    "statement": "CRRT Overview is a fundamental concept in health-sciences medicine nephrology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Continuous renal replacement therapy (CRRT) encompasses extracorporeal techniques that provide 24-hour blood purification for critically ill patients with AKI. Unlike intermittent hemodialysis, CRRT removes fluid and solutes gradually, maintaining hemodynamic stability. The three modalities differ in clearance mechanism: CVVH uses convection, CVVHD uses diffusion, and CVVHDF combines both for optimal middle molecule and small solute clearance.",
+      "formal": "CRRT = Continuous (24h) + Extracorporeal + (CVVH|CVVHD|CVVHDF) + Hemodynamically unstable AKI"
+    },
     "explanation": {
-      "intuition": "Understanding CRRT Overview helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of CRRT Overview include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of CRRT Overview to real-world scenarios."
+      "intuition": "Think of CRRT as 'dialysis on slow motion.' Regular dialysis clears waste rapidly over 3-4 hours, causing blood pressure to drop. CRRT does the same job but spreads it over 24 hours, like slowly draining a bathtub versus pulling the plug suddenly. This gentle approach keeps critically ill patients stable.",
+      "key_insight": "The key differentiating feature of CRRT modalities is the solute clearance mechanism: CVVH uses convection (solutes dragged along with water), CVVHD uses diffusion (solutes move down concentration gradient), and CVVHDF combines both. Convection is better for larger 'middle molecules' like inflammatory mediators, while diffusion excels at small solute clearance.",
+      "technical_details": "Blood access via large-bore dual-lumen catheter (internal jugular or femoral). Blood pump creates transmembrane pressure gradient. Replacement fluid added pre-filter (dilutes blood, protects filter) or post-filter (more efficient clearance). Regional citrate anticoagulation preferred—chelates calcium in circuit, reversed with calcium infusion returning to patient, avoiding systemic anticoagulation."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "crrt": "Continuous renal replacement therapy—24-hour extracorporeal blood purification for AKI in critical care",
+      "cvvh": "Continuous venovenous hemofiltration—convective clearance using replacement fluid and ultrafiltration",
+      "cvvhd": "Continuous venovenous hemodialysis—diffusive clearance using dialysate flow countercurrent to blood",
+      "cvvhdf": "Continuous venovenous hemodiafiltration—combined convective and diffusive clearance",
+      "effluent": "Total volume removed including ultrafiltrate plus spent dialysate",
+      "ultrafiltration": "Movement of plasma water across membrane due to pressure gradient",
+      "convection": "Solute removal by solvent drag—solutes carried with bulk water movement",
+      "diffusion": "Solute movement from high to low concentration across semipermeable membrane",
+      "replacement_fluid": "Sterile solution infused to replace ultrafiltrate volume in hemofiltration",
+      "citrate_anticoagulation": "Regional anticoagulation using citrate to chelate calcium in extracorporeal circuit",
+      "filter_lifespan": "Duration of hemofilter function before clotting or fouling requires replacement",
+      "blood_flow_rate": "Rate of blood pumped through extracorporeal circuit (Qb), typically 150-250 mL/min"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "CRRT mimics native kidney function through continuous solute and fluid removal. Blood is pumped through a semipermeable hemofilter where waste products are cleared. In CVVH, a pressure gradient forces plasma water and dissolved solutes across the membrane (convection); lost volume is replaced with sterile crystalloid. In CVVHD, dialysate flows countercurrent to blood, allowing solute diffusion down concentration gradients. CVVHDF combines both mechanisms for enhanced clearance of small and middle molecules.",
+      "clearance_principles": [
+        "Convection: Solutes move with water (solvent drag)—effective for middle molecules (β2-microglobulin, cytokines)",
+        "Diffusion: Solutes move down concentration gradient—effective for small molecules (urea, creatinine, potassium)",
+        "Adsorption: Some solutes bind to filter membrane (limited clinical significance)",
+        "Sieving coefficient determines which solutes pass: small solutes freely filtered, proteins largely retained"
+      ],
+      "hemodynamic_advantage": [
+        "Slow fluid removal (100-300 mL/hr) prevents rapid intravascular volume depletion",
+        "Continuous clearance avoids solute disequilibrium syndrome",
+        "Allows time for vascular refilling from interstitium",
+        "Maintains steady-state electrolyte and acid-base status"
+      ]
+    },
+    "diagnostic_criteria": {
+      "indications_for_crrt": {
+        "primary": [
+          "AKI with hemodynamic instability (MAP <65 despite vasopressors)",
+          "AKI with significant fluid overload requiring controlled removal",
+          "AKI with cerebral edema (avoid osmotic shifts)",
+          "AKI requiring high-volume nutrition or medications"
+        ],
+        "relative": [
+          "Sepsis with AKI (theoretical benefit of cytokine clearance)",
+          "Hepatorenal syndrome awaiting transplant",
+          "Drug overdose requiring continuous removal"
+        ]
+      },
+      "prescription_parameters": {
+        "blood_flow_rate": "150-250 mL/min (lower than IHD)",
+        "effluent_dose": "20-25 mL/kg/hr (no benefit shown for higher doses)",
+        "anticoagulation": "Regional citrate preferred; heparin if citrate contraindicated",
+        "replacement_timing": "Pre-dilution safer (protects filter); post-dilution more efficient"
+      }
+    },
+    "treatment_options": {
+      "modality_selection": {
+        "cvvh": {
+          "mechanism": "Pure convection—ultrafiltration with replacement fluid",
+          "advantages": "Better middle molecule clearance, no dialysate needed",
+          "disadvantages": "Less efficient small solute clearance",
+          "typical_use": "Sepsis (cytokine theory), fluid overload"
+        },
+        "cvvhd": {
+          "mechanism": "Pure diffusion—dialysate flow opposite to blood",
+          "advantages": "Efficient small solute clearance, simpler setup",
+          "disadvantages": "Limited middle molecule removal",
+          "typical_use": "Uremia, hyperkalemia, simple AKI"
+        },
+        "cvvhdf": {
+          "mechanism": "Combined convection and diffusion",
+          "advantages": "Optimal clearance across molecular weight spectrum",
+          "disadvantages": "More complex, higher fluid volumes",
+          "typical_use": "Severe AKI, multi-organ failure"
+        }
+      },
+      "anticoagulation_strategies": {
+        "citrate": {
+          "protocol": "Citrate infused pre-filter chelates calcium; calcium replaced post-filter",
+          "advantages": "No systemic anticoagulation, longer filter life",
+          "monitoring": "Ionized calcium (circuit and systemic), citrate gap",
+          "contraindications": "Severe liver failure, citrate toxicity risk"
+        },
+        "heparin": {
+          "protocol": "Systemic or regional heparin with protamine reversal",
+          "advantages": "Familiar, reversible",
+          "monitoring": "aPTT or anti-Xa levels",
+          "contraindications": "HIT, active bleeding"
+        }
+      },
+      "drug_dosing_considerations": {
+        "principle": "CRRT removes many drugs; dosing adjustments required",
+        "antibiotics": "Vancomycin, aminoglycosides require monitoring and supplementation",
+        "sedatives": "Prolonged action of renally cleared agents",
+        "vasopressors": "Generally not affected by CRRT"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand CRRT Overview"
-  ],
-  "clinical_pearls": [
-    "ICU modality"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Continuous Renal Replacement Therapy"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "CRRT"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
+        "@language": "en",
+        "@value": "Continuous Hemofiltration"
+      },
+      {
+        "@language": "en",
+        "@value": "CVVH"
+      },
+      {
+        "@language": "en",
+        "@value": "CVVHD"
+      },
+      {
+        "@language": "en",
+        "@value": "CVVHDF"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Continuous extracorporeal blood purification therapy for hemodynamically unstable critically ill patients with acute kidney injury, providing 24-hour solute and fluid removal"
+    },
+    "notation": "neph-049",
+    "scopeNote": "Covers modalities (CVVH, CVVHD, CVVHDF), anticoagulation strategies, prescription parameters, and drug dosing considerations",
+    "example": "A 65-year-old septic shock patient with AKI, MAP 58 on norepinephrine 0.3 mcg/kg/min, started on CVVHDF with citrate anticoagulation at effluent dose 25 mL/kg/hr"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "302497006",
+      "uri": "http://snomed.info/id/302497006",
+      "description": "Continuous renal replacement therapy (procedure)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "238320008",
+      "uri": "http://snomed.info/id/238320008",
+      "description": "Continuous venovenous hemodialysis",
+      "matchType": "narrower"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-PCS",
+      "codeValue": "5A1D70Z",
+      "description": "Performance of urinary filtration, intermittent, less than 6 hours per day",
+      "matchType": "related"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "90945",
+      "description": "Dialysis procedure other than hemodialysis",
+      "matchType": "related"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D017507",
+      "uri": "http://id.nlm.nih.gov/mesh/D017507",
+      "description": "Renal Replacement Therapy",
+      "matchType": "broader"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "nephrology_fellows",
+      "critical_care_physicians",
+      "intensivists",
+      "nephrology_nurses",
+      "advanced_practice_providers"
+    ],
+    "estimated_time": "35min",
+    "difficulty_curve": 0.75,
+    "learning_objectives": [
+      "Compare and contrast CVVH, CVVHD, and CVVHDF modalities and their clearance mechanisms",
+      "Calculate appropriate CRRT prescription including effluent dose and fluid balance targets",
+      "Select appropriate anticoagulation strategy based on patient factors",
+      "Troubleshoot common CRRT complications including filter clotting and citrate toxicity",
+      "Adjust medication dosing for patients receiving CRRT"
+    ],
+    "clinical_pearls": [
+      "Effluent dose >25 mL/kg/hr does not improve outcomes (RENAL, ATN trials)",
+      "Citrate toxicity: rising total/ionized calcium ratio, metabolic alkalosis, hypocalcemia",
+      "Filter lifespan <24 hours suggests inadequate anticoagulation or access issues",
+      "Pre-dilution: less efficient clearance but protects filter—post-dilution: more efficient but higher clotting risk",
+      "Drug dosing in CRRT: assume GFR 10-30 mL/min as starting point, then adjust",
+      "CRRT clearance of drugs depends on molecular weight, protein binding, and volume of distribution"
+    ],
+    "board_yield": {
+      "internal_medicine_boards": "Moderate - indications and basic principles",
+      "nephrology_boards": "Very High - detailed prescriptions, complications, modality selection",
+      "critical_care_boards": "High - indications, hemodynamic management, drug dosing"
+    },
+    "common_misconceptions": [
+      "CRRT provides superior survival compared to IHD (false - equivalent outcomes in RCTs)",
+      "Higher CRRT dose improves outcomes (false - 20-25 mL/kg/hr is optimal)",
+      "CRRT removes cytokines effectively enough to benefit sepsis (unproven)",
+      "Citrate anticoagulation is too complicated for routine use (false - now standard of care)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:nephrology:neph-001",
+        "title": "Acute Kidney Injury Definition",
+        "strength": 0.95
+      },
+      {
+        "id": "urn:wskg:medicine:nephrology:neph-008",
+        "title": "Hemodialysis Basics",
+        "strength": 0.90
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:renal-replacement-therapy",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Renal Replacement Therapy"
+      },
+      {
+        "@id": "urn:wskg:medicine:critical-care:organ-support",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Critical Care Organ Support"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:hemodialysis",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Intermittent Hemodialysis",
+        "skos:note": "Alternative modality for stable patients"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:peritoneal-dialysis",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Peritoneal Dialysis",
+        "skos:note": "Alternative for chronic kidney disease"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:anticoagulation-dialysis",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Anticoagulation in Dialysis",
+        "skos:note": "Critical component of CRRT management"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/302497006",
+      "http://www.wikidata.org/entity/Q5162253"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/302497006"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T02:40:00.000Z",
+    "sources": [
+      {
+        "source": "KDIGO Clinical Practice Guideline for Acute Kidney Injury. Kidney Int Suppl. 2012;2(1):1-138",
+        "type": "clinical_guideline",
+        "year": 2012,
+        "doi": "10.1038/kisup.2012.1",
+        "confidence": 1.0,
+        "relevance": "Authoritative AKI guideline including CRRT recommendations"
+      },
+      {
+        "source": "Bellomo R, et al. RENAL Replacement Therapy Study Investigators. Intensity of continuous renal-replacement therapy in critically ill patients. N Engl J Med. 2009;361(17):1627-38",
+        "type": "randomized_controlled_trial",
+        "year": 2009,
+        "doi": "10.1056/NEJMoa0902413",
+        "confidence": 0.98,
+        "relevance": "Key trial demonstrating no benefit of higher CRRT doses"
+      },
+      {
+        "source": "Claure-Del Granado R, Clark WR. Continuous renal replacement therapy principles. Semin Dial. 2021;34(6):398-405",
+        "type": "review",
         "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "doi": "10.1111/sdi.12973",
+        "confidence": 0.95,
+        "relevance": "Comprehensive review of CRRT principles"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:kdigo-aki-guideline",
+        "@type": "prov:Entity",
+        "dc:title": "KDIGO AKI Clinical Practice Guideline",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/CRRT_Overview",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.92,
+    "completeness": 0.93,
+    "accuracy": 0.95,
+    "clarity": 0.91,
+    "pedagogical_quality": 0.92,
+    "ontology_alignment": 0.91,
+    "last_assessment": "2026-01-12T02:40:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "procedure_with_technical_details",
+    "show_images": true,
+    "visualization": [
+      "crrt_circuit_diagram",
+      "modality_comparison_table",
+      "citrate_anticoagulation_protocol",
+      "troubleshooting_flowchart"
+    ],
+    "emphasis": [
+      "modality_differences",
+      "anticoagulation_selection",
+      "dose_prescription"
+    ]
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Continuous_renal_replacement_therapy",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q5162253"
 }

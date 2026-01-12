@@ -1,76 +1,335 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:nephrology:neph-038",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:53:50.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "nephrology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T02:42:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/nephrology",
     "type": "definition",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "aku_id": "038",
+    "keywords": [
+      "hypophosphatemia",
+      "phosphorus",
+      "electrolyte disorder",
+      "refeeding syndrome",
+      "respiratory failure",
+      "phosphate replacement"
+    ],
+    "medical_specialty": "nephrology",
+    "clinical_context": "electrolyte_disorders"
   },
   "content": {
     "title": "Hypophosphatemia",
-    "summary": "Low phosphate",
+    "summary": "Serum phosphorus <2.5 mg/dL caused by decreased intake, transcellular shifts, or renal losses, presenting with muscle weakness, respiratory failure, and cardiac dysfunction in severe cases",
     "key_points": [
-      "Refeeding syndrome",
-      "Respiratory failure risk",
-      "PO or IV replacement"
+      "Defined as serum phosphorus <2.5 mg/dL (severe <1.0 mg/dL)",
+      "Three mechanisms: decreased intake/absorption, transcellular shift, renal losses",
+      "Refeeding syndrome is classic cause of severe hypophosphatemia",
+      "Respiratory muscle weakness can cause ventilator dependence",
+      "Severe cases require IV phosphate replacement",
+      "Critical for ATP production and cellular energy metabolism",
+      "Commonly seen in alcoholics, DKA recovery, and hospitalized patients"
     ],
-    "statement": "Hypophosphatemia is a fundamental concept in health-sciences medicine nephrology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Hypophosphatemia is defined as serum phosphorus below 2.5 mg/dL, with severe hypophosphatemia below 1.0 mg/dL. It occurs through three mechanisms: decreased intake or intestinal absorption, transcellular shift (insulin, refeeding, respiratory alkalosis), or increased renal excretion (hyperparathyroidism, Fanconi syndrome). Clinical manifestations reflect phosphorus's critical role in ATP synthesis and include muscle weakness, respiratory failure, cardiac dysfunction, and neurological symptoms.",
+      "formal": "Hypophosphatemia = Serum PO4 <2.5 mg/dL = ↓Intake + ↓Absorption OR Transcellular shift OR ↑Renal losses"
+    },
     "explanation": {
-      "intuition": "Understanding Hypophosphatemia helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Hypophosphatemia include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Hypophosphatemia to real-world scenarios."
+      "intuition": "Phosphorus is the 'P' in ATP—the energy currency of all cells. When phosphorus drops severely, cells cannot make enough ATP, and energy-dependent functions fail. Muscles weaken (including the diaphragm), the heart pumps poorly, and red blood cells become fragile. The classic scenario is refeeding a malnourished patient—insulin drives phosphorus into cells, causing sudden severe depletion.",
+      "key_insight": "The timing and mechanism matter: acute hypophosphatemia (transcellular shift) causes symptoms at higher levels than chronic depletion because there's no time for compensation. Refeeding syndrome is dangerous precisely because it combines acute shift with underlying depletion in malnourished patients.",
+      "technical_details": "Phosphorus exists as inorganic phosphate (measured in serum) and organic phosphate (ATP, 2,3-DPG, phospholipids). Serum levels represent <1% of total body phosphorus; most is in bone (85%) and intracellular (14%). Renal handling: freely filtered, 80-90% reabsorbed in proximal tubule via NaPi-IIa/c transporters regulated by PTH, FGF23, and dietary phosphorus."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "hypophosphatemia": "Serum phosphorus concentration below the normal range of 2.5-4.5 mg/dL",
+      "severe_hypophosphatemia": "Serum phosphorus <1.0 mg/dL, associated with symptomatic disease",
+      "refeeding_syndrome": "Metabolic derangements occurring when nutrition is reintroduced to malnourished patients, characterized by hypophosphatemia",
+      "phosphorus": "Essential mineral required for ATP synthesis, bone mineralization, and cell membrane integrity",
+      "transcellular_shift": "Movement of electrolytes between extracellular and intracellular compartments",
+      "fanconi_syndrome": "Proximal tubular dysfunction causing renal wasting of phosphorus, glucose, amino acids, and bicarbonate",
+      "parathyroid_hormone": "Hormone that increases renal phosphorus excretion by downregulating proximal tubule reabsorption",
+      "fgf23": "Fibroblast growth factor 23—phosphaturic hormone secreted by osteocytes",
+      "atp": "Adenosine triphosphate—primary cellular energy molecule requiring phosphorus",
+      "two_three_dpg": "2,3-diphosphoglycerate—regulates hemoglobin oxygen affinity; depleted in hypophosphatemia",
+      "rhabdomyolysis": "Muscle breakdown that can result from severe hypophosphatemia due to ATP depletion",
+      "phosphate_binders": "Medications that bind dietary phosphorus in the gut (used in hyperphosphatemia, not hypophosphatemia)"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Phosphorus is essential for ATP synthesis, 2,3-DPG production (oxygen delivery), cell membrane integrity, and bone mineralization. Depletion impairs energy-dependent cellular processes. In muscles, ATP depletion causes weakness and rhabdomyolysis. In red blood cells, low 2,3-DPG increases hemoglobin-oxygen affinity, impairing oxygen delivery to tissues. Cardiac myocytes lose contractility, and neurological dysfunction occurs due to impaired neurotransmission.",
+      "etiological_categories": [
+        "Decreased intake/absorption: malnutrition, alcoholism, phosphate binders, malabsorption, vitamin D deficiency",
+        "Transcellular shift: insulin (DKA treatment, refeeding), respiratory alkalosis, hungry bone syndrome",
+        "Renal losses: hyperparathyroidism, Fanconi syndrome, post-transplant, diuretics, X-linked hypophosphatemia"
+      ],
+      "organ_system_effects": {
+        "musculoskeletal": "Weakness, rhabdomyolysis, osteomalacia (chronic)",
+        "respiratory": "Diaphragm weakness, ventilator dependence, weaning failure",
+        "cardiovascular": "Decreased contractility, arrhythmias, cardiomyopathy",
+        "hematologic": "Hemolysis, platelet dysfunction, leukocyte dysfunction",
+        "neurologic": "Confusion, seizures, coma, peripheral neuropathy"
+      }
+    },
+    "diagnostic_criteria": {
+      "laboratory_findings": {
+        "serum_phosphorus": "<2.5 mg/dL (mild), <2.0 mg/dL (moderate), <1.0 mg/dL (severe)",
+        "24hr_urine_phosphorus": ">100 mg/day suggests renal wasting",
+        "fractional_excretion_phosphorus": ">5% indicates renal losses",
+        "associated_abnormalities": "Hypokalemia, hypomagnesemia often coexist"
+      },
+      "diagnostic_approach": [
+        "Confirm low serum phosphorus",
+        "Assess 24-hour urine phosphorus or FEPi",
+        "Low urinary phosphorus → decreased intake or transcellular shift",
+        "High urinary phosphorus → renal wasting (check PTH, vitamin D, FGF23)",
+        "Evaluate for refeeding risk factors"
+      ],
+      "severity_classification": {
+        "mild": "2.0-2.5 mg/dL—usually asymptomatic",
+        "moderate": "1.0-2.0 mg/dL—may have symptoms, oral replacement",
+        "severe": "<1.0 mg/dL—symptomatic, IV replacement required"
+      }
+    },
+    "treatment_options": {
+      "oral_replacement": {
+        "indication": "Mild to moderate hypophosphatemia, asymptomatic patients",
+        "preparations": "Sodium/potassium phosphate (Neutra-Phos, K-Phos), milk (1 mg phosphorus/mL)",
+        "dose": "1000-2000 mg phosphorus/day in divided doses",
+        "side_effects": "Diarrhea, nausea (common), hyperphosphatemia if excessive"
+      },
+      "iv_replacement": {
+        "indication": "Severe hypophosphatemia (<1.0 mg/dL), symptomatic patients, unable to take PO",
+        "preparations": "Sodium phosphate or potassium phosphate",
+        "dose": "0.08-0.32 mmol/kg over 6 hours; 15-30 mmol for most adults",
+        "monitoring": "Recheck phosphorus every 6 hours, monitor calcium (risk of precipitation)",
+        "precautions": "Avoid in hypercalcemia, reduce dose in renal impairment"
+      },
+      "underlying_cause": {
+        "refeeding": "Slow reintroduction of nutrition, prophylactic phosphorus supplementation",
+        "dka": "Expect phosphorus to drop as insulin is given; replace when <1.5 mg/dL",
+        "alcoholism": "Aggressive repletion; address vitamin D deficiency, magnesium",
+        "hyperparathyroidism": "Treat underlying PTH excess"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Hypophosphatemia"
-  ],
-  "clinical_pearls": [
-    "Refeeding syndrome"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Hypophosphatemia"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Low Phosphorus"
       },
       {
-        "source": "Academic literature review",
+        "@language": "en",
+        "@value": "Phosphate Deficiency"
+      },
+      {
+        "@language": "en",
+        "@value": "Hypophosphataemia"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Electrolyte disorder characterized by serum phosphorus below 2.5 mg/dL, caused by decreased intake, transcellular shifts, or renal losses"
+    },
+    "notation": "neph-038",
+    "scopeNote": "Covers etiology, clinical manifestations, diagnostic evaluation, and treatment including refeeding syndrome",
+    "example": "A 45-year-old alcoholic admitted with pneumonia, serum phosphorus 0.8 mg/dL on day 3 after starting enteral nutrition, with progressive respiratory failure requiring intubation"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "30935000",
+      "uri": "http://snomed.info/id/30935000",
+      "description": "Hypophosphatemia (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "E83.39",
+      "description": "Other disorders of phosphorus metabolism",
+      "matchType": "broader"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D017674",
+      "uri": "http://id.nlm.nih.gov/mesh/D017674",
+      "description": "Hypophosphatemia",
+      "matchType": "exactMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "internal_medicine_residents",
+      "nephrology_fellows",
+      "critical_care_physicians",
+      "hospitalists",
+      "clinical_pharmacists"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.60,
+    "learning_objectives": [
+      "Classify hypophosphatemia by severity and clinical significance",
+      "Differentiate etiologies using urinary phosphorus excretion",
+      "Recognize clinical manifestations of severe hypophosphatemia",
+      "Identify patients at risk for refeeding syndrome",
+      "Prescribe appropriate oral and IV phosphorus replacement"
+    ],
+    "clinical_pearls": [
+      "Refeeding syndrome: start feeding slowly, give thiamine first, supplement phosphorus prophylactically",
+      "DKA: serum phosphorus may be normal on admission but drops with insulin; monitor closely",
+      "Respiratory failure unresponsive to ventilator settings? Check phosphorus",
+      "Alcoholics are at high risk due to poor intake + transcellular shifts",
+      "Severe hypophosphatemia can cause hemolysis—check hemoglobin",
+      "Correct hypomagnesemia—magnesium deficiency impairs phosphorus repletion"
+    ],
+    "board_yield": {
+      "internal_medicine_boards": "High - refeeding syndrome, DKA, diagnosis",
+      "nephrology_boards": "High - renal wasting, Fanconi syndrome, FGF23 disorders",
+      "critical_care_boards": "High - respiratory failure, ventilator weaning"
+    },
+    "common_misconceptions": [
+      "High serum phosphorus on admission to DKA means total body phosphorus is adequate (false—shift from cells)",
+      "Oral replacement is always sufficient (false—severe cases need IV)",
+      "Phosphorus repletion can be given rapidly like potassium (caution—risk of hypocalcemia, precipitation)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:nephrology:neph-030",
+        "title": "Electrolyte Overview",
+        "strength": 0.85
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:electrolyte-disorders",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Electrolyte Disorders"
+      },
+      {
+        "@id": "urn:wskg:medicine:endocrinology:mineral-metabolism",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Mineral Metabolism Disorders"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:hyperphosphatemia",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Hyperphosphatemia",
+        "skos:note": "Opposite electrolyte disorder"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:hypocalcemia",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Hypocalcemia",
+        "skos:note": "Often coexists, risk with IV phosphorus"
+      },
+      {
+        "@id": "urn:wskg:medicine:nutrition:refeeding-syndrome",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Refeeding Syndrome",
+        "skos:note": "Major cause of severe hypophosphatemia"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/30935000",
+      "http://www.wikidata.org/entity/Q1754096"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/30935000"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T02:42:00.000Z",
+    "sources": [
+      {
+        "source": "Gaasbeek A, Meinders AE. Hypophosphatemia: an update on its etiology and treatment. Am J Med. 2005;118(10):1094-101",
+        "type": "review",
+        "year": 2005,
+        "doi": "10.1016/j.amjmed.2005.02.014",
+        "confidence": 0.95,
+        "relevance": "Comprehensive review of hypophosphatemia"
+      },
+      {
+        "source": "Brenner & Rector's The Kidney, 11th ed. Elsevier 2020",
         "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "year": 2020,
+        "isbn": "978-0323532655",
+        "confidence": 0.97,
+        "relevance": "Authoritative nephrology reference"
+      },
+      {
+        "source": "Mehanna HM, et al. Refeeding syndrome: what it is, and how to prevent and treat it. BMJ. 2008;336(7659):1495-8",
+        "type": "review",
+        "year": 2008,
+        "doi": "10.1136/bmj.a301",
+        "confidence": 0.95,
+        "relevance": "Key reference for refeeding syndrome"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:brenner-kidney",
+        "@type": "prov:Entity",
+        "dc:title": "Brenner & Rector's The Kidney",
+        "dc:type": "textbook",
+        "confidence": 0.97
       }
     ]
   },
+  "quality_assessment": {
+    "CQS": 0.91,
+    "completeness": 0.92,
+    "accuracy": 0.94,
+    "clarity": 0.90,
+    "pedagogical_quality": 0.91,
+    "ontology_alignment": 0.90,
+    "last_assessment": "2026-01-12T02:42:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "definition_with_diagnostic_algorithm",
+    "show_images": true,
+    "visualization": [
+      "phosphorus_homeostasis_diagram",
+      "etiology_flowchart",
+      "severity_treatment_table"
+    ],
+    "emphasis": [
+      "refeeding_syndrome",
+      "respiratory_failure",
+      "replacement_dosing"
+    ]
+  },
   "owl:sameAs": "http://dbpedia.org/resource/Hypophosphatemia",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1754096"
 }

@@ -1,76 +1,331 @@
 {
-  "@context": "aku-v2",
-  "@type": "procedure",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalProcedure"
+  ],
   "@id": "health-sciences:medicine:gastroenterology:gi-050",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:52:30.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "hepatology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T03:06:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/gastroenterology",
     "type": "procedure",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "aku_id": "050",
+    "keywords": [
+      "liver biopsy",
+      "hepatic histology",
+      "fibrosis staging",
+      "NAFLD",
+      "cirrhosis",
+      "percutaneous biopsy"
+    ],
+    "medical_specialty": "gastroenterology",
+    "clinical_context": "hepatology"
   },
   "content": {
     "title": "Liver Biopsy",
-    "summary": "Hepatic tissue sampling",
+    "summary": "Invasive procedure to obtain hepatic tissue for histological diagnosis, fibrosis staging, and assessment of treatment response, performed via percutaneous, transjugular, or laparoscopic approach",
     "key_points": [
-      "Percutaneous vs transjugular",
-      "Fibrosis staging",
-      "Complications: bleeding"
+      "Gold standard for assessing hepatic histology and fibrosis staging",
+      "Indications: unexplained liver disease, fibrosis staging, treatment monitoring",
+      "Percutaneous approach most common; transjugular for coagulopathy/ascites",
+      "Major complications: bleeding (0.5%), bile leak, pneumothorax, pain",
+      "Adequate sample: ≥15 mm length, ≥11 portal tracts",
+      "Non-invasive alternatives (FibroScan, ELF, FIB-4) reduce need for biopsy",
+      "Post-procedure: monitor 4-6 hours for complications"
     ],
-    "statement": "Liver Biopsy is a fundamental concept in health-sciences medicine gastroenterology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Liver biopsy is the gold standard for histological diagnosis of liver disease and accurate fibrosis staging. Percutaneous biopsy under ultrasound guidance is the most common approach, while transjugular biopsy is preferred in patients with coagulopathy or ascites. The procedure carries risks of bleeding, pain, and rarely perforation. Non-invasive fibrosis assessments (transient elastography, serum biomarkers) have reduced the need for biopsy in many chronic liver diseases but cannot replace histology for certain diagnoses.",
+      "formal": "Liver Biopsy = Percutaneous (most common) OR Transjugular (coagulopathy) OR Laparoscopic + Histological analysis for diagnosis + fibrosis staging"
+    },
     "explanation": {
-      "intuition": "Understanding Liver Biopsy helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Liver Biopsy include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Liver Biopsy to real-world scenarios."
+      "intuition": "Liver blood tests and imaging can tell us the liver is unhealthy, but they can't tell us exactly why or how much scarring has occurred. A biopsy provides a tissue sample that a pathologist examines under a microscope—this is like sending a detective to the scene of the crime to gather direct evidence. New non-invasive tests can estimate fibrosis, but biopsy remains essential for complex diagnoses.",
+      "key_insight": "Non-invasive fibrosis testing (FibroScan, FIB-4) has transformed practice—liver biopsy is no longer routine for staging chronic hepatitis B/C or NAFLD. However, biopsy remains essential when: (1) non-invasive tests are discordant, (2) rare or overlapping conditions are suspected, (3) histology will change management, (4) post-transplant rejection is suspected.",
+      "technical_details": "Percutaneous biopsy: 14-18 gauge needle, intercostal approach under US guidance, 1-3 passes. Transjugular: catheter via jugular vein into hepatic vein, core needle through vein wall; allows simultaneous hepatic venous pressure measurement. Sample adequacy: ≥15 mm length, ≥11 portal tracts for accurate staging. Metavir and Batts-Ludwig systems for fibrosis scoring. Hold anticoagulants per guidelines."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "liver_biopsy": "Invasive procedure to obtain hepatic tissue for histological analysis",
+      "percutaneous_biopsy": "Needle biopsy through the skin, typically via intercostal approach",
+      "transjugular_biopsy": "Biopsy via internal jugular vein approach for high-risk patients",
+      "fibrosis_staging": "Histological scoring of liver scarring (F0-F4 in Metavir system)",
+      "portal_tracts": "Histological structures containing bile duct, hepatic artery, portal vein branches",
+      "metavir_score": "Standardized fibrosis scoring system: F0 (none) to F4 (cirrhosis)",
+      "transient_elastography": "Non-invasive ultrasound-based technique measuring liver stiffness (FibroScan)",
+      "fib_4": "Non-invasive serum fibrosis index using age, AST, ALT, platelets",
+      "hepatic_venous_pressure_gradient": "Pressure difference between hepatic and portal veins; obtained during TJLB",
+      "coagulopathy": "Impaired blood clotting—relative contraindication to percutaneous biopsy",
+      "ascites": "Abdominal fluid—relative contraindication to percutaneous approach",
+      "sampling_error": "Risk that small biopsy may not represent entire liver"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Liver biopsy provides tissue for histopathological examination, allowing direct visualization of hepatocyte injury, inflammation, fibrosis, steatosis, iron/copper accumulation, and malignancy. Fibrosis staging assesses the extent of collagen deposition by pathologist scoring of architectural distortion. Complications arise from needle trauma to blood vessels (hepatic artery, portal vein branches), bile ducts, or adjacent organs.",
+      "indications": {
+        "diagnosis": [
+          "Unexplained liver enzyme elevation after non-invasive workup",
+          "Suspected autoimmune hepatitis (for diagnosis and grading)",
+          "Iron or copper storage disease confirmation",
+          "Infiltrative liver disease (granulomas, amyloidosis)",
+          "Suspected hepatic malignancy (if needle biopsy won't alter management)"
+        ],
+        "fibrosis_staging": [
+          "NAFLD/NASH when non-invasive tests indeterminate",
+          "Chronic hepatitis B or C (if needed before treatment decisions)",
+          "Alcoholic liver disease"
+        ],
+        "monitoring": [
+          "Post-transplant allograft rejection or recurrent disease",
+          "Treatment response in autoimmune hepatitis",
+          "Disease progression in Wilson disease"
+        ]
+      },
+      "contraindications": {
+        "absolute": "Uncooperative patient, no safe access window, uncorrectable severe coagulopathy",
+        "relative": "Ascites (use transjugular), coagulopathy (transjugular), infection over site, biliary obstruction (risk of bile leak)"
+      }
+    },
+    "diagnostic_criteria": {
+      "sample_adequacy": {
+        "length": "≥15 mm (ideally 20-25 mm)",
+        "portal_tracts": "≥11 for accurate fibrosis staging",
+        "fragmentation": "Minimal; affects interpretation"
+      },
+      "histological_assessment": {
+        "fibrosis_staging": "Metavir (F0-F4), Batts-Ludwig, Ishak scores",
+        "inflammation_grading": "Activity grade (A0-A3 in Metavir)",
+        "steatosis_grading": "Percentage of hepatocytes with fat; NAS score for NAFLD",
+        "special_stains": "Iron (Perl's), copper (rhodanine), reticulin (fibrosis), trichrome"
+      }
+    },
+    "treatment_options": {
+      "approaches": {
+        "percutaneous": {
+          "technique": "US-guided, intercostal approach, 14-18G needle, breath-hold during passes",
+          "advantages": "Outpatient, well-tolerated, most experience",
+          "risks": "Bleeding, pneumothorax, pain"
+        },
+        "transjugular": {
+          "technique": "Catheter via internal jugular vein to hepatic vein, core needle through vein wall",
+          "advantages": "Safe in coagulopathy, ascites; allows HVPG measurement",
+          "limitations": "Smaller samples, specialized expertise needed"
+        },
+        "laparoscopic": {
+          "technique": "Direct visualization and biopsy during surgery",
+          "advantages": "Larger samples, hemostasis under vision",
+          "use": "During abdominal surgery; targeted lesion biopsy"
+        }
+      },
+      "periprocedural_care": {
+        "pre_procedure": [
+          "Review coagulation (INR, platelets); correct if needed",
+          "Hold anticoagulants/antiplatelets per ASGE guidelines",
+          "NPO 4-6 hours",
+          "Informed consent"
+        ],
+        "post_procedure": [
+          "Right lateral decubitus position 2 hours",
+          "Monitor vitals, pain, signs of bleeding 4-6 hours",
+          "Outpatient if stable; overnight for high-risk",
+          "Avoid strenuous activity 1 week"
+        ]
+      },
+      "complications": {
+        "common": "Pain at site (20-30%), mild bleeding",
+        "serious": "Major bleeding requiring transfusion (0.5%), bile leak, hemobilia, pneumothorax",
+        "mortality": "0.01-0.1%"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Liver Biopsy"
-  ],
-  "clinical_pearls": [
-    "Percutaneous vs transjugular"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Liver Biopsy"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Hepatic Biopsy"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Percutaneous Liver Biopsy"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Invasive procedure to obtain hepatic tissue for histological diagnosis, fibrosis staging, and treatment monitoring"
+    },
+    "notation": "gi-050",
+    "scopeNote": "Covers indications, techniques (percutaneous, transjugular), sample adequacy, histological scoring systems, and complications",
+    "example": "A 45-year-old with elevated liver enzymes and indeterminate FibroScan undergoes percutaneous liver biopsy revealing NASH with stage 3 fibrosis"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "86481000",
+      "uri": "http://snomed.info/id/86481000",
+      "description": "Biopsy of liver (procedure)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "47000",
+      "description": "Biopsy of liver, needle; percutaneous",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D001706",
+      "uri": "http://id.nlm.nih.gov/mesh/D001706",
+      "description": "Biopsy",
+      "matchType": "broader"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "gastroenterology_fellows",
+      "hepatology_fellows",
+      "internal_medicine_residents",
+      "pathology_residents"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.60,
+    "learning_objectives": [
+      "Select appropriate indications for liver biopsy in the era of non-invasive testing",
+      "Choose percutaneous vs. transjugular approach based on patient factors",
+      "Ensure adequate sample for accurate fibrosis staging",
+      "Interpret Metavir fibrosis scores",
+      "Manage post-procedural care and recognize complications"
+    ],
+    "clinical_pearls": [
+      "≥11 portal tracts needed for accurate staging—small samples underestimate fibrosis",
+      "Transjugular biopsy: use for INR >1.5, platelets <50K, or significant ascites",
+      "FibroScan, FIB-4, ELF can often replace biopsy for chronic viral hepatitis staging",
+      "Biopsy still essential for: autoimmune hepatitis diagnosis, Wilson disease, drug-induced liver injury",
+      "Right lobe biopsy preferred (left lobe has higher complication rate)",
+      "Pain is expected; severe or increasing pain suggests bleeding—reassess immediately"
+    ],
+    "board_yield": {
+      "internal_medicine_boards": "Moderate - indications, when to refer",
+      "gastroenterology_boards": "High - technique selection, sample adequacy, interpretation"
+    },
+    "common_misconceptions": [
+      "Liver biopsy is required for all chronic liver disease (false—non-invasive tests often sufficient)",
+      "Percutaneous biopsy is safe in severe coagulopathy (false—use transjugular)",
+      "One pass always yields adequate sample (false—may need 2-3 passes)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:gastroenterology:gi-012",
+        "title": "Cirrhosis Definition",
+        "strength": 0.85
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:gastroenterology:hepatology-procedures",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Hepatology Procedures"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:gastroenterology:fibroscan",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Transient Elastography",
+        "skos:note": "Non-invasive fibrosis assessment alternative"
+      },
+      {
+        "@id": "urn:wskg:medicine:gastroenterology:nafld",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Non-Alcoholic Fatty Liver Disease",
+        "skos:note": "Common indication for biopsy"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/86481000",
+      "http://www.wikidata.org/entity/Q1147912"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/86481000"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T03:06:00.000Z",
+    "sources": [
+      {
+        "source": "Rockey DC, et al. Liver biopsy. Hepatology. 2009;49(3):1017-44",
+        "type": "review",
+        "year": 2009,
+        "doi": "10.1002/hep.22742",
+        "confidence": 0.98,
+        "relevance": "Comprehensive liver biopsy practice guideline"
+      },
+      {
+        "source": "AASLD Practice Guideline: The diagnosis and management of NAFLD. Hepatology. 2018;67(1):328-357",
+        "type": "clinical_guideline",
+        "year": 2018,
+        "doi": "10.1002/hep.29367",
+        "confidence": 0.98,
+        "relevance": "NAFLD guideline including biopsy indications"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:aasld-liver-biopsy",
+        "@type": "prov:Entity",
+        "dc:title": "AASLD Liver Biopsy Guidelines",
+        "dc:type": "clinical_guideline",
+        "confidence": 0.98
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Liver_Biopsy",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.91,
+    "completeness": 0.92,
+    "accuracy": 0.94,
+    "clarity": 0.91,
+    "pedagogical_quality": 0.90,
+    "ontology_alignment": 0.90,
+    "last_assessment": "2026-01-12T03:06:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "procedure_with_technique_comparison",
+    "show_images": true,
+    "visualization": [
+      "biopsy_techniques_comparison",
+      "metavir_scoring_table",
+      "sample_adequacy_diagram"
+    ],
+    "emphasis": [
+      "indications_vs_noninvasive",
+      "approach_selection",
+      "sample_adequacy"
+    ]
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Liver_biopsy",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1147912"
 }

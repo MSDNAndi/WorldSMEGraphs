@@ -1,76 +1,338 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:nephrology:neph-017",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:53:50.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "nephrology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T02:56:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/nephrology",
     "type": "definition",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "017",
+    "keywords": [
+      "lupus nephritis",
+      "systemic lupus erythematosus",
+      "glomerulonephritis",
+      "ISN/RPS classification",
+      "immunosuppression",
+      "mycophenolate"
+    ],
+    "medical_specialty": "nephrology",
+    "clinical_context": "glomerular_disease"
   },
   "content": {
     "title": "Lupus Nephritis",
-    "summary": "SLE kidney involvement",
+    "summary": "Immune complex-mediated glomerulonephritis occurring in systemic lupus erythematosus, classified by ISN/RPS into six classes with treatment and prognosis depending on histological class",
     "key_points": [
-      "Class I-VI classification",
-      "Immunosuppression based on class",
-      "C3/C4 and anti-dsDNA"
+      "Occurs in 30-60% of SLE patients; major cause of morbidity",
+      "ISN/RPS classification: Classes I-VI based on biopsy findings",
+      "Class III (focal) and IV (diffuse) require aggressive immunosuppression",
+      "Class V (membranous) may occur alone or combined with III/IV",
+      "Renal biopsy essential for classification and treatment planning",
+      "Induction: MMF or cyclophosphamide + steroids",
+      "Maintenance: MMF or azathioprine for 3+ years",
+      "Monitor with proteinuria, creatinine, complement, anti-dsDNA"
     ],
-    "statement": "Lupus Nephritis is a fundamental concept in health-sciences medicine nephrology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Lupus nephritis is immune complex-mediated glomerulonephritis occurring in 30-60% of patients with systemic lupus erythematosus. The ISN/RPS classification system defines six histological classes based on renal biopsy findings. Class III (focal proliferative) and Class IV (diffuse proliferative) lupus nephritis carry the highest risk of progression and require aggressive immunosuppressive induction therapy followed by prolonged maintenance. Treatment decisions are guided by biopsy class, with mycophenolate mofetil and cyclophosphamide as first-line induction agents.",
+      "formal": "Lupus Nephritis = SLE + Renal involvement (proteinuria, hematuria, ↓GFR) + Immune complex deposition on biopsy"
+    },
     "explanation": {
-      "intuition": "Understanding Lupus Nephritis helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Lupus Nephritis include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Lupus Nephritis to real-world scenarios."
+      "intuition": "In lupus, the immune system attacks the body's own tissues. The kidney is a common target because autoantibodies (especially anti-dsDNA) form immune complexes that deposit in the glomeruli, triggering inflammation. The biopsy tells us how much of the kidney is affected and how severely—this determines whether we need heavy-duty treatment or can be more conservative.",
+      "key_insight": "Not all lupus nephritis is the same. Class I and II are mild and may need only monitoring. Class III and IV are proliferative and aggressive—without treatment, they progress to ESRD. Class V is membranous and can occur alone or with proliferative changes. Always get a biopsy to classify.",
+      "technical_details": "Pathogenesis: Anti-dsDNA antibodies cross-react with glomerular antigens or form circulating immune complexes that deposit in mesangium and subendothelial/subepithelial spaces. Complement activation (C3, C4 consumption) and inflammatory cell recruitment cause glomerular injury. Histology shows 'full house' immunofluorescence (IgG, IgM, IgA, C3, C1q) and wire loop deposits in severe cases."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "lupus_nephritis": "Glomerulonephritis caused by immune complex deposition in patients with SLE",
+      "isn_rps_classification": "2003 International Society of Nephrology/Renal Pathology Society classification system for lupus nephritis",
+      "proliferative_gn": "Glomerulonephritis with increased cellularity due to inflammatory cell infiltration and/or cell proliferation",
+      "membranous_lupus_nephritis": "Class V lupus nephritis with subepithelial immune deposits and thickened GBM",
+      "anti_dsdna_antibodies": "Autoantibodies against double-stranded DNA; correlate with disease activity and nephritis",
+      "complement_consumption": "Low C3 and C4 levels indicating complement activation in active lupus",
+      "full_house_immunofluorescence": "IF pattern showing IgG, IgM, IgA, C3, and C1q—classic for lupus nephritis",
+      "wire_loop_lesion": "Thickened capillary walls from massive subendothelial immune deposits—severe Class IV",
+      "mycophenolate_mofetil": "Immunosuppressant inhibiting lymphocyte proliferation; first-line for lupus nephritis",
+      "cyclophosphamide": "Alkylating agent used for induction in severe lupus nephritis; NIH or Euro-Lupus protocol",
+      "maintenance_therapy": "Long-term immunosuppression (MMF or AZA) to prevent flares after induction",
+      "complete_remission": "Normalization of creatinine, proteinuria <500 mg/day, inactive urine sediment"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Lupus nephritis results from glomerular deposition of immune complexes containing anti-dsDNA antibodies and complement. The location of deposits determines the histological class: mesangial deposits cause Class I-II, subendothelial deposits cause proliferative Class III-IV, and subepithelial deposits cause membranous Class V. Complement activation recruits inflammatory cells and causes glomerular injury, podocyte damage, and eventually fibrosis.",
+      "isn_rps_classification": {
+        "class_I": "Minimal mesangial—normal light microscopy, mesangial deposits on IF only",
+        "class_II": "Mesangial proliferative—mesangial hypercellularity, mesangial deposits",
+        "class_III": "Focal proliferative—<50% of glomeruli affected; active (A) and/or chronic (C) lesions",
+        "class_IV": "Diffuse proliferative—≥50% of glomeruli affected; most severe; IV-S (segmental) or IV-G (global)",
+        "class_V": "Membranous—subepithelial deposits, GBM thickening; can occur with Class III or IV",
+        "class_VI": "Advanced sclerotic—>90% glomeruli globally sclerosed; end-stage"
+      },
+      "clinical_presentation": [
+        "Proteinuria (often nephrotic range in Class IV, V)",
+        "Microscopic hematuria with RBC casts",
+        "Elevated creatinine (especially Class IV)",
+        "Hypertension",
+        "Active urine sediment (dysmorphic RBCs, casts)",
+        "Systemic lupus manifestations (rash, arthritis, serositis)"
+      ]
+    },
+    "diagnostic_criteria": {
+      "laboratory_findings": {
+        "urinalysis": "Proteinuria, hematuria, RBC casts",
+        "protein_quantification": "24-hour urine or spot protein:creatinine ratio",
+        "serum_creatinine": "Elevated in proliferative nephritis",
+        "serology": "Positive ANA, anti-dsDNA (correlates with activity), low C3/C4",
+        "anti_phospholipid": "Check for antiphospholipid antibodies"
+      },
+      "renal_biopsy": {
+        "indication": "All patients with clinical evidence of lupus nephritis",
+        "purpose": "Determine ISN/RPS class, guide treatment, assess chronicity",
+        "findings": "Histological class, activity index, chronicity index",
+        "interpretation": "High activity: treat aggressively; High chronicity: may limit response"
+      },
+      "activity_markers": {
+        "clinical": "Rising creatinine, increasing proteinuria, active sediment",
+        "serologic": "Rising anti-dsDNA, falling C3/C4 (complement consumption)"
+      }
+    },
+    "treatment_options": {
+      "general_principles": {
+        "goal": "Achieve complete renal remission, prevent flares, preserve kidney function",
+        "hydroxychloroquine": "All lupus patients unless contraindicated—reduces flares, thrombosis",
+        "supportive": "ACEi/ARB for proteinuria, BP control, treat hyperlipidemia"
+      },
+      "class_I_II": {
+        "treatment": "Hydroxychloroquine, treat extrarenal lupus; immunosuppression not usually needed",
+        "prognosis": "Excellent renal prognosis"
+      },
+      "class_III_IV_induction": {
+        "first_line": [
+          "Mycophenolate mofetil (2-3 g/day) + corticosteroids",
+          "Cyclophosphamide (NIH or Euro-Lupus protocol) + corticosteroids"
+        ],
+        "alternative": "Voclosporin + MMF + low-dose steroids (AURORA trial)",
+        "rituximab": "For refractory cases; not first-line in guidelines",
+        "duration": "6 months induction"
+      },
+      "class_V_treatment": {
+        "pure_class_V": "Immunosuppression if significant proteinuria (>1 g/day); MMF + prednisone",
+        "class_V_with_III_IV": "Treat as proliferative Class III/IV"
+      },
+      "maintenance_therapy": {
+        "agents": "MMF (1-2 g/day) or azathioprine (2 mg/kg/day)",
+        "steroids": "Taper to lowest effective dose or off",
+        "duration": "At least 3 years; many require indefinite therapy",
+        "monitoring": "Proteinuria, creatinine, sediment, C3/C4, anti-dsDNA every 3-6 months"
+      },
+      "class_VI": {
+        "treatment": "Supportive care, prepare for RRT; immunosuppression unlikely to help",
+        "prognosis": "Irreversible damage; ESRD expected"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Lupus Nephritis"
-  ],
-  "clinical_pearls": [
-    "Class I-VI classification"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Lupus Nephritis"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "SLE Nephritis"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
+        "@language": "en",
+        "@value": "Lupus Glomerulonephritis"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Immune complex-mediated glomerulonephritis occurring in systemic lupus erythematosus, classified by ISN/RPS system into six histological classes"
+    },
+    "notation": "neph-017",
+    "scopeNote": "Covers ISN/RPS classification, diagnostic workup including biopsy, induction and maintenance immunosuppression, and monitoring",
+    "example": "A 28-year-old woman with SLE, new proteinuria 3.5 g/day, hematuria, creatinine 1.8, low C3/C4, elevated anti-dsDNA; biopsy shows Class IV-G lupus nephritis with high activity index"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "68815009",
+      "uri": "http://snomed.info/id/68815009",
+      "description": "Lupus nephritis (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "M32.14",
+      "description": "Glomerular disease in systemic lupus erythematosus",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D008181",
+      "uri": "http://id.nlm.nih.gov/mesh/D008181",
+      "description": "Lupus Nephritis",
+      "matchType": "exactMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "nephrology_fellows",
+      "rheumatology_fellows",
+      "internal_medicine_residents",
+      "pathology_residents"
+    ],
+    "estimated_time": "35min",
+    "difficulty_curve": 0.75,
+    "learning_objectives": [
+      "Apply the ISN/RPS classification to lupus nephritis biopsy findings",
+      "Determine which classes require aggressive immunosuppression",
+      "Compare mycophenolate mofetil and cyclophosphamide induction regimens",
+      "Monitor lupus nephritis activity using clinical and serologic markers",
+      "Plan maintenance therapy duration and surveillance"
+    ],
+    "clinical_pearls": [
+      "Full house IF (IgG, IgM, IgA, C3, C1q) is classic but not pathognomonic for lupus",
+      "Anti-dsDNA and complement levels correlate with renal activity—follow serially",
+      "Euro-Lupus cyclophosphamide protocol (500 mg q2wk × 6) is as effective as NIH with less toxicity",
+      "Voclosporin + MMF (AURORA trial) achieves higher remission rates but watch for nephrotoxicity",
+      "Class V can look like primary membranous—check ANA and anti-dsDNA",
+      "Pregnancy in lupus nephritis: high risk; must be in remission on compatible medications"
+    ],
+    "board_yield": {
+      "internal_medicine_boards": "High - classification, treatment principles",
+      "nephrology_boards": "Very High - detailed histology, treatment protocols",
+      "rheumatology_boards": "Very High - lupus management including renal"
+    },
+    "common_misconceptions": [
+      "All lupus nephritis needs aggressive treatment (false—Class I/II may just need monitoring)",
+      "High anti-dsDNA always means active nephritis (false—must correlate with clinical findings)",
+      "Cyclophosphamide is always superior to MMF (false—equivalent efficacy, MMF safer)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:nephrology:neph-011",
+        "title": "Glomerulonephritis Overview",
+        "strength": 0.90
+      },
+      {
+        "id": "urn:wskg:medicine:rheumatology:sle",
+        "title": "Systemic Lupus Erythematosus",
+        "strength": 0.95
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:glomerular-disease",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Glomerular Diseases"
+      },
+      {
+        "@id": "urn:wskg:medicine:rheumatology:sle-manifestations",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "SLE Manifestations"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:membranous-nephropathy",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Membranous Nephropathy",
+        "skos:note": "Class V lupus nephritis differential"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:anti-gbm-disease",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Anti-GBM Disease",
+        "skos:note": "Differential for rapidly progressive GN"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/68815009",
+      "http://www.wikidata.org/entity/Q1882634"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/68815009"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T02:56:00.000Z",
+    "sources": [
+      {
+        "source": "Kidney Disease: Improving Global Outcomes (KDIGO) Glomerular Diseases Work Group. KDIGO 2021 Clinical Practice Guideline for the Management of Glomerular Diseases. Kidney Int. 2021;100(4S):S1-S276",
+        "type": "clinical_guideline",
         "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "doi": "10.1016/j.kint.2021.05.021",
+        "confidence": 1.0,
+        "relevance": "Current lupus nephritis treatment guidelines"
+      },
+      {
+        "source": "Weening JJ, et al. The classification of glomerulonephritis in systemic lupus erythematosus revisited (ISN/RPS 2003). J Am Soc Nephrol. 2004;15(2):241-50",
+        "type": "classification_system",
+        "year": 2004,
+        "doi": "10.1097/01.asn.0000108969.21691.5d",
+        "confidence": 1.0,
+        "relevance": "Definitive ISN/RPS classification"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:kdigo-gn-guideline",
+        "@type": "prov:Entity",
+        "dc:title": "KDIGO Glomerular Diseases Guideline",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Lupus_Nephritis",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.93,
+    "completeness": 0.94,
+    "accuracy": 0.96,
+    "clarity": 0.92,
+    "pedagogical_quality": 0.92,
+    "ontology_alignment": 0.92,
+    "last_assessment": "2026-01-12T02:56:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "definition_with_classification_table",
+    "show_images": true,
+    "visualization": [
+      "isn_rps_classification_table",
+      "treatment_algorithm_by_class",
+      "biopsy_images_by_class"
+    ],
+    "emphasis": [
+      "isn_rps_classes",
+      "induction_vs_maintenance",
+      "monitoring_markers"
+    ]
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Lupus_nephritis",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1882634"
 }

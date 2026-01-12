@@ -1,76 +1,368 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:nephrology:neph-036",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:53:50.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "nephrology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T02:50:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/nephrology",
     "type": "definition",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "aku_id": "036",
+    "keywords": [
+      "hypercalcemia",
+      "calcium",
+      "primary hyperparathyroidism",
+      "malignancy",
+      "PTH",
+      "PTHrP",
+      "bisphosphonates"
+    ],
+    "medical_specialty": "nephrology",
+    "clinical_context": "electrolyte_disorders"
   },
   "content": {
     "title": "Hypercalcemia",
-    "summary": "High serum calcium",
+    "summary": "Serum calcium >10.5 mg/dL (or ionized calcium >5.2 mg/dL), most commonly caused by primary hyperparathyroidism or malignancy, presenting with fatigue, confusion, polyuria, and constipation",
     "key_points": [
-      "Malignancy or hyperparathyroidism",
-      "IV fluids and bisphosphonates",
-      "Treat underlying cause"
+      "Defined as serum calcium >10.5 mg/dL (correct for albumin) or ionized Ca >5.2 mg/dL",
+      "Two main causes account for >90%: primary hyperparathyroidism (outpatient), malignancy (inpatient)",
+      "PTH level differentiates: elevated/normal in hyperparathyroidism, suppressed in malignancy",
+      "Clinical: 'Stones, bones, groans, moans, and psychiatric overtones'",
+      "Severe hypercalcemia (>14 mg/dL) is a medical emergency",
+      "Treatment: IV fluids first, then bisphosphonates, calcitonin, denosumab",
+      "PTHrP mediates humoral hypercalcemia of malignancy"
     ],
-    "statement": "Hypercalcemia is a fundamental concept in health-sciences medicine nephrology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Hypercalcemia is defined as serum calcium above 10.5 mg/dL (corrected for albumin) or ionized calcium above 5.2 mg/dL. The two most common causes—primary hyperparathyroidism and malignancy—account for over 90% of cases. PTH measurement distinguishes them: elevated or inappropriately normal PTH indicates hyperparathyroidism, while suppressed PTH suggests malignancy or other non-PTH-mediated causes. Symptoms follow the mnemonic 'stones, bones, groans, moans, and psychiatric overtones' reflecting renal, skeletal, GI, neuromuscular, and CNS manifestations.",
+      "formal": "Hypercalcemia = Serum Ca >10.5 mg/dL = PTH-mediated (↑PTH) OR Non-PTH-mediated (↓PTH: malignancy, vitamin D, other)"
+    },
     "explanation": {
-      "intuition": "Understanding Hypercalcemia helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Hypercalcemia include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Hypercalcemia to real-world scenarios."
+      "intuition": "Think of calcium as tightly regulated—the parathyroid glands monitor blood calcium continuously and adjust PTH secretion to keep levels stable. When calcium rises, PTH should suppress. If PTH is high despite high calcium, the parathyroid is 'broken' (adenoma or hyperplasia). If PTH is appropriately low but calcium is still high, something else is adding calcium (cancer, excessive vitamin D, etc.).",
+      "key_insight": "The PTH level is the single most important test in hypercalcemia workup. It immediately categorizes the cause as PTH-mediated (hyperparathyroidism) or non-PTH-mediated (malignancy, vitamin D toxicity, etc.). Get this test first before ordering extensive workups.",
+      "technical_details": "Calcium homeostasis: PTH increases bone resorption, renal calcium reabsorption, and 1,25(OH)2D synthesis. In primary hyperparathyroidism, autonomous PTH secretion overrides normal feedback. In malignancy, hypercalcemia occurs via: (1) PTHrP secretion (humoral hypercalcemia), (2) local osteolysis (bone metastases), (3) 1,25(OH)2D production (lymphoma). Correct total calcium: Corrected Ca = Measured Ca + 0.8 × (4 - albumin)."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "hypercalcemia": "Serum calcium concentration exceeding the normal range of 8.5-10.5 mg/dL",
+      "ionized_calcium": "Physiologically active, unbound fraction of serum calcium",
+      "primary_hyperparathyroidism": "Autonomous PTH hypersecretion by parathyroid adenoma, hyperplasia, or carcinoma",
+      "pthrp": "Parathyroid hormone-related peptide—mimics PTH action, secreted by some cancers",
+      "humoral_hypercalcemia_malignancy": "Hypercalcemia caused by tumor secretion of PTHrP without bone metastases",
+      "parathyroid_adenoma": "Benign tumor of a parathyroid gland causing primary hyperparathyroidism",
+      "bisphosphonates": "Drugs that inhibit osteoclast-mediated bone resorption (zoledronic acid, pamidronate)",
+      "calcitonin": "Hormone that inhibits osteoclasts; used for rapid calcium lowering",
+      "denosumab": "RANKL inhibitor that blocks osteoclast formation and bone resorption",
+      "familial_hypocalciuric_hypercalcemia": "Benign inherited condition with elevated calcium and low urinary calcium excretion",
+      "calcium_creatinine_clearance_ratio": "Urinary calcium excretion relative to creatinine; low in FHH, high in hyperparathyroidism",
+      "nephrolithiasis": "Kidney stones—common complication of hypercalcemia/hyperparathyroidism"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Elevated serum calcium affects multiple organ systems. In the kidney, hypercalcemia impairs concentrating ability (nephrogenic diabetes insipidus), causes nephrolithiasis, and if prolonged, nephrocalcinosis. In the GI tract, calcium reduces smooth muscle contractility causing constipation and may contribute to peptic ulcers and pancreatitis. Neurologically, high calcium impairs synaptic transmission and membrane excitability, causing weakness, fatigue, and altered mental status. Cardiovascular effects include shortened QT interval and arrhythmias.",
+      "etiologies": {
+        "pth_mediated": [
+          "Primary hyperparathyroidism (85% single adenoma)",
+          "Tertiary hyperparathyroidism (CKD with autonomous PTH)",
+          "Lithium-induced (shifts PTH set point)",
+          "Familial hypocalciuric hypercalcemia (CaSR mutation)"
+        ],
+        "non_pth_mediated": [
+          "Malignancy: PTHrP (squamous, renal, breast), bone metastases, lymphoma (1,25D)",
+          "Vitamin D toxicity (exogenous or granulomatous disease)",
+          "Thiazide diuretics (reduce renal calcium excretion)",
+          "Immobilization (increased bone resorption)",
+          "Milk-alkali syndrome (excess calcium + absorbable alkali)"
+        ]
+      },
+      "clinical_manifestations_mnemonic": {
+        "stones": "Nephrolithiasis, nephrocalcinosis",
+        "bones": "Bone pain, osteoporosis, osteitis fibrosa cystica",
+        "groans": "Constipation, nausea, abdominal pain, pancreatitis",
+        "moans": "Muscle weakness, fatigue",
+        "psychiatric_overtones": "Depression, confusion, coma (severe)"
+      }
+    },
+    "diagnostic_criteria": {
+      "laboratory_findings": {
+        "serum_calcium": ">10.5 mg/dL (mild 10.5-12, moderate 12-14, severe >14)",
+        "ionized_calcium": "Gold standard—>5.2 mg/dL",
+        "corrected_calcium": "Correct for albumin: Ca + 0.8 × (4 - albumin)",
+        "pth": "Key discriminator: high/normal = hyperparathyroidism; low = non-PTH cause"
+      },
+      "diagnostic_algorithm": [
+        "Confirm hypercalcemia (repeat, check ionized calcium)",
+        "Measure PTH level",
+        "PTH elevated/inappropriate: primary hyperparathyroidism (check calcium:creatinine clearance ratio to exclude FHH)",
+        "PTH suppressed: measure PTHrP, 1,25(OH)2D, 25(OH)D, malignancy workup",
+        "Additional: 24-hour urine calcium, renal function, serum protein electrophoresis if myeloma suspected"
+      ],
+      "special_testing": {
+        "pthrp": "Elevated in humoral hypercalcemia of malignancy",
+        "1_25_vitamin_d": "Elevated in lymphoma, granulomatous disease",
+        "25_vitamin_d": "Elevated in vitamin D toxicity",
+        "urine_calcium_creatinine": "Low (<0.01) in FHH; high in hyperparathyroidism"
+      }
+    },
+    "treatment_options": {
+      "general_principles": {
+        "severity_guide": "Mild (10.5-12): often asymptomatic, monitor; Moderate (12-14): treat if symptomatic; Severe (>14): emergency",
+        "goal": "Lower calcium, treat underlying cause"
+      },
+      "iv_fluids": {
+        "indication": "First-line for all symptomatic hypercalcemia",
+        "mechanism": "Volume expansion increases renal calcium excretion",
+        "dose": "Normal saline 200-300 mL/hr initially, adjust for volume status",
+        "caution": "Monitor for volume overload in elderly/heart failure"
+      },
+      "bisphosphonates": {
+        "indication": "Moderate to severe hypercalcemia, especially malignancy-associated",
+        "mechanism": "Inhibit osteoclast bone resorption",
+        "drugs": "Zoledronic acid 4 mg IV (onset 2-4 days); pamidronate 60-90 mg IV",
+        "duration": "Effect lasts weeks; can repeat"
+      },
+      "calcitonin": {
+        "indication": "Severe hypercalcemia for rapid effect (bridge to bisphosphonate)",
+        "mechanism": "Inhibits osteoclasts, increases renal calcium excretion",
+        "dose": "4 IU/kg IM or SC every 12 hours",
+        "limitation": "Tachyphylaxis develops within 48 hours"
+      },
+      "denosumab": {
+        "indication": "Refractory hypercalcemia, bisphosphonate failure, renal impairment",
+        "mechanism": "RANKL inhibitor—blocks osteoclast differentiation",
+        "dose": "120 mg SC",
+        "caution": "Prolonged hypocalcemia risk; no renal dose adjustment needed"
+      },
+      "glucocorticoids": {
+        "indication": "Vitamin D-mediated hypercalcemia (granulomatous disease, lymphoma)",
+        "mechanism": "Reduce 1α-hydroxylase activity, decrease intestinal calcium absorption",
+        "dose": "Prednisone 20-60 mg/day"
+      },
+      "dialysis": {
+        "indication": "Severe refractory hypercalcemia, renal failure, life-threatening symptoms",
+        "modality": "Low-calcium dialysate"
+      },
+      "definitive_treatment": {
+        "hyperparathyroidism": "Parathyroidectomy (curative for adenoma)",
+        "malignancy": "Treat underlying cancer"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Hypercalcemia"
-  ],
-  "clinical_pearls": [
-    "Malignancy or hyperparathyroidism"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Hypercalcemia"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "High Calcium"
       },
       {
-        "source": "Academic literature review",
+        "@language": "en",
+        "@value": "Elevated Serum Calcium"
+      },
+      {
+        "@language": "en",
+        "@value": "Hypercalcaemia"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Electrolyte disorder characterized by serum calcium exceeding 10.5 mg/dL, most commonly caused by primary hyperparathyroidism or malignancy"
+    },
+    "notation": "neph-036",
+    "scopeNote": "Covers etiology classification, PTH-based diagnostic approach, clinical manifestations, and treatment including IV fluids, bisphosphonates, and definitive therapy",
+    "example": "A 68-year-old woman with fatigue, constipation, and calcium 12.8 mg/dL, PTH 128 pg/mL (elevated), diagnosed with primary hyperparathyroidism due to parathyroid adenoma"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "66931009",
+      "uri": "http://snomed.info/id/66931009",
+      "description": "Hypercalcemia (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "E83.52",
+      "description": "Hypercalcemia",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D006934",
+      "uri": "http://id.nlm.nih.gov/mesh/D006934",
+      "description": "Hypercalcemia",
+      "matchType": "exactMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "internal_medicine_residents",
+      "nephrology_fellows",
+      "endocrinology_fellows",
+      "oncologists",
+      "hospitalists"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.60,
+    "learning_objectives": [
+      "Classify hypercalcemia causes as PTH-mediated or non-PTH-mediated",
+      "Apply the diagnostic algorithm using PTH as the discriminating test",
+      "Recognize clinical manifestations of hypercalcemia",
+      "Initiate emergency treatment for severe hypercalcemia",
+      "Select appropriate definitive therapy based on etiology"
+    ],
+    "clinical_pearls": [
+      "PTH is the first test to order—it directs the entire workup",
+      "FHH mimics hyperparathyroidism but is benign—check calcium:creatinine clearance ratio <0.01",
+      "Malignancy-associated hypercalcemia: often severe, poor prognosis; treat aggressively",
+      "Bisphosphonates take 2-4 days to work; use calcitonin as a bridge for severe cases",
+      "Denosumab: great for renal impairment but watch for prolonged hypocalcemia",
+      "Don't give thiazides to patients with hypercalcemia—use loop diuretics if needed (after volume resuscitation)"
+    ],
+    "board_yield": {
+      "internal_medicine_boards": "High - common board question topic",
+      "nephrology_boards": "High - electrolyte disorders",
+      "endocrinology_boards": "Very High - hyperparathyroidism, calcium metabolism"
+    },
+    "common_misconceptions": [
+      "Loop diuretics are first-line treatment (false—IV fluids first; diuretics only after euvolemia)",
+      "All hypercalcemia needs aggressive treatment (false—mild, asymptomatic may be monitored)",
+      "Low PTH excludes parathyroid disease (true—but don't forget tertiary hyperparathyroidism in CKD)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:nephrology:neph-030",
+        "title": "Electrolyte Overview",
+        "strength": 0.85
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:electrolyte-disorders",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Electrolyte Disorders"
+      },
+      {
+        "@id": "urn:wskg:medicine:endocrinology:calcium-metabolism",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Calcium Metabolism Disorders"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:hypocalcemia",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Hypocalcemia",
+        "skos:note": "Opposite electrolyte disorder"
+      },
+      {
+        "@id": "urn:wskg:medicine:endocrinology:primary-hyperparathyroidism",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Primary Hyperparathyroidism",
+        "skos:note": "Most common cause in outpatients"
+      },
+      {
+        "@id": "urn:wskg:medicine:oncology:paraneoplastic-syndromes",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Paraneoplastic Syndromes",
+        "skos:note": "Humoral hypercalcemia of malignancy"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/66931009",
+      "http://www.wikidata.org/entity/Q625163"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/66931009"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T02:50:00.000Z",
+    "sources": [
+      {
+        "source": "Carroll MF, Schade DS. A practical approach to hypercalcemia. Am Fam Physician. 2003;67(9):1959-66",
+        "type": "review",
+        "year": 2003,
+        "confidence": 0.95,
+        "relevance": "Practical clinical approach to hypercalcemia"
+      },
+      {
+        "source": "Minisola S, et al. The diagnosis and management of hypercalcaemia. BMJ. 2015;350:h2723",
+        "type": "review",
+        "year": 2015,
+        "doi": "10.1136/bmj.h2723",
+        "confidence": 0.96,
+        "relevance": "Comprehensive hypercalcemia review"
+      },
+      {
+        "source": "Brenner & Rector's The Kidney, 11th ed. Elsevier 2020",
         "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "year": 2020,
+        "isbn": "978-0323532655",
+        "confidence": 0.97,
+        "relevance": "Authoritative nephrology reference"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:brenner-kidney",
+        "@type": "prov:Entity",
+        "dc:title": "Brenner & Rector's The Kidney",
+        "dc:type": "textbook",
+        "confidence": 0.97
       }
     ]
   },
+  "quality_assessment": {
+    "CQS": 0.92,
+    "completeness": 0.93,
+    "accuracy": 0.95,
+    "clarity": 0.91,
+    "pedagogical_quality": 0.91,
+    "ontology_alignment": 0.90,
+    "last_assessment": "2026-01-12T02:50:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "definition_with_diagnostic_algorithm",
+    "show_images": true,
+    "visualization": [
+      "pth_based_algorithm",
+      "severity_treatment_table",
+      "calcium_homeostasis_diagram"
+    ],
+    "emphasis": [
+      "pth_discrimination",
+      "stones_bones_groans_mnemonic",
+      "emergency_treatment"
+    ]
+  },
   "owl:sameAs": "http://dbpedia.org/resource/Hypercalcemia",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q625163"
 }

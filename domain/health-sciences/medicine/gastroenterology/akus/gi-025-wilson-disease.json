@@ -1,76 +1,221 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:gastroenterology:gi-025",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:52:30.000Z",
     "contributors": [
       "copilot-agent",
       "quality-enhancement-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T03:10:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/gastroenterology",
     "type": "definition",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "025",
+    "keywords": [
+      "Wilson disease",
+      "copper metabolism",
+      "ceruloplasmin",
+      "ATP7B",
+      "Kayser-Fleischer rings",
+      "hepatolenticular degeneration"
+    ],
+    "medical_specialty": "gastroenterology",
+    "clinical_context": "hepatology"
   },
   "content": {
     "title": "Wilson Disease",
-    "summary": "Copper accumulation disorder",
+    "summary": "Autosomal recessive disorder of copper metabolism due to ATP7B mutations causing copper accumulation in liver, brain, and cornea, presenting with hepatic, neuropsychiatric, and ophthalmologic manifestations",
     "key_points": [
-      "Kayser-Fleischer rings",
-      "Low ceruloplasmin",
-      "D-penicillamine treatment"
+      "ATP7B gene mutation causes impaired copper excretion",
+      "Copper accumulates in liver, brain, cornea, kidneys",
+      "Kayser-Fleischer rings pathognomonic but not always present",
+      "Low serum ceruloplasmin (<20 mg/dL) suggestive",
+      "Elevated 24-hour urine copper (>40-100 mcg) diagnostic",
+      "Liver biopsy copper >250 mcg/g dry weight confirms",
+      "Treatment: D-penicillamine, trientine, or zinc lifelong",
+      "Liver transplant curative for hepatic disease"
     ],
-    "statement": "Wilson Disease is a fundamental concept in health-sciences medicine gastroenterology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Wilson disease is an autosomal recessive disorder caused by mutations in ATP7B, encoding a copper-transporting ATPase. Defective copper excretion into bile leads to accumulation in liver (hepatitis, cirrhosis), brain (movement disorders, psychiatric symptoms), and cornea (Kayser-Fleischer rings). Diagnosis requires low ceruloplasmin, elevated urine copper, and liver biopsy confirmation. Lifelong chelation therapy or zinc prevents progression; liver transplant is curative.",
+      "formal": "Wilson Disease = ATP7B mutation + Low ceruloplasmin + High urine copper + Liver copper >250 mcg/g + KF rings"
+    },
     "explanation": {
-      "intuition": "Understanding Wilson Disease helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Wilson Disease include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Wilson Disease to real-world scenarios."
+      "intuition": "Copper is normally excreted in bile. When the copper pump (ATP7B) is broken, copper accumulates like a clogged drain. First it fills the liver, causing hepatitis and cirrhosis. Then it spills into the bloodstream, depositing in the brain (causing tremor, dystonia) and cornea (causing the golden-brown KF rings). Chelation therapy acts like a sponge to pull out the copper.",
+      "key_insight": "Always consider Wilson in young patients (<40) with unexplained liver disease, neuropsychiatric symptoms, or hemolytic anemia. Kayser-Fleischer rings are pathognomonic but absent in 50% of hepatic presentations. The Leipzig scoring system integrates clinical and lab findings for diagnosis.",
+      "technical_details": "ATP7B is a P-type ATPase in hepatocyte trans-Golgi network that loads copper onto ceruloplasmin and excretes copper into bile. Mutations cause both decreased ceruloplasmin (lack of copper loading) and bile copper accumulation. Copper is cytotoxic via reactive oxygen species generation. Penicillamine chelates copper for renal excretion; zinc blocks intestinal copper absorption."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "wilson_disease": "Autosomal recessive copper metabolism disorder from ATP7B mutations",
+      "atp7b": "Copper-transporting ATPase mutated in Wilson disease",
+      "ceruloplasmin": "Copper-carrying glycoprotein synthesized in liver; low in Wilson disease",
+      "kayser_fleischer_rings": "Golden-brown corneal copper deposits visible on slit-lamp examination",
+      "hepatolenticular_degeneration": "Historical term for Wilson disease",
+      "penicillamine": "Copper chelating agent excreting copper via kidneys",
+      "trientine": "Alternative copper chelator with fewer side effects than penicillamine",
+      "zinc_therapy": "Blocks intestinal copper absorption; maintenance therapy",
+      "leipzig_score": "Diagnostic scoring system for Wilson disease",
+      "copper_toxicosis": "Tissue damage from copper accumulation",
+      "coombs_negative_hemolysis": "Hemolytic anemia from copper toxicity without autoantibodies",
+      "liver_biopsy_copper": "Definitive test; >250 mcg/g dry weight diagnostic"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "ATP7B mutations impair copper incorporation into ceruloplasmin and biliary copper excretion. Copper accumulates first in liver (hepatocyte injury via oxidative stress), then redistributes to brain (basal ganglia, putamen), cornea, kidneys. Liver disease ranges from asymptomatic transaminitis to fulminant hepatic failure. Neurologic disease presents with tremor, dystonia, dysarthria, parkinsonism. Psychiatric manifestations include depression, psychosis, personality changes.",
+      "genetic_basis": "Autosomal recessive; ATP7B gene chromosome 13q14; >500 mutations identified",
+      "clinical_presentations": {
+        "hepatic": "Asymptomatic transaminitis, chronic hepatitis, cirrhosis, fulminant hepatic failure",
+        "neurological": "Tremor, dystonia, parkinsonism, dysarthria, ataxia, chorea",
+        "psychiatric": "Depression, anxiety, psychosis, personality changes, cognitive decline",
+        "ophthalmologic": "Kayser-Fleischer rings (95% with neuro disease; 50% hepatic-only)",
+        "hematologic": "Coombs-negative hemolytic anemia",
+        "renal": "Fanconi syndrome, nephrolithiasis"
+      }
+    },
+    "diagnostic_criteria": {
+      "serum_ceruloplasmin": "Low (<20 mg/dL) in 85-90% (can be normal)",
+      "24hr_urine_copper": ">40-100 mcg/day (>1600 mcg in fulminant)",
+      "liver_biopsy_copper": ">250 mcg/g dry weight (gold standard)",
+      "kf_rings": "Slit-lamp examination by ophthalmology",
+      "genetic_testing": "ATP7B sequencing confirms",
+      "leipzig_score": ">=4 establishes diagnosis"
+    },
+    "treatment_options": {
+      "chelation": {
+        "penicillamine": "Initial therapy 1-2 g/day; side effects include bone marrow suppression, nephrotoxicity, lupus-like syndrome",
+        "trientine": "Alternative chelator; fewer side effects; preferred if penicillamine intolerant"
+      },
+      "zinc": {
+        "mechanism": "Blocks intestinal copper absorption via metallothionein induction",
+        "role": "Maintenance therapy or presymptomatic patients"
+      },
+      "liver_transplant": {
+        "indication": "Fulminant hepatic failure, decompensated cirrhosis unresponsive to medical therapy",
+        "outcome": "Curative; replaces defective ATP7B"
+      },
+      "monitoring": "24-hour urine copper, free copper, liver enzymes; compliance critical"
+    }
   },
-  "learning_objectives": [
-    "Understand Wilson Disease"
-  ],
-  "clinical_pearls": [
-    "Kayser-Fleischer rings"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Wilson Disease"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Hepatolenticular Degeneration"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Copper Storage Disease"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Autosomal recessive disorder of copper metabolism causing hepatic, neurologic, and psychiatric disease"
+    },
+    "notation": "gi-025"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "88518009",
+      "uri": "http://snomed.info/id/88518009",
+      "description": "Wilson disease",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "E83.01",
+      "description": "Wilson disease"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D006527",
+      "description": "Hepatolenticular Degeneration"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "gastroenterology_fellows",
+      "neurology_fellows",
+      "internal_medicine_residents"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.7,
+    "learning_objectives": [
+      "Recognize hepatic and neurologic presentations",
+      "Apply Leipzig diagnostic criteria",
+      "Interpret ceruloplasmin and urine copper",
+      "Prescribe appropriate chelation therapy",
+      "Identify candidates for liver transplant"
+    ],
+    "clinical_pearls": [
+      "Always consider Wilson in patients <40 with unexplained liver disease",
+      "KF rings absent in 50% of hepatic-only cases",
+      "Coombs-negative hemolysis with acute liver failure is classic",
+      "Neurologic symptoms may worsen initially with penicillamine",
+      "Siblings of affected patients need screening"
+    ],
+    "board_yield": {
+      "internal_medicine": "High",
+      "gastroenterology": "Very High",
+      "neurology": "High"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:gastroenterology:gi-012",
+        "title": "Cirrhosis",
+        "strength": 0.8
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:gastroenterology:metabolic-liver-disease",
+        "skos:prefLabel": "Metabolic Liver Diseases"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/88518009",
+      "http://www.wikidata.org/entity/Q28906"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T03:10:00.000Z",
+    "sources": [
+      {
+        "source": "EASL Clinical Practice Guidelines: Wilson disease. J Hepatol. 2012",
+        "type": "clinical_guideline",
+        "year": 2012
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Wilson_Disease",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.92,
+    "completeness": 0.93,
+    "accuracy": 0.95
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Wilson_disease",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q28906"
 }

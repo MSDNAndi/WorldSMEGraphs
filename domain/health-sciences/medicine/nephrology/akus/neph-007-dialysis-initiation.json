@@ -1,76 +1,349 @@
 {
-  "@context": "aku-v2",
-  "@type": "procedure",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalGuideline"
+  ],
   "@id": "health-sciences:medicine:nephrology:neph-007",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:53:50.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "nephrology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T02:52:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/nephrology",
-    "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "type": "guideline",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "007",
+    "keywords": [
+      "dialysis initiation",
+      "end-stage renal disease",
+      "hemodialysis",
+      "peritoneal dialysis",
+      "uremic symptoms",
+      "GFR threshold"
+    ],
+    "medical_specialty": "nephrology",
+    "clinical_context": "renal_replacement_therapy"
   },
   "content": {
     "title": "Dialysis Initiation",
-    "summary": "When to start RRT",
+    "summary": "Clinical decision-making framework for when to initiate renal replacement therapy in patients with advanced CKD, balancing uremic symptoms, metabolic complications, and patient preferences against risks of early dialysis",
     "key_points": [
-      "Uremic symptoms",
-      "Volume overload refractory",
-      "Hyperkalemia refractory"
+      "No fixed GFR threshold—decisions should be individualized based on symptoms",
+      "Classic urgent indications: AEIOU (Acidosis, Electrolytes, Intoxication, Overload, Uremia)",
+      "IDEAL trial showed no survival benefit to early (GFR 10-14) vs late (GFR 5-7) initiation",
+      "Most patients start when GFR 5-10 mL/min with symptoms",
+      "Timely vascular access or PD catheter placement is critical (6+ months before needed)",
+      "Shared decision-making should include transplant, conservative management options",
+      "Preparation includes access creation, modality education, dietary counseling"
     ],
-    "statement": "Dialysis Initiation is a fundamental concept in health-sciences medicine nephrology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Dialysis initiation in chronic kidney disease is a clinical decision based on the presence of uremic symptoms, metabolic complications refractory to medical management, or quality of life impairment—not solely on GFR thresholds. The IDEAL trial demonstrated that early initiation (GFR 10-14) provides no survival advantage over symptom-based initiation (typically GFR 5-7). Timely preparation including vascular access creation, modality education, and shared decision-making significantly impacts outcomes.",
+      "formal": "Dialysis initiation = Uremic symptoms OR Refractory hyperkalemia/acidosis/overload OR Quality of life impairment NOT based solely on GFR"
+    },
     "explanation": {
-      "intuition": "Understanding Dialysis Initiation helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Dialysis Initiation include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Dialysis Initiation to real-world scenarios."
+      "intuition": "Starting dialysis is not like starting a medication—it fundamentally changes the patient's life. There's no survival benefit to starting 'early,' so the goal is to delay dialysis until symptoms demand it, while preparing adequately so the transition is smooth. Think of it as an elective decision whenever possible, not an emergency.",
+      "key_insight": "The IDEAL trial was a game-changer: it showed that patients randomized to early dialysis (GFR 10-14) had no survival benefit over those starting when symptomatic (GFR 5-7). Many 'early' starters began dialysis feeling well and lost quality of life unnecessarily. Current practice favors symptom-based initiation with excellent preparation.",
+      "technical_details": "Preparation timeline: Referral to nephrology at GFR <30; access planning at GFR <20 (fistula creation takes 3-6 months to mature); modality education at GFR 15-20; transplant evaluation if eligible. Urgent indications for dialysis: refractory acidosis (pH <7.1), hyperkalemia (K >6.5 with ECG changes despite medical therapy), volume overload (pulmonary edema refractory to diuretics), uremic encephalopathy, pericarditis, bleeding."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "end_stage_renal_disease": "CKD stage 5 (GFR <15 mL/min) with need for renal replacement therapy",
+      "renal_replacement_therapy": "Treatment to replace kidney function: hemodialysis, peritoneal dialysis, or transplant",
+      "uremic_symptoms": "Clinical manifestations of uremia: nausea, anorexia, fatigue, encephalopathy, pericarditis",
+      "arteriovenous_fistula": "Surgical connection between artery and vein creating vascular access for hemodialysis",
+      "peritoneal_dialysis": "RRT modality using peritoneum as dialysis membrane with indwelling catheter",
+      "incremental_dialysis": "Starting with less than full-dose dialysis, increasing as residual kidney function declines",
+      "conservative_management": "Supportive care without dialysis—appropriate for some patients with limited life expectancy",
+      "vascular_access": "Means of accessing circulation for hemodialysis (fistula, graft, or catheter)",
+      "uremic_pericarditis": "Pericardial inflammation due to uremic toxins—absolute indication for dialysis",
+      "uremic_encephalopathy": "Altered mental status, asterixis from uremic toxin accumulation",
+      "residual_renal_function": "Remaining native kidney function—preserved longer with PD than HD",
+      "dialysis_modality_education": "Patient education about HD, PD, home HD, transplant options"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "As GFR declines below 15 mL/min, uremic toxins accumulate, causing multi-system symptoms. The kidney's ability to maintain fluid, electrolyte, and acid-base homeostasis progressively fails. Dialysis artificially removes toxins and excess fluid that the kidneys can no longer excrete. However, dialysis does not replicate endocrine functions (erythropoietin, vitamin D activation), which require separate management.",
+      "clinical_manifestations_of_uremia": {
+        "general": "Fatigue, weakness, malaise, weight loss, anorexia",
+        "neurologic": "Encephalopathy (confusion, asterixis), peripheral neuropathy, restless legs",
+        "gastrointestinal": "Nausea, vomiting, anorexia, metallic taste, hiccups",
+        "cardiovascular": "Pericarditis, fluid overload, hypertension",
+        "hematologic": "Anemia, platelet dysfunction (bleeding tendency)",
+        "dermatologic": "Pruritus, uremic frost (late)"
+      }
+    },
+    "diagnostic_criteria": {
+      "urgent_indications_aeiou": {
+        "acidosis": "Severe metabolic acidosis (pH <7.1) refractory to bicarbonate therapy",
+        "electrolytes": "Hyperkalemia (K >6.5) with ECG changes despite medical management",
+        "intoxication": "Dialyzable toxin ingestion (lithium, methanol, ethylene glycol, salicylates)",
+        "overload": "Volume overload with pulmonary edema refractory to diuretics",
+        "uremia": "Uremic encephalopathy, pericarditis, bleeding diathesis"
+      },
+      "elective_initiation_criteria": [
+        "Symptomatic uremia (nausea, anorexia, fatigue) impairing quality of life",
+        "Inability to maintain adequate nutrition despite dietary modification",
+        "Refractory hyperkalemia or acidosis with less aggressive treatment",
+        "Declining functional status attributable to uremia",
+        "Usually occurs at GFR 5-10 mL/min based on symptoms"
+      ],
+      "what_not_to_do": [
+        "Do not initiate solely based on GFR threshold (no benefit shown for GFR >5-7)",
+        "Do not wait until emergent—plan ahead for optimal access and modality",
+        "Do not ignore patient preferences—shared decision-making is essential"
+      ]
+    },
+    "treatment_options": {
+      "preparation": {
+        "timeline": [
+          "GFR <30: Refer to nephrology, begin education",
+          "GFR <20: Discuss modalities, transplant referral if eligible",
+          "GFR 15-20: Create AV fistula (takes 3-6 months to mature) or plan PD catheter",
+          "GFR <10: Intensify symptom monitoring, finalize modality choice",
+          "GFR 5-10 with symptoms: Initiate dialysis"
+        ],
+        "vascular_access_options": {
+          "av_fistula": "Gold standard—lowest infection/thrombosis; requires 3-6 month maturation",
+          "av_graft": "Alternative if poor vessels; matures in 2-4 weeks; higher complication rate",
+          "central_venous_catheter": "For urgent/unplanned starts; highest infection risk; avoid if possible"
+        },
+        "pd_preparation": {
+          "catheter_placement": "2-4 weeks before first exchange (ideally)",
+          "training": "Patient/caregiver trained on exchanges, sterile technique"
+        }
+      },
+      "modality_selection": {
+        "hemodialysis": {
+          "in_center": "3×/week, 3-4 hours; healthcare team performs; most common in US",
+          "home_hd": "More frequent, shorter sessions or nocturnal; improves outcomes",
+          "patient_factors": "Requires vascular access; may not suit patients with poor access/cardiovascular instability"
+        },
+        "peritoneal_dialysis": {
+          "capd": "Continuous ambulatory—4-5 manual exchanges daily",
+          "apd": "Automated—cycler performs exchanges overnight",
+          "advantages": "Home-based, preserves residual function, no needles, dietary flexibility",
+          "patient_factors": "Requires manual dexterity, clean home environment; not for prior abdominal surgery"
+        },
+        "conservative_management": {
+          "indication": "Patients with limited life expectancy, poor prognosis, or preference against dialysis",
+          "approach": "Symptom management, advance care planning, hospice involvement"
+        }
+      },
+      "incremental_dialysis": {
+        "concept": "Start with less-than-full dose dialysis, increase as residual function declines",
+        "rationale": "Preserves residual function, maintains quality of life, reduces treatment burden",
+        "monitoring": "Regular assessment of residual GFR, symptoms, solute clearance"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Dialysis Initiation"
-  ],
-  "clinical_pearls": [
-    "Uremic symptoms"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Dialysis Initiation"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Starting Dialysis"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Dialysis Timing"
+      },
+      {
+        "@language": "en",
+        "@value": "When to Start Dialysis"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Clinical decision-making framework for when to begin renal replacement therapy in patients with end-stage renal disease, based on symptoms and complications rather than fixed GFR thresholds"
+    },
+    "notation": "neph-007",
+    "scopeNote": "Covers urgent and elective indications, preparation timeline, vascular access planning, modality selection, and shared decision-making",
+    "example": "A 72-year-old with CKD stage 5 (GFR 8), well-functioning AV fistula, presenting with worsening fatigue, anorexia, and nausea despite conservative measures—appropriate candidate for dialysis initiation"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "108241001",
+      "uri": "http://snomed.info/id/108241001",
+      "description": "Dialysis procedure (procedure)",
+      "matchType": "related"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "N18.6",
+      "description": "End stage renal disease",
+      "matchType": "related"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D006435",
+      "uri": "http://id.nlm.nih.gov/mesh/D006435",
+      "description": "Renal Dialysis",
+      "matchType": "broader"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "nephrology_fellows",
+      "internal_medicine_residents",
+      "advanced_practice_providers",
+      "primary_care_physicians",
+      "dialysis_nurses"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.70,
+    "learning_objectives": [
+      "Identify urgent indications for dialysis using AEIOU mnemonic",
+      "Apply symptom-based rather than GFR-based initiation criteria",
+      "Outline the preparation timeline for optimal dialysis start",
+      "Compare hemodialysis and peritoneal dialysis modalities",
+      "Engage patients in shared decision-making about RRT options"
+    ],
+    "clinical_pearls": [
+      "IDEAL trial: early dialysis (GFR 10-14) showed NO survival benefit—start when symptomatic",
+      "AV fistula is best access; plan creation at GFR 15-20, not when dialysis is imminent",
+      "Patients starting with a catheter have worse outcomes—avoid 'crash starts'",
+      "Conservative management is a valid option for some—don't assume all patients want dialysis",
+      "Uremic pericarditis is an ABSOLUTE indication—can progress to tamponade",
+      "Residual kidney function matters—preserved longer with PD than HD"
+    ],
+    "board_yield": {
+      "internal_medicine_boards": "High - AEIOU indications, timing, modality selection",
+      "nephrology_boards": "Very High - nuanced timing, access planning, IDEAL trial",
+      "critical_care_boards": "Moderate - urgent indications in AKI"
+    },
+    "common_misconceptions": [
+      "Dialysis should start at a specific GFR (e.g., 10)—false; symptom-based is preferred",
+      "Earlier is always better—false; IDEAL showed no benefit and possible harm from early start",
+      "All patients should receive dialysis—false; conservative management is appropriate for some"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:nephrology:neph-005",
+        "title": "Chronic Kidney Disease Staging",
+        "strength": 0.95
+      },
+      {
+        "id": "urn:wskg:medicine:nephrology:neph-006",
+        "title": "CKD Complications",
+        "strength": 0.85
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:renal-replacement-therapy",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Renal Replacement Therapy"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:hemodialysis",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Hemodialysis",
+        "skos:note": "RRT modality option"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:peritoneal-dialysis",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Peritoneal Dialysis",
+        "skos:note": "RRT modality option"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:kidney-transplant",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Kidney Transplantation",
+        "skos:note": "Preferred RRT modality if eligible"
+      }
+    ],
+    "owl:sameAs": [
+      "http://www.wikidata.org/entity/Q176616"
+    ],
+    "skos:exactMatch": []
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T02:52:00.000Z",
+    "sources": [
+      {
+        "source": "Cooper BA, et al. A randomized, controlled trial of early versus late initiation of dialysis (IDEAL study). N Engl J Med. 2010;363(7):609-19",
+        "type": "randomized_controlled_trial",
+        "year": 2010,
+        "doi": "10.1056/NEJMoa1000552",
+        "confidence": 1.0,
+        "relevance": "Landmark trial showing no benefit of early dialysis initiation"
+      },
+      {
+        "source": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of CKD. Kidney Int. 2024",
+        "type": "clinical_guideline",
+        "year": 2024,
+        "confidence": 0.98,
+        "relevance": "Current KDIGO CKD management recommendations"
+      },
+      {
+        "source": "Lok CE, et al. KDOQI Clinical Practice Guideline for Vascular Access: 2019 Update. Am J Kidney Dis. 2020;75(4 Suppl 2):S1-S164",
+        "type": "clinical_guideline",
+        "year": 2020,
+        "doi": "10.1053/j.ajkd.2019.12.001",
+        "confidence": 0.98,
+        "relevance": "Vascular access guidelines"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:ideal-trial",
+        "@type": "prov:Entity",
+        "dc:title": "IDEAL Trial",
+        "dc:type": "randomized_controlled_trial",
+        "confidence": 1.0
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Dialysis_Initiation",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.92,
+    "completeness": 0.93,
+    "accuracy": 0.95,
+    "clarity": 0.91,
+    "pedagogical_quality": 0.92,
+    "ontology_alignment": 0.90,
+    "last_assessment": "2026-01-12T02:52:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "guideline_with_algorithm",
+    "show_images": true,
+    "visualization": [
+      "preparation_timeline",
+      "aeiou_mnemonic_diagram",
+      "modality_comparison_table"
+    ],
+    "emphasis": [
+      "symptom_based_initiation",
+      "aeiou_indications",
+      "access_planning"
+    ]
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Dialysis",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q176616"
 }

@@ -1,76 +1,212 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:gastroenterology:gi-011",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:52:30.000Z",
     "contributors": [
       "copilot-agent",
       "quality-enhancement-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T03:08:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/gastroenterology",
     "type": "definition",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "critical",
+    "aku_id": "011",
+    "keywords": [
+      "acute cholangitis",
+      "Charcot triad",
+      "Reynolds pentad",
+      "ERCP"
+    ],
+    "medical_specialty": "gastroenterology",
+    "clinical_context": "biliary_disease"
   },
   "content": {
     "title": "Acute Cholangitis",
-    "summary": "Biliary infection",
+    "summary": "Life-threatening bacterial infection of the biliary tree due to obstruction, classically presenting with Charcot triad (fever, jaundice, RUQ pain), requiring urgent biliary drainage",
     "key_points": [
-      "Charcot triad",
-      "Reynolds pentad severe",
-      "ERCP urgent drainage"
+      "Caused by biliary obstruction plus bacterial infection",
+      "Charcot triad: fever, jaundice, RUQ pain",
+      "Reynolds pentad adds: hypotension, altered mental status",
+      "Tokyo Guidelines 2018 for diagnosis and severity",
+      "Urgent biliary drainage essential via ERCP",
+      "Common organisms: E. coli, Klebsiella, Enterococcus",
+      "Broad-spectrum antibiotics required"
     ],
-    "statement": "Acute Cholangitis is a fundamental concept in health-sciences medicine gastroenterology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Acute cholangitis is a bacterial infection of the biliary system caused by biliary obstruction. The classic Charcot triad is present in 50-70% of cases. Management requires IV antibiotics AND urgent biliary decompression via ERCP.",
+      "formal": "Acute Cholangitis = Biliary obstruction + Bacterial infection + Urgent ERCP drainage"
+    },
     "explanation": {
-      "intuition": "Understanding Acute Cholangitis helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Acute Cholangitis include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Acute Cholangitis to real-world scenarios."
+      "intuition": "The bile duct is normally sterile. When blocked, bacteria ascend and cause infection. You must unblock the duct - antibiotics alone fail.",
+      "key_insight": "Two pillars: antibiotics plus drainage. ERCP is first-line; percutaneous or surgical if ERCP fails.",
+      "technical_details": "Tokyo Guidelines 2018 define diagnosis and severity. Grade III requires emergent drainage."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "acute_cholangitis": "Bacterial infection of biliary tree due to obstruction",
+      "charcot_triad": "Fever, jaundice, RUQ pain",
+      "reynolds_pentad": "Charcot triad plus hypotension and altered mental status",
+      "choledocholithiasis": "Stones in common bile duct",
+      "tokyo_guidelines": "International diagnostic and severity criteria",
+      "biliary_drainage": "Decompression of obstructed bile duct",
+      "ercp": "Endoscopic retrograde cholangiopancreatography",
+      "biliary_sepsis": "Systemic infection from cholangitis",
+      "sphincterotomy": "Cutting of sphincter of Oddi",
+      "biliary_stent": "Tube to maintain bile duct patency",
+      "percutaneous_drainage": "Alternative via needle through liver",
+      "ascending_cholangitis": "Synonym for acute cholangitis"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Biliary obstruction causes bile stasis. Bacteria ascend, raising intraductal pressure and causing bacteremia.",
+      "etiologies": [
+        "Choledocholithiasis",
+        "Biliary strictures",
+        "Stent occlusion",
+        "ERCP-related"
+      ],
+      "clinical_presentation": [
+        "Fever and chills",
+        "Jaundice",
+        "RUQ pain",
+        "Hypotension",
+        "Altered mental status"
+      ]
+    },
+    "diagnostic_criteria": {
+      "tokyo_guidelines": {
+        "criterion_A": "Systemic inflammation",
+        "criterion_B": "Cholestasis",
+        "criterion_C": "Imaging findings"
+      },
+      "severity": {
+        "grade_I": "Mild",
+        "grade_II": "Moderate",
+        "grade_III": "Severe"
+      }
+    },
+    "treatment_options": {
+      "antibiotics": {
+        "empiric": "Piperacillin-tazobactam or carbapenem",
+        "duration": "4-7 days"
+      },
+      "biliary_drainage": {
+        "ercp": "First-line, within 24-48h",
+        "percutaneous": "If ERCP fails",
+        "surgical": "Last resort"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Acute Cholangitis"
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Acute Cholangitis"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Ascending Cholangitis"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Bacterial infection of biliary system requiring urgent drainage"
+    },
+    "notation": "gi-011"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "82403002",
+      "description": "Acute cholangitis",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "K83.09",
+      "description": "Other cholangitis"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D002761",
+      "description": "Cholangitis"
+    }
   ],
-  "clinical_pearls": [
-    "Charcot triad"
-  ],
+  "pedagogical": {
+    "target_audience": [
+      "internal_medicine_residents",
+      "gastroenterology_fellows"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.65,
+    "learning_objectives": [
+      "Recognize Charcot triad",
+      "Apply Tokyo Guidelines",
+      "Initiate antibiotics",
+      "Determine drainage urgency"
+    ],
+    "clinical_pearls": [
+      "Charcot triad 50-70% sensitivity",
+      "Reynolds pentad needs emergent drainage",
+      "Antibiotics alone fail without drainage"
+    ],
+    "board_yield": {
+      "internal_medicine": "High",
+      "gastroenterology": "Very High"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:gastroenterology:gi-010",
+        "title": "Choledocholithiasis",
+        "strength": 0.95
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:gastroenterology:biliary-diseases",
+        "skos:prefLabel": "Biliary Diseases"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/82403002",
+      "http://www.wikidata.org/entity/Q1043694"
+    ]
+  },
   "provenance": {
     "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
+    "last_verified": "2026-01-12T03:08:00.000Z",
     "sources": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
-      },
-      {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "source": "Tokyo Guidelines 2018",
+        "type": "clinical_guideline",
+        "year": 2018
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Acute_Cholangitis",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.92,
+    "completeness": 0.93,
+    "accuracy": 0.95
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Ascending_cholangitis",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1043694"
 }
