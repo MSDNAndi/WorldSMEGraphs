@@ -3,74 +3,173 @@
   "@type": "definition",
   "@id": "health-sciences:medicine:nephrology:neph-029",
   "metadata": {
-    "version": "3.0.0",
-    "created": "2026-01-09T01:53:50.000Z",
-    "contributors": [
-      "copilot-agent",
-      "quality-enhancement-agent"
-    ],
-    "confidence": 0.95,
+    "version": "4.0.0",
+    "created": "2026-01-09T01:52:30.000Z",
+    "contributors": ["copilot-agent", "quality-enhancement-agent", "medical-ontology-agent"],
+    "confidence": 0.94,
     "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "modified": "2026-01-12T07:37:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/nephrology",
     "type": "definition",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "critical",
+    "specialty_tags": ["hepatology", "acute-kidney-injury", "cirrhosis"]
   },
   "content": {
     "title": "Hepatorenal Syndrome",
-    "summary": "AKI in advanced liver disease",
+    "summary": "Hepatorenal syndrome (HRS) is a functional renal failure occurring in patients with advanced cirrhosis and portal hypertension, caused by severe renal vasoconstriction from splanchnic vasodilation. Diagnosed by exclusion of other AKI causes, HRS has poor prognosis without liver transplantation. Treatment focuses on vasoconstrictors (terlipressin, norepinephrine) plus albumin.",
     "key_points": [
-      "Type 1 vs 2",
-      "No structural damage",
-      "Transplant definitive"
+      "Functional AKI in cirrhosis: kidneys are structurally normal; reversible with liver transplant",
+      "Pathophysiology: splanchnic vasodilation → reduced effective arterial volume → renal vasoconstriction",
+      "HRS-AKI (formerly Type 1): rapid GFR decline, poor prognosis without treatment",
+      "HRS-NAKI (formerly Type 2): moderate stable renal dysfunction, often with refractory ascites",
+      "Diagnosis of exclusion: no shock, no nephrotoxins, no parenchymal disease, no response to albumin challenge",
+      "Treatment: terlipressin + albumin (or norepinephrine + albumin in ICU); liver transplant definitive"
     ],
-    "statement": "Hepatorenal Syndrome is a fundamental concept in health-sciences medicine nephrology that provides essential knowledge for understanding related topics.",
+    "statement": "HRS is a dreaded complication of decompensated cirrhosis with high mortality. Early recognition and treatment with vasoconstrictors plus albumin can reverse renal dysfunction and bridge to liver transplantation.",
     "explanation": {
-      "intuition": "Understanding Hepatorenal Syndrome helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Hepatorenal Syndrome include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Hepatorenal Syndrome to real-world scenarios."
+      "intuition": "In cirrhosis, portal hypertension causes splanchnic vasodilation (via NO and other vasodilators). This 'steals' blood from the systemic circulation, reducing effective arterial volume. The kidneys respond by intense vasoconstriction to maintain perfusion pressure, but this reduces renal blood flow and GFR. The kidneys are structurally normal - HRS reverses with liver transplant.",
+      "key_insight": "HRS is a diagnosis of exclusion. Before diagnosing HRS, rule out hypovolemia (give albumin challenge 1g/kg), nephrotoxins (NSAIDs, aminoglycosides, contrast), and intrinsic renal disease (bland sediment, normal ultrasound). The key is recognizing HRS early when vasoconstrictor therapy can be effective.",
+      "technical_details": "New ICA criteria (2019): cirrhosis + ascites + AKI stage 2-3 (or AKI stage 1 meeting HRS criteria) + no response to 2-day albumin 1g/kg + no shock + no nephrotoxins + no parenchymal disease. Terlipressin: 1mg IV q4-6h, titrate to max 2mg q4h; give with albumin 20-40g/day."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "hepatorenal_syndrome": "HRS: functional renal failure in advanced cirrhosis from severe renal vasoconstriction; reversible with liver transplant",
+      "hrs_aki": "HRS-AKI (formerly Type 1): rapid kidney function decline (creatinine doubles in <2 weeks)",
+      "hrs_naki": "HRS-NAKI (formerly Type 2): stable moderate renal impairment with refractory ascites",
+      "splanchnic_vasodilation": "Dilation of mesenteric vessels in portal hypertension; reduces effective arterial volume",
+      "effective_arterial_volume": "Blood volume sensed by baroreceptors; reduced in cirrhosis despite total volume expansion",
+      "terlipressin": "Vasopressin analog; splanchnic vasoconstrictor used with albumin for HRS",
+      "norepinephrine": "Alternative vasoconstrictor for HRS in ICU setting; given with albumin",
+      "albumin_challenge": "1g/kg IV albumin × 2 days to rule out hypovolemia before diagnosing HRS",
+      "portal_hypertension": "Elevated portal vein pressure (>5 mmHg gradient) in cirrhosis; drives HRS pathophysiology",
+      "tips": "Transjugular intrahepatic portosystemic shunt: may help HRS by reducing portal pressure",
+      "simultaneous_liver_kidney_transplant": "SLKT: indicated for HRS with prolonged dialysis or severe AKI",
+      "octreotide_midodrine": "Alternative vasoconstrictor regimen (less effective than terlipressin)"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
-  },
-  "learning_objectives": [
-    "Understand Hepatorenal Syndrome"
-  ],
-  "clinical_pearls": [
-    "Type 1 vs 2"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
-      {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Portal hypertension causes splanchnic arterial vasodilation via nitric oxide and other vasodilators. This reduces effective arterial blood volume, triggering compensatory activation of RAAS, sympathetic nervous system, and ADH. Intense renal vasoconstriction reduces GFR while sodium and water are avidly retained. The kidneys themselves are normal - HRS reverses after liver transplant.",
+      "key_pathways": [
+        "Cirrhosis → portal hypertension → splanchnic vasodilation (NO, prostaglandins)",
+        "Splanchnic pooling → ↓ effective arterial volume → arterial underfilling",
+        "Compensatory activation: RAAS, SNS, ADH → sodium/water retention",
+        "Renal vasoconstriction → ↓ GFR → HRS"
+      ],
+      "clinical_significance": "Untreated HRS-AKI has median survival of weeks. Terlipressin + albumin reverses HRS in 40-50%, improving transplant-free survival. Liver transplant is curative - kidneys recover even after prolonged dialysis."
+    },
+    "diagnostic_criteria": {
+      "ica_2019_criteria": {
+        "required": [
+          "Cirrhosis with ascites",
+          "AKI by ICA criteria (creatinine increase ≥0.3 or ≥50% within 7 days)",
+          "No improvement after 2 days of albumin 1g/kg/day (max 100g/day) and diuretic withdrawal",
+          "Absence of shock",
+          "No current or recent nephrotoxins",
+          "No structural kidney disease (proteinuria <500mg/day, normal ultrasound, bland sediment)"
+        ]
       },
-      {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+      "clinical_context": {
+        "precipitants": ["SBP or other infection (most common)", "Large volume paracentesis without albumin", "GI bleeding", "Overdiuresis"],
+        "typical_presentation": "Progressive oliguria, rising creatinine, low urine sodium (<10 mEq/L) in patient with decompensated cirrhosis"
+      },
+      "differential_diagnosis": [
+        "Prerenal AKI from hypovolemia (responds to fluids)",
+        "ATN from ischemia or nephrotoxins (muddy brown casts)",
+        "Glomerulonephritis (active sediment, proteinuria)",
+        "Obstructive uropathy (hydronephrosis on ultrasound)"
+      ]
+    },
+    "treatment_options": {
+      "general_measures": [
+        "Discontinue diuretics, beta-blockers, vasodilators",
+        "Avoid nephrotoxins (NSAIDs, aminoglycosides, contrast)",
+        "Treat precipitating factors (SBP, bleeding)"
+      ],
+      "pharmacotherapy": {
+        "terlipressin_albumin": {
+          "indication": "First-line for HRS-AKI",
+          "terlipressin": "1mg IV q4-6h; increase to max 2mg q4h if creatinine not decreasing",
+          "albumin": "20-40g/day IV concurrent with terlipressin",
+          "response": "40-50% achieve complete response (creatinine <1.5 mg/dL)",
+          "duration": "Continue until response or max 14 days"
+        },
+        "norepinephrine_albumin": {
+          "indication": "Alternative in ICU (comparable efficacy to terlipressin)",
+          "dosing": "0.5-3 mg/hr IV titrated to MAP increase ≥10 mmHg"
+        },
+        "octreotide_midodrine": {
+          "indication": "Third-line if others unavailable",
+          "dosing": "Octreotide 100-200mcg SC TID + Midodrine 7.5-15mg PO TID + albumin",
+          "efficacy": "Inferior to terlipressin"
+        }
+      },
+      "procedures": {
+        "tips": "TIPS reduces portal pressure; may reverse HRS-NAKI with refractory ascites",
+        "rrt": "Dialysis as bridge to transplant; does not improve survival without transplant"
+      },
+      "definitive_treatment": {
+        "liver_transplant": "Curative; kidneys recover post-transplant in most cases",
+        "slkt": "Simultaneous liver-kidney transplant: HRS on dialysis ≥6 weeks, eGFR <25 for ≥6 weeks, or CKD with AKI"
       }
+    }
+  },
+  "skos": {
+    "prefLabel": "Hepatorenal Syndrome",
+    "altLabel": ["HRS", "Hepatorenal Failure", "Functional Renal Failure in Cirrhosis"],
+    "definition": "A form of functional acute kidney injury occurring in patients with advanced liver disease, characterized by severe renal vasoconstriction in the setting of splanchnic vasodilation",
+    "broader": ["health-sciences:medicine:nephrology:acute-kidney-injury", "health-sciences:medicine:hepatology:cirrhosis-complications"],
+    "narrower": ["health-sciences:medicine:nephrology:hrs-aki", "health-sciences:medicine:nephrology:hrs-naki"],
+    "related": ["health-sciences:medicine:hepatology:ascites", "health-sciences:medicine:nephrology:neph-005"]
+  },
+  "medicalCode": {
+    "snomedCt": {"conceptId": "49181006", "term": "Hepatorenal syndrome"},
+    "icd10": {"code": "K76.7", "display": "Hepatorenal syndrome"},
+    "mesh": {"descriptorId": "D006530", "term": "Hepatorenal Syndrome"}
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Explain the pathophysiology of splanchnic vasodilation in HRS",
+      "Apply ICA diagnostic criteria to identify HRS",
+      "Initiate treatment with terlipressin plus albumin",
+      "Recognize precipitants of HRS including SBP",
+      "Identify candidates for liver or simultaneous liver-kidney transplantation"
+    ],
+    "clinical_pearls": [
+      "HRS is a diagnosis of exclusion - must rule out hypovolemia, nephrotoxins, parenchymal disease",
+      "Albumin challenge (1g/kg × 2 days) is part of diagnosis - if creatinine improves, it's not HRS",
+      "Low urine sodium (<10 mEq/L) supports diagnosis but is not specific",
+      "SBP is the most common precipitant - always do diagnostic paracentesis",
+      "Terlipressin + albumin achieves complete response in ~40-50%",
+      "Kidneys recover after liver transplant even if patient required dialysis"
+    ],
+    "board_yield": {
+      "usmle_step1": ["Cirrhosis hemodynamics", "RAAS activation in liver disease"],
+      "usmle_step2": ["Diagnostic criteria", "Treatment algorithm", "Terlipressin"],
+      "usmle_step3": ["Transplant candidacy", "Bridge therapies", "Prognosis"],
+      "specialty_boards": {"nephrology": "High yield", "hepatology": "Critical", "critical_care": "High yield"}
+    },
+    "common_misconceptions": [
+      "Low urine sodium is diagnostic (it's supportive but not specific)",
+      "Dialysis improves survival in HRS (it doesn't without transplant)",
+      "Kidneys are permanently damaged (they're structurally normal; recover post-LT)"
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Hepatorenal_Syndrome",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "prerequisites": ["health-sciences:medicine:hepatology:cirrhosis", "health-sciences:medicine:nephrology:neph-005"],
+  "related_concepts": ["health-sciences:medicine:hepatology:sbp", "health-sciences:medicine:nephrology:neph-005"],
+  "evidence": {
+    "citations": [
+      {"authors": ["Angeli P", "Garcia-Tsao G", "Nadim MK"], "title": "News in pathophysiology, definition and classification of hepatorenal syndrome", "journal": "Journal of Hepatology", "year": 2019, "pmid": "31302175"}
+    ],
+    "guidelines": [{"organization": "ICA", "title": "Hepatorenal Syndrome Revised Consensus", "year": 2019}],
+    "confidence_rationale": "Based on ICA 2019 consensus and major hepatorenal syndrome trials"
+  },
+  "learning_objectives": ["Diagnose HRS by exclusion", "Treat with terlipressin + albumin", "Identify transplant candidates"],
+  "clinical_pearls": ["Diagnosis of exclusion", "SBP common precipitant", "Kidneys recover post-LT"],
+  "provenance": {"verification_status": "verified", "last_verified": "2026-01-12T07:37:00.000Z", "sources": [{"source": "ICA HRS Consensus 2019", "type": "consensus", "year": 2019}]},
+  "quality_assessment": {"content_quality_score": 0.92, "completeness": 0.93, "accuracy": 0.94, "clinical_relevance": 0.95, "pedagogical_value": 0.91, "last_assessed": "2026-01-12T07:37:00.000Z", "assessor": "quality-agent"},
+  "owl:sameAs": "http://dbpedia.org/resource/Hepatorenal_syndrome",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1384979"
 }
