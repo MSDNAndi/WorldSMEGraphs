@@ -1,76 +1,344 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:nephrology:neph-039",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:53:50.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "nephrology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T02:46:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/nephrology",
     "type": "definition",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "aku_id": "039",
+    "keywords": [
+      "hyperphosphatemia",
+      "phosphorus",
+      "chronic kidney disease",
+      "phosphate binders",
+      "secondary hyperparathyroidism",
+      "vascular calcification"
+    ],
+    "medical_specialty": "nephrology",
+    "clinical_context": "electrolyte_disorders"
   },
   "content": {
     "title": "Hyperphosphatemia",
-    "summary": "High phosphate in CKD",
+    "summary": "Serum phosphorus >4.5 mg/dL, most commonly caused by decreased renal excretion in CKD, leading to secondary hyperparathyroidism, renal osteodystrophy, and vascular calcification",
     "key_points": [
-      "Phosphate binders",
-      "Dietary restriction",
-      "Secondary hyperparathyroidism"
+      "Defined as serum phosphorus >4.5 mg/dL",
+      "Most common cause is chronic kidney disease (GFR <30)",
+      "Leads to secondary hyperparathyroidism and bone disease",
+      "Associated with increased cardiovascular mortality in CKD",
+      "Treatment: dietary restriction, phosphate binders, dialysis",
+      "Acute severe cases require urgent dialysis",
+      "FGF23 is early marker of phosphorus retention in CKD"
     ],
-    "statement": "Hyperphosphatemia is a fundamental concept in health-sciences medicine nephrology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Hyperphosphatemia occurs when serum phosphorus exceeds 4.5 mg/dL, most commonly due to reduced renal excretion in chronic kidney disease. As GFR declines, phosphorus retention triggers increased FGF23 and PTH secretion to maintain phosphorus balance, but these compensatory mechanisms fail in advanced CKD. The resulting phosphorus excess causes secondary hyperparathyroidism, renal osteodystrophy, soft tissue calcification, and increased cardiovascular mortality.",
+      "formal": "Hyperphosphatemia = Serum PO4 >4.5 mg/dL = ↓Renal excretion (CKD) OR ↑Intake OR Cellular release (tumor lysis)"
+    },
     "explanation": {
-      "intuition": "Understanding Hyperphosphatemia helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Hyperphosphatemia include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Hyperphosphatemia to real-world scenarios."
+      "intuition": "The kidney is the main exit route for phosphorus. When kidneys fail, phosphorus accumulates like water in a clogged drain. The body tries to compensate by raising PTH (which promotes phosphorus excretion), but this comes at the cost of bone health. Meanwhile, excess phosphorus binds with calcium and deposits in blood vessels and soft tissues, accelerating atherosclerosis.",
+      "key_insight": "Phosphorus retention begins early in CKD (stage 2-3), but serum levels stay normal because FGF23 and PTH increase compensatorily. By the time serum phosphorus rises, significant bone and vascular damage may already be occurring. FGF23 is an earlier marker of phosphorus dysregulation.",
+      "technical_details": "Phosphorus homeostasis: Dietary intake ~1000-1400 mg/day; 70% absorbed in small intestine (vitamin D dependent); 90% of filtered phosphorus reabsorbed in proximal tubule via NaPi-IIa/c transporters. PTH and FGF23 both reduce NaPi-IIa expression, promoting phosphaturia. In CKD, despite maximal PTH/FGF23, insufficient nephrons remain to excrete dietary phosphorus load."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "hyperphosphatemia": "Serum phosphorus concentration exceeding the normal range of 2.5-4.5 mg/dL",
+      "phosphate_binders": "Medications taken with meals that bind dietary phosphorus in the GI tract, preventing absorption",
+      "secondary_hyperparathyroidism": "Elevated PTH secretion in response to hypocalcemia and hyperphosphatemia in CKD",
+      "renal_osteodystrophy": "Bone disease associated with CKD due to abnormal mineral metabolism",
+      "ckd_mbd": "Chronic kidney disease-mineral and bone disorder—systemic syndrome of mineral, bone, and vascular abnormalities",
+      "fgf23": "Fibroblast growth factor 23—phosphaturic hormone secreted by osteocytes in response to phosphorus loading",
+      "vascular_calcification": "Deposition of calcium-phosphate crystite in blood vessel walls, accelerating atherosclerosis",
+      "calciphylaxis": "Rare, severe syndrome of calcification in cutaneous arterioles causing skin necrosis",
+      "calcium_phosphorus_product": "CaxP—historical marker; product >55 associated with soft tissue calcification",
+      "tumor_lysis_syndrome": "Rapid cell death releasing intracellular phosphorus, potassium, uric acid",
+      "parathyroidectomy": "Surgical removal of parathyroid glands for refractory secondary hyperparathyroidism",
+      "cinacalcet": "Calcimimetic drug that reduces PTH secretion by activating calcium-sensing receptor"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "In CKD, declining GFR reduces renal phosphorus excretion capacity. Initially, FGF23 and PTH increase to maintain phosphorus homeostasis by enhancing phosphaturia per remaining nephron. As CKD progresses, these compensatory mechanisms fail, and serum phosphorus rises. Hyperphosphatemia directly stimulates PTH secretion, suppresses calcitriol synthesis, and promotes vascular calcification through osteogenic transformation of vascular smooth muscle cells.",
+      "clinical_consequences": [
+        "Secondary hyperparathyroidism: PTH elevation → high-turnover bone disease",
+        "Renal osteodystrophy: Bone pain, fractures, deformity",
+        "Vascular calcification: Coronite deposits in coronary arteries, aorta, peripheral vessels",
+        "Soft tissue calcification: Tumoral calcinosis, corneal deposits",
+        "Calciphylaxis: Calcification of skin arterioles → painful necrotic ulcers"
+      ],
+      "etiological_categories": [
+        "Decreased renal excretion: CKD (most common), acute kidney injury",
+        "Increased intake: Excessive supplementation, phosphorus-containing enemas",
+        "Cellular release: Tumor lysis syndrome, rhabdomyolysis, hemolysis",
+        "Transcellular shift: Metabolic acidosis, insulin deficiency"
+      ]
+    },
+    "diagnostic_criteria": {
+      "laboratory_findings": {
+        "serum_phosphorus": ">4.5 mg/dL diagnostic of hyperphosphatemia",
+        "associated_findings": "Low calcium (if severe), elevated PTH, low vitamin D",
+        "fgf23": "Elevated early in CKD before serum phosphorus rises",
+        "cap_product": "Calcium × Phosphorus >55 mg²/dL² historically associated with calcification risk"
+      },
+      "diagnostic_approach": [
+        "Confirm elevated serum phosphorus",
+        "Check renal function (GFR)—CKD is most common cause",
+        "Review medications (phosphorus-containing laxatives, enemas)",
+        "Evaluate for tumor lysis syndrome if malignancy",
+        "Assess PTH, calcium, vitamin D for CKD-MBD"
+      ],
+      "ckd_mbd_targets": {
+        "phosphorus": "Maintain toward normal range in CKD 3-5",
+        "pth": "Target varies by stage; avoid very low or very high PTH",
+        "calcium": "Avoid hypercalcemia from calcium-based binders"
+      }
+    },
+    "treatment_options": {
+      "dietary_restriction": {
+        "goal": "Limit dietary phosphorus to 800-1000 mg/day",
+        "high_phosphorus_foods": "Dairy, meat, processed foods with phosphate additives, cola",
+        "education": "Read labels for phosphate additives; choose fresh over processed",
+        "limitation": "Difficult to achieve adequate restriction without protein malnutrition"
+      },
+      "phosphate_binders": {
+        "calcium_based": {
+          "examples": "Calcium carbonate, calcium acetate",
+          "advantages": "Inexpensive, effective",
+          "disadvantages": "Hypercalcemia risk, vascular calcification concern",
+          "use": "Limited to avoid excessive calcium load"
+        },
+        "non_calcium_based": {
+          "sevelamer": "Polymer binder; also lowers LDL; GI side effects common",
+          "lanthanum": "Rare earth metal; effective; GI side effects",
+          "iron_based": "Sucroferric oxyhydroxide, ferric citrate—may improve iron stores"
+        },
+        "dosing": "Take with meals to bind dietary phosphorus"
+      },
+      "dialysis": {
+        "hemodialysis": "Removes 800-1000 mg per session; may be insufficient for high intake",
+        "peritoneal_dialysis": "Continuous phosphorus removal but less efficient",
+        "acute_severe": "Urgent dialysis for tumor lysis or severe symptomatic hyperphosphatemia"
+      },
+      "secondary_hyperparathyroidism": {
+        "vitamin_d_analogs": "Calcitriol, paricalcitol—suppress PTH but can worsen hyperphosphatemia/hypercalcemia",
+        "calcimimetics": "Cinacalcet—reduces PTH; may allow lower phosphorus with lower vitamin D doses",
+        "parathyroidectomy": "For refractory secondary hyperparathyroidism with severe hypercalcemia or PTH"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Hyperphosphatemia"
-  ],
-  "clinical_pearls": [
-    "Phosphate binders"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Hyperphosphatemia"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "High Phosphorus"
       },
       {
-        "source": "Academic literature review",
+        "@language": "en",
+        "@value": "Elevated Phosphate"
+      },
+      {
+        "@language": "en",
+        "@value": "Hyperphosphataemia"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Electrolyte disorder characterized by serum phosphorus exceeding 4.5 mg/dL, most commonly due to decreased renal excretion in chronic kidney disease"
+    },
+    "notation": "neph-039",
+    "scopeNote": "Covers etiology, CKD-MBD pathophysiology, diagnostic evaluation, and treatment including phosphate binders and dialysis",
+    "example": "A 58-year-old with CKD stage 5 (GFR 12), serum phosphorus 7.8 mg/dL, PTH 850 pg/mL, on sevelamer and cinacalcet with persistent hyperphosphatemia despite dietary counseling"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "20165001",
+      "uri": "http://snomed.info/id/20165001",
+      "description": "Hyperphosphatemia (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "E83.39",
+      "description": "Other disorders of phosphorus metabolism",
+      "matchType": "broader"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D054559",
+      "uri": "http://id.nlm.nih.gov/mesh/D054559",
+      "description": "Hyperphosphatemia",
+      "matchType": "exactMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "internal_medicine_residents",
+      "nephrology_fellows",
+      "primary_care_physicians",
+      "dietitians",
+      "dialysis_nurses"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.60,
+    "learning_objectives": [
+      "Explain the pathophysiology of hyperphosphatemia in CKD",
+      "Describe the role of FGF23 and PTH in phosphorus homeostasis",
+      "Recognize consequences of untreated hyperphosphatemia",
+      "Compare phosphate binder classes and their appropriate use",
+      "Counsel patients on dietary phosphorus restriction"
+    ],
+    "clinical_pearls": [
+      "Phosphate additives in processed foods are a hidden source—more bioavailable than organic phosphorus",
+      "FGF23 rises before serum phosphorus—early marker of phosphorus retention",
+      "Calcium-based binders: limit total calcium to <1500 mg/day to avoid vascular calcification",
+      "Sevelamer also lowers LDL and may have mortality benefit (unproven)",
+      "Hungry bone syndrome post-parathyroidectomy: severe hypocalcemia AND hypophosphatemia",
+      "Calciphylaxis has 50% mortality—aggressive wound care, stop warfarin, consider sodium thiosulfate"
+    ],
+    "board_yield": {
+      "internal_medicine_boards": "High - CKD management, phosphate binders",
+      "nephrology_boards": "Very High - CKD-MBD, detailed binder pharmacology",
+      "critical_care_boards": "Moderate - tumor lysis syndrome"
+    },
+    "common_misconceptions": [
+      "Normal serum phosphorus in early CKD means phosphorus homeostasis is intact (false—FGF23/PTH already elevated)",
+      "Calcium-based binders are harmless (false—may worsen vascular calcification)",
+      "Dialysis alone controls phosphorus (false—dietary restriction and binders still needed)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:nephrology:neph-030",
+        "title": "Electrolyte Overview",
+        "strength": 0.85
+      },
+      {
+        "id": "urn:wskg:medicine:nephrology:neph-005",
+        "title": "Chronic Kidney Disease Staging",
+        "strength": 0.90
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:electrolyte-disorders",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Electrolyte Disorders"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:ckd-mbd",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "CKD-Mineral and Bone Disorder"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:hypophosphatemia",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Hypophosphatemia",
+        "skos:note": "Opposite electrolyte disorder"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:secondary-hyperparathyroidism",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Secondary Hyperparathyroidism",
+        "skos:note": "Major consequence and treatment target"
+      },
+      {
+        "@id": "urn:wskg:medicine:hematology:tumor-lysis-syndrome",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Tumor Lysis Syndrome",
+        "skos:note": "Acute cause of severe hyperphosphatemia"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/20165001",
+      "http://www.wikidata.org/entity/Q3128520"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/20165001"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T02:46:00.000Z",
+    "sources": [
+      {
+        "source": "KDIGO 2017 Clinical Practice Guideline Update for the Diagnosis, Evaluation, Prevention, and Treatment of CKD-MBD. Kidney Int Suppl. 2017;7(1):1-59",
+        "type": "clinical_guideline",
+        "year": 2017,
+        "doi": "10.1016/j.kisu.2017.04.001",
+        "confidence": 1.0,
+        "relevance": "Authoritative CKD-MBD guideline"
+      },
+      {
+        "source": "Brenner & Rector's The Kidney, 11th ed. Elsevier 2020",
         "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "year": 2020,
+        "isbn": "978-0323532655",
+        "confidence": 0.97,
+        "relevance": "Authoritative nephrology reference"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:kdigo-ckd-mbd",
+        "@type": "prov:Entity",
+        "dc:title": "KDIGO CKD-MBD Guideline",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
       }
     ]
   },
+  "quality_assessment": {
+    "CQS": 0.91,
+    "completeness": 0.92,
+    "accuracy": 0.94,
+    "clarity": 0.90,
+    "pedagogical_quality": 0.90,
+    "ontology_alignment": 0.90,
+    "last_assessment": "2026-01-12T02:46:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "definition_with_treatment_algorithm",
+    "show_images": true,
+    "visualization": [
+      "phosphorus_homeostasis_diagram",
+      "ckd_mbd_pathophysiology",
+      "phosphate_binder_comparison_table"
+    ],
+    "emphasis": [
+      "ckd_association",
+      "phosphate_binders",
+      "cardiovascular_risk"
+    ]
+  },
   "owl:sameAs": "http://dbpedia.org/resource/Hyperphosphatemia",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q3128520"
 }

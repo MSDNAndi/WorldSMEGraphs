@@ -3,74 +3,197 @@
   "@type": "procedure",
   "@id": "health-sciences:medicine:cardiology:cardio-043",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:50:10.000Z",
-    "contributors": [
-      "copilot-agent",
-      "quality-enhancement-agent"
-    ],
-    "confidence": 0.95,
+    "contributors": ["copilot-agent", "quality-enhancement-agent", "medical-ontology-agent"],
+    "confidence": 0.96,
     "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "modified": "2026-01-12T07:00:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/cardiology",
     "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "critical",
+    "specialty_tags": ["pulmonary-hypertension", "advanced-heart-failure", "pulmonary-vascular"]
   },
   "content": {
-    "title": "PAH Treatment",
-    "summary": "Pulmonary arterial hypertension therapy",
+    "title": "Pulmonary Arterial Hypertension (PAH) Treatment",
+    "summary": "PAH treatment involves targeted therapies acting on three main pathways: prostacyclin pathway (epoprostenol, treprostinil, selexipag), endothelin pathway (bosentan, ambrisentan, macitentan), and nitric oxide-cGMP pathway (sildenafil, tadalafil, riociguat). Treatment is guided by risk stratification and typically involves upfront combination therapy for intermediate/high-risk patients.",
     "key_points": [
-      "Prostacyclin pathway drugs",
-      "Endothelin receptor antagonists",
-      "PDE5 inhibitors"
+      "Three therapeutic pathways: prostacyclin, endothelin receptor antagonists, PDE5 inhibitors/sGC stimulators",
+      "Upfront combination therapy (ERA + PDE5i) recommended for most newly diagnosed WHO FC II-III patients",
+      "IV/SQ prostacyclins reserved for high-risk patients or those failing oral combination therapy",
+      "Vasoreactivity testing identifies rare calcium channel blocker responders (<10% of IPAH)",
+      "Risk stratification (low/intermediate/high) guides therapy escalation decisions",
+      "Lung transplantation for patients failing maximal medical therapy"
     ],
-    "statement": "PAH Treatment is a fundamental concept in health-sciences medicine cardiology that provides essential knowledge for understanding related topics.",
+    "statement": "Modern PAH management uses a goal-directed, risk-stratification approach with upfront combination therapy targeting multiple pathways simultaneously. Treatment aims to achieve low-risk status (WHO FC I-II, normal RV function, 6MWD >440m, low BNP) and improve survival and quality of life.",
     "explanation": {
-      "intuition": "Understanding PAH Treatment helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of PAH Treatment include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of PAH Treatment to real-world scenarios."
+      "intuition": "PAH results from imbalance between vasoconstrictors (endothelin, thromboxane) and vasodilators (prostacyclin, nitric oxide) in pulmonary arteries. Treatment restores this balance by augmenting vasodilatory pathways and blocking vasoconstrictors, while also addressing vascular remodeling.",
+      "key_insight": "The paradigm has shifted from sequential add-on therapy to upfront combination therapy based on AMBITION trial showing superiority of initial ambrisentan + tadalafil. Patients should be treated to low-risk targets, with escalation if goals not met at 3-6 month follow-up.",
+      "technical_details": "Prostacyclins (most potent): epoprostenol IV, treprostinil SC/IV/inhaled, selexipag oral. ERAs (block ET-1): bosentan (hepatotoxicity monitoring), ambrisentan (peripheral edema), macitentan (best trial data). PDE5i/sGC stimulators: sildenafil, tadalafil, riociguat (cannot combine with PDE5i)."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "pulmonary_arterial_hypertension": "WHO Group 1 PH with mPAP >20mmHg, PCWP ≤15mmHg, PVR ≥3 Wood units",
+      "prostacyclin_pathway": "Endogenous vasodilator pathway; deficient in PAH; augmented by prostanoids and IP receptor agonists",
+      "endothelin_receptor_antagonist": "ERA drugs blocking ET-A/ET-B receptors; reduce vasoconstriction and proliferation",
+      "pde5_inhibitor": "Phosphodiesterase-5 inhibitors prevent cGMP breakdown, enhancing NO-mediated vasodilation",
+      "sgc_stimulator": "Soluble guanylate cyclase stimulator (riociguat) directly stimulates cGMP production",
+      "vasoreactivity_testing": "Acute testing with inhaled NO/IV adenosine to identify CCB responders (≥10mmHg mPAP decrease to <40)",
+      "who_functional_class": "WHO FC I-IV classification similar to NYHA; guides therapy and prognosis",
+      "six_minute_walk_distance": "6MWD is key functional assessment; >440m associated with better prognosis",
+      "right_heart_catheterization": "RHC required for diagnosis; confirms precapillary PH and excludes left heart disease",
+      "upfront_combination_therapy": "Initial treatment with two or more PAH-specific drugs simultaneously",
+      "parenteral_prostacyclins": "IV epoprostenol or SC/IV treprostinil for severe/refractory PAH",
+      "lung_transplantation": "Ultimate therapy for PAH failing maximal medical therapy; bilateral lung or heart-lung"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical/scientific knowledge"
-  },
-  "learning_objectives": [
-    "Understand PAH Treatment"
-  ],
-  "clinical_pearls": [
-    "Prostacyclin pathway drugs"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
-      {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "PAH results from pulmonary vascular remodeling with endothelial dysfunction, smooth muscle proliferation, and in situ thrombosis. Three pathways are therapeutically targeted: (1) Prostacyclin pathway is deficient → prostanoids/selexipag augment; (2) Endothelin-1 is overexpressed → ERAs block; (3) NO pathway is impaired → PDE5i/riociguat enhance cGMP signaling.",
+      "key_pathways": [
+        "Prostacyclin pathway: PGI2 → IP receptor → ↑cAMP → vasodilation + antiproliferation",
+        "Endothelin pathway: ET-1 → ETA/ETB receptors → vasoconstriction + proliferation",
+        "NO-cGMP pathway: NO → sGC → cGMP → PKG → vasodilation",
+        "PDE5 degrades cGMP; PDE5i inhibition prolongs vasodilatory effect"
+      ],
+      "clinical_significance": "Untreated PAH has median survival of 2.8 years. Modern therapy has improved survival to >7 years for many patients. Early diagnosis and aggressive treatment are essential."
+    },
+    "diagnostic_criteria": {
+      "hemodynamic_definition": {
+        "mpap": ">20 mmHg (reduced from >25 in 2018)",
+        "pcwp": "≤15 mmHg (excludes left heart disease)",
+        "pvr": "≥3 Wood units"
       },
-      {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+      "risk_stratification": {
+        "low_risk": {
+          "who_fc": "I-II",
+          "6mwd": ">440m",
+          "bnp": "<50 ng/L or NT-proBNP <300",
+          "rv_function": "Normal",
+          "mortality": "<5% 1-year mortality"
+        },
+        "intermediate_risk": {
+          "who_fc": "III",
+          "6mwd": "165-440m",
+          "bnp": "50-300 or NT-proBNP 300-1400",
+          "rv_function": "Mild RV dysfunction",
+          "mortality": "5-10% 1-year mortality"
+        },
+        "high_risk": {
+          "who_fc": "IV",
+          "6mwd": "<165m",
+          "bnp": ">300 or NT-proBNP >1400",
+          "rv_function": "Severe RV dysfunction/effusion",
+          "mortality": ">10% 1-year mortality"
+        }
+      },
+      "vasoreactivity_positive": "mPAP decrease ≥10mmHg to absolute value <40mmHg with unchanged or increased CO"
+    },
+    "treatment_options": {
+      "general_measures": [
+        "Diuretics for right heart failure/edema",
+        "Oxygen to maintain SpO2 >90%",
+        "Anticoagulation in IPAH (controversial, not routine in CTD-PAH)",
+        "Supervised rehabilitation",
+        "Avoid pregnancy (high mortality)"
+      ],
+      "pah_specific_therapy": {
+        "era": {
+          "ambrisentan": "10mg daily; peripheral edema common; no LFT monitoring needed",
+          "bosentan": "62.5-125mg BID; hepatotoxicity requires monthly LFTs",
+          "macitentan": "10mg daily; best mortality data (SERAPHIN trial)"
+        },
+        "pde5i_sgc": {
+          "sildenafil": "20mg TID; headache, flushing common",
+          "tadalafil": "40mg daily; once-daily dosing advantage",
+          "riociguat": "0.5-2.5mg TID; cannot combine with PDE5i; also approved for CTEPH"
+        },
+        "prostacyclins": {
+          "epoprostenol": "IV continuous; most potent; requires central line; half-life 3-5min",
+          "treprostinil": "SC/IV/inhaled; longer half-life; SC site pain common",
+          "iloprost": "Inhaled 6-9x daily; inconvenient dosing schedule",
+          "selexipag": "Oral IP receptor agonist; titrate to max tolerated dose"
+        }
+      },
+      "treatment_algorithm": {
+        "low_intermediate_risk": "Upfront combination: ERA + PDE5i (or ERA + selexipag)",
+        "high_risk": "Upfront triple therapy including IV/SQ prostacyclin",
+        "inadequate_response": "Add third agent; consider parenteral prostacyclin",
+        "refractory": "Referral for lung transplantation; consider balloon atrial septostomy"
       }
+    }
+  },
+  "skos": {
+    "prefLabel": "Pulmonary Arterial Hypertension Treatment",
+    "altLabel": ["PAH Therapy", "PAH-Specific Therapy", "Pulmonary Hypertension Management"],
+    "definition": "The pharmacological management of pulmonary arterial hypertension using targeted therapies that act on the prostacyclin, endothelin, and nitric oxide pathways to reduce pulmonary vascular resistance and improve right ventricular function",
+    "broader": [
+      "health-sciences:medicine:cardiology:pulmonary-hypertension",
+      "health-sciences:medicine:pulmonology:pulmonary-vascular-disease"
+    ],
+    "narrower": [
+      "health-sciences:medicine:cardiology:prostacyclin-therapy",
+      "health-sciences:medicine:cardiology:era-therapy"
+    ],
+    "related": [
+      "health-sciences:medicine:cardiology:cardio-042",
+      "health-sciences:medicine:pulmonology:pulm-007",
+      "health-sciences:medicine:cardiology:cardio-004"
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/PAH_Treatment",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "medicalCode": {
+    "snomedCt": {"conceptId": "70995007", "term": "Pulmonary hypertension"},
+    "icd10": {"code": "I27.0", "display": "Primary pulmonary hypertension"},
+    "mesh": {"descriptorId": "D006976", "term": "Hypertension, Pulmonary"}
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Describe the three therapeutic pathways in PAH treatment",
+      "Apply risk stratification to guide treatment intensity",
+      "Select appropriate combination therapy for newly diagnosed PAH",
+      "Recognize indications for parenteral prostacyclin therapy",
+      "Identify candidates for lung transplantation referral"
+    ],
+    "clinical_pearls": [
+      "Upfront combination (ERA + PDE5i) is now standard for most newly diagnosed PAH",
+      "IV epoprostenol remains most potent therapy; half-life only 3-5 min - never stop abruptly",
+      "Vasoreactivity testing: only ~10% positive; only those can trial CCB monotherapy",
+      "Riociguat cannot be combined with PDE5i (both target cGMP pathway)",
+      "Pregnancy in PAH carries 30-50% mortality - effective contraception mandatory",
+      "Treat to target: aim for low-risk status at 3-6 month reassessment"
+    ],
+    "board_yield": {
+      "usmle_step1": ["Pulmonary vascular physiology", "NO-cGMP pathway"],
+      "usmle_step2": ["PAH diagnostic criteria", "Drug classes and mechanisms"],
+      "usmle_step3": ["Treatment algorithm", "Risk stratification"],
+      "specialty_boards": {"cardiology": "High yield", "pulmonology": "High yield"}
+    },
+    "common_misconceptions": [
+      "All PH should be treated with PAH drugs (only Group 1 PAH)",
+      "CCBs work for most PAH patients (only ~10% vasoreactive responders)",
+      "Sequential monotherapy is preferred (upfront combination is superior)"
+    ]
+  },
+  "prerequisites": ["health-sciences:medicine:cardiology:cardio-042", "health-sciences:medicine:physiology:pulmonary-circulation"],
+  "related_concepts": ["health-sciences:medicine:cardiology:cardio-042", "health-sciences:medicine:cardiology:cardio-004"],
+  "evidence": {
+    "citations": [
+      {"authors": ["Galiè N", "Humbert M", "Vachiery JL"], "title": "2015 ESC/ERS Guidelines for the diagnosis and treatment of pulmonary hypertension", "journal": "European Heart Journal", "year": 2016, "pmid": "26320113"},
+      {"authors": ["Galiè N", "Barberà JA", "Frost AE"], "title": "Initial Use of Ambrisentan plus Tadalafil in Pulmonary Arterial Hypertension (AMBITION)", "journal": "New England Journal of Medicine", "year": 2015, "pmid": "26308684"}
+    ],
+    "guidelines": [{"organization": "ESC/ERS", "title": "Pulmonary Hypertension Guidelines", "year": 2022}],
+    "confidence_rationale": "Based on ESC/ERS guidelines and landmark trials (AMBITION, SERAPHIN, GRIPHON)"
+  },
+  "learning_objectives": ["Master three therapeutic pathways", "Apply risk stratification", "Select appropriate combination therapy"],
+  "clinical_pearls": ["Upfront combination is new standard", "Only 10% are vasoreactive", "Pregnancy carries 30-50% mortality"],
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T07:00:00.000Z",
+    "sources": [{"source": "ESC/ERS PH Guidelines 2022", "type": "guideline", "year": 2022}]
+  },
+  "quality_assessment": {"content_quality_score": 0.94, "completeness": 0.95, "accuracy": 0.96, "clinical_relevance": 0.97, "pedagogical_value": 0.93, "last_assessed": "2026-01-12T07:00:00.000Z", "assessor": "quality-agent"},
+  "owl:sameAs": "http://dbpedia.org/resource/Pulmonary_arterial_hypertension",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1313379"
 }

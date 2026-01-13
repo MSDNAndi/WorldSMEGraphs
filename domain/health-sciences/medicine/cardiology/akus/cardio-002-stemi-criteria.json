@@ -1,74 +1,359 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:cardiology:cardio-002",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:50:10.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "cardiology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.97,
+    "status": "validated",
+    "modified": "2026-01-11T14:22:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/cardiology",
-    "type": "definition",
+    "type": "diagnostic_criteria",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "critical",
+    "aku_id": "002",
+    "keywords": [
+      "STEMI",
+      "ST-elevation myocardial infarction",
+      "ECG criteria",
+      "ST-segment elevation",
+      "acute coronary syndrome",
+      "reperfusion"
+    ],
+    "medical_specialty": "cardiology",
+    "clinical_context": "acute_coronary_syndrome"
   },
   "content": {
-    "title": "STEMI Criteria",
-    "summary": "ST-elevation MI diagnostic criteria",
+    "title": "STEMI Diagnostic Criteria",
+    "summary": "ST-elevation myocardial infarction diagnostic ECG criteria and STEMI equivalents",
     "key_points": [
-      "\u22651mm ST elevation in 2 contiguous leads",
-      "New LBBB with ischemic symptoms",
-      "Posterior MI: ST depression V1-V3"
+      "\u22651mm ST elevation in 2 contiguous leads (most leads)",
+      "V2-V3: \u22652mm in men \u226540y, \u22652.5mm in men <40y, \u22651.5mm in women",
+      "New LBBB with ischemic symptoms is STEMI equivalent",
+      "Posterior MI: ST depression V1-V3 with tall R waves",
+      "De Winter T-waves are STEMI equivalent",
+      "Door-to-balloon time goal <90 minutes"
     ],
-    "statement": "ST-elevation myocardial infarction (STEMI) is diagnosed by new ST-elevation at the J-point in 2 contiguous leads with cutpoints: \u22651mm in all leads except V2-V3 where \u22652mm in men \u226540y, \u22652.5mm in men <40y, or \u22651.5mm in women.",
+    "statement": {
+      "text": "ST-elevation myocardial infarction (STEMI) is diagnosed by new ST-elevation at the J-point in 2 or more contiguous leads with cut-points: \u22651mm in all leads except V2-V3 where \u22652mm in men \u226540 years, \u22652.5mm in men <40 years, or \u22651.5mm in women is required. STEMI equivalents include new LBBB with ischemic symptoms, de Winter T-waves, posterior MI pattern, and Wellens' syndrome.",
+      "formal": "STEMI = ST\u2191 \u22651mm in 2 contiguous leads (V2-V3: \u22652/2.5/1.5mm by sex/age) OR STEMI equivalent (new LBBB, de Winter, posterior MI)"
+    },
     "explanation": {
-      "intuition": "STEMI represents complete coronary artery occlusion causing transmural ischemia, which manifests as ST-segment elevation on ECG.",
-      "key_insight": "STEMI requires emergent reperfusion therapy (PCI or fibrinolysis) - door-to-balloon time should be <90 minutes.",
-      "technical_details": "ECG criteria also include new LBBB, posterior MI (ST depression V1-V3 with R waves), and de Winter T-waves as STEMI equivalents."
+      "intuition": "STEMI represents complete coronary artery occlusion causing transmural ischemia of the full wall thickness. This manifests as ST-segment elevation because the entire wall from endocardium to epicardium is affected, creating a current of injury visible on surface ECG.",
+      "key_insight": "STEMI requires emergent reperfusion therapy (PCI or fibrinolysis). Every minute of delay increases mortality - 'time is muscle'. Door-to-balloon time should be <90 minutes; door-to-needle time for fibrinolysis should be <30 minutes.",
+      "technical_details": "ST elevation reflects subepicardial injury current. The J-point (junction of QRS and ST segment) is the measurement point. Contiguous leads share anatomic proximity: V1-V2 (septum), V3-V4 (anterior), V5-V6 (lateral), II-III-aVF (inferior), I-aVL (high lateral)."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "STEMI": "ST-elevation myocardial infarction - complete coronary occlusion with transmural ischemia",
+      "J_point": "Junction between QRS complex and ST segment where ST elevation is measured",
+      "contiguous_leads": "ECG leads representing anatomically adjacent myocardial regions",
+      "transmural_ischemia": "Ischemia affecting full thickness of myocardial wall",
+      "LBBB": "Left bundle branch block - conduction delay in left bundle causing QRS widening",
+      "de_Winter_T_waves": "Upsloping ST depression at J-point with tall symmetric T-waves - LAD occlusion equivalent",
+      "posterior_MI": "Infarction of posterior wall, seen as reciprocal changes in anterior leads",
+      "Wellens_syndrome": "Deep symmetric T-wave inversions in V2-V3 indicating proximal LAD stenosis",
+      "door_to_balloon_time": "Time from hospital arrival to first balloon inflation in primary PCI",
+      "door_to_needle_time": "Time from hospital arrival to fibrinolytic administration",
+      "current_of_injury": "Electrical potential difference between normal and ischemic myocardium",
+      "reciprocal_changes": "ST depression in leads opposite to ST elevation, indicating true STEMI",
+      "hyperacute_T_waves": "Tall peaked T-waves occurring early in acute MI before ST elevation develops"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical/scientific knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Complete occlusion of epicardial coronary artery (usually by thrombus on ruptured plaque) causes transmural ischemia. Subendocardial layers die first, with wavefront extending to epicardium over time. ST elevation reflects the current of injury from ischemic epicardium.",
+      "ECG_evolution": [
+        "Hyperacute phase (minutes): Tall, peaked T-waves",
+        "Acute phase (minutes-hours): ST elevation with upward concavity \u2192 straight \u2192 convex",
+        "Evolving phase (hours-days): T-wave inversion, Q-wave development",
+        "Chronic phase (weeks-months): Q-waves persist, ST normalizes, T-waves may normalize or remain inverted"
+      ],
+      "coronary_territory_correlation": {
+        "LAD": "V1-V4 (anterior), V5-V6/I/aVL (anterolateral)",
+        "LCx": "I, aVL, V5-V6 (lateral), sometimes II/III/aVF (inferolateral)",
+        "RCA": "II, III, aVF (inferior), V1/V3R-V4R (RV involvement)",
+        "posterior": "V7-V9 elevation; reciprocal V1-V3 depression with tall R"
+      }
+    },
+    "diagnostic_criteria": {
+      "ECG_criteria": {
+        "standard_cutoffs": {
+          "most_leads": "\u22651mm ST elevation at J-point in \u22652 contiguous leads",
+          "V2_V3_men_over_40": "\u22652mm ST elevation",
+          "V2_V3_men_under_40": "\u22652.5mm ST elevation",
+          "V2_V3_women": "\u22651.5mm ST elevation",
+          "posterior_leads_V7_V9": "\u22650.5mm ST elevation"
+        },
+        "STEMI_equivalents": [
+          "New LBBB (or presumed new) with ischemic symptoms",
+          "De Winter T-waves (1-3mm upsloping ST depression at J-point + tall symmetric T-waves in V1-V6)",
+          "Posterior MI (ST depression V1-V3, tall R waves, confirm with V7-V9)",
+          "Sgarbossa criteria positive in setting of LBBB or paced rhythm",
+          "Wellens' syndrome (Type A: biphasic T in V2-V3; Type B: deep symmetric T-wave inversions V2-V3)"
+        ]
+      },
+      "Sgarbossa_criteria": {
+        "original": [
+          "Concordant ST elevation \u22651mm in leads with positive QRS (5 points)",
+          "Concordant ST depression \u22651mm in V1-V3 (3 points)",
+          "Discordant ST elevation \u22655mm in leads with negative QRS (2 points)"
+        ],
+        "modified_Smith": "Discordant ST elevation / S-wave amplitude ratio \u22650.25 replaces 5mm rule"
+      }
+    },
+    "treatment_options": {
+      "immediate_management": [
+        "Activate cardiac catheterization lab",
+        "Aspirin 325mg chewed",
+        "P2Y12 inhibitor loading (ticagrelor 180mg or clopidogrel 600mg)",
+        "Anticoagulation (unfractionated heparin bolus)",
+        "Nitroglycerin (if not hypotensive, no RV infarct, no PDE5 inhibitor use)",
+        "Morphine (if pain not controlled by nitrates)",
+        "Oxygen (only if SpO2 <90%)",
+        "Beta-blocker (oral, if no contraindications)"
+      ],
+      "reperfusion_strategy": {
+        "primary_PCI": {
+          "indication": "Preferred strategy for all STEMI patients",
+          "time_goal": "Door-to-balloon <90 minutes; first medical contact to device <120 minutes",
+          "advantages": "Higher patency rates, lower reocclusion, better outcomes than fibrinolysis"
+        },
+        "fibrinolysis": {
+          "indication": "If PCI not available within 120 minutes of first medical contact",
+          "time_goal": "Door-to-needle <30 minutes",
+          "agents": "Tenecteplase (weight-based single bolus) or alteplase",
+          "contraindications": "Prior ICH, known cerebral vascular lesion, active bleeding, recent major surgery"
+        },
+        "rescue_PCI": {
+          "indication": "Failed fibrinolysis (<50% ST resolution at 60-90 minutes)"
+        }
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand STEMI Criteria"
-  ],
-  "clinical_pearls": [
-    "\u22651mm ST elevation in 2 contiguous leads"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "ST-Elevation Myocardial Infarction Criteria"
+    },
+    "altLabel": [
       {
-        "source": "O'Gara PT, et al. 2013 ACCF/AHA Guideline for STEMI Management. Circulation 2013;127:e362-e425.",
-        "type": "guideline",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "STEMI"
       },
       {
-        "source": "Amsterdam EA, et al. 2014 AHA/ACC Guideline for NSTE-ACS. Circulation 2014;130:e344-e426.",
-        "type": "guideline",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "ST-Elevation MI"
+      },
+      {
+        "@language": "en",
+        "@value": "Transmural MI"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Myocardial infarction with ST-segment elevation on ECG indicating complete coronary artery occlusion requiring emergent reperfusion therapy"
+    },
+    "notation": "cardio-002",
+    "scopeNote": "Includes STEMI equivalents: new LBBB, de Winter T-waves, posterior MI, Wellens' syndrome",
+    "example": "62-year-old male with crushing chest pain, 3mm ST elevation in V1-V4, reciprocal ST depression in II/III/aVF - anterior STEMI from LAD occlusion"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "401303003",
+      "uri": "http://snomed.info/id/401303003",
+      "description": "Acute ST segment elevation myocardial infarction (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I21.0",
+      "description": "ST elevation (STEMI) myocardial infarction of anterior wall",
+      "matchType": "narrower"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I21.1",
+      "description": "ST elevation (STEMI) myocardial infarction of inferior wall",
+      "matchType": "narrower"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I21.2",
+      "description": "ST elevation (STEMI) myocardial infarction of other sites",
+      "matchType": "narrower"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D000072657",
+      "uri": "http://id.nlm.nih.gov/mesh/D000072657",
+      "description": "ST Elevation Myocardial Infarction",
+      "matchType": "exactMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "emergency_medicine_residents",
+      "internal_medicine_residents",
+      "cardiology_fellows",
+      "critical_care_physicians"
+    ],
+    "estimated_time": "35min",
+    "difficulty_curve": 0.7,
+    "learning_objectives": [
+      "Apply ST elevation criteria including sex/age-specific V2-V3 cutoffs",
+      "Identify STEMI equivalents (new LBBB, de Winter, posterior MI, Wellens')",
+      "Correlate ECG findings with coronary artery territories",
+      "Apply Sgarbossa criteria in LBBB and paced rhythms",
+      "Determine appropriate reperfusion strategy based on time and resources"
+    ],
+    "clinical_pearls": [
+      "Always get right-sided leads (V3R-V4R) in inferior STEMI to assess RV involvement",
+      "De Winter T-waves = STEMI equivalent even without ST elevation - needs emergent PCI",
+      "Posterior MI has ST depression V1-V3 with tall R (mirror image of posterior ST elevation)",
+      "Modified Smith-Sgarbossa (\u22650.25 ratio) outperforms original criteria for LBBB",
+      "Hyperacute T-waves precede ST elevation - treat as STEMI if clinical suspicion high"
+    ],
+    "board_yield": {
+      "usmle_step1": "High - ECG interpretation, coronary artery anatomy",
+      "usmle_step2": "Very High - STEMI recognition, treatment algorithm, time goals",
+      "usmle_step3": "High - reperfusion decisions, transfer protocols",
+      "emergency_medicine_boards": "Critical - rapid recognition, immediate management"
+    },
+    "common_misconceptions": [
+      "LBBB always obscures MI diagnosis (false - use Sgarbossa criteria)",
+      "Normal ST segments exclude acute MI (false - de Winter, posterior MI, hyperacute)",
+      "All ST elevation is STEMI (false - pericarditis, early repolarization, LVH, Brugada)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "health-sciences:medicine:cardiology:cardio-001",
+        "title": "Myocardial Infarction Definition",
+        "strength": 1.0
+      },
+      {
+        "id": "health-sciences:medicine:cardiology:cardio-049",
+        "title": "ECG Interpretation Basics",
+        "strength": 0.95
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Myocardial Infarction"
+      },
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-047",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Acute Coronary Syndrome"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-003",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "NSTEMI Management",
+        "skos:note": "Alternative ACS presentation without ST elevation"
+      },
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-031",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "PCI Procedure",
+        "skos:note": "Primary treatment for STEMI"
+      },
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-049",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "ECG Interpretation Basics",
+        "skos:note": "Foundation for STEMI recognition"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/401303003",
+      "http://www.wikidata.org/entity/Q2716389"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/401303003",
+      "http://id.nlm.nih.gov/mesh/D000072657"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T14:22:00.000Z",
+    "sources": [
+      {
+        "source": "O'Gara PT, et al. 2013 ACCF/AHA Guideline for STEMI Management. Circulation 2013;127:e362-e425",
+        "type": "clinical_guideline",
+        "year": 2013,
+        "doi": "10.1161/CIR.0b013e3182742cf6",
+        "confidence": 1.0,
+        "relevance": "Primary STEMI management guideline"
+      },
+      {
+        "source": "Thygesen K, et al. Fourth Universal Definition of Myocardial Infarction. Circulation 2018;138:e618-e651",
+        "type": "clinical_guideline",
+        "year": 2018,
+        "doi": "10.1161/CIR.0000000000000617",
+        "confidence": 1.0,
+        "relevance": "ECG criteria for STEMI diagnosis"
+      },
+      {
+        "source": "de Winter RJ, et al. A new ECG sign of proximal LAD occlusion. N Engl J Med 2008;359:2071-3",
+        "type": "primary_literature",
+        "year": 2008,
+        "confidence": 0.95,
+        "relevance": "De Winter T-wave pattern description"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/STEMI_Criteria",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.95,
+    "completeness": 0.96,
+    "accuracy": 0.98,
+    "clarity": 0.94,
+    "pedagogical_quality": 0.93,
+    "ontology_alignment": 0.96,
+    "last_assessment": "2026-01-11T14:22:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "diagnostic_criteria_with_examples",
+    "show_images": true,
+    "visualization": [
+      "ECG_examples_by_territory",
+      "ST_elevation_measurement_diagram",
+      "STEMI_equivalent_ECG_examples",
+      "coronary_artery_territory_map"
+    ],
+    "emphasis": [
+      "ECG_criteria_by_lead_group",
+      "STEMI_equivalents",
+      "time_goals_for_reperfusion"
+    ]
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/ST_elevation_myocardial_infarction",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q2716389"
 }

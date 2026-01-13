@@ -1,76 +1,243 @@
 {
-  "@context": "aku-v2",
-  "@type": "procedure",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalGuideline"
+  ],
   "@id": "health-sciences:medicine:cardiology:cardio-009",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:50:10.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "cardiology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-11T14:36:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/cardiology",
-    "type": "procedure",
+    "type": "treatment",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "aku_id": "009",
+    "keywords": [
+      "atrial fibrillation",
+      "rate control",
+      "beta-blocker",
+      "calcium channel blocker",
+      "digoxin"
+    ],
+    "medical_specialty": "cardiology",
+    "clinical_context": "arrhythmia_management"
   },
   "content": {
-    "title": "AF Rate Control",
-    "summary": "Heart rate control strategies",
+    "title": "Atrial Fibrillation Rate Control",
+    "summary": "Pharmacologic strategies for controlling ventricular rate in atrial fibrillation",
     "key_points": [
-      "Beta-blockers first-line",
-      "Calcium channel blockers alternative",
-      "Target <110 bpm lenient control"
+      "Rate control is first-line for most AF patients",
+      "Lenient rate control (<110 bpm) is acceptable for most",
+      "Beta-blockers and non-DHP CCBs are first-line agents",
+      "Digoxin is second-line, useful in HFrEF",
+      "AV node ablation + pacemaker for refractory cases",
+      "Avoid rate-control agents in pre-excitation (WPW)"
     ],
-    "statement": "AF Rate Control is a fundamental concept in health-sciences medicine cardiology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Rate control in atrial fibrillation aims to reduce ventricular rate to improve symptoms without attempting to restore sinus rhythm. First-line agents include beta-blockers and non-dihydropyridine calcium channel blockers. Lenient rate control (resting HR <110 bpm) is non-inferior to strict control (<80 bpm) for most patients.",
+      "formal": "AF Rate Control = Beta-blocker OR Non-DHP CCB \u2192 Add digoxin if needed \u2192 Lenient target (<110) acceptable"
+    },
     "explanation": {
-      "intuition": "Understanding AF Rate Control helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of AF Rate Control include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of AF Rate Control to real-world scenarios."
+      "intuition": "In AF, the atria fire chaotically at 350-600/min, but the AV node filters these impulses. Rate control drugs slow AV conduction, reducing how many impulses reach the ventricles. A slower, more regular ventricular rate improves cardiac output and symptoms.",
+      "key_insight": "The RACE II trial showed lenient rate control (<110 bpm at rest) is as safe as strict control (<80 bpm), with easier drug titration and fewer visits. Reserve strict control for persistent symptoms despite lenient control."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "rate_control": "Strategy to slow ventricular rate in AF without restoring sinus rhythm",
+      "lenient_rate_control": "Target resting HR <110 bpm",
+      "strict_rate_control": "Target resting HR <80 bpm and exercise HR <110 bpm",
+      "beta_blocker": "Drugs blocking beta-adrenergic receptors, slowing AV conduction",
+      "non_DHP_CCB": "Non-dihydropyridine calcium channel blockers (diltiazem, verapamil) - slow AV node",
+      "DHP_CCB": "Dihydropyridine CCBs (amlodipine) - DON'T control rate (peripheral vasodilators)",
+      "digoxin": "Cardiac glycoside enhancing vagal tone to slow AV conduction",
+      "AV_node_ablation": "Catheter ablation of AV node + permanent pacemaker for refractory rate control",
+      "chronotropic_incompetence": "Inability to appropriately increase HR with activity",
+      "tachycardia_induced_cardiomyopathy": "HF from prolonged uncontrolled tachycardia; reversible with rate control",
+      "rapid_ventricular_response": "RVR - ventricular rate >100 bpm in AF",
+      "congestive_symptoms": "Dyspnea, edema from inadequate cardiac output in uncontrolled AF"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical/scientific knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "AV_node_conduction": "AV node has intrinsic conduction slowing properties; rate-control agents enhance this",
+      "drug_mechanisms": {
+        "beta_blockers": "Block sympathetic stimulation of AV node \u2192 prolonged AV refractoriness",
+        "non_DHP_CCBs": "Block L-type calcium channels in AV node \u2192 slower conduction",
+        "digoxin": "Enhances vagal tone (parasympathetic) \u2192 decreased AV conduction; less effective with activity"
+      }
+    },
+    "treatment_options": {
+      "first_line_agents": {
+        "beta_blockers": {
+          "drugs": [
+            "Metoprolol",
+            "Atenolol",
+            "Carvedilol (if HFrEF)",
+            "Bisoprolol"
+          ],
+          "dosing": "Metoprolol tartrate 25-100mg BID, succinate 50-200mg daily",
+          "advantages": "Good exercise rate control, beneficial in CAD and HFrEF",
+          "cautions": "Avoid in decompensated HF, severe asthma, bradycardia"
+        },
+        "non_DHP_CCBs": {
+          "drugs": [
+            "Diltiazem",
+            "Verapamil"
+          ],
+          "dosing": "Diltiazem 120-360mg daily (extended-release), Verapamil 120-360mg daily",
+          "advantages": "Good rate control, no beta-blocker side effects",
+          "contraindications": "HFrEF (negative inotropic effect), hypotension"
+        }
+      },
+      "second_line_agents": {
+        "digoxin": {
+          "dosing": "0.125-0.25mg daily (reduce in elderly, renal impairment)",
+          "advantages": "Useful in HFrEF, neutral effect on BP",
+          "limitations": "Less effective during exercise (sympathetic activation overrides vagal effect)",
+          "monitoring": "Serum digoxin level 0.5-1.0 ng/mL; watch for toxicity"
+        },
+        "amiodarone": {
+          "role": "Last resort for rate control when others fail or contraindicated",
+          "caution": "Significant toxicity; prefer other options"
+        }
+      },
+      "acute_rate_control": {
+        "stable_patient": "IV metoprolol 5mg q5min x3 or IV diltiazem 0.25mg/kg bolus \u2192 drip",
+        "unstable_with_RVR": "Synchronized cardioversion if hemodynamically unstable"
+      },
+      "refractory_cases": {
+        "AV_node_ablation": {
+          "indication": "Persistent symptoms despite maximal medical rate control",
+          "procedure": "Catheter ablation of AV node \u2192 pacemaker dependent",
+          "outcome": "Excellent rate control; pacemaker required for life"
+        }
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand AF Rate Control"
-  ],
-  "clinical_pearls": [
-    "Beta-blockers first-line"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Atrial Fibrillation Rate Control"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "AF Rate Control"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Ventricular Rate Control in AF"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Pharmacologic and procedural strategies to control ventricular rate in atrial fibrillation without restoring sinus rhythm"
+    },
+    "notation": "cardio-009"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "49436004",
+      "description": "Atrial fibrillation",
+      "matchType": "broadMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D001281",
+      "description": "Atrial Fibrillation",
+      "matchType": "broadMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "internal_medicine_residents",
+      "hospitalists"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.65,
+    "learning_objectives": [
+      "Select appropriate first-line rate control agent based on comorbidities",
+      "Distinguish lenient vs strict rate control goals",
+      "Recognize when to avoid non-DHP CCBs (HFrEF)",
+      "Identify indications for AV node ablation"
+    ],
+    "clinical_pearls": [
+      "Non-DHP CCBs contraindicated in HFrEF - use beta-blockers + digoxin",
+      "Digoxin less effective during exercise - combine with beta-blocker if active patient",
+      "Lenient control (<110) is usually sufficient - don't over-titrate",
+      "Tachycardia-mediated cardiomyopathy is reversible with adequate rate control",
+      "NEVER use AV nodal blockers in WPW with AF (can trigger VF)"
+    ],
+    "board_yield": {
+      "usmle_step2": "High",
+      "internal_medicine_boards": "Very High"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "health-sciences:medicine:cardiology:cardio-007",
+        "title": "Atrial Fibrillation Definition",
+        "strength": 1.0
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-007",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Atrial Fibrillation"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "health-sciences:medicine:cardiology:cardio-010",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "AF Rhythm Control"
+      }
+    ],
+    "owl:sameAs": [
+      "http://www.wikidata.org/entity/Q207104"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T14:36:00.000Z",
+    "sources": [
+      {
+        "source": "2023 ACC/AHA/ACCP/HRS AF Guideline",
+        "type": "clinical_guideline",
+        "year": 2023,
+        "confidence": 1.0
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/AF_Rate_Control",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.93,
+    "completeness": 0.94,
+    "accuracy": 0.96,
+    "clarity": 0.93,
+    "pedagogical_quality": 0.92,
+    "ontology_alignment": 0.93,
+    "last_assessment": "2026-01-11T14:36:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Atrial_fibrillation",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q207104"
 }

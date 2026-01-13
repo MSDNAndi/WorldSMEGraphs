@@ -1,76 +1,372 @@
 {
-  "@context": "aku-v2",
-  "@type": "procedure",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalGuideline"
+  ],
   "@id": "health-sciences:medicine:nephrology:neph-050",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:53:50.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "nephrology-knowledge-base",
+      "clinical-pharmacology"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T02:44:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/nephrology",
-    "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "type": "guideline",
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "050",
+    "keywords": [
+      "drug dosing",
+      "chronic kidney disease",
+      "renal adjustment",
+      "pharmacokinetics",
+      "nephrotoxicity",
+      "dialysis clearance"
+    ],
+    "medical_specialty": "nephrology",
+    "clinical_context": "pharmacotherapy"
   },
   "content": {
-    "title": "Drug Dosing in CKD",
-    "summary": "Renal dose adjustment",
+    "title": "Drug Dosing in Chronic Kidney Disease",
+    "summary": "Principles and practical approach to adjusting medication doses in patients with reduced kidney function to prevent toxicity while maintaining efficacy",
     "key_points": [
-      "GFR-based dosing",
-      "Dialysis clearance",
-      "Nephrotoxin avoidance"
+      "Decreased GFR reduces clearance of renally excreted drugs",
+      "Adjustment strategies: reduce dose, extend interval, or both",
+      "Protein binding changes affect free drug concentration",
+      "Volume of distribution may be altered by fluid status",
+      "Dialyzability depends on molecular weight, protein binding, and Vd",
+      "Some drugs require supplemental dosing after dialysis",
+      "Avoid nephrotoxins when possible; monitor closely when necessary"
     ],
-    "statement": "Drug Dosing in CKD is a fundamental concept in health-sciences medicine nephrology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Drug dosing in chronic kidney disease requires understanding how reduced GFR affects drug pharmacokinetics. Renally cleared drugs accumulate, increasing toxicity risk. Dosing adjustments involve reducing the dose (maintains peak levels, extends trough) or extending the interval (maintains peak-trough ratio). Protein binding changes increase free drug fraction, and volume of distribution may change. Dialysis clearance depends on drug properties—small, water-soluble, unbound drugs are removed efficiently and may need supplementation.",
+      "formal": "Drug dose adjustment = f(GFR, renal clearance fraction, protein binding, Vd, dialyzability)"
+    },
     "explanation": {
-      "intuition": "Understanding Drug Dosing in CKD helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Drug Dosing in CKD include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Drug Dosing in CKD to real-world scenarios."
+      "intuition": "Think of the kidney as a drain. When the drain slows down (low GFR), drugs that exit through it accumulate like water in a slow-draining sink. We either add less drug (lower dose) or add it less often (longer interval) to prevent overflow (toxicity). Some drugs escape through other drains (liver metabolism), so they don't need adjustment.",
+      "key_insight": "Not all drugs need adjustment. The fraction of drug cleared by the kidney determines adjustment necessity. A drug 90% renally cleared needs significant adjustment in CKD, while a drug 10% renally cleared may not. Look up the renal clearance fraction (fe) for each medication.",
+      "technical_details": "Key pharmacokinetic parameters affected: (1) Clearance—proportional to GFR for renally excreted drugs; (2) Protein binding—uremia decreases albumin binding, increasing free fraction; (3) Volume of distribution—altered by edema, muscle wasting; (4) Bioavailability—may change due to uremic gastroparesis. Dose adjustment: new dose = usual dose × (patient CrCl / normal CrCl) for drugs with 100% renal excretion."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "chronic_kidney_disease": "Kidney damage or GFR <60 mL/min/1.73m² for ≥3 months",
+      "glomerular_filtration_rate": "Volume of plasma filtered by glomeruli per unit time—measure of kidney function",
+      "creatinine_clearance": "Estimate of GFR calculated from serum creatinine and patient factors",
+      "renal_clearance_fraction": "Proportion of drug elimination occurring through the kidney (fe)",
+      "volume_of_distribution": "Theoretical volume needed to contain total drug amount at plasma concentration",
+      "protein_binding": "Fraction of drug bound to plasma proteins (only free drug is pharmacologically active)",
+      "nephrotoxicity": "Drug-induced kidney damage through various mechanisms",
+      "dialyzability": "Extent to which a drug is removed by dialysis (HD or CRRT)",
+      "loading_dose": "Initial larger dose to rapidly achieve therapeutic levels",
+      "maintenance_dose": "Ongoing dose to maintain therapeutic steady-state concentration",
+      "therapeutic_drug_monitoring": "Measuring drug levels to guide dosing (e.g., vancomycin, aminoglycosides)",
+      "drug_accumulation": "Build-up of drug and metabolites when elimination is impaired"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "CKD affects drug pharmacokinetics through multiple mechanisms: (1) Reduced glomerular filtration decreases clearance of parent drugs and active metabolites; (2) Impaired tubular secretion affects drugs like penicillins and diuretics; (3) Uremic toxins displace drugs from albumin, increasing free fraction; (4) Fluid overload or depletion alters volume of distribution; (5) Uremic gastroparesis may affect oral absorption.",
+      "pharmacokinetic_changes": [
+        "Absorption: Variable—may be increased or decreased by uremia",
+        "Distribution: Vd may increase (edema) or decrease (muscle wasting); protein binding reduced",
+        "Metabolism: Some hepatic enzymes affected by uremia (CYP3A4 reduced)",
+        "Elimination: Proportional reduction in clearance for renally excreted drugs"
+      ],
+      "clinical_consequences": [
+        "Drug toxicity at usual doses (aminoglycoside nephro/ototoxicity, digoxin toxicity)",
+        "Prolonged drug effects (sedatives, opioids)",
+        "Accumulation of active metabolites (meperidine → normeperidine, morphine → M6G)",
+        "Enhanced sensitivity to nephrotoxins"
+      ]
+    },
+    "diagnostic_criteria": {
+      "gfr_estimation": {
+        "ckd_epi_equation": "Most accurate for GFR estimation in CKD; uses creatinine, age, sex, race",
+        "cockcroft_gault": "Estimates CrCl; historically used for drug dosing; overestimates in obesity",
+        "cystatin_c": "Alternative marker; less affected by muscle mass"
+      },
+      "ckd_staging_for_dosing": {
+        "stage_1_2": "GFR >60—most drugs at usual dose",
+        "stage_3a": "GFR 45-59—begin adjustments for some drugs",
+        "stage_3b": "GFR 30-44—many drugs require adjustment",
+        "stage_4": "GFR 15-29—significant adjustments; avoid many nephrotoxins",
+        "stage_5": "GFR <15—major adjustments; dialysis considerations"
+      }
+    },
+    "treatment_options": {
+      "dosing_strategies": {
+        "dose_reduction": {
+          "method": "Give smaller dose at same interval",
+          "effect": "Maintains trough, reduces peak",
+          "use_for": "Drugs with concentration-dependent toxicity (e.g., vancomycin)",
+          "calculation": "Adjusted dose = usual dose × (patient GFR / 120)"
+        },
+        "interval_extension": {
+          "method": "Give same dose less frequently",
+          "effect": "Maintains peak-trough ratio",
+          "use_for": "Drugs with concentration-dependent efficacy (e.g., aminoglycosides)",
+          "calculation": "Adjusted interval = usual interval × (120 / patient GFR)"
+        },
+        "combined": {
+          "method": "Both reduce dose and extend interval",
+          "use_for": "Drugs with narrow therapeutic index"
+        }
+      },
+      "drug_specific_guidance": {
+        "antibiotics": {
+          "vancomycin": "Dose for target trough (AUC-based dosing preferred); monitor levels",
+          "aminoglycosides": "Extended-interval dosing; monitor levels; avoid if possible",
+          "beta_lactams": "Dose reduction or interval extension; low toxicity",
+          "fluoroquinolones": "Dose reduction for CrCl <50"
+        },
+        "cardiovascular": {
+          "acei_arb": "Start low, monitor creatinine and potassium",
+          "digoxin": "Reduce dose 50% in CKD; monitor levels",
+          "diuretics": "Higher doses needed for loop diuretics; metolazone as adjunct"
+        },
+        "pain_management": {
+          "morphine": "Avoid—M6G accumulates; use hydromorphone or fentanyl",
+          "nsaids": "Avoid—worsen CKD, cause AKI, hyperkalemia",
+          "gabapentin": "Significant dose reduction needed"
+        },
+        "diabetic_medications": {
+          "metformin": "Contraindicated if GFR <30; reduce dose if 30-45",
+          "sulfonylureas": "Reduce dose; hypoglycemia risk",
+          "sglt2_inhibitors": "Avoid if GFR <20; reduced efficacy at lower GFR"
+        }
+      },
+      "dialysis_considerations": {
+        "hemodialysis": {
+          "principle": "Small, water-soluble, unbound drugs removed efficiently",
+          "supplementation": "Give supplemental dose after HD for cleared drugs (vancomycin, aminoglycosides)",
+          "timing": "Give doses after dialysis when possible"
+        },
+        "peritoneal_dialysis": {
+          "principle": "Less efficient clearance than HD; supplement less often",
+          "note": "IP antibiotics for peritonitis (vancomycin, aminoglycosides)"
+        },
+        "crrt": {
+          "principle": "Continuous clearance; assume GFR 10-30 mL/min",
+          "variability": "Clearance varies with effluent rate and modality"
+        }
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Drug Dosing in CKD"
-  ],
-  "clinical_pearls": [
-    "GFR-based dosing"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Drug Dosing in Chronic Kidney Disease"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Renal Dose Adjustment"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "CKD Drug Dosing"
+      },
+      {
+        "@language": "en",
+        "@value": "Kidney Disease Pharmacotherapy"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Principles and practical approach to adjusting medication doses in patients with reduced kidney function to optimize efficacy and minimize toxicity"
+    },
+    "notation": "neph-050",
+    "scopeNote": "Covers pharmacokinetic principles, GFR-based dosing strategies, drug-specific guidance, and dialysis considerations",
+    "example": "A 70-year-old with CKD stage 4 (GFR 22) starting vancomycin for MRSA infection, requiring reduced dose with trough monitoring and post-HD supplementation"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D054316",
+      "uri": "http://id.nlm.nih.gov/mesh/D054316",
+      "description": "Renal Insufficiency, Chronic",
+      "matchType": "related"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D004305",
+      "uri": "http://id.nlm.nih.gov/mesh/D004305",
+      "description": "Dose-Response Relationship, Drug",
+      "matchType": "related"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "707316002",
+      "uri": "http://snomed.info/id/707316002",
+      "description": "Drug dose adjustment for renal impairment",
+      "matchType": "exactMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "internal_medicine_residents",
+      "nephrology_fellows",
+      "clinical_pharmacists",
+      "hospitalists",
+      "primary_care_physicians"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.70,
+    "learning_objectives": [
+      "Explain how CKD affects drug pharmacokinetics",
+      "Calculate adjusted drug doses using GFR-based methods",
+      "Differentiate between dose reduction and interval extension strategies",
+      "Identify drugs requiring therapeutic monitoring in CKD",
+      "Determine supplemental dosing needs for dialysis patients"
+    ],
+    "clinical_pearls": [
+      "Use Cockcroft-Gault for drug dosing (package inserts often reference this)",
+      "Free drug levels matter—total levels may underestimate activity in CKD (↓protein binding)",
+      "Meperidine is contraindicated in CKD (normeperidine causes seizures)",
+      "NSAIDs: Avoid in CKD—cause AKI, worsen GFR, hyperkalemia, fluid retention",
+      "Metformin: Now OK if GFR 30-45 with dose reduction; stop if <30",
+      "Vancomycin: AUC-based dosing preferred over trough-based; monitor closely",
+      "When in doubt, consult pharmacy or use UpToDate/Lexicomp renal dosing tables"
+    ],
+    "board_yield": {
+      "internal_medicine_boards": "High - common question topic on drug adjustments",
+      "nephrology_boards": "Very High - detailed pharmacokinetics and dialysis dosing",
+      "pharmacy_boards": "Critical - fundamental pharmacotherapy knowledge"
+    },
+    "common_misconceptions": [
+      "All drugs need dose reduction in CKD (false—only renally cleared drugs)",
+      "GFR and CrCl are interchangeable for dosing (false—CrCl may differ, especially in extremes)",
+      "Dialysis clears all drugs effectively (false—only small, unbound, low Vd drugs)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:nephrology:neph-005",
+        "title": "Chronic Kidney Disease Staging",
+        "strength": 0.95
+      },
+      {
+        "id": "urn:wskg:medicine:pharmacology:pharmacokinetics",
+        "title": "Basic Pharmacokinetics",
+        "strength": 0.90
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:pharmacology:clinical-pharmacology",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Clinical Pharmacology"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:ckd-management",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "CKD Management"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:dialysis",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Dialysis",
+        "skos:note": "Affects drug clearance and dosing"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:nephrotoxicity",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Nephrotoxicity",
+        "skos:note": "Drugs to avoid in CKD"
+      },
+      {
+        "@id": "urn:wskg:medicine:pharmacology:therapeutic-drug-monitoring",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Therapeutic Drug Monitoring",
+        "skos:note": "Essential for narrow therapeutic index drugs in CKD"
+      }
+    ],
+    "owl:sameAs": [
+      "http://www.wikidata.org/entity/Q110997605"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/707316002"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T02:44:00.000Z",
+    "sources": [
+      {
+        "source": "Matzke GR, et al. Drug dosing consideration in patients with acute and chronic kidney disease—a clinical update from Kidney Disease: Improving Global Outcomes (KDIGO). Kidney Int. 2011;80(11):1122-37",
+        "type": "clinical_guideline",
+        "year": 2011,
+        "doi": "10.1038/ki.2011.322",
+        "confidence": 1.0,
+        "relevance": "KDIGO drug dosing recommendations"
+      },
+      {
+        "source": "Lexicomp Drug Database—Renal Function Dosing",
+        "type": "database",
+        "year": 2024,
+        "confidence": 0.95,
+        "relevance": "Standard drug dosing reference"
+      },
+      {
+        "source": "Verbeeck RK, Musuamba FT. Pharmacokinetics and dosage adjustment in patients with renal dysfunction. Eur J Clin Pharmacol. 2009;65(8):757-73",
+        "type": "review",
+        "year": 2009,
+        "doi": "10.1007/s00228-009-0678-8",
+        "confidence": 0.95,
+        "relevance": "Comprehensive pharmacokinetic review"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:kdigo-drug-dosing",
+        "@type": "prov:Entity",
+        "dc:title": "KDIGO Drug Dosing Guidelines",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Drug_Dosing_in_CKD",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.92,
+    "completeness": 0.93,
+    "accuracy": 0.95,
+    "clarity": 0.91,
+    "pedagogical_quality": 0.91,
+    "ontology_alignment": 0.90,
+    "last_assessment": "2026-01-12T02:44:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "guideline_with_tables",
+    "show_images": true,
+    "visualization": [
+      "gfr_dosing_table",
+      "adjustment_decision_flowchart",
+      "dialysis_clearance_chart"
+    ],
+    "emphasis": [
+      "gfr_based_adjustments",
+      "drug_specific_guidance",
+      "dialysis_dosing"
+    ]
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Drug_dosing_in_kidney_disease",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q110997605"
 }

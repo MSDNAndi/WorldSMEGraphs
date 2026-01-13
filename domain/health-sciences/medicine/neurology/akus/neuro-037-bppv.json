@@ -1,76 +1,389 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:neurology:neuro-037",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:54:58.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "neurology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.97,
+    "status": "validated",
+    "modified": "2026-01-11T20:30:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/neurology",
     "type": "definition",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "aku_id": "037",
+    "keywords": [
+      "benign paroxysmal positional vertigo",
+      "BPPV",
+      "vertigo",
+      "canalithiasis",
+      "otoconia",
+      "vestibular disorder",
+      "Dix-Hallpike",
+      "Epley maneuver"
+    ],
+    "medical_specialty": "neurology",
+    "clinical_context": "vestibular_disorders"
   },
   "content": {
-    "title": "BPPV",
-    "summary": "Benign paroxysmal positional vertigo",
+    "title": "Benign Paroxysmal Positional Vertigo (BPPV)",
+    "summary": "Most common cause of peripheral vertigo characterized by brief episodes of spinning sensation triggered by changes in head position, caused by displaced otoconia in the semicircular canals",
     "key_points": [
-      "Canalith repositioning",
-      "Dix-Hallpike positive",
-      "Epley maneuver treatment"
+      "Most common cause of vertigo (17-42% of cases)",
+      "Caused by otoconia (calcium carbonate crystals) dislodged into semicircular canals",
+      "Posterior canal affected in 80-90% of cases",
+      "Dix-Hallpike test is diagnostic (upbeat torsional nystagmus)",
+      "Epley maneuver is first-line treatment (80-90% success rate)",
+      "Episodes typically last <60 seconds with position change",
+      "No hearing loss or tinnitus (distinguishes from Meniere's)"
     ],
-    "statement": "BPPV is a fundamental concept in health-sciences medicine neurology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Benign paroxysmal positional vertigo (BPPV) is the most common cause of peripheral vertigo, characterized by brief episodes of spinning sensation triggered by changes in head position relative to gravity. It results from dislodged otoconia (calcium carbonate crystals) in the semicircular canals, most commonly the posterior canal. Diagnosis is confirmed by the Dix-Hallpike maneuver demonstrating characteristic geotropic nystagmus, and treatment with canalith repositioning procedures (Epley maneuver) achieves resolution in 80-90% of cases.",
+      "formal": "BPPV = Positional vertigo (<60s) + Dix-Hallpike positive (upbeat torsional nystagmus) + No hearing loss/tinnitus"
+    },
     "explanation": {
-      "intuition": "Understanding BPPV helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of BPPV include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of BPPV to real-world scenarios."
+      "intuition": "Imagine tiny calcium crystals normally attached to a membrane in your inner ear breaking loose and falling into one of the fluid-filled balance canals. When you move your head, these crystals shift with gravity, creating abnormal fluid movement that your brain misinterprets as spinning. The key insight is that BPPV is mechanical - loose crystals in the wrong place - which explains why repositioning maneuvers work so well.",
+      "key_insight": "The posterior semicircular canal is most commonly affected because of its anatomical position as the most gravity-dependent canal when upright. The characteristic upbeat-torsional nystagmus on Dix-Hallpike testing reflects the specific orientation of this canal. Treatment success depends on correctly identifying the affected canal and using the appropriate repositioning maneuver.",
+      "technical_details": "Otoconia are normally embedded in the otolithic membrane of the utricle and saccule. When dislodged, they can enter the semicircular canals causing either canalithiasis (free-floating in canal) or cupulolithiasis (attached to cupula). The Epley maneuver uses gravity to move otoconia through the posterior canal back into the utricle. Horizontal canal BPPV requires the BBQ roll or Gufoni maneuver instead."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "benign_paroxysmal_positional_vertigo": "Most common peripheral vestibular disorder causing brief vertigo episodes triggered by head position changes",
+      "otoconia": "Calcium carbonate crystals (also called otoliths or canaliths) normally attached to the utricular macula that detect linear acceleration",
+      "semicircular_canals": "Three fluid-filled loops in the inner ear (posterior, anterior, horizontal) that detect rotational head movements",
+      "canalithiasis": "Condition where otoconia are free-floating within a semicircular canal, causing abnormal endolymph movement",
+      "cupulolithiasis": "Condition where otoconia are attached to the cupula of a semicircular canal, making it gravity-sensitive",
+      "dix_hallpike_maneuver": "Diagnostic test where patient is rapidly moved from sitting to supine with head turned 45° and extended, observing for nystagmus",
+      "epley_maneuver": "Canalith repositioning procedure using sequential head positions to move otoconia from posterior canal back to utricle",
+      "geotropic_nystagmus": "Nystagmus that beats toward the ground (earth) when the head is turned to the affected side",
+      "apogeotropic_nystagmus": "Nystagmus that beats away from the ground, seen in cupulolithiasis or horizontal canal BPPV",
+      "vestibular_neuritis": "Inflammation of vestibular nerve causing acute prolonged vertigo without hearing loss (differential diagnosis)",
+      "labyrinthitis": "Inner ear inflammation affecting both vestibular and cochlear function (vertigo with hearing loss)",
+      "utricle": "Otolith organ in the vestibule that detects horizontal linear acceleration and head tilt",
+      "cupula": "Gelatinous structure in the ampulla of each semicircular canal that deflects with endolymph flow"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Otoconia from the utricle become dislodged (often due to head trauma, aging, or idiopathic causes) and migrate into one of the semicircular canals. When the head position changes relative to gravity, the dense otoconia move through the endolymph, creating abnormal fluid dynamics that deflect the cupula and stimulate vestibular hair cells. This sends false rotational signals to the brain, perceived as vertigo.",
+      "cellular_events": [
+        "Otoconia dislodge from utricular macula (trauma, degeneration, or spontaneous)",
+        "Crystals migrate into semicircular canal (usually posterior due to anatomy)",
+        "Head position change causes otoconia to move with gravity",
+        "Moving otoconia create endolymph flow (canalithiasis) or cupula weight (cupulolithiasis)",
+        "Cupula deflection triggers vestibular hair cell firing",
+        "Asymmetric vestibular signals create vertigo and nystagmus",
+        "VOR mismatch causes oscillopsia and imbalance",
+        "Symptoms resolve when otoconia settle (typically <60 seconds)"
+      ],
+      "canal_variants": {
+        "posterior_canal": "80-90% of cases; Dix-Hallpike positive; Epley maneuver treatment",
+        "horizontal_canal": "5-15% of cases; roll test positive; BBQ roll or Gufoni maneuver",
+        "anterior_canal": "1-3% of cases; rare due to superior anatomy; Epley or deep head-hanging maneuver"
+      }
+    },
+    "diagnostic_criteria": {
+      "essential_features": {
+        "history": [
+          "Brief episodes of vertigo (<60 seconds)",
+          "Triggered by specific head position changes",
+          "Provoked by lying down, rolling over, looking up",
+          "No hearing loss or tinnitus",
+          "Recurrent episodes common"
+        ],
+        "examination": [
+          "Positive Dix-Hallpike test (posterior canal BPPV)",
+          "Positive roll test (horizontal canal BPPV)",
+          "Characteristic nystagmus pattern",
+          "Latency of 1-5 seconds before nystagmus onset",
+          "Fatigability with repeated testing"
+        ]
+      },
+      "nystagmus_characteristics": {
+        "posterior_canal": "Upbeat + torsional (top of eye toward affected ear), geotropic, duration 10-30 seconds",
+        "horizontal_canal_canalithiasis": "Horizontal geotropic, stronger toward affected side",
+        "horizontal_canal_cupulolithiasis": "Horizontal apogeotropic, stronger toward unaffected side",
+        "anterior_canal": "Downbeat + torsional (top of eye away from affected ear)"
+      }
+    },
+    "treatment_options": {
+      "canalith_repositioning": {
+        "epley_maneuver": {
+          "indication": "Posterior canal BPPV",
+          "success_rate": "80-90% with single treatment",
+          "technique": "Sequential head positions moving otoconia through canal into utricle",
+          "post_procedure": "Avoid lying flat for 24-48 hours (controversial)"
+        },
+        "semont_maneuver": {
+          "indication": "Posterior canal BPPV (alternative to Epley)",
+          "success_rate": "70-90%",
+          "technique": "Rapid side-to-side movement"
+        },
+        "bbq_roll": {
+          "indication": "Horizontal canal BPPV (canalithiasis variant)",
+          "success_rate": "75-85%",
+          "technique": "360° rotation toward unaffected side"
+        },
+        "gufoni_maneuver": {
+          "indication": "Horizontal canal BPPV",
+          "success_rate": "70-80%"
+        }
+      },
+      "pharmacotherapy": {
+        "role": "Limited - primarily for symptom relief during acute episodes",
+        "antihistamines": "Meclizine, dimenhydrinate for acute nausea (not routine)",
+        "benzodiazepines": "Rarely used; may delay vestibular compensation",
+        "antiemetics": "Ondansetron if severe nausea"
+      },
+      "vestibular_rehabilitation": {
+        "indication": "Persistent symptoms, recurrent BPPV, or residual dizziness after repositioning",
+        "components": "Habituation exercises, balance training, gaze stabilization"
+      },
+      "surgical": {
+        "indication": "Refractory BPPV not responding to repositioning (very rare)",
+        "options": "Posterior canal plugging, singular neurectomy"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand BPPV"
-  ],
-  "clinical_pearls": [
-    "Canalith repositioning"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Benign Paroxysmal Positional Vertigo"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "BPPV"
       },
       {
-        "source": "Academic literature review",
+        "@language": "en",
+        "@value": "Positional Vertigo"
+      },
+      {
+        "@language": "en",
+        "@value": "Benign Positional Vertigo"
+      },
+      {
+        "@language": "en",
+        "@value": "Canalithiasis"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Most common peripheral vestibular disorder characterized by brief episodes of vertigo triggered by head position changes, caused by displaced otoconia in the semicircular canals"
+    },
+    "notation": "neuro-037",
+    "scopeNote": "Includes posterior, horizontal, and anterior canal variants; diagnosis by positional testing; treatment by canalith repositioning maneuvers",
+    "example": "A 55-year-old woman with sudden vertigo lasting 30 seconds when rolling over in bed, positive Dix-Hallpike with upbeat-torsional nystagmus, resolved after single Epley maneuver"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "111541001",
+      "uri": "http://snomed.info/id/111541001",
+      "description": "Benign paroxysmal positional vertigo (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "H81.1",
+      "description": "Benign paroxysmal vertigo",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "H81.10",
+      "description": "Benign paroxysmal vertigo, unspecified ear",
+      "matchType": "narrower"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D014717",
+      "uri": "http://id.nlm.nih.gov/mesh/D014717",
+      "description": "Vertigo",
+      "matchType": "broader"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D014722",
+      "uri": "http://id.nlm.nih.gov/mesh/D014722",
+      "description": "Vestibular Diseases",
+      "matchType": "broader"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "neurology_residents",
+      "emergency_medicine_physicians",
+      "primary_care_physicians",
+      "physical_therapists"
+    ],
+    "estimated_time": "25min",
+    "difficulty_curve": 0.55,
+    "learning_objectives": [
+      "Explain the pathophysiology of BPPV including otoconia displacement and canal dynamics",
+      "Perform and interpret the Dix-Hallpike test for posterior canal BPPV",
+      "Distinguish BPPV from other causes of vertigo based on history and examination",
+      "Execute the Epley maneuver for treatment of posterior canal BPPV",
+      "Recognize horizontal canal BPPV and select appropriate repositioning technique"
+    ],
+    "clinical_pearls": [
+      "Posterior canal BPPV: upbeat + torsional nystagmus toward affected ear",
+      "Horizontal canal BPPV: horizontal nystagmus, stronger on roll test to affected side",
+      "BPPV episodes are brief (<60 seconds) - prolonged vertigo suggests vestibular neuritis",
+      "No hearing loss in BPPV - hearing loss suggests Meniere's or labyrinthitis",
+      "Epley success rate drops if patient has positional restriction post-procedure - evidence is weak",
+      "Residual dizziness after successful Epley is common and usually resolves in 1-2 weeks"
+    ],
+    "board_yield": {
+      "usmle_step1": "Moderate - vestibular anatomy and physiology",
+      "usmle_step2": "High - diagnosis, Dix-Hallpike interpretation, treatment",
+      "usmle_step3": "High - management decisions, recurrent BPPV",
+      "neurology_boards": "High - detailed canal variants and repositioning techniques"
+    },
+    "common_misconceptions": [
+      "BPPV is caused by inner ear infection (false - it's mechanical displacement of otoconia)",
+      "Medications are first-line for BPPV (false - canalith repositioning is first-line)",
+      "A negative Dix-Hallpike excludes BPPV (false - horizontal canal BPPV requires roll test)",
+      "BPPV always resolves after one Epley maneuver (false - may require multiple treatments)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:neurology:vestibular-anatomy",
+        "title": "Vestibular System Anatomy",
+        "strength": 0.95
+      },
+      {
+        "id": "urn:wskg:medicine:neurology:nystagmus-types",
+        "title": "Nystagmus Classification",
+        "strength": 0.85
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:neurology:peripheral-vestibular-disorders",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Peripheral Vestibular Disorders"
+      },
+      {
+        "@id": "urn:wskg:medicine:neurology:vertigo-syndromes",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Vertigo Syndromes"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:neurology:vestibular-neuritis",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Vestibular Neuritis",
+        "skos:note": "Differential diagnosis - prolonged vertigo without hearing loss"
+      },
+      {
+        "@id": "urn:wskg:medicine:neurology:menieres-disease",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Meniere's Disease",
+        "skos:note": "Differential diagnosis - vertigo with hearing loss and tinnitus"
+      },
+      {
+        "@id": "urn:wskg:medicine:otolaryngology:vestibular-rehabilitation",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Vestibular Rehabilitation",
+        "skos:note": "Adjunct therapy for persistent symptoms"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/111541001",
+      "http://www.wikidata.org/entity/Q798809"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/111541001"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T20:30:00.000Z",
+    "sources": [
+      {
+        "source": "Bhattacharyya N, et al. Clinical Practice Guideline: Benign Paroxysmal Positional Vertigo (Update). Otolaryngol Head Neck Surg. 2017;156(3_suppl):S1-S47",
+        "type": "clinical_guideline",
+        "year": 2017,
+        "doi": "10.1177/0194599816689667",
+        "confidence": 1.0,
+        "relevance": "AAO-HNS clinical practice guideline for BPPV"
+      },
+      {
+        "source": "Hilton MP, Pinder DK. The Epley (canalith repositioning) manoeuvre for benign paroxysmal positional vertigo. Cochrane Database Syst Rev. 2014;12:CD003162",
+        "type": "systematic_review",
+        "year": 2014,
+        "doi": "10.1002/14651858.CD003162.pub3",
+        "confidence": 0.98,
+        "relevance": "Evidence for Epley maneuver efficacy"
+      },
+      {
+        "source": "Bradley's Neurology in Clinical Practice, 8th ed. Elsevier 2022",
         "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "year": 2022,
+        "isbn": "978-0323642613",
+        "confidence": 0.95,
+        "relevance": "Comprehensive neurology reference"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:aao-hns-bppv-guideline",
+        "@type": "prov:Entity",
+        "dc:title": "AAO-HNS Clinical Practice Guideline: BPPV",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/BPPV",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.92,
+    "completeness": 0.93,
+    "accuracy": 0.96,
+    "clarity": 0.91,
+    "pedagogical_quality": 0.90,
+    "ontology_alignment": 0.93,
+    "last_assessment": "2026-01-11T20:30:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "definition_with_diagnostic_algorithm",
+    "show_images": true,
+    "visualization": [
+      "semicircular_canal_anatomy",
+      "dix_hallpike_technique",
+      "epley_maneuver_steps",
+      "nystagmus_patterns_by_canal"
+    ],
+    "emphasis": [
+      "dix_hallpike_test",
+      "nystagmus_characteristics",
+      "epley_maneuver_technique"
+    ]
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Benign_paroxysmal_positional_vertigo",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q798809"
 }

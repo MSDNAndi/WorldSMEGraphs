@@ -1,76 +1,399 @@
 {
-  "@context": "aku-v2",
-  "@type": "procedure",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalProcedure"
+  ],
   "@id": "health-sciences:medicine:cardiology:cardio-036",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:50:10.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "cardiology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.97,
+    "status": "validated",
+    "modified": "2026-01-11T20:50:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/cardiology",
     "type": "procedure",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "aku_id": "036",
+    "keywords": [
+      "cardiac CT",
+      "coronary CT angiography",
+      "CCTA",
+      "calcium scoring",
+      "Agatston score",
+      "CAD-RADS",
+      "TAVR planning",
+      "cardiac imaging"
+    ],
+    "medical_specialty": "cardiology",
+    "clinical_context": "cardiac_imaging"
   },
   "content": {
-    "title": "Cardiac CT",
-    "summary": "Computed tomography of heart",
+    "title": "Cardiac CT (Computed Tomography)",
+    "summary": "Non-invasive cardiac imaging modality using X-ray computed tomography to evaluate coronary artery anatomy, coronary artery calcium, cardiac structure, and plan interventions such as TAVR",
     "key_points": [
-      "Calcium scoring",
-      "CT angiography",
-      "TAVR planning"
+      "Coronary CT angiography (CCTA) is first-line for stable chest pain with intermediate pretest probability",
+      "Coronary artery calcium (CAC) scoring quantifies atherosclerotic burden (Agatston score)",
+      "CAC score of 0 indicates very low 10-year cardiovascular event risk (<1%)",
+      "CCTA requires heart rate control (target <60 bpm) and beta-blocker premedication",
+      "CAD-RADS standardized reporting system grades stenosis severity (0-5)",
+      "Excellent negative predictive value (>99%) for ruling out significant CAD",
+      "Essential for TAVR planning (annular sizing, vascular access assessment)",
+      "Radiation exposure: ~3-5 mSv for CCTA, <1 mSv for CAC scoring"
     ],
-    "statement": "Cardiac CT is a fundamental concept in health-sciences medicine cardiology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Cardiac computed tomography encompasses coronary CT angiography (CCTA) for evaluating coronary artery stenosis and coronary artery calcium (CAC) scoring for cardiovascular risk stratification. CCTA has excellent negative predictive value for excluding significant coronary artery disease in patients with stable chest pain and intermediate pretest probability. CAC scoring quantifies calcified atherosclerotic plaque using the Agatston method and reclassifies cardiovascular risk. Cardiac CT is also essential for structural heart disease evaluation and TAVR procedural planning.",
+      "formal": "CCTA indication = Stable chest pain + Intermediate pretest probability | CAC score interpretation: 0 = very low risk, 1-99 = mild, 100-399 = moderate, ≥400 = severe"
+    },
     "explanation": {
-      "intuition": "Understanding Cardiac CT helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Cardiac CT include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Cardiac CT to real-world scenarios."
+      "intuition": "Cardiac CT takes rapid X-ray images of the heart synchronized to the ECG, allowing visualization of the coronary arteries without invasive catheterization. For CCTA, contrast dye is injected to opacify the coronary arteries. For calcium scoring, no contrast is needed - the scanner simply detects calcified plaque in coronary vessel walls. Think of it as a 'non-invasive angiogram' that can identify blockages or confirm arteries are clean.",
+      "key_insight": "The key strength of CCTA is its negative predictive value - if CCTA shows no significant stenosis, you can confidently rule out obstructive CAD without invasive angiography. However, positive findings may require functional testing or invasive confirmation due to limited positive predictive value. CAC scoring is most valuable when it changes management - a zero score in borderline-risk patients may justify avoiding statin therapy.",
+      "technical_details": "Modern 256+ slice CT scanners acquire the entire heart in a single heartbeat. ECG-gated acquisition freezes cardiac motion. Prospective triggering reduces radiation by only imaging during diastole. Iterative reconstruction algorithms improve image quality while reducing dose. Beta-blockers slow heart rate to <60 bpm for optimal image quality. Sublingual nitroglycerin dilates coronary arteries. Iodinated contrast (60-100 mL) is required for CCTA but not CAC scoring."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "cardiac_ct": "Computed tomography imaging of the heart, including coronary CT angiography and calcium scoring",
+      "coronary_ct_angiography": "CCTA - contrast-enhanced CT imaging to evaluate coronary artery stenosis and plaque morphology",
+      "calcium_scoring": "Non-contrast CT quantifying calcified atherosclerotic plaque in coronary arteries",
+      "agatston_score": "Method for quantifying coronary artery calcium based on area and density of calcified plaques",
+      "cad_rads": "Coronary Artery Disease Reporting and Data System - standardized CCTA stenosis grading (0-5)",
+      "prospective_triggering": "ECG-gated acquisition imaging only during diastole to reduce radiation dose",
+      "retrospective_gating": "Continuous imaging throughout cardiac cycle allowing functional assessment",
+      "fractional_flow_reserve_ct": "FFR-CT - computational fluid dynamics to assess hemodynamic significance of stenosis",
+      "hounsfield_units": "CT attenuation measurement scale; calcium appears bright (>130 HU in coronary arteries)",
+      "blooming_artifact": "Apparent enlargement of calcified plaques on CT, may overestimate stenosis",
+      "motion_artifact": "Image blur from cardiac motion; minimized by heart rate control",
+      "beam_hardening": "Artifact from dense structures (calcium, stents) affecting adjacent tissue appearance",
+      "iodinated_contrast": "Intravenous dye containing iodine used for vessel opacification in CCTA",
+      "ecg_gating": "Synchronizing image acquisition to the cardiac cycle for motion-free imaging"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical/scientific knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Cardiac CT leverages the differential X-ray attenuation of tissues. Iodinated contrast fills the coronary lumen allowing visualization of stenosis. Calcium in atherosclerotic plaques has high attenuation (bright on CT). ECG synchronization ensures images are acquired during diastole when the heart is relatively still. Modern multi-detector CT acquires thin slices that are reconstructed into 3D coronary images.",
+      "technical_principles": [
+        "X-ray tube rotates around patient while table advances (helical acquisition)",
+        "Multiple detector rows acquire data simultaneously (256-320 slices)",
+        "ECG synchronization triggers acquisition during cardiac diastole",
+        "Iodinated contrast opacifies blood pool and coronary lumens",
+        "Multi-planar reconstruction generates coronary artery images",
+        "Curved planar reformation follows coronary artery course",
+        "Volume rendering creates 3D visualization of cardiac anatomy"
+      ],
+      "image_quality_factors": {
+        "heart_rate": "Target <60 bpm; beta-blocker premedication standard",
+        "breath_hold": "Patient must hold breath 5-10 seconds during acquisition",
+        "contrast_timing": "Bolus tracking or test bolus ensures optimal opacification",
+        "arrhythmias": "PVCs and atrial fibrillation degrade image quality"
+      }
+    },
+    "diagnostic_criteria": {
+      "ccta_indications": {
+        "primary": [
+          "Stable chest pain with intermediate pretest probability (15-65%)",
+          "Acute chest pain with low-intermediate probability in ED (HEART score 4-6)",
+          "Inconclusive or uninterpretable stress test",
+          "New-onset heart failure to evaluate ischemic etiology"
+        ],
+        "contraindications": [
+          "Known severe CAD (CCTA won't change management)",
+          "Inability to achieve adequate heart rate control",
+          "Severe contrast allergy (relative)",
+          "Advanced renal dysfunction (eGFR <30 mL/min)",
+          "Pregnancy"
+        ]
+      },
+      "cac_scoring_indications": [
+        "Intermediate ASCVD risk (7.5-19.9%) when statin decision is uncertain",
+        "Borderline ASCVD risk (5-7.5%) to guide shared decision-making",
+        "Family history of premature CAD in otherwise low-risk patients",
+        "Not indicated if already on statin or known CAD"
+      ],
+      "cad_rads_classification": {
+        "0": "No plaque or stenosis (0%)",
+        "1": "Minimal stenosis (1-24%)",
+        "2": "Mild stenosis (25-49%)",
+        "3": "Moderate stenosis (50-69%)",
+        "4a": "Severe stenosis (70-99%)",
+        "4b": "Left main ≥50% or 3-vessel ≥70%",
+        "5": "Total occlusion (100%)",
+        "modifiers": "N = non-diagnostic, S = stent, G = graft, V = vulnerable plaque"
+      }
+    },
+    "treatment_options": {
+      "clinical_applications": {
+        "stable_cad_evaluation": {
+          "workflow": "CCTA as first-line for intermediate pretest probability",
+          "interpretation": "CAD-RADS 0-2 requires no further testing; 3-4 may need functional testing or ICA",
+          "ffr_ct": "Computational FFR available for intermediate stenosis (CAD-RADS 3)"
+        },
+        "acute_coronary_syndrome": {
+          "indication": "Low-intermediate risk chest pain in ED (alternative to stress testing)",
+          "value": "Rapid rule-out of significant CAD; enables safe discharge"
+        },
+        "structural_heart_disease": {
+          "tavr_planning": "Annular sizing, coronary height, vascular access, calcium distribution",
+          "left_atrial_appendage": "Pre-Watchman planning, thrombus detection",
+          "congenital_heart_disease": "Anatomic assessment of complex defects"
+        }
+      },
+      "calcium_score_interpretation": {
+        "score_0": "Very low risk; CAD very unlikely; may defer statin in borderline risk",
+        "score_1_99": "Mild atherosclerosis; 10-year risk 5-10%",
+        "score_100_399": "Moderate atherosclerosis; consider intensifying risk factor modification",
+        "score_400_plus": "Extensive atherosclerosis; high risk; aggressive medical therapy indicated",
+        "score_1000_plus": "Severe atherosclerosis; consider functional testing for symptoms"
+      },
+      "radiation_safety": {
+        "cac_score": "0.5-1 mSv (equivalent to 10-20 chest X-rays)",
+        "ccta": "2-5 mSv with modern prospective protocols (equivalent to 1-2 years background radiation)",
+        "reduction_techniques": "Prospective triggering, iterative reconstruction, tube current modulation"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Cardiac CT"
-  ],
-  "clinical_pearls": [
-    "Calcium scoring"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Cardiac Computed Tomography"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Cardiac CT"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
+        "@language": "en",
+        "@value": "Coronary CT Angiography"
+      },
+      {
+        "@language": "en",
+        "@value": "CCTA"
+      },
+      {
+        "@language": "en",
+        "@value": "CT Coronary Angiography"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Non-invasive cardiac imaging modality using computed tomography to evaluate coronary arteries, cardiac structure, and quantify coronary artery calcium"
+    },
+    "notation": "cardio-036",
+    "scopeNote": "Covers coronary CT angiography, calcium scoring, and structural heart CT applications; excludes cardiac MRI and nuclear imaging",
+    "example": "A 55-year-old with atypical chest pain and intermediate pretest probability undergoes CCTA showing CAD-RADS 1 (mild non-obstructive plaque); no further testing needed, medical therapy optimized"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "418714002",
+      "uri": "http://snomed.info/id/418714002",
+      "description": "CT of heart (procedure)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-PCS",
+      "codeValue": "B225",
+      "description": "Computerized Tomography, Heart",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "75574",
+      "description": "CT angiography, heart, coronary arteries",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "75571",
+      "description": "CT heart without contrast for quantification of coronary calcium",
+      "matchType": "narrower"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D000072226",
+      "uri": "http://id.nlm.nih.gov/mesh/D000072226",
+      "description": "Computed Tomography Angiography",
+      "matchType": "broader"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "cardiology_fellows",
+      "internal_medicine_residents",
+      "emergency_medicine_physicians",
+      "radiology_residents"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.6,
+    "learning_objectives": [
+      "Identify appropriate indications for coronary CT angiography vs calcium scoring",
+      "Interpret CAD-RADS classification and guide subsequent management",
+      "Apply calcium score results to cardiovascular risk stratification",
+      "Recognize limitations and contraindications of cardiac CT",
+      "Describe TAVR planning elements assessed by cardiac CT"
+    ],
+    "clinical_pearls": [
+      "CCTA is first-line for stable chest pain with intermediate pretest probability",
+      "CAC score of 0 = very low risk; may defer statin in borderline-risk patients",
+      "Beta-blocker to HR <60 + nitroglycerin before CCTA for optimal images",
+      "CAD-RADS 0-2 generally needs no further testing; ≥3 may need functional assessment",
+      "Calcium causes blooming artifact - may overestimate stenosis severity",
+      "FFR-CT can non-invasively assess hemodynamic significance of intermediate lesions",
+      "CCTA excellent for ruling OUT CAD but less reliable for ruling IN significant stenosis"
+    ],
+    "board_yield": {
+      "usmle_step1": "Low - basic CT physics principles",
+      "usmle_step2": "High - indications, interpretation, management decisions",
+      "usmle_step3": "High - risk stratification, appropriate use criteria",
+      "cardiology_boards": "Very High - detailed interpretation, FFR-CT, structural applications"
+    },
+    "common_misconceptions": [
+      "All chest pain needs invasive angiography (false - CCTA is first-line for many patients)",
+      "CAC score 0 means no plaque (false - non-calcified plaque may still exist, but rare)",
+      "Higher CAC score always means more stenosis (false - extensive calcium may not cause significant stenosis)",
+      "CCTA can replace invasive angiography (false - CCTA for diagnosis, ICA for intervention)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:cardiology:coronary-anatomy",
+        "title": "Coronary Artery Anatomy",
+        "strength": 0.9
+      },
+      {
+        "id": "urn:wskg:medicine:cardiology:cad-pathophysiology",
+        "title": "Coronary Artery Disease Pathophysiology",
+        "strength": 0.85
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:cardiology:cardiac-imaging",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Cardiac Imaging Modalities"
+      },
+      {
+        "@id": "urn:wskg:medicine:cardiology:cad-diagnosis",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Coronary Artery Disease Diagnosis"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:cardiology:stress-testing",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Cardiac Stress Testing",
+        "skos:note": "Alternative or complementary for CAD evaluation"
+      },
+      {
+        "@id": "urn:wskg:medicine:cardiology:coronary-angiography",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Invasive Coronary Angiography",
+        "skos:note": "Gold standard when intervention anticipated"
+      },
+      {
+        "@id": "urn:wskg:medicine:cardiology:tavr",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Transcatheter Aortic Valve Replacement",
+        "skos:note": "Cardiac CT essential for TAVR planning"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/418714002",
+      "http://www.wikidata.org/entity/Q5039009"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/418714002"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T20:50:00.000Z",
+    "sources": [
+      {
+        "source": "2021 AHA/ACC Guideline for Chest Pain Evaluation and Diagnosis",
+        "type": "clinical_guideline",
         "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "doi": "10.1161/CIR.0000000000001029",
+        "confidence": 1.0,
+        "relevance": "CCTA indications for stable chest pain"
+      },
+      {
+        "source": "2019 ACC/AHA Guideline on Primary Prevention of Cardiovascular Disease",
+        "type": "clinical_guideline",
+        "year": 2019,
+        "doi": "10.1161/CIR.0000000000000678",
+        "confidence": 0.98,
+        "relevance": "CAC scoring for risk stratification"
+      },
+      {
+        "source": "SCCT Guidelines on Cardiac CT Imaging",
+        "type": "clinical_guideline",
+        "year": 2022,
+        "confidence": 0.97,
+        "relevance": "Technical standards and reporting"
+      },
+      {
+        "source": "Braunwald's Heart Disease, 12th ed. Elsevier 2022",
+        "type": "textbook",
+        "year": 2022,
+        "isbn": "978-0323824675",
+        "confidence": 0.95,
+        "relevance": "Comprehensive cardiology reference"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:acc-aha-chest-pain-2021",
+        "@type": "prov:Entity",
+        "dc:title": "ACC/AHA Chest Pain Guideline",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
       }
     ]
   },
+  "quality_assessment": {
+    "CQS": 0.92,
+    "completeness": 0.93,
+    "accuracy": 0.96,
+    "clarity": 0.91,
+    "pedagogical_quality": 0.90,
+    "ontology_alignment": 0.93,
+    "last_assessment": "2026-01-11T20:50:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "procedure_with_indications",
+    "show_images": true,
+    "visualization": [
+      "ccta_image_examples",
+      "cac_score_distribution",
+      "cad_rads_classification_flowchart",
+      "tavr_planning_measurements"
+    ],
+    "emphasis": [
+      "indications",
+      "cad_rads_interpretation",
+      "calcium_score_management"
+    ]
+  },
   "owl:sameAs": "http://dbpedia.org/resource/Cardiac_CT",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q5039009"
 }

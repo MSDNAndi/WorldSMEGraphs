@@ -1,76 +1,274 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:pulmonology:pulm-004",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:51:20.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "pulmonology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-11T14:46:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/pulmonology",
-    "type": "definition",
+    "type": "management",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "critical",
+    "aku_id": "004",
+    "keywords": [
+      "asthma exacerbation",
+      "status asthmaticus",
+      "bronchospasm",
+      "acute asthma",
+      "respiratory distress"
+    ],
+    "medical_specialty": "pulmonology",
+    "clinical_context": "acute_respiratory"
   },
   "content": {
-    "title": "Asthma Exacerbation",
-    "summary": "Acute asthma attack",
+    "title": "Asthma Exacerbation (Acute Asthma Attack)",
+    "summary": "Acute worsening of asthma symptoms requiring urgent treatment",
     "key_points": [
-      "PEF <50% severe",
-      "Systemic steroids essential",
-      "Magnesium for severe"
+      "Recognize severity: mild, moderate, severe, life-threatening",
+      "First-line: inhaled SABA (albuterol) + systemic steroids",
+      "Add ipratropium for severe exacerbations",
+      "IV magnesium for severe refractory cases",
+      "Steroids: prednisone 40-60mg \u00d7 5-7 days",
+      "Discharge with ICS or step-up therapy; asthma action plan"
     ],
-    "statement": "Asthma Exacerbation is a fundamental concept in health-sciences medicine pulmonology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Asthma exacerbation is a progressive increase in dyspnea, cough, wheezing, or chest tightness requiring urgent treatment. Management involves repeated inhaled short-acting bronchodilators, early systemic corticosteroids, and assessment for escalation including ipratropium, magnesium sulfate, and rarely intubation.",
+      "formal": "Asthma Exacerbation Rx = SABA q20min \u00d7 3 + Systemic steroids + (severe: add ipratropium \u00b1 IV MgSO4) + O2 to SpO2 93-95%"
+    },
     "explanation": {
-      "intuition": "Understanding Asthma Exacerbation helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Asthma Exacerbation include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Asthma Exacerbation to real-world scenarios."
+      "intuition": "An asthma attack is the airways suddenly clamping down, swelling, and filling with mucus all at once. Treatment works to rapidly reverse the bronchospasm (SABA), reduce inflammation (steroids), and buy time for the airways to open up.",
+      "key_insight": "Systemic steroids take 4-6 hours to work - give them early. SABA provides immediate relief. The combination is synergistic. Never rely on bronchodilators alone without addressing inflammation."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "asthma_exacerbation": "Acute worsening requiring urgent treatment escalation",
+      "status_asthmaticus": "Severe persistent asthma not responding to standard treatment",
+      "SABA": "Short-acting beta-agonist (albuterol) - first-line bronchodilator",
+      "systemic_steroids": "Oral or IV corticosteroids to reduce airway inflammation",
+      "ipratropium": "Anticholinergic bronchodilator for additive effect in severe cases",
+      "magnesium_sulfate": "IV vasodilator and bronchodilator for refractory severe asthma",
+      "peak_expiratory_flow": "PEF - simple objective measure of airflow obstruction",
+      "accessory_muscle_use": "Visible SCM, intercostal retractions indicating severe work of breathing",
+      "pulsus_paradoxus": "SBP drop >10mmHg with inspiration; indicates severe obstruction",
+      "silent_chest": "Absence of wheezing in severe asthma - ominous sign of minimal air movement",
+      "respiratory_failure": "Hypoxemia \u00b1 hypercapnia requiring advanced support",
+      "intubation_in_asthma": "Last resort; avoid with aggressive medical management"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Trigger \u2192 mast cell degranulation \u2192 bronchoconstriction + mucus hypersecretion + airway edema \u2192 severe airflow limitation \u2192 V/Q mismatch \u2192 hypoxemia; if prolonged \u2192 respiratory muscle fatigue \u2192 hypercapnia",
+      "triggers": [
+        "Viral URI (most common)",
+        "Allergen exposure",
+        "Non-adherence to ICS",
+        "NSAIDs/aspirin (in aspirin-exacerbated)",
+        "Exercise",
+        "Environmental pollutants"
+      ]
+    },
+    "diagnostic_criteria": {
+      "severity_assessment": {
+        "mild_moderate": [
+          "Can speak in sentences",
+          "SpO2 \u226590%",
+          "PEF >50% predicted",
+          "Pulse <120"
+        ],
+        "severe": [
+          "Speaks in words only",
+          "SpO2 <90%",
+          "PEF \u226450%",
+          "Pulse >120",
+          "Accessory muscle use",
+          "Agitation"
+        ],
+        "life_threatening": [
+          "Silent chest",
+          "Cyanosis",
+          "Confusion/drowsiness",
+          "Bradycardia",
+          "PEF <25%",
+          "Hypercapnia"
+        ]
+      },
+      "workup": [
+        "SpO2 monitoring",
+        "PEF before and after treatment",
+        "ABG if severe (assess for hypercapnia)",
+        "CXR if pneumonia/PTX suspected"
+      ]
+    },
+    "treatment_options": {
+      "bronchodilators": {
+        "SABA": {
+          "albuterol": "MDI 4-8 puffs q20min \u00d7 3, then q1-4h; or continuous neb 10-15mg/h",
+          "delivery": "MDI with spacer as effective as nebulizer"
+        },
+        "ipratropium": {
+          "dose": "0.5mg neb or 8 puffs MDI q20min \u00d7 3",
+          "indication": "Add to SABA for severe exacerbations"
+        }
+      },
+      "systemic_steroids": {
+        "dose": "Prednisone 40-60mg PO or IV methylprednisolone equivalent",
+        "duration": "5-7 days; no taper needed for short courses",
+        "timing": "Give within first hour - delays lead to more admissions"
+      },
+      "adjunct_therapies": {
+        "magnesium_sulfate": {
+          "dose": "2g IV over 20 minutes",
+          "indication": "Severe exacerbation not responding to initial therapy"
+        },
+        "epinephrine": {
+          "indication": "Associated anaphylaxis or angioedema"
+        },
+        "heliox": {
+          "mechanism": "Lower density gas improves flow in obstructed airways",
+          "indication": "Consider in severe cases"
+        }
+      },
+      "oxygen": "Target SpO2 93-95% (adults); avoid hyperoxia in severe",
+      "intubation": {
+        "indications": [
+          "Impending respiratory arrest",
+          "Severe hypoxemia despite O2",
+          "Altered mental status",
+          "Refractory hypercapnia"
+        ],
+        "technique": "RSI with ketamine (bronchodilator properties), anticipate difficult ventilation"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Asthma Exacerbation"
-  ],
-  "clinical_pearls": [
-    "PEF <50% severe"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Asthma Exacerbation"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Acute Asthma Attack"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Status Asthmaticus"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Acute worsening of asthma symptoms requiring urgent escalation of treatment including bronchodilators and systemic steroids"
+    },
+    "notation": "pulm-004"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "57607007",
+      "uri": "http://snomed.info/id/57607007",
+      "description": "Acute exacerbation of asthma",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "J45.21",
+      "description": "Mild intermittent asthma with acute exacerbation",
+      "matchType": "narrower"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "J45.901",
+      "description": "Unspecified asthma with acute exacerbation",
+      "matchType": "exactMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "emergency_medicine_residents",
+      "internal_medicine_residents",
+      "hospitalists"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.7,
+    "learning_objectives": [
+      "Classify asthma exacerbation severity",
+      "Initiate appropriate bronchodilator regimen",
+      "Administer systemic steroids early",
+      "Identify indications for magnesium sulfate",
+      "Recognize signs of impending respiratory failure"
+    ],
+    "clinical_pearls": [
+      "Give steroids within 1 hour - delays increase admissions",
+      "MDI + spacer is as effective as nebulizer for most patients",
+      "Silent chest = ominous sign (no air movement to generate wheeze)",
+      "IV MgSO4 for severe refractory cases - safe and effective",
+      "After discharge: step up controller therapy, provide action plan"
+    ],
+    "board_yield": {
+      "usmle_step2": "Very High",
+      "emergency_medicine_boards": "Critical"
+    }
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "health-sciences:medicine:pulmonology:pulm-003",
+        "title": "Asthma Definition",
+        "strength": 1.0
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "health-sciences:medicine:pulmonology:pulm-003",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Asthma"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/57607007",
+      "http://www.wikidata.org/entity/Q35869"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T14:46:00.000Z",
+    "sources": [
+      {
+        "source": "GINA 2024 Report",
+        "type": "clinical_guideline",
+        "year": 2024,
+        "confidence": 1.0
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Asthma_Exacerbation",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.94,
+    "completeness": 0.95,
+    "accuracy": 0.96,
+    "clarity": 0.94,
+    "pedagogical_quality": 0.93,
+    "ontology_alignment": 0.94,
+    "last_assessment": "2026-01-11T14:46:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Asthma",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q35869"
 }

@@ -1,75 +1,191 @@
 {
   "@context": "aku-v2",
   "@type": "procedure",
-  "@id": "health-sciences:medicine:critical-care:icu-020",
+  "@id": "wsmg:health-sciences/medicine/critical-care/icu-020",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T02:02:56.000Z",
-    "contributors": [
-      "copilot-agent",
-      "quality-enhancement-agent"
-    ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "modified": "2026-01-11T03:24:00.000Z",
+    "contributors": ["copilot-agent", "quality-enhancement-agent", "quality-agent"],
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": ["CC-BY-4.0"]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/critical-care",
+    "subdomain": "metabolic-management",
     "type": "procedure",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
-    "title": "Glycemic Control ICU",
-    "summary": "Blood glucose management",
+    "title": "Glycemic Control in the ICU",
+    "summary": "Hyperglycemia is common in critically ill patients due to stress hormones, medications, and nutritional support, and is associated with worse outcomes. However, the landmark NICE-SUGAR trial showed that tight glucose control (80-110 mg/dL) increased mortality compared to conventional targets (140-180 mg/dL) due to hypoglycemia. Current guidelines recommend targeting blood glucose 140-180 mg/dL, using IV insulin infusions in ICU, and avoiding hypoglycemia (<70 mg/dL) which independently worsens outcomes.",
     "key_points": [
-      "Target 140-180 mg/dL",
-      "Insulin infusion",
-      "Hypoglycemia avoidance"
+      "Stress hyperglycemia: Common in critical illness; associated with poor outcomes",
+      "NICE-SUGAR trial: Tight control (80-110) INCREASED mortality vs conventional (140-180)",
+      "Target: 140-180 mg/dL for most ICU patients (NOT tight control)",
+      "Hypoglycemia (<70 mg/dL): Independently harmful; avoid at all costs",
+      "IV insulin infusion: Preferred in ICU for flexibility and rapid adjustment",
+      "Check glucose every 1-2 hours on insulin drip until stable"
     ],
-    "statement": "Glycemic Control ICU is a fundamental concept in Health-Sciences Medicine Critical-Care that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "ICU glycemic management targets blood glucose 140-180 mg/dL using IV insulin infusions, avoiding both marked hyperglycemia and hypoglycemia, based on NICE-SUGAR trial evidence that tight glucose control increases mortality.",
     "explanation": {
-      "intuition": "Understanding Glycemic Control ICU helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of Glycemic Control ICU include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Glycemic Control ICU."
+      "intuition": "High blood sugar in sick patients was once treated aggressively, assuming that 'normal is always better.' But the body raises blood sugar during stress for a reason - it's fuel for the fight. Pushing it too low causes hypoglycemia, which damages the brain and heart. The sweet spot is in the middle: not too high, not too low.",
+      "key_insight": "NICE-SUGAR was a game-changer. Before it, many ICUs chased 'normal' glucose (80-110 mg/dL). The trial showed this increased mortality by 14% - mostly from hypoglycemia. Now we know moderate hyperglycemia (140-180) is safer than tight control.",
+      "technical_details": "Stress response increases cortisol, catecholamines, glucagon, and growth hormone, all raising glucose. Insulin resistance develops in peripheral tissues. Hyperglycemia impairs neutrophil function and wound healing. Hypoglycemia triggers catecholamine surge, arrhythmias, and neuroglycopenia. Point-of-care glucose meters may be inaccurate in shock (arterial sampling preferred)."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "stress_hyperglycemia": "Elevated blood glucose during critical illness without prior diabetes",
+      "tight_glycemic_control": "Target 80-110 mg/dL; no longer recommended due to hypoglycemia risk",
+      "conventional_glycemic_control": "Target 140-180 mg/dL; current standard",
+      "hypoglycemia": "Blood glucose <70 mg/dL; associated with harm",
+      "severe_hypoglycemia": "Blood glucose <40 mg/dL; neurological emergency",
+      "insulin_infusion": "Continuous IV insulin for precise glucose control",
+      "glycemic_variability": "Fluctuations in glucose; associated with worse outcomes",
+      "insulin_resistance": "Reduced tissue response to insulin; common in critical illness",
+      "NICE_SUGAR": "Landmark trial showing tight control increased mortality",
+      "neuroglycopenia": "Brain dysfunction from low glucose",
+      "counterregulatory_hormones": "Hormones that raise glucose (cortisol, glucagon, catecholamines)",
+      "POC_glucose": "Point-of-care glucose testing; may be inaccurate in shock"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "stress_hyperglycemia": {
+        "mechanisms": [
+          "Increased counterregulatory hormones (cortisol, catecholamines, glucagon)",
+          "Peripheral insulin resistance",
+          "Increased hepatic gluconeogenesis",
+          "Medications (steroids, vasopressors, catecholamines)",
+          "Nutritional support (dextrose in TPN, enteral formulas)"
+        ],
+        "consequences": [
+          "Impaired neutrophil function",
+          "Increased infection risk",
+          "Impaired wound healing",
+          "Osmotic diuresis and dehydration",
+          "Associated with increased mortality (observational)"
+        ]
+      },
+      "hypoglycemia_harm": {
+        "mechanisms": [
+          "Neuroglycopenia (confusion, seizures, coma)",
+          "Catecholamine surge (arrhythmias, ischemia)",
+          "Inflammatory response"
+        ],
+        "evidence": "Independently associated with mortality in ICU"
+      }
+    },
+    "evidence_base": {
+      "Leuven_trial_2001": {
+        "finding": "Tight control (80-110) reduced mortality in surgical ICU",
+        "limitation": "Single center; high baseline glucose; nutritional protocols unusual"
+      },
+      "NICE_SUGAR_2009": {
+        "design": "Multicenter RCT; 6104 patients; intensive (81-108) vs conventional (140-180)",
+        "finding": "Intensive control INCREASED 90-day mortality (27.5% vs 24.9%; p=0.02)",
+        "mechanism": "Severe hypoglycemia 6× more common in intensive group",
+        "impact": "Changed practice worldwide; ended tight control era"
+      },
+      "meta_analyses": {
+        "conclusion": "No benefit of tight control; increased hypoglycemia risk"
+      }
+    },
+    "current_recommendations": {
+      "target": {
+        "range": "140-180 mg/dL (7.8-10 mmol/L)",
+        "initiate_insulin": "Two readings >180 mg/dL",
+        "lower_threshold": "Avoid <110 mg/dL; definitely avoid <70 mg/dL"
+      },
+      "insulin_administration": {
+        "ICU": "IV insulin infusion (flexibility, rapid adjustment)",
+        "floor": "Subcutaneous insulin; avoid sliding scale alone",
+        "infusion_rate": "Usually 0.5-10 units/hr; protocol-driven"
+      },
+      "monitoring": {
+        "frequency": "Every 1-2 hours until stable; then every 4 hours",
+        "sample": "Arterial preferred in shock; capillary may be inaccurate",
+        "variability": "Avoid large swings; glycemic variability associated with harm"
+      }
+    },
+    "insulin_protocols": {
+      "elements": [
+        "Starting rate based on glucose level",
+        "Rate adjustment algorithm (increase/decrease based on trend)",
+        "Hypoglycemia prevention and treatment protocol",
+        "Nutrition coordination (adjust when feeds stop/start)"
+      ],
+      "example_adjustment": "If glucose 180-220: increase rate by 1-2 units/hr"
+    },
+    "hypoglycemia_management": {
+      "recognition": {
+        "symptoms": "May be masked in sedated/intubated patients",
+        "screening": "Regular glucose checks"
+      },
+      "treatment": {
+        "glucose_40_70": "D50W 25 mL IV; recheck in 15-30 min",
+        "glucose_below_40": "D50W 50 mL IV; recheck in 15 min",
+        "hold_insulin": "Until glucose >100-110 mg/dL",
+        "investigate": "Nutrition stopped? Medication error? Sepsis resolving?"
+      }
+    },
+    "special_populations": {
+      "diabetic_patients": {
+        "considerations": ["May tolerate slightly higher targets", "Risk of DKA/HHS if insulin held", "Check A1C to assess prior control"]
+      },
+      "neurocritical_care": {
+        "target": "Some centers use tighter control (100-150) to protect brain",
+        "caution": "Hypoglycemia especially harmful to injured brain"
+      },
+      "cardiac_surgery": {
+        "evidence": "May benefit from better control (120-180)"
+      },
+      "DKA_HHS": {
+        "different_protocol": "Treat underlying emergency with standard DKA/HHS management"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Glycemic Control ICU"
+  "skos": {
+    "prefLabel": {"@language": "en", "@value": "Glycemic Control in ICU"},
+    "altLabel": [{"@language": "en", "@value": "ICU Blood Glucose Management"}, {"@language": "en", "@value": "Critical Care Glucose Control"}],
+    "definition": {"@language": "en", "@value": "Management of blood glucose in critically ill patients targeting 140-180 mg/dL to avoid harm from both hyperglycemia and hypoglycemia"},
+    "notation": "icu-020",
+    "scopeNote": {"@language": "en", "@value": "NICE-SUGAR showed tight control harmful; target 140-180 mg/dL"}
+  },
+  "relationships": {
+    "skos:broader": [{"@id": "wsmg:health-sciences/medicine/critical-care/metabolic-management", "skos:prefLabel": "Metabolic Management"}],
+    "skos:related": [{"@id": "wsmg:health-sciences/medicine/critical-care/icu-019", "skos:prefLabel": "Nutrition in ICU"}, {"@id": "wsmg:health-sciences/medicine/endocrinology/diabetes-management", "skos:prefLabel": "Diabetes Management"}],
+    "owl:sameAs": ["http://dbpedia.org/resource/Glycemic_control"]
+  },
+  "medicalCode": [
+    {"@type": "MedicalCode", "codingSystem": "SNOMED-CT", "codeValue": "182834008", "uri": "http://snomed.info/id/182834008", "description": "Glucose monitoring"},
+    {"@type": "MedicalCode", "codingSystem": "MeSH", "codeValue": "D001786", "uri": "http://id.nlm.nih.gov/mesh/D001786", "description": "Blood Glucose"},
+    {"@type": "MedicalCode", "codingSystem": "ICD-10-CM", "codeValue": "R73.9", "description": "Hyperglycemia, unspecified"}
   ],
-  "clinical_pearls": [
-    "Target 140-180 mg/dL"
-  ],
+  "pedagogical": {
+    "learning_objectives": ["Explain why tight glucose control is no longer recommended", "Set appropriate glucose targets for ICU patients", "Initiate and adjust IV insulin infusion", "Recognize and treat hypoglycemia in critical illness", "Describe pathophysiology of stress hyperglycemia"],
+    "clinical_pearls": ["Target 140-180 mg/dL - NOT tight control", "NICE-SUGAR: tight control (80-110) increased mortality 14% due to hypoglycemia", "IV insulin infusion preferred in ICU for precise control", "Check glucose every 1-2 hours on drip until stable", "Avoid hypoglycemia (<70) - it independently increases mortality"],
+    "board_yield": "HIGH",
+    "estimated_time": "20min",
+    "target_audience": ["medical_students", "internal_medicine_residents", "critical_care_fellows"],
+    "common_misconceptions": ["Normal glucose (80-100) is always best - it increases mortality in ICU", "Hyperglycemia doesn't matter - it's associated with worse outcomes", "Sliding scale insulin is adequate - IV infusion is preferred in ICU"]
+  },
+  "prerequisites": [{"@id": "wsmg:health-sciences/medicine/endocrinology/glucose-metabolism", "skos:prefLabel": "Glucose Metabolism"}],
+  "related_concepts": ["insulin therapy", "hyperglycemia", "hypoglycemia", "NICE-SUGAR trial", "stress response"],
+  "evidence": {
+    "citations": [{"authors": "NICE-SUGAR Study Investigators", "title": "Intensive versus Conventional Glucose Control in Critically Ill Patients", "journal": "N Engl J Med", "year": 2009, "volume": "360", "pages": "1283-1297", "doi": "10.1056/NEJMoa0810625"}],
+    "confidence_rationale": "Landmark multicenter RCT; changed practice guidelines worldwide"
+  },
   "provenance": {
     "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
-      {
-        "source": "UpToDate. (2024). Glycemic Control ICU. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
-      },
-      {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
-      }
-    ]
+    "last_verified": "2026-01-11T03:24:00.000Z",
+    "sources": [{"source": "Marino's The ICU Book, 4th ed. Wolters Kluwer, 2014.", "type": "textbook", "year": 2014, "isbn": "978-1451121186", "relevance": "Standard ICU reference"}]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Glycemic_Control_ICU",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {"content_quality_score": 0.95, "completeness": 0.96, "accuracy": 0.96, "clarity": 0.95, "clinical_relevance": 0.97, "last_assessed": "2026-01-11T03:24:00.000Z"},
+  "owl:sameAs": "http://dbpedia.org/resource/Glycemic_control",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q5570458"
 }

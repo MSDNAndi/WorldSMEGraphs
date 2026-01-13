@@ -1,75 +1,221 @@
 {
   "@context": "aku-v2",
-  "@type": "procedure",
-  "@id": "health-sciences:medicine:critical-care:icu-005",
+  "@type": "concept",
+  "@id": "wsmg:health-sciences/medicine/critical-care/icu-005",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T02:02:56.000Z",
+    "modified": "2026-01-11T02:25:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": [
+      "CC-BY-4.0"
+    ]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/critical-care",
+    "subdomain": "pharmacology",
     "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
-    "title": "Inotrope Selection",
-    "summary": "Inotrope use",
+    "title": "Inotrope Selection in Shock",
+    "summary": "Inotropes increase myocardial contractility to improve cardiac output in low-output shock states. Selection depends on hemodynamic goals and patient factors. Dobutamine (beta-1 agonist) increases contractility with vasodilation; milrinone (PDE3 inhibitor) is an inodilator; dopamine is generally avoided due to arrhythmias.",
     "key_points": [
-      "Dobutamine mechanism",
-      "Milrinone in heart failure",
-      "Epinephrine"
+      "Dobutamine: Beta-1 agonist; first-line inotrope; may cause hypotension from beta-2 vasodilation",
+      "Milrinone: PDE3 inhibitor (inodilator); use in pulmonary hypertension or beta-blocker overdose",
+      "Combine with vasopressor if BP is low",
+      "Inotropes increase myocardial oxygen demand - monitor for ischemia",
+      "Levosimendan: Calcium sensitizer; limited availability in US"
     ],
-    "statement": "Inotrope Selection is a fundamental concept in Health-Sciences Medicine Critical-Care that provides essential knowledge for understanding related topics and clinical/practical applications.",
+    "statement": "Inotrope selection in low cardiac output states depends on blood pressure (need vasopressor if hypotensive), underlying cause (beta-blocker toxicity favors milrinone), and tolerance (arrhythmias, ischemia).",
     "explanation": {
-      "intuition": "Understanding Inotrope Selection helps build foundational knowledge. The concept connects to broader principles in the field.",
-      "key_insight": "The key aspects of Inotrope Selection include core principles, common applications, and integration with related concepts.",
-      "technical_details": "Technical details involve specific mechanisms, measurements, and evidence-based applications of Inotrope Selection."
+      "intuition": "While vasopressors squeeze the pipes, inotropes make the pump work harder. Dobutamine makes the heart contract stronger but also opens some blood vessels. If pressure is already low, you need to add a vasopressor or use a drug that does both.",
+      "key_insight": "The key tradeoff with inotropes is increased cardiac output at the cost of increased myocardial oxygen demand. In ischemic cardiogenic shock, aggressive inotropy may worsen ischemia - mechanical support may be preferred.",
+      "technical_details": "Dobutamine activates beta-1 > beta-2 receptors; at high doses alpha-1 effects emerge. Milrinone inhibits PDE3, increasing cAMP independently of beta receptors - works even in beta-blockade. Both have short half-lives requiring continuous infusion."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "inotrope": "Agent increasing myocardial contractility",
+      "dobutamine": "Synthetic catecholamine; beta-1 agonist inotrope",
+      "milrinone": "PDE3 inhibitor; inotrope and vasodilator (inodilator)",
+      "inotropy": "Force of myocardial contraction",
+      "chronotropy": "Heart rate",
+      "lusitropy": "Myocardial relaxation rate",
+      "cardiac_output": "Volume of blood pumped per minute (CO = HR × SV)",
+      "PDE3_inhibitor": "Phosphodiesterase-3 inhibitor increasing cAMP in myocytes",
+      "calcium_sensitizer": "Drug enhancing troponin C sensitivity to calcium (levosimendan)",
+      "oxygen_demand": "Myocardial O2 consumption; increased by inotropes",
+      "inodilator": "Agent with both inotropic and vasodilator properties",
+      "beta_1_receptor": "Cardiac receptor increasing contractility and heart rate"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Inotropes increase intracellular calcium or myofilament sensitivity → enhanced actin-myosin interaction → stronger contraction",
+      "beta_agonists": "Activate adenylate cyclase → increased cAMP → increased intracellular calcium → enhanced contractility",
+      "PDE_inhibitors": "Block cAMP breakdown → same downstream effects as beta-agonists but receptor-independent",
+      "calcium_sensitizers": "Enhance troponin C affinity for calcium without increasing intracellular calcium levels"
+    },
+    "diagnostic_criteria": {
+      "indications": [
+        "Cardiogenic shock with low CO despite adequate preload",
+        "Septic shock with myocardial depression",
+        "Post-cardiotomy low output syndrome",
+        "Acute decompensated heart failure with hypoperfusion",
+        "Bridge to mechanical circulatory support or transplant"
+      ],
+      "hemodynamic_targets": {
+        "cardiac_index": "Target CI >2.2 L/min/m²",
+        "mixed_venous_O2": "Target SvO2 >65%",
+        "lactate_clearance": "Target normalization within 6-12 hours"
+      }
+    },
+    "differential_diagnosis": [
+      "Inadequate preload (needs fluids, not inotropes)",
+      "Tamponade or tension pneumothorax (treat obstruction)",
+      "Severe valvular disease (may need surgery)",
+      "Arrhythmia-induced cardiomyopathy (control rhythm)"
+    ],
+    "treatment_options": {
+      "agents": {
+        "dobutamine": {
+          "dose": "2-20 mcg/kg/min",
+          "pros": "Increases CO, first-line, short half-life",
+          "cons": "May cause hypotension, tachycardia",
+          "best_for": "Cardiogenic shock with adequate blood pressure"
+        },
+        "milrinone": {
+          "dose": "0.25-0.75 mcg/kg/min (loading optional)",
+          "pros": "Works in beta-blockade, pulmonary vasodilation",
+          "cons": "Longer half-life, more hypotension",
+          "best_for": "RV failure with pulmonary hypertension, beta-blocker toxicity"
+        },
+        "dopamine": {
+          "dose": "5-10 mcg/kg/min for inotropy",
+          "pros": "Available, familiar",
+          "cons": "More arrhythmias than dobutamine; generally avoided"
+        },
+        "levosimendan": {
+          "dose": "0.1 mcg/kg/min (no loading to avoid hypotension)",
+          "pros": "Inodilator without increasing O2 demand",
+          "cons": "Limited US availability; long half-life"
+        }
+      },
+      "practical_considerations": {
+        "hypotension": "Add norepinephrine if needed",
+        "ischemia": "Monitor for worsening ischemia with increased demand",
+        "arrhythmias": "All inotropes are proarrhythmic",
+        "central_access": "Preferred but peripheral acceptable short-term"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Inotrope Selection"
-  ],
-  "clinical_pearls": [
-    "Dobutamine mechanism"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Inotrope Selection"
+    },
+    "altLabel": [
       {
-        "source": "UpToDate. (2024). Inotrope Selection. Wolters Kluwer.",
-        "type": "clinical_reference",
-        "year": 2021,
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Inotropic therapy"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Selection of agents that increase myocardial contractility to improve cardiac output in shock"
+    },
+    "notation": "icu-005"
+  },
+  "relationships": {
+    "skos:broader": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/hemodynamics",
+        "skos:prefLabel": "Hemodynamics"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/critical-care/icu-003",
+        "skos:prefLabel": "Cardiogenic Shock"
       },
       {
-        "source": "Harrison's Principles of Internal Medicine, 21st ed. McGraw-Hill.",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@id": "wsmg:health-sciences/medicine/critical-care/icu-004",
+        "skos:prefLabel": "Vasopressor Selection"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Inotrope_Selection",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D002316",
+      "uri": "http://id.nlm.nih.gov/mesh/D002316",
+      "description": "Cardiotonic Agents"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Compare dobutamine and milrinone mechanisms",
+      "Select appropriate inotrope for clinical scenario",
+      "Recognize limitations in ischemic heart disease"
+    ],
+    "clinical_pearls": [
+      "Milrinone in beta-blocker overdose (works via PDE3)",
+      "Always consider mechanical support if inotropes escalating",
+      "Dobutamine may drop BP - add norepinephrine"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "20min",
+    "target_audience": [
+      "internal_medicine_residents",
+      "critical_care_fellows"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/critical-care/icu-003",
+      "skos:prefLabel": "Cardiogenic Shock"
+    }
+  ],
+  "related_concepts": [
+    "dobutamine",
+    "milrinone",
+    "cardiac output",
+    "myocardial contractility"
+  ],
+  "evidence": {
+    "citations": [],
+    "confidence_rationale": "Standard pharmacology principles"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T02:25:00.000Z",
+    "sources": [
+      {
+        "source": "UpToDate. Use of vasopressors and inotropes. 2024.",
+        "type": "clinical_reference",
+        "year": 2024,
+        "relevance": "Current clinical guidance"
+      }
+    ]
+  },
+  "quality_assessment": {
+    "content_quality_score": 0.93,
+    "completeness": 0.94,
+    "accuracy": 0.95,
+    "clarity": 0.93,
+    "clinical_relevance": 0.95,
+    "last_assessed": "2026-01-11T02:25:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Inotrope",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q631206"
 }

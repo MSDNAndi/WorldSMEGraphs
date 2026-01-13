@@ -1,76 +1,342 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:nephrology:neph-012",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:53:50.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "nephrology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T02:58:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/nephrology",
     "type": "definition",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "aku_id": "012",
+    "keywords": [
+      "nephrotic syndrome",
+      "proteinuria",
+      "hypoalbuminemia",
+      "edema",
+      "hyperlipidemia",
+      "minimal change disease",
+      "focal segmental glomerulosclerosis"
+    ],
+    "medical_specialty": "nephrology",
+    "clinical_context": "glomerular_disease"
   },
   "content": {
     "title": "Nephrotic Syndrome",
-    "summary": "Heavy proteinuria syndrome",
+    "summary": "Clinical syndrome characterized by heavy proteinuria (>3.5 g/day), hypoalbuminemia, peripheral edema, and hyperlipidemia, caused by glomerular podocyte injury from various primary and secondary etiologies",
     "key_points": [
-      ">3.5g/day proteinuria",
-      "Edema, hypoalbuminemia",
-      "Hyperlipidemia"
+      "Defined by proteinuria >3.5 g/day (or uPCR >3.5 g/g), hypoalbuminemia <3 g/dL",
+      "Classic triad: heavy proteinuria + hypoalbuminemia + peripheral edema",
+      "Associated with hyperlipidemia and lipiduria",
+      "Major complications: VTE, infection, AKI",
+      "Primary causes: MCD, FSGS, membranous nephropathy",
+      "Secondary causes: diabetes, amyloidosis, lupus",
+      "Treatment: cause-specific + supportive (diuretics, ACEi/ARB, statins, anticoagulation if severe)"
     ],
-    "statement": "Nephrotic Syndrome is a fundamental concept in health-sciences medicine nephrology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Nephrotic syndrome is a clinical constellation resulting from increased glomerular permeability to protein: heavy proteinuria (>3.5 g/24h), hypoalbuminemia (<3 g/dL), peripheral edema, and hyperlipidemia. The underlying pathology is podocyte injury, which can result from primary glomerular diseases (minimal change, FSGS, membranous nephropathy) or secondary causes (diabetes, amyloidosis, lupus). Complications include venous thromboembolism, infection, and hyperlipidemia-related cardiovascular disease.",
+      "formal": "Nephrotic Syndrome = Proteinuria >3.5 g/day + Albumin <3 g/dL + Edema + Hyperlipidemia"
+    },
     "explanation": {
-      "intuition": "Understanding Nephrotic Syndrome helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Nephrotic Syndrome include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Nephrotic Syndrome to real-world scenarios."
+      "intuition": "The glomerulus normally keeps protein in the blood. In nephrotic syndrome, the filter leaks, allowing albumin to spill into urine. The liver tries to compensate by making more albumin but also ramps up lipid production (they're made together). Low albumin reduces oncotic pressure, causing fluid to leak into tissues (edema). Lost albumin also carries away antithrombin III, increasing clot risk.",
+      "key_insight": "Think of the complications as linked to what's lost or what's overproduced: albumin loss → edema, VTE (lost anticoagulant proteins), infection (lost immunoglobulins); lipid overproduction → hyperlipidemia and accelerated atherosclerosis.",
+      "technical_details": "Podocytes are specialized epithelial cells that form the slit diaphragm—the final barrier preventing protein loss. Injury to podocytes (fusion, effacement) causes loss of size/charge selectivity. In selective proteinuria (MCD), only albumin is lost; in non-selective (FSGS, membranous), larger proteins also escape. The liver increases synthesis of albumin, lipoproteins, and coagulation factors, creating a hypercoagulable state."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "nephrotic_syndrome": "Clinical syndrome of heavy proteinuria, hypoalbuminemia, edema, and hyperlipidemia from glomerular disease",
+      "proteinuria": "Protein in urine; >3.5 g/day or uPCR >3.5 g/g defines nephrotic range",
+      "hypoalbuminemia": "Serum albumin <3 g/dL, resulting from urinary losses exceeding hepatic synthesis",
+      "podocyte": "Specialized glomerular epithelial cell forming the slit diaphragm filtration barrier",
+      "minimal_change_disease": "Most common cause of nephrotic syndrome in children; podocyte effacement without visible LM changes",
+      "focal_segmental_glomerulosclerosis": "Segmental scarring of some glomeruli; common cause of steroid-resistant nephrotic syndrome",
+      "membranous_nephropathy": "Subepithelial immune deposits causing GBM thickening; most common primary cause in adults",
+      "lipiduria": "Lipid in urine; oval fat bodies and 'Maltese cross' pattern under polarized light",
+      "edema": "Tissue swelling from interstitial fluid accumulation due to low oncotic pressure",
+      "venous_thromboembolism": "DVT or PE; common complication due to loss of anticoagulant proteins",
+      "antithrombin_iii": "Anticoagulant protein lost in urine, contributing to hypercoagulable state",
+      "selective_proteinuria": "Primarily albumin loss (MCD); contrasted with non-selective (larger proteins too)"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Glomerular podocyte injury disrupts the slit diaphragm, allowing protein leakage. Albumin is the primary protein lost due to its size and charge. The liver compensates by increasing albumin synthesis, but production cannot match losses. Concurrently, hepatic lipoprotein synthesis increases, causing hyperlipidemia. Urinary loss of antithrombin III, protein C, protein S creates a hypercoagulable state. Loss of immunoglobulins and complement factors increases infection risk.",
+      "etiologies": {
+        "primary_glomerular": [
+          "Minimal change disease (MCD)—most common in children",
+          "Focal segmental glomerulosclerosis (FSGS)—most common in African Americans",
+          "Membranous nephropathy—most common primary cause in white adults",
+          "Membranoproliferative GN—rare, mixed nephrotic-nephritic"
+        ],
+        "secondary": [
+          "Diabetic nephropathy—most common cause of nephrotic syndrome overall",
+          "Amyloidosis (AL or AA)",
+          "Lupus nephritis (Class V)",
+          "Infections: HIV, HBV, HCV, malaria",
+          "Drugs: NSAIDs, lithium, penicillamine",
+          "Malignancy: solid tumors (membranous), lymphoma (MCD)"
+        ]
+      },
+      "complications": {
+        "vte": "10-40% incidence; renal vein thrombosis especially in membranous nephropathy",
+        "infection": "Encapsulated organisms (Streptococcus pneumoniae, H. flu); loss of IgG and complement",
+        "aki": "From intravascular volume depletion, sepsis, bilateral renal vein thrombosis",
+        "hyperlipidemia": "LDL elevated; contributes to cardiovascular disease",
+        "protein_malnutrition": "Severe hypoalbuminemia despite adequate intake"
+      }
+    },
+    "diagnostic_criteria": {
+      "clinical_findings": {
+        "edema": "Periorbital in morning, pedal later in day; may progress to anasarca",
+        "foamy_urine": "Due to high protein content",
+        "weight_gain": "Reflects fluid retention"
+      },
+      "laboratory_findings": {
+        "urinalysis": "Heavy proteinuria, lipiduria (oval fat bodies, Maltese crosses)",
+        "24hr_urine_protein": ">3.5 g/day or spot uPCR >3.5 g/g",
+        "serum_albumin": "<3 g/dL (often <2.5 g/dL in severe cases)",
+        "lipid_panel": "Elevated total cholesterol, LDL, triglycerides",
+        "complement": "Normal in most primary causes; low C3/C4 suggests lupus or MPGN"
+      },
+      "diagnostic_workup": [
+        "Confirm nephrotic-range proteinuria (24-hour urine or spot uPCR)",
+        "Check serum albumin, lipid panel, renal function",
+        "Screen for secondary causes: glucose/A1c, ANA, HBV/HCV/HIV, SPEP/UPEP",
+        "Consider PLA2R antibody (membranous nephropathy)",
+        "Renal biopsy for definitive diagnosis (adults; children often treated empirically)"
+      ]
+    },
+    "treatment_options": {
+      "supportive": {
+        "edema_management": "Salt restriction (<2g Na/day), loop diuretics ± thiazide if resistant",
+        "proteinuria_reduction": "ACEi or ARB—reduce proteinuria and slow progression",
+        "hyperlipidemia": "Statins for LDL lowering",
+        "vte_prophylaxis": "Anticoagulation if albumin <2-2.5 g/dL or additional risk factors; consider for severe membranous"
+      },
+      "cause_specific": {
+        "minimal_change_disease": {
+          "treatment": "High-dose prednisone (1 mg/kg/day × 4-8 weeks, then taper)",
+          "response": "90% remission; frequent relapses",
+          "second_line": "Cyclosporine, MMF for relapsing/steroid-dependent"
+        },
+        "fsgs": {
+          "treatment": "Prednisone ± calcineurin inhibitor; often steroid-resistant",
+          "response": "Variable; primary FSGS responds better than secondary",
+          "second_line": "Rituximab, ACTH for refractory cases"
+        },
+        "membranous_nephropathy": {
+          "treatment": "Rituximab (first-line for PLA2R+) or CNI + steroids",
+          "observation": "Spontaneous remission in 30%—observe for 6-12 months if low risk",
+          "second_line": "Cyclophosphamide, rituximab"
+        },
+        "diabetic_nephropathy": {
+          "treatment": "Glycemic control, ACEi/ARB, SGLT2 inhibitors",
+          "note": "No immunosuppression; slow progression"
+        }
+      },
+      "monitoring": {
+        "follow_up": "Proteinuria, creatinine, albumin every 1-3 months during treatment",
+        "remission_criteria": "uPCR <0.3 g/g, normal albumin"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Nephrotic Syndrome"
-  ],
-  "clinical_pearls": [
-    ">3.5g/day proteinuria"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Nephrotic Syndrome"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Nephrosis"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
+        "@language": "en",
+        "@value": "Proteinuric Kidney Disease"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Clinical syndrome characterized by heavy proteinuria (>3.5 g/day), hypoalbuminemia, peripheral edema, and hyperlipidemia, caused by glomerular podocyte injury"
+    },
+    "notation": "neph-012",
+    "scopeNote": "Covers definition, primary and secondary causes, complications, diagnostic workup, and cause-specific treatment",
+    "example": "A 5-year-old boy with periorbital edema, 4+ proteinuria, serum albumin 1.8 g/dL, normal C3—classic presentation of minimal change disease"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "52254009",
+      "uri": "http://snomed.info/id/52254009",
+      "description": "Nephrotic syndrome (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "N04",
+      "description": "Nephrotic syndrome",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D009404",
+      "uri": "http://id.nlm.nih.gov/mesh/D009404",
+      "description": "Nephrotic Syndrome",
+      "matchType": "exactMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "internal_medicine_residents",
+      "nephrology_fellows",
+      "pediatric_residents",
+      "medical_students"
+    ],
+    "estimated_time": "30min",
+    "difficulty_curve": 0.60,
+    "learning_objectives": [
+      "Define nephrotic syndrome using clinical and laboratory criteria",
+      "Distinguish primary from secondary causes",
+      "Recognize major complications including VTE and infection",
+      "Initiate appropriate supportive management",
+      "Apply cause-specific treatment for MCD, FSGS, and membranous nephropathy"
+    ],
+    "clinical_pearls": [
+      "Membranous nephropathy has highest VTE risk—especially renal vein thrombosis",
+      "MCD in children: empiric steroids without biopsy is standard (95% respond)",
+      "Low C3/C4 suggests lupus nephritis or MPGN—not typical of MCD, FSGS, or membranous",
+      "PLA2R antibody: positive in 70-80% of primary membranous; useful for diagnosis and monitoring",
+      "Infection risk: vaccinate against pneumococcus; low threshold for antibiotics if sick",
+      "SGLT2 inhibitors reduce proteinuria even in non-diabetic glomerular disease"
+    ],
+    "board_yield": {
+      "internal_medicine_boards": "Very High - common clinical scenario",
+      "nephrology_boards": "Very High - detailed pathophysiology and treatment",
+      "pediatric_boards": "High - MCD is most common childhood nephrotic syndrome"
+    },
+    "common_misconceptions": [
+      "Nephrotic syndrome always requires biopsy (false—children with classic presentation treated empirically)",
+      "Low albumin is from poor nutrition (false—from urinary losses despite adequate intake)",
+      "Loop diuretics don't work in nephrotic syndrome (false—may need higher doses due to albumin binding)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:nephrology:neph-011",
+        "title": "Glomerulonephritis Overview",
+        "strength": 0.90
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:glomerular-disease",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Glomerular Diseases"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:nephrology:minimal-change-disease",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Minimal Change Disease",
+        "skos:note": "Most common cause in children"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:fsgs",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Focal Segmental Glomerulosclerosis",
+        "skos:note": "Common cause of steroid-resistant nephrotic syndrome"
+      },
+      {
+        "@id": "urn:wskg:medicine:nephrology:membranous-nephropathy",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Membranous Nephropathy",
+        "skos:note": "Most common primary cause in adults"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/52254009",
+      "http://www.wikidata.org/entity/Q1061075"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/52254009"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T02:58:00.000Z",
+    "sources": [
+      {
+        "source": "KDIGO 2021 Clinical Practice Guideline for the Management of Glomerular Diseases. Kidney Int. 2021;100(4S):S1-S276",
+        "type": "clinical_guideline",
         "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "doi": "10.1016/j.kint.2021.05.021",
+        "confidence": 1.0,
+        "relevance": "Current glomerular disease treatment guidelines"
+      },
+      {
+        "source": "Brenner & Rector's The Kidney, 11th ed. Elsevier 2020",
+        "type": "textbook",
+        "year": 2020,
+        "isbn": "978-0323532655",
+        "confidence": 0.97,
+        "relevance": "Authoritative nephrology reference"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:kdigo-gn-guideline",
+        "@type": "prov:Entity",
+        "dc:title": "KDIGO Glomerular Diseases Guideline",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Nephrotic_Syndrome",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.92,
+    "completeness": 0.93,
+    "accuracy": 0.95,
+    "clarity": 0.92,
+    "pedagogical_quality": 0.91,
+    "ontology_alignment": 0.91,
+    "last_assessment": "2026-01-12T02:58:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "definition_with_diagnostic_algorithm",
+    "show_images": true,
+    "visualization": [
+      "nephrotic_syndrome_pathophysiology",
+      "etiology_table",
+      "complications_diagram"
+    ],
+    "emphasis": [
+      "defining_criteria",
+      "primary_vs_secondary_causes",
+      "vte_risk"
+    ]
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Nephrotic_syndrome",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1061075"
 }

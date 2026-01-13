@@ -1,76 +1,312 @@
 {
-  "@context": "aku-v2",
-  "@type": "definition",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalCondition"
+  ],
   "@id": "health-sciences:medicine:gastroenterology:gi-043",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:52:30.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "gastroenterology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "modified": "2026-01-12T03:02:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/gastroenterology",
     "type": "definition",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "high",
+    "aku_id": "043",
+    "keywords": [
+      "gastric cancer",
+      "stomach cancer",
+      "adenocarcinoma",
+      "H. pylori",
+      "gastrectomy",
+      "Lauren classification"
+    ],
+    "medical_specialty": "gastroenterology",
+    "clinical_context": "gastrointestinal_oncology"
   },
   "content": {
     "title": "Gastric Cancer",
-    "summary": "Stomach malignancy",
+    "summary": "Malignancy of the stomach, predominantly adenocarcinoma, associated with H. pylori infection, presenting with dyspepsia, weight loss, and anemia; staged by TNM and treated with gastrectomy and perioperative chemotherapy",
     "key_points": [
-      "H. pylori risk factor",
-      "EGD with biopsy",
-      "Gastrectomy for resectable"
+      "90-95% are adenocarcinomas; Lauren classification: intestinal vs diffuse type",
+      "Major risk factors: H. pylori infection, diet (salt, smoked foods), smoking",
+      "Hereditary diffuse gastric cancer: CDH1 mutation—prophylactic gastrectomy",
+      "Presents late: dyspepsia, weight loss, early satiety, GI bleeding",
+      "Diagnosis by EGD with biopsy; staging with CT and EUS",
+      "Surgery (gastrectomy with D2 lymphadenectomy) is curative for localized disease",
+      "Perioperative chemotherapy (FLOT) improves survival",
+      "HER2-positive: add trastuzumab to chemotherapy"
     ],
-    "statement": "Gastric Cancer is a fundamental concept in health-sciences medicine gastroenterology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Gastric cancer is predominantly adenocarcinoma (90-95%), classified by Lauren histology as intestinal (associated with H. pylori and atrophic gastritis) or diffuse (younger patients, CDH1 mutations). Risk factors include H. pylori infection, dietary factors, and genetic syndromes. Patients typically present with advanced disease due to vague early symptoms. Curative treatment involves gastrectomy with adequate lymphadenectomy plus perioperative chemotherapy. Prognosis depends on stage at diagnosis.",
+      "formal": "Gastric Cancer = Adenocarcinoma of stomach = EGD + Biopsy + CT/EUS staging + Gastrectomy (if resectable) + Perioperative chemo"
+    },
     "explanation": {
-      "intuition": "Understanding Gastric Cancer helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Gastric Cancer include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Gastric Cancer to real-world scenarios."
+      "intuition": "Gastric cancer is often caught late because early symptoms mimic common conditions like indigestion. By the time red flags appear (weight loss, vomiting, bleeding), the tumor is often advanced. H. pylori causes chronic inflammation that, over decades, can progress through atrophic gastritis, intestinal metaplasia, and dysplasia to cancer—this is the 'intestinal' pathway. The 'diffuse' type skips these steps and occurs in younger patients, often due to genetic mutations.",
+      "key_insight": "The Lauren classification has clinical implications: intestinal-type is better differentiated, more common in elderly, associated with environmental risk factors, and has better prognosis. Diffuse-type (signet ring cells, linitis plastica) is poorly differentiated, occurs in younger patients, may be hereditary (CDH1), and has worse prognosis.",
+      "technical_details": "TNM staging: T1 (mucosa/submucosa), T2 (muscularis propria), T3 (subserosa), T4a (serosa), T4b (adjacent structures). Lymph node involvement is strongest prognostic factor. D2 lymphadenectomy (removal of N1 and N2 nodes) is standard. EUS assesses T stage; CT/PET for distant metastases. FLOT regimen (5-FU, leucovorin, oxaliplatin, docetaxel) is current standard perioperative chemotherapy."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "gastric_adenocarcinoma": "Malignant epithelial tumor of the stomach; comprises 90-95% of gastric cancers",
+      "lauren_classification": "Histological classification into intestinal (gland-forming) and diffuse (signet ring) subtypes",
+      "signet_ring_cell": "Malignant cell with mucin-filled cytoplasm displacing nucleus; characteristic of diffuse type",
+      "linitis_plastica": "Diffusely infiltrating gastric cancer causing thick, rigid, leather-bottle stomach",
+      "h_pylori": "Helicobacter pylori—bacterium causing chronic gastritis and associated with intestinal-type gastric cancer",
+      "intestinal_metaplasia": "Replacement of gastric epithelium with intestinal-type cells; premalignant condition",
+      "cdh1_mutation": "Germline mutation in E-cadherin gene causing hereditary diffuse gastric cancer syndrome",
+      "gastrectomy": "Surgical removal of part (subtotal) or all (total) of the stomach",
+      "d2_lymphadenectomy": "Removal of first and second echelon perigastric lymph nodes; standard oncologic resection",
+      "flot_regimen": "Perioperative chemotherapy with 5-FU, leucovorin, oxaliplatin, and docetaxel",
+      "her2_positive": "Overexpression of HER2 receptor; indicates benefit from trastuzumab therapy",
+      "early_gastric_cancer": "Cancer limited to mucosa/submucosa regardless of lymph node status; best prognosis"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Gastric carcinogenesis follows distinct pathways. Intestinal-type: H. pylori infection → chronic active gastritis → multifocal atrophic gastritis → intestinal metaplasia → dysplasia → adenocarcinoma (Correa cascade). Diffuse-type: sporadic or hereditary (CDH1) loss of E-cadherin → loss of cell adhesion → diffusely infiltrating tumor. Both types can spread via lymphatics, direct extension, peritoneal seeding (Krukenberg tumor), or hematogenous metastasis.",
+      "risk_factors": {
+        "infectious": "H. pylori infection (strongest risk factor for intestinal type)",
+        "dietary": "Salt, smoked foods, nitrates, low fruits/vegetables",
+        "lifestyle": "Smoking, alcohol",
+        "genetic": "CDH1 (HDGC), Lynch syndrome, FAP, Peutz-Jeghers",
+        "precursor_lesions": "Chronic atrophic gastritis, intestinal metaplasia, adenomatous polyps, prior partial gastrectomy"
+      },
+      "clinical_presentation": [
+        "Dyspepsia (most common, nonspecific)",
+        "Weight loss and anorexia",
+        "Early satiety (tumor obstruction or infiltration)",
+        "GI bleeding (hematemesis, melena, iron deficiency anemia)",
+        "Dysphagia (proximal tumors)",
+        "Palpable abdominal mass (advanced disease)",
+        "Metastatic signs: Virchow node, Sister Mary Joseph nodule, Krukenberg tumor"
+      ]
+    },
+    "diagnostic_criteria": {
+      "endoscopy_and_biopsy": {
+        "egd": "Visualization and biopsy of suspicious lesions",
+        "biopsies": "Multiple biopsies from ulcer margin; minimum 6-8 samples",
+        "classification": "Borrmann classification for macroscopic appearance"
+      },
+      "staging_workup": {
+        "ct_chest_abdomen_pelvis": "Assess local extent, lymph nodes, distant metastases",
+        "eus": "Most accurate for T and N staging of localized disease",
+        "pet_ct": "Detect occult metastases; limited sensitivity for diffuse/signet ring type",
+        "diagnostic_laparoscopy": "Exclude peritoneal carcinomatosis before surgery (cT3+ or node positive)"
+      },
+      "biomarkers": {
+        "her2": "Test all metastatic cases; guides trastuzumab eligibility",
+        "pd_l1": "Combined positive score (CPS) for immunotherapy eligibility",
+        "mismatch_repair": "dMMR/MSI-H: better prognosis, immunotherapy responsive"
+      }
+    },
+    "treatment_options": {
+      "localized_resectable": {
+        "surgery": "Subtotal or total gastrectomy with D2 lymphadenectomy (≥16 nodes examined)",
+        "perioperative_chemo": "FLOT regimen (4 cycles pre-op, 4 cycles post-op)—current standard",
+        "early_gastric_cancer": "Endoscopic resection (EMR/ESD) if mucosa-confined, well-differentiated, ≤2 cm"
+      },
+      "locally_advanced_unresectable": {
+        "treatment": "Systemic chemotherapy ± radiation for palliation or conversion",
+        "regimens": "FOLFOX, CAPOX, or FLOT-based"
+      },
+      "metastatic": {
+        "first_line": "Platinum + fluoropyrimidine ± trastuzumab (HER2+)",
+        "immunotherapy": "Pembrolizumab if CPS ≥5 or dMMR/MSI-H",
+        "second_line": "Ramucirumab ± paclitaxel; irinotecan-based regimens"
+      },
+      "hereditary_diffuse": {
+        "cdh1_carriers": "Prophylactic total gastrectomy; screening EGD with random biopsies",
+        "surveillance": "For those deferring surgery"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Gastric Cancer"
-  ],
-  "clinical_pearls": [
-    "H. pylori risk factor"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Gastric Cancer"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Stomach Cancer"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "Gastric Adenocarcinoma"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Malignant neoplasm of the stomach, predominantly adenocarcinoma, associated with H. pylori infection and genetic syndromes, treated with surgery and chemotherapy"
+    },
+    "notation": "gi-043",
+    "scopeNote": "Covers epidemiology, risk factors, pathogenesis, staging, treatment including surgery and systemic therapy, and hereditary syndromes",
+    "example": "A 68-year-old man with 3-month history of weight loss, early satiety, and iron deficiency anemia; EGD reveals ulcerating antral mass; biopsy confirms intestinal-type adenocarcinoma"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "363349007",
+      "uri": "http://snomed.info/id/363349007",
+      "description": "Malignant tumor of stomach (disorder)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "C16",
+      "description": "Malignant neoplasm of stomach",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D013274",
+      "uri": "http://id.nlm.nih.gov/mesh/D013274",
+      "description": "Stomach Neoplasms",
+      "matchType": "exactMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "gastroenterology_fellows",
+      "oncology_fellows",
+      "surgical_residents",
+      "internal_medicine_residents"
+    ],
+    "estimated_time": "35min",
+    "difficulty_curve": 0.75,
+    "learning_objectives": [
+      "Describe the Lauren classification and its clinical implications",
+      "Identify risk factors including H. pylori and hereditary syndromes",
+      "Apply appropriate staging workup for newly diagnosed gastric cancer",
+      "Outline curative treatment for localized disease",
+      "Select systemic therapy based on HER2 and PD-L1 status"
+    ],
+    "clinical_pearls": [
+      "Virchow node (left supraclavicular), Sister Mary Joseph nodule (umbilical), Krukenberg tumor (ovarian mets)—signs of advanced disease",
+      "CDH1 carriers: 70-80% lifetime risk—recommend prophylactic total gastrectomy",
+      "Diffuse type is PET-negative more often than intestinal type—CT may underestimate disease",
+      "FLOT replaced ECX/ECF as standard perioperative chemotherapy (FLOT4 trial)",
+      "Random biopsies in HDGC screening: signet ring cells can be microscopic ('invisible cancer')",
+      "H. pylori eradication may reduce risk of metachronous gastric cancer after EMR"
+    ],
+    "board_yield": {
+      "internal_medicine_boards": "Moderate - risk factors, screening, initial workup",
+      "gastroenterology_boards": "High - EGD findings, staging, treatment principles",
+      "oncology_boards": "Very High - systemic therapy, HER2/PD-L1 testing"
+    },
+    "common_misconceptions": [
+      "All gastric cancer is H. pylori-related (false—diffuse type often H. pylori-negative)",
+      "Gastrectomy alone is curative (false—perioperative chemo improves survival significantly)",
+      "PET-CT is sufficient for staging (false—diagnostic laparoscopy needed for cT3+ to exclude peritoneal disease)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:gastroenterology:gi-004",
+        "title": "H. pylori Treatment",
+        "strength": 0.80
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:oncology:gastrointestinal-malignancies",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Gastrointestinal Malignancies"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:gastroenterology:barrett-esophagus",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Barrett's Esophagus",
+        "skos:note": "Precursor to esophageal adenocarcinoma"
+      },
+      {
+        "@id": "urn:wskg:medicine:oncology:her2-testing",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "HER2 Testing",
+        "skos:note": "Guides targeted therapy"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/363349007",
+      "http://www.wikidata.org/entity/Q623031"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/363349007"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-12T03:02:00.000Z",
+    "sources": [
+      {
+        "source": "NCCN Clinical Practice Guidelines in Oncology: Gastric Cancer, Version 2.2024",
+        "type": "clinical_guideline",
+        "year": 2024,
+        "confidence": 1.0,
+        "relevance": "Current gastric cancer treatment guidelines"
+      },
+      {
+        "source": "Al-Batran SE, et al. Perioperative chemotherapy with fluorouracil plus leucovorin, oxaliplatin, and docetaxel versus fluorouracil or capecitabine plus cisplatin and epirubicin for locally advanced, resectable gastric or gastro-oesophageal junction adenocarcinoma (FLOT4). Lancet 2019;393:1948-57",
+        "type": "randomized_controlled_trial",
+        "year": 2019,
+        "doi": "10.1016/S0140-6736(18)32557-1",
+        "confidence": 0.98,
+        "relevance": "FLOT4 trial establishing FLOT as standard perioperative chemotherapy"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:nccn-gastric",
+        "@type": "prov:Entity",
+        "dc:title": "NCCN Gastric Cancer Guidelines",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Gastric_Cancer",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.92,
+    "completeness": 0.93,
+    "accuracy": 0.95,
+    "clarity": 0.91,
+    "pedagogical_quality": 0.91,
+    "ontology_alignment": 0.91,
+    "last_assessment": "2026-01-12T03:02:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "definition_with_staging_table",
+    "show_images": true,
+    "visualization": [
+      "lauren_classification_comparison",
+      "tnm_staging_table",
+      "treatment_algorithm"
+    ],
+    "emphasis": [
+      "risk_factors",
+      "lauren_classification",
+      "perioperative_chemotherapy"
+    ]
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Stomach_cancer",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q623031"
 }

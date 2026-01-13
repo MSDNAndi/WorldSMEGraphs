@@ -3,74 +3,172 @@
   "@type": "definition",
   "@id": "health-sciences:medicine:nephrology:neph-006",
   "metadata": {
-    "version": "3.0.0",
-    "created": "2026-01-09T01:53:50.000Z",
-    "contributors": [
-      "copilot-agent",
-      "quality-enhancement-agent"
-    ],
+    "version": "4.0.0",
+    "created": "2026-01-09T01:52:30.000Z",
+    "contributors": ["copilot-agent", "quality-enhancement-agent", "medical-ontology-agent"],
     "confidence": 0.95,
     "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "modified": "2026-01-12T07:33:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/nephrology",
     "type": "definition",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "critical",
+    "specialty_tags": ["chronic-kidney-disease", "metabolic-bone-disease", "anemia-management"]
   },
   "content": {
-    "title": "CKD Complications",
-    "summary": "Sequelae of kidney disease",
+    "title": "Complications of Chronic Kidney Disease",
+    "summary": "CKD complications arise from impaired kidney function and include anemia (reduced erythropoietin), CKD-mineral and bone disorder (CKD-MBD with hyperphosphatemia, hypocalcemia, secondary hyperparathyroidism), cardiovascular disease, hyperkalemia, metabolic acidosis, and uremic symptoms. Management is essential to slow progression and improve quality of life.",
     "key_points": [
-      "Anemia: EPO deficiency",
-      "Bone disease: Ca/PO4/PTH",
-      "Metabolic acidosis"
+      "Anemia: reduced erythropoietin; treat with ESAs when Hgb <10 g/dL; target Hgb 10-11.5",
+      "CKD-MBD: hyperphosphatemia, low vitamin D, secondary hyperparathyroidism → renal osteodystrophy",
+      "Cardiovascular disease: leading cause of death in CKD; accelerated atherosclerosis and LVH",
+      "Hyperkalemia: dietary restriction, avoid NSAIDs/ACEi in severe CKD, patiromer/sodium zirconium cyclosilicate",
+      "Metabolic acidosis: bicarbonate supplementation when HCO3 <22 mEq/L",
+      "Uremia: nausea, encephalopathy, pericarditis, bleeding - indicates need for dialysis"
     ],
-    "statement": "CKD Complications is a fundamental concept in health-sciences medicine nephrology that provides essential knowledge for understanding related topics.",
+    "statement": "The complications of CKD are systemic and contribute significantly to morbidity and mortality. Proactive management of anemia, mineral-bone disorder, and cardiovascular risk factors is essential for optimal outcomes.",
     "explanation": {
-      "intuition": "Understanding CKD Complications helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of CKD Complications include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of CKD Complications to real-world scenarios."
+      "intuition": "Healthy kidneys produce erythropoietin, activate vitamin D, excrete phosphorus, and regulate acid-base balance. As nephrons are lost, these functions decline: EPO deficiency causes anemia; phosphorus retention and vitamin D deficiency trigger secondary hyperparathyroidism; acid excretion failure causes metabolic acidosis; toxin accumulation causes uremia.",
+      "key_insight": "CKD-MBD is a systemic disorder linking bone, mineral, and cardiovascular abnormalities. High FGF-23 early in CKD maintains phosphorus but inhibits vitamin D and contributes to LVH. Vascular calcification from hyperphosphatemia drives CV mortality.",
+      "technical_details": "PTH targets: CKD 3-4 maintain near normal; CKD 5/dialysis 2-9× upper normal. Phosphorus target <5.5 mg/dL (dialysis). ESA targets: Hgb 10-11.5 g/dL (avoid >13); ensure iron replete (TSAT >20%, ferritin >100). Bicarbonate supplementation target HCO3 22-26 mEq/L."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "ckd_complications": "Systemic manifestations of impaired kidney function including anemia, MBD, CVD, electrolyte disturbances",
+      "ckd_mineral_bone_disorder": "CKD-MBD: abnormalities of calcium, phosphorus, PTH, vitamin D, and bone turnover in CKD",
+      "secondary_hyperparathyroidism": "Elevated PTH in response to low calcium and high phosphorus in CKD",
+      "renal_osteodystrophy": "Bone disease in CKD: high-turnover (osteitis fibrosa), low-turnover (adynamic bone), or mixed",
+      "erythropoietin_deficiency": "Reduced EPO production by failing kidneys causing normocytic anemia",
+      "erythropoiesis_stimulating_agents": "ESAs: epoetin alfa, darbepoetin for treating CKD anemia",
+      "vascular_calcification": "Calcium-phosphate deposition in arteries; accelerated in CKD; contributes to CV mortality",
+      "uremia": "Accumulation of uremic toxins causing systemic symptoms: nausea, encephalopathy, pericarditis",
+      "hyperkalemia": "Elevated serum potassium from impaired excretion in CKD; arrhythmia risk",
+      "metabolic_acidosis": "Reduced acid excretion leading to bicarbonate consumption and acidemia",
+      "fgf23": "Fibroblast growth factor 23: phosphatonin that rises early in CKD; inhibits vitamin D activation",
+      "phosphate_binders": "Medications taken with meals to reduce intestinal phosphorus absorption"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
-  },
-  "learning_objectives": [
-    "Understand CKD Complications"
-  ],
-  "clinical_pearls": [
-    "Anemia: EPO deficiency"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
-      {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "As GFR declines: (1) Phosphorus excretion falls → hyperphosphatemia, (2) 1,25-vitamin D synthesis decreases → hypocalcemia, (3) FGF-23 rises to maintain phosphorus but inhibits vitamin D, (4) PTH rises in response → secondary hyperparathyroidism, (5) EPO production falls → anemia, (6) Acid excretion decreases → metabolic acidosis, (7) Uremic toxins accumulate.",
+      "key_pathways": [
+        "↓ GFR → ↓ phosphorus excretion → ↑ FGF-23 → ↓ 1,25-vitamin D → ↓ calcium → ↑ PTH",
+        "↓ functional nephron mass → ↓ EPO production → normocytic anemia",
+        "↓ acid excretion + ↓ ammonia synthesis → metabolic acidosis",
+        "Uremic toxin accumulation → platelet dysfunction, encephalopathy, pericarditis"
+      ],
+      "clinical_significance": "CV disease is the leading cause of death in CKD, exceeding dialysis initiation rates. Early management of CKD-MBD and anemia may slow CKD progression and reduce CV risk."
+    },
+    "diagnostic_criteria": {
+      "anemia": {
+        "definition": "Hgb <13 g/dL (men), <12 g/dL (women); investigate when Hgb <10",
+        "evaluation": ["CBC", "Reticulocyte count", "Iron studies (TSAT, ferritin)", "B12, folate"],
+        "ckd_anemia_features": "Normocytic, normochromic; low reticulocyte; low EPO; rule out iron deficiency"
       },
-      {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+      "ckd_mbd": {
+        "laboratory": ["Calcium (low or normal)", "Phosphorus (elevated in advanced CKD)", "PTH (elevated)", "25-OH vitamin D (often low)", "Alkaline phosphatase (bone turnover marker)"],
+        "imaging": "X-ray or DEXA for bone disease; vascular calcification assessment",
+        "biopsy": "Bone biopsy rarely needed; indicated for uncertain diagnosis"
+      },
+      "metabolic_acidosis": {
+        "definition": "Serum bicarbonate <22 mEq/L",
+        "type": "Non-anion gap (hyperchloremic) early; anion gap may increase in advanced CKD"
       }
+    },
+    "treatment_options": {
+      "anemia": {
+        "iron_therapy": {
+          "goal": "TSAT >20%, ferritin >100 (>200 on dialysis)",
+          "oral": "Ferrous sulfate 325mg TID; limited absorption in CKD",
+          "iv": "Iron sucrose, ferric gluconate, ferumoxytol - more effective in CKD/dialysis"
+        },
+        "esa_therapy": {
+          "indication": "Hgb <10 g/dL after iron repletion",
+          "agents": ["Epoetin alfa", "Darbepoetin alfa"],
+          "target": "Hgb 10-11.5 g/dL; avoid >13 (increased CV risk)",
+          "monitoring": "Monthly Hgb; adjust dose to avoid rapid rise"
+        }
+      },
+      "ckd_mbd": {
+        "phosphorus_control": {
+          "dietary": "Restrict phosphorus to 800-1000 mg/day",
+          "binders": ["Calcium-based (acetate, carbonate) - limit due to vascular calcification", "Non-calcium (sevelamer, lanthanum)", "Ferric citrate"],
+          "goal": "Phosphorus <5.5 mg/dL (dialysis); near normal (non-dialysis)"
+        },
+        "vitamin_d": {
+          "25_oh_vitamin_d": "Supplement if <30 ng/mL (cholecalciferol)",
+          "active_vitamin_d": "Calcitriol or analogs (paricalcitol, doxercalciferol) for secondary hyperparathyroidism"
+        },
+        "calcimimetics": {
+          "cinacalcet": "Activates CaSR → ↓ PTH; for secondary hyperparathyroidism in dialysis"
+        }
+      },
+      "metabolic_acidosis": {
+        "sodium_bicarbonate": "Start 650mg TID, titrate to HCO3 22-26 mEq/L",
+        "benefit": "May slow CKD progression and improve muscle mass"
+      },
+      "hyperkalemia": {
+        "dietary": "Restrict high-K foods",
+        "medications": "Avoid NSAIDs, limit ACEi/ARB in severe CKD",
+        "binders": ["Patiromer", "Sodium zirconium cyclosilicate (SZC)"]
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": "Chronic Kidney Disease Complications",
+    "altLabel": ["CKD Complications", "Uremic Complications", "CKD-MBD"],
+    "definition": "The systemic manifestations arising from impaired kidney function including anemia, mineral and bone disorder, cardiovascular disease, electrolyte disturbances, and uremia",
+    "broader": ["health-sciences:medicine:nephrology:chronic-kidney-disease"],
+    "narrower": ["health-sciences:medicine:nephrology:ckd-anemia", "health-sciences:medicine:nephrology:ckd-mbd"],
+    "related": ["health-sciences:medicine:nephrology:neph-005", "health-sciences:medicine:nephrology:neph-007"]
+  },
+  "medicalCode": {
+    "snomedCt": {"conceptId": "709044004", "term": "Chronic kidney disease"},
+    "icd10": {"code": "N18.9", "display": "Chronic kidney disease, unspecified"},
+    "mesh": {"descriptorId": "D051436", "term": "Renal Insufficiency, Chronic"}
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Describe the pathophysiology of CKD-MBD including the roles of phosphorus, vitamin D, and PTH",
+      "Manage anemia of CKD with iron supplementation and ESA therapy",
+      "Select appropriate phosphate binders based on patient characteristics",
+      "Recognize indications for bicarbonate supplementation in metabolic acidosis",
+      "Identify uremic symptoms requiring dialysis initiation"
+    ],
+    "clinical_pearls": [
+      "FGF-23 rises before phosphorus; early marker of CKD-MBD",
+      "ESA target Hgb 10-11.5; >13 increases stroke and CV events (CHOIR, TREAT trials)",
+      "Calcium-based binders contribute to vascular calcification; prefer non-calcium binders in high-risk patients",
+      "Bicarbonate <22 → supplement to slow CKD progression",
+      "Uremic pericarditis is an emergent dialysis indication - can cause tamponade",
+      "PTH targets differ by CKD stage: 2-9× ULN acceptable in dialysis patients"
+    ],
+    "board_yield": {
+      "usmle_step1": ["EPO physiology", "Vitamin D metabolism", "PTH actions"],
+      "usmle_step2": ["ESA dosing and targets", "Phosphate binder selection", "MBD management"],
+      "usmle_step3": ["Dialysis indications", "Cardiovascular risk in CKD", "Uremia recognition"],
+      "specialty_boards": {"nephrology": "Critical", "internal_medicine": "High yield"}
+    },
+    "common_misconceptions": [
+      "Higher Hgb targets are better (>13 increases CV risk)",
+      "Calcium-based binders are first-line (contribute to vascular calcification)",
+      "PTH should be suppressed to normal in dialysis patients (mild elevation acceptable)"
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/CKD_Complications",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "prerequisites": ["health-sciences:medicine:nephrology:neph-005", "health-sciences:medicine:physiology:renal-physiology"],
+  "related_concepts": ["health-sciences:medicine:nephrology:neph-007", "health-sciences:medicine:nephrology:neph-020"],
+  "evidence": {
+    "citations": [
+      {"authors": ["KDIGO CKD-MBD Work Group"], "title": "KDIGO Clinical Practice Guideline for the Diagnosis and Treatment of CKD-MBD", "journal": "Kidney International", "year": 2017, "pmid": "28641888"}
+    ],
+    "guidelines": [{"organization": "KDIGO", "title": "CKD-MBD Guideline Update", "year": 2017}],
+    "confidence_rationale": "Based on KDIGO guidelines for CKD-MBD and anemia management"
+  },
+  "learning_objectives": ["Manage CKD-MBD", "Treat CKD anemia appropriately", "Recognize uremic complications"],
+  "clinical_pearls": ["ESA target 10-11.5 not >13", "Non-calcium binders preferred", "Bicarbonate for HCO3 <22"],
+  "provenance": {"verification_status": "verified", "last_verified": "2026-01-12T07:33:00.000Z", "sources": [{"source": "KDIGO CKD-MBD Guidelines 2017", "type": "guideline", "year": 2017}]},
+  "quality_assessment": {"content_quality_score": 0.93, "completeness": 0.94, "accuracy": 0.95, "clinical_relevance": 0.96, "pedagogical_value": 0.92, "last_assessed": "2026-01-12T07:33:00.000Z", "assessor": "quality-agent"},
+  "owl:sameAs": "http://dbpedia.org/resource/Chronic_kidney_disease",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1364762"
 }

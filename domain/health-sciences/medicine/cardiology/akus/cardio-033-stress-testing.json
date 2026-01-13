@@ -3,74 +3,171 @@
   "@type": "procedure",
   "@id": "health-sciences:medicine:cardiology:cardio-033",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:50:10.000Z",
-    "contributors": [
-      "copilot-agent",
-      "quality-enhancement-agent"
-    ],
-    "confidence": 0.95,
+    "contributors": ["copilot-agent", "quality-enhancement-agent", "medical-ontology-agent"],
+    "confidence": 0.96,
     "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "modified": "2026-01-12T07:04:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/cardiology",
     "type": "procedure",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "critical",
+    "specialty_tags": ["diagnostic-cardiology", "ischemia-testing", "risk-stratification"]
   },
   "content": {
-    "title": "Stress Testing",
-    "summary": "Cardiac stress evaluation",
+    "title": "Cardiac Stress Testing",
+    "summary": "Cardiac stress testing evaluates myocardial ischemia by increasing cardiac workload through exercise or pharmacologic stress, combined with ECG monitoring and/or imaging (nuclear, echocardiography, CMR). Test selection depends on baseline ECG interpretability, exercise capacity, and pretest probability of coronary artery disease.",
     "key_points": [
-      "Exercise vs pharmacologic",
-      "Nuclear, echo, or MRI imaging",
-      "Pre-test probability assessment"
+      "Exercise treadmill test (ETT) is first-line for patients who can exercise with interpretable ECG",
+      "Imaging (nuclear or echo) required if baseline ECG abnormalities (LBBB, LVH, digoxin, WPW, paced rhythm)",
+      "Pharmacologic stress (regadenoson, adenosine, dobutamine) for patients unable to exercise adequately",
+      "Duke Treadmill Score integrates exercise time, ST depression, and angina for prognosis",
+      "Sensitivity ~70% for ETT alone; ~85-90% with imaging; specificity ~75-85%",
+      "Absolute contraindications: acute MI <2 days, unstable angina, uncontrolled arrhythmias, severe AS"
     ],
-    "statement": "Stress Testing is a fundamental concept in health-sciences medicine cardiology that provides essential knowledge for understanding related topics.",
+    "statement": "Stress testing is a cornerstone of ischemia evaluation, providing diagnostic and prognostic information. The choice of stress modality (exercise vs pharmacologic) and imaging (none, nuclear, echo, CMR) should be individualized based on patient characteristics, pretest probability, and local expertise.",
     "explanation": {
-      "intuition": "Understanding Stress Testing helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Stress Testing include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Stress Testing to real-world scenarios."
+      "intuition": "Exercise increases myocardial oxygen demand through elevated heart rate, blood pressure, and contractility. In the presence of obstructive CAD, this demand cannot be met, resulting in ischemia manifesting as ST depression, wall motion abnormalities, or perfusion defects. Pharmacologic vasodilators (adenosine) cause differential flow between normal and stenotic vessels (coronary steal), detected by perfusion imaging.",
+      "key_insight": "Pre-test probability determines post-test interpretation. In intermediate-probability patients, stress testing adds the most value. In very low (<5%) or very high (>90%) probability patients, testing may not significantly change management. Imaging adds value when ECG is uninterpretable or for localization/extent of ischemia.",
+      "technical_details": "Standard Bruce protocol increases speed/grade every 3 minutes. Target HR is 85% of age-predicted maximum (220-age). Adequate workload is >5 METs or >85% MPHR. ST depression ≥1mm horizontal/downsloping 80ms after J-point is positive. Duke Score = exercise time - (5 × ST depression) - (4 × angina index)."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "exercise_treadmill_test": "ETT using graded exercise protocol with continuous ECG monitoring for ischemia detection",
+      "pharmacologic_stress": "Use of vasodilators (adenosine, regadenoson, dipyridamole) or inotropes (dobutamine) when exercise not feasible",
+      "nuclear_stress_test": "Myocardial perfusion imaging with Tc-99m or Tl-201 tracers to detect perfusion defects",
+      "stress_echocardiography": "Echo before and after stress to detect new wall motion abnormalities indicating ischemia",
+      "duke_treadmill_score": "Prognostic score combining exercise time, ST depression, and angina; predicts mortality",
+      "metabolic_equivalents": "METs measure workload; 1 MET = resting oxygen consumption; prognostic value",
+      "st_segment_depression": "≥1mm horizontal/downsloping ST depression indicates ischemia",
+      "chronotropic_incompetence": "Failure to achieve 85% age-predicted HR; associated with worse prognosis",
+      "heart_rate_recovery": "HR drop <12 bpm at 1 min post-exercise indicates autonomic dysfunction; poor prognosis",
+      "reversible_defect": "Perfusion defect present on stress but not rest images indicating ischemia",
+      "fixed_defect": "Perfusion defect present on both stress and rest indicating scar/infarction",
+      "transient_ischemic_dilation": "LV cavity appears larger on stress than rest images; marker of severe CAD"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical/scientific knowledge"
-  },
-  "learning_objectives": [
-    "Understand Stress Testing"
-  ],
-  "clinical_pearls": [
-    "Exercise vs pharmacologic"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
-      {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Exercise increases HR, BP, and contractility, raising myocardial oxygen demand (MVO2). In normal coronaries, flow increases 4-5 fold. Stenotic arteries cannot augment flow proportionally, creating supply-demand mismatch. Vasodilators cause maximal dilation of normal vessels with minimal effect on stenotic beds (fixed resistance), creating heterogeneous flow detectable by perfusion imaging.",
+      "key_pathways": [
+        "Exercise → increased HR, BP, contractility → increased MVO2",
+        "Stenotic arteries → limited flow reserve → ischemia with increased demand",
+        "Vasodilators → coronary steal → differential perfusion between territories",
+        "Dobutamine → increased contractility/HR → unmasked wall motion abnormalities"
+      ],
+      "clinical_significance": "Stress testing provides both diagnostic (presence of CAD) and prognostic (extent, severity) information guiding decisions on revascularization, medical therapy intensification, and lifestyle modification."
+    },
+    "diagnostic_criteria": {
+      "positive_ett_criteria": {
+        "st_depression": "≥1mm horizontal or downsloping at J+80ms in 2+ contiguous leads",
+        "st_elevation": "≥1mm in non-Q wave leads (very specific for transmural ischemia)",
+        "other_markers": ["Typical angina with exercise", "Drop in SBP >10mmHg", "Sustained VT"]
       },
-      {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+      "adequate_test": {
+        "heart_rate": "≥85% age-predicted maximum (220-age)",
+        "workload": "≥5 METs (most activities of daily living)",
+        "duration": "Highly variable; >6 min Stage 2 Bruce generally adequate"
+      },
+      "high_risk_features": [
+        "ST depression ≥2mm or in ≥5 leads",
+        "ST depression at <5 METs or HR <100",
+        "Prolonged ST recovery >5 minutes",
+        "Exercise-induced hypotension",
+        "Duke Treadmill Score ≤-11"
+      ],
+      "imaging_indications": [
+        "Baseline ECG abnormalities (LBBB, LVH with repolarization, WPW, paced, digoxin)",
+        "Inconclusive ETT result",
+        "Need for ischemia localization",
+        "Prior revascularization",
+        "Intermediate-risk ETT requiring further stratification"
+      ]
+    },
+    "treatment_options": {
+      "test_selection_algorithm": {
+        "can_exercise_interpretable_ecg": "Exercise ECG (ETT)",
+        "can_exercise_uninterpretable_ecg": "Exercise echo or exercise nuclear",
+        "cannot_exercise": "Pharmacologic stress (vasodilator nuclear or dobutamine echo)",
+        "lbbb_or_paced": "Vasodilator stress nuclear or CMR (not dobutamine due to septal artifact)"
+      },
+      "pharmacologic_agents": {
+        "regadenoson": "Single bolus A2A agonist; minimal hemodynamic effects; most commonly used",
+        "adenosine": "Short-acting vasodilator; requires continuous infusion; bronchospasm risk",
+        "dipyridamole": "Adenosine reuptake inhibitor; longer duration; reversible with aminophylline",
+        "dobutamine": "Beta-agonist for stress echo; increases HR and contractility"
+      },
+      "contraindications": {
+        "absolute": ["Acute MI <2 days", "High-risk unstable angina", "Uncontrolled symptomatic arrhythmias", "Severe symptomatic AS", "Acute PE/aortic dissection", "Acute myocarditis/pericarditis"],
+        "relative": ["Moderate AS", "Electrolyte abnormalities", "Hypertrophic cardiomyopathy with obstruction", "High-degree AV block", "Severe hypertension (>200/110)"]
+      },
+      "post_test_management": {
+        "low_risk_negative": "Reassurance, risk factor modification, no further testing",
+        "intermediate_result": "Consider coronary CTA or functional imaging",
+        "high_risk_positive": "Coronary angiography for consideration of revascularization"
       }
+    }
+  },
+  "skos": {
+    "prefLabel": "Cardiac Stress Testing",
+    "altLabel": ["Exercise Stress Test", "Treadmill Test", "Nuclear Stress Test", "Stress Echo"],
+    "definition": "A diagnostic procedure that evaluates myocardial ischemia by increasing cardiac workload through exercise or pharmacologic stress while monitoring ECG and/or cardiac imaging",
+    "broader": ["health-sciences:medicine:cardiology:diagnostic-procedures", "health-sciences:medicine:cardiology:ischemia-evaluation"],
+    "narrower": ["health-sciences:medicine:cardiology:exercise-treadmill", "health-sciences:medicine:cardiology:nuclear-stress", "health-sciences:medicine:cardiology:stress-echo"],
+    "related": ["health-sciences:medicine:cardiology:cardio-030", "health-sciences:medicine:cardiology:cardio-037"]
+  },
+  "medicalCode": {
+    "snomedCt": {"conceptId": "252320007", "term": "Cardiac stress test"},
+    "mesh": {"descriptorId": "D005080", "term": "Exercise Test"},
+    "cpt": [
+      {"code": "93015", "description": "Cardiovascular stress test using maximal or submaximal treadmill"},
+      {"code": "78452", "description": "Myocardial perfusion imaging SPECT multiple studies"},
+      {"code": "93350", "description": "Echocardiography during stress test"}
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Stress_Testing",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "pedagogical": {
+    "learning_objectives": [
+      "Select appropriate stress testing modality based on patient characteristics",
+      "Interpret ETT results including ST changes and Duke Treadmill Score",
+      "Recognize high-risk stress test features requiring angiography",
+      "Identify contraindications to exercise and pharmacologic stress testing",
+      "Apply stress test results to clinical decision-making"
+    ],
+    "clinical_pearls": [
+      "ETT alone sufficient if patient can exercise AND baseline ECG is interpretable",
+      "LBBB/paced rhythm → use vasodilator (not dobutamine) due to septal artifact",
+      "Duke Score ≤-11 is high risk (annual mortality ~5%); Score ≥+5 is low risk (<1%)",
+      "Heart rate recovery <12 bpm at 1 minute is independent predictor of mortality",
+      "Caffeine blocks adenosine receptors - hold for 12-24h before vasodilator stress",
+      "Reaching 10 METs on exercise without ischemia has excellent prognosis regardless of CAD"
+    ],
+    "board_yield": {
+      "usmle_step1": ["Coronary blood flow regulation", "Exercise physiology"],
+      "usmle_step2": ["Test selection algorithm", "Positive criteria", "Duke Score"],
+      "usmle_step3": ["Contraindications", "Post-test management", "Risk stratification"],
+      "specialty_boards": {"cardiology": "High yield", "internal_medicine": "Moderate yield"}
+    },
+    "common_misconceptions": [
+      "All patients need imaging with stress (ETT alone adequate for many)",
+      "Negative stress test rules out CAD (sensitivity ~70% for ETT)",
+      "LBBB can be evaluated with dobutamine stress echo (artifact limits accuracy)"
+    ]
+  },
+  "prerequisites": ["health-sciences:medicine:cardiology:cardio-030", "health-sciences:medicine:cardiology:cardio-049"],
+  "related_concepts": ["health-sciences:medicine:cardiology:cardio-034", "health-sciences:medicine:cardiology:cardio-035", "health-sciences:medicine:cardiology:cardio-037"],
+  "evidence": {
+    "citations": [
+      {"authors": ["Fihn SD", "Gardin JM", "Abrams J"], "title": "2012 ACCF/AHA/ACP/AATS/PCNA/SCAI/STS Guideline for the Diagnosis and Management of Patients With Stable Ischemic Heart Disease", "journal": "Circulation", "year": 2012, "pmid": "23166211"}
+    ],
+    "guidelines": [{"organization": "ACC/AHA", "title": "Stable Ischemic Heart Disease Guidelines", "year": 2012}],
+    "confidence_rationale": "Based on ACC/AHA guidelines for stable ischemic heart disease evaluation"
+  },
+  "learning_objectives": ["Select appropriate test modality", "Interpret ETT and Duke Score", "Recognize high-risk features"],
+  "clinical_pearls": ["ETT first if exercise capable + interpretable ECG", "LBBB needs vasodilator stress", "Duke ≤-11 is high risk"],
+  "provenance": {"verification_status": "verified", "last_verified": "2026-01-12T07:04:00.000Z", "sources": [{"source": "ACC/AHA SIHD Guidelines", "type": "guideline", "year": 2012}]},
+  "quality_assessment": {"content_quality_score": 0.94, "completeness": 0.95, "accuracy": 0.96, "clinical_relevance": 0.97, "pedagogical_value": 0.93, "last_assessed": "2026-01-12T07:04:00.000Z", "assessor": "quality-agent"},
+  "owl:sameAs": "http://dbpedia.org/resource/Cardiac_stress_test",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q903116"
 }

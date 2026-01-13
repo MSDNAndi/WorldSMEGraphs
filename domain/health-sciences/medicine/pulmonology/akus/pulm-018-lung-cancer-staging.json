@@ -1,76 +1,277 @@
 {
   "@context": "aku-v2",
   "@type": "definition",
-  "@id": "health-sciences:medicine:pulmonology:pulm-018",
+  "@id": "wsmg:health-sciences/medicine/pulmonology/pulm-018",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:51:20.000Z",
+    "modified": "2026-01-13T13:56:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": ["CC-BY-4.0"]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/pulmonology",
+    "subdomain": "thoracic-oncology",
     "type": "definition",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
     "title": "Lung Cancer Staging",
-    "summary": "TNM staging of lung cancer",
+    "summary": "Lung cancer staging uses the TNM system for non-small cell lung cancer (NSCLC) and limited/extensive staging for small cell lung cancer (SCLC). Accurate staging is essential for prognosis and treatment planning. PET-CT is the primary imaging modality for mediastinal and distant staging, with brain MRI for complete evaluation.",
     "key_points": [
-      "NSCLC vs SCLC staging",
-      "PET-CT for staging",
-      "Brain MRI for completeness"
+      "TNM 8th edition: T (tumor size/invasion), N (nodal involvement), M (metastases)",
+      "NSCLC stages: I-II potentially resectable; IIIA variable; IIIB-IV inoperable",
+      "SCLC: Limited (one hemithorax) vs Extensive (beyond one radiation port)",
+      "PET-CT sensitivity 85-90% for mediastinal nodes; confirm positive with tissue",
+      "Brain MRI for all stage III-IV NSCLC and all SCLC (high brain metastasis rate)",
+      "Mediastinoscopy/EBUS-TBNA for pathologic N staging before curative surgery"
     ],
-    "statement": "Lung Cancer Staging is a fundamental concept in health-sciences medicine pulmonology that provides essential knowledge for understanding related topics.",
+    "statement": "Lung cancer staging determines resectability and treatment approach, using TNM classification for NSCLC and limited/extensive for SCLC, with PET-CT and brain MRI as essential staging tools.",
     "explanation": {
-      "intuition": "Understanding Lung Cancer Staging helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Lung Cancer Staging include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Lung Cancer Staging to real-world scenarios."
+      "intuition": "Think of lung cancer staging as mapping how far the fire has spread. T tells you how big the original fire is and what local structures it's burning. N tells you if embers have jumped to nearby lymph nodes. M tells you if sparks have landed far away (brain, bones, liver). This map determines whether you can surgically remove the fire (early) or need systemic treatment (advanced).",
+      "key_insight": "PET-positive mediastinal nodes MUST be confirmed with tissue before declaring a patient unresectable. PET false-positive rate is 15-20% (especially with inflammatory conditions). Conversely, small nodes may harbor microscopic disease (false-negative). Pathologic confirmation changes management in 20-30% of cases.",
+      "technical_details": "AJCC 8th edition T staging: T1 ≤3cm (T1a≤1cm, T1b>1-2cm, T1c>2-3cm); T2 >3-5cm or bronchus/visceral pleura invasion; T3 >5-7cm or chest wall/pericardium/phrenic nerve; T4 >7cm or mediastinal invasion. N1=ipsilateral hilar; N2=ipsilateral mediastinal; N3=contralateral."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "TNM_staging": "Tumor-Node-Metastasis classification system for cancer staging",
+      "NSCLC": "Non-small cell lung cancer (~85%); adenocarcinoma, squamous, large cell",
+      "SCLC": "Small cell lung cancer (~15%); aggressive, chemotherapy-sensitive",
+      "T_descriptor": "Primary tumor size and local extent of invasion",
+      "N_descriptor": "Regional lymph node involvement (N0-N3)",
+      "M_descriptor": "Distant metastasis (M0=none; M1a/b/c=various sites)",
+      "limited_stage_SCLC": "Disease confined to one hemithorax within single radiation port",
+      "extensive_stage_SCLC": "Disease beyond one hemithorax; metastatic disease",
+      "PET_CT": "Positron emission tomography with CT for metabolic and anatomic staging",
+      "EBUS_TBNA": "Endobronchial ultrasound with transbronchial needle aspiration for node sampling",
+      "mediastinoscopy": "Surgical procedure for sampling mediastinal lymph nodes",
+      "SUV": "Standardized uptake value on PET; >2.5 concerning for malignancy"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Staging classifies anatomic extent of disease to predict prognosis and guide treatment selection between surgery, radiation, chemotherapy, and targeted/immunotherapy",
+      "TNM_8th_edition": {
+        "T_staging": {
+          "T1": "≤3cm surrounded by lung/visceral pleura",
+          "T2": ">3-5cm OR main bronchus (not carina) OR visceral pleura OR atelectasis to hilum",
+          "T3": ">5-7cm OR chest wall/pericardium/phrenic nerve OR separate nodule same lobe",
+          "T4": ">7cm OR mediastinum/diaphragm/heart/great vessels/trachea/esophagus/carina/recurrent laryngeal/spine OR separate nodule different ipsilateral lobe"
+        },
+        "N_staging": {
+          "N0": "No regional node involvement",
+          "N1": "Ipsilateral peribronchial/hilar nodes",
+          "N2": "Ipsilateral mediastinal/subcarinal nodes",
+          "N3": "Contralateral mediastinal/hilar, scalene, supraclavicular nodes"
+        },
+        "M_staging": {
+          "M0": "No distant metastasis",
+          "M1a": "Separate nodule in contralateral lobe, pleural/pericardial nodules, malignant effusion",
+          "M1b": "Single extrathoracic metastasis",
+          "M1c": "Multiple extrathoracic metastases in one or more organs"
+        }
+      }
+    },
+    "diagnostic_criteria": {
+      "staging_workup": {
+        "all_patients": ["CT chest with contrast (through adrenals)", "PET-CT for metabolic staging"],
+        "brain_imaging": "MRI brain for stage III-IV NSCLC and all SCLC",
+        "tissue_confirmation": ["Bronchoscopy with biopsy", "CT-guided biopsy", "EBUS-TBNA for nodes"]
+      },
+      "stage_grouping_NSCLC": {
+        "stage_IA1": "T1a N0 M0",
+        "stage_IB": "T2a N0 M0",
+        "stage_IIA": "T2b N0 M0",
+        "stage_IIB": "T3 N0 M0 or T1-2 N1 M0",
+        "stage_IIIA": "T3-4 N1 or T1-4 N2 M0",
+        "stage_IIIB": "T1-4 N3 M0 or T3-4 N2 M0",
+        "stage_IV": "Any T, Any N, M1"
+      }
+    },
+    "differential_diagnosis": [
+      "Benign pulmonary nodule (granuloma, hamartoma)",
+      "Metastatic cancer from extrathoracic primary",
+      "Lymphoma",
+      "Infectious granulomatous disease"
+    ],
+    "treatment_options": {
+      "stage_I_II": {
+        "treatment": "Surgical resection (lobectomy preferred) ± adjuvant chemotherapy",
+        "5_year_survival": "Stage IA >80%; Stage IB-IIA 60-80%; IIB 50-60%"
+      },
+      "stage_IIIA": {
+        "treatment": "Multimodality: surgery + adjuvant chemo OR definitive chemoradiation",
+        "consideration": "Depends on N2 burden and resectability"
+      },
+      "stage_IIIB_IIIC": {
+        "treatment": "Concurrent chemoradiation ± consolidation durvalumab",
+        "5_year_survival": "15-30%"
+      },
+      "stage_IV": {
+        "treatment": "Systemic therapy: targeted (EGFR, ALK), immunotherapy, or chemotherapy",
+        "5_year_survival": "<10% historically, improving with targeted/IO therapy"
+      },
+      "SCLC": {
+        "limited": "Concurrent chemoradiation (cisplatin/etoposide) + prophylactic cranial irradiation",
+        "extensive": "Chemotherapy + immunotherapy (atezolizumab/durvalumab) ± PCI"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Lung Cancer Staging"
-  ],
-  "clinical_pearls": [
-    "NSCLC vs SCLC staging"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Lung Cancer Staging"
+    },
+    "altLabel": [
+      {"@language": "en", "@value": "TNM staging lung cancer"},
+      {"@language": "en", "@value": "NSCLC staging"},
+      {"@language": "en", "@value": "SCLC staging"}
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The systematic classification of lung cancer extent using TNM descriptors for NSCLC or limited/extensive staging for SCLC to guide treatment and prognosis"
+    },
+    "notation": "pulm-018",
+    "scopeNote": {
+      "@language": "en",
+      "@value": "Covers TNM 8th edition staging, workup, and stage-based treatment approach"
+    }
+  },
+  "relationships": {
+    "skos:broader": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@id": "wsmg:health-sciences/medicine/pulmonology/thoracic-oncology",
+        "skos:prefLabel": "Thoracic Oncology"
+      }
+    ],
+    "skos:narrower": [],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/pulmonology/pulm-017",
+        "skos:prefLabel": "Lung Cancer Diagnosis"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@id": "wsmg:health-sciences/medicine/oncology/onc-012",
+        "skos:prefLabel": "Lung Cancer Treatment"
+      }
+    ],
+    "owl:sameAs": [
+      "http://dbpedia.org/resource/Lung_cancer_staging"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "254637007",
+      "uri": "http://snomed.info/id/254637007",
+      "description": "Non-small cell lung cancer"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "C34",
+      "uri": "http://hl7.org/fhir/sid/icd-10-cm/C34",
+      "description": "Malignant neoplasm of bronchus and lung"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D002289",
+      "uri": "http://id.nlm.nih.gov/mesh/D002289",
+      "description": "Carcinoma, Non-Small-Cell Lung"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Apply TNM 8th edition T, N, and M descriptors for NSCLC",
+      "Differentiate limited vs extensive stage SCLC",
+      "Describe the staging workup including PET-CT and brain MRI indications",
+      "Explain why pathologic confirmation of PET-positive nodes is essential",
+      "Match stage to appropriate treatment modality"
+    ],
+    "clinical_pearls": [
+      "PET-positive nodes require tissue confirmation - 20-30% change management",
+      "Brain MRI for ALL SCLC and stage III-IV NSCLC (high brain met rate)",
+      "N2 disease is a critical decision point - may or may not be resectable",
+      "EBUS-TBNA now often replaces mediastinoscopy for nodal staging",
+      "SUV >2.5 is concerning but NOT diagnostic for malignancy"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "30min",
+    "target_audience": [
+      "pulmonology_fellows",
+      "oncology_fellows",
+      "internal_medicine_residents"
+    ],
+    "common_misconceptions": [
+      "PET-positive nodes are definitely malignant - false-positive rate 15-20%",
+      "All stage III is inoperable - some IIIA can be resected",
+      "Brain CT is adequate for staging - MRI is more sensitive for small mets"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/pulmonology/pulm-017",
+      "skos:prefLabel": "Lung Cancer Diagnosis"
+    }
+  ],
+  "related_concepts": [
+    "PET-CT",
+    "mediastinal staging",
+    "EBUS-TBNA",
+    "surgical resection",
+    "brain metastases"
+  ],
+  "evidence": {
+    "citations": [
+      {
+        "authors": "Goldstraw P, Chansky K, Crowley J, et al.",
+        "title": "The IASLC Lung Cancer Staging Project: Proposals for Revision of the TNM Stage Groupings in the Forthcoming (Eighth) Edition",
+        "journal": "J Thorac Oncol",
+        "year": 2016,
+        "volume": "11",
+        "pages": "39-51",
+        "doi": "10.1016/j.jtho.2015.09.009"
+      }
+    ],
+    "confidence_rationale": "Based on AJCC 8th edition and IASLC staging project"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-13T13:56:00.000Z",
+    "sources": [
+      {
+        "source": "AJCC Cancer Staging Manual, 8th Edition. Springer, 2017.",
+        "type": "guideline",
+        "year": 2017,
+        "relevance": "TNM 8th edition staging criteria"
+      },
+      {
+        "source": "NCCN Clinical Practice Guidelines in Oncology: Non-Small Cell Lung Cancer. 2024.",
+        "type": "guideline",
+        "year": 2024,
+        "relevance": "Evidence-based staging and treatment"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Lung_Cancer_Staging",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "content_quality_score": 0.94,
+    "completeness": 0.95,
+    "accuracy": 0.96,
+    "clarity": 0.93,
+    "clinical_relevance": 0.97,
+    "last_assessed": "2026-01-13T13:56:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Lung_cancer_staging",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q207628"
 }

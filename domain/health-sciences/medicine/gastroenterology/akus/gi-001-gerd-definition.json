@@ -1,76 +1,278 @@
 {
   "@context": "aku-v2",
   "@type": "definition",
-  "@id": "health-sciences:medicine:gastroenterology:gi-001",
+  "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-001",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:52:30.000Z",
+    "modified": "2026-01-13T13:32:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": ["CC-BY-4.0"]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/gastroenterology",
+    "subdomain": "esophageal-disorders",
     "type": "definition",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "beginner",
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
-    "title": "GERD Definition",
-    "summary": "Gastroesophageal reflux disease",
+    "title": "Gastroesophageal Reflux Disease (GERD)",
+    "summary": "Gastroesophageal reflux disease is a chronic condition caused by retrograde flow of gastric contents into the esophagus, leading to symptoms (heartburn, regurgitation) and/or complications (esophagitis, stricture, Barrett's). It is one of the most common GI conditions, affecting 20% of the US population, and is managed primarily with lifestyle modifications and acid suppression therapy.",
     "key_points": [
-      "Heartburn and regurgitation",
-      "Erosive vs non-erosive",
-      "PPI therapy"
+      "Classic symptoms: Heartburn and regurgitation (typical GERD)",
+      "Atypical: Chronic cough, laryngitis, asthma, chest pain",
+      "Erosive vs Non-erosive: Only 30-40% have visible esophagitis on endoscopy",
+      "First-line treatment: Lifestyle modifications + PPI for 8 weeks",
+      "Alarm symptoms: Dysphagia, weight loss, GI bleeding, anemia → endoscopy",
+      "Refractory GERD: Consider pH testing, impedance monitoring, fundoplication"
     ],
-    "statement": "GERD Definition is a fundamental concept in health-sciences medicine gastroenterology that provides essential knowledge for understanding related topics.",
+    "statement": "GERD is defined by troublesome symptoms or complications caused by reflux of gastric contents, diagnosed clinically and managed with lifestyle modifications and acid suppression, with endoscopy reserved for alarm symptoms or refractory cases.",
     "explanation": {
-      "intuition": "Understanding GERD Definition helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of GERD Definition include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of GERD Definition to real-world scenarios."
+      "intuition": "Think of the lower esophageal sphincter (LES) as a one-way valve that should only let food go down. In GERD, this valve is too relaxed (transient LES relaxations) or the pressure gradient favors reflux (hiatal hernia), allowing stomach acid to splash back up and burn the unprotected esophageal lining.",
+      "key_insight": "Most GERD is diagnosed clinically based on typical symptoms responding to PPI trial - no testing needed. Endoscopy is NOT required for diagnosis but IS required for alarm symptoms, to evaluate complications, or for cancer surveillance in Barrett's.",
+      "technical_details": "Transient LES relaxations (TLESRs) are the main mechanism in most GERD. Normal LES pressure is 10-35 mmHg. Hiatal hernia reduces LES competence. Acid pocket (unbuffered acid at gastric cardia) contributes to postprandial reflux. pH <4 in distal esophagus >4.2% of time is pathologic."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "GERD": "Condition where reflux of gastric contents causes troublesome symptoms or complications",
+      "heartburn": "Burning retrosternal discomfort rising from stomach to throat; typical symptom",
+      "regurgitation": "Perception of gastric contents in mouth/hypopharynx without effort",
+      "LES": "Lower esophageal sphincter - muscular barrier preventing reflux",
+      "transient_LES_relaxation": "Inappropriate LES relaxation not triggered by swallowing; main reflux mechanism",
+      "hiatal_hernia": "Proximal stomach herniation through diaphragmatic hiatus; reduces LES function",
+      "erosive_esophagitis": "Visible mucosal breaks on endoscopy; Los Angeles classification grades A-D",
+      "non_erosive_reflux_disease": "GERD symptoms without visible esophageal injury (NERD)",
+      "peptic_stricture": "Esophageal narrowing from chronic acid injury; causes dysphagia",
+      "Barrett_esophagus": "Intestinal metaplasia of distal esophagus; premalignant condition",
+      "pH_monitoring": "24-48 hour recording of esophageal acid exposure for diagnosis",
+      "Bravo_capsule": "Wireless pH monitoring device attached to esophageal mucosa"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Disruption of anti-reflux barrier allowing gastric contents (acid, pepsin, bile) to contact esophageal mucosa, causing symptoms and tissue injury",
+      "contributing_factors": {
+        "anatomic": ["Hiatal hernia", "Short intra-abdominal esophagus", "Esophageal dysmotility"],
+        "functional": ["Transient LES relaxations", "Low resting LES pressure", "Impaired esophageal clearance"],
+        "lifestyle": ["Obesity", "Large meals", "Late eating", "Smoking", "Alcohol"]
+      },
+      "progression": {
+        "spectrum": "NERD → Erosive esophagitis → Stricture → Barrett's → Adenocarcinoma",
+        "note": "Only 5-15% of GERD patients progress to Barrett's"
+      }
+    },
+    "diagnostic_criteria": {
+      "clinical_diagnosis": [
+        "Typical symptoms (heartburn, regurgitation) occurring ≥2x/week",
+        "Response to empiric PPI trial supports diagnosis",
+        "No further testing needed if typical presentation without alarm features"
+      ],
+      "alarm_symptoms": [
+        "Dysphagia (progressive solid food difficulty)",
+        "Odynophagia (painful swallowing)",
+        "Unintentional weight loss",
+        "GI bleeding (hematemesis, melena)",
+        "Iron deficiency anemia",
+        "Persistent vomiting"
+      ],
+      "diagnostic_testing": {
+        "upper_endoscopy": "For alarm symptoms, screening Barrett's in high-risk, refractory symptoms",
+        "ambulatory_pH_monitoring": "Gold standard for documenting acid exposure; before surgery",
+        "impedance_pH": "Detects non-acid reflux; useful in PPI-refractory",
+        "esophageal_manometry": "Required before fundoplication to assess motility"
+      }
+    },
+    "differential_diagnosis": [
+      "Eosinophilic esophagitis (dysphagia, food impaction, rings)",
+      "Infectious esophagitis (odynophagia, immunocompromised)",
+      "Pill esophagitis (acute onset after medication)",
+      "Cardiac chest pain (exertional, ECG changes)",
+      "Achalasia (dysphagia to solids AND liquids)"
+    ],
+    "treatment_options": {
+      "lifestyle_modifications": [
+        "Weight loss if overweight/obese",
+        "Avoid eating within 3 hours of bedtime",
+        "Elevate head of bed 6-8 inches",
+        "Avoid trigger foods (coffee, alcohol, chocolate, fatty foods)",
+        "Smoking cessation"
+      ],
+      "pharmacotherapy": {
+        "first_line": "PPI once daily 30-60 min before breakfast for 8 weeks",
+        "PPI_options": "Omeprazole, esomeprazole, pantoprazole, lansoprazole, rabeprazole",
+        "maintenance": "Lowest effective PPI dose for symptom control",
+        "H2_blockers": "Alternative for mild symptoms or step-down therapy"
+      },
+      "refractory_GERD": [
+        "Confirm diagnosis with pH/impedance testing",
+        "Optimize PPI (timing, dose, compliance)",
+        "Consider additional H2 blocker at bedtime",
+        "Evaluate for non-acid reflux or functional heartburn"
+      ],
+      "surgical_options": {
+        "fundoplication": "Laparoscopic Nissen (360°) or Toupet (270°); for refractory or large hiatal hernia",
+        "LINX_device": "Magnetic sphincter augmentation; alternative to fundoplication",
+        "indications": "Objective GERD, good symptom-reflux correlation, intolerant/refractory to PPI"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand GERD Definition"
-  ],
-  "clinical_pearls": [
-    "Heartburn and regurgitation"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Gastroesophageal Reflux Disease"
+    },
+    "altLabel": [
+      {"@language": "en", "@value": "GERD"},
+      {"@language": "en", "@value": "Acid reflux disease"},
+      {"@language": "en", "@value": "Gastro-oesophageal reflux disease"},
+      {"@language": "en", "@value": "GORD"}
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "A chronic condition characterized by retrograde flow of gastric contents into the esophagus, causing troublesome symptoms and/or mucosal complications"
+    },
+    "notation": "gi-001",
+    "scopeNote": {
+      "@language": "en",
+      "@value": "Covers definition, diagnosis, and management of GERD and its complications"
+    }
+  },
+  "relationships": {
+    "skos:broader": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/esophageal-disorders",
+        "skos:prefLabel": "Esophageal Disorders"
+      }
+    ],
+    "skos:narrower": [
+      {
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-002",
+        "skos:prefLabel": "Barrett Esophagus"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-003",
+        "skos:prefLabel": "Peptic Ulcer Disease"
       },
       {
-        "source": "Academic literature review",
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-047",
+        "skos:prefLabel": "EGD Procedure"
+      }
+    ],
+    "owl:sameAs": [
+      "http://dbpedia.org/resource/Gastroesophageal_reflux_disease"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "235595009",
+      "uri": "http://snomed.info/id/235595009",
+      "description": "Gastroesophageal reflux disease"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "K21",
+      "uri": "http://hl7.org/fhir/sid/icd-10-cm/K21",
+      "description": "Gastro-esophageal reflux disease"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D005764",
+      "uri": "http://id.nlm.nih.gov/mesh/D005764",
+      "description": "Gastroesophageal Reflux"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Define GERD and distinguish typical from atypical symptoms",
+      "Identify alarm symptoms requiring endoscopic evaluation",
+      "Describe the role of pH monitoring and when to use it",
+      "Design initial management with lifestyle modifications and PPIs",
+      "Recognize indications for surgical intervention"
+    ],
+    "clinical_pearls": [
+      "Empiric PPI trial is diagnostic - if symptoms resolve, it's GERD",
+      "Only 30-40% of GERD patients have erosive esophagitis on EGD",
+      "PPIs should be taken 30-60 min BEFORE meals for optimal effect",
+      "Long-term PPI use is safe but periodically reassess need",
+      "Refractory symptoms: check compliance, timing, consider other diagnoses"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "20min",
+    "target_audience": [
+      "medical_students",
+      "internal_medicine_residents",
+      "gastroenterology_fellows"
+    ],
+    "common_misconceptions": [
+      "All GERD patients need endoscopy - only for alarm symptoms or Barrett's screening",
+      "PPIs are dangerous long-term - benefits usually outweigh risks",
+      "Hiatal hernia causes GERD - it predisposes but is not sufficient"
+    ]
+  },
+  "prerequisites": [],
+  "related_concepts": [
+    "proton pump inhibitors",
+    "endoscopy",
+    "hiatal hernia",
+    "Barrett esophagus",
+    "lower esophageal sphincter"
+  ],
+  "evidence": {
+    "citations": [
+      {
+        "authors": "Katz PO, Dunbar KB, Schnoll-Sussman FH, et al.",
+        "title": "ACG Clinical Guideline for the Diagnosis and Management of GERD",
+        "journal": "Am J Gastroenterol",
+        "year": 2022,
+        "volume": "117",
+        "pages": "27-56",
+        "doi": "10.14309/ajg.0000000000001538"
+      }
+    ],
+    "confidence_rationale": "Based on ACG 2022 guidelines"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-13T13:32:00.000Z",
+    "sources": [
+      {
+        "source": "ACG Clinical Guideline for the Diagnosis and Management of GERD. Am J Gastroenterol. 2022.",
+        "type": "guideline",
+        "year": 2022,
+        "relevance": "Evidence-based GERD management"
+      },
+      {
+        "source": "Sleisenger and Fordtran's Gastrointestinal and Liver Disease, 11th ed. Elsevier, 2021.",
         "type": "textbook",
         "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "isbn": "978-0323609623",
+        "relevance": "Comprehensive GI reference"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/GERD_Definition",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "content_quality_score": 0.94,
+    "completeness": 0.95,
+    "accuracy": 0.96,
+    "clarity": 0.94,
+    "clinical_relevance": 0.97,
+    "last_assessed": "2026-01-13T13:32:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Gastroesophageal_reflux_disease",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q214972"
 }

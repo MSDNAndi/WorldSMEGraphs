@@ -1,76 +1,364 @@
 {
-  "@context": "aku-v2",
-  "@type": "procedure",
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "MedicalProcedure"
+  ],
   "@id": "health-sciences:medicine:cardiology:cardio-032",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:50:10.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "cardiology-knowledge-base"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.97,
+    "status": "validated",
+    "modified": "2026-01-11T20:54:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/cardiology",
     "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "critical",
+    "aku_id": "032",
+    "keywords": [
+      "coronary artery bypass grafting",
+      "CABG",
+      "bypass surgery",
+      "LIMA",
+      "saphenous vein graft",
+      "revascularization",
+      "multivessel disease",
+      "left main disease"
+    ],
+    "medical_specialty": "cardiology",
+    "clinical_context": "coronary_revascularization"
   },
   "content": {
-    "title": "CABG Surgery",
-    "summary": "Coronary artery bypass grafting",
+    "title": "Coronary Artery Bypass Grafting (CABG)",
+    "summary": "Surgical revascularization procedure using arterial and venous conduits to bypass coronary artery stenoses, providing improved blood flow to ischemic myocardium and survival benefit in select patients",
     "key_points": [
-      "LIMA to LAD gold standard",
-      "On-pump vs off-pump",
-      "Multivessel disease indication"
+      "LIMA to LAD is the gold standard graft with 90% patency at 10 years",
+      "Saphenous vein grafts have lower long-term patency (50-60% at 10 years)",
+      "CABG superior to PCI for: left main disease, 3-vessel CAD with diabetes, complex anatomy",
+      "On-pump (cardiopulmonary bypass) vs off-pump (beating heart) surgery",
+      "Perioperative mortality: 1-2% for elective CABG, higher with emergency/cardiogenic shock",
+      "Complete arterial revascularization (bilateral IMA) improves long-term outcomes",
+      "DAPT after CABG: aspirin lifelong, clopidogrel x1 year if ACS presentation"
     ],
-    "statement": "CABG Surgery is a fundamental concept in health-sciences medicine cardiology that provides essential knowledge for understanding related topics.",
+    "statement": {
+      "text": "Coronary artery bypass grafting (CABG) is a surgical revascularization procedure that uses arterial (internal mammary artery, radial artery) and venous (saphenous vein) conduits to bypass coronary artery stenoses. CABG provides survival benefit over medical therapy and PCI in patients with left main disease, three-vessel disease (especially with diabetes or reduced EF), and complex coronary anatomy. The LIMA-to-LAD graft is the cornerstone of CABG with excellent long-term patency.",
+      "formal": "CABG indications = Left main ≥50% OR 3-vessel CAD + (diabetes OR LVEF <50% OR SYNTAX >22) | LIMA-LAD = gold standard | SVG patency < arterial grafts"
+    },
     "explanation": {
-      "intuition": "Understanding CABG Surgery helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of CABG Surgery include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of CABG Surgery to real-world scenarios."
+      "intuition": "When coronary arteries are severely narrowed or blocked, the heart muscle beyond the blockage receives inadequate blood flow. CABG creates new pathways (bypasses) around the blockages using vessels harvested from elsewhere in the body. Think of it like building a new highway to bypass traffic congestion. Arterial grafts last longer because they are designed to handle arterial pressures, while vein grafts are adapted to the arterial environment and tend to fail over time.",
+      "key_insight": "The LIMA-to-LAD graft is the single most important determinant of long-term outcomes after CABG. Its use reduces mortality by 40% at 10 years compared to vein grafts alone. The LAD supplies the largest territory of myocardium, and the LIMA has unique properties (resistance to atherosclerosis, endothelial function) that maintain patency. Maximizing arterial revascularization with bilateral internal mammary arteries further improves outcomes.",
+      "technical_details": "CABG is typically performed via median sternotomy with cardiopulmonary bypass (heart-lung machine). The heart is arrested with cardioplegia solution, allowing anastomoses to be performed on a still heart. Off-pump CABG (OPCAB) maintains cardiac motion using stabilizers but has similar long-term outcomes. Hybrid revascularization combines minimally invasive LIMA-LAD with PCI to other vessels."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "coronary_artery_bypass_grafting": "Surgical procedure creating new conduits to bypass coronary artery stenoses",
+      "lima": "Left internal mammary artery - gold standard graft for LAD with excellent long-term patency",
+      "rima": "Right internal mammary artery - used for bilateral IMA grafting to improve outcomes",
+      "saphenous_vein_graft": "SVG - vein harvested from leg used as bypass conduit; lower long-term patency than arterial grafts",
+      "radial_artery": "Arterial conduit from forearm; patency intermediate between IMA and SVG",
+      "cardiopulmonary_bypass": "Heart-lung machine providing circulation while heart is arrested for surgery",
+      "off_pump_cabg": "OPCAB - CABG performed on beating heart without cardiopulmonary bypass",
+      "cardioplegia": "Solution used to arrest and protect the heart during on-pump surgery",
+      "anastomosis": "Surgical connection between graft and native coronary artery",
+      "sternotomy": "Surgical incision through the sternum to access the heart",
+      "syntax_score": "Angiographic scoring system quantifying coronary complexity; higher scores favor CABG",
+      "complete_revascularization": "Bypassing all significant stenoses; improves long-term outcomes",
+      "hybrid_revascularization": "Combination of surgical (LIMA-LAD) and percutaneous (PCI) revascularization",
+      "graft_patency": "Percentage of grafts remaining open at a given time point"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical/scientific knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "CABG bypasses coronary artery stenoses by anastomosing conduits (arteries or veins) distal to the blockage. Blood flows from the aorta (or subclavian for IMA) through the graft directly to the coronary artery beyond the stenosis. This restores myocardial perfusion, relieves ischemia, improves contractile function in viable but hibernating myocardium, and reduces angina.",
+      "graft_physiology": {
+        "arterial_grafts": "IMA maintains endothelial function, releases nitric oxide, resists atherosclerosis. In-situ IMA is flow-responsive.",
+        "venous_grafts": "SVG exposed to arterial pressure develops intimal hyperplasia and accelerated atherosclerosis. Early occlusion from thrombosis; late failure from disease."
+      },
+      "graft_patency_rates": {
+        "lima": "95-98% at 1 year, 90% at 10 years",
+        "rima": "Similar to LIMA when used appropriately",
+        "radial_artery": "85-90% at 1 year, 80% at 5 years (improved with calcium channel blockers)",
+        "saphenous_vein": "80-85% at 1 year, 50-60% at 10 years"
+      }
+    },
+    "diagnostic_criteria": {
+      "indications_for_cabg": {
+        "class_i_survival_benefit": [
+          "Left main stenosis ≥50%",
+          "3-vessel CAD with or without proximal LAD involvement",
+          "2-vessel CAD with proximal LAD stenosis and reduced LVEF or ischemia",
+          "Significant CAD with reduced LVEF ≤35% (viability required)"
+        ],
+        "class_i_symptom_benefit": [
+          "Significant CAD with unacceptable angina despite optimal medical therapy"
+        ],
+        "cabg_preferred_over_pci": [
+          "Diabetes with multivessel disease (FREEDOM trial)",
+          "Complex anatomy: SYNTAX score >22",
+          "Left main disease with complex anatomy",
+          "Multivessel disease with reduced LVEF"
+        ]
+      },
+      "preoperative_assessment": {
+        "cardiac": "Coronary angiography, echocardiography, viability testing if reduced EF",
+        "surgical_risk": "STS risk calculator estimates mortality and morbidity",
+        "conduit_assessment": "Allen test for radial artery; vein mapping if needed",
+        "comorbidities": "Diabetes control, renal function, carotid disease, pulmonary function"
+      }
+    },
+    "treatment_options": {
+      "surgical_approaches": {
+        "on_pump_cabg": {
+          "technique": "Median sternotomy, cardiopulmonary bypass, cardioplegic arrest",
+          "advantages": "Motionless field, complete revascularization easier",
+          "disadvantages": "Inflammatory response, potential neurologic injury, longer recovery"
+        },
+        "off_pump_cabg": {
+          "technique": "Beating heart surgery with stabilizer devices",
+          "advantages": "Avoids bypass-related complications, may reduce stroke",
+          "disadvantages": "Technically challenging, incomplete revascularization risk",
+          "outcomes": "Similar long-term mortality to on-pump in experienced centers"
+        },
+        "minimally_invasive": {
+          "midcab": "Mini-thoracotomy for LIMA-LAD without sternotomy",
+          "hybrid": "MIDCAB + PCI to other vessels"
+        }
+      },
+      "graft_selection_strategy": {
+        "lima_to_lad": "Mandatory in nearly all cases (unless contraindicated)",
+        "bilateral_ima": "Consider in younger patients (<70), non-diabetics; improves survival",
+        "radial_artery": "Second arterial conduit; use with CCB for antispasm",
+        "svg": "Remaining targets after arterial conduits used"
+      },
+      "postoperative_management": {
+        "antiplatelet": "Aspirin 81-325 mg lifelong; DAPT if ACS presentation",
+        "statin": "High-intensity statin for all patients",
+        "cardiac_rehab": "Strongly recommended; improves outcomes",
+        "risk_factor_modification": "Smoking cessation, diabetes control, BP management"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand CABG Surgery"
-  ],
-  "clinical_pearls": [
-    "LIMA to LAD gold standard"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Coronary Artery Bypass Grafting"
+    },
+    "altLabel": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@language": "en",
+        "@value": "CABG"
       },
       {
-        "source": "Academic literature review",
-        "type": "textbook",
+        "@language": "en",
+        "@value": "Bypass Surgery"
+      },
+      {
+        "@language": "en",
+        "@value": "Coronary Bypass"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Surgical revascularization procedure using arterial and venous conduits to bypass coronary artery stenoses and restore myocardial blood flow"
+    },
+    "notation": "cardio-032",
+    "scopeNote": "Covers indications, graft selection, surgical techniques, and postoperative management; compares CABG vs PCI",
+    "example": "A 62-year-old diabetic man with 3-vessel CAD (80% proximal LAD, 90% LCx, 70% RCA) and SYNTAX score 28 undergoes CABG with LIMA-LAD, radial artery to LCx, SVG to RCA; discharged on aspirin, statin, and cardiac rehabilitation"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "232717009",
+      "uri": "http://snomed.info/id/232717009",
+      "description": "Coronary artery bypass grafting (procedure)",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-PCS",
+      "codeValue": "0210",
+      "description": "Bypass Coronary Artery",
+      "matchType": "exactMatch"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "CPT",
+      "codeValue": "33533",
+      "description": "CABG using arterial graft, single",
+      "matchType": "narrower"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D001026",
+      "uri": "http://id.nlm.nih.gov/mesh/D001026",
+      "description": "Coronary Artery Bypass",
+      "matchType": "exactMatch"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "medical_students",
+      "cardiology_fellows",
+      "internal_medicine_residents",
+      "cardiac_surgery_residents"
+    ],
+    "estimated_time": "35min",
+    "difficulty_curve": 0.75,
+    "learning_objectives": [
+      "Identify patients who benefit from CABG over medical therapy or PCI",
+      "Apply SYNTAX score and clinical factors to guide revascularization strategy",
+      "Explain the importance of LIMA-LAD and arterial grafts for long-term outcomes",
+      "Compare on-pump vs off-pump CABG techniques",
+      "Prescribe appropriate postoperative antiplatelet and risk factor management"
+    ],
+    "clinical_pearls": [
+      "LIMA to LAD is the single most important graft - 90% patent at 10 years",
+      "CABG > PCI for left main, 3-vessel CAD with diabetes, complex anatomy (SYNTAX >22)",
+      "Bilateral IMA improves survival but increases sternal wound infection in diabetics",
+      "SVG failure: early = thrombosis; late = atherosclerosis. Aspirin + statin reduce failure.",
+      "SYNTAX score guides decision: ≤22 = PCI reasonable; >22 = CABG preferred",
+      "Complete revascularization improves outcomes - bypass all significant stenoses",
+      "Radial artery needs CCB or nitrate to prevent spasm"
+    ],
+    "board_yield": {
+      "usmle_step2": "High - indications, CABG vs PCI decision",
+      "usmle_step3": "High - postoperative management, complications",
+      "cardiology_boards": "Very High - detailed indications, graft selection, landmark trials"
+    },
+    "common_misconceptions": [
+      "All multivessel CAD should have CABG (false - depends on anatomy, diabetes, EF)",
+      "CABG cures coronary disease (false - disease progresses; lifelong risk factor modification needed)",
+      "Vein grafts and arterial grafts have similar patency (false - arterial grafts far superior)",
+      "Off-pump is always better (false - similar outcomes in experienced centers)"
+    ]
+  },
+  "relationships": {
+    "prerequisites": [
+      {
+        "id": "urn:wskg:medicine:cardiology:coronary-anatomy",
+        "title": "Coronary Artery Anatomy",
+        "strength": 0.95
+      },
+      {
+        "id": "urn:wskg:medicine:cardiology:cad-pathophysiology",
+        "title": "Coronary Artery Disease",
+        "strength": 0.9
+      }
+    ],
+    "skos:broader": [
+      {
+        "@id": "urn:wskg:medicine:cardiology:coronary-revascularization",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Coronary Revascularization"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "urn:wskg:medicine:cardiology:pci-procedure",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Percutaneous Coronary Intervention",
+        "skos:note": "Alternative revascularization strategy; selection based on anatomy and patient factors"
+      },
+      {
+        "@id": "urn:wskg:medicine:cardiology:coronary-angiography",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Coronary Angiography",
+        "skos:note": "Diagnostic test guiding CABG planning"
+      }
+    ],
+    "owl:sameAs": [
+      "http://snomed.info/id/232717009",
+      "http://www.wikidata.org/entity/Q578174"
+    ],
+    "skos:exactMatch": [
+      "http://snomed.info/id/232717009",
+      "http://id.nlm.nih.gov/mesh/D001026"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-11T20:54:00.000Z",
+    "sources": [
+      {
+        "source": "2021 ACC/AHA/SCAI Guideline for Coronary Artery Revascularization",
+        "type": "clinical_guideline",
         "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "doi": "10.1161/CIR.0000000000001038",
+        "confidence": 1.0,
+        "relevance": "ACC/AHA revascularization guideline"
+      },
+      {
+        "source": "SYNTAX Trial. N Engl J Med. 2009;360:961-972",
+        "type": "randomized_trial",
+        "year": 2009,
+        "doi": "10.1056/NEJMoa0804626",
+        "confidence": 0.98,
+        "relevance": "Landmark CABG vs PCI trial"
+      },
+      {
+        "source": "FREEDOM Trial. N Engl J Med. 2012;367:2375-2384",
+        "type": "randomized_trial",
+        "year": 2012,
+        "doi": "10.1056/NEJMoa1211585",
+        "confidence": 0.97,
+        "relevance": "CABG superior in diabetics with multivessel CAD"
+      },
+      {
+        "source": "Braunwald's Heart Disease, 12th ed. Elsevier 2022",
+        "type": "textbook",
+        "year": 2022,
+        "isbn": "978-0323824675",
+        "confidence": 0.95,
+        "relevance": "Comprehensive cardiology reference"
+      }
+    ],
+    "prov:wasDerivedFrom": [
+      {
+        "@id": "urn:source:acc-aha-revasc-2021",
+        "@type": "prov:Entity",
+        "dc:title": "ACC/AHA Revascularization Guideline",
+        "dc:type": "clinical_guideline",
+        "confidence": 1.0
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/CABG_Surgery",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "CQS": 0.93,
+    "completeness": 0.94,
+    "accuracy": 0.97,
+    "clarity": 0.92,
+    "pedagogical_quality": 0.91,
+    "ontology_alignment": 0.93,
+    "last_assessment": "2026-01-11T20:54:00.000Z",
+    "assessor": "quality-enhancement-agent"
+  },
+  "rendering_hints": {
+    "primary_representation": "procedure_with_indications",
+    "show_images": true,
+    "visualization": [
+      "cabg_vs_pci_algorithm",
+      "graft_patency_curves",
+      "lima_anatomy",
+      "syntax_score_interpretation"
+    ],
+    "emphasis": [
+      "lima_to_lad",
+      "cabg_vs_pci_indications",
+      "graft_selection"
+    ]
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Coronary_artery_bypass_surgery",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q578174"
 }

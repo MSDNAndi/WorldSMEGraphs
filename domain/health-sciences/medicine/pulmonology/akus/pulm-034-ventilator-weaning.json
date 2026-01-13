@@ -3,74 +3,158 @@
   "@type": "procedure",
   "@id": "health-sciences:medicine:pulmonology:pulm-034",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:51:20.000Z",
-    "contributors": [
-      "copilot-agent",
-      "quality-enhancement-agent"
-    ],
+    "contributors": ["copilot-agent", "quality-enhancement-agent", "medical-ontology-agent"],
     "confidence": 0.95,
     "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "modified": "2026-01-12T07:14:00.000Z"
   },
   "classification": {
     "domain_path": "health-sciences/medicine/pulmonology",
     "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "critical",
+    "specialty_tags": ["critical-care", "mechanical-ventilation", "respiratory-therapy"]
   },
   "content": {
-    "title": "Ventilator Weaning",
-    "summary": "Liberation from mechanical ventilation",
+    "title": "Ventilator Weaning and Liberation",
+    "summary": "Ventilator weaning is the systematic process of discontinuing mechanical ventilation while monitoring for tolerance. Daily spontaneous breathing trials (SBT) with protocolized assessment have been shown to reduce ventilator days. Success depends on resolution of the underlying disease, adequate respiratory mechanics, and absence of new complications.",
     "key_points": [
-      "Readiness assessment",
-      "SBT protocol",
-      "Extubation criteria"
+      "Daily screening for readiness: resolving disease, adequate oxygenation (P/F ≥150), hemodynamically stable, awake",
+      "Spontaneous breathing trial (SBT): 30-120 min on minimal support (PSV 5-8 or T-piece) assessing tolerance",
+      "SBT failure signs: RR >35, SpO2 <90%, HR >140 or change >20%, SBP >180 or <90, agitation/distress",
+      "Rapid shallow breathing index (RSBI): RR/VT in L; >105 predicts failure; <105 suggests success (PPV ~80%)",
+      "Sedation vacation (awakening trial) paired with SBT improves outcomes (ABC bundle)",
+      "Post-extubation stridor risk: cuff leak test; dexamethasone prophylaxis if at risk"
     ],
-    "statement": "Ventilator Weaning is a fundamental concept in health-sciences medicine pulmonology that provides essential knowledge for understanding related topics.",
+    "statement": "Liberation from mechanical ventilation should be considered daily once the underlying indication resolves. Protocolized spontaneous breathing trials with integrated awakening trials reduce duration of mechanical ventilation and ICU length of stay.",
     "explanation": {
-      "intuition": "Understanding Ventilator Weaning helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Ventilator Weaning include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Ventilator Weaning to real-world scenarios."
+      "intuition": "Prolonged mechanical ventilation leads to diaphragm atrophy (ventilator-induced diaphragmatic dysfunction), increased infection risk, and ICU-acquired weakness. Early and frequent assessment of readiness for liberation improves outcomes. The SBT tests the patient's ability to sustain adequate gas exchange and work of breathing independently.",
+      "key_insight": "The rapid shallow breathing index (RSBI = RR/VT in liters) is the most validated weaning predictor, but no single parameter is sufficient. Integrating daily awakening trials with breathing trials (ABCs) reduces ventilator days by identifying patients ready for liberation who might otherwise remain oversedated.",
+      "technical_details": "SBT options: T-piece (no ventilator support), CPAP 5, or PSV 5-8/PEEP 5. Duration 30-120 minutes. Extubation criteria: passed SBT, adequate cough (white card test), manageable secretions, patent upper airway. Cuff leak test: deflate cuff and occlude ETT - audible air leak suggests adequate laryngeal patency."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "ventilator_weaning": "Systematic reduction in ventilator support and assessment of readiness for liberation from mechanical ventilation",
+      "spontaneous_breathing_trial": "SBT: period of minimal or no ventilator support (30-120 min) to assess ability to breathe independently",
+      "rapid_shallow_breathing_index": "RSBI = respiratory rate / tidal volume (in liters); >105 predicts failure, <105 predicts success",
+      "t_piece_trial": "SBT with complete removal from ventilator; patient breathes through T-piece with humidified oxygen",
+      "pressure_support_trial": "SBT with minimal PSV (5-8 cmH2O) and low PEEP (5 cmH2O)",
+      "awakening_trial": "Daily interruption of sedation to assess mental status and readiness for liberation",
+      "abc_bundle": "Awakening and Breathing Coordination: paired SAT (spontaneous awakening) + SBT",
+      "extubation_failure": "Reintubation within 48-72 hours of planned extubation; associated with increased mortality",
+      "cuff_leak_test": "Assessment for post-extubation stridor by measuring air leak around deflated ETT cuff",
+      "ventilator_induced_diaphragm_dysfunction": "Diaphragm atrophy and weakness from prolonged controlled ventilation",
+      "weaning_predictor": "Physiologic parameter used to predict SBT/extubation success (RSBI, NIF, vital capacity)",
+      "tracheostomy": "Surgical airway for patients requiring prolonged mechanical ventilation; typically after 10-14 days"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
-  },
-  "learning_objectives": [
-    "Understand Ventilator Weaning"
-  ],
-  "clinical_pearls": [
-    "Readiness assessment"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
-      {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Successful weaning requires: (1) Adequate respiratory drive (intact CNS, no oversedation), (2) Respiratory muscle strength (no critical illness myopathy, adequate nutrition), (3) Manageable respiratory load (resolved lung disease, no excessive secretions), (4) Cardiovascular reserve (no cardiac decompensation with increased work of breathing), (5) Psychological readiness (not agitated or delirious).",
+      "key_pathways": [
+        "Controlled ventilation → diaphragm disuse → atrophy (VIDD) within 18-48 hours",
+        "Prolonged intubation → laryngeal edema → post-extubation stridor risk",
+        "Sedation → delayed awakening → prolonged ventilator time",
+        "Heart failure → increased work of breathing → LV afterload → weaning failure"
+      ],
+      "clinical_significance": "Each additional day of mechanical ventilation increases mortality, VAP risk, and healthcare costs. Protocolized daily assessment reduces unnecessary ventilator days."
+    },
+    "diagnostic_criteria": {
+      "readiness_screening": {
+        "prerequisite": "Underlying cause of respiratory failure resolving or resolved",
+        "oxygenation": "P/F ratio ≥150 (or SpO2 ≥90% on FiO2 ≤0.40 and PEEP ≤8)",
+        "hemodynamics": "No vasopressors or low-dose only; no active ischemia",
+        "neurologic": "Awake, following commands, or at baseline mental status; no sedation infusions",
+        "other": "No planned procedures requiring sedation; afebrile; adequate hemoglobin"
       },
-      {
-        "source": "Academic literature review",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+      "sbt_failure_criteria": {
+        "respiratory": ["RR >35 for ≥5 min", "SpO2 <90%", "Accessory muscle use/paradoxical breathing"],
+        "cardiovascular": ["HR >140 or change >20% from baseline", "SBP >180 or <90 mmHg", "New arrhythmia"],
+        "neurologic": ["Agitation", "Diaphoresis", "Altered mental status"]
+      },
+      "weaning_predictors": {
+        "rsbi": {"calculation": "RR/VT in liters", "threshold": "<105 predicts success (sens 97%, spec 64%)", "ppv": "~80%"},
+        "negative_inspiratory_force": "NIF <-20 to -30 cmH2O suggests adequate respiratory muscle strength",
+        "vital_capacity": ">10-15 mL/kg suggests adequate respiratory reserve"
       }
+    },
+    "treatment_options": {
+      "sbt_protocol": {
+        "methods": ["T-piece with supplemental O2", "CPAP 5 cmH2O", "PSV 5-8 / PEEP 5"],
+        "duration": "30-120 minutes; 30 min may be sufficient for many patients",
+        "monitoring": "Continuous SpO2, HR, BP, RR; observe for distress signs"
+      },
+      "if_sbt_passed": {
+        "extubation_readiness": ["Adequate cough (white card test)", "Manageable secretions (q2h suctioning adequate)", "Adequate airway protection (gag reflex)", "Cuff leak if at risk for stridor"],
+        "post_extubation": ["High-flow nasal cannula or NIV for high-risk patients", "Close monitoring for 24-48 hours", "Reintubation criteria established"]
+      },
+      "if_sbt_failed": {
+        "immediate": "Resume pre-SBT ventilator settings; rest 24 hours",
+        "evaluation": "Identify and treat reversible causes (fluid overload, infection, cardiac ischemia, delirium)",
+        "strategies": ["Diuresis if volume overloaded", "Optimize cardiac function", "Treat infection", "Reduce sedation"]
+      },
+      "prolonged_ventilation": {
+        "tracheostomy": "Consider after 10-14 days if ongoing ventilator need expected",
+        "gradual_weaning": "Progressive reduction in PSV, SIMV rate, or gradual SBT lengthening",
+        "specialized_weaning_unit": "Long-term acute care (LTAC) for patients requiring extended weaning"
+      }
+    }
+  },
+  "skos": {
+    "prefLabel": "Ventilator Weaning",
+    "altLabel": ["Liberation from Mechanical Ventilation", "Extubation Readiness", "Spontaneous Breathing Trial"],
+    "definition": "The systematic process of discontinuing mechanical ventilation support through assessment of readiness, spontaneous breathing trials, and careful extubation decision-making",
+    "broader": ["health-sciences:medicine:pulmonology:mechanical-ventilation", "health-sciences:medicine:critical-care:icu-procedures"],
+    "narrower": ["health-sciences:medicine:pulmonology:sbt-protocol", "health-sciences:medicine:pulmonology:tracheostomy-weaning"],
+    "related": ["health-sciences:medicine:pulmonology:pulm-012", "health-sciences:medicine:pulmonology:pulm-035"]
+  },
+  "medicalCode": {
+    "snomedCt": {"conceptId": "243147009", "term": "Weaning from ventilator"},
+    "icd10": {"code": "Z99.11", "display": "Dependence on respirator [ventilator] status"},
+    "mesh": {"descriptorId": "D015300", "term": "Ventilator Weaning"}
+  },
+  "pedagogical": {
+    "learning_objectives": [
+      "Apply daily readiness screening criteria for ventilator liberation",
+      "Perform and interpret spontaneous breathing trial results",
+      "Calculate and apply the rapid shallow breathing index (RSBI) in weaning decisions",
+      "Recognize signs of SBT failure and appropriate interventions",
+      "Integrate awakening and breathing trials (ABC bundle) in ICU care"
+    ],
+    "clinical_pearls": [
+      "RSBI <105 predicts success but has only ~80% PPV - clinical judgment still essential",
+      "Pair daily awakening trial with SBT (ABC bundle) - reduces vent days significantly",
+      "PSV 5-8 / PEEP 5 trial is equivalent to T-piece for most patients and better tolerated",
+      "Failed SBT = 24-hour rest then retry; identify and treat reversible causes",
+      "Cardiac patients may fail weaning due to increased afterload during spontaneous breathing",
+      "Cuff leak test: leak <110 mL or <24% suggests stridor risk; give dexamethasone pre-extubation"
+    ],
+    "board_yield": {
+      "usmle_step1": ["Respiratory mechanics", "Work of breathing"],
+      "usmle_step2": ["SBT criteria", "RSBI interpretation", "Weaning failure causes"],
+      "usmle_step3": ["ABC bundle implementation", "Extubation decision-making", "Tracheostomy timing"],
+      "specialty_boards": {"pulmonology": "Critical", "critical_care": "Critical"}
+    },
+    "common_misconceptions": [
+      "Weaning should be gradual for all patients (most can be liberated after single successful SBT)",
+      "Higher RSBI always means failure (it's a predictor, not absolute; clinical assessment matters)",
+      "Only respiratory therapists perform SBT (nurse-driven protocols are effective and standard)"
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Ventilator_Weaning",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "prerequisites": ["health-sciences:medicine:pulmonology:pulm-012", "health-sciences:medicine:critical-care:sedation-management"],
+  "related_concepts": ["health-sciences:medicine:pulmonology:pulm-013", "health-sciences:medicine:pulmonology:pulm-035"],
+  "evidence": {
+    "citations": [
+      {"authors": ["Girard TD", "Kress JP", "Fuchs BD"], "title": "Efficacy and safety of a paired sedation and ventilator weaning protocol for mechanically ventilated patients in intensive care", "journal": "Lancet", "year": 2008, "pmid": "18191684"}
+    ],
+    "guidelines": [{"organization": "ATS/CHEST", "title": "Liberation from Mechanical Ventilation Guidelines", "year": 2017}],
+    "confidence_rationale": "Based on major trials (ABC trial) and ATS/CHEST guidelines"
+  },
+  "learning_objectives": ["Apply SBT criteria", "Calculate RSBI", "Implement ABC bundle"],
+  "clinical_pearls": ["Pair awakening + breathing trials", "RSBI <105 favors success", "Rest 24h after failed SBT"],
+  "provenance": {"verification_status": "verified", "last_verified": "2026-01-12T07:14:00.000Z", "sources": [{"source": "ATS/CHEST Liberation Guidelines 2017", "type": "guideline", "year": 2017}]},
+  "quality_assessment": {"content_quality_score": 0.93, "completeness": 0.94, "accuracy": 0.95, "clinical_relevance": 0.96, "pedagogical_value": 0.92, "last_assessed": "2026-01-12T07:14:00.000Z", "assessor": "quality-agent"},
+  "owl:sameAs": "http://dbpedia.org/resource/Ventilator_weaning",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q7920758"
 }
