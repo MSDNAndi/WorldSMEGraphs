@@ -39,6 +39,9 @@ This project implements [Issue #47](https://github.com/MSDNAndi/WorldSMEGraphs/i
 - [🖼️ Pictures Only View](version-3/comic/pictures-only-view.md)
 - [📝 Full Narrative](version-3/story-development/02-narrative.md)
 
+### Quick Reference
+- [💡 Health Tips Reference](health-tips-reference.md) - All health strategies in one document
+
 ---
 
 ## Educational Content
