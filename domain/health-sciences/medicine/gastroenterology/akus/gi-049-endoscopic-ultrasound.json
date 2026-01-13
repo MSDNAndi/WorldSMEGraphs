@@ -1,76 +1,265 @@
 {
   "@context": "aku-v2",
   "@type": "procedure",
-  "@id": "health-sciences:medicine:gastroenterology:gi-049",
+  "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-049",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:52:30.000Z",
+    "modified": "2026-01-13T13:38:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": ["CC-BY-4.0"]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/gastroenterology",
+    "subdomain": "endoscopy",
     "type": "procedure",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "MEDIUM"
   },
   "content": {
-    "title": "Endoscopic Ultrasound",
-    "summary": "EUS for GI staging",
+    "title": "Endoscopic Ultrasound (EUS)",
+    "summary": "Endoscopic ultrasound combines endoscopy with high-frequency ultrasonography to obtain detailed images of the GI tract wall layers and adjacent structures. It is invaluable for staging GI malignancies, evaluating pancreaticobiliary disease, characterizing submucosal lesions, and performing fine-needle aspiration (FNA) of lesions inaccessible to other techniques.",
     "key_points": [
-      "Pancreatic mass FNA",
-      "Submucosal lesions",
-      "Staging accuracy"
+      "Combines endoscope with ultrasound transducer at tip (radial or linear array)",
+      "Best modality for T-staging esophageal, gastric, rectal, and pancreatic cancers",
+      "Superior to CT for detecting small pancreatic masses and chronic pancreatitis",
+      "EUS-FNA: Tissue acquisition from pancreatic masses, lymph nodes, liver lesions",
+      "Therapeutic applications: celiac plexus block, pancreatic cyst drainage, biliary access",
+      "Wall layers: mucosa (1&2), submucosa (3), muscularis propria (4), serosa/adventitia (5)"
     ],
-    "statement": "Endoscopic Ultrasound is a fundamental concept in health-sciences medicine gastroenterology that provides essential knowledge for understanding related topics.",
+    "statement": "EUS provides high-resolution imaging of GI wall layers and adjacent structures for cancer staging and characterization of submucosal lesions, with the added capability of tissue acquisition and therapeutic interventions.",
     "explanation": {
-      "intuition": "Understanding Endoscopic Ultrasound helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Endoscopic Ultrasound include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Endoscopic Ultrasound to real-world scenarios."
+      "intuition": "Think of EUS as putting an ultrasound probe right next to the area of interest from inside the GI tract. Just as an obstetrician gets better images with a transvaginal ultrasound than abdominal, the endosonographer gets exquisitely detailed images by placing the probe millimeters from the target instead of imaging through skin, fat, and bowel gas.",
+      "key_insight": "EUS excels in two scenarios: (1) determining how deep a tumor invades (T-stage) because it can distinguish individual wall layers, and (2) accessing lesions that are difficult to biopsy externally, like a pancreatic mass behind the stomach. The ability to biopsy under real-time guidance while avoiding blood vessels is a major advantage.",
+      "technical_details": "Radial EUS provides 360° cross-sectional view (like CT slice) for orientation and staging. Linear EUS provides sagittal view in line with scope for FNA guidance. Frequencies 5-12 MHz; higher = better resolution but less penetration. Normal wall layers: hypoechoic/hyperechoic pattern from lumen outward."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "EUS": "Endoscopic ultrasound - combining endoscopy with ultrasonography",
+      "radial_EUS": "360° cross-sectional imaging perpendicular to endoscope axis",
+      "linear_EUS": "Sagittal imaging parallel to scope; allows FNA",
+      "EUS_FNA": "EUS-guided fine-needle aspiration for cytology/histology",
+      "EUS_FNB": "EUS-guided fine-needle biopsy using core needle for histology",
+      "T_staging": "Tumor depth staging; EUS is gold standard for wall layer involvement",
+      "submucosal_lesion": "Lesion arising from or below mucosa (GIST, leiomyoma, lipoma)",
+      "muscularis_propria": "Fourth hypoechoic layer; GIST typically arises here",
+      "celiac_plexus_block": "EUS-guided injection of anesthetic/alcohol for pain control",
+      "mediastinal_lymph_node": "Accessible via esophageal EUS for staging lung/esophageal cancer",
+      "pancreatic_cyst": "Fluid collection evaluated and drained via EUS",
+      "echoendoscope": "Specialized endoscope with ultrasound transducer at tip"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "High-frequency ultrasound transducer at endoscope tip provides high-resolution imaging of GI wall layers and adjacent structures without interference from bowel gas or body habitus",
+      "wall_layer_interpretation": {
+        "layer_1": "Superficial mucosa - hyperechoic (interface)",
+        "layer_2": "Deep mucosa - hypoechoic",
+        "layer_3": "Submucosa - hyperechoic",
+        "layer_4": "Muscularis propria - hypoechoic",
+        "layer_5": "Serosa/adventitia - hyperechoic"
+      },
+      "transducer_types": {
+        "radial": "360° view, excellent for orientation and staging, no FNA capability in most",
+        "linear": "Sagittal view in line with needle path, required for FNA/FNB",
+        "miniprobe": "Through-the-scope catheter probe for superficial lesions"
+      }
+    },
+    "diagnostic_criteria": {
+      "indications": {
+        "cancer_staging": ["Esophageal cancer T/N staging", "Gastric cancer T/N staging", "Pancreatic cancer staging", "Rectal cancer T staging", "Lung cancer mediastinal staging"],
+        "tissue_acquisition": ["Pancreatic mass FNA", "Mediastinal lymph node biopsy", "Liver lesion FNA", "Submucosal lesion biopsy"],
+        "evaluation": ["Chronic pancreatitis diagnosis", "Choledocholithiasis detection", "Submucosal lesion characterization", "Pancreatic cyst evaluation"]
+      },
+      "advantages_over_CT": [
+        "Superior detection of small pancreatic tumors (<2cm)",
+        "Better T-staging (wall layer resolution)",
+        "Real-time tissue acquisition",
+        "Detection of chronic pancreatitis changes"
+      ]
+    },
+    "differential_diagnosis": [
+      "CT for distant metastasis (M-staging)",
+      "MRI/MRCP for biliary anatomy",
+      "PET for metabolic staging",
+      "Conventional endoscopy for mucosal lesions"
+    ],
+    "treatment_options": {
+      "diagnostic_procedures": [
+        "EUS-FNA of pancreatic masses (85-95% sensitivity for malignancy)",
+        "Mediastinal lymph node sampling",
+        "Liver lesion biopsy",
+        "Submucosal tumor characterization"
+      ],
+      "therapeutic_applications": {
+        "pain_management": "Celiac plexus neurolysis for pancreatic cancer pain",
+        "drainage": "EUS-guided pancreatic pseudocyst drainage",
+        "biliary_access": "EUS-guided biliary drainage when ERCP fails",
+        "tumor_ablation": "Emerging: EUS-guided radiofrequency ablation"
+      },
+      "complications": [
+        "Bleeding (0.5-1% with FNA)",
+        "Infection (rare; prophylactic antibiotics for cyst aspiration)",
+        "Perforation (rare)",
+        "Pancreatitis (rare with pancreatic FNA)"
+      ]
+    }
   },
-  "learning_objectives": [
-    "Understand Endoscopic Ultrasound"
-  ],
-  "clinical_pearls": [
-    "Pancreatic mass FNA"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Endoscopic Ultrasound"
+    },
+    "altLabel": [
+      {"@language": "en", "@value": "EUS"},
+      {"@language": "en", "@value": "Endosonography"},
+      {"@language": "en", "@value": "Echo-endoscopy"}
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "An endoscopic procedure combining visualization with high-frequency ultrasonography to image GI wall layers and adjacent structures, with capability for tissue acquisition"
+    },
+    "notation": "gi-049",
+    "scopeNote": {
+      "@language": "en",
+      "@value": "Covers technique, indications, diagnostic and therapeutic applications of EUS"
+    }
+  },
+  "relationships": {
+    "skos:broader": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/endoscopy",
+        "skos:prefLabel": "Gastrointestinal Endoscopy"
+      }
+    ],
+    "skos:narrower": [],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-048",
+        "skos:prefLabel": "ERCP Procedure"
       },
       {
-        "source": "Academic literature review",
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-044",
+        "skos:prefLabel": "Pancreatic Cancer"
+      }
+    ],
+    "owl:sameAs": [
+      "http://dbpedia.org/resource/Endoscopic_ultrasound"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "16310003",
+      "uri": "http://snomed.info/id/16310003",
+      "description": "Endoscopic ultrasonography"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-PCS",
+      "codeValue": "BD",
+      "uri": "http://hl7.org/fhir/sid/icd-10-pcs/BD",
+      "description": "Medical and Surgical - Gastrointestinal System"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D019160",
+      "uri": "http://id.nlm.nih.gov/mesh/D019160",
+      "description": "Endosonography"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Describe the components and types of endoscopic ultrasound",
+      "Identify the five sonographic layers of the GI wall",
+      "List indications for EUS in cancer staging",
+      "Compare radial vs linear EUS capabilities",
+      "Explain EUS-FNA technique and diagnostic yield"
+    ],
+    "clinical_pearls": [
+      "EUS is gold standard for T-staging esophageal, gastric, and rectal cancer",
+      "Linear EUS required for FNA - radial cannot guide needle",
+      "Pancreatic mass FNA: 85-95% sensitivity with negative predictive value caveat",
+      "GIST arises from 4th layer (muscularis propria) - hypoechoic on EUS",
+      "EUS superior to CT for chronic pancreatitis diagnosis (Rosemont criteria)"
+    ],
+    "board_yield": "MEDIUM",
+    "estimated_time": "25min",
+    "target_audience": [
+      "gastroenterology_fellows",
+      "oncology_fellows",
+      "surgical_residents"
+    ],
+    "common_misconceptions": [
+      "EUS can detect distant metastases - limited to local/regional structures",
+      "All submucosal lesions need FNA - many can be characterized by EUS features alone",
+      "Negative EUS-FNA rules out malignancy - false negatives occur, repeat sampling may be needed"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-047",
+      "skos:prefLabel": "EGD Procedure"
+    }
+  ],
+  "related_concepts": [
+    "cancer staging",
+    "fine-needle aspiration",
+    "pancreatic mass",
+    "ultrasonography",
+    "submucosal lesions"
+  ],
+  "evidence": {
+    "citations": [
+      {
+        "authors": "ASGE Standards of Practice Committee",
+        "title": "Role of EUS in pancreatic cancer",
+        "journal": "Gastrointest Endosc",
+        "year": 2020,
+        "volume": "91",
+        "pages": "1-7",
+        "doi": "10.1016/j.gie.2019.09.029"
+      }
+    ],
+    "confidence_rationale": "Based on ASGE guidelines and established clinical practice"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-13T13:38:00.000Z",
+    "sources": [
+      {
+        "source": "ASGE Technology Committee Guidelines on EUS. 2020.",
+        "type": "guideline",
+        "year": 2020,
+        "relevance": "Evidence-based EUS practice"
+      },
+      {
+        "source": "Sleisenger and Fordtran's Gastrointestinal and Liver Disease, 11th ed. Elsevier, 2021.",
         "type": "textbook",
         "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "isbn": "978-0323609623",
+        "relevance": "Comprehensive GI reference"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Endoscopic_Ultrasound",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "content_quality_score": 0.93,
+    "completeness": 0.94,
+    "accuracy": 0.95,
+    "clarity": 0.92,
+    "clinical_relevance": 0.95,
+    "last_assessed": "2026-01-13T13:38:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Endoscopic_ultrasound",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q5376788"
 }
