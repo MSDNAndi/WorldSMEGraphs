@@ -7,61 +7,63 @@
     "EducationalResource",
     "MedicalCondition"
   ],
-  "@id": "health-sciences:preventive-medicine:conference-wellness:cw-002",
+  "@id": "health-sciences:medicine:neurology:neuro-052",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-13T18:40:00.000Z",
+    "modified": "2026-01-13T19:45:00.000Z",
     "contributors": [
       "knowledge-graph-agent",
-      "preventive-medicine-kb"
+      "ontology-agent"
     ],
     "confidence": 0.93,
     "status": "validated",
-    "modified": "2026-01-13T18:40:00.000Z"
+    "migration_note": "Migrated from conference-wellness:cw-002 to native domain neurology/chronobiology"
   },
   "classification": {
-    "domain_path": "health-sciences/preventive-medicine/conference-wellness",
+    "domain_path": "health-sciences/medicine/neurology",
+    "isNativeDomain": true,
     "type": "concept",
     "difficulty": "intermediate",
     "importance": "foundational",
-    "aku_id": "002",
+    "aku_id": "052",
     "keywords": [
-      "jet lag",
       "circadian rhythm",
-      "sleep disruption",
-      "travel fatigue",
+      "jet lag",
+      "suprachiasmatic nucleus",
+      "chronobiology",
+      "sleep-wake cycle",
       "melatonin",
-      "time zone adjustment",
-      "suprachiasmatic nucleus"
+      "zeitgeber"
     ],
     "medical_specialty": "sleep-medicine",
-    "clinical_context": "travel_health"
+    "clinical_context": "chronobiology"
   },
   "content": {
-    "title": "Jet Lag and Circadian Rhythm Disruption at Conferences",
-    "summary": "Understanding circadian rhythm disruption from travel and evidence-based recovery strategies for conference attendees",
+    "title": "Circadian Rhythm Disruption and Jet Lag Syndrome",
+    "summary": "Neurophysiology of circadian rhythm regulation by the suprachiasmatic nucleus and mechanisms of disruption in transmeridian travel",
     "key_points": [
       "Circadian rhythm is controlled by suprachiasmatic nucleus (SCN) - the master clock",
       "Recovery rate: ~1 day per time zone crossed (faster westward, slower eastward)",
       "Eastward travel is harder: advancing the clock is more difficult than delaying",
-      "Light exposure is the most powerful circadian entrainment tool",
+      "Light exposure is the most powerful circadian entrainment tool (zeitgeber)",
       "Strategic melatonin use (0.5-3mg) can accelerate adaptation",
       "Jet lag impairs memory consolidation, attention, and decision-making",
       "Pre-adaptation (shifting sleep schedule before travel) reduces symptoms"
     ],
     "statement": {
-      "text": "Jet lag (circadian dysrhythmia) occurs when rapid travel across time zones desynchronizes the internal circadian clock from the external environment. This misalignment impairs sleep quality, cognitive performance, mood, and physical function - all critical for conference success. Strategic light exposure, sleep timing, and melatonin can accelerate re-entrainment.",
+      "text": "Jet lag (circadian dysrhythmia) occurs when rapid transmeridian travel desynchronizes the internal circadian clock, controlled by the suprachiasmatic nucleus, from the external light-dark cycle. This misalignment impairs sleep quality, cognitive performance, and physiological function. Strategic light exposure and melatonin timing can accelerate re-entrainment.",
       "formal": "Jet Lag Severity ∝ (Time Zones Crossed × Direction Factor); Recovery ≈ 1 day/zone; Eastward > Westward difficulty"
     },
     "explanation": {
-      "intuition": "Your body runs on a 24-hour internal clock synchronized to your home time zone. When you fly across time zones, your internal clock and the external world are out of sync - like having a clock that shows the wrong time. Your body needs time (roughly one day per hour of time difference) to reset.",
-      "key_insight": "The direction of travel matters: traveling west 'extends' your day (easier to stay up late), while traveling east 'shortens' it (harder to fall asleep earlier). This is why eastward jet lag typically feels worse and takes longer to resolve."
+      "intuition": "Your body runs on a 24-hour internal clock synchronized to your home time zone by the master pacemaker in your hypothalamus (SCN). When you fly across time zones, your internal clock and the external world are out of sync. Your body needs time (roughly one day per hour of time difference) to reset through light exposure.",
+      "key_insight": "The direction of travel matters: traveling west 'extends' your day (easier to stay up late), while traveling east 'shortens' it (harder to fall asleep earlier). This asymmetry reflects the natural tendency of the human circadian system to run slightly longer than 24 hours."
     },
     "definitions_glossary": {
       "circadian_rhythm": "~24-hour internal biological clock regulating sleep-wake cycles, hormones, and metabolism",
-      "suprachiasmatic_nucleus": "Master circadian pacemaker in hypothalamus; receives light input from retina",
-      "jet_lag": "Temporary sleep disorder from rapid transmeridian travel causing circadian misalignment",
-      "melatonin": "Hormone secreted by pineal gland; signals darkness to circadian system",
+      "suprachiasmatic_nucleus": "Master circadian pacemaker in hypothalamus; receives light input from retina via retinohypothalamic tract",
+      "jet_lag": "Temporary circadian rhythm sleep disorder (G47.25) from rapid transmeridian travel causing circadian misalignment",
+      "melatonin": "Hormone secreted by pineal gland in darkness; signals night to circadian system",
       "zeitgeber": "Environmental cue that entrains circadian rhythm (light is strongest)",
       "phase_advance": "Shifting circadian rhythm earlier (required for eastward adaptation)",
       "phase_delay": "Shifting circadian rhythm later (required for westward adaptation)",
@@ -71,6 +73,11 @@
   "clinical_features": {
     "pathophysiology": {
       "mechanism": "Transmeridian travel → Light-dark cycle shift → SCN receives conflicting signals → Peripheral clocks (liver, gut, muscles) lag behind → Multi-system desynchrony → Sleep disruption + Cognitive impairment + GI symptoms + Mood changes",
+      "neuroanatomy": {
+        "SCN_location": "Anterior hypothalamus, above optic chiasm",
+        "input_pathway": "Retinohypothalamic tract from intrinsically photosensitive retinal ganglion cells (ipRGCs)",
+        "output_pathways": "Pineal gland (melatonin), autonomic nervous system, endocrine axes"
+      },
       "symptoms": {
         "sleep": "Insomnia, early awakening, daytime sleepiness",
         "cognitive": "Impaired concentration, memory, and decision-making",
@@ -101,30 +108,46 @@
       ]
     }
   },
+  "cross_domain_references": [
+    {
+      "@type": "wsmg:CrossDomainLink",
+      "target_domain": "health-sciences/preventive-medicine/travel-health",
+      "relationship": "applies",
+      "context": "Management of jet lag for international travelers",
+      "application_notes": "Evidence-based protocols for minimizing circadian disruption during business and leisure travel"
+    },
+    {
+      "@type": "wsmg:CrossDomainLink",
+      "target_domain": "health-sciences/public-health",
+      "relationship": "applies",
+      "context": "Shift work disorder and occupational circadian disruption",
+      "application_notes": "Similar mechanisms apply to rotating shift workers"
+    }
+  ],
   "skos": {
     "prefLabel": {
       "@language": "en",
-      "@value": "Jet Lag and Circadian Disruption"
+      "@value": "Circadian Rhythm Disruption and Jet Lag"
     },
     "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Jet Lag Syndrome"
+      },
       {
         "@language": "en",
         "@value": "Circadian Dysrhythmia"
       },
       {
         "@language": "en",
-        "@value": "Travel Fatigue"
-      },
-      {
-        "@language": "en",
-        "@value": "Time Zone Disorder"
+        "@value": "Transmeridian Travel Disorder"
       }
     ],
     "definition": {
       "@language": "en",
-      "@value": "Temporary circadian rhythm disruption from rapid travel across time zones, causing sleep disturbance and impaired daytime function"
+      "@value": "Neurophysiology of circadian rhythm regulation and the temporary disorder caused by rapid travel across time zones"
     },
-    "notation": "cw-002"
+    "notation": "neuro-052"
   },
   "medicalCode": [
     {
@@ -153,44 +176,31 @@
   ],
   "pedagogical": {
     "target_audience": [
-      "frequent_travelers",
-      "conference_attendees",
-      "business_professionals",
-      "event_organizers"
+      "medical_students",
+      "sleep_medicine_specialists",
+      "neuroscience_researchers",
+      "general_public"
     ],
     "estimated_time": "15min",
     "difficulty_curve": 0.45,
     "learning_objectives": [
-      "Understand the biology of circadian rhythm and jet lag",
+      "Understand the neuroanatomy of circadian rhythm regulation",
+      "Explain the role of the suprachiasmatic nucleus as master pacemaker",
       "Calculate expected adaptation time for travel",
-      "Apply strategic light exposure for faster recovery",
-      "Use melatonin appropriately for circadian entrainment",
-      "Plan pre-travel adaptation for important conferences"
-    ],
-    "practical_tips": [
-      "Set watch to destination time upon boarding",
-      "If arriving morning, stay awake; if arriving evening, sleep on plane",
-      "Use blue light blocking glasses in evening at destination",
-      "Get outdoor light exposure during destination morning",
-      "Avoid scheduling critical presentations on day 1 after long-haul eastward flights"
+      "Apply strategic light exposure and melatonin for faster recovery"
     ]
   },
   "relationships": {
     "skos:related": [
       {
-        "@id": "health-sciences:preventive-medicine:conference-wellness:cw-005",
+        "@id": "health-sciences:medicine:neurology:neuro-053",
         "@type": "skos:Concept",
-        "skos:prefLabel": "Power Nap Science"
+        "skos:prefLabel": "Sleep Architecture and Power Naps"
       },
       {
-        "@id": "health-sciences:preventive-medicine:conference-wellness:cw-010",
+        "@id": "health-sciences:pharmacy:pharm-002",
         "@type": "skos:Concept",
-        "skos:prefLabel": "Caffeine Strategic Timing"
-      },
-      {
-        "@id": "health-sciences:preventive-medicine:conference-wellness:cw-003",
-        "@type": "skos:Concept",
-        "skos:prefLabel": "Decision Fatigue"
+        "skos:prefLabel": "Caffeine Pharmacokinetics"
       }
     ],
     "owl:sameAs": [
@@ -199,7 +209,7 @@
   },
   "provenance": {
     "verification_status": "verified",
-    "last_verified": "2026-01-13T18:40:00.000Z",
+    "last_verified": "2026-01-13T19:45:00.000Z",
     "sources": [
       {
         "source": "Eastman CI, Burgess HJ. How to Travel the World Without Jet Lag. Sleep Med Clin 2009;4(2):241-255",
@@ -227,9 +237,9 @@
     "accuracy": 0.95,
     "clarity": 0.92,
     "pedagogical_quality": 0.90,
-    "ontology_alignment": 0.90,
-    "last_assessment": "2026-01-13T18:40:00.000Z",
-    "assessor": "knowledge-graph-agent"
+    "ontology_alignment": 0.95,
+    "last_assessment": "2026-01-13T19:45:00.000Z",
+    "assessor": "ontology-agent"
   },
   "owl:sameAs": "http://www.wikidata.org/entity/Q47520",
   "skos:exactMatch": "http://www.wikidata.org/entity/Q47520"

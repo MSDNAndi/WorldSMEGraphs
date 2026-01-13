@@ -1,0 +1,261 @@
+{
+  "@context": [
+    "file://domain/_contexts/base.jsonld",
+    "file://domain/_contexts/medicine.jsonld"
+  ],
+  "@type": [
+    "EducationalResource",
+    "Drug"
+  ],
+  "@id": "health-sciences:pharmacy:pharm-001",
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-01-13T18:40:00.000Z",
+    "modified": "2026-01-13T19:45:00.000Z",
+    "contributors": [
+      "knowledge-graph-agent",
+      "ontology-agent"
+    ],
+    "confidence": 0.93,
+    "status": "validated",
+    "migration_note": "Migrated from conference-wellness:cw-008 to native domain pharmacology"
+  },
+  "classification": {
+    "domain_path": "health-sciences/pharmacy",
+    "isNativeDomain": true,
+    "type": "concept",
+    "difficulty": "intermediate",
+    "importance": "foundational",
+    "aku_id": "001",
+    "keywords": [
+      "alcohol",
+      "ethanol",
+      "pharmacokinetics",
+      "sleep disruption",
+      "cognitive impairment",
+      "hangover",
+      "ADH"
+    ],
+    "subdomain": "psychopharmacology"
+  },
+  "content": {
+    "title": "Alcohol Pharmacology: Effects on Sleep and Cognition",
+    "summary": "The pharmacokinetics and pharmacodynamics of ethanol, with emphasis on effects on sleep architecture, cognitive function, and next-day impairment",
+    "key_points": [
+      "Alcohol is metabolized by alcohol dehydrogenase (ADH) at ~0.015% BAC/hour",
+      "Alcohol disrupts sleep architecture - reduces REM sleep, causes fragmentation",
+      "Even moderate drinking (2-3 drinks) impairs next-day cognitive performance",
+      "Alcohol causes dehydration via ADH (antidiuretic hormone) suppression",
+      "Congeners in darker drinks contribute to hangover severity",
+      "Effects on GABA and glutamate systems produce CNS depression",
+      "Memory consolidation impaired by alcohol's effects on hippocampus"
+    ],
+    "statement": {
+      "text": "Ethanol is a central nervous system depressant that affects multiple neurotransmitter systems, particularly enhancing GABA and inhibiting glutamate. Despite initial sedative effects, alcohol disrupts sleep architecture by suppressing REM sleep and causing second-half fragmentation. Cognitive effects persist beyond alcohol clearance, impairing memory consolidation and next-day executive function.",
+      "formal": "Cognitive Impairment = f(Alcohol Dose × Duration) + Sleep Disruption + Dehydration - Recovery Time"
+    },
+    "explanation": {
+      "intuition": "Alcohol is the one substance that makes you feel relaxed and sleepy initially, but borrows against tomorrow's performance. The drink that helps you unwind tonight will make you sleep poorly and think less clearly tomorrow. Understanding the pharmacology helps identify where the breakeven point is.",
+      "key_insight": "Alcohol disrupts sleep even when you 'pass out' quickly. The sedative effect wears off after 4-5 hours, causing the second half of the night to be fragmented and lacking restorative REM sleep. This is why you feel unrested after drinking even if you 'slept' 8 hours."
+    },
+    "definitions_glossary": {
+      "standard_drink": "14g of pure alcohol = 12oz beer (5%) = 5oz wine (12%) = 1.5oz spirits (40%)",
+      "blood_alcohol_concentration": "Percentage of alcohol in blood; legal limit 0.08% in most US states",
+      "alcohol_dehydrogenase": "Primary liver enzyme that metabolizes ethanol to acetaldehyde",
+      "REM_rebound": "Increased REM sleep occurring after alcohol wears off, causing vivid dreams/restlessness",
+      "congeners": "Byproducts in alcoholic beverages that contribute to hangovers (darker drinks have more)",
+      "ADH_hormone": "Antidiuretic hormone (vasopressin) - suppressed by alcohol, causing diuresis",
+      "hangover": "Post-intoxication symptoms: headache, fatigue, nausea, cognitive impairment"
+    }
+  },
+  "pharmacology": {
+    "pharmacokinetics": {
+      "absorption": "Rapidly absorbed from stomach (20%) and small intestine (80%); food slows absorption",
+      "distribution": "Water-soluble; distributes to all tissues; crosses blood-brain barrier freely",
+      "metabolism": {
+        "primary_pathway": "Alcohol dehydrogenase (ADH) → acetaldehyde → aldehyde dehydrogenase (ALDH) → acetate",
+        "rate": "~0.015% BAC per hour (one standard drink per hour)",
+        "genetic_variation": "ADH and ALDH variants affect metabolism rate and flushing response"
+      },
+      "elimination": "First-order kinetics at low doses; approaches zero-order at higher concentrations"
+    },
+    "pharmacodynamics": {
+      "GABA_system": "Potentiates GABA-A receptor activity → CNS depression, anxiolysis, sedation",
+      "glutamate_system": "Inhibits NMDA glutamate receptors → impaired memory formation",
+      "dopamine_system": "Increases dopamine in reward pathways → reinforcing effects",
+      "serotonin_system": "Affects 5-HT3 receptors → nausea, mood effects"
+    },
+    "sleep_effects": {
+      "sleep_onset": "Reduced latency to sleep onset (sedative effect)",
+      "REM_suppression": "Reduced REM sleep in first half of night",
+      "fragmentation": "Increased awakenings in second half as alcohol metabolizes",
+      "overall_quality": "Despite longer 'sleep' time, restorative value reduced"
+    },
+    "cognitive_effects": {
+      "acute": [
+        "Impaired attention and concentration",
+        "Reduced reaction time",
+        "Memory encoding deficits",
+        "Impaired judgment and inhibition"
+      ],
+      "next_day": [
+        "Hangover-related cognitive impairment",
+        "Reduced working memory",
+        "Impaired executive function",
+        "Effects persist even after BAC returns to zero"
+      ]
+    }
+  },
+  "clinical_features": {
+    "harm_reduction_strategies": {
+      "quantity_limits": {
+        "low_risk": "1-2 drinks maximum; stop 3+ hours before bed",
+        "zero_alcohol_option": "Perfectly acceptable; increasingly normalized"
+      },
+      "timing": {
+        "early_stopping": "No alcohol within 3-4 hours of intended sleep time",
+        "rate_limiting": "Maximum 1 drink per hour (liver processing rate)",
+        "pre_eating": "Substantial meal before/with drinking slows absorption"
+      },
+      "drink_selection": {
+        "clear_spirits": "Fewer congeners = less hangover (vodka < whiskey)",
+        "lower_ABV": "Light beer, wine spritzers reduce total alcohol intake",
+        "hydration": "Alternate alcoholic drinks with water"
+      }
+    }
+  },
+  "cross_domain_references": [
+    {
+      "@type": "wsmg:CrossDomainLink",
+      "target_domain": "health-sciences/medicine/neurology",
+      "relationship": "informs",
+      "context": "Alcohol effects on sleep architecture and cognition",
+      "application_notes": "Sleep medicine perspective on alcohol's REM suppression"
+    },
+    {
+      "@type": "wsmg:CrossDomainLink",
+      "target_domain": "health-sciences/medicine/psychiatry",
+      "relationship": "informs",
+      "context": "Alcohol use disorders and addiction medicine",
+      "application_notes": "Pharmacology of dependence and withdrawal"
+    },
+    {
+      "@type": "wsmg:CrossDomainLink",
+      "target_domain": "health-sciences/public-health",
+      "relationship": "applies",
+      "context": "Public health messaging on alcohol consumption",
+      "application_notes": "Evidence-based guidelines for low-risk drinking"
+    }
+  ],
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Alcohol Pharmacology: Sleep and Cognition"
+    },
+    "altLabel": [
+      {
+        "@language": "en",
+        "@value": "Ethanol Pharmacokinetics"
+      },
+      {
+        "@language": "en",
+        "@value": "Alcohol and Sleep"
+      },
+      {
+        "@language": "en",
+        "@value": "Alcohol Cognitive Effects"
+      }
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "The pharmacokinetics and pharmacodynamics of ethanol, with emphasis on effects on sleep architecture and cognitive function"
+    },
+    "notation": "pharm-001"
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D000428",
+      "uri": "http://id.nlm.nih.gov/mesh/D000428",
+      "description": "Alcohol Drinking",
+      "matchType": "related"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ATC",
+      "codeValue": "N05BA",
+      "description": "Anxiolytics (benzodiazepine-like GABA effects)",
+      "matchType": "related"
+    }
+  ],
+  "pedagogical": {
+    "target_audience": [
+      "pharmacy_students",
+      "medical_students",
+      "addiction_medicine_specialists",
+      "general_public"
+    ],
+    "estimated_time": "15min",
+    "difficulty_curve": 0.45,
+    "learning_objectives": [
+      "Understand alcohol metabolism and pharmacokinetics",
+      "Explain alcohol's effects on neurotransmitter systems",
+      "Describe alcohol's impact on sleep architecture",
+      "Apply harm reduction strategies for alcohol consumption"
+    ]
+  },
+  "relationships": {
+    "skos:related": [
+      {
+        "@id": "health-sciences:pharmacy:pharm-002",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Caffeine Pharmacokinetics"
+      },
+      {
+        "@id": "health-sciences:medicine:neurology:neuro-052",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Circadian Rhythm and Jet Lag"
+      }
+    ],
+    "owl:sameAs": [
+      "http://www.wikidata.org/entity/Q154210"
+    ]
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-13T19:45:00.000Z",
+    "sources": [
+      {
+        "source": "Ebrahim IO, et al. Alcohol and sleep I: Effects on normal sleep. Alcohol Clin Exp Res 2013;37(4):539-549",
+        "type": "review",
+        "year": 2013,
+        "confidence": 0.95
+      },
+      {
+        "source": "Rohsenow DJ, Howland J. The role of beverage congeners in hangover and other residual effects of alcohol intoxication. Curr Drug Abuse Rev 2010;3(2):76-79",
+        "type": "review",
+        "year": 2010,
+        "confidence": 0.90
+      },
+      {
+        "source": "National Institute on Alcohol Abuse and Alcoholism. Rethinking Drinking. NIH Publication, 2021",
+        "type": "clinical_guideline",
+        "year": 2021,
+        "confidence": 0.97
+      }
+    ]
+  },
+  "quality_assessment": {
+    "CQS": 0.90,
+    "completeness": 0.91,
+    "accuracy": 0.93,
+    "clarity": 0.92,
+    "pedagogical_quality": 0.90,
+    "ontology_alignment": 0.95,
+    "last_assessment": "2026-01-13T19:45:00.000Z",
+    "assessor": "ontology-agent"
+  },
+  "owl:sameAs": "http://www.wikidata.org/entity/Q154210",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q154210"
+}

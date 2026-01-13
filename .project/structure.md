@@ -91,22 +91,24 @@ domain/
 │       └── quantum-mechanics/
 │           └── planck-units/
 │
-├── social-sciences/          # ✅ COMPLETE - Human society
-│   └── economics/            # ✅ 12 AKUs + schema files
-│       └── bwl/
-│           ├── finance/valuation/npv/
-│           ├── accounting/
-│           ├── entrepreneurship/
-│           ├── marketing/
-│           ├── strategy/
-│           ├── organization/
-│           ├── human-resources/
-│           ├── controlling/
-│           └── operations/
+├── social-sciences/          # ✅ ACTIVE - Human society
+│   ├── economics/            # ✅ 12 AKUs + schema files
+│   │   └── bwl/
+│   │       ├── finance/valuation/npv/
+│   │       ├── accounting/
+│   │       ├── entrepreneurship/
+│   │       ├── marketing/
+│   │       ├── strategy/
+│   │       ├── organization/
+│   │       ├── human-resources/
+│   │       ├── controlling/
+│   │       └── operations/
+│   └── psychology/           # ✅ NEW (2026-01-13) - 3 AKUs
+│       └── akus/             # Decision fatigue, introversion, FOMO
 │
 └── health-sciences/          # ✅ ACTIVE - Health and medicine
-    └── medicine/             # ✅ 598+ AKUs + terminology
-        └── surgery/vascular/
+    ├── medicine/             # ✅ 598+ AKUs + terminology
+    │   └── surgery/vascular/
             ├── anatomy/akus/{collaterals,variants}/
             ├── complications/akus/              # Endoleak, migration, pseudoaneurysm, etc.
             ├── diagnostics/akus/{imaging,noninvasive,physical-exam}/
@@ -129,6 +131,10 @@ domain/
             ├── procedures/akus/{bypass,carotid,endovascular,access,techniques}/
             ├── terminology/
             └── wound-care/akus/
+    ├── pharmacy/             # ✅ NEW (2026-01-13) - 2 AKUs
+    │   └── akus/             # Caffeine pharmacokinetics, alcohol pharmacology
+    └── public-health/        # ✅ NEW (2026-01-13) - 1 AKU
+        └── akus/             # Sedentary behavior risks
 ```
 
 **Legacy directories (`science/`, `economics/`, `medicine/`) have been removed.**

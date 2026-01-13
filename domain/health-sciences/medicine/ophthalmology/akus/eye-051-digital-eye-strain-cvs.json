@@ -7,52 +7,53 @@
     "EducationalResource",
     "MedicalCondition"
   ],
-  "@id": "health-sciences:preventive-medicine:conference-wellness:cw-007",
+  "@id": "health-sciences:medicine:ophthalmology:eye-051",
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "created": "2026-01-13T18:40:00.000Z",
+    "modified": "2026-01-13T19:45:00.000Z",
     "contributors": [
       "knowledge-graph-agent",
-      "preventive-medicine-kb",
-      "ophthalmology-kb"
+      "ontology-agent"
     ],
     "confidence": 0.93,
     "status": "validated",
-    "modified": "2026-01-13T18:40:00.000Z"
+    "migration_note": "Migrated from conference-wellness:cw-007 to native domain ophthalmology"
   },
   "classification": {
-    "domain_path": "health-sciences/preventive-medicine/conference-wellness",
+    "domain_path": "health-sciences/medicine/ophthalmology",
+    "isNativeDomain": true,
     "type": "concept",
     "difficulty": "beginner",
     "importance": "foundational",
-    "aku_id": "007",
+    "aku_id": "051",
     "keywords": [
-      "eye strain",
       "digital eye strain",
       "computer vision syndrome",
+      "accommodation",
+      "blink rate",
+      "dry eye",
       "20-20-20 rule",
-      "blue light",
-      "screen fatigue",
-      "dry eyes"
+      "visual ergonomics"
     ],
     "medical_specialty": "ophthalmology",
-    "clinical_context": "occupational_health"
+    "clinical_context": "occupational_ophthalmology"
   },
   "content": {
-    "title": "Digital Eye Strain and the 20-20-20 Rule",
-    "summary": "Understanding computer vision syndrome from prolonged screen use at conferences and evidence-based prevention strategies",
+    "title": "Digital Eye Strain and Computer Vision Syndrome",
+    "summary": "The pathophysiology of ocular and visual symptoms from prolonged digital device use, including mechanisms and evidence-based prevention strategies",
     "key_points": [
-      "Digital eye strain affects 50-90% of computer users - universal at tech conferences",
+      "Digital eye strain affects 50-90% of computer users",
       "Symptoms: eye fatigue, dryness, blurred vision, headache, neck/shoulder pain",
       "Blink rate drops from 15/min to 5/min when viewing screens - causing dry eyes",
       "20-20-20 rule: Every 20 minutes, look at something 20 feet away for 20 seconds",
       "Screen position should be 20-26 inches away, slightly below eye level",
-      "Blue light filtering has limited evidence for strain but may help sleep if used evening",
-      "Room lighting should match screen brightness (not brighter than screen)"
+      "Room lighting should match screen brightness (not brighter than screen)",
+      "Accommodative fatigue from sustained near focus is a key mechanism"
     ],
     "statement": {
-      "text": "Digital eye strain (computer vision syndrome) is a complex of ocular and visual symptoms resulting from prolonged near-focus work on digital screens. At conferences with presentations, phone checking, and networking apps, cumulative screen time often exceeds 10+ hours daily. The 20-20-20 rule and proper ergonomics can significantly reduce symptoms.",
-      "formal": "Eye Strain = f(Screen_Time × Near_Focus × Reduced_Blink_Rate × Poor_Lighting) - Preventive_Interventions"
+      "text": "Digital eye strain (computer vision syndrome) is a complex of ocular and visual symptoms resulting from prolonged near-focus work on digital screens. Key mechanisms include accommodative fatigue from sustained near focus, reduced blink rate leading to tear film instability, and ergonomic factors. The 20-20-20 rule provides evidence-based symptom prevention.",
+      "formal": "Eye Strain = f(Screen Time × Near Focus × Reduced Blink Rate × Poor Lighting) - Preventive Interventions"
     },
     "explanation": {
       "intuition": "Your eyes aren't designed for hours of staring at glowing rectangles 2 feet away. When focusing on screens, your eye muscles stay contracted (like holding a weight), you blink less (drying your eyes), and you receive unnatural light patterns. The 20-20-20 rule is like putting down the weight briefly - relaxing the focus muscles by looking far away.",
@@ -61,16 +62,21 @@
     "definitions_glossary": {
       "digital_eye_strain": "Ocular and visual symptoms from prolonged digital device use; also called computer vision syndrome",
       "computer_vision_syndrome": "Medical term for eye strain from computer use; includes both eye symptoms and musculoskeletal effects",
-      "accommodation": "Eye's ability to adjust focus from far to near; prolonged near focus causes fatigue",
+      "accommodation": "Eye's ability to adjust focus from far to near; ciliary muscle contraction changes lens shape",
       "accommodative_spasm": "Temporary inability to relax focus muscles after prolonged near work",
-      "tear_film": "Thin layer of moisture protecting cornea; disrupted by reduced blinking",
-      "blue_light": "High-energy visible light (400-500nm) emitted by screens; may affect circadian rhythm",
-      "ergonomics": "Science of fitting workplace conditions to worker capabilities"
+      "tear_film": "Thin layer of moisture protecting cornea; three layers: lipid, aqueous, mucin",
+      "blink_rate": "Frequency of spontaneous eye blinking; normally 15-20/minute",
+      "visual_ergonomics": "Science of optimizing visual environment for comfort and efficiency"
     }
   },
   "clinical_features": {
     "pathophysiology": {
       "mechanism": "Near focus sustained → Ciliary muscle fatigue → Accommodative strain. Reduced blinking → Tear film instability → Ocular surface desiccation → Corneal exposure → Discomfort and blur. Glare and reflections → Pupillary strain → Headache",
+      "three_components": {
+        "accommodative": "Ciliary muscle fatigue from sustained near focus",
+        "ocular_surface": "Tear film disruption from reduced blink rate",
+        "extraocular": "Vergence strain, postural factors"
+      },
       "symptom_categories": {
         "ocular_surface": [
           "Dryness, grittiness, burning",
@@ -98,7 +104,7 @@
       "Age >40 (presbyopia increases accommodation effort)",
       "Inadequate ambient lighting"
     ],
-    "prevention_strategies": {
+    "prevention_and_treatment": {
       "20_20_20_rule": {
         "every": "20 minutes",
         "look_at": "Something 20 feet (6 meters) away",
@@ -114,21 +120,36 @@
       "blink_strategies": [
         "Consciously blink fully every few minutes",
         "Post reminder note on screen",
-        "Use artificial tears (preservative-free) if dry"
+        "Use preservative-free artificial tears if dry"
       ],
       "additional_measures": [
         "Increase text size/zoom to reduce squinting",
         "Use dark mode in low-light environments",
-        "Take breaks to look at distant objects",
         "Ensure current glasses/contact prescription",
-        "Consider blue light filtering for evening screen use (sleep benefit)"
+        "Consider computer glasses with anti-reflective coating"
       ]
     }
   },
+  "cross_domain_references": [
+    {
+      "@type": "wsmg:CrossDomainLink",
+      "target_domain": "health-sciences/public-health",
+      "relationship": "applies",
+      "context": "Workplace visual ergonomics and computer workstation design",
+      "application_notes": "OSHA and ergonomic guidelines incorporate CVS prevention"
+    },
+    {
+      "@type": "wsmg:CrossDomainLink",
+      "target_domain": "engineering/ergonomics",
+      "relationship": "applies",
+      "context": "Display design and lighting engineering",
+      "application_notes": "Screen technology, refresh rates, and lighting standards"
+    }
+  ],
   "skos": {
     "prefLabel": {
       "@language": "en",
-      "@value": "Digital Eye Strain and 20-20-20 Rule"
+      "@value": "Digital Eye Strain and Computer Vision Syndrome"
     },
     "altLabel": [
       {
@@ -146,9 +167,9 @@
     ],
     "definition": {
       "@language": "en",
-      "@value": "Eye and vision-related problems resulting from prolonged digital device use, and the evidence-based 20-20-20 prevention strategy"
+      "@value": "A complex of ocular and visual symptoms from prolonged digital device use, including mechanisms and evidence-based prevention strategies"
     },
-    "notation": "cw-007"
+    "notation": "eye-051"
   },
   "medicalCode": [
     {
@@ -169,44 +190,31 @@
   ],
   "pedagogical": {
     "target_audience": [
-      "conference_attendees",
-      "office_workers",
-      "software_developers",
+      "ophthalmologists",
+      "optometrists",
+      "occupational_health_professionals",
       "general_public"
     ],
     "estimated_time": "10min",
     "difficulty_curve": 0.25,
     "learning_objectives": [
-      "Understand the causes of digital eye strain",
+      "Understand the pathophysiology of digital eye strain",
+      "Explain the role of accommodation and blink rate in CVS",
       "Implement the 20-20-20 rule effectively",
-      "Optimize workstation ergonomics for eye health",
-      "Recognize when to seek professional eye care",
-      "Distinguish evidence-based interventions from marketing claims"
-    ],
-    "practical_tips": [
-      "Set recurring 20-minute timer on phone/watch",
-      "Find distant focal point in conference venue for breaks",
-      "Carry artificial tears for air-conditioned venues",
-      "Adjust phone font size before conference",
-      "Sit where you can see windows for natural focus shifts"
+      "Optimize workstation ergonomics for eye health"
     ]
   },
   "relationships": {
     "skos:related": [
       {
-        "@id": "health-sciences:preventive-medicine:conference-wellness:cw-006",
-        "@type": "skos:Concept",
-        "skos:prefLabel": "Sitting Health Risks and Movement"
-      },
-      {
-        "@id": "health-sciences:preventive-medicine:conference-wellness:cw-003",
-        "@type": "skos:Concept",
-        "skos:prefLabel": "Decision Fatigue"
-      },
-      {
         "@id": "health-sciences:medicine:ophthalmology:eye-014",
         "@type": "skos:Concept",
-        "skos:prefLabel": "Dry Eye"
+        "skos:prefLabel": "Dry Eye Disease"
+      },
+      {
+        "@id": "health-sciences:public-health:ph-001",
+        "@type": "skos:Concept",
+        "skos:prefLabel": "Sedentary Behavior Risks"
       }
     ],
     "owl:sameAs": [
@@ -215,7 +223,7 @@
   },
   "provenance": {
     "verification_status": "verified",
-    "last_verified": "2026-01-13T18:40:00.000Z",
+    "last_verified": "2026-01-13T19:45:00.000Z",
     "sources": [
       {
         "source": "American Academy of Ophthalmology. Computers, Digital Devices and Eye Strain. 2020",
@@ -243,9 +251,9 @@
     "accuracy": 0.93,
     "clarity": 0.95,
     "pedagogical_quality": 0.93,
-    "ontology_alignment": 0.88,
-    "last_assessment": "2026-01-13T18:40:00.000Z",
-    "assessor": "knowledge-graph-agent"
+    "ontology_alignment": 0.95,
+    "last_assessment": "2026-01-13T19:45:00.000Z",
+    "assessor": "ontology-agent"
   },
   "owl:sameAs": "http://www.wikidata.org/entity/Q3393844",
   "skos:exactMatch": "http://www.wikidata.org/entity/Q3393844"
