@@ -1,9 +1,9 @@
 # Healthy Microsoft MVP Summit Comic
 
-> **Four versions of an educational comic about staying healthy at the Microsoft MVP Summit**
+> **Seven versions of an educational comic about staying healthy at the Microsoft MVP Summit**
 > 
 > **Style**: 1950s American Comic Book (bold lines, Ben-Day dots, vintage colors)
-> **Characters**: Andreas Erben (Microsoft MVP) & Marco Casalaina (Microsoft VP)
+> **Characters**: Andreas Erben (Microsoft MVP) & Marco Casalaina
 > **Theme**: Conference health, wellness, and sustainable engagement
 
 ---
@@ -20,6 +20,9 @@ This project implements [Issue #47](https://github.com/MSDNAndi/WorldSMEGraphs/i
 | **Version 2** | Dawn to Dusk | 46 | Single day with mindfulness focus |
 | **Version 3** | Survival Handbook | 44 | Educational with flashbacks and infographics |
 | **Version 4** | Campus Wisdom | 45-50 | Walking campus tour with 10 AKU topics |
+| **Version 5** | The Debugging Human Runtime | 48 | **NERDY** - Body as a computer system (DevOps metaphors) |
+| **Version 6** | MVP Summit Survival: Roguelike | 48 | **GAMING** - RPG with health bars, debuffs, skill cooldowns |
+| **Version 7** | Science of Summit Optimization | 48 | **DATA** - A/B testing wellness, metrics-driven health |
 
 ---
 
@@ -47,6 +50,27 @@ This project implements [Issue #47](https://github.com/MSDNAndi/WorldSMEGraphs/i
 - [📝 Panel Planning](version-4/story-development/03-panel-planning.md) - 48-panel scene-by-scene breakdown
 - [📋 Image Prompts](version-4/comic/prompts-single-line.txt) - 48 single-line prompts ready for generation
 - *Images coming soon after generation*
+
+### Version 5: The Debugging Human Runtime 🆕 NERDY
+- [📝 Story Idea](version-5/story-development/01-story-idea.md) - DevOps metaphors for health
+- [📝 Full Narrative](version-5/story-development/02-narrative.md) - ~5,800 words of tech humor
+- [📝 Panel Planning](version-5/story-development/03-panel-planning.md) - 48-panel breakdown
+- [📋 Image Prompts](version-5/comic/prompts-single-line.txt) - 48 prompts with tech overlays
+- **Theme**: Body as computer system—thermal throttling, garbage collection, CPU exhaustion
+
+### Version 6: MVP Summit Survival: Roguelike 🆕 GAMING
+- [📝 Story Idea](version-6/story-development/01-story-idea.md) - RPG mechanics for wellness
+- [📝 Full Narrative](version-6/story-development/02-narrative.md) - ~5,600 words of gaming fun
+- [📝 Panel Planning](version-6/story-development/03-panel-planning.md) - 48-panel breakdown
+- [📋 Image Prompts](version-6/comic/prompts-single-line.txt) - 48 prompts with RPG UI
+- **Theme**: Life as roguelike—debuffs, skill cooldowns, boss encounters, loot
+
+### Version 7: Science of Summit Optimization 🆕 DATA
+- [📝 Story Idea](version-7/story-development/01-story-idea.md) - Data science approach
+- [📝 Full Narrative](version-7/story-development/02-narrative.md) - ~5,700 words of analysis
+- [📝 Panel Planning](version-7/story-development/03-panel-planning.md) - 48-panel breakdown
+- [📋 Image Prompts](version-7/comic/prompts-single-line.txt) - 48 prompts with data viz
+- **Theme**: A/B testing wellness—correlation analysis, ROI calculations, metrics dashboards
 
 ### Quick Reference
 - [💡 Health Tips Reference](health-tips-reference.md) - All health strategies in one document
@@ -82,17 +106,18 @@ All four versions cover essential health topics for conference attendees:
 
 ### Andreas Erben
 - **Role**: Long-time Microsoft MVP, conference veteran
-- **Visual**: German, early 50s, grey-brown hair, rectangular glasses, blue blazer
-- **Personality**: Warm, experienced, genuinely helpful
-- **Dialogue Style**: Practical wisdom from experience
+- **Visual**: German heritage, early 50s, thinning sandy-blonde hair with M-shaped receding hairline, PROMINENT rectangular dark-framed glasses (most distinctive feature), charcoal quilted vest
+- **Personality**: Warm, experienced, genuinely helpful, patient teacher
+- **Dialogue Style**: Practical wisdom from experience, occasional German phrases
 
 ### Marco Casalaina
-- **Role**: Microsoft VP, fact-checker with inside knowledge
-- **Visual**: Italian-American, late 40s, dark hair, short beard, Microsoft polo
-- **Personality**: Slightly snarky but supportive, knows campus secrets
-- **Dialogue Style**: Data-driven, gentle corrections, playful teasing
+- **Role**: Snarky tech professional, talks a lot, comments on everything
+- **Visual**: COMPLETELY BALD with smooth shaved head (most distinctive feature), no glasses, navy blue blazer, sheep/lamb lapel pin
+- **Personality**: Snarky but good-natured, doesn't always listen, gradually learns
+- **Dialogue Style**: Quick commentary, skeptical questions, self-deprecating humor
 
 See [Character Descriptions](character-descriptions.md) for full visual specifications.
+See [Character Descriptions from Images](character-descriptions-from-images.md) for hyper-detailed descriptions.
 
 ---
 
@@ -102,6 +127,7 @@ See [Character Descriptions](character-descriptions.md) for full visual specific
 healthy-mvp-summit/
 ├── README.md                    # This file
 ├── character-descriptions.md   # Visual specifications for characters
+├── character-descriptions-from-images.md  # Hyper-detailed descriptions
 ├── version-1/
 │   ├── story-development/
 │   │   ├── 01-story-idea.md
@@ -116,14 +142,31 @@ healthy-mvp-summit/
 │   └── [same structure - 46 images]
 ├── version-3/
 │   └── [same structure - 44 images]
-└── version-4/
-    ├── README.md                # Version overview and next steps
+├── version-4/
+│   ├── story-development/       # Story planning documents
+│   └── comic/
+│       └── prompts-single-line.txt
+├── version-5/ (NEW - NERDY)
+│   ├── story-development/
+│   │   ├── 01-story-idea.md     # DevOps/computer system theme
+│   │   ├── 02-narrative.md      # ~5,800 words
+│   │   └── 03-panel-planning.md # 48-panel breakdown
+│   └── comic/
+│       └── prompts-single-line.txt  # Tech overlays
+├── version-6/ (NEW - GAMING)
+│   ├── story-development/
+│   │   ├── 01-story-idea.md     # RPG/roguelike theme
+│   │   ├── 02-narrative.md      # ~5,600 words
+│   │   └── 03-panel-planning.md # 48-panel breakdown
+│   └── comic/
+│       └── prompts-single-line.txt  # RPG UI overlays
+└── version-7/ (NEW - DATA)
     ├── story-development/
-    │   ├── 01-story-idea.md     # Story outline
-    │   ├── 02-narrative.md      # Full prose story
+    │   ├── 01-story-idea.md     # Data science theme
+    │   ├── 02-narrative.md      # ~5,700 words
     │   └── 03-panel-planning.md # 48-panel breakdown
     └── comic/
-        └── prompts-single-line.txt  # 48 image generation prompts
+        └── prompts-single-line.txt  # Data viz overlays
 ```
 
 ---
@@ -179,16 +222,42 @@ Here are some highlights from across the three versions:
 
 ## Statistics
 
-- **Total Images Generated**: 138
+- **Total Images Generated (V1-V3)**: 138
 - **Version 1**: 48 panels (5,336 words narrative)
 - **Version 2**: 46 panels (3,650 words narrative)
 - **Version 3**: 44 panels (3,169 words narrative)
-- **Total Word Count** (narratives): 12,155 words
-- **Total Size**: 1.1 GB
+- **Version 4**: 48 panels (~2,450 words narrative) - prompts ready
+- **Version 5**: 48 panels (~4,200 words narrative) - prompts ready ⭐ NEW
+- **Version 6**: 48 panels (~3,400 words narrative) - prompts ready ⭐ NEW
+- **Version 7**: 48 panels (~2,950 words narrative) - prompts ready ⭐ NEW
+- **Total Word Count (all narratives)**: ~25,150 words
+
+### New Stories (V5-V7) Themes
+
+| Version | Theme | Key Metaphor |
+|---------|-------|--------------|
+| V5 | **Debugging Human Runtime** | Body = computer system (thermal throttling, garbage collection, CPU exhaustion) |
+| V6 | **Roguelike Adventure** | Life = RPG (debuffs, skill cooldowns, boss encounters, FOMO as trap) |
+| V7 | **Summit Optimization** | Health = data science (A/B testing, correlation analysis, ROI calculations) |
+
+### AKUs Referenced (V5-V7)
+
+All three new stories link to these native domain AKUs:
+- `neuro-051`: Dehydration & cognitive impairment
+- `neuro-052`: Circadian rhythm & jet lag
+- `neuro-053`: Sleep architecture & power naps
+- `eye-051`: Digital eye strain (20-20-20 rule)
+- `pharm-001`: Alcohol pharmacology & sleep effects
+- `pharm-002`: Caffeine pharmacokinetics
+- `ph-001`: Sedentary behavior risks
+- `psych-001`: Decision fatigue & ego depletion
+- `psych-002`: Introversion/extroversion energy
+- `psych-003`: FOMO & social comparison
 
 ---
 
 *Created: 2026-01-13*
+*Updated: 2026-01-13 (Added versions 5, 6, 7)*
 *Style: 1950s American Comic Book*
 *Theme: Healthy Conference Attendance*
 *Issue: [#47](https://github.com/MSDNAndi/WorldSMEGraphs/issues/47)*
