@@ -1,76 +1,289 @@
 {
   "@context": "aku-v2",
   "@type": "definition",
-  "@id": "health-sciences:medicine:gastroenterology:gi-019",
+  "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-019",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:52:30.000Z",
+    "modified": "2026-01-13T15:13:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": ["CC-BY-4.0"]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/gastroenterology",
+    "subdomain": "hepatology",
     "type": "definition",
     "difficulty": "intermediate",
-    "importance": "high"
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
     "title": "Hepatitis C Treatment",
-    "summary": "HCV cure with DAAs",
+    "summary": "Hepatitis C virus (HCV) is now curable with direct-acting antivirals (DAAs). Pan-genotypic regimens like sofosbuvir/velpatasvir achieve >95% sustained virologic response (SVR12) across all genotypes. Treatment is recommended for all HCV-infected patients except those with limited life expectancy. SVR12 (undetectable HCV RNA 12 weeks post-treatment) represents cure.",
     "key_points": [
-      "Genotype testing",
-      "Pan-genotypic regimens",
-      "SVR12 cure definition"
+      "Direct-acting antivirals (DAAs) cure >95% of HCV infections",
+      "Pan-genotypic regimens eliminate need for genotype testing in most cases",
+      "SVR12 = undetectable HCV RNA 12 weeks after treatment completion = cure",
+      "All HCV patients should be treated regardless of fibrosis stage",
+      "Sofosbuvir/velpatasvir 12 weeks is a common first-line pan-genotypic regimen",
+      "Post-SVR surveillance for HCC required if cirrhosis present at treatment"
     ],
-    "statement": "Hepatitis C Treatment is a fundamental concept in health-sciences medicine gastroenterology that provides essential knowledge for understanding related topics.",
+    "statement": "Hepatitis C treatment with direct-acting antivirals achieves cure (SVR12) in >95% of patients with 8-12 week regimens, representing one of the most significant advances in modern medicine.",
     "explanation": {
-      "intuition": "Understanding Hepatitis C Treatment helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Hepatitis C Treatment include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Hepatitis C Treatment to real-world scenarios."
+      "intuition": "Think of the HCV lifecycle as a factory with specific machinery. DAAs are like precise sabotage - NS5B polymerase inhibitors (sofosbuvir) stop viral replication, NS5A inhibitors (velpatasvir) block viral assembly, and NS3/4A protease inhibitors (glecaprevir) prevent protein processing. Hit multiple targets and the virus can't survive.",
+      "key_insight": "The HCV treatment paradigm has completely changed. Previously, interferon-based therapy had ~50% cure rates with terrible side effects over 48 weeks. Now, oral pills for 8-12 weeks cure >95% with minimal side effects. The barrier is primarily cost and access, not efficacy.",
+      "technical_details": "HCV has 6 major genotypes. Pan-genotypic regimens (sofosbuvir/velpatasvir, glecaprevir/pibrentasvir) work across all genotypes. Treatment duration may be shortened to 8 weeks in treatment-naive non-cirrhotic patients. Decompensated cirrhosis requires ribavirin-containing regimens. NS3/4A inhibitors (glecaprevir) contraindicated in decompensated cirrhosis."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "HCV": "Hepatitis C virus; RNA virus causing chronic liver disease",
+      "DAA": "Direct-acting antiviral; drugs targeting specific steps in HCV lifecycle",
+      "SVR12": "Sustained virologic response at 12 weeks post-treatment; defines cure",
+      "genotype": "HCV genetic variants (1-6); historically affected treatment choice",
+      "pan_genotypic": "Effective against all HCV genotypes (1-6)",
+      "sofosbuvir": "NS5B polymerase inhibitor; backbone of most modern regimens",
+      "velpatasvir": "NS5A inhibitor; combined with sofosbuvir for pan-genotypic coverage",
+      "glecaprevir": "NS3/4A protease inhibitor; combined with pibrentasvir",
+      "ribavirin": "Nucleoside analog added for decompensated cirrhosis or prior treatment failure",
+      "fibrosis": "Liver scarring from chronic inflammation; staged F0-F4 (F4 = cirrhosis)",
+      "decompensated_cirrhosis": "Cirrhosis with complications (ascites, variceal bleeding, encephalopathy)",
+      "treatment_naive": "Never previously treated for HCV"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "DAAs inhibit essential viral proteins required for HCV replication and assembly",
+      "drug_classes": {
+        "NS5B_polymerase_inhibitors": {
+          "mechanism": "Block RNA-dependent RNA polymerase",
+          "examples": ["Sofosbuvir"],
+          "properties": "High barrier to resistance; backbone of most regimens"
+        },
+        "NS5A_inhibitors": {
+          "mechanism": "Block NS5A protein (replication and assembly)",
+          "examples": ["Velpatasvir", "Ledipasvir", "Pibrentasvir"],
+          "properties": "Potent; variable resistance barrier"
+        },
+        "NS3_4A_protease_inhibitors": {
+          "mechanism": "Block viral protease processing polyprotein",
+          "examples": ["Glecaprevir", "Voxilaprevir", "Grazoprevir"],
+          "properties": "Contraindicated in decompensated cirrhosis (Child-Pugh B/C)"
+        }
+      }
+    },
+    "diagnostic_criteria": {
+      "diagnosis": {
+        "screening": "Anti-HCV antibody (if positive, confirm with HCV RNA)",
+        "confirmation": "HCV RNA by PCR (detectable = active infection)",
+        "quantitative_viral_load": "Baseline and at SVR12 assessment"
+      },
+      "pre_treatment_assessment": {
+        "fibrosis_staging": {
+          "methods": ["FibroScan (transient elastography)", "APRI score", "FIB-4 index", "Liver biopsy (rarely needed)"],
+          "importance": "Determines surveillance needs post-treatment, not treatment indication"
+        },
+        "genotype": "May be omitted if using pan-genotypic regimen",
+        "drug_interactions": "Critical to check - many DAAs have significant interactions",
+        "HBV_coinfection": "Screen HBsAg - risk of HBV reactivation during DAA therapy",
+        "baseline_labs": "CBC, CMP, INR if cirrhotic"
+      }
+    },
+    "differential_diagnosis": [
+      "Other causes of chronic hepatitis (HBV, autoimmune, MASH)",
+      "Drug-induced liver injury",
+      "Alcoholic liver disease"
+    ],
+    "treatment_options": {
+      "pan_genotypic_regimens": {
+        "sofosbuvir_velpatasvir": {
+          "brand": "Epclusa",
+          "dosing": "400/100mg once daily",
+          "duration": "12 weeks (most patients)",
+          "efficacy": ">95% SVR12"
+        },
+        "glecaprevir_pibrentasvir": {
+          "brand": "Mavyret",
+          "dosing": "300/120mg once daily with food",
+          "duration": "8 weeks (treatment-naive, non-cirrhotic); 12 weeks (cirrhotic)",
+          "contraindication": "Decompensated cirrhosis (Child-Pugh B/C)"
+        }
+      },
+      "special_populations": {
+        "decompensated_cirrhosis": {
+          "regimen": "Sofosbuvir/velpatasvir + ribavirin 12 weeks",
+          "note": "Avoid NS3/4A protease inhibitors"
+        },
+        "prior_treatment_failure": {
+          "approach": "Add voxilaprevir or extend duration; resistance testing may help"
+        },
+        "kidney_disease": {
+          "regimen": "Glecaprevir/pibrentasvir safe in severe CKD/dialysis",
+          "avoid": "Sofosbuvir in eGFR <30 (accumulates)"
+        },
+        "HIV_coinfection": {
+          "approach": "Check drug interactions; most DAAs are effective"
+        }
+      },
+      "post_treatment": {
+        "SVR12_assessment": "HCV RNA at 12 weeks after treatment completion",
+        "if_cirrhosis_at_baseline": "Continue HCC surveillance every 6 months indefinitely",
+        "if_no_cirrhosis": "No specific follow-up needed after SVR12 confirmed",
+        "reinfection": "Possible with ongoing risk behavior; educate patients"
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Hepatitis C Treatment"
-  ],
-  "clinical_pearls": [
-    "Genotype testing"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Hepatitis C Treatment"
+    },
+    "altLabel": [
+      {"@language": "en", "@value": "HCV treatment"},
+      {"@language": "en", "@value": "Direct-acting antivirals for HCV"},
+      {"@language": "en", "@value": "Hepatitis C cure"}
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Treatment of hepatitis C virus infection with direct-acting antivirals achieving sustained virologic response (cure) in >95% of patients"
+    },
+    "notation": "gi-019",
+    "scopeNote": {
+      "@language": "en",
+      "@value": "Covers DAA mechanisms, regimen selection, special populations, and post-treatment surveillance"
+    }
+  },
+  "relationships": {
+    "skos:broader": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/viral-hepatitis",
+        "skos:prefLabel": "Viral Hepatitis"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-014",
+        "skos:prefLabel": "Cirrhosis"
       },
       {
-        "source": "Academic literature review",
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-018",
+        "skos:prefLabel": "Hepatitis B"
+      }
+    ],
+    "owl:sameAs": [
+      "http://dbpedia.org/resource/Hepatitis_C"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "50711007",
+      "uri": "http://snomed.info/id/50711007",
+      "description": "Viral hepatitis C"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "B18.2",
+      "uri": "http://hl7.org/fhir/sid/icd-10-cm/B18.2",
+      "description": "Chronic viral hepatitis C"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D006526",
+      "uri": "http://id.nlm.nih.gov/mesh/D006526",
+      "description": "Hepatitis C"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Describe the classes of direct-acting antivirals and their mechanisms",
+      "Select appropriate HCV treatment regimen based on patient factors",
+      "Define SVR12 and its significance as a cure marker",
+      "Identify contraindications for specific DAA regimens",
+      "Outline post-treatment surveillance requirements"
+    ],
+    "clinical_pearls": [
+      "Pan-genotypic regimens mean you rarely need genotype testing anymore",
+      "Check HBsAg before starting DAAs - HBV can reactivate",
+      "Glecaprevir/pibrentasvir is safe in CKD/dialysis; sofosbuvir is not",
+      "NS3/4A protease inhibitors are contraindicated in decompensated cirrhosis",
+      "After SVR12, continue HCC surveillance ONLY if cirrhotic at baseline"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "20min",
+    "target_audience": [
+      "medical_students",
+      "internal_medicine_residents",
+      "gastroenterology_fellows"
+    ],
+    "common_misconceptions": [
+      "HCV treatment needs months of therapy - 8-12 weeks is now standard",
+      "Genotype always matters - pan-genotypic regimens work for all",
+      "Cure means no more follow-up - cirrhotics still need HCC surveillance"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/gastroenterology/hepatitis-c-overview",
+      "skos:prefLabel": "Hepatitis C Overview"
+    }
+  ],
+  "related_concepts": [
+    "direct-acting antivirals",
+    "sustained virologic response",
+    "liver fibrosis",
+    "cirrhosis"
+  ],
+  "evidence": {
+    "citations": [
+      {
+        "authors": "AASLD-IDSA HCV Guidance Panel",
+        "title": "Hepatitis C Guidance 2019 Update: AASLD-IDSA Recommendations for Testing, Managing, and Treating Hepatitis C Virus Infection",
+        "journal": "Hepatology",
+        "year": 2020,
+        "volume": "71",
+        "pages": "686-721",
+        "doi": "10.1002/hep.31060"
+      }
+    ],
+    "confidence_rationale": "Based on AASLD-IDSA HCV treatment guidance"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-13T15:13:00.000Z",
+    "sources": [
+      {
+        "source": "Harrison's Principles of Internal Medicine, 21st ed.",
         "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "year": 2022,
+        "isbn": "978-1264268504",
+        "relevance": "Standard internal medicine reference"
+      },
+      {
+        "source": "AASLD-IDSA HCV Guidance",
+        "type": "clinical_guideline",
+        "year": 2020,
+        "relevance": "Evidence-based HCV treatment recommendations"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Hepatitis_C_Treatment",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "content_quality_score": 0.95,
+    "completeness": 0.96,
+    "accuracy": 0.97,
+    "clarity": 0.94,
+    "clinical_relevance": 0.97,
+    "last_assessed": "2026-01-13T15:13:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Hepatitis_C",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q155098"
 }

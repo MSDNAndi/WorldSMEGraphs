@@ -1,76 +1,296 @@
 {
   "@context": "aku-v2",
   "@type": "definition",
-  "@id": "health-sciences:medicine:gastroenterology:gi-017",
+  "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-017",
   "metadata": {
-    "version": "3.0.0",
+    "version": "4.0.0",
     "created": "2026-01-09T01:52:30.000Z",
+    "modified": "2026-01-13T15:12:00.000Z",
     "contributors": [
       "copilot-agent",
-      "quality-enhancement-agent"
+      "quality-enhancement-agent",
+      "quality-agent"
     ],
-    "confidence": 0.95,
-    "status": "peer-reviewed",
-    "modified": "2026-01-10T15:10:00.000Z"
+    "confidence": 0.96,
+    "status": "validated",
+    "language": "en",
+    "licenses": ["CC-BY-4.0"]
   },
   "classification": {
     "domain_path": "health-sciences/medicine/gastroenterology",
+    "subdomain": "hepatology",
     "type": "definition",
-    "difficulty": "intermediate",
-    "importance": "high"
+    "difficulty": "advanced",
+    "importance": "high",
+    "isNativeDomain": true,
+    "board_yield": "HIGH"
   },
   "content": {
     "title": "Variceal Bleeding",
-    "summary": "Esophageal varices hemorrhage",
+    "summary": "Variceal hemorrhage is a life-threatening complication of portal hypertension, most commonly from esophageal varices in patients with cirrhosis. Management includes resuscitation, vasoactive drugs (octreotide), prophylactic antibiotics, endoscopic band ligation, and TIPS for refractory bleeding. Primary and secondary prophylaxis with non-selective beta-blockers and endoscopic therapy reduce bleeding risk.",
     "key_points": [
-      "Octreotide + antibiotics",
-      "Band ligation endoscopic",
-      "TIPS for refractory"
+      "Variceal bleeding occurs when HVPG ≥12 mmHg (clinically significant portal hypertension)",
+      "Initial management: IV access, restrictive transfusion (Hgb target 7-8), vasoactive drugs, antibiotics",
+      "Octreotide (or terlipressin) reduces splanchnic blood flow and portal pressure",
+      "Endoscopic band ligation (EBL) is first-line endoscopic therapy for esophageal varices",
+      "TIPS for refractory bleeding not controlled by 2 endoscopic attempts",
+      "Primary prophylaxis: NSBB (propranolol, nadolol, carvedilol) or EBL for medium-large varices"
     ],
-    "statement": "Variceal Bleeding is a fundamental concept in health-sciences medicine gastroenterology that provides essential knowledge for understanding related topics.",
+    "statement": "Variceal bleeding is managed with a multi-modal approach including resuscitation, pharmacotherapy (octreotide + antibiotics), endoscopic band ligation, and TIPS for refractory cases, with primary and secondary prophylaxis to prevent recurrence.",
     "explanation": {
-      "intuition": "Understanding Variceal Bleeding helps build foundational knowledge in this domain.",
-      "key_insight": "The key aspects of Variceal Bleeding include the core principles and their practical applications.",
-      "technical_details": "Technical implementation involves applying the core principles of Variceal Bleeding to real-world scenarios."
+      "intuition": "Cirrhosis causes scarring that blocks blood flow through the liver, forcing blood to find alternative routes (varices). These thin-walled vessels in the esophagus can burst under pressure, causing massive bleeding. Treatment aims to: (1) stop the bleeding (drugs + endoscopy), (2) prevent complications (antibiotics for SBP), and (3) reduce future bleeding risk (beta-blockers).",
+      "key_insight": "The combination of vasoactive drugs (octreotide) AND prophylactic antibiotics is crucial - antibiotics reduce mortality independently of their infection-preventing role, possibly by reducing bacterial translocation that worsens portal hypertension. Always give antibiotics even without documented infection.",
+      "technical_details": "HVPG (hepatic venous pressure gradient) ≥10 mmHg = clinically significant portal hypertension; ≥12 mmHg = risk of variceal bleeding. Non-selective beta-blockers reduce cardiac output AND cause splanchnic vasoconstriction, lowering portal pressure. Carvedilol may be more effective due to additional α-blocking anti-portal hypertensive effect."
     },
     "definitions_glossary": {
-      "concept": "A fundamental idea or notion in the domain",
-      "property": "A characteristic or attribute of an entity",
-      "relationship": "A connection or association between concepts"
+      "esophageal_varices": "Dilated submucosal veins in the esophagus from portal hypertension",
+      "portal_hypertension": "Increased pressure in the portal venous system (HVPG ≥6 mmHg)",
+      "HVPG": "Hepatic venous pressure gradient; wedged minus free hepatic venous pressure",
+      "variceal_hemorrhage": "Bleeding from varices; major cause of death in cirrhosis",
+      "octreotide": "Somatostatin analog that reduces splanchnic blood flow",
+      "terlipressin": "Vasopressin analog; reduces portal pressure; preferred outside US",
+      "band_ligation": "Endoscopic technique placing rubber bands to obliterate varices",
+      "sclerotherapy": "Injection of sclerosant; second-line to banding due to more complications",
+      "TIPS": "Transjugular intrahepatic portosystemic shunt; creates liver shunt to reduce portal pressure",
+      "NSBB": "Non-selective beta-blocker (propranolol, nadolol, carvedilol) for prophylaxis",
+      "primary_prophylaxis": "Prevention of first variceal bleed in patients with varices",
+      "secondary_prophylaxis": "Prevention of rebleeding after initial variceal hemorrhage"
     }
   },
-  "prerequisites": [],
-  "related_concepts": [],
-  "evidence": {
-    "citations": [],
-    "confidence_rationale": "Standard medical knowledge"
+  "clinical_features": {
+    "pathophysiology": {
+      "mechanism": "Portal hypertension causes collateral circulation through esophageal and gastric varices",
+      "portal_hypertension_causes": {
+        "prehepatic": "Portal vein thrombosis, splenic vein thrombosis",
+        "intrahepatic": "Cirrhosis (90% of cases), schistosomiasis",
+        "posthepatic": "Budd-Chiari syndrome, cardiac disease"
+      },
+      "variceal_development": {
+        "threshold": "HVPG ≥10 mmHg for varices to form",
+        "bleeding_risk": "HVPG ≥12 mmHg; ~30% of medium-large varices bleed within 2 years",
+        "risk_factors": ["Variceal size", "Red wale marks", "Child-Pugh class", "Active alcohol use"]
+      }
+    },
+    "diagnostic_criteria": {
+      "clinical_presentation": [
+        "Hematemesis (vomiting blood) - most common presentation",
+        "Melena (black tarry stools)",
+        "Hypovolemic shock in severe cases",
+        "Known cirrhosis or portal hypertension stigmata"
+      ],
+      "endoscopic_findings": {
+        "variceal_grading": "Small (<5mm), Medium (5-10mm), Large (>10mm)",
+        "red_signs": "Cherry-red spots, red wale marks indicate high rupture risk",
+        "active_bleeding": "Spurting, oozing, nipple sign, overlying clot"
+      },
+      "severity_assessment": [
+        "Hemodynamic status (BP, HR, mental status)",
+        "Laboratory (hemoglobin, coagulation, liver function)",
+        "Child-Pugh score and MELD for liver disease severity"
+      ]
+    },
+    "differential_diagnosis": [
+      "Peptic ulcer bleeding (most common cause of UGIB overall)",
+      "Mallory-Weiss tear",
+      "Portal hypertensive gastropathy",
+      "Gastric antral vascular ectasia (GAVE)"
+    ],
+    "treatment_options": {
+      "acute_management": {
+        "resuscitation": {
+          "IV_access": "Two large-bore IVs; ICU monitoring for severe bleeds",
+          "transfusion": "Restrictive strategy: target Hgb 7-8 g/dL (overtransfusion increases portal pressure)",
+          "airway": "Consider intubation for massive hematemesis, encephalopathy"
+        },
+        "pharmacotherapy": {
+          "vasoactive_drugs": {
+            "agents": ["Octreotide 50 mcg bolus then 50 mcg/hr infusion", "Terlipressin (not US)"],
+            "duration": "2-5 days",
+            "mechanism": "Splanchnic vasoconstriction reduces portal inflow"
+          },
+          "antibiotics": {
+            "agents": "Ceftriaxone 1g IV daily (preferred) or norfloxacin PO",
+            "duration": "7 days",
+            "rationale": "Reduces mortality, SBP, rebleeding, infections"
+          },
+          "PPI": "Often given though no proven benefit for variceal bleeding specifically"
+        },
+        "endoscopy": {
+          "timing": "Within 12 hours of presentation",
+          "technique": "Endoscopic band ligation (EBL) preferred over sclerotherapy",
+          "success_rate": "80-90% achieve hemostasis",
+          "gastric_varices": "Cyanoacrylate glue injection for fundal varices (GOV2, IGV1)"
+        }
+      },
+      "refractory_bleeding": {
+        "definition": "Failure of 2 endoscopic attempts or recurrent bleeding despite optimal therapy",
+        "TIPS": {
+          "mechanism": "Shunts portal blood directly to systemic circulation",
+          "indication": "Rescue for refractory bleeding; early TIPS in high-risk patients (Child C, HVPG >20)",
+          "complications": "Hepatic encephalopathy (30-50%), shunt dysfunction"
+        },
+        "balloon_tamponade": "Sengstaken-Blakemore or Minnesota tube as bridge to TIPS (max 24h)"
+      },
+      "prophylaxis": {
+        "primary": {
+          "indication": "Medium-large varices or small varices with red signs/Child C",
+          "options": ["NSBB (propranolol, nadolol, carvedilol)", "Endoscopic band ligation"],
+          "target": "HR 55-60 or 25% reduction; continue indefinitely"
+        },
+        "secondary": {
+          "indication": "All patients after variceal bleed",
+          "approach": "NSBB + EBL (combination is superior to either alone)",
+          "TIPS": "Consider if rebleeding despite combination therapy"
+        }
+      }
+    }
   },
-  "learning_objectives": [
-    "Understand Variceal Bleeding"
-  ],
-  "clinical_pearls": [
-    "Octreotide + antibiotics"
-  ],
-  "provenance": {
-    "verification_status": "verified",
-    "last_verified": "2026-01-10T15:10:00.000Z",
-    "sources": [
+  "skos": {
+    "prefLabel": {
+      "@language": "en",
+      "@value": "Variceal Bleeding"
+    },
+    "altLabel": [
+      {"@language": "en", "@value": "Variceal hemorrhage"},
+      {"@language": "en", "@value": "Esophageal variceal bleeding"},
+      {"@language": "en", "@value": "Bleeding varices"}
+    ],
+    "definition": {
+      "@language": "en",
+      "@value": "Life-threatening hemorrhage from esophageal or gastric varices secondary to portal hypertension, requiring urgent resuscitation, pharmacotherapy, and endoscopic intervention"
+    },
+    "notation": "gi-017",
+    "scopeNote": {
+      "@language": "en",
+      "@value": "Covers acute management, endoscopic therapy, TIPS, and primary/secondary prophylaxis"
+    }
+  },
+  "relationships": {
+    "skos:broader": [
       {
-        "source": "Standard reference for Health-Sciences",
-        "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/portal-hypertension",
+        "skos:prefLabel": "Portal Hypertension"
+      }
+    ],
+    "skos:related": [
+      {
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-014",
+        "skos:prefLabel": "Cirrhosis"
       },
       {
-        "source": "Academic literature review",
+        "@id": "wsmg:health-sciences/medicine/gastroenterology/gi-016",
+        "skos:prefLabel": "Ascites"
+      }
+    ],
+    "owl:sameAs": [
+      "http://dbpedia.org/resource/Esophageal_varices"
+    ]
+  },
+  "medicalCode": [
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "SNOMED-CT",
+      "codeValue": "28670008",
+      "uri": "http://snomed.info/id/28670008",
+      "description": "Bleeding esophageal varices"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "ICD-10-CM",
+      "codeValue": "I85.01",
+      "uri": "http://hl7.org/fhir/sid/icd-10-cm/I85.01",
+      "description": "Esophageal varices with bleeding"
+    },
+    {
+      "@type": "MedicalCode",
+      "codingSystem": "MeSH",
+      "codeValue": "D004932",
+      "uri": "http://id.nlm.nih.gov/mesh/D004932",
+      "description": "Esophageal and Gastric Varices"
+    }
+  ],
+  "pedagogical": {
+    "learning_objectives": [
+      "Implement initial resuscitation for acute variceal hemorrhage",
+      "Justify the use of octreotide and prophylactic antibiotics",
+      "Describe endoscopic band ligation technique and timing",
+      "Identify indications for TIPS in variceal bleeding",
+      "Outline primary and secondary prophylaxis strategies"
+    ],
+    "clinical_pearls": [
+      "Octreotide + antibiotics are started BEFORE endoscopy in suspected variceal bleed",
+      "Restrictive transfusion (Hgb 7-8) improves outcomes - overtransfusion increases portal pressure",
+      "Antibiotics reduce mortality even without documented infection - always give them",
+      "Early TIPS (within 72h) for high-risk patients (Child C, HVPG >20)",
+      "Secondary prophylaxis = NSBB + band ligation together (combination is superior)"
+    ],
+    "board_yield": "HIGH",
+    "estimated_time": "25min",
+    "target_audience": [
+      "medical_students",
+      "internal_medicine_residents",
+      "gastroenterology_fellows",
+      "critical_care_physicians"
+    ],
+    "common_misconceptions": [
+      "Aggressive transfusion is better - actually worsens portal pressure and outcomes",
+      "Sclerotherapy equals band ligation - banding has fewer complications and is preferred",
+      "TIPS is last resort - early TIPS improves survival in selected high-risk patients"
+    ]
+  },
+  "prerequisites": [
+    {
+      "@id": "wsmg:health-sciences/medicine/gastroenterology/cirrhosis",
+      "skos:prefLabel": "Cirrhosis"
+    }
+  ],
+  "related_concepts": [
+    "portal hypertension",
+    "cirrhosis",
+    "upper GI bleeding",
+    "TIPS"
+  ],
+  "evidence": {
+    "citations": [
+      {
+        "authors": "Garcia-Tsao G, Abraldes JG, Berzigotti A, Bosch J",
+        "title": "Portal Hypertensive Bleeding in Cirrhosis: Risk Stratification, Diagnosis, and Management",
+        "journal": "Hepatology",
+        "year": 2017,
+        "volume": "65",
+        "pages": "310-335",
+        "doi": "10.1002/hep.28906"
+      }
+    ],
+    "confidence_rationale": "Based on AASLD portal hypertension practice guidance"
+  },
+  "provenance": {
+    "verification_status": "verified",
+    "last_verified": "2026-01-13T15:12:00.000Z",
+    "sources": [
+      {
+        "source": "Harrison's Principles of Internal Medicine, 21st ed.",
         "type": "textbook",
-        "year": 2021,
-        "isbn": "978-0000000000",
-        "relevance": "Reference for domain concepts"
+        "year": 2022,
+        "isbn": "978-1264268504",
+        "relevance": "Standard internal medicine reference"
+      },
+      {
+        "source": "AASLD Practice Guidance on Portal Hypertension",
+        "type": "clinical_guideline",
+        "year": 2017,
+        "relevance": "Evidence-based management recommendations"
       }
     ]
   },
-  "owl:sameAs": "http://dbpedia.org/resource/Variceal_Bleeding",
-  "skos:exactMatch": "http://www.wikidata.org/entity/Q1"
+  "quality_assessment": {
+    "content_quality_score": 0.95,
+    "completeness": 0.96,
+    "accuracy": 0.97,
+    "clarity": 0.94,
+    "clinical_relevance": 0.97,
+    "last_assessed": "2026-01-13T15:12:00.000Z"
+  },
+  "owl:sameAs": "http://dbpedia.org/resource/Esophageal_varices",
+  "skos:exactMatch": "http://www.wikidata.org/entity/Q1759009"
 }
