@@ -1,6 +1,6 @@
 # Healthy Microsoft MVP Summit Comic
 
-> **Three versions of an educational comic about staying healthy at the Microsoft MVP Summit**
+> **Four versions of an educational comic about staying healthy at the Microsoft MVP Summit**
 > 
 > **Style**: 1950s American Comic Book (bold lines, Ben-Day dots, vintage colors)
 > **Characters**: Andreas Erben (Microsoft MVP) & Marco Casalaina (Microsoft VP)
@@ -19,6 +19,7 @@ This project implements [Issue #47](https://github.com/MSDNAndi/WorldSMEGraphs/i
 | **Version 1** | Two Days in Redmond | 48 | Traditional two-day summit journey |
 | **Version 2** | Dawn to Dusk | 46 | Single day with mindfulness focus |
 | **Version 3** | Survival Handbook | 44 | Educational with flashbacks and infographics |
+| **Version 4** | Campus Wisdom | 45-50 | Walking campus tour with 10 AKU topics |
 
 ---
 
@@ -39,6 +40,14 @@ This project implements [Issue #47](https://github.com/MSDNAndi/WorldSMEGraphs/i
 - [🖼️ Pictures Only View](version-3/comic/pictures-only-view.md)
 - [📝 Full Narrative](version-3/story-development/02-narrative.md)
 
+### Version 4: Campus Wisdom (NEW)
+- [📖 Version Overview](version-4/README.md) - Summary and next steps
+- [📝 Story Idea](version-4/story-development/01-story-idea.md) - Complete story outline
+- [📝 Full Narrative](version-4/story-development/02-narrative.md) - Flowing prose story (~2,450 words)
+- [📝 Panel Planning](version-4/story-development/03-panel-planning.md) - 48-panel scene-by-scene breakdown
+- [📋 Image Prompts](version-4/comic/prompts-single-line.txt) - 48 single-line prompts ready for generation
+- *Images coming soon after generation*
+
 ### Quick Reference
 - [💡 Health Tips Reference](health-tips-reference.md) - All health strategies in one document
 
@@ -46,7 +55,7 @@ This project implements [Issue #47](https://github.com/MSDNAndi/WorldSMEGraphs/i
 
 ## Educational Content
 
-All three versions cover essential health topics for conference attendees:
+All four versions cover essential health topics for conference attendees:
 
 ### Physical Health
 - 💧 **Hydration** - Water intake strategies
@@ -105,8 +114,16 @@ healthy-mvp-summit/
 │       └── pictures-only-view.md
 ├── version-2/
 │   └── [same structure - 46 images]
-└── version-3/
-    └── [same structure - 44 images]
+├── version-3/
+│   └── [same structure - 44 images]
+└── version-4/
+    ├── README.md                # Version overview and next steps
+    ├── story-development/
+    │   ├── 01-story-idea.md     # Story outline
+    │   ├── 02-narrative.md      # Full prose story
+    │   └── 03-panel-planning.md # 48-panel breakdown
+    └── comic/
+        └── prompts-single-line.txt  # 48 image generation prompts
 ```
 
 ---
