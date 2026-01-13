@@ -135,16 +135,40 @@ healthy-mvp-summit/
 
 ---
 
+## Sample Gallery
+
+Here are some highlights from across the three versions:
+
+### Opening Scene - Bellevue at Dawn (V1, Panel 1)
+![Bellevue Dawn](version-1/comic/panels-gpt/image_001_20260113_180035_9a03e00b.png)
+*The Pacific Northwest skyline at dawn, setting the scene for the summit*
+
+### Strategic Positioning - Conference Hall (V2, Panel 15)
+![Strategic Seating](version-2/comic/panels-gpt/image_015_20260113_180136_315401f4.png)
+*Andreas scanning the auditorium for optimal seating at 8:00 AM*
+
+### The FOMO Monster (V3, Panel 25)
+![FOMO Monster](version-3/comic/panels-gpt/image_025_20260113_180326_74ba66ef.png)
+*A humorous personification of Fear Of Missing Out*
+
+### The Healthy Farewell (V1, Panel 48)
+![Final Handshake](version-1/comic/panels-gpt/image_048_20260113_180602_9a736835.png)
+*"Until next year. Stay healthy."*
+
+---
+
 ## Statistics
 
 - **Total Images Generated**: 138
-- **Version 1**: 48 panels
-- **Version 2**: 46 panels  
-- **Version 3**: 44 panels
-- **Total Word Count** (narratives): ~12,700 words
+- **Version 1**: 48 panels (5,336 words narrative)
+- **Version 2**: 46 panels (3,650 words narrative)
+- **Version 3**: 44 panels (3,169 words narrative)
+- **Total Word Count** (narratives): 12,155 words
+- **Total Size**: 1.1 GB
 
 ---
 
 *Created: 2026-01-13*
 *Style: 1950s American Comic Book*
 *Theme: Healthy Conference Attendance*
+*Issue: [#47](https://github.com/MSDNAndi/WorldSMEGraphs/issues/47)*
