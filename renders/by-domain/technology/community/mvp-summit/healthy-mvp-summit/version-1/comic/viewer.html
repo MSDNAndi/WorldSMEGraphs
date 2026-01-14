@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy MVP Summit - Version 1: Two Days in Redmond</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #e94560;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            background: #e94560;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #ff6b6b;
+            transform: translateY(-2px);
+        }
+        .btn.active {
+            background: #0f3460;
+            box-shadow: 0 0 10px #e94560;
+        }
+        .gallery {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        /* Sequential Layout */
+        .layout-sequential .panel-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .layout-sequential .panel {
+            max-width: 900px;
+            width: 100%;
+        }
+        /* Grid Layout - 2 columns */
+        .layout-grid-2 .panel-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        /* Grid Layout - 3 columns */
+        .layout-grid-3 .panel-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        /* Comic Book Layout - 6 per page */
+        .layout-comic .panel-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        .layout-comic .page-break {
+            grid-column: 1 / -1;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 20px 0;
+        }
+        /* Slideshow Layout */
+        .layout-slideshow .panel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 200px);
+        }
+        .layout-slideshow .panel {
+            max-width: 1000px;
+            display: none;
+        }
+        .layout-slideshow .panel.active {
+            display: block;
+        }
+        .slideshow-nav {
+            display: none;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .layout-slideshow .slideshow-nav {
+            display: flex;
+        }
+        .panel {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
+        .panel:hover {
+            transform: scale(1.02);
+        }
+        .panel img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .counter {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+        @media (max-width: 768px) {
+            .layout-grid-3 .panel-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h1 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Version 1: Two Days in Redmond</h1>
+        <div class="controls">
+            <button class="btn active" onclick="setLayout('sequential')">📜 Sequential</button>
+            <button class="btn" onclick="setLayout('grid-2')">⊞ Grid (2×)</button>
+            <button class="btn" onclick="setLayout('grid-3')">⊟ Grid (3×)</button>
+            <button class="btn" onclick="setLayout('comic')">📖 Comic Book</button>
+            <button class="btn" onclick="setLayout('slideshow')">🖼️ Slideshow</button>
+        </div>
+        <div class="slideshow-nav">
+            <button class="btn" onclick="prevSlide()">← Previous</button>
+            <span id="slideCounter">1 / 48</span>
+            <button class="btn" onclick="nextSlide()">Next →</button>
+        </div>
+    </div>
+    <div class="gallery layout-sequential" id="gallery">
+        <div class="panel-container" id="panelContainer"></div>
+    </div>
+    <div class="counter" id="counter">48 panels</div>
+
+    <script>
+        const panels = [
+        "image_001_20260113_180035_9a03e00b.png",
+        "image_002_20260113_180031_3f6a8915.png",
+        "image_003_20260113_180034_057f96e2.png",
+        "image_004_20260113_180030_f7b7fc69.png",
+        "image_005_20260113_180032_eb679d0f.png",
+        "image_006_20260113_180029_b045997a.png",
+        "image_007_20260113_180030_5ec6f954.png",
+        "image_008_20260113_180030_1aaaf92b.png",
+        "image_009_20260113_180128_81f408b8.png",
+        "image_010_20260113_180137_bf1a0895.png",
+        "image_011_20260113_180130_27b1af99.png",
+        "image_012_20260113_180132_6f50947b.png",
+        "image_013_20260113_180134_674bc7de.png",
+        "image_014_20260113_180135_20eec455.png",
+        "image_015_20260113_180136_27452b88.png",
+        "image_016_20260113_180135_f5936b77.png",
+        "image_017_20260113_180240_74b63f28.png",
+        "image_018_20260113_180236_55f68159.png",
+        "image_019_20260113_180237_7c5760ed.png",
+        "image_020_20260113_180237_005329ae.png",
+        "image_021_20260113_180245_af361b91.png",
+        "image_022_20260113_180241_1702f9ea.png",
+        "image_023_20260113_180240_b23208b0.png",
+        "image_024_20260113_180244_58bdbd56.png",
+        "image_025_20260113_180342_ed2c026a.png",
+        "image_026_20260113_180344_c3ae3703.png",
+        "image_027_20260113_180346_17b90dfa.png",
+        "image_028_20260113_180345_8538f5dd.png",
+        "image_029_20260113_180342_974a0d49.png",
+        "image_030_20260113_180347_27200d79.png",
+        "image_031_20260113_180348_e28bc99f.png",
+        "image_032_20260113_180351_1dad80e4.png",
+        "image_033_20260113_180445_6fa61dc1.png",
+        "image_034_20260113_180450_308ffa47.png",
+        "image_035_20260113_180454_208735c1.png",
+        "image_036_20260113_180451_0d769d7d.png",
+        "image_037_20260113_180456_35e4c0bc.png",
+        "image_038_20260113_180452_9861b8a5.png",
+        "image_039_20260113_180454_3661e9c4.png",
+        "image_040_20260113_180459_776c5737.png",
+        "image_041_20260113_180551_a50e5426.png",
+        "image_042_20260113_180557_8184defc.png",
+        "image_043_20260113_180558_9f5606ff.png",
+        "image_044_20260113_180600_82c272f6.png",
+        "image_045_20260113_180559_060cbb7b.png",
+        "image_046_20260113_180556_57bc3fa0.png",
+        "image_047_20260113_180558_235580c5.png",
+        "image_048_20260113_180602_9a736835.png"
+        ];
+        
+        let currentSlide = 0;
+        let currentLayout = 'sequential';
+        
+        function init() {
+            renderPanels();
+        }
+        
+        function renderPanels() {
+            const container = document.getElementById('panelContainer');
+            container.innerHTML = '';
+            
+            panels.forEach((panel, index) => {
+                if (currentLayout === 'comic' && index > 0 && index % 6 === 0) {
+                    const pageBreak = document.createElement('div');
+                    pageBreak.className = 'page-break';
+                    container.appendChild(pageBreak);
+                }
+                
+                const div = document.createElement('div');
+                div.className = 'panel' + (currentLayout === 'slideshow' && index === 0 ? ' active' : '');
+                div.innerHTML = `<img src="panels-gpt/${panel}" alt="Panel ${index + 1}" loading="lazy">`;
+                container.appendChild(div);
+            });
+            
+            updateCounter();
+        }
+        
+        function setLayout(layout) {
+            currentLayout = layout;
+            const gallery = document.getElementById('gallery');
+            gallery.className = 'gallery layout-' + layout;
+            
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (layout === 'slideshow') {
+                currentSlide = 0;
+                showSlide(0);
+            }
+            
+            renderPanels();
+        }
+        
+        function showSlide(index) {
+            const panelDivs = document.querySelectorAll('.panel');
+            panelDivs.forEach((panel, i) => {
+                panel.classList.toggle('active', i === index);
+            });
+            document.getElementById('slideCounter').textContent = `${index + 1} / ${panels.length}`;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % panels.length;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + panels.length) % panels.length;
+            showSlide(currentSlide);
+        }
+        
+        function updateCounter() {
+            document.getElementById('counter').textContent = `${panels.length} panels`;
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (currentLayout === 'slideshow') {
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+            }
+        });
+        
+        init();
+    </script>
+</body>
+</html>

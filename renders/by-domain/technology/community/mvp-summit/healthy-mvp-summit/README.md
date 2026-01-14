@@ -19,10 +19,23 @@ This project implements [Issue #47](https://github.com/MSDNAndi/WorldSMEGraphs/i
 | **Version 1** | Two Days in Redmond | 48 | Traditional two-day summit journey |
 | **Version 2** | Dawn to Dusk | 46 | Single day with mindfulness focus |
 | **Version 3** | Survival Handbook | 44 | Educational with flashbacks and infographics |
-| **Version 4** | Campus Wisdom | 45-50 | Walking campus tour with 10 AKU topics |
+| **Version 4** | Campus Wisdom | 34 | Walking campus tour with 10 AKU topics |
 | **Version 5** | The Debugging Human Runtime | 48 | **NERDY** - Body as a computer system (DevOps metaphors) |
 | **Version 6** | MVP Summit Survival: Roguelike | 48 | **GAMING** - RPG with health bars, debuffs, skill cooldowns |
 | **Version 7** | Science of Summit Optimization | 48 | **DATA** - A/B testing wellness, metrics-driven health |
+| **Version 8** | The Wellness Protocol | 48 | Conference wellness journey |
+| **Version 9** | Mind Over Summit | 47 | Mental health and mindfulness focus |
+| **Version 10** | The Energy Matrix | 46 | Energy management strategies |
+| **Version 11** | Summit Sustainability | 44 | Long-term health habits |
+| **Version 12** | The Balance Equation | 42 | Work-life balance at conferences |
+
+### Arcane Style Comics (NEW) ⚡
+
+| Style | Title | Panels | Theme |
+|-------|-------|--------|-------|
+| **Arcane Style 1** | The Hextech Protocol | 40 | **NEON** - Cyberpunk energy management with hextech UI |
+| **Arcane Style 2** | The Piltover Protocol | 40 | **STEAMPUNK** - Victorian inventor wellness engineering |
+| **Arcane Style 3** | The Zaun Underground | 40 | **SURVIVAL** - Gritty undercity survival tactics |
 
 ---
 
@@ -31,46 +44,85 @@ This project implements [Issue #47](https://github.com/MSDNAndi/WorldSMEGraphs/i
 ### Version 1: Two Days in Redmond
 - [📖 Continuous Story View](version-1/comic/continuous-story-view.md)
 - [🖼️ Pictures Only View](version-1/comic/pictures-only-view.md)
+- [📚 Comic Book Layout](version-1/comic/comic-book-view.md) (6 panels per page)
+- [🌐 Interactive HTML Viewer](version-1/comic/viewer.html) (multiple layouts)
 - [📝 Full Narrative](version-1/story-development/02-narrative.md)
 
 ### Version 2: Dawn to Dusk
 - [📖 Continuous Story View](version-2/comic/continuous-story-view.md)
 - [🖼️ Pictures Only View](version-2/comic/pictures-only-view.md)
+- [📚 Comic Book Layout](version-2/comic/comic-book-view.md) (6 panels per page)
+- [🌐 Interactive HTML Viewer](version-2/comic/viewer.html) (multiple layouts)
 - [📝 Full Narrative](version-2/story-development/02-narrative.md)
 
 ### Version 3: The Summit Survival Handbook
 - [📖 Continuous Story View](version-3/comic/continuous-story-view.md)
 - [🖼️ Pictures Only View](version-3/comic/pictures-only-view.md)
+- [📚 Comic Book Layout](version-3/comic/comic-book-view.md) (6 panels per page)
+- [🌐 Interactive HTML Viewer](version-3/comic/viewer.html) (multiple layouts)
 - [📝 Full Narrative](version-3/story-development/02-narrative.md)
 
-### Version 4: Campus Wisdom (NEW)
-- [📖 Version Overview](version-4/README.md) - Summary and next steps
+### Version 4: Campus Wisdom
+- [🖼️ Pictures Only View](version-4/comic/pictures-only-view.md) (34 panels)
+- [📚 Comic Book Layout](version-4/comic/comic-book-view.md) (6 panels per page)
+- [🌐 Interactive HTML Viewer](version-4/comic/viewer.html) (multiple layouts)
 - [📝 Story Idea](version-4/story-development/01-story-idea.md) - Complete story outline
-- [📝 Full Narrative](version-4/story-development/02-narrative.md) - Flowing prose story (~2,450 words)
-- [📝 Panel Planning](version-4/story-development/03-panel-planning.md) - 48-panel scene-by-scene breakdown
-- [📋 Image Prompts](version-4/comic/prompts-single-line.txt) - 48 single-line prompts ready for generation
-- *Images coming soon after generation*
 
 ### Version 5: The Debugging Human Runtime 🆕 NERDY
+- [🖼️ Pictures Only View](version-5/comic/pictures-only-view.md) (48 panels)
+- [📚 Comic Book Layout](version-5/comic/comic-book-view.md) (6 panels per page)
+- [🌐 Interactive HTML Viewer](version-5/comic/viewer.html) (multiple layouts)
 - [📝 Story Idea](version-5/story-development/01-story-idea.md) - DevOps metaphors for health
-- [📝 Full Narrative](version-5/story-development/02-narrative.md) - ~5,800 words of tech humor
-- [📝 Panel Planning](version-5/story-development/03-panel-planning.md) - 48-panel breakdown
-- [📋 Image Prompts](version-5/comic/prompts-single-line.txt) - 48 prompts with tech overlays
 - **Theme**: Body as computer system—thermal throttling, garbage collection, CPU exhaustion
 
 ### Version 6: MVP Summit Survival: Roguelike 🆕 GAMING
+- [🖼️ Pictures Only View](version-6/comic/pictures-only-view.md) (48 panels)
+- [📚 Comic Book Layout](version-6/comic/comic-book-view.md) (6 panels per page)
+- [🌐 Interactive HTML Viewer](version-6/comic/viewer.html) (multiple layouts)
 - [📝 Story Idea](version-6/story-development/01-story-idea.md) - RPG mechanics for wellness
-- [📝 Full Narrative](version-6/story-development/02-narrative.md) - ~5,600 words of gaming fun
-- [📝 Panel Planning](version-6/story-development/03-panel-planning.md) - 48-panel breakdown
-- [📋 Image Prompts](version-6/comic/prompts-single-line.txt) - 48 prompts with RPG UI
 - **Theme**: Life as roguelike—debuffs, skill cooldowns, boss encounters, loot
 
 ### Version 7: Science of Summit Optimization 🆕 DATA
+- [🖼️ Pictures Only View](version-7/comic/pictures-only-view.md) (48 panels)
+- [📚 Comic Book Layout](version-7/comic/comic-book-view.md) (6 panels per page)
+- [🌐 Interactive HTML Viewer](version-7/comic/viewer.html) (multiple layouts)
 - [📝 Story Idea](version-7/story-development/01-story-idea.md) - Data science approach
-- [📝 Full Narrative](version-7/story-development/02-narrative.md) - ~5,700 words of analysis
-- [📝 Panel Planning](version-7/story-development/03-panel-planning.md) - 48-panel breakdown
-- [📋 Image Prompts](version-7/comic/prompts-single-line.txt) - 48 prompts with data viz
 - **Theme**: A/B testing wellness—correlation analysis, ROI calculations, metrics dashboards
+
+### Versions 8-12: Additional Stories
+- [🖼️ Version 8 Pictures](version-8/comic/pictures-only-view.md) | [📚 Comic](version-8/comic/comic-book-view.md) | [🌐 HTML](version-8/comic/viewer.html) (48 panels)
+- [🖼️ Version 9 Pictures](version-9/comic/pictures-only-view.md) | [📚 Comic](version-9/comic/comic-book-view.md) | [🌐 HTML](version-9/comic/viewer.html) (47 panels)
+- [🖼️ Version 10 Pictures](version-10/comic/pictures-only-view.md) | [📚 Comic](version-10/comic/comic-book-view.md) | [🌐 HTML](version-10/comic/viewer.html) (46 panels)
+- [🖼️ Version 11 Pictures](version-11/comic/pictures-only-view.md) | [📚 Comic](version-11/comic/comic-book-view.md) | [🌐 HTML](version-11/comic/viewer.html) (44 panels)
+- [🖼️ Version 12 Pictures](version-12/comic/pictures-only-view.md) | [📚 Comic](version-12/comic/comic-book-view.md) | [🌐 HTML](version-12/comic/viewer.html) (42 panels)
+
+---
+
+## Arcane Style Comics ⚡ (Netflix League of Legends)
+
+### Arcane Style 1: The Hextech Protocol
+- [🖼️ Pictures Only View](arcane-style-1/comic/pictures-only-view.md) (40 panels)
+- [📚 Comic Book Layout](arcane-style-1/comic/comic-book-view.md) (6 panels per page)
+- [🌐 Interactive HTML Viewer](arcane-style-1/comic/viewer.html) (Arcane theme)
+- [📝 Story Idea](arcane-style-1/story-development/01-story-idea.md)
+- **Style**: Neon cyberpunk with hextech energy effects
+- **Theme**: Energy management as video game power bars
+
+### Arcane Style 2: The Piltover Protocol
+- [🖼️ Pictures Only View](arcane-style-2/comic/pictures-only-view.md) (40 panels)
+- [📚 Comic Book Layout](arcane-style-2/comic/comic-book-view.md) (6 panels per page)
+- [🌐 Interactive HTML Viewer](arcane-style-2/comic/viewer.html) (Arcane theme)
+- [📝 Story Idea](arcane-style-2/story-development/01-story-idea.md)
+- **Style**: Victorian steampunk with brass and copper elements
+- **Theme**: Body as precision machine requiring maintenance
+
+### Arcane Style 3: The Zaun Underground
+- [🖼️ Pictures Only View](arcane-style-3/comic/pictures-only-view.md) (40 panels)
+- [📚 Comic Book Layout](arcane-style-3/comic/comic-book-view.md) (6 panels per page)
+- [🌐 Interactive HTML Viewer](arcane-style-3/comic/viewer.html) (Arcane theme)
+- [📝 Story Idea](arcane-style-3/story-development/01-story-idea.md)
+- **Style**: Gritty survival with toxic greens and neon accents
+- **Theme**: Conference wellness as survival in hostile environment
 
 ### Quick Reference
 - [💡 Health Tips Reference](health-tips-reference.md) - All health strategies in one document
@@ -200,49 +252,82 @@ healthy-mvp-summit/
 
 ## Sample Gallery
 
-Here are some highlights from across the three versions:
+Here are some highlights from across the different versions:
 
-### Opening Scene - Bellevue at Dawn (V1, Panel 1)
+### 1950s Style Comics
+
+#### Opening Scene - Bellevue at Dawn (V1, Panel 1)
 ![Bellevue Dawn](version-1/comic/panels-gpt/image_001_20260113_180035_9a03e00b.png)
 *The Pacific Northwest skyline at dawn, setting the scene for the summit*
 
-### Strategic Positioning - Conference Hall (V2, Panel 15)
+#### Strategic Positioning - Conference Hall (V2, Panel 15)
 ![Strategic Seating](version-2/comic/panels-gpt/image_015_20260113_180136_315401f4.png)
 *Andreas scanning the auditorium for optimal seating at 8:00 AM*
 
-### The FOMO Monster (V3, Panel 25)
+#### The FOMO Monster (V3, Panel 25)
 ![FOMO Monster](version-3/comic/panels-gpt/image_025_20260113_180326_74ba66ef.png)
 *A humorous personification of Fear Of Missing Out*
 
-### The Healthy Farewell (V1, Panel 48)
+#### The Healthy Farewell (V1, Panel 48)
 ![Final Handshake](version-1/comic/panels-gpt/image_048_20260113_180602_9a736835.png)
 *"Until next year. Stay healthy."*
+
+### Arcane Style Comics ⚡
+
+#### The Hextech Campus (Arcane 1, Panel 1)
+![Hextech Campus](arcane-style-1/comic/panels-gpt/image_001_20260114_011513_252b5115.png)
+*Futuristic Microsoft campus with hextech circuit patterns glowing at dawn*
+
+#### The Piltover Academy (Arcane 2, Panel 1)
+![Piltover Academy](arcane-style-2/comic/panels-gpt/image_001_20260114_012100_65b63286.png)
+*Victorian-tech campus reimagined with brass and steam elements*
+
+#### The Zaun Conference (Arcane 3, Panel 1)
+![Zaun Conference](arcane-style-3/comic/panels-gpt/image_001_20260114_012805_2b778588.png)
+*Conference venue as industrial undercity with neon lights*
 
 ---
 
 ## Statistics
 
-- **Total Images Generated (V1-V3)**: 138
-- **Version 1**: 48 panels (5,336 words narrative)
-- **Version 2**: 46 panels (3,650 words narrative)
-- **Version 3**: 44 panels (3,169 words narrative)
-- **Version 4**: 48 panels (~2,450 words narrative) - prompts ready
-- **Version 5**: 48 panels (~4,200 words narrative) - prompts ready ⭐ NEW
-- **Version 6**: 48 panels (~3,400 words narrative) - prompts ready ⭐ NEW
-- **Version 7**: 48 panels (~2,950 words narrative) - prompts ready ⭐ NEW
-- **Total Word Count (all narratives)**: ~25,150 words
+- **Total Images Generated**: 673 panels across all versions
+- **1950s Style (V1-V12)**: 553 panels
+  - **Version 1**: 48 panels (5,336 words narrative)
+  - **Version 2**: 46 panels (3,650 words narrative)
+  - **Version 3**: 44 panels (3,169 words narrative)
+  - **Version 4**: 34 panels
+  - **Versions 5-8**: 48 panels each
+  - **Version 9**: 47 panels
+  - **Version 10**: 46 panels
+  - **Version 11**: 44 panels
+  - **Version 12**: 42 panels
+- **Arcane Style (3 stories)**: 120 panels (40 each)
+  - **Arcane Style 1**: The Hextech Protocol (Neon cyberpunk)
+  - **Arcane Style 2**: The Piltover Protocol (Victorian steampunk)
+  - **Arcane Style 3**: The Zaun Underground (Survival aesthetic)
 
-### New Stories (V5-V7) Themes
+### Viewer Types (All Versions)
+
+| Type | Description | Format |
+|------|-------------|--------|
+| 🖼️ Pictures Only | Sequential panel display | Markdown |
+| 📚 Comic Book | 6 panels per page layout | Markdown (HTML tables) |
+| 🌐 Interactive HTML | Multiple layouts, slideshow, keyboard nav | HTML/JS |
+
+### Story Themes
 
 | Version | Theme | Key Metaphor |
 |---------|-------|--------------|
-| V5 | **Debugging Human Runtime** | Body = computer system (thermal throttling, garbage collection, CPU exhaustion) |
-| V6 | **Roguelike Adventure** | Life = RPG (debuffs, skill cooldowns, boss encounters, FOMO as trap) |
-| V7 | **Summit Optimization** | Health = data science (A/B testing, correlation analysis, ROI calculations) |
+| V5 | **Debugging Human Runtime** | Body = computer system |
+| V6 | **Roguelike Adventure** | Life = RPG with debuffs |
+| V7 | **Summit Optimization** | Health = data science |
+| Arcane 1 | **Hextech Protocol** | Energy = video game power |
+| Arcane 2 | **Piltover Protocol** | Body = precision machine |
+| Arcane 3 | **Zaun Underground** | Conference = survival scenario |
 
-### AKUs Referenced (V5-V7)
+### AKUs Referenced
 
-All three new stories link to these native domain AKUs:
+All stories link to these native domain AKUs:
 - `neuro-051`: Dehydration & cognitive impairment
 - `neuro-052`: Circadian rhythm & jet lag
 - `neuro-053`: Sleep architecture & power naps
@@ -257,7 +342,7 @@ All three new stories link to these native domain AKUs:
 ---
 
 *Created: 2026-01-13*
-*Updated: 2026-01-13 (Added versions 5, 6, 7)*
-*Style: 1950s American Comic Book*
+*Updated: 2026-01-14 (Added viewers for all versions, added 3 Arcane-style comics)*
+*Styles: 1950s American Comic Book, Arcane (Netflix)*
 *Theme: Healthy Conference Attendance*
 *Issue: [#47](https://github.com/MSDNAndi/WorldSMEGraphs/issues/47)*

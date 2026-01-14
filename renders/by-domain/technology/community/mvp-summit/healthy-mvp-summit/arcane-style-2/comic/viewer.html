@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcane Style - The Piltover Protocol: Engineering Wellness</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0a1628 100%);
+            color: #eee;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #2d1b4e 0%, #1a0a2e 100%);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(157, 0, 255, 0.3);
+            border-bottom: 2px solid #9d00ff;
+        }
+        h1 {
+            font-size: 1.6em;
+            margin-bottom: 5px;
+            background: linear-gradient(90deg, #00d4ff, #9d00ff, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            color: #00d4ff;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            background: linear-gradient(135deg, #9d00ff 0%, #6b00cc 100%);
+            color: white;
+            border: 1px solid #00d4ff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        .btn.active {
+            background: linear-gradient(135deg, #00d4ff 0%, #9d00ff 100%);
+            box-shadow: 0 0 20px rgba(157, 0, 255, 0.6);
+        }
+        .gallery {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .layout-sequential .panel-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        .layout-sequential .panel {
+            max-width: 1000px;
+            width: 100%;
+        }
+        .layout-grid-2 .panel-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .layout-grid-3 .panel-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .layout-comic .panel-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .layout-comic .page-break {
+            grid-column: 1 / -1;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #9d00ff, #00d4ff, #9d00ff, transparent);
+            margin: 30px 0;
+        }
+        .layout-slideshow .panel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 200px);
+        }
+        .layout-slideshow .panel {
+            max-width: 1100px;
+            display: none;
+        }
+        .layout-slideshow .panel.active {
+            display: block;
+        }
+        .slideshow-nav {
+            display: none;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            align-items: center;
+        }
+        .layout-slideshow .slideshow-nav {
+            display: flex;
+        }
+        #slideCounter {
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        .panel {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(157, 0, 255, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .panel:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.4);
+            border-color: #00d4ff;
+        }
+        .panel img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .counter {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #9d00ff;
+        }
+        @media (max-width: 768px) {
+            .layout-grid-3 .panel-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h1 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>The Piltover Protocol: Engineering Wellness</h1>
+        <div class="subtitle">⚡ Arcane Style (Netflix League of Legends) ⚡</div>
+        <div class="controls">
+            <button class="btn active" onclick="setLayout('sequential')">📜 Sequential</button>
+            <button class="btn" onclick="setLayout('grid-2')">⊞ Grid (2×)</button>
+            <button class="btn" onclick="setLayout('grid-3')">⊟ Grid (3×)</button>
+            <button class="btn" onclick="setLayout('comic')">📖 Comic Book</button>
+            <button class="btn" onclick="setLayout('slideshow')">🖼️ Slideshow</button>
+        </div>
+        <div class="slideshow-nav">
+            <button class="btn" onclick="prevSlide()">← Previous</button>
+            <span id="slideCounter">1 / 40</span>
+            <button class="btn" onclick="nextSlide()">Next →</button>
+        </div>
+    </div>
+    <div class="gallery layout-sequential" id="gallery">
+        <div class="panel-container" id="panelContainer"></div>
+    </div>
+    <div class="counter" id="counter">40 panels • Arcane Style</div>
+
+    <script>
+        const panels = [
+        "image_001_20260114_012100_65b63286.png",
+        "image_002_20260114_012059_bd6fdf07.png",
+        "image_003_20260114_012100_bfe5daef.png",
+        "image_004_20260114_012056_5a8e0223.png",
+        "image_005_20260114_012059_f69353ef.png",
+        "image_006_20260114_012055_cc807074.png",
+        "image_007_20260114_012102_035d732f.png",
+        "image_008_20260114_012058_dc202cbf.png",
+        "image_009_20260114_012200_17545ee8.png",
+        "image_010_20260114_012202_5c681283.png",
+        "image_011_20260114_012202_2694a698.png",
+        "image_012_20260114_012205_47601ad6.png",
+        "image_013_20260114_012208_90fde7bd.png",
+        "image_014_20260114_012206_6da5358d.png",
+        "image_015_20260114_012202_35af1b89.png",
+        "image_016_20260114_012206_57d7bfc6.png",
+        "image_017_20260114_012305_527a43b8.png",
+        "image_018_20260114_012308_2a07393d.png",
+        "image_019_20260114_012304_481469d9.png",
+        "image_020_20260114_012310_8ebb54c4.png",
+        "image_021_20260114_012307_973f7eed.png",
+        "image_022_20260114_012310_bb335edd.png",
+        "image_023_20260114_012313_9bb7dc79.png",
+        "image_024_20260114_012314_aa23f33d.png",
+        "image_025_20260114_012414_75d5630b.png",
+        "image_026_20260114_012410_eee33fa1.png",
+        "image_027_20260114_012415_3a5e0084.png",
+        "image_028_20260114_012413_845a8bfd.png",
+        "image_029_20260114_012418_790201df.png",
+        "image_030_20260114_012418_6efa334b.png",
+        "image_031_20260114_012426_c4720373.png",
+        "image_032_20260114_012419_d6aaf56b.png",
+        "image_033_20260114_012515_0ba0bef2.png",
+        "image_034_20260114_012517_aa4f9f8d.png",
+        "image_035_20260114_012518_7bb3bd40.png",
+        "image_036_20260114_012517_669a550d.png",
+        "image_037_20260114_012522_73185c00.png",
+        "image_038_20260114_012644_9b246562.png",
+        "image_039_20260114_012527_9e11beb5.png",
+        "image_040_20260114_012535_b484522b.png"
+        ];
+        
+        let currentSlide = 0;
+        let currentLayout = 'sequential';
+        
+        function init() {
+            renderPanels();
+        }
+        
+        function renderPanels() {
+            const container = document.getElementById('panelContainer');
+            container.innerHTML = '';
+            
+            panels.forEach((panel, index) => {
+                if (currentLayout === 'comic' && index > 0 && index % 6 === 0) {
+                    const pageBreak = document.createElement('div');
+                    pageBreak.className = 'page-break';
+                    container.appendChild(pageBreak);
+                }
+                
+                const div = document.createElement('div');
+                div.className = 'panel' + (currentLayout === 'slideshow' && index === 0 ? ' active' : '');
+                div.innerHTML = `<img src="panels-gpt/${panel}" alt="Panel ${index + 1}" loading="lazy">`;
+                container.appendChild(div);
+            });
+            
+            updateCounter();
+        }
+        
+        function setLayout(layout) {
+            currentLayout = layout;
+            const gallery = document.getElementById('gallery');
+            gallery.className = 'gallery layout-' + layout;
+            
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (layout === 'slideshow') {
+                currentSlide = 0;
+                showSlide(0);
+            }
+            
+            renderPanels();
+        }
+        
+        function showSlide(index) {
+            const panelDivs = document.querySelectorAll('.panel');
+            panelDivs.forEach((panel, i) => {
+                panel.classList.toggle('active', i === index);
+            });
+            document.getElementById('slideCounter').textContent = `${index + 1} / ${panels.length}`;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % panels.length;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + panels.length) % panels.length;
+            showSlide(currentSlide);
+        }
+        
+        function updateCounter() {
+            document.getElementById('counter').textContent = `${panels.length} panels • Arcane Style`;
+        }
+        
+        document.addEventListener('keydown', (e) => {
+            if (currentLayout === 'slideshow') {
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+            }
+        });
+        
+        init();
+    </script>
+</body>
+</html>
