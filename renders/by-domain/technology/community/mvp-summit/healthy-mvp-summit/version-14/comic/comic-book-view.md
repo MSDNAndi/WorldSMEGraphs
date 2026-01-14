@@ -2,7 +2,7 @@
 ## Version 14 - Comic Book Layout
 
 > **Style**: 1950s Film Noir Detective Story
-> **Panels**: 62
+> **Panels**: 58
 > **Theme**: Health threats personified as "suspects" in detective investigation
 > **Characters**: Marco Casalaina (Detective, COMPLETELY BALD), Andreas Erben (Informant, rectangular glasses)
 
@@ -494,45 +494,6 @@
 
 ---
 
-<div class="act-header">
-
-## EPILOGUE: THE PREVENTION PROTOCOL
-
-*Preparation for the coming challenge*
-
-</div>
-
-<div class="comic-row">
-<div class="comic-panel">
-
-![Panel 59](images/panel-059.png)
-<div class="caption">Sparkling water toast</div>
-
-</div>
-<div class="comic-panel">
-
-![Panel 60](images/panel-060.png)
-<div class="caption">The complete protocol</div>
-
-</div>
-</div>
-
-<div class="comic-row">
-<div class="comic-panel">
-
-![Panel 61](images/panel-061.png)
-
-</div>
-<div class="comic-panel wide-panel">
-
-![Panel 62 - Final](images/panel-062.png)
-<div class="caption">"Someone would be waiting for THEM."</div>
-
-</div>
-</div>
-
----
-
 ## THE END
 
 ---
@@ -551,4 +512,4 @@
 
 *Version 14.0 - The Case of the Conference Crasher: A Summit Noir*
 *Style: 1950s Film Noir Detective*
-*Total Panels: 62*
+*Total Panels: 58*
