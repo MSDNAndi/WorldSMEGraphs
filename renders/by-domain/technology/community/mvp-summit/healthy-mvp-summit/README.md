@@ -252,23 +252,39 @@ healthy-mvp-summit/
 
 ## Sample Gallery
 
-Here are some highlights from across the three versions:
+Here are some highlights from across the different versions:
 
-### Opening Scene - Bellevue at Dawn (V1, Panel 1)
+### 1950s Style Comics
+
+#### Opening Scene - Bellevue at Dawn (V1, Panel 1)
 ![Bellevue Dawn](version-1/comic/panels-gpt/image_001_20260113_180035_9a03e00b.png)
 *The Pacific Northwest skyline at dawn, setting the scene for the summit*
 
-### Strategic Positioning - Conference Hall (V2, Panel 15)
+#### Strategic Positioning - Conference Hall (V2, Panel 15)
 ![Strategic Seating](version-2/comic/panels-gpt/image_015_20260113_180136_315401f4.png)
 *Andreas scanning the auditorium for optimal seating at 8:00 AM*
 
-### The FOMO Monster (V3, Panel 25)
+#### The FOMO Monster (V3, Panel 25)
 ![FOMO Monster](version-3/comic/panels-gpt/image_025_20260113_180326_74ba66ef.png)
 *A humorous personification of Fear Of Missing Out*
 
-### The Healthy Farewell (V1, Panel 48)
+#### The Healthy Farewell (V1, Panel 48)
 ![Final Handshake](version-1/comic/panels-gpt/image_048_20260113_180602_9a736835.png)
 *"Until next year. Stay healthy."*
+
+### Arcane Style Comics ⚡
+
+#### The Hextech Campus (Arcane 1, Panel 1)
+![Hextech Campus](arcane-style-1/comic/panels-gpt/image_001_20260114_011513_252b5115.png)
+*Futuristic Microsoft campus with hextech circuit patterns glowing at dawn*
+
+#### The Piltover Academy (Arcane 2, Panel 1)
+![Piltover Academy](arcane-style-2/comic/panels-gpt/image_001_20260114_012100_65b63286.png)
+*Victorian-tech campus reimagined with brass and steam elements*
+
+#### The Zaun Conference (Arcane 3, Panel 1)
+![Zaun Conference](arcane-style-3/comic/panels-gpt/image_001_20260114_012805_2b778588.png)
+*Conference venue as industrial undercity with neon lights*
 
 ---
 
