@@ -28,6 +28,11 @@ This project implements [Issue #47](https://github.com/MSDNAndi/WorldSMEGraphs/i
 | **Version 10** | The Energy Matrix | 46 | Energy management strategies |
 | **Version 11** | Summit Sustainability | 44 | Long-term health habits |
 | **Version 12** | The Balance Equation | 42 | Work-life balance at conferences |
+| **Version 13** | The Multiverse of Wellness | 53 | 🆕 **SCI-FI** - Variant characters from alternate timelines |
+| **Version 14** | The Case of the Conference Crasher | 62 | 🆕 **NOIR** - Film noir detective mystery |
+| **Version 15** | Summit Safari | 60 | 🆕 **DOCUMENTARY** - Nature documentary parody |
+| **Version 16** | The Summit Loop | 62 | 🆕 **TIME LOOP** - Groundhog Day-style repetition |
+| **Version 17** | The Summit Recipe | 60 | 🆕 **COOKING** - Cooking show parody with recipes |
 
 ### Arcane Style Comics (NEW) ⚡
 
@@ -95,6 +100,22 @@ This project implements [Issue #47](https://github.com/MSDNAndi/WorldSMEGraphs/i
 - [🖼️ Version 10 Pictures](version-10/comic/pictures-only-view.md) | [📚 Comic](version-10/comic/comic-book-view.md) | [🌐 HTML](version-10/comic/viewer.html) (46 panels)
 - [🖼️ Version 11 Pictures](version-11/comic/pictures-only-view.md) | [📚 Comic](version-11/comic/comic-book-view.md) | [🌐 HTML](version-11/comic/viewer.html) (44 panels)
 - [🖼️ Version 12 Pictures](version-12/comic/pictures-only-view.md) | [📚 Comic](version-12/comic/comic-book-view.md) | [🌐 HTML](version-12/comic/viewer.html) (42 panels)
+
+### New Unique Narrative Frameworks (V13-V17) 🆕
+
+| Version | Framework | Theme | Panels |
+|---------|-----------|-------|--------|
+| **V13** | Sci-Fi Multiverse | Variant characters from alternate timelines show bad choice consequences | 53 |
+| **V14** | Film Noir Detective | Health threats as "suspects" to investigate | 62 |
+| **V15** | Nature Documentary | Attendee behaviors as "subspecies" to observe | 60 |
+| **V16** | Groundhog Day Time Loop | Same day repeated until all lessons learned | 62 |
+| **V17** | Cooking Show Parody | Health protocols as "recipes" with ingredients and timing | 60 |
+
+- [📝 V13 Story](version-13/story-development/01-story-idea.md) | [📖 Narrative](version-13/story-development/02-narrative.md) | [🎬 Prompts](version-13/comic/prompts-single-line.txt)
+- [📝 V14 Story](version-14/story-development/01-story-idea.md) | [📖 Narrative](version-14/story-development/02-narrative.md)
+- [📝 V15 Story](version-15/story-development/01-story-idea.md) | [📖 Narrative](version-15/story-development/02-narrative.md)
+- [📝 V16 Story](version-16/story-development/01-story-idea.md) | [📖 Narrative](version-16/story-development/02-narrative.md)
+- [📝 V17 Story](version-17/story-development/01-story-idea.md) | [📖 Narrative](version-17/story-development/02-narrative.md)
 
 ---
 
