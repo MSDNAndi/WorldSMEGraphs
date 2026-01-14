@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy MVP Summit - Version 2: Dawn to Dusk</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #e94560;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            background: #e94560;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #ff6b6b;
+            transform: translateY(-2px);
+        }
+        .btn.active {
+            background: #0f3460;
+            box-shadow: 0 0 10px #e94560;
+        }
+        .gallery {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        /* Sequential Layout */
+        .layout-sequential .panel-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .layout-sequential .panel {
+            max-width: 900px;
+            width: 100%;
+        }
+        /* Grid Layout - 2 columns */
+        .layout-grid-2 .panel-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        /* Grid Layout - 3 columns */
+        .layout-grid-3 .panel-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        /* Comic Book Layout - 6 per page */
+        .layout-comic .panel-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        .layout-comic .page-break {
+            grid-column: 1 / -1;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 20px 0;
+        }
+        /* Slideshow Layout */
+        .layout-slideshow .panel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 200px);
+        }
+        .layout-slideshow .panel {
+            max-width: 1000px;
+            display: none;
+        }
+        .layout-slideshow .panel.active {
+            display: block;
+        }
+        .slideshow-nav {
+            display: none;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .layout-slideshow .slideshow-nav {
+            display: flex;
+        }
+        .panel {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
+        .panel:hover {
+            transform: scale(1.02);
+        }
+        .panel img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .counter {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+        @media (max-width: 768px) {
+            .layout-grid-3 .panel-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h1 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Version 2: Dawn to Dusk</h1>
+        <div class="controls">
+            <button class="btn active" onclick="setLayout('sequential')">📜 Sequential</button>
+            <button class="btn" onclick="setLayout('grid-2')">⊞ Grid (2×)</button>
+            <button class="btn" onclick="setLayout('grid-3')">⊟ Grid (3×)</button>
+            <button class="btn" onclick="setLayout('comic')">📖 Comic Book</button>
+            <button class="btn" onclick="setLayout('slideshow')">🖼️ Slideshow</button>
+        </div>
+        <div class="slideshow-nav">
+            <button class="btn" onclick="prevSlide()">← Previous</button>
+            <span id="slideCounter">1 / 46</span>
+            <button class="btn" onclick="nextSlide()">Next →</button>
+        </div>
+    </div>
+    <div class="gallery layout-sequential" id="gallery">
+        <div class="panel-container" id="panelContainer"></div>
+    </div>
+    <div class="counter" id="counter">46 panels</div>
+
+    <script>
+        const panels = [
+        "image_001_20260113_180030_0fe4504a.png",
+        "image_002_20260113_180027_83bdfa99.png",
+        "image_003_20260113_180035_1af29bb4.png",
+        "image_004_20260113_180031_15cf6b05.png",
+        "image_005_20260113_180032_aa8a27fd.png",
+        "image_006_20260113_180030_ca2375d7.png",
+        "image_007_20260113_180028_a142c86e.png",
+        "image_008_20260113_180030_f9596775.png",
+        "image_009_20260113_180132_aba72832.png",
+        "image_010_20260113_180136_cc56e7ee.png",
+        "image_011_20260113_180133_23e8f0a2.png",
+        "image_012_20260113_180134_181e00b8.png",
+        "image_013_20260113_180128_c50335bd.png",
+        "image_014_20260113_180136_ebebb836.png",
+        "image_015_20260113_180136_315401f4.png",
+        "image_016_20260113_180136_7286574a.png",
+        "image_017_20260113_180229_2591f57c.png",
+        "image_018_20260113_180236_147bb119.png",
+        "image_019_20260113_180238_6c215b39.png",
+        "image_020_20260113_180237_9d957daf.png",
+        "image_021_20260113_180234_b97f840f.png",
+        "image_022_20260113_180236_e3ac706d.png",
+        "image_023_20260113_180242_4b0880e9.png",
+        "image_024_20260113_180246_dff4af48.png",
+        "image_025_20260113_180335_bc417388.png",
+        "image_026_20260113_180342_b526ffc3.png",
+        "image_027_20260113_180342_ed0d829e.png",
+        "image_028_20260113_180342_5a067681.png",
+        "image_029_20260113_180340_0eb22476.png",
+        "image_030_20260113_180342_48de9518.png",
+        "image_031_20260113_180338_01818496.png",
+        "image_032_20260113_180355_a843a32d.png",
+        "image_033_20260113_180445_c07741f9.png",
+        "image_034_20260113_180441_99d87381.png",
+        "image_035_20260113_180448_b3718ced.png",
+        "image_036_20260113_180449_2f30a366.png",
+        "image_037_20260113_180451_c6ae3874.png",
+        "image_038_20260113_180450_d35376d7.png",
+        "image_039_20260113_180448_56821bbc.png",
+        "image_040_20260113_180500_4305320f.png",
+        "image_041_20260113_180545_bd1ae8fe.png",
+        "image_042_20260113_180548_b9b04adc.png",
+        "image_043_20260113_180553_559f97d2.png",
+        "image_044_20260113_180553_20a87e9e.png",
+        "image_045_20260113_180538_229c24c0.png",
+        "image_046_20260113_180558_c267bbb0.png"
+        ];
+        
+        let currentSlide = 0;
+        let currentLayout = 'sequential';
+        
+        function init() {
+            renderPanels();
+        }
+        
+        function renderPanels() {
+            const container = document.getElementById('panelContainer');
+            container.innerHTML = '';
+            
+            panels.forEach((panel, index) => {
+                if (currentLayout === 'comic' && index > 0 && index % 6 === 0) {
+                    const pageBreak = document.createElement('div');
+                    pageBreak.className = 'page-break';
+                    container.appendChild(pageBreak);
+                }
+                
+                const div = document.createElement('div');
+                div.className = 'panel' + (currentLayout === 'slideshow' && index === 0 ? ' active' : '');
+                div.innerHTML = `<img src="panels-gpt/${panel}" alt="Panel ${index + 1}" loading="lazy">`;
+                container.appendChild(div);
+            });
+            
+            updateCounter();
+        }
+        
+        function setLayout(layout) {
+            currentLayout = layout;
+            const gallery = document.getElementById('gallery');
+            gallery.className = 'gallery layout-' + layout;
+            
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (layout === 'slideshow') {
+                currentSlide = 0;
+                showSlide(0);
+            }
+            
+            renderPanels();
+        }
+        
+        function showSlide(index) {
+            const panelDivs = document.querySelectorAll('.panel');
+            panelDivs.forEach((panel, i) => {
+                panel.classList.toggle('active', i === index);
+            });
+            document.getElementById('slideCounter').textContent = `${index + 1} / ${panels.length}`;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % panels.length;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + panels.length) % panels.length;
+            showSlide(currentSlide);
+        }
+        
+        function updateCounter() {
+            document.getElementById('counter').textContent = `${panels.length} panels`;
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (currentLayout === 'slideshow') {
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+            }
+        });
+        
+        init();
+    </script>
+</body>
+</html>

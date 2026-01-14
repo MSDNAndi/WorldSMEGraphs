@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy MVP Summit - Version 5: The Debugging Human Runtime</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #e94560;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            background: #e94560;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #ff6b6b;
+            transform: translateY(-2px);
+        }
+        .btn.active {
+            background: #0f3460;
+            box-shadow: 0 0 10px #e94560;
+        }
+        .gallery {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        /* Sequential Layout */
+        .layout-sequential .panel-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .layout-sequential .panel {
+            max-width: 900px;
+            width: 100%;
+        }
+        /* Grid Layout - 2 columns */
+        .layout-grid-2 .panel-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        /* Grid Layout - 3 columns */
+        .layout-grid-3 .panel-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        /* Comic Book Layout - 6 per page */
+        .layout-comic .panel-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        .layout-comic .page-break {
+            grid-column: 1 / -1;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 20px 0;
+        }
+        /* Slideshow Layout */
+        .layout-slideshow .panel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 200px);
+        }
+        .layout-slideshow .panel {
+            max-width: 1000px;
+            display: none;
+        }
+        .layout-slideshow .panel.active {
+            display: block;
+        }
+        .slideshow-nav {
+            display: none;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .layout-slideshow .slideshow-nav {
+            display: flex;
+        }
+        .panel {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
+        .panel:hover {
+            transform: scale(1.02);
+        }
+        .panel img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .counter {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+        @media (max-width: 768px) {
+            .layout-grid-3 .panel-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            h1 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Version 5: The Debugging Human Runtime</h1>
+        <div class="controls">
+            <button class="btn active" onclick="setLayout('sequential')">📜 Sequential</button>
+            <button class="btn" onclick="setLayout('grid-2')">⊞ Grid (2×)</button>
+            <button class="btn" onclick="setLayout('grid-3')">⊟ Grid (3×)</button>
+            <button class="btn" onclick="setLayout('comic')">📖 Comic Book</button>
+            <button class="btn" onclick="setLayout('slideshow')">🖼️ Slideshow</button>
+        </div>
+        <div class="slideshow-nav">
+            <button class="btn" onclick="prevSlide()">← Previous</button>
+            <span id="slideCounter">1 / 48</span>
+            <button class="btn" onclick="nextSlide()">Next →</button>
+        </div>
+    </div>
+    <div class="gallery layout-sequential" id="gallery">
+        <div class="panel-container" id="panelContainer"></div>
+    </div>
+    <div class="counter" id="counter">48 panels</div>
+
+    <script>
+        const panels = [
+        "image_20260113_211438_12d20eb9.png",
+        "image_20260113_211546_223b457e.png",
+        "image_20260113_211539_99acfbac.png",
+        "image_20260113_212002_210d66d5.png",
+        "image_20260113_211959_ae2c40f7.png",
+        "image_20260113_211541_7d3b1048.png",
+        "image_20260113_211543_31584fc8.png",
+        "image_20260113_211542_a6b5eff1.png",
+        "image_20260113_211754_62a9b32d.png",
+        "image_20260113_211856_e30e59eb.png",
+        "image_20260113_211746_2dacfe91.png",
+        "image_20260113_211850_030803cd.png",
+        "image_20260113_211854_069aa34b.png",
+        "image_20260113_211436_d67688a6.png",
+        "image_20260113_211858_7ca91bb1.png",
+        "image_20260113_211958_e243001e.png",
+        "image_20260113_211900_77e154a7.png",
+        "image_20260113_211441_a400aefd.png",
+        "image_20260113_211544_8abe7a65.png",
+        "image_20260113_211754_dc087cdf.png",
+        "image_20260113_212005_22272c19.png",
+        "image_20260113_211755_04005458.png",
+        "image_20260113_211545_15b21abb.png",
+        "image_20260113_211437_14ec2524.png",
+        "image_20260113_212005_ae5184d3.png",
+        "image_20260113_211641_a0d78808.png",
+        "image_20260113_211859_390989b1.png",
+        "image_20260113_211851_15c4ffbc.png",
+        "image_20260113_211544_9848e7a0.png",
+        "image_20260113_212005_d7ef6f5a.png",
+        "image_20260113_211438_030cc503.png",
+        "image_20260113_211901_6b53990f.png",
+        "image_20260113_211437_1224164c.png",
+        "image_20260113_211643_07dc42a8.png",
+        "image_20260113_211440_5b1d984c.png",
+        "image_20260113_211441_48c03d4e.png",
+        "image_20260113_211644_5b5e3f2e.png",
+        "image_20260113_211650_4cbe3e87.png",
+        "image_20260113_211752_afee5b6a.png",
+        "image_20260113_212001_9ac340e8.png",
+        "image_20260113_212001_33bb4558.png",
+        "image_20260113_211644_3437d27e.png",
+        "image_20260113_211647_41cd0056.png",
+        "image_20260113_211753_30bc8036.png",
+        "image_20260113_211645_646e1978.png",
+        "image_20260113_211749_3aa3a322.png",
+        "image_20260113_211647_178c371b.png",
+        "image_20260113_211758_a69d08ad.png"
+        ];
+        
+        let currentSlide = 0;
+        let currentLayout = 'sequential';
+        
+        function init() {
+            renderPanels();
+        }
+        
+        function renderPanels() {
+            const container = document.getElementById('panelContainer');
+            container.innerHTML = '';
+            
+            panels.forEach((panel, index) => {
+                if (currentLayout === 'comic' && index > 0 && index % 6 === 0) {
+                    const pageBreak = document.createElement('div');
+                    pageBreak.className = 'page-break';
+                    container.appendChild(pageBreak);
+                }
+                
+                const div = document.createElement('div');
+                div.className = 'panel' + (currentLayout === 'slideshow' && index === 0 ? ' active' : '');
+                div.innerHTML = `<img src="panels-gpt/${panel}" alt="Panel ${index + 1}" loading="lazy">`;
+                container.appendChild(div);
+            });
+            
+            updateCounter();
+        }
+        
+        function setLayout(layout) {
+            currentLayout = layout;
+            const gallery = document.getElementById('gallery');
+            gallery.className = 'gallery layout-' + layout;
+            
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (layout === 'slideshow') {
+                currentSlide = 0;
+                showSlide(0);
+            }
+            
+            renderPanels();
+        }
+        
+        function showSlide(index) {
+            const panelDivs = document.querySelectorAll('.panel');
+            panelDivs.forEach((panel, i) => {
+                panel.classList.toggle('active', i === index);
+            });
+            document.getElementById('slideCounter').textContent = `${index + 1} / ${panels.length}`;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % panels.length;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + panels.length) % panels.length;
+            showSlide(currentSlide);
+        }
+        
+        function updateCounter() {
+            document.getElementById('counter').textContent = `${panels.length} panels`;
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (currentLayout === 'slideshow') {
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+            }
+        });
+        
+        init();
+    </script>
+</body>
+</html>
