@@ -2,7 +2,7 @@
 ## Version 14 - Pictures Only View
 
 > **Style**: 1950s Film Noir Detective Story
-> **Panels**: 62
+> **Panels**: 58
 > **Theme**: Health threats personified as "suspects" in a detective investigation
 
 ---
@@ -105,19 +105,10 @@
 
 ---
 
-## EPILOGUE: THE PREVENTION PROTOCOL (Panels 59-62)
-
-![Panel 59](images/panel-059.png)
-![Panel 60](images/panel-060.png)
-![Panel 61](images/panel-061.png)
-![Panel 62](images/panel-062.png)
-
----
-
 ## THE END
 
 ---
 
 *Version 14.0 - The Case of the Conference Crasher*
 *Style: 1950s Film Noir Detective*
-*Total Panels: 62*
+*Total Panels: 58*
