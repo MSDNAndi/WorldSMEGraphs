@@ -1,147 +1,147 @@
-# The Multiverse of Wellness - Comic Book Layout
+# 🌌 The Multiverse of Wellness
 
-## Version 13: Sci-Fi Multiverse Framework
+## A Healthy MVP Summit Adventure - Version 13
 
-> **Style**: 1950s American Comic Book with Sci-Fi Portal Elements
-> **Layout**: 6 panels per page (traditional comic book format)
-> **Total Pages**: 9 pages
+> *1950s Golden Age Comic Book Style*
 
 ---
 
-## Page 1: The First Choice
+## Chapter 1: The Morning Portal
 
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 10px; max-width: 900px;">
+*Marco discovers something supernatural at coffee time*
 
-| Panel 1 | Panel 2 | Panel 3 |
-|:---:|:---:|:---:|
-| ![Panel 1](panels-gpt/panel-001.png) | ![Panel 2](panels-gpt/panel-002.png) | ![Panel 3](panels-gpt/panel-003.png) |
-| *Commons, 6 AM. Marco at espresso.* | *Hand reaching. Energy crackling behind.* | *Portal tears open!* |
+![Panel 1](images/image_001_20260114_165031_6b12cee4.png)
 
-| Panel 4 | Panel 5 | Panel 6 |
-|:---:|:---:|:---:|
-| ![Panel 4](panels-gpt/panel-004.png) | ![Panel 5](panels-gpt/panel-005.png) | ![Panel 6](panels-gpt/panel-006.png) |
-| *Alpha stumbles through, blue aura.* | *"WAIT! Don't touch that espresso!"* | *Vortex pulls them into Timeline Alpha.* |
+![Panel 2](images/image_002_20260114_165029_4fed58c2.png)
 
-</div>
+![Panel 3](images/image_003_20260114_165034_47c9a4f7.png)
 
----
+![Panel 4](images/image_004_20260114_165029_45c50be6.png)
 
-## Page 2: Timeline Alpha - The Caffeine Trap
+![Panel 5](images/image_005_20260114_165031_68280c0e.png)
 
-| Panel 7 | Panel 8 | Panel 9 |
-|:---:|:---:|:---:|
-| ![Panel 7](panels-gpt/panel-007.png) | ![Panel 8](panels-gpt/panel-008.png) | ![Panel 9](panels-gpt/panel-009.png) |
-| *Blue tint: 6th espresso at 7:30 AM* | *SCIENCE: Caffeine blocks adenosine* | *2 PM crash - head drooping* |
-
-| Panel 10 | Panel 11 | Panel 12 |
-|:---:|:---:|:---:|
-| ![Panel 10](panels-gpt/panel-010.png) | ![Panel 11](panels-gpt/panel-011.png) | ![Panel 12](panels-gpt/panel-012.png) |
-| *11 PM insomnia - half-life trap* | *Marco horrified, Alpha flickering* | *GOLDEN portal: Prime Andreas arrives!* |
+![Panel 6](images/image_006_20260114_165132_ac4cb48f.png)
 
 ---
 
-## Page 3: The Strategic Protocol
+## Chapter 2: Timeline Alpha - The Caffeine Crisis
 
-| Panel 13 | Panel 14 | Panel 15 |
-|:---:|:---:|:---:|
-| ![Panel 13](panels-gpt/panel-013.png) | ![Panel 14](panels-gpt/panel-014.png) | ![Panel 15](panels-gpt/panel-015.png) |
-| *Protocol: delay, moderate, cutoff* | *Alpha dissolves peacefully* | *Prime Timeline lunch - normal colors* |
+*Andreas-Alpha warns about overcaffeination*
 
-| Panel 16 | Panel 17 | Panel 18 |
-|:---:|:---:|:---:|
-| ![Panel 16](panels-gpt/panel-016.png) | ![Panel 17](panels-gpt/panel-017.png) | ![Panel 18](panels-gpt/panel-018.png) |
-| *BLOOD RED portal tears open!* | *Beta staggers through - devastated* | *Red tint: 4th cocktail at reception* |
+![Panel 7](images/image_007_20260114_165133_b1356ec0.png)
 
----
+![Panel 8](images/image_008_20260114_165133_42ca1e5c.png)
 
-## Page 4: Timeline Beta - The Sleep Thief
+![Panel 9](images/image_009_20260114_165133_8a6dfc80.png)
 
-| Panel 19 | Panel 20 | Panel 21 |
-|:---:|:---:|:---:|
-| ![Panel 19](panels-gpt/panel-019.png) | ![Panel 20](panels-gpt/panel-020.png) | ![Panel 21](panels-gpt/panel-021.png) |
-| *SCIENCE: Sleep architecture disrupted* | *3 AM nightmare - REM rebound* | *Morning: Can't remember contacts* |
+![Panel 10](images/image_010_20260114_165137_bc6c4eed.png)
 
-| Panel 22 | Panel 23 | Panel 24 |
-|:---:|:---:|:---:|
-| ![Panel 22](panels-gpt/panel-022.png) | ![Panel 23](panels-gpt/panel-023.png) | ![Panel 24](panels-gpt/panel-024.png) |
-| *Beta grabs Marco desperately* | *Prime: Harm reduction strategy* | *Beta dissolves with hope* |
+![Panel 11](images/image_011_20260114_165238_fe0ca155.png)
+
+![Panel 12](images/image_012_20260114_165237_43e39832.png)
+
+![Panel 13](images/image_013_20260114_165236_a6d223f7.png)
+
+![Panel 14](images/image_014_20260114_165238_9388ae53.png)
 
 ---
 
-## Page 5: Timeline Gamma - The Decision Singularity
+## Chapter 3: Timeline Beta - The Alcohol Trap
 
-| Panel 25 | Panel 26 | Panel 27 |
-|:---:|:---:|:---:|
-| ![Panel 25](panels-gpt/panel-025.png) | ![Panel 26](panels-gpt/panel-026.png) | ![Panel 27](panels-gpt/panel-027.png) |
-| *40+ session options. Yellow sparks.* | *Gamma: frozen, post-its orbiting* | *SCIENCE: Decision battery depleting* |
+*Andreas-Beta reveals the nightmare of poor drinking choices*
 
-| Panel 28 | Panel 29 | Panel 30 |
-|:---:|:---:|:---:|
-| ![Panel 28](panels-gpt/panel-028.png) | ![Panel 29](panels-gpt/panel-029.png) | ![Panel 30](panels-gpt/panel-030.png) |
-| *Yellow tint: Running between sessions* | *Evening: Paralyzed, 2% capacity* | *Marco realizes his own pattern* |
+![Panel 15](images/image_015_20260114_165246_9b658a39.png)
 
----
+![Panel 16](images/image_016_20260114_165343_c1aa0b13.png)
 
-## Page 6: The Pre-Decision Protocol
+![Panel 17](images/image_017_20260114_165342_8ce36427.png)
 
-| Panel 31 | Panel 32 | Panel 33 |
-|:---:|:---:|:---:|
-| ![Panel 31](panels-gpt/panel-031.png) | ![Panel 32](panels-gpt/panel-032.png) | ![Panel 33](panels-gpt/panel-033.png) |
-| *Prime: 3-item pre-decided schedule* | *Marco simplifies his schedule* | *Gamma dissolves, chaos settles* |
+![Panel 18](images/image_018_20260114_165341_1444e6b3.png)
 
-| Panel 34 | Panel 35 | Panel 36 |
-|:---:|:---:|:---:|
-| ![Panel 34](panels-gpt/panel-034.png) | ![Panel 35](panels-gpt/panel-035.png) | ![Panel 36](panels-gpt/panel-036.png) |
-| *Packed networking reception* | *Delta: withdrawn, purple depleted* | *SCIENCE: Intro vs. Extro batteries* |
+![Panel 19](images/image_019_20260114_165338_ae96efca.png)
+
+![Panel 20](images/image_020_20260114_165353_d5ba7d04.png)
+
+![Panel 21](images/image_021_20260114_165441_06150957.png)
+
+![Panel 22](images/image_022_20260114_165445_fb18cf72.png)
+
+![Panel 23](images/image_023_20260114_165444_67192c19.png)
+
+![Panel 24](images/image_024_20260114_165453_2a73aaa2.png)
 
 ---
 
-## Page 7: Timeline Delta - The Energy Vampire
+## Chapter 4: Timeline Gamma - Decision Fatigue
 
-| Panel 37 | Panel 38 | Panel 39 |
-|:---:|:---:|:---:|
-| ![Panel 37](panels-gpt/panel-037.png) | ![Panel 38](panels-gpt/panel-038.png) | ![Panel 39](panels-gpt/panel-039.png) |
-| *Purple tint: Hour 1, full battery* | *Hour 3: Frozen smile, 10%* | *Next day: Hiding in bathroom, 0%* |
+*Andreas-Gamma shows the paralysis of too many choices*
 
-| Panel 40 | Panel 41 | Panel 42 |
-|:---:|:---:|:---:|
-| ![Panel 40](panels-gpt/panel-040.png) | ![Panel 41](panels-gpt/panel-041.png) | ![Panel 42](panels-gpt/panel-042.png) |
-| *Prime: Recovery breaks scheduled* | *Day 2: Phone exploding with FOMO* | *Epsilon: Fragmenting ghost images* |
+![Panel 25](images/image_025_20260114_165457_b9b84bd9.png)
 
----
+![Panel 26](images/image_026_20260114_165548_09264b5c.png)
 
-## Page 8: Timeline Epsilon - The FOMO Phantom
+![Panel 27](images/image_027_20260114_165546_516e8b1e.png)
 
-| Panel 43 | Panel 44 | Panel 45 |
-|:---:|:---:|:---:|
-| ![Panel 43](panels-gpt/panel-043.png) | ![Panel 44](panels-gpt/panel-044.png) | ![Panel 45](panels-gpt/panel-045.png) |
-| *SCIENCE: FOMO paradox - 10% = 0%* | *Orange tint: Running everywhere* | *End: Photos he can't remember* |
+![Panel 28](images/image_028_20260114_165554_049c79ef.png)
 
-| Panel 46 | Panel 47 | Panel 48 |
-|:---:|:---:|:---:|
-| ![Panel 46](panels-gpt/panel-046.png) | ![Panel 47](panels-gpt/panel-047.png) | ![Panel 48](panels-gpt/panel-048.png) |
-| *Marco puts phone away - commits* | *Epsilon merges and fades* | *Bellevue bar, sparkling water* |
+![Panel 29](images/image_029_20260114_165600_fa4a4b19.png)
+
+![Panel 30](images/image_030_20260114_165610_9d88cb7e.png)
+
+![Panel 31](images/image_031_20260114_165649_076b8da3.png)
+
+![Panel 32](images/image_032_20260114_165650_69293c9b.png)
+
+![Panel 33](images/image_033_20260114_165656_9c1c9479.png)
 
 ---
 
-## Page 9: The Integrated Timeline
+## Chapter 5: Timeline Delta - The Introvert's Burnout
 
-| Panel 49 | Panel 50 | Panel 51 |
-|:---:|:---:|:---:|
-| ![Panel 49](panels-gpt/panel-049.png) | ![Panel 50](panels-gpt/panel-050.png) | ![Panel 51](panels-gpt/panel-051.png) |
-| *Marco counts lessons on fingers* | *Prime smiles with wisdom* | *Window: Five variants fading* |
+*Andreas-Delta demonstrates social energy depletion*
 
-| Panel 52 | Panel 53 | |
-|:---:|:---:|:---:|
-| ![Panel 52](panels-gpt/panel-052.png) | ![Panel 53](panels-gpt/panel-053.png) | |
-| *9:30 PM - Time to head back* | *THE END: Walking into tomorrow* | |
+![Panel 34](images/image_034_20260114_165709_9e817981.png)
+
+![Panel 35](images/image_035_20260114_165714_5d38cabd.png)
+
+![Panel 36](images/image_036_20260114_165752_1a66d766.png)
+
+![Panel 37](images/image_037_20260114_165757_b65effc1.png)
+
+![Panel 38](images/image_038_20260114_165802_e8cb23b6.png)
+
+![Panel 39](images/image_039_20260114_165809_2a9ba5c2.png)
+
+![Panel 40](images/image_040_20260114_165819_8566d555.png)
+
+![Panel 41](images/image_041_20260114_165855_05e36ae7.png)
+
+![Panel 42](images/image_042_20260114_165905_67c814c9.png)
 
 ---
 
-## THE END
+## Epilogue: The Bar Scene
 
-**"And somewhere, across the multiverse, five variants got a second chance at Day 2."**
+*Marco and Prime Andreas reflect on lessons learned*
+
+![Panel 43](images/image_043_20260114_165906_d2a2e272.png)
+
+![Panel 44](images/image_044_20260114_165913_191a126e.png)
+
+![Panel 45](images/image_045_20260114_165924_2d9ee4b9.png)
 
 ---
 
-*Version 13.0 | Comic Book Layout | 53 Panels across 9 Pages*
+## The End
+
+*Tomorrow: Day 2 of the Summit*
+
+---
+
+### Credits
+
+- **Style**: 1950s Golden Age American Comic Book
+- **Theme**: Sci-Fi Multiverse with Variant Characters
+- **Characters**: Marco Casalaina, Andreas Erben (+ 5 variants)
+- **Health Topics**: Caffeine, Alcohol, Decision Fatigue, Introversion, FOMO
+- **Generated**: 2026-01-14
