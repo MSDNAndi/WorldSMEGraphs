@@ -15,14 +15,14 @@ This document summarizes the comprehensive ontology and domain hierarchy migrati
 
 | Metric | Count |
 |--------|-------|
-| **Total AKUs Processed** | 228 |
-| **AKUs Migrated** | 209 |
+| **Total AKUs Processed** | 238 |
+| **AKUs Migrated** | 219 |
 | **AKUs Updated (cross-refs)** | 19 |
 | **Success Rate** | 99.5% |
-| **Domains Created** | 4 (formal, natural, social, health) |
-| **READMEs Created** | 7 (4 domains + 3 subdomains) |
+| **Domains Created** | 7 (formal, natural, social, health + psychology, public-health, pharmacy) |
+| **READMEs Created** | 10 (7 domains + 3 subdomains) |
 | **Migration Tools Built** | 3 scripts |
-| **Session Duration** | ~7 minutes (first session: 12 min, second session: ongoing) |
+| **Last Update** | 2026-01-13 (conference wellness reorganization) |
 
 ## What Was Accomplished
 
@@ -288,6 +288,45 @@ The migration establishes and enforces this key principle:
 5. **Scalability**: Pattern established for all future content
 6. **Standard Alignment**: Follows UNESCO, LOC, DDC taxonomies
 
+### 9. Conference Wellness AKU Reorganization ✅ NEW (2026-01-13)
+**Problem**: 10 conference wellness AKUs were incorrectly placed in a single `health-sciences/preventive-medicine/conference-wellness/` directory, violating native domain placement principles.
+
+**Solution**: Migrated each AKU to its scientifically native domain based on core subject matter.
+
+**Details**:
+- **AKUs Migrated**: 10/10 (100% success rate)
+- **Old Location**: `domain/health-sciences/preventive-medicine/conference-wellness/`
+- **New Locations**: Distributed across native domains
+
+| Original AKU | New Location | Native Domain |
+|-------------|--------------|---------------|
+| cw-001-hydration-cognitive-performance | neuro-051-dehydration-cognitive-impairment | Neurology |
+| cw-002-jet-lag-circadian-disruption | neuro-052-circadian-rhythm-jet-lag | Neurology/Chronobiology |
+| cw-003-decision-fatigue | psych-001-decision-fatigue-ego-depletion | Cognitive Psychology |
+| cw-004-social-energy-management | psych-002-introversion-extroversion | Personality Psychology |
+| cw-005-power-nap-science | neuro-053-sleep-architecture-napping | Neurology/Sleep Medicine |
+| cw-006-sitting-health-risks | ph-001-sedentary-behavior-risks | Public Health |
+| cw-007-eye-strain-20-20-20-rule | eye-051-digital-eye-strain-cvs | Ophthalmology |
+| cw-008-alcohol-moderation-networking | pharm-001-alcohol-pharmacology-sleep | Pharmacology |
+| cw-009-fomo-anxiety-management | psych-003-fomo-social-comparison | Social Psychology |
+| cw-010-caffeine-strategic-timing | pharm-002-caffeine-pharmacokinetics | Pharmacology |
+
+**New Domain Directories Created**:
+- `domain/social-sciences/psychology/` (3 AKUs)
+- `domain/health-sciences/public-health/` (1 AKU)
+- `domain/health-sciences/pharmacy/` (2 AKUs)
+
+**Directory Deleted**:
+- `domain/health-sciences/preventive-medicine/conference-wellness/` (removed)
+- `domain/health-sciences/preventive-medicine/` (removed - was empty)
+
+**Changes Applied to Each AKU**:
+- Added `isNativeDomain: true` to classification
+- Added `cross_domain_references` linking to application contexts
+- Updated `@id` and `domain_path` to match new location
+- Enhanced titles to reflect core scientific concept
+- Added `migration_note` in metadata for provenance
+
 ## Next Steps
 
 ### Immediate (Next Session)
@@ -333,6 +372,6 @@ For questions about the migration or ontology design:
 
 ---
 
-**Document Status**: Complete summary of Phase 1-3 migration work  
-**Last Updated**: 2026-01-04T13:54:00.000Z  
+**Document Status**: Complete summary of Phase 1-4 migration work + Conference Wellness Reorganization  
+**Last Updated**: 2026-01-13T20:00:00.000Z  
 **Author**: GitHub Copilot Ontology Migration Session

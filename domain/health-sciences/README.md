@@ -61,10 +61,14 @@ Health sciences study:
 ### Pharmacy
 
 **Path**: `health-sciences/pharmacy/`  
-**Status**: ⏳ Pending creation
+**Status**: ✅ Created 2026-01-13
+
+**Content (2 AKUs)**:
+- **Psychopharmacology**: Alcohol pharmacology and sleep effects (pharm-001)
+- **Psychopharmacology**: Caffeine pharmacokinetics and strategic timing (pharm-002)
 
 **Planned Coverage**:
-- Pharmacology
+- Pharmacology (expanded)
 - Pharmaceutical Chemistry
 - Drug Interactions
 - Clinical Pharmacy
@@ -72,7 +76,10 @@ Health sciences study:
 ### Public Health
 
 **Path**: `health-sciences/public-health/`  
-**Status**: ⏳ Pending creation
+**Status**: ✅ Created 2026-01-13
+
+**Content (1 AKU)**:
+- **Occupational Health**: Sedentary behavior and health risks (ph-001)
 
 **Planned Coverage**:
 - Epidemiology

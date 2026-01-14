@@ -42,6 +42,30 @@ formal-sciences/mathematics/pure-mathematics/category-theory/
 formal-sciences/computer-science/programming-paradigms/functional-programming/
 ```
 
+### 3. `application-domain-health-example.json` (NEW)
+
+**What it is**: A practical health guidance AKU for "Conference Cognitive Optimization" that APPLIES concepts from multiple scientific domains.
+
+**Key features**:
+- `isNativeDomain: false` and `isApplicationDomain: true`
+- `cross_domain_references.applies` with links to 7 native domain AKUs
+- Practical guidance synthesized from neurology, psychology, pharmacology, and public health
+- Clear attribution to authoritative scientific sources
+
+**Location in hierarchy**:
+```
+health-sciences/preventive-medicine/travel-health/
+```
+
+**Linked native domain AKUs**:
+- `health-sciences/medicine/neurology/neuro-051` - Dehydration and cognitive impairment
+- `health-sciences/medicine/neurology/neuro-052` - Circadian rhythm and jet lag
+- `health-sciences/medicine/neurology/neuro-053` - Sleep architecture and napping
+- `social-sciences/psychology/psych-001` - Decision fatigue
+- `social-sciences/psychology/psych-003` - FOMO
+- `health-sciences/pharmacy/pharm-002` - Caffeine pharmacokinetics
+- `health-sciences/public-health/ph-001` - Sedentary behavior risks
+
 ## The Relationship
 
 ```

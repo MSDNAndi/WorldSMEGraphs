@@ -47,13 +47,19 @@ Social sciences examine:
 ### Psychology
 
 **Path**: `social-sciences/psychology/`  
-**Status**: ⏳ Pending creation
+**Status**: ✅ Created 2026-01-13
+
+**Content (3 AKUs)**:
+- **Cognitive Psychology**: Decision fatigue and ego depletion (psych-001)
+- **Personality Psychology**: Introversion-extroversion dimension (psych-002)
+- **Social Psychology**: Fear of Missing Out (FOMO) (psych-003)
 
 **Planned Coverage**:
-- Cognitive Psychology
+- Cognitive Psychology (expanded)
 - Developmental Psychology
-- Social Psychology
+- Social Psychology (expanded)
 - Clinical Psychology
+- Personality Psychology (expanded)
 
 ### Sociology
 
