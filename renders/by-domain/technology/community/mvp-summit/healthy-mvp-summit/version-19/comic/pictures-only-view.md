@@ -2,7 +2,7 @@
 
 ## Healthy MVP Summit - Version 19
 
-> **Style**: Impressionistic Watercolor
+> **Style**: Impressionistic Watercolor  
 > **Panels**: 14
 
 ---

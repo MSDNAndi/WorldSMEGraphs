@@ -1,21 +1,17 @@
 # Summit in Watercolor: A Day of Mindful Presence
-## Version 19 - Comic Book Layout
+## Version 19 — Comic Book Layout
 
-> **Style**: Impressionistic Watercolor
+> **Style**: Impressionistic Watercolor  
 > **Panels**: 14
 
 ---
 
 <style>
-.comic-row { display: flex; gap: 10px; margin: 10px 0; }
-.comic-panel { flex: 1; }
-.comic-panel img { width: 100%; border: 2px solid #333; }
-.wide-panel { flex: 2; }
-.caption { font-style: italic; text-align: center; margin-top: 5px; font-size: 0.9em; }
-.chapter-header { background: #5a7a8c; color: #fff; padding: 15px; margin: 30px 0 15px 0; text-align: center; }
+.comic-row{display:flex;gap:8px;margin:8px 0}
+.comic-panel{flex:1}
+.comic-panel img{width:100%;border:2px solid #333}
+.chapter-header{background:#5a7a8c;color:#fff;padding:12px;margin:24px 0 12px 0;text-align:center}
 </style>
-
----
 
 <div class="chapter-header">
 
@@ -47,12 +43,15 @@
 ![Panel 4](images/image_004_20260302_160046_c8a6b681.png)
 
 </div>
+</div>
+
 <div class="chapter-header">
 
 ## ACT 1
 
 </div>
 
+<div class="comic-row">
 <div class="comic-panel">
 
 ![Panel 5](images/image_005_20260302_160044_2438279b.png)
@@ -76,12 +75,15 @@
 ![Panel 8](images/image_008_20260302_160200_32f01c12.png)
 
 </div>
+</div>
+
 <div class="chapter-header">
 
 ## ACT 2
 
 </div>
 
+<div class="comic-row">
 <div class="comic-panel">
 
 ![Panel 9](images/image_009_20260302_160143_103e696b.png)
@@ -105,11 +107,11 @@
 ![Panel 12](images/image_012_20260302_160243_e7b7bc12.png)
 
 </div>
+</div>
+
 <div class="chapter-header">
 
 ## ACT 3
-
-</div>
 
 </div>
 
@@ -125,4 +127,3 @@
 
 </div>
 </div>
-

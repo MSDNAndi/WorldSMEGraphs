@@ -1,21 +1,17 @@
 # The Summit Loop: Trapped Until You Get It Right
-## Version 16 - Comic Book Layout
+## Version 16 — Comic Book Layout
 
-> **Style**: 1950s Retro Sci-Fi Time Loop
+> **Style**: 1950s Retro Sci-Fi Time Loop  
 > **Panels**: 20
 
 ---
 
 <style>
-.comic-row { display: flex; gap: 10px; margin: 10px 0; }
-.comic-panel { flex: 1; }
-.comic-panel img { width: 100%; border: 2px solid #333; }
-.wide-panel { flex: 2; }
-.caption { font-style: italic; text-align: center; margin-top: 5px; font-size: 0.9em; }
-.chapter-header { background: #2c3e8c; color: #fff; padding: 15px; margin: 30px 0 15px 0; text-align: center; }
+.comic-row{display:flex;gap:8px;margin:8px 0}
+.comic-panel{flex:1}
+.comic-panel img{width:100%;border:2px solid #333}
+.chapter-header{background:#2c3e8c;color:#fff;padding:12px;margin:24px 0 12px 0;text-align:center}
 </style>
-
----
 
 <div class="chapter-header">
 
@@ -47,12 +43,15 @@
 ![Panel 4](images/image_004_20260302_155039_55d3bbfc.png)
 
 </div>
+</div>
+
 <div class="chapter-header">
 
 ## ACT 1
 
 </div>
 
+<div class="comic-row">
 <div class="comic-panel">
 
 ![Panel 5](images/image_005_20260302_155038_2375a3db.png)
@@ -76,12 +75,15 @@
 ![Panel 8](images/image_008_20260302_155155_23dcffe3.png)
 
 </div>
+</div>
+
 <div class="chapter-header">
 
 ## ACT 2
 
 </div>
 
+<div class="comic-row">
 <div class="comic-panel">
 
 ![Panel 9](images/image_009_20260302_155153_7405a439.png)
@@ -105,11 +107,11 @@
 ![Panel 12](images/image_012_20260302_155258_3efa65db.png)
 
 </div>
+</div>
+
 <div class="chapter-header">
 
 ## ACT 3
-
-</div>
 
 </div>
 
@@ -137,12 +139,15 @@
 ![Panel 16](images/image_016_20260302_155354_9aec5683.png)
 
 </div>
+</div>
+
 <div class="chapter-header">
 
 ## ACT 4
 
 </div>
 
+<div class="comic-row">
 <div class="comic-panel">
 
 ![Panel 17](images/image_017_20260302_155411_8d4d4388.png)
@@ -167,4 +172,3 @@
 
 </div>
 </div>
-

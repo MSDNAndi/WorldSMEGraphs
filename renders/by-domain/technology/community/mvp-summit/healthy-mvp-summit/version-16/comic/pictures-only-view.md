@@ -2,7 +2,7 @@
 
 ## Healthy MVP Summit - Version 16
 
-> **Style**: 1950s Retro Sci-Fi Time Loop
+> **Style**: 1950s Retro Sci-Fi Time Loop  
 > **Panels**: 20
 
 ---
