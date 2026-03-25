@@ -1,6 +1,6 @@
 # Healthy Microsoft MVP Summit Comic
 
-> **Seven versions of an educational comic about staying healthy at the Microsoft MVP Summit**
+> **Expanded comic collection covering health, summit culture, and narrative experiments at the Microsoft MVP Summit**
 > 
 > **Style**: 1950s American Comic Book (bold lines, Ben-Day dots, vintage colors)
 > **Characters**: Andreas Erben (Microsoft MVP) & Marco Casalaina
@@ -367,3 +367,30 @@ All stories link to these native domain AKUs:
 *Styles: 1950s American Comic Book, Arcane (Netflix)*
 *Theme: Healthy Conference Attendance*
 *Issue: [#47](https://github.com/MSDNAndi/WorldSMEGraphs/issues/47)*
+
+
+
+<!-- V33-V42 START -->
+## Summit Narrative Expansion (V23–V42)
+
+### Latest Additions: More Complex Summit Stories (V33–V42)
+
+| Version | Title | Visual Style | Panels | Narrative Angle |
+|---------|-------|-------------|--------|-----------------|
+| **V33** | The Summit Cartographers | Retrofuturist World's Fair Travel Poster | 15 | When the summit schedule app collapses, Marco and Andreas assemble a hallway-track expedition to build the first unofficial living map of the Microsoft campus. |
+| **V34** | The Birds-of-a-Feather Job | Franco-Belgian ligne claire adventure comic | 15 | A rumor of an invite-only evening Birds-of-a-Feather session sends Marco and Andreas through a chain of clues that turns the summit into a collaborative caper. |
+| **V35** | The Demo of Theseus | German Expressionist silent film poster | 14 | A last-minute summit demo is patched, re-skinned, re-scoped, and philosophically dismantled until nobody knows whether they are still presenting the same product. |
+| **V36** | Queue Theory for Heroes | Persian miniature manuscript painting | 12 | Coffee lines, badge help lines, session lines, and shuttle lines overlap into a comic systems problem that only collective queue strategy can solve. |
+| **V37** | The Swag Singularity | 1980s airbrushed fantasy van mural | 13 | Marco keeps accepting summit swag until the bag becomes a mythic object with mass, symbolism, and increasingly dangerous implications for mobility. |
+| **V38** | The Weather Between Buildings | WPA mural and American social realism poster | 12 | A simple cross-campus walk mutates into a summit-scale weather campaign as attendees create an improvised relay for umbrellas, jackets, and timing. |
+| **V39** | The Hallway Parliament | Swiss modernist infographic with isometric architectural cutaways | 12 | One spontaneous hallway conversation grows into an unofficial parliament whose amendments to summit etiquette become more influential than the printed schedule. |
+| **V40** | The Masquerade of Product Codenames | Venetian carnival and Rococo theater set | 13 | A night of whispered product codenames turns the summit into a costume farce where rooms, projects, and people become indistinguishable on purpose. |
+| **V41** | The Last Shuttle Conspiracy | Paper-cut shadow theater with luminous night color | 13 | Rumors about the very last shuttle of the summit trigger a night-time relay of messages, favors, prototypes, and dinner plans across the campus and Bellevue. |
+| **V42** | The Archive of Unasked Questions | Medieval illuminated manuscript and marginalia | 15 | On the summit’s final day, Marco and Andreas help turn the questions people were too shy, tired, or rushed to ask into a communal manuscript of real wisdom. |
+
+Each new version includes:
+- `comic/prompts-single-line.txt` for image generation
+- `comic/images/` with generated panel art
+- `comic/pictures-only-view.md` and `comic/comic-book-view.md` for browsing
+
+<!-- V33-V42 END -->
